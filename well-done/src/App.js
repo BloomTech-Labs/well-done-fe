@@ -1,7 +1,5 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import SignIn from './components/SignIn'
+import React from "react";
+import SignIn from "./components/SignIn/SignIn.component";
 
 function App() {
   return (
