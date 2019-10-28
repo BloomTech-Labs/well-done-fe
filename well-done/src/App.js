@@ -1,10 +1,10 @@
 import React from "react";
-import SignIn from "./components/SignIn/SignIn.component";
+import Landing from "./pages/Landing.jsx";
 
 function App() {
   return (
     <div className="App">
-      <SignIn />
+      <Landing />
     </div>
   );
 }

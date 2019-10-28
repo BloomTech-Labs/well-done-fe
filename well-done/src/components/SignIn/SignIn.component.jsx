@@ -21,26 +21,30 @@ const SignIn = () => {
     <div>
       <h1>Wellcome </h1>
       <form onSubmit={handleSubmit} >
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={account.email}
-          // onChange= {event => {
-          //   setEmail(event.target.value)
-          // }}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={account.password}
-          // onChange= {event => {
-          //   setPassword(event.target.value)
-          // }}
-          onChange={handleChange}
-        />
+        <label>Email
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={account.email}
+            // onChange= {event => {
+            //   setEmail(event.target.value)
+            // }}
+            onChange={handleChange}
+          />
+        </label>
+        <label>Password
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={account.password}
+            // onChange= {event => {
+            //   setPassword(event.target.value)
+            // }}
+            onChange={handleChange}
+          />
+        </label>
         <button>Sign In</button>
       </form>
     </div>
