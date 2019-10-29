@@ -18,7 +18,7 @@ const SignIn = () => {
   
 
   return (
-    <div>
+    <div class="body">
       <h1>Wellcome </h1>
       <form onSubmit={handleSubmit} >
         <label>Email
