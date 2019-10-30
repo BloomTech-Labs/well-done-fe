@@ -1,10 +1,15 @@
 import React, {useState} from 'react'
 import './Menu.styles.scss'
+import {IoIosHome} from 'react-icons/io'
+import {IoIosKey} from 'react-icons/io'
+import {IoIosSettings} from 'react-icons/io'
+import {IoMdCreate} from 'react-icons/io'
 
-const Menu = () => {
+const Menu = (props) => {
+    console.log('props in Menu', props)
 
     const  openNav = () => {
-        document.getElementById("myNav").style.width = "100%"
+        document.getElementById("myNav").style.width = "15%"
     }
 
     const  closeNav = () => {
@@ -14,20 +19,38 @@ const Menu = () => {
     return (
         <div>
             {/* <h1>Hello, please show something</h1> */}
-            <div id="myNav" class="overlay">
-                <a href="javascript:void(0)" class="closebtn" onClick={closeNav}>&times;</a>
-                <div class="overlay-content">
-                    <a href="#">Home</a>
-                    <a href="#">Monitor</a>
-                    <a href="#">Admin</a>
-                    <a href="#">Setting</a>
-                </div>
-            </div>
             <div class="hamburger-menu" onClick={openNav}>
                 <span></span>
                 <span></span>
                 <span></span> 
           </div>
+            <div id="myNav" class="overlay" onClick={closeNav}>
+                <a href="javascript:void(0)" class="closebtn" onClick={closeNav}>&times;</a>
+                <div class="intro">
+                    <img class="logo" src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572403214/1ff21a300da2c00f0432c0b516f8492a_lzdqay.png" alt="logo" />
+                    <p class="name">WellDone</p>
+                    <p class="email-address">WellDone@WellDone.org</p>
+                    <span></span>
+                </div>
+                <div class="overlay-content">
+                    <div class="eachNav">
+                        <IoIosHome size={25} />
+                        <a href="#">Home</a>
+                    </div>
+                    <div class="eachNav">
+                        <IoMdCreate size={25}/>
+                        <a href="#">Monitor</a>
+                    </div>
+                    <div class="eachNav">
+                        <IoIosKey size={25}/>
+                        <a href="#">Admin</a>
+                    </div>
+                    <div class="eachNav">
+                        <IoIosSettings size={25}/>
+                        <a href="#">Setting</a>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
