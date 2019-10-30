@@ -1,13 +1,16 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+
 import Landing from "./pages/Landing.jsx";
 import Dashboard from "./pages/Dashboard";
-import {Route} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Route exact path="/" component={Landing} />
-      <Route exact path="/Dashboard" component={Dashboard} />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route path="/dashboard" component={Dashboard} />
+      </Switch>
     </div>
   );
 }

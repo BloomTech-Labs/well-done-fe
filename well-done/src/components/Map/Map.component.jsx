@@ -1,7 +1,9 @@
 import React from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 
-// import "./Map.styles.scss";
+
+import "./Map.styles.scss";
+
 
 const Map = () => {
   const MapboxMap = ReactMapboxGl({
