@@ -9,7 +9,7 @@ const Menu = (props) => {
     console.log('props in Menu', props)
 
     const  openNav = () => {
-        document.getElementById("myNav").style.width = "15%"
+        document.getElementById("myNav").style.width = "17%"
     }
 
     const  closeNav = () => {
