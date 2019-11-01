@@ -7,7 +7,17 @@ const Test = (props) => {
 
     return (
         <div>
-            <Search />
+            <Search 
+                PumpData={props.PumpData} 
+                searchFiltered={props.searchFiltered} 
+                setSearchFiltered={props.setSearchFiltered}
+            />
+            {/* <p>Test</p> */}
+
+            {props.searchFiltered.map(item => (
+                <p>Country Name: {item.country_name}</p>
+            ))}
+            
         </div>
     )
 }
