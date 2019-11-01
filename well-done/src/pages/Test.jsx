@@ -7,7 +7,8 @@ const Test = (props) => {
 
     return (
         <div>
-            <Search />
+            <Search PumpData={props.PumpData}/>
+            {/* <p>Test</p> */}
         </div>
     )
 }

@@ -1,30 +1,12 @@
 import React from 'react'
-import Test from '../../pages/Test'
-
-const PumpData = [
-    {
-        id: 1,
-        country_name: 'Vietnam',
-        province_name: 'Daklak'
-    },
-    {
-        id: 2,
-        country_name: 'U.S',
-        province_name: 'CA'
-    },
-    {
-        id: 3,
-        country_name: 'Cambodia',
-        province_name: 'Pnompenh'
-    },
-]
 
 class Search extends React.Component {
 
-    constructor(){
+    constructor(props){
+        console.log('props in Search', props)
         super();
         this.state = {
-            Pump: PumpData,
+            Pump: props.PumpData,
             searchValue: '',
             filteredList: [],
             searching: false
@@ -63,7 +45,7 @@ class Search extends React.Component {
                     placeholder="Search..."
                 
                 />
-                <Test data= {this.state.filteredList.length >=1 ? this.state.filteredList : this.state.Pump}/>
+                {/* <Test data= {this.state.filteredList.length >=1 ? this.state.filteredList : this.state.Pump}/> */}
 
             </div>
         )

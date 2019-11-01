@@ -6158,11 +6158,6 @@
         }
       }
     },
-    "hammerjs": {
-      "version": "2.0.8",
-      "resolved": "https://registry.npmjs.org/hammerjs/-/hammerjs-2.0.8.tgz",
-      "integrity": "sha1-BO93hiz/K7edMPdpIJWTAiK/YPE="
-    },
     "handle-thing": {
       "version": "2.0.0",
       "resolved": "https://registry.npmjs.org/handle-thing/-/handle-thing-2.0.0.tgz",
@@ -8677,15 +8672,6 @@
         }
       }
     },
-    "mjolnir.js": {
-      "version": "2.2.1",
-      "resolved": "https://registry.npmjs.org/mjolnir.js/-/mjolnir.js-2.2.1.tgz",
-      "integrity": "sha512-bUTP/NbwOfdrN4TKMjUcarfGmWU5yN6aHFR1ek7BNuFOwHk4PslUZjKzdOp1jwx2m0uCoRa5lG+x82l8Vii7Ng==",
-      "requires": {
-        "@babel/runtime": "^7.0.0",
-        "hammerjs": "^2.0.8"
-      }
-    },
     "mkdirp": {
       "version": "0.5.1",
       "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz",
@@ -11047,19 +11033,6 @@
       "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.11.0.tgz",
       "integrity": "sha512-gbBVYR2p8mnriqAwWx9LbuUrShnAuSCNnuPGyc7GJrMVQtPDAh8iLpv7FRuMPFb56KkaVZIYSz1PrjI9q0QPCw=="
     },
-    "react-map-gl": {
-      "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/react-map-gl/-/react-map-gl-5.1.1.tgz",
-      "integrity": "sha512-alfdS3LZ/1cW6Anlt8pfG9ppVtGCfZqsT2UiWHO4A24H9HjQhRr2xXf4zEhg/vX2jSxD+yQ7LNEoE0HklVfIow==",
-      "requires": {
-        "@babel/runtime": "^7.0.0",
-        "mapbox-gl": "^1.0.0",
-        "mjolnir.js": "^2.2.0",
-        "prop-types": "^15.7.2",
-        "react-virtualized-auto-sizer": "^1.0.2",
-        "viewport-mercator-project": "^6.2.1"
-      }
-    },
     "react-mapbox-gl": {
       "version": "4.7.2",
       "resolved": "https://registry.npmjs.org/react-mapbox-gl/-/react-mapbox-gl-4.7.2.tgz",
@@ -11232,11 +11205,6 @@
         "react-is": "^16.8.6",
         "scheduler": "^0.17.0"
       }
-    },
-    "react-virtualized-auto-sizer": {
-      "version": "1.0.2",
-      "resolved": "https://registry.npmjs.org/react-virtualized-auto-sizer/-/react-virtualized-auto-sizer-1.0.2.tgz",
-      "integrity": "sha512-MYXhTY1BZpdJFjUovvYHVBmkq79szK/k7V3MO+36gJkWGkrXKtyr4vCPtpphaTLRAdDNoYEYFZWE8LjN+PIHNg=="
     },
     "read-pkg": {
       "version": "1.1.0",
@@ -13449,15 +13417,6 @@
         "assert-plus": "^1.0.0",
         "core-util-is": "1.0.2",
         "extsprintf": "^1.2.0"
-      }
-    },
-    "viewport-mercator-project": {
-      "version": "6.2.2",
-      "resolved": "https://registry.npmjs.org/viewport-mercator-project/-/viewport-mercator-project-6.2.2.tgz",
-      "integrity": "sha512-vs9pjDZxDwoiEqr+GgdpRAUogEQRoZ9D9COVLSr4+h/WdcUWhYN36SQr3n5jaTKrl/wlfdRj+TYU8wTk05grbg==",
-      "requires": {
-        "@babel/runtime": "^7.0.0",
-        "gl-matrix": "^3.0.0"
       }
     },
     "vm-browserify": {
