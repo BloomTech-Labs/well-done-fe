@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Landing from "./pages/Landing.jsx";
@@ -24,6 +24,8 @@ const PumpData = [
 ]
 
 function App() {
+  const [searchFiltered, setSearchFiltered] = useState([])
+
   return (
     <div className="App">
       <Switch>
@@ -32,7 +34,12 @@ function App() {
         <Route 
         path="/test" 
         render={props => {
-        return <Test {...props} PumpData = {PumpData} />}} 
+        return <Test {...props} 
+                      PumpData = {PumpData} 
+                      searchFiltered={searchFiltered} 
+                      setSearchFiltered={setSearchFiltered}
+                      
+                      />}} 
         />
       </Switch>
     </div>

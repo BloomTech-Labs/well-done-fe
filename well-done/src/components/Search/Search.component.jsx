@@ -1,56 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-class Search extends React.Component {
+const Search = (props) => {
+    const [searchValue, setSearchValue] = useState("")
 
-    constructor(props){
-        console.log('props in Search', props)
-        super();
-        this.state = {
-            Pump: props.PumpData,
-            searchValue: '',
-            filteredList: [],
-            searching: false
-        }
-
-        console.log(this.state)
-    }
-
-    handleSearchChange = event => {
-        console.log('length', this.state.searchValue.length)
+    console.log('props in Search', props)
+    
+    const handleChange = event => {
         console.log(event.target.value)
-        if (this.state.searchValue.length > 0) {
-            let filtered = this.state.Pump.filter(pump => pump.country_name.toLowerCase().includes(event.target.toLowerCase()))
-            this.setState({
-                searchValue: event.target.value,
-                filteredList: filtered
-            })
-        } else {
-            const filtered = []
-            this.setState({
-                searchValue: event.target.value,
-                filteredList: filtered
-            })
+        setSearchValue(event.target.value)
+        if (searchValue.length >0){
+            console.log('length', searchValue.length)
+            let filtered = props.PumpData.filter(pump => pump.country_name.toLowerCase().includes(searchValue.toLowerCase()))
+            props.setSearchFiltered(filtered)
+            console.log('searchFiltered', props.searchFiltered)
         }
-        
     }
 
-    render(){
-        return (
-            <div class="search">
-                <input 
-                    type="text"
-                    name="pump"
-                    value={this.state.searchValue}
-                    onChange={this.handleSearchChange}
-                    placeholder="Search..."
-                
-                />
-                {/* <Test data= {this.state.filteredList.length >=1 ? this.state.filteredList : this.state.Pump}/> */}
-
-            </div>
-        )
-    }
-
+    return (
+        <div>
+            <h1>Test the search bar</h1>
+            <input 
+                type="text"
+                placeholder="search..."
+                onChange={handleChange}
+            />
+        </div>
+    )
 }
 
 export default Search;
