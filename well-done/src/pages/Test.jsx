@@ -1,5 +1,6 @@
 import React from 'react'
 import Search from '../components/Search/Search.component'
+import Filter from '../components/Filter/Filter.component'
 
 const Test = (props) => {
     console.log('props in Test', props)
@@ -18,6 +19,7 @@ const Test = (props) => {
                 <p>Country Name: {item.country_name}</p>
             ))}
             
+            <Filter/>
         </div>
     )
 }

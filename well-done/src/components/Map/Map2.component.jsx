@@ -16,10 +16,13 @@ export default function Map(){
 
     useEffect(() => {
         const listener = e => {
+            console.log('here', e)
             if (e.key === "Escape"){
+                 
                 setSelectedPark(null)
             }
         };
+        console.log('listener', listener)
         window.addEventListener("keydown", listener);
 
         return () => {
