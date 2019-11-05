@@ -1,59 +1,65 @@
-import React, {useState} from 'react'
-import './Menu.styles.scss'
-import {IoIosHome} from 'react-icons/io'
-import {IoIosKey} from 'react-icons/io'
-import {IoIosSettings} from 'react-icons/io'
-import {IoMdCreate} from 'react-icons/io'
+import React, { useState } from "react";
+import "./Menu.styles.scss";
+import { IoIosHome } from "react-icons/io";
+import { IoIosKey } from "react-icons/io";
+import { IoIosSettings } from "react-icons/io";
+import { IoMdCreate } from "react-icons/io";
 
-const Menu = (props) => {
-    console.log('props in Menu', props)
+const Menu = props => {
+  console.log("props in Menu", props);
 
-    const  openNav = () => {
-        document.getElementById("myNav").style.width = "17%"
-    }
+  const openNav = () => {
+    document.getElementById("myNav").style.width = "17%";
+  };
 
-    const  closeNav = () => {
-        document.getElementById("myNav").style.width = "0%"
-    }
+  const closeNav = () => {
+    document.getElementById("myNav").style.width = "0%";
+  };
 
-    return (
-        <div>
-            {/* <h1>Hello, please show something</h1> */}
-            <div class="hamburger-menu" onClick={openNav}>
-                <span></span>
-                <span></span>
-                <span></span> 
-          </div>
-            <div id="myNav" class="overlay" onClick={closeNav}>
-                <a href="javascript:void(0)" class="closebtn" onClick={closeNav}>&times;</a>
-                <div class="intro">
-                    <img class="logo" src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572403214/1ff21a300da2c00f0432c0b516f8492a_lzdqay.png" alt="logo" />
-                    <p class="name">WellDone</p>
-                    <p class="email-address">WellDone@WellDone.org</p>
-                    <span></span>
-                </div>
-                <div class="overlay-content">
-                    <div class="eachNav">
-                        <IoIosHome size={25} />
-                        <a href="#">Home</a>
-                    </div>
-                    <div class="eachNav">
-                        <IoMdCreate size={25}/>
-                        <a href="#">Monitor</a>
-                    </div>
-                    <div class="eachNav">
-                        <IoIosKey size={25}/>
-                        <a href="#">Admin</a>
-                    </div>
-                    <div class="eachNav">
-                        <IoIosSettings size={25}/>
-                        <a href="#">Setting</a>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div>
+      {/* <h1>Hello, please show something</h1> */}
+      <div class="hamburger-menu" onClick={openNav}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="myNav" class="overlay" onClick={closeNav}>
+        <a href="javascript:void(0)" class="closebtn" onClick={closeNav}>
+          &times;
+        </a>
+        <div class="intro">
+          <img
+            class="logo"
+            src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572403214/1ff21a300da2c00f0432c0b516f8492a_lzdqay.png"
+            alt="logo"
+          />
+          <p class="name">WellDone</p>
+          <p class="email-address">WellDone@WellDone.org</p>
+          <span></span>
         </div>
-    )
-}
+        <div class="overlay-content">
+          <div class="eachNav">
+            <IoIosHome size={25} />
+            <a href="#">Home</a>
+          </div>
+          <div class="eachNav">
+            <IoMdCreate size={25} />
+            <a href="#">Monitor</a>
+          </div>
+          <div class="eachNav">
+            <IoIosKey size={25} />
+            <a href="#">Admin</a>
+          </div>
+          <div class="eachNav">
+            <IoIosSettings size={25} />
+            <a href="#">Settings</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // const Menu = () => {
 //     const [showMenu, setShowMenu] = useState(false)
@@ -70,7 +76,7 @@ const Menu = (props) => {
 //     //     if (!dropdownMenu.contains(event.target)){
 //     //     setCloseMenu({showMenu: false}, () => {
 //     //         document.removeEventListener('click', closeMenu)
-//     //         }) 
+//     //         })
 //     //     }
 //     // }
 
@@ -82,7 +88,7 @@ const Menu = (props) => {
 //                 <span></span>
 //             </div>
 //             {showMenu? (
-//                 <div 
+//                 <div
 //                     className="menu"
 //                     // ref={(element) => {
 //                     //     dropdownMenu = element;
@@ -134,16 +140,15 @@ export default Menu;
 //     //             document.removeEventListener('click', this.closeMenu)
 //     //         });
 //     //     }
-       
-//     // }
 
+//     // }
 
 //     render() {
 //         return (
 //             <div>
 //                 <button>Show menu</button>
 //                 {this.state.showMenu ? (
-//                     <div 
+//                     <div
 //                     className="menu"
 //                     ref={(element) => {
 //                         this.dropdownMenu = element
@@ -158,9 +163,8 @@ export default Menu;
 //                 ): (
 //                     null
 //                 )}
-                
+
 //             </div>
 //         )
 //     }
 // }
-
