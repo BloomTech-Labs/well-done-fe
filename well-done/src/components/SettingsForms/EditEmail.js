@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
-
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 const EditEmail = props => {
   console.log(props);
   const [email, setEmail] = useState({
@@ -40,56 +40,59 @@ const EditEmail = props => {
   return (
     <div className="form-container">
       <div className="form-wrap">
-        <h1> Change Email</h1>
+        <h1 className="update-header"> Change Email</h1>
       </div>
       <div>
         <div className="edit-form">
-          <form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             {/* Email input  */}
-            <h2>Email</h2>
-            <input
-              type="text"
-              name="email"
-              className="input"
-              // placeholder="email"
-              onChange={changeHandler}
-              value={email.email}
-            />
+            <FormGroup>
+              <Label for="email">Email</Label>
+              <Input
+                type="email"
+                name="email"
+                className="input"
+                onChange={changeHandler}
+                value={email.email}
+              />
+            </FormGroup>
             {/* Password input  */}
-            <h2>Password</h2>
-            <input
-              type="password"
-              name="password"
-              className="input"
-              // placeholder="password"
-              onChange={changeHandler}
-              value={email.password}
-            />
+            <FormGroup>
+              <Label for="password">Password</Label>
+              <Input
+                type="password"
+                name="password"
+                className="input"
+                onChange={changeHandler}
+                value={email.password}
+              />
+            </FormGroup>
             {/* New Email input  */}
-            <h2>New Email</h2>
-            <input
-              type="text"
-              name="newEmail"
-              className="input"
-              // placeholder="new name"
-              onChange={changeHandler}
-              value={email.newEmail}
-            />
+            <FormGroup>
+              <Label for="newEmail">New Email</Label>
+              <Input
+                type="email"
+                name="newEmail"
+                className="input"
+                onChange={changeHandler}
+                value={email.newEmail}
+              />
+            </FormGroup>
             {/* Confirm New Email input  */}
-            <h2>Confirm New Email</h2>
-            <input
-              type="text"
-              name="confirmNewEmail"
-              className="input"
-              // placeholder="new name"
-              onChange={changeHandler}
-              value={email.confirmNewEmail}
-            />
-
-            <button type="submit" className="btnEdit">
+            <FormGroup>
+              <Label for="confirmNewEmail">Confirm New Email</Label>
+              <Input
+                type="email"
+                name="confirmNewEmail"
+                className="input"
+                onChange={changeHandler}
+                value={email.confirmNewEmail}
+              />
+            </FormGroup>
+            <Button type="submit" className="btnEdit">
               Change Email
-            </button>
-          </form>
+            </Button>
+          </Form>
         </div>
       </div>
     </div>

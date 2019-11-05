@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
-
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 const EditName = props => {
   console.log(props);
   const [name, setName] = useState({
@@ -40,56 +40,59 @@ const EditName = props => {
   return (
     <div className="form-container">
       <div className="form-wrap">
-        <h1> Change Name </h1>
+        <h1 className="update-header"> Change Name </h1>
       </div>
       <div>
         <div className="edit-form">
-          <form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             {/* Email input  */}
-            <h2>Email</h2>
-            <input
-              type="text"
-              name="email"
-              className="input"
-              // placeholder="email"
-              onChange={changeHandler}
-              value={name.email}
-            />
+            <FormGroup>
+              <Label for="email">Email</Label>
+              <Input
+                type="email"
+                name="email"
+                className="input"
+                onChange={changeHandler}
+                value={name.email}
+              />
+            </FormGroup>
             {/* Password input  */}
-            <h2>Password</h2>
-            <input
-              type="password"
-              name="password"
-              className="input"
-              // placeholder="password"
-              onChange={changeHandler}
-              value={name.password}
-            />
+            <FormGroup>
+              <Label for="password">Password</Label>
+              <Input
+                type="password"
+                name="password"
+                className="input"
+                onChange={changeHandler}
+                value={name.password}
+              />
+            </FormGroup>
             {/* New Name input  */}
-            <h2>New Name</h2>
-            <input
-              type="text"
-              name="newName"
-              className="input"
-              // placeholder="new name"
-              onChange={changeHandler}
-              value={name.newName}
-            />
+            <FormGroup>
+              <Label for="newName">New Name</Label>
+              <Input
+                type="textarea"
+                name="newName"
+                className="input"
+                onChange={changeHandler}
+                value={name.newName}
+              />
+            </FormGroup>
             {/* Confirm New Name input  */}
-            <h2>Confirm New Name</h2>
-            <input
-              type="text"
-              name="confirmNewName"
-              className="input"
-              // placeholder="new name"
-              onChange={changeHandler}
-              value={name.confirmNewName}
-            />
-
-            <button type="submit" className="btnEdit">
+            <FormGroup>
+              <Label for="confirmNewName">Confirm New Name</Label>
+              <Input
+                type="textarea"
+                name="confirmNewName"
+                className="input"
+                onChange={changeHandler}
+                value={name.confirmNewName}
+              />
+            </FormGroup>
+            <Button type="submit" className="btnEdit">
               Change Name
-            </button>
-          </form>
+            </Button>
+          </Form>
         </div>
       </div>
     </div>
