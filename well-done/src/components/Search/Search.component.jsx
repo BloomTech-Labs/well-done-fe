@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import './Search.styles.scss'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Search = (props) => {
     const [searchValue, setSearchValue] = useState("")
@@ -17,13 +19,15 @@ const Search = (props) => {
     }
 
     return (
-        <div>
-            <h1>Test the search bar</h1>
+        <div class="search">
+            {/* <h1>Test the search bar</h1> */}
             <input 
+                // class="search"
                 type="text"
-                placeholder="search..."
+                placeholder="Search location or pump"
                 onChange={handleChange}
             />
+            <button type="submit"><i class="fa fa-search"></i></button>
         </div>
     )
 }
