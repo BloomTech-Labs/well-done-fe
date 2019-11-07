@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
 
-import { Button, Form, FormGroup } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 const EditName = props => {
   console.log(props);
   const [name, setName] = useState({
@@ -46,30 +46,52 @@ const EditName = props => {
       <div>
         <div className="edit-form">
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+            {/* Email input  */}
+            <Form.Group className="form-group">
+              <Form.Label>Email </Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
                 name="email"
                 className="input"
                 onChange={changeHandler}
                 value={name.email}
               />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
             </Form.Group>
-
-            <Form.Group controlId="formBasicPassword">
+            {/* Password input  */}
+            <Form.Group className="form-group">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control
+                type="password"
+                name="password"
+                className="input"
+                onChange={changeHandler}
+                value={name.password}
+              />
             </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
+            {/* New name input  */}
+            <Form.Group className="form-group">
+              <Form.Label>New Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="newName"
+                className="input"
+                onChange={changeHandler}
+                value={name.newName}
+              />
+            </Form.Group>
+            {/* Confirm new name input  */}
+            <Form.Group className="form-group">
+              <Form.Label>Confirm New Name</Form.Label>
+              <Form.Control
+                type="text"
+                name="confirmNewName"
+                className="input"
+                onChange={changeHandler}
+                value={name.confirmNewName}
+              />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              Change Name
             </Button>
           </Form>
         </div>

@@ -45,30 +45,52 @@ const EditEmail = props => {
       <div>
         <div className="edit-form">
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
+            {/* Email input  */}
+            <Form.Group className="form-group">
+              <Form.Label>Email </Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
                 name="email"
                 className="input"
                 onChange={changeHandler}
                 value={email.email}
               />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
             </Form.Group>
-
-            <Form.Group controlId="formBasicPassword">
+            {/* Password input  */}
+            <Form.Group className="form-group">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control
+                type="password"
+                name="password"
+                className="input"
+                onChange={changeHandler}
+                value={email.password}
+              />
             </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
+            {/* New email input  */}
+            <Form.Group className="form-group">
+              <Form.Label>New Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="newEmail"
+                className="input"
+                onChange={changeHandler}
+                value={email.newEmail}
+              />
+            </Form.Group>
+            {/* Confirm new email input  */}
+            <Form.Group className="form-group">
+              <Form.Label>Confirm New Email</Form.Label>
+              <Form.Control
+                type="email"
+                name="confirmNewEmail"
+                className="input"
+                onChange={changeHandler}
+                value={email.confirmNewEmail}
+              />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              Change Email
             </Button>
           </Form>
         </div>
