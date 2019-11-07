@@ -45,52 +45,30 @@ const EditEmail = props => {
       <div>
         <div className="edit-form">
           <Form onSubmit={handleSubmit}>
-            {/* Email input  */}
-            <FormGroup>
-              <Form.Label for="email">Email</Form.Label>
-              <Form.Input
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
                 type="email"
+                placeholder="Enter email"
                 name="email"
                 className="input"
                 onChange={changeHandler}
                 value={email.email}
               />
-            </FormGroup>
-            {/* Password input  */}
-            <FormGroup>
-              <Form.Label for="password">Password</Form.Label>
-              <Form.Input
-                type="password"
-                name="password"
-                className="input"
-                onChange={changeHandler}
-                value={email.password}
-              />
-            </FormGroup>
-            {/* New Email input  */}
-            <FormGroup>
-              <Form.Label for="newEmail">New Email</Form.Label>
-              <Form.Input
-                type="email"
-                name="newEmail"
-                className="input"
-                onChange={changeHandler}
-                value={email.newEmail}
-              />
-            </FormGroup>
-            {/* Confirm New Email input  */}
-            <FormGroup>
-              <Form.Label for="confirmNewEmail">Confirm New Email</Form.Label>
-              <Form.Input
-                type="email"
-                name="confirmNewEmail"
-                className="input"
-                onChange={changeHandler}
-                value={email.confirmNewEmail}
-              />
-            </FormGroup>
-            <Button color="primary" type="submit" className="btnEdit">
-              Change Email
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="Check me out" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
             </Button>
           </Form>
         </div>
