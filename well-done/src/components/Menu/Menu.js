@@ -1,9 +1,14 @@
 import React from "react";
 import "./Menu.scss";
-import { IoIosHome } from "react-icons/io";
-import { IoIosKey } from "react-icons/io";
-import { IoIosSettings } from "react-icons/io";
-import { IoMdCreate } from "react-icons/io";
+import {
+  IoIosHome,
+  // IoIosCreate
+  IoMdGrid,
+  // IoIosKey,
+  IoMdKey,
+  IoIosSettings
+} from "react-icons/io";
+import { Route, Link } from "react-router-dom";
 
 const Menu = props => {
   console.log("props in menu", props);
@@ -14,19 +19,29 @@ const Menu = props => {
       <div className="overlay-content">
         <div className="each-nav">
           <IoIosHome size={25} />
-          <a href="#">Home</a>
+          <Link exact to="/dashboard" activeClassName="activeNavButton">
+            Home
+          </Link>
         </div>
         <div className="each-nav">
-          <IoMdCreate size={25} />
-          <a href="#">Monitor</a>
+          {/* <IoIosCreate size={25} /> */}
+          <IoMdGrid size={25} />
+          <Link to="/monitors" activeClassName="activeNavButton">
+            Monitors
+          </Link>
         </div>
         <div className="each-nav">
-          <IoIosKey size={25} />
-          <a href="#">Admin</a>
+          {/* <IoIosKey size={25} /> */}
+          <IoMdKey size={25} />
+          <Link to="/admin" activeClassName="activeNavButton">
+            Admin
+          </Link>
         </div>
         <div className="each-nav">
           <IoIosSettings size={25} />
-          <a href="#">Settings</a>
+          <Link to="/settings" activeClassName="activeNavButton">
+            Settings
+          </Link>
         </div>
       </div>
     </div>
