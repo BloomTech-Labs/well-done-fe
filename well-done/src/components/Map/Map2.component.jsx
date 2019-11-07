@@ -41,25 +41,60 @@ export default function Map(){
                 setViewport(viewport)
             }}
         >
-            {ChicagoPark.features.map((park) => 
-                (
-                <Marker
+            {ChicagoPark.features.map(park => 
+                (<Marker
                     key={park.properties.title}
                     latitude={park.geometry.coordinates[1]}
                     longitude={park.geometry.coordinates[0]}
-                >
+                >       
                         <img onClick = { event => {
                             event.preventDefault()
                             setSelectedPark(park)
                         }
-                        } 
+                        }
                             class="location-icon" 
                             src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png" 
                             alt="location" />
                    
-                </Marker>
-                )
-               
+                </Marker>)
+                // {if(park.status == 0){
+                // (<Marker
+                //     key={park.properties.title}
+                //     latitude={park.geometry.coordinates[1]}
+                //     longitude={park.geometry.coordinates[0]}
+                // >       
+                //         <img onClick = { event => {
+                //             event.preventDefault()
+                //             setSelectedPark(park)
+                //         }
+                //         } 
+                //             class="location-icon" 
+                //             src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png" 
+                //             alt="location" />
+                   
+                // </Marker>
+                // )
+                //     } else if (park.status == 1){
+                //         (<Marker
+                //             key={park.properties.title}
+                //             latitude={park.geometry.coordinates[1]}
+                //             longitude={park.geometry.coordinates[0]}
+                //         >       
+                //                 <img onClick = { event => {
+                //                     event.preventDefault()
+                //                     setSelectedPark(park)
+                //                 }
+                //                 } 
+                //                     class="location-icon" 
+                //                     src="https://res.cloudinary.com/dfulxq7so/image/upload/v1573056727/Vector_2_qgwnef.png" 
+                //                     alt="location" />
+                           
+                //         </Marker>
+                //         )
+                //     }
+                
+                
+                // }
             )}
 
             {selectedPark ? (
