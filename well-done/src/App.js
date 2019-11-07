@@ -30,17 +30,16 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/dashboard" component={Dashboard} />
         <Route 
-        path="/test" 
-        render={props => {
-        return <Test {...props} 
-                      PumpData = {PumpData} 
-                      searchFiltered={searchFiltered} 
-                      setSearchFiltered={setSearchFiltered}
-                      
-                      />}} 
+          path="/dashboard" 
+          render={props => {
+            return <Dashboard {...props} 
+                        searchFiltered={searchFiltered} 
+                        setSearchFiltered={setSearchFiltered}
+                    />
+          }} 
         />
+       
       </Switch>
     </div>
   );

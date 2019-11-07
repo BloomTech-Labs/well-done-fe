@@ -11,10 +11,10 @@ const Filter = () => {
         AxiosWithAuth()
             .get("https://welldone-db.herokuapp.com/api/pumps")
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setPumps(res.data)
             })
-    })
+    }, [ ])
 
     return (
         <div class="filter">

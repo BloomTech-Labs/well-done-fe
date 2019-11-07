@@ -10,8 +10,13 @@ const Dashboard = props => {
     return (
         <div class="dashboard">
             <Menu />
-            <Map />
-            <Search />
+            <Map
+                searchFiltered={props.searchFiltered} 
+            />
+            <Search 
+                searchFiltered={props.searchFiltered}
+                setSearchFiltered={props.setSearchFiltered} 
+            />
             <Filter />
         </div>
     )

@@ -5,7 +5,8 @@ import "./Map.styles.scss"
 // import Axios from 'axios';
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
-export default function Map(){
+export default function Map(props){
+    console.log('props in Map', props)
     const [viewport, setViewport] = useState({
         latitude: 13.5651,
         longitude: 104.7538,
@@ -16,6 +17,28 @@ export default function Map(){
 
     const [pumps, setPumps] = useState([])
     const [selectedPump, setSelectedPump] = useState(null)
+
+    const invoke = () => {
+        console.log('checkkk', props.searchFiltered[0])
+        // props.searchFiltered[0].map(place => {
+        if(props.searchFiltered.length !== 0) {
+        const searchedPlace = {
+                    latitude: Math.floor(props.searchFiltered[0].latitude),
+                    longitude: Math.floor(props.searchFiltered[0].longitude),
+                    width: "100vw",
+                    height: "100vh",
+                    zoom: 8
+                }
+        console.log('searchPlace', searchedPlace)
+        setViewport(searchedPlace)
+            }
+    }
+
+    useEffect(() => {
+        invoke()
+    }, [props.searchFiltered])
+
+    // console.log('viewport Out', viewport)
 
     useEffect(() => {
         const listener = e => {
@@ -38,12 +61,12 @@ export default function Map(){
         AxiosWithAuth()
             .get("https://welldone-db.herokuapp.com/api/pumps")
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setPumps(res.data)
             })
+        
+        
     })
-
-    
 
     return <div>
         <ReactMapGl 
