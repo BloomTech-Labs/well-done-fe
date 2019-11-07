@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 // import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+
+import {
+  Button,
+  Form,
+  FormGroup
+} from "react-bootstrap";
 const EditName = props => {
   console.log(props);
   const [name, setName] = useState({
@@ -47,8 +52,8 @@ const EditName = props => {
           <Form onSubmit={handleSubmit}>
             {/* Email input  */}
             <FormGroup>
-              <Label for="email">Email</Label>
-              <Input
+              <Form.Label for="email">Email</Form.Label>
+              <Form.Input
                 type="email"
                 name="email"
                 className="input"
@@ -58,8 +63,8 @@ const EditName = props => {
             </FormGroup>
             {/* Password input  */}
             <FormGroup>
-              <Label for="password">Password</Label>
-              <Input
+              <Form.Label for="password">Password</Form.Label>
+              <Form.Input
                 type="password"
                 name="password"
                 className="input"
@@ -69,8 +74,8 @@ const EditName = props => {
             </FormGroup>
             {/* New Name input  */}
             <FormGroup>
-              <Label for="newName">New Name</Label>
-              <Input
+              <Form.Label for="newName">New Name</Form.Label>
+              <Form.Input
                 type="textarea"
                 name="newName"
                 className="input"
@@ -80,8 +85,8 @@ const EditName = props => {
             </FormGroup>
             {/* Confirm New Name input  */}
             <FormGroup>
-              <Label for="confirmNewName">Confirm New Name</Label>
-              <Input
+              <Form.Label for="confirmNewName">Confirm New Name</Form.Label>
+              <Form.Input
                 type="textarea"
                 name="confirmNewName"
                 className="input"
@@ -89,7 +94,7 @@ const EditName = props => {
                 value={name.confirmNewName}
               />
             </FormGroup>
-            <Button type="submit" className="btnEdit">
+            <Button color="primary" type="submit" className="btnEdit">
               Change Name
             </Button>
           </Form>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup } from "react-bootstrap";
 const EditPassword = props => {
   console.log(props);
   const [password, setPassword] = useState({
@@ -47,8 +47,8 @@ const EditPassword = props => {
           <Form onSubmit={handleSubmit}>
             {/* Email input  */}
             <FormGroup>
-              <Label for="email">Email</Label>
-              <Input
+              <Form.Label for="email">Email</Form.Label>
+              <Form.Input
                 type="email"
                 name="email"
                 className="input"
@@ -58,8 +58,8 @@ const EditPassword = props => {
             </FormGroup>
             {/* Password input  */}
             <FormGroup>
-              <Label for="password">Password</Label>
-              <Input
+              <Form.Label for="password">Password</Form.Label>
+              <Form.Input
                 type="password"
                 name="password"
                 className="input"
@@ -69,8 +69,8 @@ const EditPassword = props => {
             </FormGroup>
             {/* New Password input  */}
             <FormGroup>
-              <Label for="newPassword">New Password</Label>
-              <Input
+              <Form.Label for="newPassword">New Password</Form.Label>
+              <Form.Input
                 type="email"
                 name="newPassword"
                 className="input"
@@ -80,8 +80,10 @@ const EditPassword = props => {
             </FormGroup>
             {/* Confirm New Email input  */}
             <FormGroup>
-              <Label for="confirmNewPassword">Confirm New Password</Label>
-              <Input
+              <Form.Label for="confirmNewPassword">
+                Confirm New Password
+              </Form.Label>
+              <Form.Input
                 type="email"
                 name="confirmNewPassword"
                 className="input"
@@ -89,7 +91,7 @@ const EditPassword = props => {
                 value={password.confirmNewPassword}
               />
             </FormGroup>
-            <Button type="submit" className="btnEdit">
+            <Button color="primary" type="submit" className="btnEdit">
               Change Password
             </Button>
           </Form>

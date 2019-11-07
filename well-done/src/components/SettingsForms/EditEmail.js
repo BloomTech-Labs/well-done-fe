@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup } from "react-bootstrap";
 const EditEmail = props => {
   console.log(props);
   const [email, setEmail] = useState({
@@ -47,8 +47,8 @@ const EditEmail = props => {
           <Form onSubmit={handleSubmit}>
             {/* Email input  */}
             <FormGroup>
-              <Label for="email">Email</Label>
-              <Input
+              <Form.Label for="email">Email</Form.Label>
+              <Form.Input
                 type="email"
                 name="email"
                 className="input"
@@ -58,8 +58,8 @@ const EditEmail = props => {
             </FormGroup>
             {/* Password input  */}
             <FormGroup>
-              <Label for="password">Password</Label>
-              <Input
+              <Form.Label for="password">Password</Form.Label>
+              <Form.Input
                 type="password"
                 name="password"
                 className="input"
@@ -69,8 +69,8 @@ const EditEmail = props => {
             </FormGroup>
             {/* New Email input  */}
             <FormGroup>
-              <Label for="newEmail">New Email</Label>
-              <Input
+              <Form.Label for="newEmail">New Email</Form.Label>
+              <Form.Input
                 type="email"
                 name="newEmail"
                 className="input"
@@ -80,8 +80,8 @@ const EditEmail = props => {
             </FormGroup>
             {/* Confirm New Email input  */}
             <FormGroup>
-              <Label for="confirmNewEmail">Confirm New Email</Label>
-              <Input
+              <Form.Label for="confirmNewEmail">Confirm New Email</Form.Label>
+              <Form.Input
                 type="email"
                 name="confirmNewEmail"
                 className="input"
@@ -89,7 +89,7 @@ const EditEmail = props => {
                 value={email.confirmNewEmail}
               />
             </FormGroup>
-            <Button type="submit" className="btnEdit">
+            <Button color="primary" type="submit" className="btnEdit">
               Change Email
             </Button>
           </Form>
