@@ -2,24 +2,27 @@ import React, {useState, useEffect} from 'react';
 import ReactMapGl, {Marker, Popup} from 'react-map-gl'
 import * as ChicagoPark from '../../chicago-parks.json'
 import "./Map.styles.scss"
+// import Axios from 'axios';
+import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
 export default function Map(){
     const [viewport, setViewport] = useState({
-        latitude: 11.5651,
+        latitude: 13.5651,
         longitude: 104.7538,
         width: "100vw",
         height: "100vh",
         zoom: 8
     })
 
-    const [selectedPark, setSelectedPark] = useState(null)
+    const [pumps, setPumps] = useState([])
+    const [selectedPump, setSelectedPump] = useState(null)
 
     useEffect(() => {
         const listener = e => {
             console.log('here', e)
             if (e.key === "Escape"){
                  
-                setSelectedPark(null)
+                setSelectedPump(null)
             }
         };
         console.log('listener', listener)
@@ -28,7 +31,17 @@ export default function Map(){
         return () => {
             window.removeEventListener("keydown", listener)
         }
+
      }, [ ])
+
+    useEffect(() => {
+        AxiosWithAuth()
+            .get("https://welldone-db.herokuapp.com/api/pumps")
+            .then(res => {
+                console.log(res)
+                setPumps(res.data)
+            })
+    })
 
     
 
@@ -41,73 +54,36 @@ export default function Map(){
                 setViewport(viewport)
             }}
         >
-            {ChicagoPark.features.map(park => 
-                (<Marker
-                    key={park.properties.title}
-                    latitude={park.geometry.coordinates[1]}
-                    longitude={park.geometry.coordinates[0]}
+            {pumps.map(pump => (
+                // console.log('pump', pump)
+                <Marker
+                key={pump.id}
+                latitude={pump.latitude}
+                longitude={pump.longitude}
                 >       
-                        <img onClick = { event => {
-                            event.preventDefault()
-                            setSelectedPark(park)
-                        }
-                        }
-                            class="location-icon" 
-                            src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png" 
-                            alt="location" />
-                   
-                </Marker>)
-                // {if(park.status == 0){
-                // (<Marker
-                //     key={park.properties.title}
-                //     latitude={park.geometry.coordinates[1]}
-                //     longitude={park.geometry.coordinates[0]}
-                // >       
-                //         <img onClick = { event => {
-                //             event.preventDefault()
-                //             setSelectedPark(park)
-                //         }
-                //         } 
-                //             class="location-icon" 
-                //             src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png" 
-                //             alt="location" />
-                   
-                // </Marker>
-                // )
-                //     } else if (park.status == 1){
-                //         (<Marker
-                //             key={park.properties.title}
-                //             latitude={park.geometry.coordinates[1]}
-                //             longitude={park.geometry.coordinates[0]}
-                //         >       
-                //                 <img onClick = { event => {
-                //                     event.preventDefault()
-                //                     setSelectedPark(park)
-                //                 }
-                //                 } 
-                //                     class="location-icon" 
-                //                     src="https://res.cloudinary.com/dfulxq7so/image/upload/v1573056727/Vector_2_qgwnef.png" 
-                //                     alt="location" />
-                           
-                //         </Marker>
-                //         )
-                //     }
-                
-                
-                // }
-            )}
+                    <img onClick = { event => {
+                        event.preventDefault()
+                        setSelectedPump(pump)
+                    }
+                    }
+                        class="location-icon" 
+                        src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png" 
+                        alt="location" />
+               
+            </Marker>
+            ))}
 
-            {selectedPark ? (
+            {selectedPump ? (
                 <Popup
-                latitude={selectedPark.geometry.coordinates[1]}
-                longitude={selectedPark.geometry.coordinates[0]}
+                latitude={selectedPump.latitude}
+                longitude={selectedPump.longitude}
                 onClose={() => {
-                    setSelectedPark(null)
+                    setSelectedPump(null)
                 }}
                 >
                     <div>
-                        <h2>{selectedPark.properties.title}</h2>
-                        <p>{selectedPark.properties.description}</p>
+                        <h2>{selectedPump.country_name}</h2>
+                        <p>{selectedPump.province_name}</p>
                     </div>
                 </Popup>
             ) : null}

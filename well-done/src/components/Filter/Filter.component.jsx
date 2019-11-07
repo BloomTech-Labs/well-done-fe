@@ -1,17 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {countries} from '../../data/countries'
 import './Filter.styles.scss'
 import Toggle from '../Toggle/Toggle.component'
+import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
 const Filter = () => {
+    const [pumps, setPumps] = useState([])
     
+    useEffect(() => {
+        AxiosWithAuth()
+            .get("https://welldone-db.herokuapp.com/api/pumps")
+            .then(res => {
+                console.log(res)
+                setPumps(res.data)
+            })
+    })
 
     return (
         <div class="filter">
             <h4>Country</h4>
             <select name="countries"> 
-                {countries.map(country => (
-                    <option value={country}>{country}</option>
+                {pumps.map(pump => (
+                    <option value={pump.country_name}>{pump.country_name}</option>
                 ))} 
             </select>
 
