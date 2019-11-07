@@ -17,7 +17,10 @@ const Dashboard = props => {
                 searchFiltered={props.searchFiltered}
                 setSearchFiltered={props.setSearchFiltered} 
             />
-            <Filter />
+            <Filter 
+                searchFiltered={props.searchFiltered}
+                setSearchFiltered={props.setSearchFiltered}
+            />
         </div>
     )
 }

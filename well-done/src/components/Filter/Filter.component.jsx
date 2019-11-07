@@ -4,7 +4,7 @@ import './Filter.styles.scss'
 import Toggle from '../Toggle/Toggle.component'
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
-const Filter = () => {
+const Filter = props => {
     const [pumps, setPumps] = useState([])
     
     useEffect(() => {
@@ -16,13 +16,21 @@ const Filter = () => {
             })
     }, [ ])
 
+    const handleChange = event => {
+        console.log('handleChange in filter', event.target.value)
+        if (event.target.value.length !== 0){
+            let filtered = pumps.filter(pump => pump.country_name.toLowerCase().includes(event.target.value.toLowerCase()))
+            props.setSearchFiltered(filtered)
+        }
+    }
+
     return (
         <div class="filter">
             <h4>Country</h4>
-            <select name="countries"> 
-                {pumps.map(pump => (
-                    <option value={pump.country_name}>{pump.country_name}</option>
-                ))} 
+            <select name="countries" onChange={handleChange}> 
+                {pumps.map(pump => 
+                    (<option value={pump.country_name}>{pump.country_name}</option>)
+                )} 
             </select>
 
             <h4>Status</h4>
