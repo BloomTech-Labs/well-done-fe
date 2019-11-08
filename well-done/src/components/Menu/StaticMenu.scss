@@ -1,0 +1,43 @@
+.entire-menu {
+  position: absolute;
+  width: 13.5rem;
+  height: 100%;
+
+  background: #082b84;
+  color: white;
+
+  .logo {
+    width: 80%;
+    margin: 20px 0px 20px 20px;
+    width: 170.81px;
+    height: 35.61px;
+  }
+  .name {
+    font-size: 16px;
+    margin-left: 40px;
+  }
+
+  .email-address {
+    font-size: 12px;
+    margin-left: 40px;
+  }
+
+  span {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: block;
+    width: 214px;
+    height: 1px;
+  }
+  .each-nav {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+    .link {
+      color: white;
+      margin-left: 0.5rem;
+    }
+  }
+}
