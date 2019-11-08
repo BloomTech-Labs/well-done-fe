@@ -7,20 +7,29 @@ import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
 export default function Map(props){
     console.log('props in Map', props)
-    const [viewport, setViewport] = useState({
-        latitude: 13.5651,
-        longitude: 104.7538,
-        width: "100vw",
-        height: "100vh",
-        zoom: 8
-    })
+    // const [viewport, setViewport] = useState({
+    //     latitude: 13.5651,
+    //     longitude: 104.7538,
+    //     width: "100vw",
+    //     height: "100vh",
+    //     zoom: 8
+    // })
 
     const [selectedPump, setSelectedPump] = useState(null)
 
     const zoomInto = () => {
-        console.log('checkkk', props.searchFiltered[0])
+        console.log('checkkk', props.searchFiltered.length)
         // props.searchFiltered[0].map(place => {
-        if(props.searchFiltered.length == 1){
+        if (props.searchFiltered.length == 0){
+                props.setViewport({
+                    latitude: 13.5651,
+                    longitude: 104.7538,
+                    width: "100vw",
+                    height: "100vh",
+                    zoom: 8
+                })
+            }
+        else if(props.searchFiltered.length == 1){
             const searchedPlace = {
                 latitude: props.searchFiltered[0].latitude,
                 longitude: props.searchFiltered[0].longitude,
@@ -29,7 +38,7 @@ export default function Map(props){
                 zoom: 20
             }
             console.log('searchPlace one', searchedPlace)
-            setViewport(searchedPlace)  
+            props.setViewport(searchedPlace)  
         }
         else if(props.searchFiltered.length > 1) {
             function avgCoordinate(arr){
@@ -51,8 +60,9 @@ export default function Map(props){
                     zoom: 15
                 }
             console.log('searchPlace many', searchedPlace)
-            setViewport(searchedPlace)
+            props.setViewport(searchedPlace)
             }
+        
     }
 
     // function showMarker(sensor, image){
@@ -96,17 +106,17 @@ export default function Map(props){
 
      }, [ ])
 
-     console.log('unknown check toggle status in Map', props.unknownToggle)
-     console.log('nonFunc check toggle status in Map', props.nonFuncToggle)
-     console.log('func check toggle status in Map', props.funcToggle)
+    //  console.log('unknown check toggle status in Map', props.unknownToggle)
+    //  console.log('nonFunc check toggle status in Map', props.nonFuncToggle)
+    //  console.log('func check toggle status in Map', props.funcToggle)
 
     return <div>
         <ReactMapGl 
-            {...viewport}
+            {...props.viewport}
             mapboxApiAccessToken={"pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w"}
             mapStyle="mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u"
             onViewportChange = {viewport => {
-                setViewport(viewport)
+                props.setViewport(viewport)
             }}
         >
             {props.sensors.map(sensor => {

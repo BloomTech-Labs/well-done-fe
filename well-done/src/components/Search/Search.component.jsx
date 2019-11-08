@@ -6,6 +6,7 @@ import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 const Search = (props) => {
     console.log('props in Search', props)
     const [pumps, setPumps] = useState([])
+    // const [searchValue, setSearchValue] = useState("")
 
     console.log('props in Search', props)
 
@@ -19,7 +20,9 @@ const Search = (props) => {
     }, [ ])
     
     const handleChange = event => {
-        console.log(event.target.value)
+        console.log('event target', event.target.value)
+        // setSearchValue(event.target.value)
+        // console.log('searchValue length', searchValue.length)
         if (event.target.value.length !== 0){
             console.log('searchValue In', event.target.value)
             let filtered = pumps.filter(pump => 
@@ -28,6 +31,19 @@ const Search = (props) => {
             )
             props.setSearchFiltered(filtered)
         }
+        else {
+            props.setViewport({
+                latitude: 13.5651,
+                longitude: 104.7538,
+                width: "100vw",
+                height: "100vh",
+                zoom: 8
+            })
+        }
+        // if (searchValue.length === 0) {
+        //     let filtered = pumps.filter(pump => pump)
+        //     props.setSearchFiltered(filtered)
+        // }
     }
 
     return (

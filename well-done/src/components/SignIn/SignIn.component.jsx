@@ -29,7 +29,7 @@ const SignIn = props => {
 
   return (
     <div class="body">
-      <h1>Wellcome </h1>
+      <h1>Welcome </h1>
       <form onSubmit={handleSubmit} >
         <label>Email
           <input
