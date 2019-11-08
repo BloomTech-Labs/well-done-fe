@@ -28,6 +28,7 @@ const EditEmail = props => {
     const id = props.match.params.id;
     // axiosWithAuth()
     axios
+      // .put(`https://welldone-db.herokuapp/api/accounts/${email.id}
       .put(`https://welldone-db.herokuapp/api/accounts/${id}`, email)
       .then(res => {
         console.log("res.data inside axios", res.data);
