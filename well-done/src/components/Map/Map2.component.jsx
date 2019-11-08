@@ -6,7 +6,7 @@ import "./Map.styles.scss"
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
 export default function Map(props){
-    console.log('props in Map', props)
+    // console.log('props in Map', props)
     const [viewport, setViewport] = useState({
         latitude: 13.5651,
         longitude: 104.7538,
@@ -16,9 +16,10 @@ export default function Map(props){
     })
 
     const [pumps, setPumps] = useState([])
+    // const [sensorPid, setSensorPid] = useState(0)
     const [selectedPump, setSelectedPump] = useState(null)
 
-    const invoke = () => {
+    const zoomInto = () => {
         console.log('checkkk', props.searchFiltered[0])
         // props.searchFiltered[0].map(place => {
         if(props.searchFiltered.length !== 0) {
@@ -35,7 +36,7 @@ export default function Map(props){
     }
 
     useEffect(() => {
-        invoke()
+        zoomInto()
     }, [props.searchFiltered])
 
     // console.log('viewport Out', viewport)
@@ -59,13 +60,13 @@ export default function Map(props){
 
     useEffect(() => {
         AxiosWithAuth()
-            .get("https://welldone-db.herokuapp.com/api/pumps")
-            .then(res => {
-                // console.log(res)
+        .get("https://welldone-db.herokuapp.com/api/sensors")
+        .then(res => 
+            {
+                console.log('get all sensors', res.data)
                 setPumps(res.data)
-            })
-        
-        
+            }
+        )
     })
 
     return <div>
@@ -77,24 +78,80 @@ export default function Map(props){
                 setViewport(viewport)
             }}
         >
-            {pumps.map(pump => (
-                // console.log('pump', pump)
-                <Marker
-                key={pump.id}
-                latitude={pump.latitude}
-                longitude={pump.longitude}
-                >       
-                    <img onClick = { event => {
-                        event.preventDefault()
-                        setSelectedPump(pump)
-                    }
-                    }
+            {pumps.map(pump => {
+                if (pump.status == null){
+                    return (<Marker
+                        key={pump.id}
+                        latitude={pump.latitude}
+                        longitude={pump.longitude}
+                        >      
+                        <img onClick = { event => {
+                            event.preventDefault()
+                            setSelectedPump(pump)
+                        }
+                        }
                         class="location-icon" 
                         src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png" 
                         alt="location" />
                
-            </Marker>
-            ))}
+                    </Marker>)
+                }
+                else if (pump.status == 0){
+                    return (<Marker
+                        key={pump.id}
+                        latitude={pump.latitude}
+                        longitude={pump.longitude}
+                        >      
+                        <img onClick = { event => {
+                            event.preventDefault()
+                            setSelectedPump(pump)
+                        }
+                        }
+                        class="location-icon" 
+                        src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png" 
+                        alt="location" />
+               
+                    </Marker>)
+                }
+                else if (pump.status == 1){
+                    return (<Marker
+                        key={pump.id}
+                        latitude={pump.latitude}
+                        longitude={pump.longitude}
+                        >      
+                        <img onClick = { event => {
+                            event.preventDefault()
+                            setSelectedPump(pump)
+                        }
+                        }
+                        class="location-icon" 
+                        src="https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png" 
+                        alt="location" />
+               
+                    </Marker>)
+                }
+                else {
+                    return (<Marker
+                        key={pump.id}
+                        latitude={pump.latitude}
+                        longitude={pump.longitude}
+                        >      
+                        <img onClick = { event => {
+                            event.preventDefault()
+                            setSelectedPump(pump)
+                        }
+                        }
+                        class="location-icon" 
+                        src="https://res.cloudinary.com/dfulxq7so/image/upload/v1573056725/Vector_1_xzgama.png" 
+                        alt="location" />
+               
+                    </Marker>)
+                }
+            }
+            
+               
+                
+            )}
 
             {selectedPump ? (
                 <Popup
