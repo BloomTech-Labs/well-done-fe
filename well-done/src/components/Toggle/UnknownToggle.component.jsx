@@ -19,7 +19,7 @@ const UnknownToggle = props => {
                 className="react-switch"
                 checked={checked}
                 onChange={handleChange}
-                onColor= "#37C6F3"
+                onColor= "#FFAD34"
                 // offColor="#D7D7D7"
             />
         </div>
