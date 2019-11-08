@@ -22,9 +22,20 @@ const Search = (props) => {
     const handleChange = event => {
         console.log(event.target.value)
         setSearchValue(event.target.value)
-        if (searchValue.length >0){
-            console.log('length', searchValue.length)
-            let filtered = pumps.filter(pump => pump.country_name.toLowerCase().includes(searchValue.toLowerCase()))
+        if (searchValue.length !== 0){
+            console.log('searchValue In', event.target.value)
+            
+            let filtered = pumps.filter(pump => 
+                
+                // console.log('sensorPID', pump.sensor_pid)
+                (pump.country_name.toLowerCase().includes(event.target.value.toLowerCase()) )
+                // {
+                    // console.log('searchValue', searchValue, 'sensor_pid', pump.sensor_pid)
+                // }
+                || (pump.sensor_pid == event.target.value)
+                
+                
+            )
             props.setSearchFiltered(filtered)
             console.log('searchFiltered', props.searchFiltered)
             console.log('filtered', filtered)
