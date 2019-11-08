@@ -12,14 +12,17 @@ const Dashboard = props => {
             <Menu />
             <Map
                 searchFiltered={props.searchFiltered} 
+                sensors={props.sensors}
             />
             <Search 
                 searchFiltered={props.searchFiltered}
-                setSearchFiltered={props.setSearchFiltered} 
+                setSearchFiltered={props.setSearchFiltered}
+                 
             />
             <Filter 
                 searchFiltered={props.searchFiltered}
                 setSearchFiltered={props.setSearchFiltered}
+                sensors={props.sensors}
             />
         </div>
     )

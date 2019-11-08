@@ -1,30 +1,24 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Route, Switch } from "react-router-dom";
-
+import AxiosWithAuth from './components/AxiosWithAuth/axiosWithAuth'
 import Landing from "./pages/Landing.jsx";
 import Dashboard from "./pages/Dashboard";
-import Test from "./pages/Test"
 
-const PumpData = [
-  {
-      id: 1,
-      country_name: 'Vietnam',
-      province_name: 'Daklak'
-  },
-  {
-      id: 2,
-      country_name: 'U.S',
-      province_name: 'CA'
-  },
-  {
-      id: 3,
-      country_name: 'Cambodia',
-      province_name: 'Pnompenh'
-  },
-]
 
 function App() {
   const [searchFiltered, setSearchFiltered] = useState([])
+  const [sensors, setSensors] = useState([])
+
+  useEffect(() => {
+    AxiosWithAuth()
+    .get("https://welldone-db.herokuapp.com/api/sensors")
+    .then(res => 
+        {
+            console.log('get all sensors', res.data)
+            setSensors(res.data)
+        }
+    )
+  })
 
   return (
     <div className="App">
@@ -36,6 +30,7 @@ function App() {
             return <Dashboard {...props} 
                         searchFiltered={searchFiltered} 
                         setSearchFiltered={setSearchFiltered}
+                        sensors={sensors}
                     />
           }} 
         />

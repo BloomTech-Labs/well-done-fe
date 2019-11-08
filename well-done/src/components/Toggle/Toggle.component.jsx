@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import Switch from 'react-switch'
 
-const Toggle = () => {
+const Toggle = props => {
+    console.log('props in Toggle', props)
     const [checked, setChecked] = useState(false)
 
     const handleChange = status => {

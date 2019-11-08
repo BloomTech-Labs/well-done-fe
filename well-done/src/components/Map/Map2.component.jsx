@@ -15,8 +15,6 @@ export default function Map(props){
         zoom: 8
     })
 
-    const [pumps, setPumps] = useState([])
-    // const [sensorPid, setSensorPid] = useState(0)
     const [selectedPump, setSelectedPump] = useState(null)
 
     const zoomInto = () => {
@@ -58,17 +56,6 @@ export default function Map(props){
 
      }, [ ])
 
-    useEffect(() => {
-        AxiosWithAuth()
-        .get("https://welldone-db.herokuapp.com/api/sensors")
-        .then(res => 
-            {
-                console.log('get all sensors', res.data)
-                setPumps(res.data)
-            }
-        )
-    })
-
     return <div>
         <ReactMapGl 
             {...viewport}
@@ -78,16 +65,16 @@ export default function Map(props){
                 setViewport(viewport)
             }}
         >
-            {pumps.map(pump => {
-                if (pump.status == null){
+            {props.sensors.map(sensor => {
+                if (sensor.status == null){
                     return (<Marker
-                        key={pump.id}
-                        latitude={pump.latitude}
-                        longitude={pump.longitude}
+                        key={sensor.id}
+                        latitude={sensor.latitude}
+                        longitude={sensor.longitude}
                         >      
                         <img onClick = { event => {
                             event.preventDefault()
-                            setSelectedPump(pump)
+                            setSelectedPump(sensor)
                         }
                         }
                         class="location-icon" 
@@ -96,15 +83,15 @@ export default function Map(props){
                
                     </Marker>)
                 }
-                else if (pump.status == 0){
+                else if (sensor.status == 0){
                     return (<Marker
-                        key={pump.id}
-                        latitude={pump.latitude}
-                        longitude={pump.longitude}
+                        key={sensor.id}
+                        latitude={sensor.latitude}
+                        longitude={sensor.longitude}
                         >      
                         <img onClick = { event => {
                             event.preventDefault()
-                            setSelectedPump(pump)
+                            setSelectedPump(sensor)
                         }
                         }
                         class="location-icon" 
@@ -113,15 +100,15 @@ export default function Map(props){
                
                     </Marker>)
                 }
-                else if (pump.status == 1){
+                else if (sensor.status == 1){
                     return (<Marker
-                        key={pump.id}
-                        latitude={pump.latitude}
-                        longitude={pump.longitude}
+                        key={sensor.id}
+                        latitude={sensor.latitude}
+                        longitude={sensor.longitude}
                         >      
                         <img onClick = { event => {
                             event.preventDefault()
-                            setSelectedPump(pump)
+                            setSelectedPump(sensor)
                         }
                         }
                         class="location-icon" 
@@ -132,13 +119,13 @@ export default function Map(props){
                 }
                 else {
                     return (<Marker
-                        key={pump.id}
-                        latitude={pump.latitude}
-                        longitude={pump.longitude}
+                        key={sensor.id}
+                        latitude={sensor.latitude}
+                        longitude={sensor.longitude}
                         >      
                         <img onClick = { event => {
                             event.preventDefault()
-                            setSelectedPump(pump)
+                            setSelectedPump(sensor)
                         }
                         }
                         class="location-icon" 
@@ -148,8 +135,6 @@ export default function Map(props){
                     </Marker>)
                 }
             }
-            
-               
                 
             )}
 

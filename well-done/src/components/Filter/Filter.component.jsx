@@ -36,15 +36,15 @@ const Filter = props => {
             <h4>Status</h4>
             <div class="pump-type">
                 <p>Functional</p>
-                <Toggle/>
+                <Toggle sensors={props.sensors}/>
             </div>
             <div class="pump-type">
                 <p>Unknown</p>
-                <Toggle/>
+                <Toggle sensors={props.sensors}/>
             </div>
             <div class="pump-type">
                 <p>Non-Functional</p>
-                <Toggle/>
+                <Toggle sensors={props.sensors}/>
             </div>
         </div>
     )
