@@ -6,7 +6,7 @@ import "./Map.styles.scss"
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
 export default function Map(props){
-    // console.log('props in Map', props)
+    console.log('props in Map', props)
     const [viewport, setViewport] = useState({
         latitude: 13.5651,
         longitude: 104.7538,
@@ -55,6 +55,24 @@ export default function Map(props){
             }
     }
 
+    // function showMarker(sensor, image){
+    //     return // (<Marker
+    //     //     key={sensor.id}
+    //     //     latitude={sensor.latitude}
+    //     //     longitude={sensor.longitude}
+    //     //     >      
+    //     //     <img onClick = { event => {
+    //     //         event.preventDefault()
+    //     //         setSelectedPump(sensor)
+    //     //     }
+    //     //     }
+    //     //     class="location-icon" 
+    //     //     src={image}
+    //     //     alt="location" />
+   
+    //     // </Marker>)
+    // }
+
     useEffect(() => {
         zoomInto()
     }, [props.searchFiltered])
@@ -78,6 +96,10 @@ export default function Map(props){
 
      }, [ ])
 
+     console.log('unknown check toggle status in Map', props.unknownToggle)
+     console.log('nonFunc check toggle status in Map', props.nonFuncToggle)
+     console.log('func check toggle status in Map', props.funcToggle)
+
     return <div>
         <ReactMapGl 
             {...viewport}
@@ -88,7 +110,26 @@ export default function Map(props){
             }}
         >
             {props.sensors.map(sensor => {
-                if (sensor.status == null){
+                if (sensor.status == null && props.nonFuncToggle){
+                    return (<Marker
+                        key={sensor.id}
+                        latitude={sensor.latitude}
+                        longitude={sensor.longitude}
+                        >      
+                        <img onClick = { event => {
+                            event.preventDefault()
+                            setSelectedPump(sensor)
+                        }
+                        }
+                        class="location-icon" 
+                        src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png" 
+                        alt="location" />
+               
+                    </Marker>)
+                    // showMarker(sensor,"https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png")
+                    
+                }
+                else if (sensor.status == 0 && props.nonFuncToggle){
                     return (<Marker
                         key={sensor.id}
                         latitude={sensor.latitude}
@@ -105,24 +146,7 @@ export default function Map(props){
                
                     </Marker>)
                 }
-                else if (sensor.status == 0){
-                    return (<Marker
-                        key={sensor.id}
-                        latitude={sensor.latitude}
-                        longitude={sensor.longitude}
-                        >      
-                        <img onClick = { event => {
-                            event.preventDefault()
-                            setSelectedPump(sensor)
-                        }
-                        }
-                        class="location-icon" 
-                        src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png" 
-                        alt="location" />
-               
-                    </Marker>)
-                }
-                else if (sensor.status == 1){
+                else if (sensor.status == 1 && props.unknownToggle){
                     return (<Marker
                         key={sensor.id}
                         latitude={sensor.latitude}
@@ -139,7 +163,7 @@ export default function Map(props){
                
                     </Marker>)
                 }
-                else {
+                else if (sensor.status == 2 && props.funcToggle){
                     return (<Marker
                         key={sensor.id}
                         latitude={sensor.latitude}

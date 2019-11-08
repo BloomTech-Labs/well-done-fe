@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import {countries} from '../../data/countries'
 import './Filter.styles.scss'
-import Toggle from '../Toggle/Toggle.component'
+import FuncToggle from '../Toggle/FuncToggle.component'
+import NonFuncToggle from '../Toggle/NonFuncToggle.component'
+import UnknownToggle from '../Toggle/UnknownToggle.component'
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
 const Filter = props => {
@@ -36,15 +37,24 @@ const Filter = props => {
             <h4>Status</h4>
             <div class="pump-type">
                 <p>Functional</p>
-                <Toggle sensors={props.sensors}/>
+                <FuncToggle 
+                    sensors={props.sensors}
+                    setFuncToggle={props.setFuncToggle}
+                />
             </div>
             <div class="pump-type">
                 <p>Unknown</p>
-                <Toggle sensors={props.sensors}/>
+                <UnknownToggle 
+                    sensors={props.sensors}
+                    setUnknownToggle={props.setUnknownToggle}
+                />
             </div>
             <div class="pump-type">
                 <p>Non-Functional</p>
-                <Toggle sensors={props.sensors}/>
+                <NonFuncToggle 
+                    sensors={props.sensors}
+                    setNonFuncToggle={props.setNonFuncToggle}
+                />
             </div>
         </div>
     )

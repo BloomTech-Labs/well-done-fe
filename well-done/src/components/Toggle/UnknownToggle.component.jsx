@@ -1,14 +1,17 @@
 import React, {useState} from 'react'
 import Switch from 'react-switch'
 
-const Toggle = props => {
-    console.log('props in Toggle', props)
-    const [checked, setChecked] = useState(false)
+const UnknownToggle = props => {
+    console.log('props in UnknownToggle', props)
+    const [checked, setChecked] = useState(true)
 
     const handleChange = status => {
-        console.log('here', status)
+        console.log('here in UnknownToggle', status)
         setChecked(status)
+        // alert('dangerous')
+        props.setUnknownToggle(status)
     }
+
 
     return (
         <div>
@@ -23,4 +26,4 @@ const Toggle = props => {
     )
 }
 
-export default Toggle
+export default UnknownToggle
