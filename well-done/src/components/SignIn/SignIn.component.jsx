@@ -4,8 +4,6 @@ import "./SignIn.styles.scss";
 
 const SignIn = props => {
   console.log('props in SignIn', props)
-  // const [email, setEmail] = useState("")
-  // const [password, setPassword] = useState("")
   const [account, setAccount] = useState({email_address: "", password: ""})
 
   const handleChange = event => {
@@ -22,6 +20,9 @@ const SignIn = props => {
           localStorage.setItem('token', res.data.token)
           localStorage.setItem('userId', res.data.id)
           props.history.push('/dashboard')
+        })
+        .catch(err => {
+          console.log(err)
         })
   }
   
