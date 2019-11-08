@@ -35,19 +35,19 @@ const Menu = (props) => {
                 <div class="overlay-content">
                     <div class="eachNav">
                         <IoIosHome size={25} />
-                        <a href="#">Home</a>
+                        <a href="/dashboard">Home</a>
                     </div>
                     <div class="eachNav">
                         <IoMdCreate size={25}/>
-                        <a href="#">Monitor</a>
+                        <a href="/monitor">Monitor</a>
                     </div>
                     <div class="eachNav">
                         <IoIosKey size={25}/>
-                        <a href="#">Admin</a>
+                        <a href="/admin">Admin</a>
                     </div>
                     <div class="eachNav">
                         <IoIosSettings size={25}/>
-                        <a href="#">Setting</a>
+                        <a href="/setting">Setting</a>
                     </div>
                 </div>
             </div>
