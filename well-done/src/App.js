@@ -18,7 +18,7 @@ function App() {
             setSensors(res.data)
         }
     )
-  })
+  }, [ ])
 
   return (
     <div className="App">

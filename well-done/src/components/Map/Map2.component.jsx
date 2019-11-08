@@ -20,16 +20,38 @@ export default function Map(props){
     const zoomInto = () => {
         console.log('checkkk', props.searchFiltered[0])
         // props.searchFiltered[0].map(place => {
-        if(props.searchFiltered.length !== 0) {
-        const searchedPlace = {
-                    latitude: Math.floor(props.searchFiltered[0].latitude),
-                    longitude: Math.floor(props.searchFiltered[0].longitude),
+        if(props.searchFiltered.length == 1){
+            const searchedPlace = {
+                latitude: props.searchFiltered[0].latitude,
+                longitude: props.searchFiltered[0].longitude,
+                width: "100vw",
+                height: "100vh",
+                zoom: 20
+            }
+            console.log('searchPlace one', searchedPlace)
+            setViewport(searchedPlace)  
+        }
+        else if(props.searchFiltered.length > 1) {
+            function avgCoordinate(arr){
+                var totalLat = 0
+                var totalLon = 0
+                for (let i=0; i<arr.length; i++){
+                    totalLat += arr[i].latitude
+                    totalLon += arr[i].longitude
+                }
+                const avgLat = totalLat/arr.length;
+                const avgLon = totalLon/arr.length;
+                return [avgLat, avgLon]
+            }
+            const searchedPlace = {
+                    latitude: avgCoordinate(props.searchFiltered)[0],
+                    longitude: avgCoordinate(props.searchFiltered)[1],
                     width: "100vw",
                     height: "100vh",
-                    zoom: 8
+                    zoom: 15
                 }
-        console.log('searchPlace', searchedPlace)
-        setViewport(searchedPlace)
+            console.log('searchPlace many', searchedPlace)
+            setViewport(searchedPlace)
             }
     }
 
