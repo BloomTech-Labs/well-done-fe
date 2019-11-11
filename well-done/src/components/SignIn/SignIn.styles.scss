@@ -3,6 +3,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow:hidden;
 
     h1{
         margin-top: 30px
@@ -13,17 +16,19 @@
         flex-direction: column;
         // margin-left: 20px;
         align-items: center;
+        align-self: center;
         margin-top: 120px;
+        width: 100%;
     
         label {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            margin-left: -80px;
+            align-items: center;
+            // margin-left: -80px;
     
             input {
                 margin: 10px 0 10px 0;
-                width: 150%;
+                width: 200%;
                 height: 25px
             }
         }
@@ -31,10 +36,11 @@
         button {
             border-radius: 8px;
             background-color: #027EF3;
-            width: 100%;
+            width: 30%;
             padding: 5px 15px 5px 15px;
             color: white;
             font-size: 16px;
+            margin-top: 20px;
         }
     }
     
