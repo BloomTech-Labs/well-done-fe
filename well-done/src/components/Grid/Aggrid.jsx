@@ -29,33 +29,33 @@ class Grid extends Component {
         },
         {
           headerName: "Country",
-          field: "country",
+          field: "pumps.country_name",
           sortable: true,
           filter: true,
           width: 90
         },
         {
           headerName: "Province",
-          field: "province",
+          field: "pumps.province",
           sortable: true,
           filter: true,
           width: 90
         },
         {
           headerName: "District",
-          field: "district",
+          field: "pumps.district",
           sortable: true,
           width: 90
         },
         {
           headerName: "Commune",
-          field: "commune",
+          field: "pumps.commune",
           sortable: true,
           width: 90
         },
         {
           headerName: "Village",
-          field: "village",
+          field: "pumps.village",
           sortable: true,
           width: 90
         },
