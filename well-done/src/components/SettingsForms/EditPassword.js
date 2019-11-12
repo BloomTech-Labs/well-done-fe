@@ -2,6 +2,8 @@ import React, { useState } from "react";
 // import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
 import { Button, Form } from "react-bootstrap";
+import "../../pages/Settings/Settings.scss";
+
 const EditPassword = props => {
   console.log(props);
   const [password, setPassword] = useState({
@@ -46,51 +48,57 @@ const EditPassword = props => {
         <div className="edit-form">
           <Form onSubmit={handleSubmit}>
             {/* Email input  */}
-            <Form.Group className="form-group">
-              <Form.Label>Email </Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                className="input"
-                onChange={changeHandler}
-                value={password.email}
-              />
+            <Form.Group className="email-row">
+              <Form.Group className="form-group">
+                <Form.Label>Email </Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  className="input"
+                  onChange={changeHandler}
+                  value={password.email}
+                />
+              </Form.Group>
+              {/* Password input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  className="input"
+                  onChange={changeHandler}
+                  value={password.password}
+                />
+              </Form.Group>
             </Form.Group>
-            {/* Password input  */}
-            <Form.Group className="form-group">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                className="input"
-                onChange={changeHandler}
-                value={password.password}
-              />
-            </Form.Group>
+
             {/* New password input  */}
-            <Form.Group className="form-group">
-              <Form.Label>New Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="newPassword"
-                className="input"
-                onChange={changeHandler}
-                value={password.newPassword}
-              />
+            <Form.Group className="row-2">
+              <Form.Group className="form-group">
+                <Form.Label>New Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="newPassword"
+                  className="input"
+                  onChange={changeHandler}
+                  value={password.newPassword}
+                />
+              </Form.Group>
+              {/* Confirm new password input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Confirm New Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="confirmNewPassword"
+                  className="input"
+                  onChange={changeHandler}
+                  value={password.confirmNewPassword}
+                />
+              </Form.Group>
             </Form.Group>
-            {/* Confirm new password input  */}
-            <Form.Group className="form-group">
-              <Form.Label>Confirm New Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="confirmNewPassword"
-                className="input"
-                onChange={changeHandler}
-                value={password.confirmNewPassword}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Change Password
+
+            <Button variant="primary" type="submit" className="update-btn">
+              <div className="btn-text">Change Password</div>
             </Button>
           </Form>
         </div>

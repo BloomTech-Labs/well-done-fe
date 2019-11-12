@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import { Button, Form } from "react-bootstrap";
+import "../../pages/Settings/Settings.scss";
 const EditName = props => {
   console.log(props);
   const [name, setName] = useState({
@@ -47,51 +48,57 @@ const EditName = props => {
         <div className="edit-form">
           <Form onSubmit={handleSubmit}>
             {/* Email input  */}
-            <Form.Group className="form-group">
-              <Form.Label>Email </Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                className="input"
-                onChange={changeHandler}
-                value={name.email}
-              />
+            <Form.Group className="email-row">
+              <Form.Group className="form-group">
+                <Form.Label>Email </Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  className="input"
+                  onChange={changeHandler}
+                  value={name.email}
+                />
+              </Form.Group>
+              {/* Password input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  className="input"
+                  onChange={changeHandler}
+                  value={name.password}
+                />
+              </Form.Group>
             </Form.Group>
-            {/* Password input  */}
-            <Form.Group className="form-group">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                className="input"
-                onChange={changeHandler}
-                value={name.password}
-              />
-            </Form.Group>
+
             {/* New name input  */}
-            <Form.Group className="form-group">
-              <Form.Label>New Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="newName"
-                className="input"
-                onChange={changeHandler}
-                value={name.newName}
-              />
+            <Form.Group className="row-2">
+              <Form.Group className="form-group">
+                <Form.Label>New Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="newName"
+                  className="input"
+                  onChange={changeHandler}
+                  value={name.newName}
+                />
+              </Form.Group>
+              {/* Confirm new name input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Confirm New Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="confirmNewName"
+                  className="input"
+                  onChange={changeHandler}
+                  value={name.confirmNewName}
+                />
+              </Form.Group>
             </Form.Group>
-            {/* Confirm new name input  */}
-            <Form.Group className="form-group">
-              <Form.Label>Confirm New Name</Form.Label>
-              <Form.Control
-                type="text"
-                name="confirmNewName"
-                className="input"
-                onChange={changeHandler}
-                value={name.confirmNewName}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Change Name
+
+            <Button variant="primary" type="submit" className="update-btn">
+              <div className="btn-text">Change Name</div>
             </Button>
           </Form>
         </div>

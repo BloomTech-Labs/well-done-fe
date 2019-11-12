@@ -2,6 +2,8 @@ import React, { useState } from "react";
 // import axiosWithAuth from "../../utils/axiosWithAuth";
 import axios from "axios";
 import { Button, Form, FormGroup } from "react-bootstrap";
+import "../../pages/Settings/Settings.scss";
+
 const EditEmail = props => {
   console.log(props);
   const [email, setEmail] = useState({
@@ -47,51 +49,57 @@ const EditEmail = props => {
         <div className="edit-form">
           <Form onSubmit={handleSubmit}>
             {/* Email input  */}
-            <Form.Group className="form-group">
-              <Form.Label>Email </Form.Label>
-              <Form.Control
-                type="email"
-                name="email"
-                className="input"
-                onChange={changeHandler}
-                value={email.email}
-              />
+            <Form.Group className="email-row">
+              <Form.Group className="form-group">
+                <Form.Label>Email </Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  className="input"
+                  onChange={changeHandler}
+                  value={email.email}
+                />
+              </Form.Group>
+              {/* Password input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  className="input"
+                  onChange={changeHandler}
+                  value={email.password}
+                />
+              </Form.Group>
             </Form.Group>
-            {/* Password input  */}
-            <Form.Group className="form-group">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                className="input"
-                onChange={changeHandler}
-                value={email.password}
-              />
-            </Form.Group>
+
             {/* New email input  */}
-            <Form.Group className="form-group">
-              <Form.Label>New Email</Form.Label>
-              <Form.Control
-                type="email"
-                name="newEmail"
-                className="input"
-                onChange={changeHandler}
-                value={email.newEmail}
-              />
+            <Form.Group className="row-2">
+              <Form.Group className="form-group">
+                <Form.Label>New Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="newEmail"
+                  className="input"
+                  onChange={changeHandler}
+                  value={email.newEmail}
+                />
+              </Form.Group>
+              {/* Confirm new email input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Confirm New Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="confirmNewEmail"
+                  className="input"
+                  onChange={changeHandler}
+                  value={email.confirmNewEmail}
+                />
+              </Form.Group>
             </Form.Group>
-            {/* Confirm new email input  */}
-            <Form.Group className="form-group">
-              <Form.Label>Confirm New Email</Form.Label>
-              <Form.Control
-                type="email"
-                name="confirmNewEmail"
-                className="input"
-                onChange={changeHandler}
-                value={email.confirmNewEmail}
-              />
-            </Form.Group>
-            <Button variant="primary" type="submit">
-              Change Email
+
+            <Button variant="primary" type="submit" className="update-btn">
+              <div className="btn-text">Change Email</div>
             </Button>
           </Form>
         </div>
