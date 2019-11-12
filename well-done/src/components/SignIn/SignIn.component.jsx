@@ -3,7 +3,7 @@ import axios from 'axios'
 import "./SignIn.styles.scss";
 
 const SignIn = props => {
-  console.log('props in SignIn', props)
+  // console.log('props in SignIn', props)
   const [account, setAccount] = useState({email_address: "", password: ""})
 
   const handleChange = event => {

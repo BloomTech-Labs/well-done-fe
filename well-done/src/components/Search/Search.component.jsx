@@ -4,11 +4,11 @@ import './Search.styles.scss'
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
 const Search = (props) => {
-    console.log('props in Search', props)
+    // console.log('props in Search', props)
     const [pumps, setPumps] = useState([])
     // const [searchValue, setSearchValue] = useState("")
 
-    console.log('props in Search', props)
+    // console.log('props in Search', props)
 
     useEffect(() => {
         AxiosWithAuth()

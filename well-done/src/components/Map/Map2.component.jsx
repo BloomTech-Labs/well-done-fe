@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import ReactMapGl, {Marker, Popup} from 'react-map-gl'
-import * as ChicagoPark from '../../chicago-parks.json'
 import "./Map.styles.scss"
-// import Axios from 'axios';
-import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
+import StatusSpread from '../StatusSpread/statusSpread.component'
 
 export default function Map(props){
-    console.log('props in Map', props)
+    // console.log('props in Map', props)
     // const [viewport, setViewport] = useState({
     //     latitude: 13.5651,
     //     longitude: 104.7538,
@@ -202,6 +200,7 @@ export default function Map(props){
                     setSelectedPump(null)
                 }}
                 >
+                    <StatusSpread selectedPump={selectedPump}/>
                     <div>
                         <h2>{selectedPump.country_name}</h2>
                         {/* <p>{selectedPump.province_name}</p> */}
