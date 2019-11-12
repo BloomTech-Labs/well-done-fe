@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import AxiosWithAuth from './components/AxiosWithAuth/axiosWithAuth'
 import Landing from "./pages/Landing.jsx";
 import Dashboard from "./pages/Dashboard";
-
+import Grid from "./components/Grid/Aggrid"
 
 function App() {
   const [searchFiltered, setSearchFiltered] = useState([])
@@ -32,9 +32,11 @@ function App() {
                         setSearchFiltered={setSearchFiltered}
                         sensors={sensors}
                     />
+                    
           }} 
         />
-       
+        <Route path="/grid" component={Grid}/>
+    
       </Switch>
     </div>
   );
