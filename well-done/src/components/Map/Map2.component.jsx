@@ -201,11 +201,10 @@ export default function Map(props){
                 }}
                 >
                     <StatusSpread selectedPump={selectedPump}/>
-                    <div>
+                    {/* <div>
                         <h2>{selectedPump.country_name}</h2>
-                        {/* <p>{selectedPump.province_name}</p> */}
                         <p>Pump # {selectedPump.sensor_pid}</p>
-                    </div>
+                    </div> */}
                 </Popup>
             ) : null}
 
