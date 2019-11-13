@@ -4,7 +4,7 @@ import EditEmail from "../../components/SettingsForms/EditEmail";
 import EditPassword from "../../components/SettingsForms/EditPassword";
 // import Menu from "../../components/Menu/Menu.component";
 import StaticMenu from "../../components/Menu/StaticMenu";
-import Menu from "../../components/Menu/Menu.component";
+import MobileNavBar from "../../components/Menu/MobileNavBar";
 import "./Settings.scss";
 const Settings = () => {
   return (
@@ -12,13 +12,15 @@ const Settings = () => {
       <div className="static-menu">
         <StaticMenu />
       </div>
-      <div className="hamburga-menu">
-        <Menu />
-      </div>
-      <div className="forms">
-        <EditNameForm />
-        <EditEmail />
-        <EditPassword />
+      <div className="mobile-view">
+        <div className="hamburga-menu">
+          <MobileNavBar />
+        </div>
+        <div className="forms">
+          <EditNameForm />
+          <EditEmail />
+          <EditPassword />
+        </div>
       </div>
     </div>
   );

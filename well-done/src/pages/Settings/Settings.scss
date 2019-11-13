@@ -79,6 +79,22 @@
 }
 
 // MOBILE VIEW
+
+.mobile-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-nav-container {
+  display: flex;
+  background-color: #082b84;
+}
+.mobile-nav-bar {
+  background-color: #082b84;
+  width: 90vh;
+}
+
 @media (max-width: 500px) {
   .form-container-name {
     display: none !important;
@@ -91,5 +107,14 @@
 @media (max-width: 500px) {
   .static-menu {
     display: none !important;
+  }
+}
+
+// DESKTOP VIEW
+
+.hamburga-menu {
+  display: none;
+  @media (max-width: 500px) {
+    display: flex;
   }
 }

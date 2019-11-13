@@ -4,7 +4,7 @@
   z-index: 1;
 
   span {
-    background: #082b84;
+    background: white;
     width: 30px;
     height: 5px;
     display: block;
@@ -20,7 +20,7 @@
   top: 0;
   left: 0;
   // background-color: #082B84;
-  background-color: #082b84;
+  background-color: #051b52;
   overflow-x: hidden;
   transition: 0.5s;
 
@@ -33,10 +33,11 @@
   }
 
   .intro {
-    background-color: #082b84;
+    background-color: #051b52;
     width: 214px;
     height: 725px;
     color: #ffffff;
+
     position: absolute;
     // padding: 30px;
 
@@ -52,13 +53,13 @@
 
     span {
       background-color: rgba(255, 255, 255, 0.8);
+
       display: block;
-      width: 214px;
+      width: 100vh;
       height: 1px;
     }
 
     .logo {
-      // width: 80%;
       margin: -20px 0 10px 20px;
       width: 170.81px;
       height: 35.61px;
