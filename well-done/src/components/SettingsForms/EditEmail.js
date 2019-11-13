@@ -41,8 +41,8 @@ const EditEmail = props => {
   };
 
   return (
-    <div className="form-container">
-      <div className="form-wrap">
+    <div className="form-container-email">
+      <div className="form-wrap-email">
         <h1 className="update-header"> Change Email</h1>
       </div>
       <div>

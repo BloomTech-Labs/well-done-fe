@@ -40,7 +40,7 @@ const EditName = props => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container-name">
       <div className="form-wrap">
         <h1 className="update-header-name"> Change Name </h1>
       </div>

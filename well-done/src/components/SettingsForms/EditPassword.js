@@ -41,7 +41,7 @@ const EditPassword = props => {
 
   return (
     <div className="form-container">
-      <div className="form-wrap">
+      <div className="form-wrap-password">
         <h1 className="update-header"> Change Password</h1>
       </div>
       <div>
