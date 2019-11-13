@@ -98,7 +98,7 @@ const EditPassword = props => {
             </Form.Group>
 
             <Button variant="primary" type="submit" className="update-btn">
-              <div className="btn-text">Change Password</div>
+              <div className="btn-text-password">Change Password</div>
             </Button>
           </Form>
         </div>

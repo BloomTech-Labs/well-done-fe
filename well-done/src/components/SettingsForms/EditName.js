@@ -42,7 +42,7 @@ const EditName = props => {
   return (
     <div className="form-container">
       <div className="form-wrap">
-        <h1 className="update-header"> Change Name </h1>
+        <h1 className="update-header-name"> Change Name </h1>
       </div>
       <div>
         <div className="edit-form">
@@ -50,7 +50,7 @@ const EditName = props => {
             {/* Email input  */}
             <Form.Group className="email-row">
               <Form.Group className="form-group">
-                <Form.Label>Email </Form.Label>
+                <Form.Label className="form-label">Email </Form.Label>
                 <Form.Control
                   type="email"
                   name="email"

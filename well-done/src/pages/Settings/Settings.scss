@@ -7,19 +7,30 @@
   .forms {
     display: flex;
     flex-direction: column;
-    margin-left: 18rem;
+    margin-left: 10rem;
     // position: relative;
 
     border: 1px solid red;
-    // width: 50%;
+    width: 35rem;
   }
 }
 
 .update-header {
-  margin-top: 5%;
+  //   margin-top: 5%;
   font-family: Open sans-serif;
-  font-size: 1.75rem;
-  line-height: 1.75rem;
+  font-size: 1.3rem;
+  //   line-height: 1.75rem;
+  margin-left: 10%;
+  padding-bottom: 2%;
+}
+
+.update-header-name {
+  margin-top: 4%;
+  font-family: Open sans-serif;
+  font-size: 1.3rem;
+  //   line-height: 1.75rem;
+  margin-left: 10%;
+  padding-bottom: 2%;
 }
 
 .edit-form {
@@ -29,16 +40,23 @@
   .email-row {
     display: flex;
     flex-direction: row;
-
+    justify-content: space-evenly;
     .form-group {
       display: flex;
       flex-direction: column;
+      //   padding: 3%;
     }
   }
-
+  .form-label {
+    font-size: .9rem;
+  }
+  .input {
+    height: 1.75rem;
+  }
   .row-2 {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
   }
 
   .update-btn {
@@ -46,17 +64,24 @@
 
     // position: relative;
     margin-left: 60%;
-    height: 3rem;
-    width: 40%;
+    height: 2rem;
+    width: 25%;
     // font-size: 1rem;
 
     .btn-text {
-      font-size: 1rem;
+      font-size: 0.9rem;
       display: flex;
-      //   justify-content: center;
-      //   align-items: center;
-      margin-left: 5%;
+
+      margin-left: 12.5%;
       font-family: Bookman;
+    }
+    .btn-text-password {
+      font-size: 0.9rem;
+      display: flex;
+      margin-left: 3%;
+      font-family: Bookman;
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 }
