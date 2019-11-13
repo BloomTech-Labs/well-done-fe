@@ -7,6 +7,7 @@ import "ag-grid-community/dist/styles/ag-theme-balham.css";
 import gridOptions from "./Pagination";
 // import axios from 'axios';
 // import { axiosWithAuth } from '../src/utilities/axiosWithAuth';
+import AxiosWithAuth from "../AxiosWithAuth/axiosWithAuth";
 
 class Grid extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Grid extends Component {
       columnDefs: [
         {
           headerName: "SensorID",
-          field: "sensor_pid",
+          field: "physical_id",
           sortable: true,
           filter: true,
           width: 90
@@ -29,76 +30,70 @@ class Grid extends Component {
         },
         {
           headerName: "Country",
-          field: "pumps.country_name",
+          field: "country_name",
           sortable: true,
           filter: true,
           width: 90
         },
         {
           headerName: "Province",
-          field: "pumps.province",
+          field: "province_name",
           sortable: true,
           filter: true,
           width: 90
         },
         {
           headerName: "District",
-          field: "pumps.district",
+          field: "district_name",
           sortable: true,
           width: 90
         },
         {
           headerName: "Commune",
-          field: "pumps.commune",
+          field: "commune_name",
           sortable: true,
           width: 90
         },
-        {
-          headerName: "Village",
-          field: "pumps.village",
-          sortable: true,
-          width: 90
-        },
-        {
-          headerName: "Last Upload",
-          field: "last_upload",
-          sortable: true,
-          width: 90,
-          type: "numericColumn"
-        },
-        {
-          headerName: "Depth",
-          field: "depth",
-          sortable: true,
-          width: 90,
-          type: "numericColumn"
-        },
-        {
-          headerName: "Constructed",
-          field: "constructed",
-          sortable: true,
-          width: 90
-        },
-        {
-          headerName: "Cellular",
-          field: "cellular",
-          sortable: true,
-          width: 90
-        },
-        {
-          headerName: "Liters/Day",
-          field: "liters_day",
-          sortable: true,
-          width: 90,
-          type: "numericColumn"
-        },
-        {
-          headerName: "Liters/Week",
-          field: "liters_week",
-          sortable: true,
-          width: 90,
-          type: "numericColumn"
-        }
+        // {
+        //   headerName: "Last Upload",
+        //   field: "last_upload",
+        //   sortable: true,
+        //   width: 90,
+        //   type: "numericColumn"
+        // },
+        // {
+        //   headerName: "Depth",
+        //   field: "depth",
+        //   sortable: true,
+        //   width: 90,
+        //   type: "numericColumn"
+        // },
+        // {
+        //   headerName: "Constructed",
+        //   field: "constructed",
+        //   sortable: true,
+        //   width: 90
+        // },
+        // {
+        //   headerName: "Cellular",
+        //   field: "cellular",
+        //   sortable: true,
+        //   width: 90
+        // }
+        // {
+        //   headerName: "Liters/Day",
+        //   field: "liters_day",
+        //   sortable: true,
+        //   width: 90,
+        //   type: "numericColumn"
+        // },
+        // {
+        //   headerName: "Liters/Week",
+        //   field: "liters_week",
+        //   sortable: true,
+        //   width: 90,
+        //   type: "numericColumn"
+        // }
       ]
     };
   }
@@ -110,21 +105,26 @@ class Grid extends Component {
   // }
 
   componentDidMount() {
-    fetch("http://welldone-db.herokuapp.com/api/sensors/details",
-    { 
+    
+    const token = localStorage.getItem('token');
+    console.log(token);
+    fetch("https://welldone-db.herokuapp.com/api/sensors", {
       method: "GET",
+      mode: 'cors',
+      // credentials: "same-origin",
       headers: {
-      "Content-Type": "application/json",
-     credentials:"same-origin"
-  }
-})
+        "Content-Type": "application/json",
+        Authorization: `${token}`
+      }
+    })
       .then(result => result.json())
-      .then(rowData => this.setState({ rowData }));
+      .then(rowData => this.setState({ rowData }))
+      // .then(rowData =>  console.log(rowData))
+      .catch(err => console.log(err));
   }
-
 
   // STATUSCARD from Josh for colors.
-
+ 
   render() {
     return (
       <div
@@ -140,7 +140,7 @@ class Grid extends Component {
           gridOptions={gridOptions}
         ></AgGridReact>
       </div>
-    ); 
+    );
   }
 }
 
