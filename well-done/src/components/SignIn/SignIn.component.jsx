@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-
+import axios from 'axios'
 import "./SignIn.styles.scss";
 
-const SignIn = () => {
-  // const [email, setEmail] = useState("")
-  // const [password, setPassword] = useState("")
-  const [account, setAccount] = useState({email: "", password: ""})
+const SignIn = props => {
+  // console.log('props in SignIn', props)
+  const [account, setAccount] = useState({email_address: "", password: ""})
 
   const handleChange = event => {
     setAccount({...account,[event.target.name]: event.target.value})
@@ -14,19 +13,30 @@ const SignIn = () => {
   const handleSubmit = event => {
     event.preventDefault()
     console.log('submit', account)
+    axios
+        .post('https://welldone-db.herokuapp.com/api/auth/login', account)
+        .then(res => {
+          console.log('res', res.data)
+          localStorage.setItem('token', res.data.token)
+          localStorage.setItem('userId', res.data.id)
+          props.history.push('/dashboard')
+        })
+        .catch(err => {
+          console.log(err)
+        })
   }
   
 
   return (
-    <div class="body">
-      <h1>Wellcome </h1>
+    <div className="body">
+      <h1>Welcome </h1>
       <form onSubmit={handleSubmit} >
         <label>Email
           <input
             type="email"
-            name="email"
+            name="email_address"
             placeholder="Email Address"
-            value={account.email}
+            value={account.email_address}
             // onChange= {event => {
             //   setEmail(event.target.value)
             // }}
