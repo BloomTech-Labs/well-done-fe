@@ -4,7 +4,8 @@ import AxiosWithAuth from './components/AxiosWithAuth/axiosWithAuth'
 import Landing from "./pages/Landing.jsx";
 import Dashboard from "./pages/Dashboard";
 import MonitorDetails from './pages/MonitorDetail'
-
+import Grid from "./components/Grid/Aggrid"
+import Monitors from "./pages/MonitorsPage";
 
 function App() {
   const [searchFiltered, setSearchFiltered] = useState([])
@@ -33,6 +34,7 @@ function App() {
                         setSearchFiltered={setSearchFiltered}
                         sensors={sensors}
                     />
+                    
           }} 
         />
         <Route 
@@ -43,6 +45,9 @@ function App() {
                     />
           }} 
         />
+        <Route path="/grid" component={Grid}/>
+        <Route path="/hello" component={Monitors}/>
+    
       </Switch>
     </div>
   );
