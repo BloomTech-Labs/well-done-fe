@@ -28,7 +28,7 @@ const SignIn = props => {
   
 
   return (
-    <div class="body">
+    <div className="body">
       <h1>Welcome </h1>
       <form onSubmit={handleSubmit} >
         <label>Email

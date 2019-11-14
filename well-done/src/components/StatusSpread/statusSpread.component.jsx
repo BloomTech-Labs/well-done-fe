@@ -1,85 +1,40 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 import './statusSpread.styles.scss'
 
-const statusData = [
-    {
-        status: 2
-    },
-    {
-        status: 1
-    },
-    {
-        status: 2
-    },
-    {
-        status: 2
-    },
-    {
-        status: 2
-    },
-    {
-        status: 1
-    },
-    {
-        status: 2
-    },
-    {
-        status: 2
-    },
-    {
-        status: 1
-    },
-    {
-        status: 1
-    },
-    {
-        status: 1
-    },
-    {
-        status: 1
-    },
-    {
-        status: 0
-    },
-    {
-        status: 0
-    },
-    {
-        status: 0
-    },
-    {
-        status: 0
-    },
-    {
-        status: 2
-    },
-]
 
 const StatusSpread = props => {
     console.log('props in StatusSpread', props)
+    const [history, setHistory] = useState([])
 
-    // useEffect(() => {
-    //     AxiosWithAuth()
-    //             .get(`https://welldone-db.herokuapp.com/api/sensors/histories/${props.selectedPump.physical_id}`)
-    //             .then(res => {
-    //                 console.log(res.data)
-    //             })
+    useEffect(() => {
+        AxiosWithAuth()
+                .get(`https://welldone-db.herokuapp.com/api/sensors/sensor_id/${props.selectedPump.sensor_pid}`)
+                .then(res => {
+                    console.log('sensor history', res.data)
+                    setHistory(res.data)
+                })
+                .catch(err => {
+                    console.log(err.message)
+                })
 
-    // })
+    }, [ ])
 
     return (
-        <div>
-            <div class="spread">
-                {statusData.map(data => {
-                    if (data.status == 0){return <div class="spread-red"></div>}
-                    else if (data.status == 1){return <div class="spread-yellow"></div>}
-                    else if (data.status == 2){return <div class="spread-green"></div>}
-                })}
+        <div className="popupCard">
+            <p className="pump_num">Pump # {props.selectedPump.sensor_pid}</p>
+            <div className="pump_info">
+                <div className="spread">
+                    {history.map(data => {
+                        if (data.status == null || data.status == 0){return <div key={data.history_index} className="spread-red"></div>}
+                        else if (data.status == 1){return <div key={data.history_index} className="spread-yellow"></div>}
+                        else if (data.status == 2){return <div key={data.history_index} className="spread-green"></div>}
+                    })}
+                </div>
+                <h3>{props.selectedPump.country_name}</h3>
+                <p className="province_name">{props.selectedPump.province_name}</p> 
             </div>
-            <h2>{props.selectedPump.country_name}</h2>
-            {/* <p>{selectedPump.province_name}</p> */}
-            <p>Pump # {props.selectedPump.sensor_pid}</p>
+           
 
         </div>
     )

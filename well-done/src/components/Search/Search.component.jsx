@@ -40,14 +40,10 @@ const Search = (props) => {
                 zoom: 8
             })
         }
-        // if (searchValue.length === 0) {
-        //     let filtered = pumps.filter(pump => pump)
-        //     props.setSearchFiltered(filtered)
-        // }
     }
 
     return (
-        <div class="search">
+        <div className="search">
             {/* <h1>Test the search bar</h1> */}
             <input 
                 // class="search"
@@ -55,7 +51,7 @@ const Search = (props) => {
                 placeholder="Search location or sensor physical ID"
                 onChange={handleChange}
             />
-            <div class="filtered">
+            <div className="filtered">
             {props.searchFiltered.map(place =>
                 (<h2>{place.country_name}</h2>))}
             </div>

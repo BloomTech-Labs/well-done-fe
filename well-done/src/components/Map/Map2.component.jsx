@@ -4,14 +4,6 @@ import "./Map.styles.scss"
 import StatusSpread from '../StatusSpread/statusSpread.component'
 
 export default function Map(props){
-    // console.log('props in Map', props)
-    // const [viewport, setViewport] = useState({
-    //     latitude: 13.5651,
-    //     longitude: 104.7538,
-    //     width: "100vw",
-    //     height: "100vh",
-    //     zoom: 8
-    // })
 
     const [selectedPump, setSelectedPump] = useState(null)
 
@@ -33,7 +25,7 @@ export default function Map(props){
                 longitude: props.searchFiltered[0].longitude,
                 width: "100vw",
                 height: "100vh",
-                zoom: 20
+                zoom: 11
             }
             console.log('searchPlace one', searchedPlace)
             props.setViewport(searchedPlace)  
@@ -55,31 +47,13 @@ export default function Map(props){
                     longitude: avgCoordinate(props.searchFiltered)[1],
                     width: "100vw",
                     height: "100vh",
-                    zoom: 15
+                    zoom: 11
                 }
             console.log('searchPlace many', searchedPlace)
             props.setViewport(searchedPlace)
             }
         
     }
-
-    // function showMarker(sensor, image){
-    //     return // (<Marker
-    //     //     key={sensor.id}
-    //     //     latitude={sensor.latitude}
-    //     //     longitude={sensor.longitude}
-    //     //     >      
-    //     //     <img onClick = { event => {
-    //     //         event.preventDefault()
-    //     //         setSelectedPump(sensor)
-    //     //     }
-    //     //     }
-    //     //     class="location-icon" 
-    //     //     src={image}
-    //     //     alt="location" />
-   
-    //     // </Marker>)
-    // }
 
     useEffect(() => {
         zoomInto()
@@ -194,6 +168,7 @@ export default function Map(props){
 
             {selectedPump ? (
                 <Popup
+                className = "popup"
                 latitude={selectedPump.latitude}
                 longitude={selectedPump.longitude}
                 onClose={() => {
@@ -201,10 +176,6 @@ export default function Map(props){
                 }}
                 >
                     <StatusSpread selectedPump={selectedPump}/>
-                    {/* <div>
-                        <h2>{selectedPump.country_name}</h2>
-                        <p>Pump # {selectedPump.sensor_pid}</p>
-                    </div> */}
                 </Popup>
             ) : null}
 
