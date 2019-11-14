@@ -52,7 +52,6 @@ export default function Map(props){
             console.log('searchPlace many', searchedPlace)
             props.setViewport(searchedPlace)
             }
-        
     }
 
     useEffect(() => {

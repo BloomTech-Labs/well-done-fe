@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
+import {Link} from 'react-router-dom'
 import './statusSpread.styles.scss'
 
 
@@ -18,7 +19,7 @@ const StatusSpread = props => {
                     console.log(err.message)
                 })
 
-    }, [ ])
+    }, [props.selectedPump])
 
     return (
         <div className="popupCard">
@@ -33,6 +34,7 @@ const StatusSpread = props => {
                 </div>
                 <h3>{props.selectedPump.country_name}</h3>
                 <p className="province_name">{props.selectedPump.province_name}</p> 
+                <Link to="/monitorDetails">Details</Link>
             </div>
            
 

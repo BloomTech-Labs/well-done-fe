@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import AxiosWithAuth from './components/AxiosWithAuth/axiosWithAuth'
 import Landing from "./pages/Landing.jsx";
 import Dashboard from "./pages/Dashboard";
+import MonitorDetails from './pages/MonitorDetail'
 
 
 function App() {
@@ -34,7 +35,14 @@ function App() {
                     />
           }} 
         />
-       
+        <Route 
+          path="/monitorDetails" 
+          render={props => {
+            return <MonitorDetails {...props} 
+                        sensors={sensors}
+                    />
+          }} 
+        />
       </Switch>
     </div>
   );
