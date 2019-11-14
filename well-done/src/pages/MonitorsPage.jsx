@@ -1,15 +1,5 @@
-import React from "react";
+// import "./Home.styles.scss";
 
-import "./Home.styles.scss";
-import Grid from "../components/Grid/Aggrid";
-
-
-const Monitors = () => {
-  return 
-  <Grid />
-};
-
-export default Monitors;
 
 
 import React, { useState, useEffect } from "react"
@@ -31,7 +21,7 @@ export default function Monitors({ pumps }) {
 
   return (
     <div className={css({ width: "100%", backgroundColor: '#F3F7FC', height: '100vh', display: 'flex' })}>
-      <Nav />
+      {/* <Nav /> */}
       <div className={css({ width: '100%', padding: "20px 20px", maxWidth: 1240, margin: "0 auto" })}>
         {/* Card Section */}
         <div>
@@ -96,7 +86,7 @@ export default function Monitors({ pumps }) {
               })}>
               <BlankCard style={{ padding: "10px " }}>
                 {/* <Map pumps={pumps} setModalId={setModalId} /> */}
-                <h2 className={css({ textAlign: 'center'})}>**AG-Grid Here**</h2>
+                <h2 className={css({ textAlign: 'center'})}><Grid/></h2>
               </BlankCard>
             </div>
             {/* End AG-Grid Section */}
