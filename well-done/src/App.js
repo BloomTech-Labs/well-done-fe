@@ -20,7 +20,7 @@ function App() {
             setSensors(res.data)
         }
     )
-  }, [sensors])
+  }, [])
 
   return (
     <div className="App">

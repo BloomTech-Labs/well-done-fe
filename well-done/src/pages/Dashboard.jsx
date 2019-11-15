@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Menu from '../components/Menu/Menu.component'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
@@ -22,11 +22,62 @@ const Dashboard = props => {
     // console.log('nonFuncToggle', nonFuncToggle)
     // console.log('unknownToggle', unknownToggle)
 
+    const zoomInto = () => {
+        console.log('checkkk', props.searchFiltered.length)
+        // props.searchFiltered[0].map(place => {
+        if (props.searchFiltered.length == 0){
+                setViewport({
+                    latitude: 13.5651,
+                    longitude: 104.7538,
+                    width: "100vw",
+                    height: "100vh",
+                    zoom: 8
+                })
+            }
+        else if(props.searchFiltered.length == 1){
+            const searchedPlace = {
+                latitude: props.searchFiltered[0].latitude,
+                longitude: props.searchFiltered[0].longitude,
+                width: "100vw",
+                height: "100vh",
+                zoom: 11
+            }
+            console.log('searchPlace one', searchedPlace)
+            setViewport(searchedPlace)  
+        }
+        else if(props.searchFiltered.length > 1) {
+            function avgCoordinate(arr){
+                var totalLat = 0
+                var totalLon = 0
+                for (let i=0; i<arr.length; i++){
+                    totalLat += arr[i].latitude
+                    totalLon += arr[i].longitude
+                }
+                const avgLat = totalLat/arr.length;
+                const avgLon = totalLon/arr.length;
+                return [avgLat, avgLon]
+            }
+            const searchedPlace = {
+                    latitude: avgCoordinate(props.searchFiltered)[0],
+                    longitude: avgCoordinate(props.searchFiltered)[1],
+                    width: "100vw",
+                    height: "100vh",
+                    zoom: 11
+                }
+            console.log('searchPlace many', searchedPlace)
+            setViewport(searchedPlace)
+            }
+    }
+
+    useEffect(() => {
+        zoomInto()
+    }, [props.searchFiltered])
+
     return (
         <div class="dashboard">
             <Menu />
             <Map
-                searchFiltered={props.searchFiltered} 
+                // searchFiltered={props.searchFiltered} 
                 sensors={props.sensors}
                 funcToggle={funcToggle}
                 nonFuncToggle={nonFuncToggle}
