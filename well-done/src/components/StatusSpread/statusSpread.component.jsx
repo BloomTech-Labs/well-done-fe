@@ -34,7 +34,7 @@ const StatusSpread = props => {
                 </div>
                 <h3>{props.selectedPump.country_name}</h3>
                 <p className="province_name">{props.selectedPump.province_name}</p> 
-                <Link to="/monitorDetails">Details</Link>
+                <Link to={history => ({...history, pathname:"/monitorDetails"})}>More details</Link>
             </div>
            
 

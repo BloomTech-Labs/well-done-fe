@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import Menu from '../components/Menu/Menu.component'
-import Map from '../components/Map/Map2.component'
+import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
-import StatusSpread from '../components/StatusSpread/statusSpread.component'
+
 
 const Dashboard = props => {
     console.log('props in Dashboard', props)
@@ -33,6 +33,7 @@ const Dashboard = props => {
                 unknownToggle={unknownToggle}
                 viewport = {viewport}
                 setViewport = {setViewport}
+                history = {props.history}
             />
             <Search 
                 searchFiltered={props.searchFiltered}
@@ -48,6 +49,7 @@ const Dashboard = props => {
                 setNonFuncToggle={setNonFuncToggle}
                 setUnknownToggle={setUnknownToggle}
             />
+            
         </div>
     )
 }
