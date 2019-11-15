@@ -3,6 +3,7 @@ import ReactMapGl, {Popup} from 'react-map-gl'
 import "./Map.styles.scss"
 import StatusSpread from '../StatusSpread/statusSpread.component'
 import Pin from '../Pin/Pin.component'
+import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
 export default function Map(props){
     console.log('props in Map', props)
@@ -10,6 +11,7 @@ export default function Map(props){
     const [selectedPump, setSelectedPump] = useState(null)
 
     // console.log('viewport Out', viewport)
+    console.log('selectedPump', selectedPump)
 
     useEffect(() => {
         const listener = e => {
@@ -25,7 +27,7 @@ export default function Map(props){
             window.removeEventListener("keydown", listener)
         }
 
-     }, [])
+     }, [])   
 
     return <div>
         <ReactMapGl 
@@ -42,6 +44,8 @@ export default function Map(props){
                 funcToggle={props.funcToggle}
                 nonFuncToggle={props.nonFuncToggle}
                 unknownToggle={props.unknownToggle}
+                // history={history}
+                pumps={props.pumps} 
             />
             
 
@@ -54,7 +58,11 @@ export default function Map(props){
                     setSelectedPump(null)
                 }}
                 >
-                    <StatusSpread selectedPump={selectedPump}/>
+                    <StatusSpread 
+                        sensors={props.sensors} 
+                        selectedPump={selectedPump}
+                        // history={history}
+                    />
                 </Popup>
             ) : null}
 

@@ -77,7 +77,6 @@ const Dashboard = props => {
         <div class="dashboard">
             <Menu />
             <Map
-                // searchFiltered={props.searchFiltered} 
                 sensors={props.sensors}
                 funcToggle={funcToggle}
                 nonFuncToggle={nonFuncToggle}
