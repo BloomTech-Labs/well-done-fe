@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import ReactMapGl, {Marker} from 'react-map-gl'
+import Map from '../components/Map/Map.component'
 
 const MonitorDetails = props => {
 
@@ -13,7 +14,7 @@ const MonitorDetails = props => {
 
     return (
         <div>
-            <ReactMapGl 
+            {/* <ReactMapGl 
                 {...viewport}
                 mapboxApiAccessToken={"pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w"}
                 mapStyle="mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u"
@@ -22,7 +23,12 @@ const MonitorDetails = props => {
             }}
             >
                 marker here
-            </ReactMapGl>
+            </ReactMapGl> */}
+            <Map
+                sensors={props.sensors}
+                viewport = {viewport}
+                setViewport = {setViewport}
+            />
         </div>
     )
 }
