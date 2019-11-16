@@ -30,8 +30,8 @@ const Filter = props => {
 
     return (
         <div class="filter">
-            <h4>Country</h4>
-            <select name="countries" onChange={handleChange}> 
+            <h4>Village</h4>
+            <select className="select-village" onChange={handleChange}> 
                 {pumps.map(pump => 
                     (<option value={pump.country_name} key={pump.sensor_pid}>{pump.country_name}</option>)
                 )} 
