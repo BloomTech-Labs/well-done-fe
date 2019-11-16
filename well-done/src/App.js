@@ -10,7 +10,7 @@ import Monitors from "./pages/MonitorsPage";
 function App() {
   const [searchFiltered, setSearchFiltered] = useState([])
   const [sensors, setSensors] = useState([])
-  // const [pumps, setPumps] = useState([])
+  
 
   useEffect(() => {
     AxiosWithAuth()
@@ -21,17 +21,11 @@ function App() {
             setSensors(res.data)
         }
     )
+    .catch(err => {
+      console.log(err)
+    })
   }, [])
-  // useEffect(() => {
-  //   AxiosWithAuth()
-  //   .get("https://welldone-db.herokuapp.com/api/pumps")
-  //   .then(res => 
-  //       {
-  //           console.log('get all pumps', res.data)
-  //           setPumps(res.data)
-  //       }
-  //   )
-  // }, [])
+ 
 
   return (
     <div className="App">

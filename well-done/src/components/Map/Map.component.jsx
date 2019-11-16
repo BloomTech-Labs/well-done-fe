@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import ReactMapGl, {Popup} from 'react-map-gl'
 import "./Map.styles.scss"
-import StatusSpread from '../StatusSpread/statusSpread.component'
+import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
-import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 
 export default function Map(props){
     console.log('props in Map', props)
@@ -51,14 +50,14 @@ export default function Map(props){
 
             {selectedPump ? (
                 <Popup
-                className = "popup"
+                className = "popupCard"
                 latitude={selectedPump.latitude}
                 longitude={selectedPump.longitude}
                 onClose={() => {
                     setSelectedPump(null)
                 }}
                 >
-                    <StatusSpread 
+                    <PopupInfo 
                         sensors={props.sensors} 
                         selectedPump={selectedPump}
                         // history={history}
