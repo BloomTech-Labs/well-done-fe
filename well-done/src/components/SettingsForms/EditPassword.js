@@ -40,12 +40,13 @@ const EditPassword = props => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container-password">
       <div className="form-wrap-password">
         <h1 className="update-header"> Change Password</h1>
       </div>
       <div>
         <div className="edit-form">
+          <div className="mobile-header">Change Password </div>
           <Form onSubmit={handleSubmit}>
             {/* Email input  */}
             <Form.Group className="email-row">

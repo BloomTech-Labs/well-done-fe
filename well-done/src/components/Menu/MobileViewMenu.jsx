@@ -18,7 +18,7 @@ const MobileViewMenu = props => {
   };
 
   return (
-    <div>
+    <div class="mobile-container">
       {/* <h1>Hello, please show something</h1> */}
       <div class="hamburger-menu" onClick={openNav}>
         <span></span>
