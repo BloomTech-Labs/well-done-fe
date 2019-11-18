@@ -18,6 +18,11 @@ const Dashboard = props => {
     const [nonFuncToggle, setNonFuncToggle] = useState(true)
     const [unknownToggle, setUnknownToggle] = useState(true)
 
+    const [selectedPump, setSelectedPump] = useState(null)
+
+
+    console.log('selectedPump in Dashboard', selectedPump)
+
     // console.log('funcToggle', funcToggle)
     // console.log('nonFuncToggle', nonFuncToggle)
     // console.log('unknownToggle', unknownToggle)
@@ -77,27 +82,29 @@ const Dashboard = props => {
         <div class="dashboard">
             <Menu />
             <Map
-                sensors={props.sensors}
-                funcToggle={funcToggle}
-                nonFuncToggle={nonFuncToggle}
-                unknownToggle={unknownToggle}
+                sensors = {props.sensors}
+                funcToggle = {funcToggle}
+                nonFuncToggle = {nonFuncToggle}
+                unknownToggle = {unknownToggle}
                 viewport = {viewport}
                 setViewport = {setViewport}
                 history = {props.history}
+                selectedPump = {selectedPump}
+                setSelectedPump = {setSelectedPump}
             />
             <Search 
-                searchFiltered={props.searchFiltered}
-                setSearchFiltered={props.setSearchFiltered}
+                searchFiltered = {props.searchFiltered}
+                setSearchFiltered = {props.setSearchFiltered}
                 viewport = {viewport}
                 setViewport = {setViewport}
             />
             <Filter 
-                searchFiltered={props.searchFiltered}
-                setSearchFiltered={props.setSearchFiltered}
-                sensors={props.sensors}
-                setFuncToggle={setFuncToggle}
-                setNonFuncToggle={setNonFuncToggle}
-                setUnknownToggle={setUnknownToggle}
+                searchFiltered = {props.searchFiltered}
+                setSearchFiltered = {props.setSearchFiltered}
+                sensors = {props.sensors}
+                setFuncToggle = {setFuncToggle}
+                setNonFuncToggle = {setNonFuncToggle}
+                setUnknownToggle = {setUnknownToggle}
             />
             
         </div>

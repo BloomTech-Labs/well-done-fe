@@ -29,7 +29,7 @@ const Search = (props) => {
         if (event.target.value.length !== 0){
             console.log('searchValue In', event.target.value)
             let filtered = pumps.filter(pump => 
-                (pump.country_name.toLowerCase().includes(event.target.value.toLowerCase()) )
+                (pump.village_name.toLowerCase().includes(event.target.value.toLowerCase()) )
                 || (pump.sensor_pid == event.target.value)
             )
             props.setSearchFiltered(filtered)
@@ -56,7 +56,7 @@ const Search = (props) => {
             />
             <div className="filtered">
             {props.searchFiltered.map(place =>
-                (<h2>{place.country_name}</h2>))}
+                (<h2>{place.village_name}</h2>))}
             </div>
             {/* <button type="submit"><i class="fa fa-search"></i></button> */}
         </div>

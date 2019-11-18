@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import ReactMapGl, {Marker} from 'react-map-gl'
+// import ReactMapGl, {Marker} from 'react-map-gl'
 import Map from '../components/Map/Map.component'
+import PumpInDetails from '../components/PumpInDetails/PumpInDetails.component';
 
 const MonitorDetails = props => {
+    console.log('props in MonitorDetails', props)
 
     const [viewport, setViewport] = useState({
         latitude: 13.5651,
@@ -29,6 +31,7 @@ const MonitorDetails = props => {
                 viewport = {viewport}
                 setViewport = {setViewport}
             />
+            <PumpInDetails />
         </div>
     )
 }

@@ -7,16 +7,16 @@ import Pin from '../Pin/Pin.component'
 export default function Map(props){
     console.log('props in Map', props)
 
-    const [selectedPump, setSelectedPump] = useState(null)
+    // const [selectedPump, setSelectedPump] = useState(null)
 
     // console.log('viewport Out', viewport)
-    console.log('selectedPump', selectedPump)
+    
 
     useEffect(() => {
         const listener = e => {
             console.log('here', e)
             if (e.key === "Escape"){
-                setSelectedPump(null)
+                props.setSelectedPump(null)
             }
         };
         console.log('listener', listener)
@@ -39,7 +39,7 @@ export default function Map(props){
         >
             <Pin 
                 sensors={props.sensors} 
-                setSelectedPump={setSelectedPump}
+                setSelectedPump={props.setSelectedPump}
                 funcToggle={props.funcToggle}
                 nonFuncToggle={props.nonFuncToggle}
                 unknownToggle={props.unknownToggle}
@@ -48,18 +48,18 @@ export default function Map(props){
             />
             
 
-            {selectedPump ? (
+            {props.selectedPump ? (
                 <Popup
                 className = "popupCard"
-                latitude={selectedPump.latitude}
-                longitude={selectedPump.longitude}
+                latitude={props.selectedPump.latitude}
+                longitude={props.selectedPump.longitude}
                 onClose={() => {
-                    setSelectedPump(null)
+                    props.setSelectedPump(null)
                 }}
                 >
                     <PopupInfo 
                         sensors={props.sensors} 
-                        selectedPump={selectedPump}
+                        selectedPump={props.selectedPump}
                         // history={history}
                     />
                 </Popup>
