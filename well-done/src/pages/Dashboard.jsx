@@ -18,15 +18,6 @@ const Dashboard = props => {
     const [nonFuncToggle, setNonFuncToggle] = useState(true)
     const [unknownToggle, setUnknownToggle] = useState(true)
 
-    const [selectedPump, setSelectedPump] = useState(null)
-
-
-    console.log('selectedPump in Dashboard', selectedPump)
-
-    // console.log('funcToggle', funcToggle)
-    // console.log('nonFuncToggle', nonFuncToggle)
-    // console.log('unknownToggle', unknownToggle)
-
     const zoomInto = () => {
         console.log('checkkk', props.searchFiltered.length)
         // props.searchFiltered[0].map(place => {
@@ -89,8 +80,8 @@ const Dashboard = props => {
                 viewport = {viewport}
                 setViewport = {setViewport}
                 history = {props.history}
-                selectedPump = {selectedPump}
-                setSelectedPump = {setSelectedPump}
+                selectedPump = {props.selectedPump}
+                setSelectedPump = {props.setSelectedPump}
             />
             <Search 
                 searchFiltered = {props.searchFiltered}

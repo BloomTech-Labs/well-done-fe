@@ -75,7 +75,6 @@ const PopupInfo = props => {
                         pathname:"/monitorDetails"
                         })}
                     ><p className="link">More details</p></Link>
-                {/* <PumpInDetails selectedPump={props.selectedPump}/> */}
             </div>
            
 

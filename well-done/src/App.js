@@ -12,6 +12,7 @@ import MetaTags from "react-meta-tags";
 function App() {
   const [searchFiltered, setSearchFiltered] = useState([])
   const [sensors, setSensors] = useState([])
+  const [selectedPump, setSelectedPump] = useState(null)
   
 
   useEffect(() => {
@@ -47,7 +48,8 @@ function App() {
                         searchFiltered={searchFiltered} 
                         setSearchFiltered={setSearchFiltered}
                         sensors={sensors}
-                
+                        selectedPump={selectedPump}
+                        setSelectedPump={setSelectedPump}
                     />
                     
           }} 
@@ -57,7 +59,7 @@ function App() {
           render={props => {
             return <MonitorDetails {...props} 
                         sensors={sensors}
-                        
+                        selectedPump={selectedPump}
                     />
           }} 
         />
