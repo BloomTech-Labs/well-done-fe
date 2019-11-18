@@ -97,6 +97,7 @@ const Dashboard = props => {
                 setSearchFiltered = {props.setSearchFiltered}
                 viewport = {viewport}
                 setViewport = {setViewport}
+                sensors = {props.sensors}
             />
             <Filter 
                 searchFiltered = {props.searchFiltered}
