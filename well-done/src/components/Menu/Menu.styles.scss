@@ -1,6 +1,6 @@
 .hamburger-menu {
   margin: 30px;
-  // position: absolute;
+  position: absolute;
   z-index: 1;
 
   span {
@@ -19,7 +19,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  // background-color: #082B84;
+  //background-color: #082B84;
   background-color: #082b84;
   overflow-x: hidden;
   transition: 0.5s;
