@@ -8,17 +8,24 @@ import Grid from "./components/Grid/Aggrid";
 import Monitors from "./pages/MonitorsPage";
 import Settings from "./pages/Settings/Settings";
 function App() {
-  const [searchFiltered, setSearchFiltered] = useState([]);
-  const [sensors, setSensors] = useState([]);
+  const [searchFiltered, setSearchFiltered] = useState([])
+  const [sensors, setSensors] = useState([])
+  
 
   useEffect(() => {
     AxiosWithAuth()
-      .get("https://welldone-db.herokuapp.com/api/sensors")
-      .then(res => {
-        console.log("get all sensors", res.data);
-        setSensors(res.data);
-      });
-  }, []);
+    .get("https://welldone-db.herokuapp.com/api/sensors/recent")
+    .then(res => 
+        {
+            console.log('get all sensors', res.data)
+            setSensors(res.data)
+        }
+    )
+    .catch(err => {
+      console.log(err)
+    })
+  }, [])
+ 
 
   return (
     <div className="App">
@@ -27,15 +34,14 @@ function App() {
         <Route
           path="/dashboard"
           render={props => {
-            return (
-              <Dashboard
-                {...props}
-                searchFiltered={searchFiltered}
-                setSearchFiltered={setSearchFiltered}
-                sensors={sensors}
-              />
-            );
-          }}
+            return <Dashboard {...props} 
+                        searchFiltered={searchFiltered} 
+                        setSearchFiltered={setSearchFiltered}
+                        sensors={sensors}
+                        // pumps={pumps}
+                    />
+                    
+          }} 
         />
         <Route
           path="/monitorDetails"
