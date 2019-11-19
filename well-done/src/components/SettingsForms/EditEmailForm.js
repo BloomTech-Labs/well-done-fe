@@ -36,7 +36,7 @@ const EditEmailForm = props => {
 
       // make sure correct username + password is input
       isValidUserCredential(account).then(res => {
-        console.log("response line", res);
+        // console.log("response line", res);
       });
     }
   };
