@@ -11,7 +11,6 @@
     margin-bottom: 5px;
   }
 }
-
 .overlay {
   height: 100%;
   width: 0;
@@ -23,7 +22,6 @@
   background-color: #051b52;
   overflow-x: hidden;
   transition: 0.5s;
-
   .closebtn {
     position: relative;
     top: -20px;
@@ -31,33 +29,27 @@
     font-size: 30px;
     color: #818181;
   }
-
   .intro {
     background-color: #051b52;
     width: 214px;
     height: 725px;
     color: #ffffff;
-
     position: absolute;
     // padding: 30px;
-
     .name {
       font-size: 16px;
       margin-left: 40px;
     }
-
     .email-address {
       font-size: 12px;
       margin-left: 40px;
     }
-
     span {
       background-color: rgba(255, 255, 255, 0.8);
       display: block;
       width: 100vh;
       height: 1px;
     }
-
     .logo {
       margin: -20px 0 10px 20px;
       width: 170.81px;
@@ -80,7 +72,6 @@
       // height: 30px;
       color: #818181;
     }
-
     .eachNav {
       display: flex;
       align-items: center;
@@ -89,7 +80,6 @@
       margin-left: 10px;
     }
   }
-
   a {
     padding: 16px 0 16px 8px;
     text-decoration: none;
@@ -99,7 +89,6 @@
     transition: 0.3s;
     margin-top: 0px;
     // text-align: center;
-
     :hover,
     :focus {
       color: #818181;

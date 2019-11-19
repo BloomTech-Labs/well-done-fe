@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import axiosWithAuth from "../AxiosWithAuth/axiosWithAuth.jsx";
-// import "../SignIn/SignIn.styles.scss";
+import "../../pages/Settings/Settings.scss";
+import { Button, Form } from "react-bootstrap";
 
 const EditPasswordForm = props => {
   // console.log('props in SignIn', props)
@@ -89,47 +90,70 @@ const EditPasswordForm = props => {
   };
 
   return (
-    <div className="form-container">
-      <h1 className="update-header">Change Password </h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
-          <input
-            type="email"
-            name="email_address"
-            value={account.email_address}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={account.password}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          New Password
-          <input
-            type="password"
-            name="new_password"
-            value={account.new_password}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Confirm New Password
-          <input
-            type="password"
-            name="new_name_password"
-            value={account.new_password_conf}
-            onChange={handleChange}
-          />
-        </label>
-        <button>Change Password</button>
-      </form>
+    <div className="form-container-password">
+      <div className="form-wrap-password">
+        <h1 className="update-header"> Change Password</h1>
+      </div>
+      <div>
+        <div className="edit-form">
+          <div className="mobile-header">Change Password </div>
+          <Form onSubmit={handleSubmit}>
+            {/* Email input  */}
+            <Form.Group className="email-row">
+              <Form.Group className="form-group">
+                <Form.Label>Email </Form.Label>
+                <Form.Control
+                  className="input"
+                  type="email"
+                  name="email_address"
+                  value={account.email_address}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {/* Password input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  className="input"
+                  type="password"
+                  name="password"
+                  value={account.password}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+            </Form.Group>
+
+            {/* New password input  */}
+            <Form.Group className="row-2">
+              <Form.Group className="form-group">
+                <Form.Label>New Password</Form.Label>
+                <Form.Control
+                  className="input"
+                  type="password"
+                  name="new_password"
+                  value={account.new_password}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {/* Confirm new password input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Confirm New Password</Form.Label>
+                <Form.Control
+                  className="input"
+                  type="password"
+                  name="new_password_conf"
+                  value={account.new_password_conf}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+            </Form.Group>
+
+            <Button variant="primary" type="submit" className="update-btn">
+              <div className="btn-text-password">Change Password</div>
+            </Button>
+          </Form>
+        </div>
+      </div>
     </div>
   );
 };

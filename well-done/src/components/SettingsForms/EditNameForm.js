@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import axiosWithAuth from "../AxiosWithAuth/axiosWithAuth.jsx";
-// import "../SignIn/SignIn.styles.scss";
+import { Button, Form } from "react-bootstrap";
+import "../../pages/Settings/Settings.scss";
 
 const EditNameForm = props => {
   const [account, setAccount] = useState({
@@ -92,47 +93,70 @@ const EditNameForm = props => {
   };
 
   return (
-    <div className="form-container">
-      <h1 className="update-header">Change Name </h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
-          <input
-            type="email"
-            name="email_address"
-            value={account.email_address}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={account.password}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          New Name
-          <input
-            type="text"
-            name="new_name"
-            value={account.new_name}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Confirm New Name
-          <input
-            type="text"
-            name="new_name_conf"
-            value={account.new_name_conf}
-            onChange={handleChange}
-          />
-        </label>
-        <button>Change Name </button>
-      </form>
+    <div className="form-container-name">
+      <div className="form-wrap">
+        <h1 className="update-header-name"> Change Name </h1>
+      </div>
+      <div>
+        <div className="edit-form">
+          <Form onSubmit={handleSubmit}>
+            {/* Email input  */}
+            <Form.Group className="email-row">
+              <Form.Group className="form-group">
+                <Form.Label className="form-label">Email </Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email_address"
+                  value={account.email_address}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {/* Password input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  value={account.password}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+            </Form.Group>
+
+            {/* New name input  */}
+            <Form.Group className="row-2">
+              <Form.Group className="form-group">
+                <Form.Label>New Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="new_name"
+                  value={account.new_name}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              {/* Confirm new name input  */}
+              <Form.Group className="form-group">
+                <Form.Label>Confirm New Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="new_name_conf"
+                  value={account.new_name_conf}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+            </Form.Group>
+
+            <Button
+              id="name"
+              variant="primary"
+              type="submit"
+              className="update-btn"
+            >
+              <div className="btn-text">Change Name</div>
+            </Button>
+          </Form>
+        </div>
+      </div>
     </div>
   );
 };

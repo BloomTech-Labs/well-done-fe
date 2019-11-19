@@ -1,15 +1,12 @@
 import React from "react";
-import EditNameForm from "../../components/SettingsForms/EditName";
-import EditEmail from "../../components/SettingsForms/EditEmail";
-import EditPassword from "../../components/SettingsForms/EditPassword";
 // import Menu from "../../components/Menu/Menu.component";
 import StaticMenu from "../../components/Menu/StaticMenu";
 import MobileNavBar from "../../components/Menu/MobileNavBar";
 import "./Settings.scss";
 
-import FormikEditNameForm from "../../components/SettingsForms/EditNameForm";
-import FormikEditPasswordForm from "../../components/SettingsForms/EditPasswordForm";
-import FormikEditEmailForm from "../../components/SettingsForms/EditEmailForm";
+import EditNameForm from "../../components/SettingsForms/EditNameForm";
+import EditPasswordForm from "../../components/SettingsForms/EditPasswordForm";
+import EditEmailForm from "../../components/SettingsForms/EditEmailForm";
 
 const Settings = () => {
   return (
@@ -22,12 +19,9 @@ const Settings = () => {
           <MobileNavBar />
         </div>
         <div className="forms">
-          <FormikEditNameForm />
-          {/* <EditNameForm /> */}
-          <FormikEditEmailForm />
-          {/* <EditEmail /> */}
-          <FormikEditPasswordForm />
-          {/* <EditPassword /> */}
+          <EditNameForm />
+          <EditEmailForm />
+          <EditPasswordForm />
         </div>
       </div>
     </div>

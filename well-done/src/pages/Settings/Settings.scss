@@ -5,7 +5,6 @@ body {
   margin: 0%;
   padding: 0%;
 }
-
 .settings {
   height: 100%;
   display: flex;
@@ -19,7 +18,6 @@ body {
     width: 40rem;
   }
 }
-
 // For Setting Forms Components
 .update-header {
   font-family: Open sans-serif;
@@ -29,7 +27,6 @@ body {
   font-weight: bold;
   width: 100%;
 }
-
 .update-header-name {
   margin-top: 2%;
   font-family: Open sans-serif;
@@ -38,7 +35,6 @@ body {
   padding-bottom: 1%;
   font-weight: bold;
 }
-
 .edit-form {
   .email-row {
     display: flex;
@@ -60,18 +56,15 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
   }
-
   .update-btn {
     display: flex;
-
     margin-left: 60%;
     height: 2rem;
     width: 21%;
-
+    background-color: #027ef3;
     .btn-text {
       font-size: 0.9rem;
       display: flex;
-
       margin-left: 12.5%;
       font-family: Bookman;
     }
@@ -85,9 +78,7 @@ body {
     }
   }
 }
-
 // MOBILE VIEW
-
 .mobile-view {
   display: flex;
   flex-direction: column;
@@ -95,7 +86,6 @@ body {
   // border: 1px solid red;
   height: 100vh;
 }
-
 .mobile-nav-container {
   display: flex;
   background-color: #082b84;
@@ -105,7 +95,6 @@ body {
   background-color: #082b84;
   width: 100vh;
 }
-
 @media (max-width: 500px) {
   .form-container-name {
     display: none !important;
@@ -120,15 +109,23 @@ body {
     padding-top: 5%;
     padding-right: 2%;
     .edit-form {
+      .input {
+        width: 100%;
+        height: 2rem;
+        margin-top: 3%;
+        margin-bottom: 3%;
+      }
       .email-row {
         display: flex;
         flex-direction: column;
-        padding-bottom: 0%;
-        margin-bottom: 0%;
+        // padding-bottom: 0%;
+        // margin-bottom: 0%;
       }
       .row-2 {
         display: flex;
         flex-direction: column;
+        // padding-bottom: 0%;
+        // margin-bottom: 0%;
       }
     }
     .update-btn {
@@ -148,15 +145,14 @@ body {
     }
   }
   .logo {
-    position: relative;
-    width: 19%;
-    // margin: 20px 0px 20px 20px;
+    // position: relative;
+    width: 22%;
     margin-top: 3.65%;
-    margin-left: 100px;
+    margin-left: 25%;
     height: 35.61px;
+    margin-bottom: 4%;
   }
 }
-
 @media (max-width: 500px) {
   .static-menu {
     display: none !important;
@@ -165,24 +161,22 @@ body {
     display: none !important;
   }
 }
-
 // DESKTOP VIEW
-
 .hamburga-menu {
   display: none;
   @media (max-width: 500px) {
     display: flex;
   }
 }
-
 .mobile-header {
   display: none;
   @media (max-width: 500px) {
     display: flex;
     font-family: Open sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-left: 1.7rem;
-    padding-bottom: 7%;
+    margin-top: 1rem;
+    padding-bottom: 15%;
     font-weight: bold;
     width: 100%;
   }
