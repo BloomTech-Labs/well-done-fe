@@ -13,13 +13,26 @@ function App() {
   const [searchFiltered, setSearchFiltered] = useState([]);
   const [sensors, setSensors] = useState([]);
   const [selectedPump, setSelectedPump] = useState(null);
+  const [history, setHistory] = useState([]);
 
   useEffect(() => {
     AxiosWithAuth()
       .get("https://welldone-db.herokuapp.com/api/sensors/recent")
       .then(res => {
-        console.log("get all sensors", res.data);
+        //console.log("get all sensors", res.data);
         setSensors(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    AxiosWithAuth()
+      .get("https://welldone-db.herokuapp.com/api/history")
+      .then(res => {
+        //console.log("get all sensors", res.data);
+        setHistory(res.data);
       })
       .catch(err => {
         console.log(err);
@@ -63,8 +76,8 @@ function App() {
           render={props => {
             return (
               <MonitorDetails
-                {...props}
                 sensors={sensors}
+                history={history}
                 selectedPump={selectedPump}
               />
             );
