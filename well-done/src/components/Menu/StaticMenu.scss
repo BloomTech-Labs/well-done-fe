@@ -2,7 +2,7 @@
 // body {
 //   margin: 0;
 .entire-menu {
-  // position: absolute;
+  position: absolute;
   width: 15rem;
   height: 100%;
   background: #082b84;
@@ -34,7 +34,7 @@
     // border: 1px solid red;
     position: fixed;
     margin-top: 3%;
-    // width: 100%;
+    width: 15rem;
     // margin-top: 30px;
     // margin-left: 30px;
     .each-nav {
@@ -43,15 +43,17 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      font-size: 1.5rem;
+      width: 100%;
       // margin-top: 1.5rem;
       .link {
         color: white;
         // margin-left: 0.5rem;
       }
-      .link:hover {
-        color: #027ef3;
-        // margin-left: 0.5rem;
-      }
+      
+    }
+    .each-nav:hover{
+      background-color: #1C49BB;
     }
   }
 }

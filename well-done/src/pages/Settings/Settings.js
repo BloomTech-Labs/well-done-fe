@@ -8,11 +8,11 @@ import EditNameForm from "../../components/SettingsForms/EditNameForm";
 import EditPasswordForm from "../../components/SettingsForms/EditPasswordForm";
 import EditEmailForm from "../../components/SettingsForms/EditEmailForm";
 
-const Settings = () => {
+const Settings = ({ history }) => {
   return (
     <div className="settings">
       <div className="static-menu">
-        <StaticMenu />
+        <StaticMenu history={history} />
       </div>
       <div className="mobile-view">
         <div className="hamburga-menu">

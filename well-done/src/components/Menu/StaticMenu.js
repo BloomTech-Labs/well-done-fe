@@ -1,10 +1,16 @@
 import React from "react";
 import "./StaticMenu.scss";
-import { IoIosHome, IoMdCreate, IoIosKey, IoIosSettings } from "react-icons/io";
+import { IoIosHome, IoMdCreate, IoIosSettings } from "react-icons/io";
 import { Route, Link } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
+
 // import { WellDoneLogo } from "../../Images/WellDoneLogo.png";
 
 const StaticMenu = props => {
+  const logout = () => {
+    localStorage.removeItem('token')
+    props.history.push('/')
+}
   console.log("props in menu", props);
   return (
     <div className="entire-menu">
@@ -13,12 +19,12 @@ const StaticMenu = props => {
         src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572403214/1ff21a300da2c00f0432c0b516f8492a_lzdqay.png"
         alt="Well Done logo"
       />
-      <p className="name">WellDone</p>
+      <p className="name">Smarter Villages</p>
       <p className="email-address">WellDone@WellDone.org</p>
       <span></span>
       <div className="overlay-content">
         <div className="each-nav">
-          <IoIosHome size={25} />
+          <IoIosHome size={25} style={{ margin: '7.5px 10px'}} />
           <Link
             exact
             to="/dashboard"
@@ -29,29 +35,29 @@ const StaticMenu = props => {
           </Link>
         </div>
         <div className="each-nav">
-          <IoMdCreate size={25} />
+          <IoMdCreate size={25} style={{ margin: '7.5px 10px'}} />
           <Link
-            to="/monitors"
+            to="/overview"
             activeClassName="activeNavButton"
             className="link"
           >
-            Monitors
+            Overview
           </Link>
         </div>
         <div className="each-nav">
-          <IoIosKey size={25} />
-          <Link to="/admin" activeClassName="activeNavButton" className="link">
-            Admin
-          </Link>
-        </div>
-        <div className="each-nav">
-          <IoIosSettings size={25} />
+          <IoIosSettings size={25} style={{ margin: '7.5px 10px'}} />
           <Link
             to="/settings"
             activeClassName="activeNavButton"
             className="link"
           >
             Settings
+          </Link>
+          </div>
+          <div className="each-nav" onClick={logout}>
+                <FiLogOut size={25} style={{ margin: '7.5px 10px'}} />
+                <Link activeClassName="activeNavButton" className="link">
+            Logout
           </Link>
         </div>
       </div>
