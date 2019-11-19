@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     AxiosWithAuth()
-      .get("https://welldone-db.herokuapp.com/api/sensors")
+      .get("https://welldone-db.herokuapp.com/api/sensors/recent")
       .then(res => {
         console.log("get all sensors", res.data);
         setSensors(res.data);
