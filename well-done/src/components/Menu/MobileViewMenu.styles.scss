@@ -1,8 +1,8 @@
 .hamburger-menu {
-  margin: 30px;
+  // margin: 30px;
   // position: absolute;
   z-index: 1;
-
+  // border: 2px solid red;
   span {
     background: white;
     width: 30px;
@@ -16,7 +16,7 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  // z-index: 1;
   top: 0;
   left: 0;
   // background-color: #082B84;
@@ -27,7 +27,7 @@
   .closebtn {
     position: relative;
     top: -20px;
-    right: -195px;
+    right: -330px;
     font-size: 30px;
     color: #818181;
   }
@@ -53,7 +53,6 @@
 
     span {
       background-color: rgba(255, 255, 255, 0.8);
-
       display: block;
       width: 100vh;
       height: 1px;
@@ -68,7 +67,7 @@
 
   .overlay-content {
     position: relative;
-    top: 18%;
+    top: 15%;
     width: 100%;
     text-align: left;
     // margin-top: 30px;

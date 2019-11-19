@@ -5,8 +5,7 @@
 .entire-menu {
   // position: absolute;
   width: 15rem;
-  height: 100vh;
-  border: 3px solid purple;
+  height: 100%;
   background: #082b84;
   color: white;
   // margin-top: 0%;
@@ -34,21 +33,29 @@
     width: 100%;
     height: 1px;
   }
-  .each-nav {
-    color: white;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 1rem;
-    margin-top: 1.5rem;
-    .link {
+
+  .overlay-content {
+    // border: 1px solid red;
+    position: fixed;
+    margin-top: 3%;
+    // width: 100%;
+    // margin-top: 30px;
+    // margin-left: 30px;
+    .each-nav {
+      position: relative;
       color: white;
-      margin-left: 0.5rem;
-    }
-    .link:hover {
-      color: #027ef3;
-      margin-left: 0.5rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      // margin-top: 1.5rem;
+      .link {
+        color: white;
+        // margin-left: 0.5rem;
+      }
+      .link:hover {
+        color: #027ef3;
+        // margin-left: 0.5rem;
+      }
     }
   }
 }
-// }

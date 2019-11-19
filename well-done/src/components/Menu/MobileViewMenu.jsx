@@ -10,7 +10,7 @@ const MobileViewMenu = props => {
   console.log("props in Menu", props);
 
   const openNav = () => {
-    document.getElementById("myNav").style.width = "50%";
+    document.getElementById("myNav").style.width = "75%";
   };
 
   const closeNav = () => {
@@ -18,7 +18,7 @@ const MobileViewMenu = props => {
   };
 
   return (
-    <div>
+    <div class="mobile-container">
       {/* <h1>Hello, please show something</h1> */}
       <div class="hamburger-menu" onClick={openNav}>
         <span></span>
