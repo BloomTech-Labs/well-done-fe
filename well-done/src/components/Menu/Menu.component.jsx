@@ -20,9 +20,9 @@ const Menu = props => {
     <div>
       {/* <h1>Hello, please show something</h1> */}
       <div className="hamburger-menu" onClick={openNav}>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span className="hameburger"></span>
+        <span className="hameburger"></span>
+        <span className="hameburger"></span>
       </div>
       <div id="myNav" className="overlay" onClick={closeNav}>
         <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
