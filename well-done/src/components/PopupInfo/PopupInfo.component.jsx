@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import './PopupInfo.styles.scss'
 import { FiHelpCircle, FiAlertCircle, FiCheckCircle } from "react-icons/fi"
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
+import PumpInDetails from '../PumpInDetails/PumpInDetails.component'
 
 const PopupInfo = props => {
     console.log('props in StatusSpread', props)
@@ -68,7 +69,12 @@ const PopupInfo = props => {
                 </div>
                 <h3>{props.selectedPump.country_name}</h3>
                 <p className="province_name">{props.selectedPump.province_name}</p> 
-                <Link to={history => ({...history, pathname:"/monitorDetails"})}><p className="link">More details</p></Link>
+                <Link 
+                    to={history => (
+                        {...history, 
+                        pathname:"/monitorDetails"
+                        })}
+                    ><p className="link">More details</p></Link>
             </div>
            
 

@@ -6,6 +6,8 @@ import { IoIosSettings } from "react-icons/io";
 import { IoMdCreate } from "react-icons/io";
 
 const Menu = props => {
+  // console.log('props in Menu', props)
+
   const openNav = () => {
     document.getElementById("myNav").style.width = "14%";
   };
