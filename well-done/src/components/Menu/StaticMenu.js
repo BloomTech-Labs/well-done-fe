@@ -1,13 +1,6 @@
 import React from "react";
 import "./StaticMenu.scss";
-import {
-  IoIosHome,
-  // IoIosCreate
-  IoMdGrid,
-  // IoIosKey,
-  IoMdKey,
-  IoIosSettings
-} from "react-icons/io";
+import { IoIosHome, IoMdCreate, IoIosKey, IoIosSettings } from "react-icons/io";
 import { Route, Link } from "react-router-dom";
 // import { WellDoneLogo } from "../../Images/WellDoneLogo.png";
 
@@ -36,8 +29,7 @@ const StaticMenu = props => {
           </Link>
         </div>
         <div className="each-nav">
-          {/* <IoIosCreate size={25} /> */}
-          <IoMdGrid size={25} />
+          <IoMdCreate size={25} />
           <Link
             to="/monitors"
             activeClassName="activeNavButton"
@@ -47,8 +39,7 @@ const StaticMenu = props => {
           </Link>
         </div>
         <div className="each-nav">
-          {/* <IoIosKey size={25} /> */}
-          <IoMdKey size={25} />
+          <IoIosKey size={25} />
           <Link to="/admin" activeClassName="activeNavButton" className="link">
             Admin
           </Link>

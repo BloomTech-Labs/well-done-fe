@@ -5,13 +5,24 @@ import axios from "axios";
 import { Button, Form } from "react-bootstrap";
 import "../../pages/Settings/Settings.scss";
 const EditName = props => {
-  console.log(props);
+  // console.log(props);
   const [name, setName] = useState({
     email: "",
     password: "",
     newName: "",
     confirmNewName: ""
   });
+
+  // const changeHandler = ev => {
+  //   ev.persist();
+
+  //   let value = ev.target.value;
+
+  //   setName({
+  //     ...name,
+  //     [ev.target.name]: value
+  //   });
+  // };
 
   const changeHandler = ev => {
     ev.persist();
@@ -27,16 +38,21 @@ const EditName = props => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log("name inside handlesubmit", name);
-    const id = props.match.params.id;
+    // const id = props.match.params.id;
     // axiosWithAuth()
+
+    // check if valid login ()
+    // if yes, response should contain ID
+    // we'll pass that id
     axios
-      .put(`https://welldone-db.herokuapp/api/accounts/${id}`, name)
+      .put(`https://welldone-db.herokuapp/api/accounts/${name.id}`, name)
       .then(res => {
         console.log("res.data inside axios", res.data);
         props.history.push("/settings");
-        props.updateName(res.data);
+        // props.updateName(res.data);
+        setName(res.data);
       })
-      .catch(err => console.log(err.response));
+      .catch(err => console.log(err.res));
   };
 
   return (
@@ -97,7 +113,12 @@ const EditName = props => {
               </Form.Group>
             </Form.Group>
 
-            <Button variant="primary" type="submit" className="update-btn">
+            <Button
+              id="name"
+              variant="primary"
+              type="submit"
+              className="update-btn"
+            >
               <div className="btn-text">Change Name</div>
             </Button>
           </Form>

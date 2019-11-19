@@ -27,10 +27,13 @@ const EditPassword = props => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log("password inside handlesubmit", password);
-    const id = props.match.params.id;
+    // const id = props.match.params.id;
     // axiosWithAuth()
     axios
-      .put(`https://welldone-db.herokuapp/api/accounts/${id}`, password)
+      .put(
+        `https://welldone-db.herokuapp/api/accounts/${password.id}`,
+        password
+      )
       .then(res => {
         console.log("res.data inside axios", res.data);
         props.history.push("/settings");
@@ -40,12 +43,13 @@ const EditPassword = props => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container-password">
       <div className="form-wrap-password">
         <h1 className="update-header"> Change Password</h1>
       </div>
       <div>
         <div className="edit-form">
+          <div className="mobile-header">Change Password </div>
           <Form onSubmit={handleSubmit}>
             {/* Email input  */}
             <Form.Group className="email-row">
