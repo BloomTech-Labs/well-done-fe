@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "./App.css";
 
-const App = () => {
+const AppOld = () => {
   const [pump, setPump] = useState("");
   const [sensor, setSensor] = useState("");
 
@@ -18,7 +18,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div >
       <ul>
         {pid_sensor.map(sensor => (
           <li>{sensor}</li>
@@ -28,4 +28,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default AppOld;
