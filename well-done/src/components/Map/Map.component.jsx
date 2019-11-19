@@ -30,12 +30,12 @@ export default function Map(props){
 
     return <div>
         <ReactMapGl 
-            {...props.viewport}
             mapboxApiAccessToken={"pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w"}
             mapStyle="mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u"
             onViewportChange = {viewport => {
                 props.setViewport(viewport)
             }}
+            {...props.viewport}
         >
             <Pin 
                 sensors={props.sensors} 

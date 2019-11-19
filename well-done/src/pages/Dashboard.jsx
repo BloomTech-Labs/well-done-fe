@@ -8,11 +8,12 @@ import Filter from '../components/Filter/Filter.component'
 const Dashboard = props => {
     console.log('props in Dashboard', props)
     const [viewport, setViewport] = useState({
-        latitude: 13.5651,
-        longitude: 104.7538,
+        latitude: 13.004758,
+        longitude: 105.784788,
         width: "100vw",
         height: "100vh",
-        zoom: 8
+        zoom: 2,
+        // center: [13.043945, 105.221241]
     })
     const [funcToggle, setFuncToggle] = useState(true)
     const [nonFuncToggle, setNonFuncToggle] = useState(true)
@@ -71,7 +72,7 @@ const Dashboard = props => {
 
     return (
         <div class="dashboard">
-            <Menu />
+            <Menu history={props.history} />
             <Map
                 sensors = {props.sensors}
                 funcToggle = {funcToggle}
