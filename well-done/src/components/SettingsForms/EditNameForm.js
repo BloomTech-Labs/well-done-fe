@@ -105,6 +105,7 @@ const EditNameForm = props => {
               <Form.Group className="form-group">
                 <Form.Label className="form-label">Email </Form.Label>
                 <Form.Control
+                  className="input"
                   type="email"
                   name="email_address"
                   value={account.email_address}
@@ -115,6 +116,7 @@ const EditNameForm = props => {
               <Form.Group className="form-group">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
+                  className="input"
                   type="password"
                   name="password"
                   value={account.password}
@@ -128,6 +130,7 @@ const EditNameForm = props => {
               <Form.Group className="form-group">
                 <Form.Label>New Name</Form.Label>
                 <Form.Control
+                  className="input"
                   type="text"
                   name="new_name"
                   value={account.new_name}
@@ -138,6 +141,7 @@ const EditNameForm = props => {
               <Form.Group className="form-group">
                 <Form.Label>Confirm New Name</Form.Label>
                 <Form.Control
+                  className="input"
                   type="text"
                   name="new_name_conf"
                   value={account.new_name_conf}
