@@ -65,7 +65,7 @@ function App() {
         />
         <Route path="/grid" component={Grid}/>
         <Route path="/hello" component={Monitors}/>
-    
+        <Route path="/settings" component={Settings} />
       </Switch>
     </div>
   );
