@@ -16,7 +16,7 @@ function App() {
     .get("https://welldone-db.herokuapp.com/api/sensors")
     .then(res => 
         {
-            console.log('get all sensors', res.data)
+            // console.log('get all sensors', res.data)
             setSensors(res.data)
         }
     )
@@ -47,7 +47,7 @@ function App() {
         />
         <Route path="/grid" component={Grid}/>
         <Route path="/hello" component={Monitors}/>
-        <Route path="/settings" component={Settings} />
+        {/* <Route path="/settings" component={Settings} /> */}
       </Switch>
     </div>
   );

@@ -8,6 +8,7 @@ import gridOptions from "./Pagination";
 // import axios from 'axios';
 // import { axiosWithAuth } from '../src/utilities/axiosWithAuth';
 import AxiosWithAuth from "../AxiosWithAuth/axiosWithAuth";
+import { AutoWidthCalculator } from "ag-grid-community";
 
 class Grid extends Component {
   constructor(props) {
@@ -15,11 +16,13 @@ class Grid extends Component {
     this.state = {
       columnDefs: [
         {
-          headerName: "SensorID",
-          field: "physical_id",
+          headerName: "Country",
+          field: "org_name",
           sortable: true,
           filter: true,
-          width: 90
+          width: 125
+
+
         },
         {
           headerName: "Status",
@@ -29,11 +32,12 @@ class Grid extends Component {
           width: 90
         },
         {
-          headerName: "Country",
-          field: "country_name",
+          headerName: "Sensor ID",
+          field: "physical_id",
           sortable: true,
           filter: true,
-          width: 90
+          width: 95
+
         },
         {
           headerName: "Province",
@@ -108,7 +112,7 @@ class Grid extends Component {
     
     const token = localStorage.getItem('token');
     console.log(token);
-    fetch("https://welldone-db.herokuapp.com/api/sensors", {
+    fetch("https://welldone-db.herokuapp.com/api/sensors/recent", {
       method: "GET",
       mode: 'cors',
       // credentials: "same-origin",
@@ -123,7 +127,6 @@ class Grid extends Component {
       .catch(err => console.log(err));
   }
 
-  // STATUSCARD from Josh for colors.
  
   render() {
     return (
@@ -131,7 +134,9 @@ class Grid extends Component {
         className="ag-theme-balham"
         style={{
           height: "500px",
-          width: "1200px"
+          width: "85%",
+          marginTop: 15,
+          marginLeft:100,
         }}
       >
         <AgGridReact
