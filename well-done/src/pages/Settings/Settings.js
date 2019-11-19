@@ -6,6 +6,11 @@ import EditPassword from "../../components/SettingsForms/EditPassword";
 import StaticMenu from "../../components/Menu/StaticMenu";
 import MobileNavBar from "../../components/Menu/MobileNavBar";
 import "./Settings.scss";
+
+import FormikEditNameForm from "../../components/SettingsForms/EditNameForm";
+import FormikEditPasswordForm from "../../components/SettingsForms/EditPasswordForm";
+import FormikEditEmailForm from "../../components/SettingsForms/EditEmailForm";
+
 const Settings = () => {
   return (
     <div className="settings">
@@ -17,9 +22,12 @@ const Settings = () => {
           <MobileNavBar />
         </div>
         <div className="forms">
-          <EditNameForm />
-          <EditEmail />
-          <EditPassword />
+          <FormikEditNameForm />
+          {/* <EditNameForm /> */}
+          <FormikEditEmailForm />
+          {/* <EditEmail /> */}
+          <FormikEditPasswordForm />
+          {/* <EditPassword /> */}
         </div>
       </div>
     </div>
