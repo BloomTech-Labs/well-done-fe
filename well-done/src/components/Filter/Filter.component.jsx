@@ -15,22 +15,25 @@ const Filter = props => {
                 // console.log(res)
                 setPumps(res.data)
             })
+            .catch(err => {
+                console.log(err)
+            })
     }, [ ])
 
     const handleChange = event => {
         console.log('handleChange in filter', event.target.value)
         if (event.target.value.length !== 0){
-            let filtered = pumps.filter(pump => pump.country_name.toLowerCase().includes(event.target.value.toLowerCase()))
+            let filtered = pumps.filter(pump => pump.village_name.toLowerCase().includes(event.target.value.toLowerCase()))
             props.setSearchFiltered(filtered)
         }
     }
 
     return (
         <div class="filter">
-            <h4>Country</h4>
-            <select name="countries" onChange={handleChange}> 
+            <h4>Village</h4>
+            <select className="select-village" onChange={handleChange}> 
                 {pumps.map(pump => 
-                    (<option value={pump.country_name} key={pump.sensor_pid}>{pump.country_name}</option>)
+                    (<option value={pump.village_name} key={pump.sensor_pid}>{pump.village_name}</option>)
                 )} 
             </select>
 
