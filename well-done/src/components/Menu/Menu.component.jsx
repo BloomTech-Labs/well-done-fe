@@ -1,58 +1,3 @@
-<<<<<<< HEAD
-import React, {useState} from 'react'
-import './Menu.styles.scss'
-import {IoIosHome} from 'react-icons/io'
-import {IoIosKey} from 'react-icons/io'
-import {IoIosSettings} from 'react-icons/io'
-import {IoMdCreate} from 'react-icons/io'
-
-const Menu = (props) => {
-    // console.log('props in Menu', props)
-
-    const  openNav = () => {
-        document.getElementById("myNav").style.width = "14%"
-    }
-
-    const  closeNav = () => {
-        document.getElementById("myNav").style.width = "0%"
-    }
-
-    return (
-        <div>
-            {/* <h1>Hello, please show something</h1> */}
-            <div className="hamburger-menu" onClick={openNav}>
-                <span></span>
-                <span></span>
-                <span></span> 
-          </div>
-            <div id="myNav" className="overlay" onClick={closeNav}>
-                <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>&times;</a>
-                <div className="intro">
-                    <img className="logo" src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572403214/1ff21a300da2c00f0432c0b516f8492a_lzdqay.png" alt="logo" />
-                    <p className="name">WellDone</p>
-                    <p className="email-address">WellDone@WellDone.org</p>
-                    <span></span>
-                </div>
-                <div className="overlay-content">
-                    <div class="eachNav">
-                        <IoIosHome size={25} />
-                        <a href="/dashboard">Home</a>
-                    </div>
-                    <div className="eachNav">
-                        <IoMdCreate size={25}/>
-                        <a href="/monitor">Monitor</a>
-                    </div>
-                    <div className="eachNav">
-                        <IoIosKey size={25}/>
-                        <a href="/admin">Admin</a>
-                    </div>
-                    <div className="eachNav">
-                        <IoIosSettings size={25}/>
-                        <a href="/setting">Setting</a>
-                    </div>
-                </div>
-            </div>
-=======
 import React, { useState } from "react";
 import "./Menu.styles.scss";
 import { IoIosHome } from "react-icons/io";
@@ -61,10 +6,10 @@ import { IoIosSettings } from "react-icons/io";
 import { IoMdCreate } from "react-icons/io";
 
 const Menu = props => {
-  console.log("props in Menu", props);
+  // console.log('props in Menu', props)
 
   const openNav = () => {
-    document.getElementById("myNav").style.width = "17%";
+    document.getElementById("myNav").style.width = "14%";
   };
 
   const closeNav = () => {
@@ -74,158 +19,46 @@ const Menu = props => {
   return (
     <div>
       {/* <h1>Hello, please show something</h1> */}
-      <div class="hamburger-menu" onClick={openNav}>
+      <div className="hamburger-menu" onClick={openNav}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div id="myNav" class="overlay" onClick={closeNav}>
-        <a href="javascript:void(0)" class="closebtn" onClick={closeNav}>
+      <div id="myNav" className="overlay" onClick={closeNav}>
+        <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
           &times;
         </a>
-        <div class="intro">
+        <div className="intro">
           <img
-            class="logo"
+            className="logo"
             src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572403214/1ff21a300da2c00f0432c0b516f8492a_lzdqay.png"
             alt="logo"
           />
-          <p class="name">WellDone</p>
-          <p class="email-address">WellDone@WellDone.org</p>
+          <p className="name">WellDone</p>
+          <p className="email-address">WellDone@WellDone.org</p>
           <span></span>
         </div>
-        <div class="overlay-content">
+        <div className="overlay-content">
           <div class="eachNav">
             <IoIosHome size={25} />
-            <a href="#">Home</a>
+            <a href="/dashboard">Home</a>
           </div>
-          <div class="eachNav">
+          <div className="eachNav">
             <IoMdCreate size={25} />
-            <a href="#">Monitor</a>
+            <a href="/monitor">Monitor</a>
           </div>
-          <div class="eachNav">
+          <div className="eachNav">
             <IoIosKey size={25} />
-            <a href="#">Admin</a>
+            <a href="/admin">Admin</a>
           </div>
-          <div class="eachNav">
+          <div className="eachNav">
             <IoIosSettings size={25} />
-            <a href="#">Settings</a>
+            <a href="/setting">Setting</a>
           </div>
->>>>>>> feaf3edc655c17150ed002ce9048f8d55184a31a
         </div>
       </div>
     </div>
   );
 };
 
-<<<<<<< HEAD
 export default Menu;
-
-=======
-// const Menu = () => {
-//     const [showMenu, setShowMenu] = useState(false)
-//     // const [closeMenu, setCloseMenu] = useState(false)
-
-//     const menuActive = () => {
-//         setShowMenu({showMenu: true}
-//         //     , () => {
-//         //     document.addEventListener('click', closeMenu)
-//         // }
-//         )}
-
-//     // const menuInActive = () => {
-//     //     if (!dropdownMenu.contains(event.target)){
-//     //     setCloseMenu({showMenu: false}, () => {
-//     //         document.removeEventListener('click', closeMenu)
-//     //         })
-//     //     }
-//     // }
-
-//     return (
-//         <div>
-//             <div class="hamburger-menu" onClick={menuActive}>
-//                 <span></span>
-//                 <span></span>
-//                 <span></span>
-//             </div>
-//             {showMenu? (
-//                 <div
-//                     className="menu"
-//                     // ref={(element) => {
-//                     //     dropdownMenu = element;
-//                     // }}
-//                 >
-//                     <img class="logo" src="https://res.cloudinary.com/dfulxq7so/image/upload/v1572403214/1ff21a300da2c00f0432c0b516f8492a_lzdqay.png" alt="logo" />
-//                     <p class="name">WellDone</p>
-//                     <p class="email-address">WellDone@WellDone.org</p>
-//                     <span></span>
-//                     {/* get icons */}
-//                     <ul>
-//                         <li><a href="/home">Home</a></li>
-//                         <li><a href="/monitor">Monitor</a></li>
-//                         <li><a href="/admin">Admin</a></li>
-//                         <li><a href="/setting">Setting</a></li>
-//                     </ul>
-//                 </div>
-//             ) : (null)
-//             }
-//         </div>
-//     )
-// }
-
-export default Menu;
-
-// class Menu extends React.Component {
-//     constructor (){
-//         super();
-
-//         this.state = {
-//             showMenu: false
-//         }
-
-//         this.showMenu = this.showMenu.bind(this)
-//         // this.closeMenu = this.closeMenu.bind(this)
-//     }
-
-//     showMenu(event) {
-//         event.preventDefault();
-
-//         this.setState({showMenu: true}, () => {
-//             document.addEventListener('click', this.closeMenu)
-//         })
-//     }
-
-//     // closeMenu() {
-//     //     if (!this.dropdownMenu.contains(event.target)) {
-//     //         this.setState({showMenu: false}, () => {
-//     //             document.removeEventListener('click', this.closeMenu)
-//     //         });
-//     //     }
-
-//     // }
-
-//     render() {
-//         return (
-//             <div>
-//                 <button>Show menu</button>
-//                 {this.state.showMenu ? (
-//                     <div
-//                     className="menu"
-//                     ref={(element) => {
-//                         this.dropdownMenu = element
-//                     }}
-//                     >
-//                         <ul>
-//                             <li>Home</li>
-//                             <li>Monitor</li>
-//                             <li>Admin</li>
-//                         </ul>
-//                     </div>
-//                 ): (
-//                     null
-//                 )}
-
-//             </div>
-//         )
-//     }
-// }
->>>>>>> feaf3edc655c17150ed002ce9048f8d55184a31a

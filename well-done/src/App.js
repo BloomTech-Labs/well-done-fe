@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import AxiosWithAuth from './components/AxiosWithAuth/axiosWithAuth'
+import AxiosWithAuth from "./components/AxiosWithAuth/axiosWithAuth";
 import Landing from "./pages/Landing.jsx";
 import Dashboard from "./pages/Dashboard";
-import MonitorDetails from './pages/MonitorDetail'
-import Grid from "./components/Grid/Aggrid"
+import MonitorDetails from "./pages/MonitorDetail";
+import Grid from "./components/Grid/Aggrid";
 import Monitors from "./pages/MonitorsPage";
 import MetaTags from "react-meta-tags";
 
@@ -17,18 +17,15 @@ function App() {
 
   useEffect(() => {
     AxiosWithAuth()
-    .get("https://welldone-db.herokuapp.com/api/sensors/recent")
-    .then(res => 
-        {
-            console.log('get all sensors', res.data)
-            setSensors(res.data)
-        }
-    )
-    .catch(err => {
-      console.log(err)
-    })
-  }, [])
- 
+      .get("https://welldone-db.herokuapp.com/api/sensors/recent")
+      .then(res => {
+        console.log("get all sensors", res.data);
+        setSensors(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className="App">
@@ -41,8 +38,8 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route 
-          path="/dashboard" 
+        <Route
+          path="/dashboard"
           render={props => {
             return <Dashboard {...props} 
                         searchFiltered={searchFiltered} 
@@ -54,8 +51,8 @@ function App() {
                     
           }} 
         />
-        <Route 
-          path="/monitorDetails" 
+        <Route
+          path="/monitorDetails"
           render={props => {
             return <MonitorDetails {...props} 
                         sensors={sensors}
@@ -63,9 +60,9 @@ function App() {
                     />
           }} 
         />
-        <Route path="/grid" component={Grid}/>
-        <Route path="/hello" component={Monitors}/>
-        <Route path="/settings" component={Settings} />
+        <Route path="/grid" component={Grid} />
+        <Route path="/hello" component={Monitors} />
+        {/* <Route path="/settings" component={Settings} /> */}
       </Switch>
     </div>
   );
