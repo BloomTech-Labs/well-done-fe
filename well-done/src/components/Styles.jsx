@@ -6,7 +6,7 @@ import { FiHelpCircle, FiAlertCircle, FiCheckCircle } from "react-icons/fi"
 export const colors = {
   main: "#fff",
   brand: "#0282FA",
-  btnHover: "#1C49BB",
+  // btnHover: "#1C49BB",
   backgroundColor: "#F3F7FC",
   text: "#886BFE",
   success: "#01c000",

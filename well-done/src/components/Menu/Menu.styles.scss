@@ -4,7 +4,7 @@
   z-index: 1;
 
   span {
-      background: #082B84;
+    background-color: #082B84;
       width: 30px;
       height: 5px;
       display: block;
@@ -23,9 +23,9 @@
   left: 0;
   // background-color: #082B84;
   background-color:#082B84;
-
   overflow-x: hidden;
   transition: 0.5s;
+  
 
   .closebtn {
       position: relative;
@@ -68,29 +68,39 @@
       }
   }
 
-  .overlay-content {
+  .overlay-content-map {
       position: relative;
       top: 18%;
       width: 100%;
       text-align: left;
       // margin-top: 30px;
       color: white;
-      margin-left: 10px;
+    //   padding-left: 30px;
+    //   margin: 0px;
+    //   margin-left: 10px;
 
-      a:hover {
-          // background-color: rgba(48, 155, 242, 0.637);
-          // width: 194px;
-          // height: 30px;
-          color:#818181;
+    //   a:hover {
+    //       // background-color: rgba(48, 155, 242, 0.637);
+    //       // width: 194px;
+    //       // height: 30px;
+    //     //   color:#818181;
           
-      }
+    //   }
 
       .eachNav {
           display: flex;
-          align-items: center; 
-          align-self: flex-end;
+        //   align-items: center; 
+        //   align-self: flex-end;
           justify-items: space-evenly;
-          margin-left: 10px;
+          width: 100%;
+          padding-left: 30px;
+          align-items: center;
+        //   margin-left: 10px;
+      }
+      .eachNav:hover {
+        background-color: #1C49BB;
+        color: white;
+
       }
      
     }
@@ -105,10 +115,10 @@
       margin-top: 0px;
       // text-align: center;
 
-      :hover, :focus {
-          color:#818181;
+    //   :hover, :focus {
+    //       color: white;
           
-        }
+    //     }
     }
 
 }
