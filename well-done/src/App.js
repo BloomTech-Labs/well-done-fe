@@ -17,6 +17,9 @@ function App() {
       .then(res => {
         console.log("get all sensors", res.data);
         setSensors(res.data);
+      })
+      .catch(err => {
+        console.log(err);
       });
   }, []);
 
@@ -33,6 +36,7 @@ function App() {
                 searchFiltered={searchFiltered}
                 setSearchFiltered={setSearchFiltered}
                 sensors={sensors}
+                // pumps={pumps}
               />
             );
           }}

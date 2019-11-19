@@ -15,6 +15,9 @@ const Filter = props => {
                 // console.log(res)
                 setPumps(res.data)
             })
+            .catch(err => {
+                console.log(err)
+            })
     }, [ ])
 
     const handleChange = event => {
