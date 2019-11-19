@@ -150,3 +150,6 @@ class Grid extends Component {
 }
 
 export default Grid;
+
+
+// 2 is working , 0 is Not Working, 1 is Unknown or Null

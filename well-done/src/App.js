@@ -8,6 +8,7 @@ import Grid from "./components/Grid/Aggrid";
 import Monitors from "./pages/MonitorsPage";
 import Settings from "./pages/Settings/Settings";
 import MetaTags from "react-meta-tags";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 function App() {
   const [searchFiltered, setSearchFiltered] = useState([]);
@@ -56,36 +57,24 @@ function App() {
 
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route
+        <PrivateRoute
           path="/dashboard"
-          render={props => {
-            return (
-              <Dashboard
-                {...props}
-                searchFiltered={searchFiltered}
-                setSearchFiltered={setSearchFiltered}
-                sensors={sensors}
-                selectedPump={selectedPump}
-                setSelectedPump={setSelectedPump}
-              />
-            );
-          }}
+          searchFiltered={searchFiltered}
+          setSearchFiltered={setSearchFiltered}
+          sensors={sensors}
+          selectedPump={selectedPump}
+          setSelectedPump={setSelectedPump}
+          page={Dashboard}
         />
-        <Route
+        <PrivateRoute
           path="/monitorDetails"
-          render={props => {
-            return (
-              <MonitorDetails
-                sensors={sensors}
-                history={history}
-                selectedPump={selectedPump}
-              />
-            );
-          }}
+          page={MonitorDetail}
+          history={history}
+          sensors={sensors}
+          selectedPump={selectedPump}
         />
-        <Route path="/grid" component={Grid} />
-        <Route path="/hello" component={Monitors} />
-        <Route path="/settings" component={Settings} />
+        <PrivateRoute path="/overview" page={Monitors} />
+        <PrivateRoute path="/settings" page={Settings} />
       </Switch>
     </div>
   );

@@ -6,11 +6,11 @@ import EditPassword from "../../components/SettingsForms/EditPassword";
 import StaticMenu from "../../components/Menu/StaticMenu";
 import MobileNavBar from "../../components/Menu/MobileNavBar";
 import "./Settings.scss";
-const Settings = () => {
+const Settings = ({ history }) => {
   return (
     <div className="settings">
       <div className="static-menu">
-        <StaticMenu />
+        <StaticMenu history={history} />
       </div>
       <div className="mobile-view">
         <div className="hamburga-menu">
