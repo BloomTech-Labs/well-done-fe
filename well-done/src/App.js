@@ -45,7 +45,10 @@ function App() {
         />
         <Route path="/grid" component={Grid} />
         <Route path="/hello" component={Monitors} />
-        <Route path="/settings" component={Settings} />
+        {/* if user.isSignedIn() */}
+        {/* pass in userID based on authentication token here */}
+        <Route path="/settings" component={Settings} userID="2" />
+        {/* else, we should render an error component */}
       </Switch>
     </div>
   );
