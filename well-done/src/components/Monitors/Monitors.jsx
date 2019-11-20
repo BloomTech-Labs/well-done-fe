@@ -7,7 +7,7 @@ import {
   
   import React, { useState, useEffect } from "react";
   import { Button, Card, Image } from 'semantic-ui-react'
-  import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
+  import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
   var moment = require('moment')
   
   

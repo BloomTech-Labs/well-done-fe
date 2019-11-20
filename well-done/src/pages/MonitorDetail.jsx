@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGl, { Marker } from "react-map-gl";
-import { Bar } from "react-chartjs-2";
+import { Line, Pie, Bar } from "react-chartjs-2";
 import { Tabs, Row, Col, Descriptions, Badge, Button } from "antd";
 import "antd/dist/antd.css";
 import "./MonitorDetail.css";
@@ -62,7 +62,7 @@ const MonitorDetails = props => {
                   </Col>
                   <Col span={1}></Col>
                   <Col span={8}>
-                    <Bar
+                    <Pie
                       data={{
                         labels: date,
                         datasets: [
