@@ -5,16 +5,13 @@ import "ag-grid-community/dist/styles/ag-theme-balham.css";
 
 
 import gridOptions from "./Pagination";
-import AxiosWithAuth from "../AxiosWithAuth/axiosWithAuth";
-import { AutoWidthCalculator } from "ag-grid-community";
-import grid from "./grid.scss";
-import getBooleanValue from "./boo";
+
 
 class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-   
+
       columnDefs: [
         {
           headerName: "Project",
@@ -99,7 +96,7 @@ class Grid extends Component {
     };
   }
 
-  
+
   componentDidMount = () => {
     const token = localStorage.getItem("token");
     console.log(token);
@@ -121,53 +118,19 @@ class Grid extends Component {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
 
-    
-  };
-  // onBtExport() {
-  //   var params = {
-  //     // allColumns: getBooleanValue("#allColumns"),
-  //     // onlySelected: getBooleanValue("#onlySelected"),
-  //     // suppressQuotes: getBooleanValue("#suppressQuotes"),
-  //     fileName: document.querySelector("#fileName").value,
-  //     columnSeparator: document.querySelector("#columnSeparator").value
-  //   };
-  //   if (getBooleanValue("#customHeader")) {
-  //     params.customHeader = "Test Header";
-  //   }
-  //   if (getBooleanValue("#customFooter")) {
-  //     params.customFooter = "Test Footer";
-  //   }
-  //   this.gridApi.exportDataAsCsv(params);
-  // }
 
-  // componentDidMount() {
-  //   const token = localStorage.getItem("token");
-  //   console.log(token);
-  //   fetch("https://welldone-db.herokuapp.com/api/sensors/recent", {
-  //     method: "GET",
-  //     mode: "cors",
-  //     // credentials: "same-origin",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `${token}`
-  //     }
-  //   })
-  //     .then(result => result.json())
-  //     .then(rowData => this.setState({ rowData }))
-  //     // .then(rowData =>  console.log(rowData))
-  //     .catch(err => console.log(err));
-  // }
+  };
 
 
   exportToCsv = function () {
     var params = {
-        skipHeader: false,
-        skipFooters: true,
-        skipGroups: true,
-        fileName: "OverviewGrid.csv"
+      skipHeader: false,
+      skipFooters: true,
+      skipGroups: true,
+      fileName: "OverviewGrid.csv"
     };
-  gridOptions.api.exportDataAsCsv(params);
-}
+    gridOptions.api.exportDataAsCsv(params);
+  }
 
   render() {
     return (
@@ -185,18 +148,10 @@ class Grid extends Component {
             columnDefs={this.state.columnDefs}
             rowData={this.state.rowData}
             gridOptions={gridOptions}
-
             modules={this.state.modules}
-              defaultColDef={this.state.defaultColDef}
-              showToolPanel={true}
-              rowSelection={this.state.rowSelection}
-              onGridReady={this.onGridReady}
-
-
-
-
-
-
+            defaultColDef={this.state.defaultColDef}
+            rowSelection={this.state.rowSelection}
+            onGridReady={this.onGridReady}
 
           ></AgGridReact>
         </div>
