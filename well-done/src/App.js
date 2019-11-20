@@ -32,7 +32,7 @@ function App() {
     AxiosWithAuth()
       .get("https://welldone-db.herokuapp.com/api/history")
       .then(res => {
-        //console.log("get all sensors", res.data);
+        //console.log("history from app.js", res.data);
         setHistory(res.data);
       })
       .catch(err => {
@@ -68,7 +68,7 @@ function App() {
         />
         <PrivateRoute
           path="/monitorDetails"
-          page={MonitorDetail}
+          page={MonitorDetails}
           history={history}
           sensors={sensors}
           selectedPump={selectedPump}

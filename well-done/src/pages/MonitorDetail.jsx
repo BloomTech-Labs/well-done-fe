@@ -9,7 +9,7 @@ const { TabPane } = Tabs;
 const MonitorDetails = props => {
   console.log("MonitorDetails Props", props);
   console.log("MonitorDetails Props Sensors ", props.sensors);
-  console.log("MonitorDetails Props history 0", props.history[0]);
+  console.log("MonitorDetails Props history", props.history);
 
   const [viewport, setViewport] = useState({
     latitude: 13.5651,
