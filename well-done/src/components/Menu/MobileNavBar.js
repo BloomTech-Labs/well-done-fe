@@ -1,5 +1,4 @@
 import React from "react";
-
 import MobileViewMenu from "../Menu/MobileViewMenu.jsx";
 
 const MobileNavBar = () => {
