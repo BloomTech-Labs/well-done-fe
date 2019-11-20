@@ -1,11 +1,13 @@
 import React from "react";
-import EditNameForm from "../../components/SettingsForms/EditName";
-import EditEmail from "../../components/SettingsForms/EditEmail";
-import EditPassword from "../../components/SettingsForms/EditPassword";
 // import Menu from "../../components/Menu/Menu.component";
 import StaticMenu from "../../components/Menu/StaticMenu";
 import MobileNavBar from "../../components/Menu/MobileNavBar";
 import "./Settings.scss";
+
+import EditNameForm from "../../components/SettingsForms/EditNameForm";
+import EditPasswordForm from "../../components/SettingsForms/EditPasswordForm";
+import EditEmailForm from "../../components/SettingsForms/EditEmailForm";
+
 const Settings = ({ history }) => {
   return (
     <div className="settings">
@@ -18,8 +20,8 @@ const Settings = ({ history }) => {
         </div>
         <div className="forms">
           <EditNameForm />
-          <EditEmail />
-          <EditPassword />
+          <EditEmailForm />
+          <EditPasswordForm />
         </div>
       </div>
     </div>
