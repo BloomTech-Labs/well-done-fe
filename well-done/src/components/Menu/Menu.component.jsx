@@ -5,7 +5,7 @@ import { IoIosHome, IoIosKey, IoIosSettings, IoMdCreate } from "react-icons/io";
 // import { IoIosSettings } from "react-icons/io";
 // import { IoMdCreate } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Menu = props => {
   // console.log('props in Menu', props)
@@ -19,23 +19,24 @@ const Menu = props => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token')
-    props.history.push('/')
-}
-
+    localStorage.removeItem("token");
+    props.history.push("/");
+  };
 
   return (
     <div>
       {/* <h1>Hello, please show something</h1> */}
       <div className="hamburger-menu" onClick={openNav}>
-        <span style={{ backgroundColor: '#082B84'}}></span>
-        <span style={{ backgroundColor: '#082B84'}}></span>
-        <span style={{ backgroundColor: '#082B84'}}></span>
+        <span style={{ backgroundColor: "#082B84" }}></span>
+        <span style={{ backgroundColor: "#082B84" }}></span>
+        <span style={{ backgroundColor: "#082B84" }}></span>
       </div>
       <div id="myNav" className="overlay" onClick={closeNav}>
-        <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>
-  
-        </a>
+        <a
+          href="javascript:void(0)"
+          className="closebtn"
+          onClick={closeNav}
+        ></a>
         <div className="intro">
           <img
             className="logo"
@@ -50,10 +51,10 @@ const Menu = props => {
             <IoIosHome size={25} />
             <Link to="/dashboard">Home</Link>
           </div>
-          <div className="eachNav">
+          {/* <div className="eachNav">
             <IoMdCreate size={25} />
             <a href="/overview">Overview</a>
-          </div>
+          </div> */}
           {/* <div className="eachNav">
             <IoIosKey size={25} />
             <a href="/admin">Admin</a>
@@ -63,8 +64,8 @@ const Menu = props => {
             <a href="/settings">Settings</a>
           </div>
           <div className="eachNav" onClick={logout}>
-                <FiLogOut size={25} />
-                <a>Logout</a>
+            <FiLogOut size={25} />
+            <a>Logout</a>
           </div>
         </div>
       </div>
