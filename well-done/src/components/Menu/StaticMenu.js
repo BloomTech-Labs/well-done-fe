@@ -11,7 +11,7 @@ const StaticMenu = props => {
     localStorage.removeItem('token')
     props.history.push('/')
 }
-  console.log("props in menu", props);
+  // console.log("props in menu", props);
   return (
     <div className="entire-menu">
       <img

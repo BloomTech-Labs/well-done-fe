@@ -35,10 +35,9 @@ const EditNameForm = props => {
       // return <div>Account names must match</div>;
     } else {
       console.log("submit", account);
-
       // make sure correct username + password is input
       isValidUserCredential(account).then(res => {
-        console.log("handle submit res success = ", res);
+        console.log("response line", res);
       });
     }
   };
@@ -63,10 +62,13 @@ const EditNameForm = props => {
       .get("https://welldone-db.herokuapp.com/api/accounts/" + accountID)
       .then(res => {
         console.log("res", res.data);
+        // the data form the forms
         var temp = res.data;
-        temp.password = account.password;
+        temp.password = account.password; // add password to data for update
         // change for form data
-        temp.new_name = account.new_name_conf;
+        var nameSplit = account.new_name.split(" ");
+        temp.first_name = nameSplit[0];
+        temp.last_name = nameSplit[1];
         updateUserData(temp, accountID);
       })
       .catch(err => {

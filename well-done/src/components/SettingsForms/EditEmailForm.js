@@ -47,7 +47,7 @@ const EditEmailForm = props => {
       .then(res => {
         console.log("res", res.data);
         getUserData(res.data.id);
-        // localStorage.setItem("userId", res.data.id); // may not wanna save
+        localStorage.setItem("userId", res.data.id); // may not wanna save
         return true;
       })
       .catch(err => {
@@ -80,7 +80,7 @@ const EditEmailForm = props => {
       )
       .then(res => {
         console.log("res", res.data);
-        // localStorage.setItem("userId", res.data.id); // may not wanna save
+        localStorage.setItem("userId", res.data.id); // may not wanna save
         return true;
       })
       .catch(err => {
@@ -141,7 +141,7 @@ const EditEmailForm = props => {
                   className="input"
                   type="email"
                   name="new_email_conf"
-                  value={account.new_email_confirm}
+                  value={account.new_email_conf}
                   onChange={handleChange}
                 />
               </Form.Group>

@@ -19,8 +19,9 @@ const EditPasswordForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(account.new_email);
-    if (account.new_email != account.new_email_conf) {
+    // event.target.reset();
+    console.log(account.new_password);
+    if (account.new_password != account.new_password_conf) {
       //display mismatching error message
       //get html ref or id and update its txt to alert user?
       axiosWithAuth()
@@ -34,8 +35,14 @@ const EditPasswordForm = props => {
     } else {
       console.log("submit", account);
 
+      const emailPassword = {
+        email_address: account.email_address,
+        password: account.password
+      };
+
+      console.log(emailPassword);
       // make sure correct username + password is input
-      isValidUserCredential(account).then(res => {
+      isValidUserCredential(emailPassword).then(res => {
         console.log("response line", res);
       });
     }
@@ -61,10 +68,10 @@ const EditPasswordForm = props => {
       .get("https://welldone-db.herokuapp.com/api/accounts/" + accountID)
       .then(res => {
         console.log("res", res.data);
-        var temp = res.data;
-        temp.email_address = account.email_address;
-        temp.new_password = account.new_password_conf;
-        updateUserData(temp, accountID);
+        // var temp = res.data;
+        // temp.email_address = account.email_address;
+        // temp.password = account.new_password;
+        updateUserData(account.new_password, accountID);
       })
       .catch(err => {
         console.log(err);
@@ -72,15 +79,16 @@ const EditPasswordForm = props => {
   };
 
   const updateUserData = (newData, accountID) => {
+    console.log("update user data");
     console.log(newData, accountID);
     axiosWithAuth()
       .put(
-        "https://welldone-db.herokuapp.com/api/accounts/" + accountID,
+        "https://welldone-db.herokuapp.com/api/accounts/password" + accountID,
         newData
       )
       .then(res => {
         console.log("res", res.data);
-        // localStorage.setItem("userId", res.data.id); // may not wanna save
+        // localStorage.setItem("userId", res.data.id);
         return true;
       })
       .catch(err => {
