@@ -6,7 +6,7 @@ import "ag-grid-community/dist/styles/ag-theme-balham.css";
 import gridOptions from "./Pagination";
 import AxiosWithAuth from "../AxiosWithAuth/axiosWithAuth";
 import { AutoWidthCalculator } from "ag-grid-community";
-import grid from "./grid.scss"
+import grid from "./grid.scss";
 
 class Grid extends Component {
   constructor(props) {
@@ -18,8 +18,7 @@ class Grid extends Component {
           field: "org_name",
           sortable: true,
           filter: true,
-          width: 125,
-
+          width: 125
         },
         {
           headerName: "Sensor ID",
@@ -33,8 +32,7 @@ class Grid extends Component {
           field: "status",
           sortable: true,
           filter: true,
-          width: 90         
-
+          width: 90
         },
         {
           headerName: "Province",
@@ -54,7 +52,7 @@ class Grid extends Component {
           field: "commune_name",
           sortable: true,
           width: 90
-        },
+        }
         // {
         //   headerName: "Last Last 7 Days",
         //   field: "last_upload",
@@ -106,12 +104,11 @@ class Grid extends Component {
   // }
 
   componentDidMount() {
-    
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     console.log(token);
     fetch("https://welldone-db.herokuapp.com/api/sensors/recent", {
       method: "GET",
-      mode: 'cors',
+      mode: "cors",
       // credentials: "same-origin",
       headers: {
         "Content-Type": "application/json",
@@ -124,16 +121,15 @@ class Grid extends Component {
       .catch(err => console.log(err));
   }
 
- 
   render() {
     return (
       <div
         className="ag-theme-balham"
         style={{
           height: "500px",
-          width: "85%",
-          marginTop: 15,
-          marginLeft:100,
+          width: "100%"
+          // marginTop: 15
+          // marginLeft: 100
         }}
       >
         <AgGridReact
@@ -147,6 +143,5 @@ class Grid extends Component {
 }
 
 export default Grid;
-
 
 // 2 is working , 0 is Not Working, 1 is Unknown or Null

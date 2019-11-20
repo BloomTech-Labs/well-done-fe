@@ -5,7 +5,7 @@ import { IoIosHome, IoIosKey, IoIosSettings, IoMdCreate } from "react-icons/io";
 // import { IoIosSettings } from "react-icons/io";
 // import { IoMdCreate } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const Menu = props => {
   // console.log('props in Menu', props)
@@ -20,7 +20,7 @@ const Menu = props => {
 
   const logout = () => {
     localStorage.removeItem("token");
-    props.history.push("/");
+    return <Redirect to="/" />;
   };
 
   return (
@@ -51,10 +51,10 @@ const Menu = props => {
             <IoIosHome size={25} />
             <Link to="/dashboard">Home</Link>
           </div>
-          {/* <div className="eachNav">
+          <div className="eachNav">
             <IoMdCreate size={25} />
             <a href="/overview">Overview</a>
-          </div> */}
+          </div>
           {/* <div className="eachNav">
             <IoIosKey size={25} />
             <a href="/admin">Admin</a>
