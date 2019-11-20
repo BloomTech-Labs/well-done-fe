@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-// import "./App.css";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 
 import gridOptions from "./Pagination";
-// import axios from 'axios';
-// import { axiosWithAuth } from '../src/utilities/axiosWithAuth';
 import AxiosWithAuth from "../AxiosWithAuth/axiosWithAuth";
 import { AutoWidthCalculator } from "ag-grid-community";
+import grid from "./grid.scss"
 
 class Grid extends Component {
   constructor(props) {
@@ -16,20 +14,12 @@ class Grid extends Component {
     this.state = {
       columnDefs: [
         {
-          headerName: "Country",
+          headerName: "Project",
           field: "org_name",
           sortable: true,
           filter: true,
-          width: 125
+          width: 125,
 
-
-        },
-        {
-          headerName: "Status",
-          field: "status",
-          sortable: true,
-          filter: true,
-          width: 90
         },
         {
           headerName: "Sensor ID",
@@ -37,6 +27,13 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 95
+        },
+        {
+          headerName: "Status",
+          field: "status",
+          sortable: true,
+          filter: true,
+          width: 90         
 
         },
         {
@@ -59,7 +56,7 @@ class Grid extends Component {
           width: 90
         },
         // {
-        //   headerName: "Last Upload",
+        //   headerName: "Last Last 7 Days",
         //   field: "last_upload",
         //   sortable: true,
         //   width: 90,
