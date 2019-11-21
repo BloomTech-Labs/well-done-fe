@@ -1,10 +1,11 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import ReactMapGl, { Marker } from "react-map-gl";
 import { Line, Pie, Bar, Polar } from "react-chartjs-2";
 import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from "antd";
 import "antd/dist/antd.css";
 import "./MonitorDetail.css";
+import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 
 const { Title } = Typography;
 
@@ -16,6 +17,20 @@ const MonitorDetails = props => {
     height: "30vh",
     zoom: 7
   });
+
+  const [history, setHistory] = useState([]);
+
+    useEffect(() => {
+        AxiosWithAuth()
+          .get("https://welldone-db.herokuapp.com/api/history")
+          .then(res => {
+            //console.log("history from app.js", res.data);
+            setHistory(res.data);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }, []);
 
   const {
     physical_id,
@@ -31,7 +46,7 @@ const MonitorDetails = props => {
     longitude
   } = props.selectedPump;
 
-  const padHistory = props.history.filter(pad => {
+  const padHistory = history.filter(pad => {
     return pad.sensor_id == physical_id;
   });
 
@@ -191,4 +206,4 @@ const MonitorDetails = props => {
 };
 
 
-// export default MonitorDetails;
+export default MonitorDetails;
