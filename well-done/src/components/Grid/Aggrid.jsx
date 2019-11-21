@@ -18,7 +18,8 @@ class Grid extends Component {
           field: "org_name",
           sortable: true,
           filter: true,
-          width: 125
+          width: 125,
+
         },
         {
           headerName: "Sensor ID",
@@ -53,7 +54,7 @@ class Grid extends Component {
           field: "commune_name",
           sortable: true,
           filter: true,
-          width: 90
+          width: 100
         }
         // {
         //   headerName: "Depth",
@@ -114,14 +115,6 @@ class Grid extends Component {
       .catch(err => console.log(err));
   };
 
-  onGridReady = params => {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-
-
-  };
-
-
   exportToCsv = function () {
     var params = {
       skipHeader: false,
@@ -156,7 +149,7 @@ class Grid extends Component {
           ></AgGridReact>
         </div>
 
-        <label style={{ margin: "10px" }}>
+        <label style={{ margin: "5px" }}>
           <button onClick={this.exportToCsv.bind(this)}>Export to CSV</button>
         </label>
       </div>
