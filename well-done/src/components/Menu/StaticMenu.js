@@ -1,18 +1,14 @@
 import React from "react";
 import "./StaticMenu.scss";
 import { IoIosHome, IoMdCreate, IoIosSettings } from "react-icons/io";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Redirect } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
-import { Redirect } from "react-router-dom";
-
-// import { WellDoneLogo } from "../../Images/WellDoneLogo.png";
 
 const StaticMenu = props => {
   const logout = () => {
     localStorage.removeItem("token");
     return <Redirect to="/" />;
   };
-  // console.log("props in menu", props);
   return (
     <div className="entire-menu">
       <img

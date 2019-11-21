@@ -19,30 +19,25 @@
   z-index: 1;
   top: 0;
   left: 0;
-  // background-color: #082B84;
-  background-color: #051B52;
+  background-color: #082b84;
   overflow-x: hidden;
   transition: 0.5s;
 
   .mobile-closebtn {
-    // position: absolute;
-    // top: 20px;
     right: 170px;
     font-size: 35px;
     color: #818181;
     .close-x {
       padding-left: 210px;
-
     }
   }
 
   .mobile-intro {
-    background-color: #051B52;
+    background-color: #082b84;
     width: 214px;
     height: 725px;
     color: #ffffff;
     position: absolute;
-    // padding: 30px;
 
     .mobile-name {
       font-size: 16px;
@@ -54,15 +49,14 @@
       margin-left: 20px;
     }
 
-    // span {
-    //     background-color: rgba(255, 255, 255, 0.8);
-    //     display: block;
-    //     width: 214px;
-    //     height: 1px;
-    // }
+    span {
+      background-color: rgba(255, 255, 255, 0.8);
+      display: block;
+      width: 100vh;
+      height: 1px;
+    }
 
     .mobile-logo {
-      // width: 80%;
       margin: -20px 0 10px 20px;
       width: 170.81px;
       height: 35.61px;
@@ -74,29 +68,14 @@
     top: 18%;
     width: 100%;
     text-align: left;
-    // margin-top: 30px;
     color: white;
-    //   padding-left: 30px;
-    //   margin: 0px;
-    //   margin-left: 10px;
-
-    //   a:hover {
-    //       // background-color: rgba(48, 155, 242, 0.637);
-    //       // width: 194px;
-    //       // height: 30px;
-    //     //   color:#818181;
-
-    //   }
 
     .mobile-eachNav {
       display: flex;
-      //   align-items: center;
-      //   align-self: flex-end;
       justify-items: space-evenly;
       width: 100%;
       padding-left: 30px;
       align-items: center;
-      //   margin-left: 10px;
     }
     .mobile-eachNav:hover {
       background-color: #1c49bb;
@@ -112,11 +91,5 @@
     display: block;
     transition: 0.3s;
     margin-top: 0px;
-    // text-align: center;
-
-    //   :hover, :focus {
-    //       color: white;
-
-    //     }
   }
 }
