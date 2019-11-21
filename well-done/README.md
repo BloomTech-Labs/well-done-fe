@@ -1,5 +1,9 @@
 # WellDone Dashboard
 
+You can find the deployed project at https://well-done.welldone.now.sh/.
+<br> Backend is deployed at https://welldone-db.herokuapp.com/ 
+
+
 ## Table of Contents
 
 - [Project Overview](link)
@@ -11,10 +15,6 @@
 - [Installation Instructions](link)
 - [Historical Documentation](link)
 - [Contributors](link)
-
-
-You can find the deployed project at https://well-done.welldone.now.sh/.
-<br> Backend is deployed at https://welldone-db.herokuapp.com/ 
 
 
 ## Project Overview
