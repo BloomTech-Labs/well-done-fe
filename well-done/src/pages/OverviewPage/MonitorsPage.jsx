@@ -15,7 +15,7 @@ import Card from "../../components/Card.jsx";
 import BlankCard from "../../components/BlankCard.jsx";
 import { css } from "emotion";
 
-import { Line, Pie, Bar, Polar } from "react-chartjs-2";
+import { Line, Pie, Bar, Polar, Doughnut } from "react-chartjs-2";
 
 const colors = {
   main: "#fff",
@@ -62,7 +62,37 @@ const MonitorsPage = ({ history }) => {
   // useEffect(() => {
 
   // },[])
-  console.log("pumpData", pumpData);
+
+  const data = {
+    labels: ["Functional", "Non-Functional", "Unknown"],
+    datasets: [
+      {
+        data: [funcPumps.length, nonPumps.length, unPumps.length],
+        backgroundColor: ["#01c000", "#f44336", "#FFAD34"]
+      }
+    ]
+  };
+
+  const option = {
+    tooltips: {
+      callbacks: {
+        label: function(tooltipItem, data) {
+          const dataset = data.datasets[tooltipItem.datasetIndex];
+          const meta = dataset._meta[Object.keys(dataset._meta)[0]];
+          const total = meta.total;
+          const currentValue = dataset.data[tooltipItem.index];
+          const percentage = parseFloat(
+            ((currentValue / total) * 100).toFixed(1)
+          );
+          return currentValue + " (" + percentage + "%)";
+        },
+        title: function(tooltipItem, data) {
+          return data.labels[tooltipItem[0].index];
+        }
+      }
+    }
+  };
+
   return (
     <div
       className="parent-div"
@@ -80,7 +110,7 @@ const MonitorsPage = ({ history }) => {
         className={css({
           width: "100%",
           padding: "20px 20px",
-          maxWidth: 1240,
+          // maxWidth: 1640,
           margin: "0 auto",
           paddingLeft: "250px"
         })}
@@ -140,12 +170,13 @@ const MonitorsPage = ({ history }) => {
               // )}
             />
 
+            {/* <div className={css({ display: "flex" })}> */}
             {/* End Card Section */}
 
             {/* AG-Grid Section */}
             <div
               className={css({
-                width: "100%",
+                width: "65%",
                 marginBottom: 20,
                 [breakingPoints.md]: {
                   width: "100%"
@@ -159,7 +190,21 @@ const MonitorsPage = ({ history }) => {
                 </h2>
               </BlankCard>
             </div>
+            <div
+              className={css({
+                width: "35%"
+              })}
+            >
+              <BlankCard>
+                <Pie data={data} options={option} />
+              </BlankCard>
+            </div>
+            {/* <div className={css({ width: "35%" })}>
+              <Pie data={data} options={option} />
+            </div> */}
+
             {/* End AG-Grid Section */}
+            {/* </div> */}
           </div>
         </div>
       </div>

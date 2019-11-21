@@ -53,7 +53,7 @@ const PopupInfo = props => {
         <h3>{country_name}</h3>
         <p className="province_name">{province_name}</p>
 
-        <Link to={history => ({ ...history, pathname: "/monitorDetails" })}>
+        <Link to={{ pathname: "/monitorDetails" }}>
           <Button type="link">More details</Button>
         </Link>
       </div>
