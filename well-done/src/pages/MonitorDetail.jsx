@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import ReactMapGl, { Marker } from "react-map-gl";
 import { Line, Pie, Bar, Polar } from "react-chartjs-2";
@@ -189,4 +190,5 @@ const MonitorDetails = props => {
   );
 };
 
-export default MonitorDetails;
+
+// export default MonitorDetails;
