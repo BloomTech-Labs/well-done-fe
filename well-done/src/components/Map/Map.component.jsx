@@ -55,6 +55,7 @@ export default function Map(props){
                 onClose={() => {
                     props.setSelectedPump(null)
                 }}
+                closeOnClick={false}
                 >
                     <PopupInfo 
                         // sensors={sensorInMap} 
