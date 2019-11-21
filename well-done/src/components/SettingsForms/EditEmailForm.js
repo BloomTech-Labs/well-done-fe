@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
 import axiosWithAuth from "../AxiosWithAuth/axiosWithAuth.jsx";
 import "../../pages/Settings/Settings.scss";
 import { Button, Form } from "react-bootstrap";
 
 const EditEmailForm = props => {
-  // console.log('props in SignIn', props)
   const [account, setAccount] = useState({
     email_address: "",
     password: "",
@@ -20,9 +18,9 @@ const EditEmailForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     console.log(account.new_email);
+    // Checking if new email matches new email confirmation
     if (account.new_email != account.new_email_conf) {
-      //display mismatching error message
-      //get html ref or id and update its txt to alert user?
+      alert("New email information must match");
       axiosWithAuth()
         .get("https://welldone-db.herokuapp.com/api/accounts/")
         .then(res => {
@@ -34,20 +32,18 @@ const EditEmailForm = props => {
     } else {
       console.log("submit", account);
 
-      // make sure correct username + password is input
       isValidUserCredential(account).then(res => {
-        // console.log("response line", res);
+        console.log("response line", res);
       });
     }
   };
-
   async function isValidUserCredential(account) {
     axiosWithAuth()
       .post("https://welldone-db.herokuapp.com/api/auth/login", account)
       .then(res => {
         console.log("res", res.data);
         getUserData(res.data.id);
-        localStorage.setItem("userId", res.data.id); // may not wanna save
+        localStorage.setItem("userId", res.data.id);
         return true;
       })
       .catch(err => {
@@ -55,7 +51,6 @@ const EditEmailForm = props => {
         return false;
       });
   }
-
   const getUserData = accountID => {
     axiosWithAuth()
       .get("https://welldone-db.herokuapp.com/api/accounts/" + accountID)
@@ -80,7 +75,7 @@ const EditEmailForm = props => {
       )
       .then(res => {
         console.log("res", res.data);
-        localStorage.setItem("userId", res.data.id); // may not wanna save
+        localStorage.setItem("userId", res.data.id);
         return true;
       })
       .catch(err => {
@@ -121,7 +116,6 @@ const EditEmailForm = props => {
                 />
               </Form.Group>
             </Form.Group>
-
             {/* New name input  */}
             <Form.Group className="row-2">
               <Form.Group className="form-group">

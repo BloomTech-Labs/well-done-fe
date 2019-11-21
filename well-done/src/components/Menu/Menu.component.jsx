@@ -5,10 +5,10 @@ import { IoIosHome, IoIosKey, IoIosSettings, IoMdCreate } from "react-icons/io";
 // import { IoIosSettings } from "react-icons/io";
 // import { IoMdCreate } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 
 const Menu = props => {
-  // console.log('props in Menu', props)
+  console.log("props in Menu", props);
 
   const openNav = () => {
     document.getElementById("myNav").style.width = "210px";
@@ -32,11 +32,11 @@ const Menu = props => {
         <span style={{ backgroundColor: "#082B84" }}></span>
       </div>
       <div id="myNav" className="overlay" onClick={closeNav}>
-        <a
-          href="javascript:void(0)"
+        <NavLink
+          to="javascript:void(0)"
           className="closebtn"
           onClick={closeNav}
-        ></a>
+        ></NavLink>
         <div className="intro">
           <img
             className="logo"
@@ -49,11 +49,11 @@ const Menu = props => {
         <div className="overlay-content-map">
           <div class="eachNav">
             <IoIosHome size={25} />
-            <Link to="/dashboard">Home</Link>
+            <NavLink to="/dashboard">Home</NavLink>
           </div>
           <div className="eachNav">
             <IoMdCreate size={25} />
-            <a href="/overview">Overview</a>
+            <NavLink to="/overview">Overview</NavLink>
           </div>
           {/* <div className="eachNav">
             <IoIosKey size={25} />
@@ -61,11 +61,13 @@ const Menu = props => {
           </div> */}
           <div className="eachNav">
             <IoIosSettings size={25} />
-            <a href="/settings">Settings</a>
+            <NavLink to="/settings">Settings</NavLink>
           </div>
-          <div className="eachNav" onClick={logout}>
+          <div className="eachNav">
             <FiLogOut size={25} />
-            <a>Logout</a>
+            <NavLink onClick={logout} to="/">
+              Logout
+            </NavLink>
           </div>
         </div>
       </div>

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import axios from "axios";
 import axiosWithAuth from "../AxiosWithAuth/axiosWithAuth.jsx";
 import "../../pages/Settings/Settings.scss";
 import { Button, Form } from "react-bootstrap";
 
 const EditPasswordForm = props => {
-  // console.log('props in SignIn', props)
   const [account, setAccount] = useState({
     email_address: "",
     password: "",
@@ -19,11 +17,10 @@ const EditPasswordForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // event.target.reset();
     console.log(account.new_password);
+    // Checking if new password matches new password confirmation
     if (account.new_password != account.new_password_conf) {
-      //display mismatching error message
-      //get html ref or id and update its txt to alert user?
+      alert("New password information must match");
       axiosWithAuth()
         .get("https://welldone-db.herokuapp.com/api/accounts/")
         .then(res => {
@@ -41,7 +38,6 @@ const EditPasswordForm = props => {
       };
 
       console.log(emailPassword);
-      // make sure correct username + password is input
       isValidUserCredential(emailPassword).then(res => {
         console.log("response line", res);
       });
@@ -54,7 +50,7 @@ const EditPasswordForm = props => {
       .then(res => {
         console.log("res", res.data);
         getUserData(res.data.id);
-        // localStorage.setItem("userId", res.data.id); // may not wanna save
+        localStorage.setItem("userId", res.data.id);
         return true;
       })
       .catch(err => {
@@ -88,7 +84,7 @@ const EditPasswordForm = props => {
       )
       .then(res => {
         console.log("res", res.data);
-        // localStorage.setItem("userId", res.data.id);
+        localStorage.setItem("userId", res.data.id);
         return true;
       })
       .catch(err => {

@@ -39,7 +39,7 @@ export default function Card({
         color: "#2A2A32",
         borderRadius: 5,
         textAlign: "center",
-        width: "21%",
+        width: "17%",
         marginBottom: 20,
         [breakingPoints.md]: {
           width: "48%"

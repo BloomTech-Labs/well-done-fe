@@ -19,11 +19,10 @@ const EditNameForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     console.log("new account name", account.new_name);
-    console.log("new account name confirm", account.new_name_conf);
-
+    // Checking if new name matches new name confirmation
     if (account.new_name != account.new_name_conf) {
-      //display mismatching error message
-      //get html ref or id and update its txt to alert user?
+      alert("New name information must match");
+
       axiosWithAuth()
         .get("https://welldone-db.herokuapp.com/api/accounts/")
         .then(res => {
@@ -32,10 +31,8 @@ const EditNameForm = props => {
         .catch(err => {
           console.log(err);
         });
-      // return <div>Account names must match</div>;
     } else {
       console.log("submit", account);
-      // make sure correct username + password is input
       isValidUserCredential(account).then(res => {
         console.log("response line", res);
       });
@@ -48,7 +45,7 @@ const EditNameForm = props => {
       .then(res => {
         console.log("res", res.data);
         getUserData(res.data.id);
-        // localStorage.setItem("userId", res.data.id);
+        localStorage.setItem("userId", res.data.id);
         return true;
       })
       .catch(err => {
@@ -62,10 +59,8 @@ const EditNameForm = props => {
       .get("https://welldone-db.herokuapp.com/api/accounts/" + accountID)
       .then(res => {
         console.log("res", res.data);
-        // the data form the forms
         var temp = res.data;
-        temp.password = account.password; // add password to data for update
-        // change for form data
+        temp.password = account.password;
         var nameSplit = account.new_name.split(" ");
         temp.first_name = nameSplit[0];
         temp.last_name = nameSplit[1];
@@ -85,7 +80,7 @@ const EditNameForm = props => {
       )
       .then(res => {
         console.log("res", res.data);
-        // localStorage.setItem("userId", res.data.id); // may not wanna save
+        localStorage.setItem("userId", res.data.id);
         return true;
       })
       .catch(err => {

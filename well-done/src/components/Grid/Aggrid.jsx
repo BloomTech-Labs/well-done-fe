@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
-
+import { css } from 'emotion'
 
 import gridOptions from "./Pagination";
 
@@ -11,7 +11,6 @@ class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       columnDefs: [
         {
           headerName: "Project",
@@ -97,7 +96,6 @@ class Grid extends Component {
     };
   }
 
-
   componentDidMount = () => {
     const token = localStorage.getItem("token");
     console.log(token);
@@ -115,7 +113,12 @@ class Grid extends Component {
       .catch(err => console.log(err));
   };
 
-  exportToCsv = function () {
+  onGridReady = params => {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+  };
+
+  exportToCsv = function() {
     var params = {
       skipHeader: false,
       skipFooters: true,
@@ -123,7 +126,7 @@ class Grid extends Component {
       fileName: "OverviewGrid.csv"
     };
     gridOptions.api.exportDataAsCsv(params);
-  }
+  };
 
   render() {
     return (
@@ -145,12 +148,11 @@ class Grid extends Component {
             defaultColDef={this.state.defaultColDef}
             rowSelection={this.state.rowSelection}
             onGridReady={this.onGridReady}
-
-          ></AgGridReact>
+          />
         </div>
 
-        <label style={{ margin: "5px" }}>
-          <button onClick={this.exportToCsv.bind(this)}>Export to CSV</button>
+        <label style={{ margin: "10px" }}>
+          <button className={css({borderRadius: '5px', fontSize: '1.25rem', border: 'none', backgroundColor: '#f3f7fc', color: '#7f7f7f', cursor: 'pointer', marginTop: '10px', ":hover": {color: 'black'}})} onClick={this.exportToCsv.bind(this)}>Export to CSV</button>
         </label>
       </div>
     );
