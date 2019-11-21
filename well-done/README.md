@@ -1,14 +1,16 @@
 # WellDone Dashboard
 
 ## Table of Contents
-[Project Overview]()
-- [Key Features]()
-[Tech Stack]()
-- [Frontend]()
-- [Backend]()
-[Planning Documents]()
-[Installation Instructions]()
-[Historical Documentation]()
+
+- [Project Overview](link)
+  - [Key Features](link)
+- [Tech Stack](link)
+  - [Frontend](link)
+  - [Backend](link)
+- [Planning Documents](link)
+- [Installation Instructions](link)
+- [Historical Documentation](link)
+- [Contributors](link)
 
 
 You can find the deployed project at https://well-done.welldone.now.sh/.
@@ -109,10 +111,7 @@ Clone this repo into your local, and run `npm` to install your dependencies.
 [<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) 
 
 #### Hong Tran	
-[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/) |                      
+[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/)                      
 
 #### Troy Schnennum 
-[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) |                      
-                                
-    
-<br>
+[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) 
