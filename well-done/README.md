@@ -14,9 +14,9 @@
 
 
 You can find the deployed project at https://well-done.welldone.now.sh/.
-Backend is deployed at https://welldone-db.herokuapp.com/ 
+<br> Backend is deployed at https://welldone-db.herokuapp.com/ 
 
-<br>
+
 ## Project Overview
 
 WellDone International is a non-profit organization working to improve access to clean water which is essential to human health, productivity, and well-being. They place proprietary modular sensors on pumps in Cambodia and soon also in Uganda.
