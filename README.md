@@ -92,26 +92,17 @@ Clone this repo into your local, and run `npm` to install your dependencies.
 [Labs 15 Code Base](https://github.com/labs17-WellDone/frontend_old)
 
 ## Contributors
-#### Joshua Diamond
-[<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) |  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) 
+#### Joshua Diamond [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) 
  
-#### Julie Thrall-Stewart 
-[<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/thralljulie/) 
+#### Julie Thrall-Stewart [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/thralljulie/) 
 
-#### LaVon Mejia
-[<img src="https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) 
+#### LaVon Mejia [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) 
 
-#### Reese Kunz	
-[<img src="https://avatars3.githubusercontent.com/u/50683954?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/50683954?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/) 
+#### Reese Kunz	[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/) 
 
-#### Anthony Rende 	
-[<img src="https://avatars1.githubusercontent.com/u/20798984?s=400&v=4" width = "25" />](https://avatars1.githubusercontent.com/u/20798984?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthony-rende/) 
+#### Anthony Rende [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthony-rende/) 
 
-#### Jason Prince  	
-[<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) 
+#### Jason Prince [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) 
 
-#### Hong Tran	
-[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/)                      
-
-#### Troy Schnennum 
-[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) 
+#### Hong Tran [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/)                      
+#### Troy Schnennum [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) 
