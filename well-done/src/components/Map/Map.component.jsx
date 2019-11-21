@@ -47,30 +47,6 @@ export default function Map(props){
           pumps={props.pumps}
         />
 
-
-     console.log('sensor in Map', props.sensors)
-
-    return <div>
-        <ReactMapGl 
-            mapboxApiAccessToken={"pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w"}
-            mapStyle="mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u"
-            onViewportChange = {viewport => {
-                props.setViewport(viewport)
-            }}
-            {...props.viewport}
-        >
-            <Pin 
-                sensors={props.sensors} 
-                // sensors={sensorInMap}
-                setSelectedPump={props.setSelectedPump}
-                funcToggle={props.funcToggle}
-                nonFuncToggle={props.nonFuncToggle}
-                unknownToggle={props.unknownToggle}
-                // history={history}
-                pumps={props.pumps} 
-            />
-            
-
             {props.selectedPump ? (
                 <Popup
                 className = "popupCard"
@@ -84,7 +60,7 @@ export default function Map(props){
                         // sensors={sensorInMap} 
                         sensors={props.sensors} 
                         selectedPump={props.selectedPump}
-                        // history={history}
+                        history={props.history}
                     />
                 </Popup>
             ) : null}
