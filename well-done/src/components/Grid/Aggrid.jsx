@@ -3,23 +3,22 @@ import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 
+
 import gridOptions from "./Pagination";
-import AxiosWithAuth from "../AxiosWithAuth/axiosWithAuth";
-import { AutoWidthCalculator } from "ag-grid-community";
-import grid from "./grid.scss"
+
 
 class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
       columnDefs: [
         {
           headerName: "Project",
           field: "org_name",
           sortable: true,
           filter: true,
-          width: 125,
-
+          width: 125
         },
         {
           headerName: "Sensor ID",
@@ -33,8 +32,7 @@ class Grid extends Component {
           field: "status",
           sortable: true,
           filter: true,
-          width: 90         
-
+          width: 90
         },
         {
           headerName: "Province",
@@ -47,26 +45,22 @@ class Grid extends Component {
           headerName: "District",
           field: "district_name",
           sortable: true,
+          filter: true,
           width: 90
         },
         {
           headerName: "Commune",
           field: "commune_name",
           sortable: true,
+          filter: true,
           width: 90
-        },
-        // {
-        //   headerName: "Last Last 7 Days",
-        //   field: "last_upload",
-        //   sortable: true,
-        //   width: 90,
-        //   type: "numericColumn"
-        // },
+        }
         // {
         //   headerName: "Depth",
         //   field: "depth",
         //   sortable: true,
-        //   width: 90,
+        //   filter: true,
+        // width: 90,
         //   type: "numericColumn"
         // },
         // {
@@ -79,12 +73,14 @@ class Grid extends Component {
         //   headerName: "Cellular",
         //   field: "cellular",
         //   sortable: true,
+        //   filter: true,
         //   width: 90
         // }
         // {
         //   headerName: "Liters/Day",
         //   field: "liters_day",
         //   sortable: true,
+        //   filter: true,
         //   width: 90,
         //   type: "numericColumn"
         // },
@@ -92,6 +88,7 @@ class Grid extends Component {
         //   headerName: "Liters/Week",
         //   field: "liters_week",
         //   sortable: true,
+        //   filter: true,
         //   width: 90,
         //   type: "numericColumn"
         // }
@@ -99,20 +96,13 @@ class Grid extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch("http://dummy.restapiexample.com/api/v1/employees")
-  //     .then(result => result.json())
-  //     .then(rowData => this.setState({ rowData }));
-  // }
 
-  componentDidMount() {
-    
-    const token = localStorage.getItem('token');
+  componentDidMount = () => {
+    const token = localStorage.getItem("token");
     console.log(token);
     fetch("https://welldone-db.herokuapp.com/api/sensors/recent", {
       method: "GET",
-      mode: 'cors',
-      // credentials: "same-origin",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
         Authorization: `${token}`
@@ -122,31 +112,56 @@ class Grid extends Component {
       .then(rowData => this.setState({ rowData }))
       // .then(rowData =>  console.log(rowData))
       .catch(err => console.log(err));
+  };
+
+  onGridReady = params => {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+
+
+  };
+
+
+  exportToCsv = function () {
+    var params = {
+      skipHeader: false,
+      skipFooters: true,
+      skipGroups: true,
+      fileName: "OverviewGrid.csv"
+    };
+    gridOptions.api.exportDataAsCsv(params);
   }
 
- 
   render() {
     return (
-      <div
-        className="ag-theme-balham"
-        style={{
-          height: "500px",
-          width: "85%",
-          marginTop: 15,
-          marginLeft:100,
-        }}
-      >
-        <AgGridReact
-          columnDefs={this.state.columnDefs}
-          rowData={this.state.rowData}
-          gridOptions={gridOptions}
-        ></AgGridReact>
+      <div>
+        <div
+          className="ag-theme-balham"
+          style={{
+            height: "500px",
+            width: "100%"
+            // marginTop: 15
+            // marginLeft: 100
+          }}
+        >
+          <AgGridReact
+            columnDefs={this.state.columnDefs}
+            rowData={this.state.rowData}
+            gridOptions={gridOptions}
+            modules={this.state.modules}
+            defaultColDef={this.state.defaultColDef}
+            rowSelection={this.state.rowSelection}
+            onGridReady={this.onGridReady}
+
+          ></AgGridReact>
+        </div>
+
+        <label style={{ margin: "10px" }}>
+          <button onClick={this.exportToCsv.bind(this)}>Export to CSV</button>
+        </label>
       </div>
     );
   }
 }
 
 export default Grid;
-
-
-// 2 is working , 0 is Not Working, 1 is Unknown or Null

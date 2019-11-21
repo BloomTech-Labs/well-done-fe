@@ -56,6 +56,7 @@ function App(props) {
           // setSensors={setSensors}
           selectedPump={selectedPump}
           setSelectedPump={setSelectedPump}
+          history={history}
           page={Dashboard}
         />
         <PrivateRoute

@@ -3,14 +3,15 @@ import "./StaticMenu.scss";
 import { IoIosHome, IoMdCreate, IoIosSettings } from "react-icons/io";
 import { Route, Link } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
+import { Redirect } from "react-router-dom";
 
 // import { WellDoneLogo } from "../../Images/WellDoneLogo.png";
 
 const StaticMenu = props => {
   const logout = () => {
-    localStorage.removeItem('token')
-    props.history.push('/')
-}
+    localStorage.removeItem("token");
+    return <Redirect to="/" />;
+  };
   // console.log("props in menu", props);
   return (
     <div className="entire-menu">
@@ -24,7 +25,7 @@ const StaticMenu = props => {
       <span></span>
       <div className="overlay-content">
         <div className="each-nav">
-          <IoIosHome size={25} style={{ margin: '7.5px 10px'}} />
+          <IoIosHome size={25} style={{ margin: "7.5px 10px" }} />
           <Link
             exact
             to="/dashboard"
@@ -35,7 +36,7 @@ const StaticMenu = props => {
           </Link>
         </div>
         <div className="each-nav">
-          <IoMdCreate size={25} style={{ margin: '7.5px 10px'}} />
+          <IoMdCreate size={25} style={{ margin: "7.5px 10px" }} />
           <Link
             to="/overview"
             activeClassName="activeNavButton"
@@ -45,7 +46,7 @@ const StaticMenu = props => {
           </Link>
         </div>
         <div className="each-nav">
-          <IoIosSettings size={25} style={{ margin: '7.5px 10px'}} />
+          <IoIosSettings size={25} style={{ margin: "7.5px 10px" }} />
           <Link
             to="/settings"
             activeClassName="activeNavButton"
@@ -53,10 +54,10 @@ const StaticMenu = props => {
           >
             Settings
           </Link>
-          </div>
-          <div className="each-nav" onClick={logout}>
-                <FiLogOut size={25} style={{ margin: '7.5px 10px'}} />
-                <Link activeClassName="activeNavButton" className="link">
+        </div>
+        <div className="each-nav" onClick={logout}>
+          <FiLogOut size={25} style={{ margin: "7.5px 10px" }} />
+          <Link activeClassName="activeNavButton" className="link">
             Logout
           </Link>
         </div>

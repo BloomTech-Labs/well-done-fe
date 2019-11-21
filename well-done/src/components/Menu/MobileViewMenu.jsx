@@ -5,7 +5,7 @@ import { FiLogOut } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const MobileViewMenu = props => {
-  // console.log('props in Menu', props)
+  console.log("props in MobileMenu", props);
 
   const openNav = () => {
     document.getElementById("myNav").style.width = "50%";

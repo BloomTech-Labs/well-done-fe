@@ -5,13 +5,13 @@ import { IoIosHome, IoIosKey, IoIosSettings, IoMdCreate } from "react-icons/io";
 // import { IoIosSettings } from "react-icons/io";
 // import { IoMdCreate } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const Menu = props => {
-  // console.log('props in Menu', props)
+  console.log("props in Menu", props);
 
   const openNav = () => {
-    document.getElementById("myNav").style.width = "18%";
+    document.getElementById("myNav").style.width = "210px";
   };
 
   const closeNav = () => {
@@ -20,7 +20,7 @@ const Menu = props => {
 
   const logout = () => {
     localStorage.removeItem("token");
-    props.history.push("/");
+    return <Redirect to="/" />;
   };
 
   return (
