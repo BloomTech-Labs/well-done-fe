@@ -1,17 +1,13 @@
-# Mission Control
+# WellDone Dashboard
 
 You can find the deployed project at https://well-done.welldone.now.sh/.
 
 ## Contributors
 
-|  Joshua Diamond (https://github.com/Josh-Diamond)      
-|  Julie Thrall-Stewart (https://github.com/juliethrallstewart)       
-|  LaVon Mejia (https://github.com/lavonmejia)    
-|  Reese Kunz(https://github.com/reesekunz)      
-|  Jason Prince (https://github.com/endersgame1977)  
-|  Anthony Rende (https://github.com/jazz-code)       
-|  Troy Schennum (https://github.com/TroySchennum)                  
-|  Hong Tran (https://github.com/Jessiehongtran)
+|                                                        Joshua Diamond (https://github.com/Josh-Diamond)  |                                                        Julie Thrall-Stewart (https://github.com/juliethrallstewart)       
+|                                                        LaVon Mejia (https://github.com/lavonmejia)      |                                                        Reese Kunz(https://github.com/reesekunz)      
+|                                                        Jason Prince (https://github.com/endersgame1977)|                                                        Anthony Rende (https://github.com/jazz-code)       
+|                                                        Troy Schennum (https://github.com/TroySchennum) |                                                        Hong Tran (https://github.com/Jessiehongtran)
 | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) | 
 [<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "100" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | 
