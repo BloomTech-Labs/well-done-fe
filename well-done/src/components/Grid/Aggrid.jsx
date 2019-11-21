@@ -151,7 +151,7 @@ class Grid extends Component {
         </div>
 
         <label style={{ margin: "10px" }}>
-          <button className={css({borderRadius: '5px', border: 'none', backgroundColor: '#f3f7fc', color: '#7f7f7f', cursor: 'pointer', marginTop: '10px', ":hover": {color: 'black'}})} onClick={this.exportToCsv.bind(this)}>Export to CSV</button>
+          <button className={css({borderRadius: '5px', fontSize: '1.25rem', border: 'none', backgroundColor: '#f3f7fc', color: '#7f7f7f', cursor: 'pointer', marginTop: '10px', ":hover": {color: 'black'}})} onClick={this.exportToCsv.bind(this)}>Export to CSV</button>
         </label>
       </div>
     );
