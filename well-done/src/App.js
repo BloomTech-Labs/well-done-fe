@@ -63,6 +63,7 @@ function App() {
           sensors={sensors}
           selectedPump={selectedPump}
           setSelectedPump={setSelectedPump}
+          history={history}
           page={Dashboard}
         />
         <PrivateRoute
