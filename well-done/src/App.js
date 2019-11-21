@@ -13,7 +13,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 function App(props) {
   console.log('props in App', props)
   const [searchFiltered, setSearchFiltered] = useState([]);
-  const [sensors, setSensors] = useState([]);
+  // const [sensors, setSensors] = useState([]);
   const [selectedPump, setSelectedPump] = useState(null);
   const [history, setHistory] = useState([]);
 
@@ -52,8 +52,8 @@ function App(props) {
           path="/dashboard"
           searchFiltered={searchFiltered}
           setSearchFiltered={setSearchFiltered}
-          sensors={sensors}
-          setSensors={setSensors}
+          // sensors={sensors}
+          // setSensors={setSensors}
           selectedPump={selectedPump}
           setSelectedPump={setSelectedPump}
           page={Dashboard}
@@ -62,7 +62,7 @@ function App(props) {
           path="/monitorDetails"
           page={MonitorDetails}
           history={history}
-          sensors={sensors}
+          // sensors={sensors}
           selectedPump={selectedPump}
         />
         <PrivateRoute path="/overview" page={Monitors} />
