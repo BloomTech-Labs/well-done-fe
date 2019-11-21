@@ -4,6 +4,8 @@ import FuncToggle from '../Toggle/FuncToggle.component'
 import NonFuncToggle from '../Toggle/NonFuncToggle.component'
 import UnknownToggle from '../Toggle/UnknownToggle.component'
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
+import Popup from "reactjs-popup";
+import { FiWifi } from 'react-icons/fi';
 
 const Filter = props => {
     const [pumps, setPumps] = useState([])
@@ -37,7 +39,8 @@ const Filter = props => {
                 )} 
             </select>
 
-            <h4>Status</h4>
+            <h4>Status <FiWifi /></h4> 
+            
             <div class="pump-type">
                 <p>Functional</p>
                 <FuncToggle 
