@@ -9,35 +9,13 @@ import Settings from "./pages/Settings/Settings";
 import MetaTags from "react-meta-tags";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 
-function App() {
+
+function App(props) {
+  console.log('props in App', props)
   const [searchFiltered, setSearchFiltered] = useState([]);
-  const [sensors, setSensors] = useState([]);
+  // const [sensors, setSensors] = useState([]);
   const [selectedPump, setSelectedPump] = useState(null);
-  const [history, setHistory] = useState([]);
-
-  useEffect(() => {
-    AxiosWithAuth()
-      .get("https://welldone-db.herokuapp.com/api/sensors/recent")
-      .then(res => {
-        //console.log("get all sensors", res.data);
-        setSensors(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
-
-  useEffect(() => {
-    AxiosWithAuth()
-      .get("https://welldone-db.herokuapp.com/api/history")
-      .then(res => {
-        //console.log("history from app.js", res.data);
-        setHistory(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
+ 
 
   return (
     <div>
@@ -60,7 +38,6 @@ function App() {
           path="/dashboard"
           searchFiltered={searchFiltered}
           setSearchFiltered={setSearchFiltered}
-          sensors={sensors}
           selectedPump={selectedPump}
           setSelectedPump={setSelectedPump}
           page={Dashboard}
@@ -68,8 +45,6 @@ function App() {
         <PrivateRoute
           path="/monitorDetails"
           page={MonitorDetails}
-          history={history}
-          sensors={sensors}
           selectedPump={selectedPump}
         />
         <PrivateRoute path="/overview" page={Monitors} />

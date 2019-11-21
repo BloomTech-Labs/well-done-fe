@@ -8,7 +8,7 @@ import { FiLogOut } from "react-icons/fi";
 import { Link, Redirect } from "react-router-dom";
 
 const Menu = props => {
-  // console.log('props in Menu', props)
+  console.log("props in Menu", props);
 
   const openNav = () => {
     document.getElementById("myNav").style.width = "210px";
