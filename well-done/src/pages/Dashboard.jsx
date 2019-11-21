@@ -3,7 +3,7 @@ import Menu from '../components/Menu/Menu.component'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
-
+import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 
 const Dashboard = props => {
     console.log('props in Dashboard', props)
@@ -18,6 +18,20 @@ const Dashboard = props => {
     const [funcToggle, setFuncToggle] = useState(true)
     const [nonFuncToggle, setNonFuncToggle] = useState(true)
     const [unknownToggle, setUnknownToggle] = useState(true)
+    const [sensorInDashboard, setSensorInDashboard] = useState([])
+
+    useEffect(() => {
+        AxiosWithAuth()
+          .get("https://welldone-db.herokuapp.com/api/sensors/recent")
+          .then(res => {
+            console.log("get all sensors in Map", res.data);
+            // props.setSensors(res.data);
+            setSensorInDashboard(res.data)
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }, []);
 
     const zoomInto = () => {
         console.log('checkkk', props.searchFiltered.length)
@@ -74,7 +88,8 @@ const Dashboard = props => {
         <div class="dashboard">
             <Menu history={props.history} />
             <Map
-                sensors = {props.sensors}
+                sensors = {sensorInDashboard}
+                setSensors = {props.setSensors}
                 funcToggle = {funcToggle}
                 nonFuncToggle = {nonFuncToggle}
                 unknownToggle = {unknownToggle}
@@ -89,12 +104,12 @@ const Dashboard = props => {
                 setSearchFiltered = {props.setSearchFiltered}
                 viewport = {viewport}
                 setViewport = {setViewport}
-                sensors = {props.sensors}
+                sensors = {sensorInDashboard}
             />
             <Filter 
                 searchFiltered = {props.searchFiltered}
                 setSearchFiltered = {props.setSearchFiltered}
-                sensors = {props.sensors}
+                sensors = {sensorInDashboard}
                 setFuncToggle = {setFuncToggle}
                 setNonFuncToggle = {setNonFuncToggle}
                 setUnknownToggle = {setUnknownToggle}

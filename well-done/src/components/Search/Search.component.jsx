@@ -34,7 +34,7 @@ const Search = (props) => {
             <input 
                 // class="search"
                 type="text"
-                placeholder="Search location or sensor physical ID"
+                placeholder="Search village or sensor physical ID"
                 onChange={handleChange}
             />
             <div className="filtered">

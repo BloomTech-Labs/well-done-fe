@@ -3,14 +3,12 @@ import ReactMapGl, {Popup} from 'react-map-gl'
 import "./Map.styles.scss"
 import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
+import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
+import {connect} from 'react-redux'
+import {getSensors} from '../../actions'
 
 export default function Map(props){
-    console.log('props in Map', props)
-
-    // const [selectedPump, setSelectedPump] = useState(null)
-
-    // console.log('viewport Out', viewport)
-    
+    console.log('props in Map', props) 
 
     useEffect(() => {
         const listener = e => {
@@ -28,6 +26,8 @@ export default function Map(props){
 
      }, [])   
 
+     console.log('sensor in Map', props.sensors)
+
     return <div>
         <ReactMapGl 
             mapboxApiAccessToken={"pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w"}
@@ -39,6 +39,7 @@ export default function Map(props){
         >
             <Pin 
                 sensors={props.sensors} 
+                // sensors={sensorInMap}
                 setSelectedPump={props.setSelectedPump}
                 funcToggle={props.funcToggle}
                 nonFuncToggle={props.nonFuncToggle}
@@ -58,6 +59,7 @@ export default function Map(props){
                 }}
                 >
                     <PopupInfo 
+                        // sensors={sensorInMap} 
                         sensors={props.sensors} 
                         selectedPump={props.selectedPump}
                         // history={history}
@@ -71,3 +73,4 @@ export default function Map(props){
         </ReactMapGl>
         </div>;
 }
+
