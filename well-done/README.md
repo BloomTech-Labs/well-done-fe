@@ -1,39 +1,20 @@
 # WellDone Dashboard
 
+## Table of Contents
+[Project Overview]()
+- [Key Features]()
+[Tech Stack]()
+- [Frontend]()
+- [Backend]()
+[Planning Documents]()
+[Installation Instructions]()
+[Historical Documentation]()
+
+
 You can find the deployed project at https://well-done.welldone.now.sh/.
 Backend is deployed at https://welldone-db.herokuapp.com/ 
 
-## Contributors
-#### Joshua Diamond
-[<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) |  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) 
- 
-#### Julie Thrall-Stewart 
-[<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/thralljulie/) 
-
-#### LaVon Mejia
-[<img src="https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) 
-
-#### Reese Kunz	
-[<img src="https://avatars3.githubusercontent.com/u/50683954?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/50683954?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/) 
-
-#### Anthony Rende 	
-[<img src="https://avatars1.githubusercontent.com/u/20798984?s=400&v=4" width = "25" />](https://avatars1.githubusercontent.com/u/20798984?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthony-rende/) 
-  
-
-#### Jason Prince  	
-[<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) 
-
-#### Hong Tran	
-[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/) |                      
-
-#### Troy Schnennum 
-[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) |                      
-                                
-    
 <br>
-<br>
-
-
 ## Project Overview
 
 WellDone International is a non-profit organization working to improve access to clean water which is essential to human health, productivity, and well-being. They place proprietary modular sensors on pumps in Cambodia and soon also in Uganda.
@@ -88,23 +69,50 @@ Building on the work of Labs 15, they enlisted our teams support in order to bui
 - Static pump and organization data is aggregated from the Prismic API and inserted into 
 the Welldone database.
 ### API Documentation
-[All Endpoint Documentation for API] (https://app.swaggerhub.com/apis-docs/Jessiehongtran/well-done/1.0.0#/Organizations)
+[All Endpoint Documentation for API](https://app.swaggerhub.com/apis-docs/Jessiehongtran/well-done/1.0.0#/Organizations)
 
 
 ## Planning Documents
 [Diagram](https://github.com/labs17-WellDone/backend)
-[Iteration of Database] (https://app.dbdesigner.net/designer/schema/0-welldone_database_schema-a7343184-1ae8-49cd-83b1-3d37f142bd2e)
+[Iteration of Database](https://app.dbdesigner.net/designer/schema/0-welldone_database_schema-a7343184-1ae8-49cd-83b1-3d37f142bd2e)
 
 
-# Installation Instructions
+## Installation Instructions
 Clone this repo into your local, and run `npm` to install your dependencies.
 
-## Other Scripts
+### Other Scripts
 
     * build - `npm build`
     * start - `npm start`
     * test - `npm test`
 
 ## Historical Documentation
-Labs 15 Code Base
-https://github.com/labs17-WellDone/frontend_old
+[Labs 15 Code Base](https://github.com/labs17-WellDone/frontend_old)
+
+## Contributors
+#### Joshua Diamond
+[<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) |  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) 
+ 
+#### Julie Thrall-Stewart 
+[<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/thralljulie/) 
+
+#### LaVon Mejia
+[<img src="https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) 
+
+#### Reese Kunz	
+[<img src="https://avatars3.githubusercontent.com/u/50683954?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/50683954?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/) 
+
+#### Anthony Rende 	
+[<img src="https://avatars1.githubusercontent.com/u/20798984?s=400&v=4" width = "25" />](https://avatars1.githubusercontent.com/u/20798984?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthony-rende/) 
+
+#### Jason Prince  	
+[<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) 
+
+#### Hong Tran	
+[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/) |                      
+
+#### Troy Schnennum 
+[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) |                      
+                                
+    
+<br>
