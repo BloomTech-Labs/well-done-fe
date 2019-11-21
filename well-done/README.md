@@ -1,4 +1,4 @@
-# Mission Control
+# WellDone
 
 You can find the deployed project at https://well-done.welldone.now.sh/.
 
@@ -13,14 +13,14 @@ You can find the deployed project at https://well-done.welldone.now.sh/.
 |  Troy Schennum (https://github.com/TroySchennum)                  
 |  Hong Tran (https://github.com/Jessiehongtran)
 | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "200" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) | 
-[<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "200" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | 
+| [<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) | 
+[<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "100" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | 
 [<img src="https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4" width = "200" />](https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4) | 
-[<img src="https://avatars3.githubusercontent.com/u/50683954?s=400&v=4" width = "200" />](https://avatars3.githubusercontent.com/u/50683954?s=400&v=4) | 
-[<img src="https://avatars1.githubusercontent.com/u/20798984?s=400&v=4" width = "200" />](https://avatars1.githubusercontent.com/u/20798984?s=400&v=4) | 
-[<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "200" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) |
-[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "200" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) |
-[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "200" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) |
+[<img src="https://avatars3.githubusercontent.com/u/50683954?s=400&v=4" width = "100" />](https://avatars3.githubusercontent.com/u/50683954?s=400&v=4) | 
+[<img src="https://avatars1.githubusercontent.com/u/20798984?s=400&v=4" width = "100" />](https://avatars1.githubusercontent.com/u/20798984?s=400&v=4) | 
+[<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "100" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) |
+[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) |
+[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) |
 
 
 |  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond)                            
