@@ -3,9 +3,8 @@
 You can find the deployed project at https://well-done.welldone.now.sh/.
 <br> Backend is deployed at https://welldone-db.herokuapp.com/ 
 
-
 ## Table of Contents
-
+- [Contributors](link)
 - [Project Overview](link)
   - [Key Features](link)
 - [Tech Stack](link)
@@ -14,8 +13,9 @@ You can find the deployed project at https://well-done.welldone.now.sh/.
 - [Planning Documents](link)
 - [Installation Instructions](link)
 - [Historical Documentation](link)
-- [Contributors](link)
 
+## Contributors
+#### Joshua Diamond [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) |    Julie Thrall-Stewart [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/thralljulie/) |    LaVon Mejia [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) |    Reese Kunz	[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/) |    Anthony Rende [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthony-rende/) |    Jason Prince [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) |    Hong Tran [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/) |    Troy Schnennum [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) 
 
 ## Project Overview
 
@@ -90,19 +90,3 @@ Clone this repo into your local, and run `npm` to install your dependencies.
 
 ## Historical Documentation
 [Labs 15 Code Base](https://github.com/labs17-WellDone/frontend_old)
-
-## Contributors
-#### Joshua Diamond [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) 
- 
-#### Julie Thrall-Stewart [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/thralljulie/) 
-
-#### LaVon Mejia [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) 
-
-#### Reese Kunz	[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/) 
-
-#### Anthony Rende [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthony-rende/) 
-
-#### Jason Prince [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) 
-
-#### Hong Tran [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/)                      
-#### Troy Schnennum [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) 
