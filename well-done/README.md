@@ -1,14 +1,14 @@
 # WellDone Dashboard
 
 You can find the deployed project at https://well-done.welldone.now.sh/.
+Backend is deployed at https://welldone-db.herokuapp.com/ 
 
 ## Contributors
+| Joshua Diamond | Julie Thrall-Stewart | LaVon Mejia | Reese Kunz | Jason Prince | Anthony Rende |Troy Schennum  | Hong Tran 
+---------------------------------------------------------------------------------------------------------------------------------
 
-|                                                        Joshua Diamond (https://github.com/Josh-Diamond)  |                                                        Julie Thrall-Stewart (https://github.com/juliethrallstewart)       
-|                                                        LaVon Mejia (https://github.com/lavonmejia)      |                                                        Reese Kunz(https://github.com/reesekunz)      
-|                                                        Jason Prince (https://github.com/endersgame1977)|                                                        Anthony Rende (https://github.com/jazz-code)       
-|                                                        Troy Schennum (https://github.com/TroySchennum) |                                                        Hong Tran (https://github.com/Jessiehongtran)
-| :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------: |
+
+
 | [<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) | 
 [<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "100" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | 
 [<img src="https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4) | 
@@ -43,47 +43,38 @@ You can find the deployed project at https://well-done.welldone.now.sh/.
 
 ## Project Overview
 
-[Trello Board](https://trello.com/b/BhNi8L2H/labs-17-welldone)
-
-[Product Canvas](https://www.notion.so/2505aad2c6a24aa2bd68c332370bfbfc?v=fcba394b346b46f6a8c2673571dc7151)
-
-[UX Design files](https://www.figma.com/file/VtIl2XiHAPvsDYvmdejQFc/WellDone-Hand-off)
-
 WellDone International is a non-profit organization working to improve access to clean water which is essential to human health, productivity, and well-being. They place proprietary modular sensors on pumps in Cambodia and soon also in Uganda.
 
 Their  work combines research, technology, and design to catalyze development solutions that are transformative, community-driven, and sustainable.
 
 Building on the work of Labs 15, they enlisted our teams support in order to build out their internal dashboard for monitoring the real time statuses of pump functionality.  This involved building a robust backend and updating the aesthetics and user friendliness of the front-end.  In addition, we have included dozens of tests, robust information for future developers on this project, including a detailed readme and API documentation.
 
+[Trello Board](https://trello.com/b/BhNi8L2H/labs-17-welldone)
+
+[Product Canvas](https://www.notion.so/2505aad2c6a24aa2bd68c332370bfbfc?v=fcba394b346b46f6a8c2673571dc7151)
+
+[UX Design files](https://www.figma.com/file/VtIl2XiHAPvsDYvmdejQFc/WellDone-Hand-off)
+
 
 
 ### Key Features
 
-- Not just for products - we also track your projects, allowing for a top-level view of your organization
-- For admins - the ability to view every single product and project in your organization w/ related KPIs
-- For users - the ability to see the projects that they themselves are attached to, allowing for a seamless and lightweight environment
-- Simple user promotion - admins can promote and demote other users in a snap
-- Sync with your data - simply sign up with your work email address, and your data will sync automatically with your database
+- Authenticated Sign-In - Only Users with Admin created accounts can access the dashboard 
+- Interactive Dashboard Map - Shows all pumps, filterable by status, links to a detail of each pumps history 
+- Overview - Qualitative summary of all pumps including a sortable, filterable grid, and ability to export to CSV, the grid can accomodate more data as well   
+- Settings - Admin can create, update and delete accounts
+- Robust backend Endpoints - endpoints pull in data from a remote 
 
 ## Tech Stack
 
 ### Front end built using:
 
 #### React 
-
-- React is a fantastic choice for building dynamic, interactive UIs. Mission Control is a complex website with a nested component structure, and has demanding relationships with multiple APIs. React allows us to meet the platform's needs efficiently, and helps keep everything organized behind the scenes.
-- As a manager, you need to be able to access a variety of different views, all of which contain different data. This calls for advanced state management. Redux's elegance, scalability, and inherent opinionated nature is perfect for applications that have advanced state requirements, and abstracts away the mess of local state.
-- React/Redux as a pair is a fantastic combination that not only allows for portable, reusable UI components, but also allows for infinitely scalable state, and the ability to shuttle data around the application seamlessly. It is THE enterprise solution.
-
-#### Sass/SCSS
-
-- Nested CSS is a must when styling your application. SCSS not only allows us as developers to write CSS quickly, but also creates an intuitive flow for later revisions. Add in variables, mixins, and functions, and CSS (arguably) is elevated to a production level.
-
-#### Emotion CSS
+#### Emotion CSS & SCSS
 
 - Material UI is a fantastic resource for advanced UI components such as popovers, avatars, and tabs. We took advantage of Material UI for a wide variety of components, which greatly sped up up our development time. Material UI also offers a fantastic icon library, which we took advantage of throughout the application.
 
-#### Axios
+#### Axios and Fetch
 
 - Axios is the industry-standard library for HTTP requests in Javascript. It provides a simple, readable syntax, and also allowed our team to make advanced queries, such as concurrent requests that required parallel resolution. Additionally, this application makes requests to several APIs, one of which is REST, the other of which is GraphQL. Axios provides functionality for both types of requests, all in one library.
 
@@ -99,7 +90,7 @@ Building on the work of Labs 15, they enlisted our teams support in order to bui
 
 #### [Back end](https://github.com/Lambda-School-Labs/mission-control-be) built using:
 
-#### Node/Express/Postgres - deployed to AWS Elastic Beanstalk
+#### Node/Express/SQLite3, with PostgreSQL used upon deploy to Heroku
 
 - Mission Control uses an external API to manage key business data, so our internal API demands were scaled down. Thus, in the interest of focusing on the user experience, we spun up a lightweight Node/Express API to handle authentication and role management within the site itself.
 - We feel that Postgres is the top choice for relational databases, considering it's stability and scalability. It's also very easy to work with, so working with the database is always quick and easy.
