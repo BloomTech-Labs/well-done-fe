@@ -4,42 +4,31 @@ You can find the deployed project at https://well-done.welldone.now.sh/.
 Backend is deployed at https://welldone-db.herokuapp.com/ 
 
 ## Contributors
-### Joshua Diamond
-[<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4)  
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond)                           
-[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) 
+#### Joshua Diamond
+[<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) |  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) 
  
-### Julie Thrall-Stewart 
-[<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "50" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4)
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart)
+#### Julie Thrall-Stewart 
+[<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/thralljulie/) 
 
-### LaVon Mejia
-[<img src="https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4)
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia)                                       
-[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) 
+#### LaVon Mejia
+[<img src="https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4" width = "25" />](https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) 
 
-### Reese Kunz	
-[<img src="https://avatars3.githubusercontent.com/u/50683954?s=400&v=4" width = "50" />](https://avatars3.githubusercontent.com/u/50683954?s=400&v=4)  
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz)        
-[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/) 
+#### Reese Kunz	
+[<img src="https://avatars3.githubusercontent.com/u/50683954?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/50683954?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/) 
 
-### Anthony Rende 	
-[<img src="https://avatars1.githubusercontent.com/u/20798984?s=400&v=4" width = "50" />](https://avatars1.githubusercontent.com/u/20798984?s=400&v=4) 
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code)   
+#### Anthony Rende 	
+[<img src="https://avatars1.githubusercontent.com/u/20798984?s=400&v=4" width = "25" />](https://avatars1.githubusercontent.com/u/20798984?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthony-rende/) 
+  
 
-### Jason Prince  	
-[<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "50" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) 
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) 
+#### Jason Prince  	
+[<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "25" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) 
 
-### Hong Tran	
-[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) 
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran)                                 
-[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/) |                      
+#### Hong Tran	
+[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/) |                      
 
-### Troy Schnennum 
-[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) 
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum)                                 
-
+#### Troy Schnennum 
+[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) |                      
+                                
     
 <br>
 <br>
@@ -69,14 +58,17 @@ Building on the work of Labs 15, they enlisted our teams support in order to bui
 - Robust backend Endpoints - endpoints pull in data from a remote 
 
 ## Tech Stack
+
 ### Frontend built using:
-## React 
-## Emotion CSS & SCSS
-## Axios and Fetch
-## React Router
-## Formik/Yup
-## Frontend deployed to NOW
-## Details
+- React 
+- Emotion CSS & SCSS
+- Axios and Fetch
+- React Router
+- Formik/Yup
+- MapBox
+- AG-Grid
+- Frontend deployed to NOW
+### Details
 - Log In - users as organizations has the ability to log in and get access into pump and sensor data, without logging in, users are prevented from accessing into pages and getting pump data. 
 - Log Out - users as organizations has the ability to log out and end access the web app. 
 - Search - to locate a specific pump, users are able to search on map based on village name or sensor physical id. 
@@ -87,17 +79,15 @@ Building on the work of Labs 15, they enlisted our teams support in order to bui
 - Superusers - can add new pumps and organizations into the Prismic Welldone Dashboard.
 
 ### [Back end](https://github.com/labs17-WellDone/backend) built using:
-## Node/Express/SQLite3, with PostgreSQL used upon deploy to Heroku
-## Knex.js
-## AxioswithAuth and JWT
-## Jest
-## Details
+- Node/Express/SQLite3, with PostgreSQL used upon deploy to Heroku
+- Knex.js
+- AxioswithAuth and JWT
+- Jest
+### Details
 - Dynamic sensor data is aggregated from IoTile for each sensor every day and then stored directly into our PostgreSQL schema.
 - Static pump and organization data is aggregated from the Prismic API and inserted into 
 the Welldone database.
-
-
-# API Documentation
+### API Documentation
 [All Endpoint Documentation for API] (https://app.swaggerhub.com/apis-docs/Jessiehongtran/well-done/1.0.0#/Organizations)
 
 
