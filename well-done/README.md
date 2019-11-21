@@ -6,6 +6,7 @@ Backend is deployed at https://welldone-db.herokuapp.com/
 ## Contributors
 | Joshua Diamond | Julie Thrall-Stewart | LaVon Mejia | Reese Kunz | Jason Prince | Anthony Rende |Troy Schennum  | Hong Tran 
 ---------------------------------------------------------------------------------------------------------------------------------
+| test |
 
 
 
