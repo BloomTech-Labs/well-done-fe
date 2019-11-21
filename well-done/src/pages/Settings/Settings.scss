@@ -14,32 +14,28 @@ body {
   .forms {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
-    margin-left: 25rem;
+    margin-top: 4rem;
+    margin-left: 30%;
     width: 40rem;
     @media (max-width: 500px) {
       margin-left: 17.5%;
-      // border: 3px solid yellow;
       margin-top: 5%;
-      // width: 30rem;
-      // width: 100%;
     }
   }
   // For Setting Forms Components
   .update-header {
     font-family: Open sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-left: 6rem;
-    margin-bottom: 3%;
+    margin-bottom: 6%;
     font-weight: bold;
     width: 100%;
   }
   .update-header-name {
-    // margin-top: 2%;
     font-family: Open sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-left: 6rem;
-    margin-bottom: 3%;
+    margin-bottom: 6%;
     font-weight: bold;
   }
   .edit-form {
@@ -75,6 +71,8 @@ body {
       width: 21%;
       background-color: #027ef3;
       margin-top: 5%;
+      margin-bottom: 5%;
+
       .btn-text {
         font-size: 0.9rem;
         display: flex;
@@ -93,12 +91,10 @@ body {
       }
     }
   }
-  // MOBILE VIEW
+  // Mobile View
   .mobile-view {
     display: flex;
     flex-direction: column;
-    // align-items: center;
-    // border: 1px solid red;
     height: 100vh;
     width: 100%;
   }
@@ -110,7 +106,6 @@ body {
   .mobile-nav-bar {
     background-color: #082b84;
     width: 100vh;
-    border: 5px solid red;
   }
   @media (max-width: 500px) {
     .form-container-name {
@@ -126,7 +121,6 @@ body {
       padding-top: 5%;
       padding-right: 2%;
       @media (max-width: 500px) {
-        // border: 1px solid black;
         padding-top: 0;
         margin-top: 0;
         margin-left: 7.5%;
@@ -141,18 +135,13 @@ body {
         .email-row {
           display: flex;
           flex-direction: column;
-          // padding-bottom: 0%;
-          // margin-bottom: 0%;
         }
         .row-2 {
           display: flex;
           flex-direction: column;
-          // padding-bottom: 0%;
-          // margin-bottom: 0%;
         }
       }
       .update-btn {
-        // position: absolute;
         display: flex;
         align-items: center;
         margin-left: 19%;
@@ -168,13 +157,10 @@ body {
           display: flex;
           font-family: Bookman;
           color: white;
-          // overflow: hidden;
-          // white-space: nowrap;
         }
       }
     }
     .logo {
-      // position: relative;
       width: 40%;
       margin-top: 5%;
       margin-left: 30%;
@@ -190,12 +176,11 @@ body {
       display: none !important;
     }
   }
-  // DESKTOP VIEW
+  // Desktop View
   .hamburga-menu {
     display: none;
     @media (max-width: 500px) {
       display: flex;
-      // padding-top: 10px;
     }
   }
 
@@ -209,9 +194,7 @@ body {
       padding-bottom: 12.5%;
       font-weight: bold;
       width: 100%;
-      // border: 2px solid red;
       padding-top: 10%;
-      // margin-top: 0;
     }
   }
 }

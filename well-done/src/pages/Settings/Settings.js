@@ -1,9 +1,7 @@
 import React from "react";
-// import Menu from "../../components/Menu/Menu.component";
+import "./Settings.scss";
 import StaticMenu from "../../components/Menu/StaticMenu";
 import MobileNavBar from "../../components/Menu/MobileNavBar";
-import "./Settings.scss";
-
 import EditNameForm from "../../components/SettingsForms/EditNameForm";
 import EditPasswordForm from "../../components/SettingsForms/EditPasswordForm";
 import EditEmailForm from "../../components/SettingsForms/EditEmailForm";
