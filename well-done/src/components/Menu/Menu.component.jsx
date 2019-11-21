@@ -53,7 +53,7 @@ const Menu = props => {
           </div>
           <div className="eachNav">
             <IoMdCreate size={25} />
-            <NavLink to="/overview">Overview></NavLink>
+            <NavLink to="/overview">Overview</NavLink>
           </div>
           {/* <div className="eachNav">
             <IoIosKey size={25} />
