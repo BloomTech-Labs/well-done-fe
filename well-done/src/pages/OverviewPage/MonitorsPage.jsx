@@ -15,6 +15,8 @@ import Card from "../../components/Card.jsx";
 import BlankCard from "../../components/BlankCard.jsx";
 import { css } from "emotion";
 
+import { Line, Pie, Bar, Polar } from "react-chartjs-2";
+
 const colors = {
   main: "#fff",
   brand: "#0282FA",
