@@ -4,40 +4,45 @@ You can find the deployed project at https://well-done.welldone.now.sh/.
 Backend is deployed at https://welldone-db.herokuapp.com/ 
 
 ## Contributors
-| Joshua Diamond | Julie Thrall-Stewart | LaVon Mejia | Reese Kunz | Jason Prince | Anthony Rende |Troy Schennum  | Hong Tran 
----------------------------------------------------------------------------------------------------------------------------------
-| test |
+---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ### Joshua Diamond 
+| [<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) | 
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond)|                            
+|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) | 
+----------------------------------------------------------------------------------------------------------------------------------------------------------|
+|### Julie Thrall-Stewart 
+|[<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "50" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | 
+|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart)| 
+----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ### LaVon Mejia
+| [<img src="https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4) | 
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia)                                  |                              
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) | 
+----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ### Reese Kunz	
+| [<img src="https://avatars3.githubusercontent.com/u/50683954?s=400&v=4" width = "50" />](https://avatars3.githubusercontent.com/u/50683954?s=400&v=4) | 
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz)     |    
+|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/)  |
+----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ### Anthony Rende 	
+| [<img src="https://avatars1.githubusercontent.com/u/20798984?s=400&v=4" width = "50" />](https://avatars1.githubusercontent.com/u/20798984?s=400&v=4) | 
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code)    |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+|### Jason Prince  	
+|[<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "50" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) |
+|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+|### Hong Tran	
+| [<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran)                                 |
+|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/) |                      
+|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Troy Schnennum 
+| [<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "50" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum)                                 |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------|
 
-
-
-| [<img src="https://avatars2.githubusercontent.com/u/46494969?s=400&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/46494969?s=400&v=4) | 
-[<img src="https://avatars3.githubusercontent.com/u/51095071?s=400&v=4" width = "100" />](https://avatars3.githubusercontent.com/u/51095071?s=400&v=4) | 
-[<img src="https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/5023620?s=400&u=f90e57af87fdd9d4d9396344c92c40968a882116&v=4) | 
-[<img src="https://avatars3.githubusercontent.com/u/50683954?s=400&v=4" width = "100" />](https://avatars3.githubusercontent.com/u/50683954?s=400&v=4) | 
-[<img src="https://avatars1.githubusercontent.com/u/20798984?s=400&v=4" width = "100" />](https://avatars1.githubusercontent.com/u/20798984?s=400&v=4) | 
-[<img src="https://avatars3.githubusercontent.com/u/20310701?s=400&v=4" width = "100" />](https://avatars3.githubusercontent.com/u/20310701?s=400&v=4) |
-[<img src="https://avatars2.githubusercontent.com/u/50851248?s=400&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/50851248?s=400&v=4) |
-[<img src="https://avatars2.githubusercontent.com/u/51007480?s=400&v=4" width = "100" />](https://avatars2.githubusercontent.com/u/51007480?s=400&v=4) |
-
-
-|  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond)                            
-|  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart)                           
-|  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia)                                  |                              
-   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz)                                  |    
-   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977)                              |
-   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code)                                 |
-   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum)                                 |
-   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran)                                 |
-
-
-|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/)               
-|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/agordon1123)               
-|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/)             
-|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/)                
-|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/armando-roman-64a53a188/)        
-|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brandon-desselle-33b689161/)       
-|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/armando-roman-64a53a188/)        
-|  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brandon-desselle-33b689161/)      
+    
 <br>
 <br>
 
@@ -72,65 +77,41 @@ Building on the work of Labs 15, they enlisted our teams support in order to bui
 
 #### React 
 #### Emotion CSS & SCSS
-
-- Material UI is a fantastic resource for advanced UI components such as popovers, avatars, and tabs. We took advantage of Material UI for a wide variety of components, which greatly sped up up our development time. Material UI also offers a fantastic icon library, which we took advantage of throughout the application.
-
 #### Axios and Fetch
-
-- Axios is the industry-standard library for HTTP requests in Javascript. It provides a simple, readable syntax, and also allowed our team to make advanced queries, such as concurrent requests that required parallel resolution. Additionally, this application makes requests to several APIs, one of which is REST, the other of which is GraphQL. Axios provides functionality for both types of requests, all in one library.
-
 #### React Router
-
-- Single page applications have special needs, particularly when it comes to routing the user from page-to-page. React router allows for the easy transport of the site's users whilst retaining SPA functionality. And with the new React Router hooks, we can do all of this inside of the functional programming paradigm.
-
 #### Formik/Yup
 
-- Forms in React are not much fun - they require (at least) local state management, and as the forms scale, that process only gets messier. Formik (with the validation library Yup) abstract away the difficulties of writing forms in React, and allow us to focus on core application functionality.
-
 #### Front end deployed to NOW
+### Details
+- Log In - users as organizations has the ability to log in and get access into pump and sensor data, without logging in, users are prevented from accessing into pages and getting pump data. 
+- Log Out - users as organizations has the ability to log out and end access the web app. 
+- Search - to locate a specific pump, users are able to search on map based on village name or sensor physical id. 
+- Filter - add in to search function, users can select certain village or type of pump (functional, non-functional, unknown) to filter pumps. 
+- See pump details - by clicking into a pump on map, users can see the recent statuses of the pump and can be directed into a detail page of that pump.
+- Access into pure sensor data - at Monitor page, users can get access into all sensor information. 
+- Edit name, email, password - users can edit/update their information including name, email, password. 
+- Superusers - can add new pumps and organizations into the Prismic Welldone Dashboard.
 
-#### [Back end](https://github.com/Lambda-School-Labs/mission-control-be) built using:
+#### [Back end](https://github.com/labs17-WellDone/backend) built using:
 
 #### Node/Express/SQLite3, with PostgreSQL used upon deploy to Heroku
-
-- Mission Control uses an external API to manage key business data, so our internal API demands were scaled down. Thus, in the interest of focusing on the user experience, we spun up a lightweight Node/Express API to handle authentication and role management within the site itself.
-- We feel that Postgres is the top choice for relational databases, considering it's stability and scalability. It's also very easy to work with, so working with the database is always quick and easy.
-- The full application is deployed to AWS (Amplify for the FE, Elastic Beanstalk on the BE with an AWS RDS). With the full app bundled together in one suite, dev ops becomes a breeze, and we can take full advantage of all of AWS's various products.
-
 #### Knex.js
-
-- Knex allows us to make SQL queries to our database quickly and easily. It integrates seamlessly into Node, and also allows us to seed our database when testing on local environments.
-
-#### Validator and JWT
-
-- Auth is a tricky subject, but luckily there are plenty of open-source libraries and best-practices out there to learn from. For string validation, we used Validator. This library allows us to sanitize our database and ensure that only clean data touches our application. We used JWT (JSON Web Tokens) to create protected access to our API and provide a resouce for the front end to shield certain views.
-
-# APIs
-
-## Authentication
-
-This API allows users to register + log in to Mission Control. It also assigns users roles (student, manager, admin) that all have varying levels of access on the front end and back end. Admins have the ability to promote/demote other users as well, so the role assignments are variable.
-
-## Product Management API - https://api.use-mission-control.com/, https://github.com/Lambda-School-Labs/product-management-api
-
-Built with GraphQL and Prisma, the Product Management API is the foundation of Mission Control. It contains products, projects, organizational roles, team members, and KPIs regarding your company's data. It requires a Bearer token for full access, which can be obtained by running `prisma token` in the context of that API's repository. More details on that API can be found at the Github link above, or by contacting Bernie Durfee(https://github.com/berniedurfee).
-
-# Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-
-    *  REACT_APP_ROLE_KEY - this is the encryption key for the user's role (determines what dashboard they have access to). Choose a secure key (can be anything you want), and set up as a variable in your local application. The production key can be found in the AWS Amplify application
-    *  REACT_APP_MISSION_CONTROL_ENDPOINT - can be found in the AWS Amplify application. This is the authentication API
-
-# Testing
-
+#### AxioswithAuth and JWT
 #### Jest
+### Details
+- Dynamic sensor data is aggregated from IoTile for each sensor every day and then stored directly into our PostgreSQL schema.
+- Static pump and organization data is aggregated from the Prismic API and inserted into 
+the Welldone database.
 
-- Embedded directly into Create React App, Jest provides all the tools one needs to run FE unit AND integration tests. Jest can be thought of as the lens through which an application's tests are viewed and ran. It is a stable base for other testing libraries to build off of.
 
-#### React Testing Library
+# API Documentation
+[All Endpoint Documentation for API] (https://app.swaggerhub.com/apis-docs/Jessiehongtran/well-done/1.0.0#/Organizations)
 
-- React Testing Library is a fantastic testing resource which was built with one guiding principle in mind - your tests should resemble user behavior as closely as possible. Thus, React Testing Library is DOM-focused, and does not bother with implementation details. Instead, it allowed us to test website behavior, and verify that certain information is displayed when it should be. With React Testing Library, the focus is placed where it should be - the shipped product.
+
+## Site Structure Diagrams
+[Diagram](https://github.com/labs17-WellDone/backend)
+[Iteration of Database] (https://app.dbdesigner.net/designer/schema/0-welldone_database_schema-a7343184-1ae8-49cd-83b1-3d37f142bd2e)
+
 
 # Installation Instructions
 
@@ -138,16 +119,12 @@ Clone this repo into your local, and run `npm` to install your dependencies.
 
 ## Other Scripts
 
-    * build - `yarn build`
-    * start - `yarn start`
-    * test - `yarn test`
-
-### Feature Requests
-
-We would love to hear from you about new features which would improve this app and further the aims of our project. Please provide as much detail and information as possible to show us why you think your new feature should be implemented.
+    * build - `npm build`
+    * start - `npm start`
+    * test - `npm test`
 
 
 
-## Documentation
-
-See [Backend Documentation](https://github.com/Lambda-School-Labs/mission-control-be) for details on the backend of our project.
+## Historical Documentation
+Labs 15 Code Base
+https://github.com/labs17-WellDone/frontend_old
