@@ -18,12 +18,10 @@ import { css } from "emotion";
 import { Line, Pie, Bar, Polar, Doughnut } from "react-chartjs-2";
 
 import Popup from "reactjs-popup";
-import Content from "../../../src/components/PopupInfoOverview/Content"
-import "../../../src/components/PopupInfoOverview/Content.styles.scss"
+import Content from "../../../src/components/PopupInfoOverview/Content";
+import "../../../src/components/PopupInfoOverview/Content.styles.scss";
 
-
-import { FiMap } from 'react-icons/fi';
-
+import { FiMap } from "react-icons/fi";
 
 const colors = {
   main: "#fff",
@@ -125,14 +123,21 @@ const MonitorsPage = ({ history }) => {
       >
         {/* Card Section */}
         <div>
-        <Popup modal trigger={<h4 className="overviewpopup">Legend <FiMap /></h4> } >
+          <Popup
+            modal
+            trigger={
+              <h4 className="overviewpopup">
+                Legend <FiMap />
+              </h4>
+            }
+          >
             {close => <Content close={close} />}
-      </Popup>
+          </Popup>
 
           <div
             className={css({
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               flexWrap: "wrap"
             })}
           >
@@ -145,7 +150,7 @@ const MonitorsPage = ({ history }) => {
               toggleSummary="View Reports"
               toggle={<h3>Content</h3>}
             />
-            
+
             <Card
               text="Functional"
               icon={FiCheckCircle}
@@ -189,7 +194,7 @@ const MonitorsPage = ({ history }) => {
             {/* AG-Grid Section */}
             <div
               className={css({
-                width: "65%",
+                width: "620px",
                 marginBottom: 20,
                 [breakingPoints.md]: {
                   width: "100%"
@@ -202,11 +207,11 @@ const MonitorsPage = ({ history }) => {
                   <Grid />
                 </h2>
               </BlankCard>
-
             </div>
             <div
               className={css({
-                width: "35%"
+                width: "50%",
+                minWidth: "620px"
               })}
             >
               <BlankCard>
