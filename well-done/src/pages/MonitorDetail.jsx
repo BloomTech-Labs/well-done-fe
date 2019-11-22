@@ -1,11 +1,10 @@
-
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ReactMapGl, { Marker } from "react-map-gl";
-import { Line, Pie, Bar, Polar } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from "antd";
 import "antd/dist/antd.css";
 import "./MonitorDetail.css";
-import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
+import AxiosWithAuth from "../components/AxiosWithAuth/axiosWithAuth";
 
 const { Title } = Typography;
 
@@ -20,17 +19,17 @@ const MonitorDetails = props => {
 
   const [history, setHistory] = useState([]);
 
-    useEffect(() => {
-        AxiosWithAuth()
-          .get("https://welldone-db.herokuapp.com/api/history")
-          .then(res => {
-            //console.log("history from app.js", res.data);
-            setHistory(res.data);
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      }, []);
+  useEffect(() => {
+    AxiosWithAuth()
+      .get("https://welldone-db.herokuapp.com/api/history")
+      .then(res => {
+        //console.log("history from app.js", res.data);
+        setHistory(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, []);
 
   const {
     physical_id,
@@ -147,7 +146,11 @@ const MonitorDetails = props => {
       </Row>
       <Row gutter={[8, 32]}>
         <Col span={16} offset={4}>
-          <Descriptions layout="vertical" bordered column={{ xxl: 8 }}>
+          <Descriptions
+            layout="vertical"
+            column={{ xxl: 8 }}
+            style={{ fontWeight: "bold" }}
+          >
             <Descriptions.Item label="Status">
               {status == 0 || status == null ? (
                 <Badge status="error" text="Not Functioning" />
@@ -190,9 +193,9 @@ const MonitorDetails = props => {
             }}
           >
             <Marker key={physical_id} latitude={latitude} longitude={longitude}>
-              {status == 0 || status == null ? (
+              {status === 0 || status == null ? (
                 <img src={notFunctioning} alt="not functioning icon" />
-              ) : status == 1 ? (
+              ) : status === 1 ? (
                 <img src={unknown} alt="unknown icon" />
               ) : (
                 <img src={functioning} alt="functioning icon" />
@@ -204,6 +207,5 @@ const MonitorDetails = props => {
     </div>
   );
 };
-
 
 export default MonitorDetails;
