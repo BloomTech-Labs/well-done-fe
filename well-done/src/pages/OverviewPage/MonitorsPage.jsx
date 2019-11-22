@@ -33,7 +33,7 @@ const MonitorsPage = ({ history }) => {
 
   return (
     <div>
-      <Layout>
+      <Layout style={{ backgroundColor: "#E5E5E5" }}>
         <Sider>
           {/* Side Nav */}
           <StaticMenu history={history} />
