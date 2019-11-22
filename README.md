@@ -75,7 +75,7 @@ the Welldone database.
 
 
 ## Planning Documents
-[Diagram](LINK) <br>
+[Diagram](well-done/src/Images/appStructure.png) <br>
 [Iteration of Database](https://app.dbdesigner.net/designer/schema/0-welldone_database_schema-a7343184-1ae8-49cd-83b1-3d37f142bd2e)
 
 
