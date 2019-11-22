@@ -1,8 +1,15 @@
 import React from "react";
 import { css } from "emotion";
 
+import Popup from "reactjs-popup";
+import Content from "../../src/components/PopupInfo/Content"
+import "../../src/components/PopupInfo/Content.styles.scss"
+ 
+import { FiWifi } from 'react-icons/fi';
+
 export default function BlankCard({ children, style }) {
   return (
+
     <div
       className={css({
         backgroundColor: "white",
@@ -12,6 +19,7 @@ export default function BlankCard({ children, style }) {
         ...style
       })}
     >
+
       {children}
     </div>
   );

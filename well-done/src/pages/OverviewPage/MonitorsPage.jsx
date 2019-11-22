@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Grid from "../../components/Grid/Aggrid";
 import AxiosWithAuth from "../../components/AxiosWithAuth/axiosWithAuth";
-import Monitors from "../../components/Monitors/Monitors";
+
 import "./MonitorsPage.scss";
 import StaticMenu from "../../components/Menu/StaticMenu";
 import {
@@ -16,6 +16,14 @@ import BlankCard from "../../components/BlankCard.jsx";
 import { css } from "emotion";
 
 import { Line, Pie, Bar, Polar, Doughnut } from "react-chartjs-2";
+
+import Popup from "reactjs-popup";
+import Content from "../../../src/components/PopupInfoOverview/Content"
+import "../../../src/components/PopupInfoOverview/Content.styles.scss"
+
+
+import { FiMap } from 'react-icons/fi';
+
 
 const colors = {
   main: "#fff",
@@ -117,6 +125,10 @@ const MonitorsPage = ({ history }) => {
       >
         {/* Card Section */}
         <div>
+        <Popup modal trigger={<h4 className="overviewpopup">Legend <FiMap /></h4> } >
+            {close => <Content close={close} />}
+      </Popup>
+
           <div
             className={css({
               display: "flex",
@@ -133,6 +145,7 @@ const MonitorsPage = ({ history }) => {
               toggleSummary="View Reports"
               toggle={<h3>Content</h3>}
             />
+            
             <Card
               text="Functional"
               icon={FiCheckCircle}
@@ -189,6 +202,7 @@ const MonitorsPage = ({ history }) => {
                   <Grid />
                 </h2>
               </BlankCard>
+
             </div>
             <div
               className={css({
