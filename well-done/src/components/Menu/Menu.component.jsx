@@ -45,6 +45,7 @@ const Menu = props => {
           />
           <p className="name">Smarter Villages</p>
           <p className="email-address">WellDone@WellDone.org</p>
+          <span className="span"></span>
         </div>
         <div className="overlay-content-map">
           <div class="eachNav">
