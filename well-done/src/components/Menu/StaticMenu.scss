@@ -1,9 +1,14 @@
+html,
+body {
+  margin: 0;
+}
 .entire-menu {
   position: absolute;
   width: 15rem;
-  height: 100%;
+  height: 100vh;
   background: #082b84;
   color: white;
+  position: fixed;
 
   .logo {
     width: 80%;
