@@ -7,19 +7,29 @@ body {
 }
 .settings {
   height: 100vh;
+  width: 100%;
   display: flex;
-  margin: 0;
-  padding: 0;
   background: #e5e5e5;
   .forms {
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
-    margin-left: 30%;
+    margin-left: 40rem;
     width: 40rem;
+    @media (max-width: 1200px) {
+      margin-left: 70%;
+    }
+    @media (max-width: 900px) {
+      margin-left: 30%;
+    }
+    @media (max-width: 650px) {
+      margin-left: 25%;
+    }
     @media (max-width: 500px) {
-      margin-left: 17.5%;
-      margin-top: 5%;
+      // margin-left: 17.5%;
+      // margin-top: 5%;
+      width: 100%;
+      margin-left: 30%;
     }
   }
   // For Setting Forms Components
@@ -72,6 +82,15 @@ body {
       background-color: #027ef3;
       margin-top: 3.5%;
       margin-bottom: 2.5%;
+      @media (max-width: 500px) {
+        display: flex;
+        margin-left: 6% !important;
+        height: 2rem !important;
+        width: 8rem !important;
+        background-color: #027ef3;
+        margin-top: 3.5%;
+        margin-bottom: 2.5%;
+      }
 
       .btn-text {
         font-size: 0.9rem;
@@ -88,6 +107,15 @@ body {
         overflow: hidden;
         white-space: nowrap;
         color: white;
+        @media (max-width: 500px) {
+          font-size: 0.9rem;
+          display: flex;
+          margin-left: 3%;
+          font-family: Bookman;
+          overflow: hidden;
+          white-space: nowrap;
+          color: white;
+        }
       }
     }
   }
@@ -95,17 +123,16 @@ body {
   .mobile-view {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100%;
+    // height: 100vh;
+    // width: 100%;
   }
   .mobile-nav-container {
     display: flex;
     background-color: #082b84;
-    margin-left: 0%;
   }
   .mobile-nav-bar {
     background-color: #082b84;
-    width: 100vh;
+    // width: 100vh;
   }
   @media (max-width: 500px) {
     .form-container-name {
@@ -123,7 +150,7 @@ body {
       @media (max-width: 500px) {
         padding-top: 0;
         margin-top: 0;
-        margin-left: 7.5%;
+        margin-left: 4.5%;
       }
       .edit-form {
         .input {
@@ -139,6 +166,9 @@ body {
         .row-2 {
           display: flex;
           flex-direction: column;
+        }
+        .confirm-password-label {
+          white-space: nowrap;
         }
       }
       .update-btn {
@@ -188,13 +218,11 @@ body {
     display: none;
     @media (max-width: 500px) {
       display: flex;
-      justify-content: space-evenly;
       font-family: Open sans-serif;
       font-size: 1.5rem;
-      padding-bottom: 12.5%;
-      font-weight: bold;
-      width: 100%;
-      padding-top: 10%;
+      // overflow: hidden;
+      white-space: nowrap;
+      margin-bottom: 15%;
     }
   }
 }

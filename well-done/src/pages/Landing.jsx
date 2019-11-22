@@ -1,6 +1,6 @@
 import React from "react";
 import SignIn from "../components/SignIn/SignIn.component";
-import "./Landing.styles.scss";
+
 
 import { Row, Col } from "antd";
 import "antd/dist/antd.css";

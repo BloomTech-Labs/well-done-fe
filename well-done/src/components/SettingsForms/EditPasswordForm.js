@@ -141,7 +141,7 @@ const EditPasswordForm = props => {
               </Form.Group>
               {/* Confirm new password input  */}
               <Form.Group className="form-group">
-                <Form.Label>Confirm New Password</Form.Label>
+                <Form.Label className="confirm-password-label">Confirm New Password</Form.Label>
                 <Form.Control
                   className="input"
                   type="password"

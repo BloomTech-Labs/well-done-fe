@@ -7,6 +7,15 @@
     width: 280px;
     height: 30px;
     
+    @media (max-width: 800px) {
+        left: 120px;
+        width: 240px;
+      }
+
+    @media (max-width: 500px) {
+        left: 100px;
+        width: 180px;
+      }
 
     input {
     width: 245px;
@@ -24,7 +33,7 @@
 
     .filtered{
         background-color: white;
-        width: 247px;
+        width: 243px;
         padding-left: 6px;
        
         h2{

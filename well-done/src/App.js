@@ -19,7 +19,7 @@ function App(props) {
   return (
     <div>
       <MetaTags>
-        <title>Well-Done dashboard</title>
+        <title>Well-Done Dashboard</title>
         <meta
           name="description"
           content="WellDone with its mission to consistently deliver clean, safe water to communities in need as well as provide long term accountability for infrastructure projects, provide water not just a well, they want to improve a dashboard by having our Lambda Labs team to build BackEnd from scratch and iterate FrontEnd features."
