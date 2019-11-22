@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
-import { css } from 'emotion'
+import { css } from "emotion";
+import { Button } from "antd";
+import "antd/dist/antd.css";
 
 import gridOptions from "./Pagination";
-
 
 class Grid extends Component {
   constructor(props) {
@@ -17,8 +18,7 @@ class Grid extends Component {
           field: "org_name",
           sortable: true,
           filter: true,
-          width: 125,
-
+          width: 125
         },
         {
           headerName: "Sensor ID",
@@ -131,6 +131,32 @@ class Grid extends Component {
   render() {
     return (
       <div>
+        <Button
+          type="default"
+          icon="download"
+          size="small"
+          onClick={this.exportToCsv.bind(this)}
+        >
+          CSV
+        </Button>
+        {/* <label style={{ margin: "10px" }}>
+          <button
+            className={css({
+              borderRadius: "5px",
+              fontSize: "1.25rem",
+              border: "none",
+              backgroundColor: "#f3f7fc",
+              color: "#7f7f7f",
+              cursor: "pointer",
+              marginTop: "10px",
+              ":hover": { color: "black" }
+            })}
+            onClick={this.exportToCsv.bind(this)}
+          >
+            Export to CSV
+          </button>
+        </label> */}
+
         <div
           className="ag-theme-balham"
           style={{
@@ -150,11 +176,6 @@ class Grid extends Component {
             onGridReady={this.onGridReady}
           />
         </div>
-
-        <label style={{ margin: "10px" }}>
-          <button className={css({borderRadius: '5px', fontSize: '1.25rem', border: 'none', backgroundColor: '#f3f7fc', color: '#7f7f7f', cursor: 'pointer', marginTop: '10px', ":hover": {color: 'black'}})} onClick={this.exportToCsv.bind(this)}>Export to CSV</button>
-        </label>
-
       </div>
     );
   }
