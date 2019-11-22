@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./SignIn.styles.scss";
+
 
 import { Form, Icon, Input, Button, Row, Col, Typography } from "antd";
 import "antd/dist/antd.css";
