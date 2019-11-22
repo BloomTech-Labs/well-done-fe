@@ -12,6 +12,7 @@ import { FiWifi } from 'react-icons/fi';
 
 const Filter = props => {
     const [pumps, setPumps] = useState([])
+    const [expanded, setExpanded] = useState(false)
     
     useEffect(() => {
         AxiosWithAuth()
@@ -33,42 +34,56 @@ const Filter = props => {
         }
     }
 
+    const isExpanded = () => {
+        setExpanded(!expanded)
+    }
+ 
     return (
-        <div class="filter">
-            <h4>Village</h4>
-            <select className="select-village" onChange={handleChange}> 
-                {pumps.map(pump => 
-                    (<option value={pump.village_name} key={pump.sensor_pid}>{pump.village_name}</option>)
-                )} 
-            </select>
+        <>
+            <div className="filter-expand" onClick={isExpanded}>
+                <div>
+                    Filter
+                </div>
+                <span></span>
+            </div>
+            {expanded ? (
+                <div className="filter">
+                <h4>Village</h4>
+                <select className="select-village" onChange={handleChange}> 
+                    {pumps.map(pump => 
+                        (<option value={pump.village_name} key={pump.sensor_pid}>{pump.village_name}</option>)
+                    )} 
+                </select>
 
-            <Popup modal trigger={<h4>Status <FiWifi /></h4> }>
-            {close => <Content close={close} />}
-      </Popup>
-      {/* <h4>Status <FiWifi /></h4>  */}
+                <Popup modal trigger={<h4>Status <FiWifi /></h4> }>
+                    {close => <Content close={close} />}
+                </Popup>
             
-            <div class="pump-type">
-                <p>Functional</p>
-                <FuncToggle 
-                    sensors={props.sensors}
-                    setFuncToggle={props.setFuncToggle}
-                />
+                <div class="pump-type">
+                    <p>Functional</p>
+                    <FuncToggle 
+                        sensors={props.sensors}
+                        setFuncToggle={props.setFuncToggle}
+                    />
+                </div>
+                <div class="pump-type">
+                    <p>Unknown</p>
+                    <UnknownToggle 
+                        sensors={props.sensors}
+                        setUnknownToggle={props.setUnknownToggle}
+                    />
+                </div>
+                <div class="pump-type">
+                    <p>Non-Functional</p>
+                    <NonFuncToggle 
+                        sensors={props.sensors}
+                        setNonFuncToggle={props.setNonFuncToggle}
+                    />
+                </div>
             </div>
-            <div class="pump-type">
-                <p>Unknown</p>
-                <UnknownToggle 
-                    sensors={props.sensors}
-                    setUnknownToggle={props.setUnknownToggle}
-                />
-            </div>
-            <div class="pump-type">
-                <p>Non-Functional</p>
-                <NonFuncToggle 
-                    sensors={props.sensors}
-                    setNonFuncToggle={props.setNonFuncToggle}
-                />
-            </div>
-        </div>
+            ) : null}
+            
+        </>
     )
 }
 
