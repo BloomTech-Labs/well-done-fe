@@ -16,11 +16,12 @@ export default ({ close }) => (
       A sensor is currently not reporting and its data is unknown. 
       <h4>Non-Functional</h4>
       A sensor is currently not functional.
-      <h4>"Status" in Grid</h4>
-      Numerical Status as received from IoTile.  
-      (1) is Unknown 
+      <h4>Grid Information</h4>
+     <h5>Grid columns can be filtered, sorted and/or pinned.</h5>
+     Numerical "Status" is received from IoTile.  
+     (1) is Unknown 
      (2) is Functional 
-      (Blank) is Non-Functional 
+     (Blank) is Non-Functional   
     </div>
   </div>
 );
