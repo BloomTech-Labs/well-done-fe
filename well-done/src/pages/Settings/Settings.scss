@@ -14,20 +14,19 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
-    margin-left: 40rem;
+    margin-left: 80%;
     width: 40rem;
+
     @media (max-width: 1200px) {
-      margin-left: 70%;
+      margin-left: 35%;
     }
     @media (max-width: 900px) {
-      margin-left: 30%;
+      margin-left: 25%;
     }
     @media (max-width: 650px) {
       margin-left: 25%;
     }
     @media (max-width: 500px) {
-      // margin-left: 17.5%;
-      // margin-top: 5%;
       width: 100%;
       margin-left: 30%;
     }
@@ -36,7 +35,7 @@ body {
   .update-header {
     font-family: Open sans-serif;
     font-size: 1.3rem;
-    margin-left: 6rem;
+    margin-left: 7rem;
     margin-bottom: 4%;
     font-weight: bold;
     width: 100%;
@@ -44,7 +43,7 @@ body {
   .update-header-name {
     font-family: Open sans-serif;
     font-size: 1.3rem;
-    margin-left: 6rem;
+    margin-left: 7rem;
     margin-bottom: 4%;
     font-weight: bold;
   }
@@ -53,6 +52,7 @@ body {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
+
       .form-group {
         display: flex;
         flex-direction: column;
@@ -220,6 +220,7 @@ body {
       display: flex;
       font-family: Open sans-serif;
       font-size: 1.5rem;
+      font-weight: bold;
       // overflow: hidden;
       white-space: nowrap;
       margin-bottom: 15%;
