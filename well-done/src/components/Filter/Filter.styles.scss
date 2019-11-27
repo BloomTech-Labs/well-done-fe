@@ -1,0 +1,76 @@
+.filter-expand {
+    border-radius: 4px;
+    background-color: #082B84;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 200px;
+    height: 34px;
+    z-index: 4;
+    top: 25px;
+    right: 50px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+        color: white;
+        background-color: white;
+        width: 13px;
+        height: 3px;
+    }
+
+    @media (max-width: 800px) {
+        width: 100px;
+      }
+
+    @media (max-width: 500px) {
+        width: 80px;
+      }
+}
+
+.filter {
+    border-radius: 1px;
+    // border: 2px solid #37C6F3;
+    padding-top: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 5px;
+    background-color: white;
+    width: 200px;
+    position: absolute;
+    z-index: 4;
+    top: 59px;
+    right: 50px;
+
+    .select-village {
+        display: block;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.87);
+        padding: 5px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        border: 2px solid #aaa;
+        border-radius: 10px;
+        background-color: #fff;
+        
+    }
+
+    .pump-type {
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    
+    }
+
+    p {
+        margin-right: 20px;
+    }
+}
+
+
+
+

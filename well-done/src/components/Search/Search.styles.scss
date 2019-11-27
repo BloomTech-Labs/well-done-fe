@@ -1,0 +1,56 @@
+.search {
+    // margin: 60px;
+    position: absolute;
+    z-index: 3;
+    top: 25px;
+    left: 250px;
+    width: 280px;
+    height: 30px;
+    
+    @media (max-width: 800px) {
+        left: 120px;
+        width: 240px;
+      }
+
+    @media (max-width: 500px) {
+        left: 100px;
+        width: 180px;
+      }
+
+    input {
+    width: 245px;
+    height: 35px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding-left: 6px;
+    font-size: 12px;
+    color: #7E7E7E;
+    background-color: white;
+    background-image: url('https://res.cloudinary.com/dfulxq7so/image/upload/v1573052834/698627-icon-111-search-512_lxvbpg.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    }
+
+    .filtered{
+        background-color: white;
+        width: 243px;
+        padding-left: 6px;
+       
+        h2{
+            font-size: 14px
+        }
+    }
+
+    button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+        
+    }
+    
+}

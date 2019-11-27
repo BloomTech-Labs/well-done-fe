@@ -1,0 +1,54 @@
+html,
+body {
+  margin: 0;
+}
+.entire-menu {
+  position: absolute;
+  width: 15rem;
+  height: 100vh;
+  background: #082b84;
+  color: white;
+  position: fixed;
+
+  .logo {
+    width: 80%;
+    margin: 20px 0px 20px 20px;
+    width: 170.81px;
+    height: 35.61px;
+  }
+  .name {
+    font-size: 16px;
+    margin-left: 40px;
+  }
+  .email-address {
+    font-size: 12px;
+    margin-left: 40px;
+  }
+  span {
+    background-color: rgba(255, 255, 255, 0.8);
+    display: block;
+    width: 100%;
+    height: 1px;
+  }
+  .overlay-content {
+    position: fixed;
+    margin-top: 3%;
+    width: 15rem;
+
+    .each-nav {
+      position: relative;
+      color: white;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 1.5rem;
+      width: 100%;
+      .link {
+        color: white;
+      }
+    }
+    .each-nav:hover {
+      background-color: #1c49bb;
+    }
+  }
+}

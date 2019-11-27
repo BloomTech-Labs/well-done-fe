@@ -1,0 +1,229 @@
+// For Settings Page
+html,
+head,
+body {
+  margin: 0%;
+  padding: 0%;
+}
+.settings {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  background: #e5e5e5;
+  .forms {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 80%;
+    width: 40rem;
+
+    @media (max-width: 1200px) {
+      margin-left: 35%;
+    }
+    @media (max-width: 900px) {
+      margin-left: 25%;
+    }
+    @media (max-width: 650px) {
+      margin-left: 25%;
+    }
+    @media (max-width: 500px) {
+      width: 100%;
+      margin-left: 30%;
+    }
+  }
+  // For Setting Forms Components
+  .update-header {
+    font-family: Open sans-serif;
+    font-size: 1.3rem;
+    margin-left: 7rem;
+    margin-bottom: 4%;
+    font-weight: bold;
+    width: 100%;
+  }
+  .update-header-name {
+    font-family: Open sans-serif;
+    font-size: 1.3rem;
+    margin-left: 7rem;
+    margin-bottom: 4%;
+    font-weight: bold;
+  }
+  .edit-form {
+    .email-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .form-label {
+      font-size: 0.9rem;
+    }
+    .input {
+      height: 1.8rem;
+    }
+    .row-2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin-top: 5%;
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .update-btn {
+      display: flex;
+      margin-left: 60%;
+      height: 2rem;
+      width: 21%;
+      background-color: #027ef3;
+      margin-top: 3.5%;
+      margin-bottom: 2.5%;
+      @media (max-width: 500px) {
+        display: flex;
+        margin-left: 6% !important;
+        height: 2rem !important;
+        width: 8rem !important;
+        background-color: #027ef3;
+        margin-top: 3.5%;
+        margin-bottom: 2.5%;
+      }
+
+      .btn-text {
+        font-size: 0.9rem;
+        display: flex;
+        margin-left: 10.5%;
+        font-family: Bookman;
+        color: white;
+      }
+      .btn-text-password {
+        font-size: 0.9rem;
+        display: flex;
+        margin-left: 6%;
+        font-family: Bookman;
+        overflow: hidden;
+        white-space: nowrap;
+        color: white;
+        @media (max-width: 500px) {
+          font-size: 0.9rem;
+          display: flex;
+          margin-left: 3%;
+          font-family: Bookman;
+          overflow: hidden;
+          white-space: nowrap;
+          color: white;
+        }
+      }
+    }
+  }
+  // Mobile View
+  .mobile-view {
+    display: flex;
+    flex-direction: column;
+    // height: 100vh;
+    // width: 100%;
+  }
+  .mobile-nav-container {
+    display: flex;
+    background-color: #082b84;
+  }
+  .mobile-nav-bar {
+    background-color: #082b84;
+    // width: 100vh;
+  }
+  @media (max-width: 500px) {
+    .form-container-name {
+      display: none !important;
+    }
+    .form-container-email {
+      display: none !important;
+    }
+    .form-container-password {
+      display: flex;
+      flex-direction: column;
+      width: 37.5%;
+      padding-top: 5%;
+      padding-right: 2%;
+      @media (max-width: 500px) {
+        padding-top: 0;
+        margin-top: 0;
+        margin-left: 4.5%;
+      }
+      .edit-form {
+        .input {
+          width: 100%;
+          height: 2rem;
+          margin-top: 3%;
+          margin-bottom: 3%;
+        }
+        .email-row {
+          display: flex;
+          flex-direction: column;
+        }
+        .row-2 {
+          display: flex;
+          flex-direction: column;
+        }
+        .confirm-password-label {
+          white-space: nowrap;
+        }
+      }
+      .update-btn {
+        display: flex;
+        align-items: center;
+        margin-left: 19%;
+        height: 2rem;
+        width: 60%;
+        color: white;
+
+        @media (max-width: 500px) {
+          margin-top: 12%;
+        }
+        .btn-text-password {
+          font-size: 0.9rem;
+          display: flex;
+          font-family: Bookman;
+          color: white;
+        }
+      }
+    }
+    .logo {
+      width: 40%;
+      margin-top: 5%;
+      margin-left: 30%;
+      height: 2.5rem;
+      margin-bottom: 3%;
+    }
+  }
+  @media (max-width: 500px) {
+    .static-menu {
+      display: none !important;
+    }
+    .update-header {
+      display: none !important;
+    }
+  }
+  // Desktop View
+  .hamburga-menu {
+    display: none;
+    @media (max-width: 500px) {
+      display: flex;
+    }
+  }
+
+  .mobile-header {
+    display: none;
+    @media (max-width: 500px) {
+      display: flex;
+      font-family: Open sans-serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      // overflow: hidden;
+      white-space: nowrap;
+      margin-bottom: 15%;
+    }
+  }
+}
