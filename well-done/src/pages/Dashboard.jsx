@@ -23,7 +23,7 @@ const Dashboard = props => {
 
   useEffect(() => {
     AxiosWithAuth()
-      .get(`${process.env.REACT_APP_HEROKUAPI}/api/sensors/recent`)
+      .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent`)
       .then(res => {
         console.log('get all sensors in Map', res.data)
         // props.setSensors(res.data);
@@ -36,7 +36,7 @@ const Dashboard = props => {
 
   useEffect(() => {
     AxiosWithAuth()
-      .get(`${process.env.REACT_APP_HEROKUAPI}/api/history`)
+      .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
       .then(res => {
         //console.log("history from app.js", res.data);
         setHistory(res.data)
