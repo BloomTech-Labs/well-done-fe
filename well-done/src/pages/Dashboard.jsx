@@ -8,6 +8,7 @@ import {connect} from 'react-redux'
 import {fetchSensors} from '../actions/sensorActions'
 
 const Dashboard = props => {
+
   console.log('props in Dashboard', props)
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
@@ -16,11 +17,11 @@ const Dashboard = props => {
     height: '100vh',
     zoom: 2,
     // center: [13.043945, 105.221241]
+
   })
   const [funcToggle, setFuncToggle] = useState(true)
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
   const [unknownToggle, setUnknownToggle] = useState(true)
-  const [sensorInDashboard, setSensorInDashboard] = useState([])
   const [history, setHistory] = useState([])
 
   // useEffect(() => {
@@ -42,6 +43,8 @@ const Dashboard = props => {
     props.fetchSensors()
   },[])
 
+  console.log(props.sensors,'this is the sensors')
+
   useEffect(() => {
     AxiosWithAuth()
       .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
@@ -53,6 +56,10 @@ const Dashboard = props => {
         console.log(err)
       })
   }, [])
+
+
+
+
 
   const zoomInto = () => {
     // console.log('checkkk', props.searchFiltered.length)
@@ -103,12 +110,18 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
+  if(!props.sensors){
+    return <div>
+           loading...
+       </div>
+  }
+
   return (
     <div class='dashboard'>
       <Menu history={props.history} />
       <Map
         // sensors = {props.sensors}
-        sensors={sensorInDashboard}
+        sensors={props.sensors}
         // setSensors = {props.setSensors}
         funcToggle={funcToggle}
         nonFuncToggle={nonFuncToggle}
@@ -124,13 +137,13 @@ const Dashboard = props => {
         setSearchFiltered={props.setSearchFiltered}
         viewport={viewport}
         setViewport={setViewport}
-        sensors={sensorInDashboard}
+        sensors={props.sensors}
       />
       <Filter
         searchFiltered={props.searchFiltered}
         setSearchFiltered={props.setSearchFiltered}
         // sensors = {props.sensors}
-        sensors={sensorInDashboard}
+        sensors={props.sensors}
         setFuncToggle={setFuncToggle}
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
