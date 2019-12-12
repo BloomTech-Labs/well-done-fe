@@ -21,18 +21,22 @@ const Dashboard = props => {
   const [sensorInDashboard, setSensorInDashboard] = useState([])
   const [history, setHistory] = useState([])
 
-  useEffect(() => {
-    AxiosWithAuth()
-      .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent`)
-      .then(res => {
-        console.log('get all sensors in Map', res.data)
-        // props.setSensors(res.data);
-        setSensorInDashboard(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+  // useEffect(() => {
+  //   AxiosWithAuth()
+  //     .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent`)
+  //     .then(res => {
+  //       console.log('get all sensors in Map', res.data)
+  //       // props.setSensors(res.data);
+  //       setSensorInDashboard(res.data)
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }, [])
+
+  useEffect(()=>{
+    props.fetchSensors()
+  },)
 
   useEffect(() => {
     AxiosWithAuth()
@@ -130,5 +134,8 @@ const Dashboard = props => {
     </div>
   )
 }
+
+
+
 
 export default Dashboard
