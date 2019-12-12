@@ -1,5 +1,5 @@
 import React from 'react';
-import AxiosWithAuth from '../components/AxiosWithAuth'
+import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 
 
 export const SENSOR_FETCH ='SENSOR_FETCH'
@@ -7,7 +7,7 @@ export const SENSOR_FAILURE ='SENSOR_FAILURE'
 export const SENSOR_SUCCESS='SENSOR_SUCCESS'
 
 
-export const fetchSensor = () => dispatch => {
+export const fetchSensors = () => dispatch => {
     dispatch({type:SENSOR_FETCH})
     AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent`)

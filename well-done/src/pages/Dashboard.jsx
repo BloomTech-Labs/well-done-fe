@@ -4,6 +4,8 @@ import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
+import {connect} from 'react-redux'
+import {fetchSensors} from '../actions/sensorActions'
 
 const Dashboard = props => {
   console.log('props in Dashboard', props)
@@ -137,7 +139,13 @@ const Dashboard = props => {
   )
 }
 
+const mapStateToProps = state => {
+  return{
+    sensors: state.sensor.sensors,
+    isFetching: state.sensor.isFetching,
+    error: state.sensor.error,
+  }
+}
 
 
-
-export default Dashboard
+export default connect(mapStateToProps, {fetchSensors})(Dashboard)
