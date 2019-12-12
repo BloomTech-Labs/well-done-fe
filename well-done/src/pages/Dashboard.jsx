@@ -95,7 +95,7 @@ const Dashboard = props => {
         unknownToggle={unknownToggle}
         viewport={viewport}
         setViewport={setViewport}
-        history={history}
+        history={history.history}
         selectedPump={props.selectedPump}
         setSelectedPump={props.setSelectedPump}
       />
