@@ -1,13 +1,8 @@
 import React from 'react'
 import { Marker } from 'react-map-gl'
-import { connect } from 'react-redux'
 
 function Pin(props) {
   console.log('props in Pin', props)
-
-  if (!props.sensors) {
-    return <div>Loading...</div>
-  }
 
   return (
     <div>
@@ -91,12 +86,4 @@ function Pin(props) {
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    sensors: state.sensor.sensors,
-    isFetching: state.sensor.isFetching,
-    error: state.sensor.error,
-  }
-}
-
-export default connect(mapStateToProps, {})(Pin)
+export default Pin

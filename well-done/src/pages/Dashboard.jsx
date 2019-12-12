@@ -4,9 +4,9 @@ import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
-import {fetchHistory} from '../actions/sensorHistory'
+import { fetchHistory } from '../actions/sensorHistory'
 
 const Dashboard = props => {
   console.log('props in Dashboard', props.sensors)
@@ -18,11 +18,14 @@ const Dashboard = props => {
     zoom: 2,
     // center: [13.043945, 105.221241]
   })
+
+  const sensorSelector = useSelector(state => state.sensorReducer)
+  const history = useSelector(state => state.historyReducer)
+  const dispatch = useDispatch()
+
   const [funcToggle, setFuncToggle] = useState(true)
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
   const [unknownToggle, setUnknownToggle] = useState(true)
-  const [sensorInDashboard, setSensorInDashboard] = useState([])
-  const [history, setHistory] = useState([])
 
   // useEffect(() => {
   //   AxiosWithAuth()
@@ -38,11 +41,9 @@ const Dashboard = props => {
   // }, [])
 
   useEffect(() => {
-    props.fetchSensors()
-    props.fetchHistory()
+    dispatch(fetchSensors())
+    dispatch(fetchHistory())
   }, [])
-
-  console.log(props.sensors, 'this is the sensors')
 
   // useEffect(() => {
   //   AxiosWithAuth()
@@ -56,7 +57,6 @@ const Dashboard = props => {
   //     })
   // }, [])
 
-  
   const zoomInto = () => {
     // console.log('checkkk', props.searchFiltered.length)
     // props.searchFiltered[0].map(place => {
@@ -106,23 +106,23 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  if (props.sensors.length === 0) {
+  if (sensorSelector.sensors.length === 0) {
     return <div>loading...</div>
   }
-console.log(props.history ,"props.HISTORY")
+
   return (
     <div class='dashboard'>
-      <Menu history={props.history} />
+      <Menu history={history} />
       <Map
         // sensors = {props.sensors}
-        sensors={props.sensors}
+        sensors={sensorSelector.sensors}
         // setSensors = {props.setSensors}
         funcToggle={funcToggle}
         nonFuncToggle={nonFuncToggle}
         unknownToggle={unknownToggle}
         viewport={viewport}
         setViewport={setViewport}
-        history={props.history}
+        history={history}
         selectedPump={props.selectedPump}
         setSelectedPump={props.setSelectedPump}
       />
@@ -131,13 +131,13 @@ console.log(props.history ,"props.HISTORY")
         setSearchFiltered={props.setSearchFiltered}
         viewport={viewport}
         setViewport={setViewport}
-        sensors={props.sensors}
+        sensors={sensorSelector.sensors}
       />
       <Filter
         searchFiltered={props.searchFiltered}
         setSearchFiltered={props.setSearchFiltered}
         // sensors = {props.sensors}
-        sensors={props.sensors}
+        sensors={sensorSelector.sensors}
         setFuncToggle={setFuncToggle}
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
@@ -146,13 +146,4 @@ console.log(props.history ,"props.HISTORY")
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    history: state.history.history,
-    sensors: state.sensor.sensors,
-    isFetching: state.sensor.isFetching,
-    error: state.sensor.error,
-  }
-}
-
-export default connect(mapStateToProps, { fetchSensors, fetchHistory })(Dashboard)
+export default Dashboard
