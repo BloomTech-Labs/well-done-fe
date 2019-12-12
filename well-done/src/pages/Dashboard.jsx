@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
 
 const Dashboard = props => {
-  console.log('props in Dashboard', props)
+  console.log('props in Dashboard', props.sensors)
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
     longitude: 105.784788,
@@ -37,7 +37,7 @@ const Dashboard = props => {
   // }, [])
 
   useEffect(() => {
-    setSensorInDashboard(props.fetchSensors())
+    props.fetchSensors()
   }, [])
 
   console.log(props.sensors, 'this is the sensors')
@@ -103,7 +103,7 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  if (!props.sensors) {
+  if (props.sensors.length === 0) {
     return <div>loading...</div>
   }
 
@@ -111,9 +111,9 @@ const Dashboard = props => {
     <div class='dashboard'>
       <Menu history={props.history} />
       <Map
-        sensors={sensorInDashboard}
+        // sensors = {props.sensors}
         sensors={props.sensors}
-        setSensors={props.setSensors}
+        // setSensors = {props.setSensors}
         funcToggle={funcToggle}
         nonFuncToggle={nonFuncToggle}
         unknownToggle={unknownToggle}
@@ -128,13 +128,13 @@ const Dashboard = props => {
         setSearchFiltered={props.setSearchFiltered}
         viewport={viewport}
         setViewport={setViewport}
-        sensors={sensorInDashboard}
+        sensors={props.sensors}
       />
       <Filter
         searchFiltered={props.searchFiltered}
         setSearchFiltered={props.setSearchFiltered}
         // sensors = {props.sensors}
-        sensors={sensorInDashboard}
+        sensors={props.sensors}
         setFuncToggle={setFuncToggle}
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
