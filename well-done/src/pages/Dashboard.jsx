@@ -34,9 +34,11 @@ const Dashboard = props => {
   //     })
   // }, [])
 
+
+
   useEffect(()=>{
     props.fetchSensors()
-  },)
+  },[])
 
   useEffect(() => {
     AxiosWithAuth()

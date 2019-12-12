@@ -21,7 +21,7 @@ const MonitorDetails = props => {
 
   useEffect(() => {
     AxiosWithAuth()
-      .get('https://welldone-db.herokuapp.com/api/history')
+      .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
       .then(res => {
         //console.log("history from app.js", res.data);
         setHistory(res.data)

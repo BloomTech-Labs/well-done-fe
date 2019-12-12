@@ -16,7 +16,7 @@ const Filter = props => {
     
     useEffect(() => {
         AxiosWithAuth()
-            .get("https://welldone-db.herokuapp.com/api/pumps")
+            .get(`${process.env.REACT_APP_HEROKU_API}/api/pumps`)
             .then(res => {
                 // console.log(res)
                 setPumps(res.data)

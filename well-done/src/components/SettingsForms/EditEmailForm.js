@@ -22,7 +22,7 @@ const EditEmailForm = props => {
     if (account.new_email != account.new_email_conf) {
       alert("New email information must match");
       axiosWithAuth()
-        .get("https://welldone-db.herokuapp.com/api/accounts/")
+        .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts`)
         .then(res => {
           console.log("res", res.data);
         })
@@ -39,7 +39,7 @@ const EditEmailForm = props => {
   };
   async function isValidUserCredential(account) {
     axiosWithAuth()
-      .post("https://welldone-db.herokuapp.com/api/auth/login", account)
+      .post(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`, account)
       .then(res => {
         console.log("res", res.data);
         getUserData(res.data.id);
@@ -53,7 +53,7 @@ const EditEmailForm = props => {
   }
   const getUserData = accountID => {
     axiosWithAuth()
-      .get("https://welldone-db.herokuapp.com/api/accounts/" + accountID)
+      .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${accountID}`)
       .then(res => {
         console.log("res", res.data);
         var temp = res.data;
@@ -70,7 +70,7 @@ const EditEmailForm = props => {
     console.log(newData, accountID);
     axiosWithAuth()
       .put(
-        "https://welldone-db.herokuapp.com/api/accounts/" + accountID,
+        `${process.env.REACT_APP_HEROKU_API}/api/accounts/${accountID}`,
         newData
       )
       .then(res => {
