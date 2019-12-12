@@ -27,35 +27,10 @@ const Dashboard = props => {
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
   const [unknownToggle, setUnknownToggle] = useState(true)
 
-  // useEffect(() => {
-  //   AxiosWithAuth()
-  //     .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent`)
-  //     .then(res => {
-  //       console.log('get all sensors in Map', res.data)
-  //       // props.setSensors(res.data);
-  //       setSensorInDashboard(res.data)
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }, [])
-
   useEffect(() => {
     dispatch(fetchSensors())
     dispatch(fetchHistory())
   }, [])
-
-  // useEffect(() => {
-  //   AxiosWithAuth()
-  //     .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
-  //     .then(res => {
-  //       //console.log("history from app.js", res.data);
-  //       setHistory(res.data)
-  //     })
-  //     .catch(err => {
-  //       console.log(err)
-  //     })
-  // }, [])
 
   const zoomInto = () => {
     // console.log('checkkk', props.searchFiltered.length)
@@ -114,9 +89,7 @@ const Dashboard = props => {
     <div class='dashboard'>
       <Menu history={history} />
       <Map
-        // sensors = {props.sensors}
         sensors={sensorSelector.sensors}
-        // setSensors = {props.setSensors}
         funcToggle={funcToggle}
         nonFuncToggle={nonFuncToggle}
         unknownToggle={unknownToggle}
@@ -136,7 +109,6 @@ const Dashboard = props => {
       <Filter
         searchFiltered={props.searchFiltered}
         setSearchFiltered={props.setSearchFiltered}
-        // sensors = {props.sensors}
         sensors={sensorSelector.sensors}
         setFuncToggle={setFuncToggle}
         setNonFuncToggle={setNonFuncToggle}
