@@ -18,7 +18,7 @@ const SignIn = props => {
     event.preventDefault();
     console.log("submit", account);
     axios
-      .post("https://welldone-db.herokuapp.com/api/auth/login", account)
+      .post(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`, account)
       .then(res => {
         console.log("res", res.data);
         localStorage.setItem("token", res.data.token);

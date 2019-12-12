@@ -22,7 +22,7 @@ const EditPasswordForm = props => {
     if (account.new_password != account.new_password_conf) {
       alert("New password information must match");
       axiosWithAuth()
-        .get("https://welldone-db.herokuapp.com/api/accounts/")
+        .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/`)
         .then(res => {
           console.log("res", res.data);
         })
@@ -46,7 +46,7 @@ const EditPasswordForm = props => {
 
   async function isValidUserCredential(account) {
     axiosWithAuth()
-      .post("https://welldone-db.herokuapp.com/api/auth/login", account)
+      .post(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`, account)
       .then(res => {
         console.log("res", res.data);
         getUserData(res.data.id);
@@ -61,7 +61,7 @@ const EditPasswordForm = props => {
 
   const getUserData = accountID => {
     axiosWithAuth()
-      .get("https://welldone-db.herokuapp.com/api/accounts/" + accountID)
+      .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${accountID}`)
       .then(res => {
         console.log("res", res.data);
         // var temp = res.data;
@@ -79,7 +79,7 @@ const EditPasswordForm = props => {
     console.log(newData, accountID);
     axiosWithAuth()
       .put(
-        "https://welldone-db.herokuapp.com/api/accounts/password" + accountID,
+        `${process.env.REACT_APP_HEROKU_API}/api/accounts/password${accountID}`,
         newData
       )
       .then(res => {
