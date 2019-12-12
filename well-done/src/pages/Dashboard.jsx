@@ -6,6 +6,7 @@ import Filter from '../components/Filter/Filter.component'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import { connect } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
+import {fetchHistory} from '../actions/sensorHistory'
 
 const Dashboard = props => {
   console.log('props in Dashboard', props.sensors)
@@ -38,22 +39,24 @@ const Dashboard = props => {
 
   useEffect(() => {
     props.fetchSensors()
+    props.fetchHistory()
   }, [])
 
   console.log(props.sensors, 'this is the sensors')
 
-  useEffect(() => {
-    AxiosWithAuth()
-      .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
-      .then(res => {
-        //console.log("history from app.js", res.data);
-        setHistory(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [])
+  // useEffect(() => {
+  //   AxiosWithAuth()
+  //     .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
+  //     .then(res => {
+  //       //console.log("history from app.js", res.data);
+  //       setHistory(res.data)
+  //     })
+  //     .catch(err => {
+  //       console.log(err)
+  //     })
+  // }, [])
 
+  
   const zoomInto = () => {
     // console.log('checkkk', props.searchFiltered.length)
     // props.searchFiltered[0].map(place => {
@@ -106,7 +109,7 @@ const Dashboard = props => {
   if (props.sensors.length === 0) {
     return <div>loading...</div>
   }
-
+console.log(props.history ,"props.HISTORY")
   return (
     <div class='dashboard'>
       <Menu history={props.history} />
@@ -119,7 +122,7 @@ const Dashboard = props => {
         unknownToggle={unknownToggle}
         viewport={viewport}
         setViewport={setViewport}
-        history={history}
+        history={props.history}
         selectedPump={props.selectedPump}
         setSelectedPump={props.setSelectedPump}
       />
@@ -145,10 +148,11 @@ const Dashboard = props => {
 
 const mapStateToProps = state => {
   return {
+    history: state.history.history,
     sensors: state.sensor.sensors,
     isFetching: state.sensor.isFetching,
     error: state.sensor.error,
   }
 }
 
-export default connect(mapStateToProps, { fetchSensors })(Dashboard)
+export default connect(mapStateToProps, { fetchSensors, fetchHistory })(Dashboard)
