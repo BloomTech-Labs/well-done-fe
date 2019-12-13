@@ -16,21 +16,13 @@ const SignIn = props => {
     setAccount({ ...account, [event.target.name]: event.target.value });
   };
 
+  const dispatch = useDispatch()
+
   const handleSubmit = event => {
-    event.preventDefault();
-    console.log("submit", account);
-    axios
-      .post(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`, account)
-      .then(res => {
-        console.log("Signin res", res.data);
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("userId", res.data.id);
-        props.history.push("/dashboard");
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+    event.preventDefault()
+    dispatch(fetchSignIn(account))
+    props.history.push('/dashboard')
+  }
 
   return (
     <Row>
