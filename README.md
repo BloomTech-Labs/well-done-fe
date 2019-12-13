@@ -1,92 +1,69 @@
-# WellDone Dashboard
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-You can find the deployed project at https://well-done.welldone.now.sh/.
-<br> Backend is deployed at https://welldone-db.herokuapp.com/ 
+## Available Scripts
 
-## Table of Contents
-- [Contributors](https://github.com/labs17-WellDone/frontend_new/tree/mini-master#contributors)
-- [Project Overview](https://github.com/labs17-WellDone/frontend_new/tree/mini-master#project-overview)
-  - [Key Features](https://github.com/labs17-WellDone/frontend_new/tree/mini-master#key-features)
-- [Tech Stack](https://github.com/labs17-WellDone/frontend_new/tree/mini-master#tech-stack)
-  - [Frontend](https://github.com/labs17-WellDone/frontend_new/tree/mini-master#frontend-built-using)
-  - [Backend](https://github.com/labs17-WellDone/frontend_new/tree/mini-master#back-end-built-using)
-- [Planning Documents](https://github.com/labs17-WellDone/frontend_new/tree/mini-master#planning-documents)
-- [Installation Instructions](https://github.com/labs17-WellDone/frontend_new/tree/mini-master#installation-instructions)
-- [Historical Documentation](https://github.com/labs17-WellDone/frontend_new/tree/mini-master#historical-documentation)
+In the project directory, you can run:
 
-## Contributors
-#### Joshua Diamond [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Josh-Diamond) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/josh-e-diamond/) |    Julie Thrall-Stewart [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/juliehtrallstewart) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/thralljulie/) |    LaVon Mejia [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/lavonmejia) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/lavonmejia/) |    Reese Kunz	[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/reesekunz) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/reesekunz/) |    Anthony Rende [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jazz-code) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/anthony-rende/) |    <br>Jason Prince [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/endersgame1977) |    Hong Tran [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jessiehongtran) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hong-jessie-tran-35970286/) |    Troy Schnennum [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/TroySchennum) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/troyschennum/) 
+### `yarn start`
 
-## Project Overview
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-WellDone International is a non-profit organization working to improve access to clean water which is essential to human health, productivity, and well-being. They place proprietary modular sensors on pumps in Cambodia and soon also in Uganda.
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-Their  work combines research, technology, and design to catalyze development solutions that are transformative, community-driven, and sustainable.
+### `yarn test`
 
-Building on the work of Labs 15, they enlisted our teams support in order to build out their internal dashboard for monitoring the real time statuses of pump functionality.  This involved building a robust backend and updating the aesthetics and user friendliness of the front-end.  In addition, we have included dozens of tests, robust information for future developers on this project, including a detailed readme and API documentation.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-[Trello Board](https://trello.com/b/BhNi8L2H/labs-17-welldone)
+### `yarn build`
 
-[Product Canvas](https://www.notion.so/2505aad2c6a24aa2bd68c332370bfbfc?v=fcba394b346b46f6a8c2673571dc7151)
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-[UX Design files](https://www.figma.com/file/VtIl2XiHAPvsDYvmdejQFc/WellDone-Hand-off)
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Key Features
+### `yarn eject`
 
-- Authenticated Sign-In - Only Users with Admin created accounts can access the dashboard 
-- Interactive Dashboard Map - Shows all pumps, filterable by status, links to a detail of each pumps history 
-- Overview - Qualitative summary of all pumps including a sortable, filterable grid, and ability to export to CSV, the grid can accomodate more data as well   
-- Settings - Admin can create, update and delete accounts
-- Robust backend Endpoints - endpoints pull in data from a remote 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## Tech Stack
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Frontend built using:
-- React 
-- Emotion CSS & SCSS
-- Axios and Fetch
-- React Router
-- Formik/Yup
-- MapBox
-- AG-Grid
-- Frontend deployed to NOW
-### Details
-- Log In - users as organizations has the ability to log in and get access into pump and sensor data, without logging in, users are prevented from accessing into pages and getting pump data. 
-- Log Out - users as organizations has the ability to log out and end access the web app. 
-- Search - to locate a specific pump, users are able to search on map based on village name or sensor physical id. 
-- Filter - add in to search function, users can select certain village or type of pump (functional, non-functional, unknown) to filter pumps. 
-- See pump details - by clicking into a pump on map, users can see the recent statuses of the pump and can be directed into a detail page of that pump.
-- Access into pure sensor data - at Monitor page, users can get access into all sensor information. 
-- Edit name, email, password - users can edit/update their information including name, email, password. 
-- Superusers - can add new pumps and organizations into the Prismic Welldone Dashboard.
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### [Back end](https://github.com/labs17-WellDone/backend) built using:
-- Node/Express/SQLite3, with PostgreSQL used upon deploy to Heroku
-- Knex.js
-- AxioswithAuth and JWT
-- Jest
-### Details
-- Dynamic sensor data is aggregated from IoTile for each sensor every day and then stored directly into our PostgreSQL schema.
-- Static pump and organization data is aggregated from the Prismic API and inserted into 
-the Welldone database.
-### API Documentation
-[All Endpoint Documentation for API](https://app.swaggerhub.com/apis-docs/Jessiehongtran/well-done/1.0.0#/Organizations)
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Learn More
 
-## Planning Documents
-[Diagram](well-done/src/Images/appStructure.png) <br>
-[Iteration of Database](https://app.dbdesigner.net/designer/schema/0-welldone_database_schema-a7343184-1ae8-49cd-83b1-3d37f142bd2e)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Installation Instructions
-Clone this repo into your local, and run `npm` to install your dependencies.
+### Code Splitting
 
-### Other Scripts
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-    * build - `npm build`
-    * start - `npm start`
-    * test - `npm test`
+### Analyzing the Bundle Size
 
-## Historical Documentation
-[Labs 15 Code Base](https://github.com/labs17-WellDone/frontend_old)
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
