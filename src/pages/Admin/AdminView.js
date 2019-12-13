@@ -1,10 +1,13 @@
 import React from 'react'
+import StaticMenu from '../../components/Menu/StaticMenu'
 
 const adminContainer = () => {
     return (
         <div>
-            Admin View
-            
+
+            <div className="static-menu">
+                <StaticMenu />
+            </div>
         </div>
     )
 }

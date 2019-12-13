@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import "./Menu.styles.scss";
 import { IoIosHome, IoIosKey, IoIosSettings, IoMdCreate  } from "react-icons/io";
-// import { IoIosKey } from "react-icons/io";
-// import { IoIosSettings } from "react-icons/io";
-// import { IoMdCreate } from "react-icons/io";
 import { FiLogOut } from "react-icons/fi";
 import { Redirect, NavLink } from "react-router-dom";
 
 const Menu = props => {
-  console.log("props in Menu", props);
+
 
   const openNav = () => {
     document.getElementById("myNav").style.width = "210px";
@@ -25,7 +22,7 @@ const Menu = props => {
 
   return (
     <div>
-      {/* <h1>Hello, please show something</h1> */}
+    
       <div className="hamburger-menu" onClick={openNav}>
         <span style={{ backgroundColor: "#082B84" }}></span>
         <span style={{ backgroundColor: "#082B84" }}></span>

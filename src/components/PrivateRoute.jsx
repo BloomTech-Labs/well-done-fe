@@ -11,6 +11,7 @@ const PrivateRoute = ({
   history,
   ...rest
 }) => {
+  console.log (history, "HISTORY")
   return (
     <Route
       {...rest}
