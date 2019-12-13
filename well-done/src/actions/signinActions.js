@@ -5,7 +5,7 @@ export const SIGNIN_FETCH = 'SIGNIN_FETCH'
 export const SIGNIN_SUCCESS= 'SIGNIN_SUCCESS'
 export const SIGNIN_FAILURE = 'SIGNIN_FAILURE'
 
-export const fetchLogin = (account)=> dispatch=> {
+export const fetchSignIn = (account)=> dispatch=> {
     dispatch({type:SIGNIN_FETCH})
     axios
     .post("${process.env.REACT_APP_HEROKU_API}/api/auth/login", account)

@@ -1,4 +1,4 @@
-import {SIGNIN_FETCH, SIGNIN_SUCCESS, SIGNIN_FAILURE} from '../actions/signinActions'
+import {SIGNIN_FETCH, SIGNIN_SUCCESS, SIGNIN_FAILURE} from '../actions/signInActions'
 
 const initialState ={
     user_id: 0,
@@ -6,7 +6,7 @@ const initialState ={
     error:""
 }
 
-export const signinReducer = (state=initialState, action) => {
+export const signInReducer = (state=initialState, action) => {
     switch(action.type){
         case SIGNIN_FETCH:
             return{
