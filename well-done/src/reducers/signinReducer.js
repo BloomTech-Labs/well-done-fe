@@ -6,7 +6,7 @@ const initialState ={
     error:""
 }
 
-const signinReducer = (state=initialState, action) => {
+export const signinReducer = (state=initialState, action) => {
     switch(action.type){
         case SIGNIN_FETCH:
             return{
@@ -26,4 +26,3 @@ const signinReducer = (state=initialState, action) => {
             return state;
     }
 }
-export default signinReducer

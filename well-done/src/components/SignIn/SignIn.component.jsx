@@ -20,7 +20,7 @@ const SignIn = props => {
     axios
       .post(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`, account)
       .then(res => {
-        console.log("res", res.data);
+        console.log("Signin res", res.data);
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userId", res.data.id);
         props.history.push("/dashboard");

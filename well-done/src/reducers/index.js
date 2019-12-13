@@ -3,7 +3,7 @@ import { combineReducers } from 'redux'
 import { userReducer } from './userReducer'
 import sensorReducer from './sensorReducer'
 import { historyReducer } from './sensorHistory'
-import { signinReducer } from './sensorReducer'
+import { signinReducer } from './signinReducer'
 
 const rootReducer = combineReducers({
   userReducer,
