@@ -1,6 +1,6 @@
 import React from "react";
 import "./StaticMenu.scss";
-import { IoIosHome, IoMdCreate, IoIosSettings } from "react-icons/io";
+import { IoIosHome, IoMdCreate, IoIosSettings, IoIosKey } from "react-icons/io";
 import { Route, Link, Redirect } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 
@@ -39,6 +39,16 @@ const StaticMenu = props => {
             className="link"
           >
             Overview
+          </Link>
+        </div>
+        <div className="each-nav">
+          <IoIosKey  size={25} style={{ margin: "7.5px 10px" }} />
+          <Link
+            to="/admin"
+            activeClassName="activeNavButton"
+            className="link"
+          >
+                  Admin
           </Link>
         </div>
         <div className="each-nav">

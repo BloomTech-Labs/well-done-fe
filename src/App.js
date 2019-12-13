@@ -5,6 +5,7 @@ import Landing from "./pages/Landing.jsx";
 import Dashboard from "./pages/Dashboard";
 import MonitorDetails from "./pages/MonitorDetail";
 import Monitors from "./pages/OverviewPage/MonitorsPage";
+import adminContainer from './pages/Admin/AdminView'
 
 import Settings from "./pages/Settings/Settings";
 import MetaTags from "react-meta-tags";
@@ -47,6 +48,7 @@ function App(props) {
           selectedPump={selectedPump}
         />
         <PrivateRoute path="/overview" page={Monitors} />
+        <PrivateRoute path="/admin" page={adminContainer} />
         <PrivateRoute path="/settings" page={Settings} />
       </Switch>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Menu.styles.scss";
-import { IoIosHome, IoIosKey, IoIosSettings, IoMdCreate } from "react-icons/io";
+import { IoIosHome, IoIosKey, IoIosSettings, IoMdCreate  } from "react-icons/io";
 // import { IoIosKey } from "react-icons/io";
 // import { IoIosSettings } from "react-icons/io";
 // import { IoMdCreate } from "react-icons/io";
@@ -55,6 +55,10 @@ const Menu = props => {
           <div className="eachNav">
             <IoMdCreate size={25} />
             <NavLink to="/overview">Overview</NavLink>
+          </div>
+          <div className="eachNav">
+            <IoIosKey  size={25} />
+            <NavLink to="/admin">Admin</NavLink>
           </div>
           {/* <div className="eachNav">
             <IoIosKey size={25} />

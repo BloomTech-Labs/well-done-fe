@@ -58,6 +58,11 @@ const MobileViewMenu = props => {
             <IoIosKey size={25} />
             <a href="/admin">Admin</a>
           </div> */}
+           <div className="mobile-eachNav">
+            <IoMdCreate size={25} />
+            <a href="/admin">Admin</a>
+          </div>
+         
           <div className="mobile-eachNav">
             <IoIosSettings size={25} />
             <a href="/settings">Settings</a>
