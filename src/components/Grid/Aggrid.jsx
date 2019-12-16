@@ -255,18 +255,11 @@ class Grid extends Component {
           style={{
             height: '500px',
             width: '750px',
-            // marginTop: 15
-            // marginLeft: 100
           }}
         >
           <AgGridReact
             columnDefs={this.state.columnDefs}
             rowData={this.state.sensors}
-            gridOptions={gridOptions}
-            modules={this.state.modules}
-            defaultColDef={this.state.defaultColDef}
-            rowSelection={this.state.rowSelection}
-            onGridReady={this.onGridReady}
           />
         </div>
       </div>

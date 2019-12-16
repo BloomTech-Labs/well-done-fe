@@ -63,7 +63,7 @@ const Pumps = props => {
   }, [])
 
   useEffect(() => {
-    if (sensorSelector.sensors) setGrid(sensorSelector.sensors)
+    // if (sensorSelector.sensors) setGrid(sensorSelector.sensors)
   }, [sensorSelector.isFetching])
 
   console.log(grid, sensorSelector.sensors, 'PUMPS COMP')
@@ -73,19 +73,29 @@ const Pumps = props => {
     this.gridColumnApi = params.columnApi
   }
 
-  // if (!sensorSelector.sensors) {
-  //   return <div>Loading</div>
-  // }
+  if (!sensorSelector.sensors) {
+    return <div>Loading</div>
+  }
 
   return (
-    <AgGridReact
-      columnDefs={fields}
-      rowData={grid}
-      // gridOptions={gridOptions}
-      // defaultColDef={this.state.defaultColDef}
-      // rowSelection={this.state.rowSelection}
-      // onGridReady={onGridReady}
-    />
+    <div
+      className='ag-theme-balham'
+      style={{
+        height: '500px',
+        width: '750px',
+        // marginTop: 15
+        // marginLeft: 100
+      }}
+    >
+      <AgGridReact
+        columnDefs={fields.columnDefs}
+        rowData={sensorSelector.sensors}
+        // gridOptions={gridOptions}
+        // defaultColDef={this.state.defaultColDef}
+        // rowSelection={this.state.rowSelection}
+        // onGridReady={onGridReady}
+      />
+    </div>
   )
 }
 
