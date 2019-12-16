@@ -25,7 +25,7 @@ class OrgGrid extends Component {
         },
         {
           headerName: "Pumps Owned",
-          field: "pumps_owned",
+          field: "pump",
           sortable: true,
           filter: true,
          
@@ -51,15 +51,14 @@ class OrgGrid extends Component {
           filter: true,
           
         }
-       
-      ]
+       ]
     };
   }
 
   componentDidMount = () => {
     const token = localStorage.getItem("token");
     console.log(token);
-    fetch(`${process.env.REACT_APP_HEROKU_API}/api/orgs`, {
+    fetch(`${process.env.REACT_APP_HEROKU_API}/api/sensors`, {
       method: "GET",
       mode: "cors",
       headers: {
@@ -85,7 +84,7 @@ class OrgGrid extends Component {
         <div
         className="orgGridHeader">
         <h1>Organizations</h1>
-        <h1>+ Add New Organization</h1>
+        <button className='orgHeaderButton'>+ Add Organization</button>
         </div>
         <div
           className="ag-theme-balham"

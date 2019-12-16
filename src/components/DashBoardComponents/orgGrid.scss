@@ -6,6 +6,10 @@ body {
     width:80%;
     border: 2px solid #082b84;
     border-radius: 5px;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:2.5%;
+   
 }
 .orgGridHeader{
     display:flex;
@@ -14,8 +18,14 @@ body {
     background-color:  #082b84;
     padding-left: 2%;
     padding-right:2%;
+    height: auto;
 
     h1{
     color:white;
+    }
+    .orgHeaderButton{
+      background-color: #082b84;
+      color:white;
+      border:none;
     }
 }
