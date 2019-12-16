@@ -23,7 +23,7 @@ const AddOrg = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(createOrg(org));
+    dispatch(addOrg(org));
   };
 
   if (createOrgReducer.isFetching === true) {
