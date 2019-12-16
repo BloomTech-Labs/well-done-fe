@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import {addOrg} from '../actions/addOrg-action'
 
 
 
@@ -17,7 +18,7 @@ const AddOrg = props => {
     setOrg({ ...org, [event.target.name]: event.target.value });
   };
 
-  const createOrgReducer = useSelector(state => state.orgCreateReducer);
+  const addOrgReducer = useSelector(state => state.orgCreateReducer);
 
   const dispatch = useDispatch();
 
@@ -26,9 +27,9 @@ const AddOrg = props => {
     dispatch(addOrg(org));
   };
 
-  if (addOrgReducer.isFetching === true) {
-    return <div id="creating"><h1>...Creating Organization Member</h1></div>;
-  }
+  // if (addOrgReducer.isFetching === true) {
+  //   return <div id="creating"><h1>...Creating Organization Member</h1></div>;
+  // }
 
   const openForm = () => {
     document.getElementById("popDiv").style.display = "block";

@@ -1,5 +1,5 @@
 import React from 'react'
-import AxiosWithAuth from "../components/AxiosWithAuth";
+import AxiosWithAuth from "../components/AxiosWithAuth/axiosWithAuth";
 
 export const ADDORG_FETCH = "ADDORG_FETCH";
 export const ADDORG_SUCCESS = "ADDORG_SUCCESS";
