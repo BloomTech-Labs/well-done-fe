@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-
+import "./addOrg.scss"
 
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
