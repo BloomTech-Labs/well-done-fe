@@ -7,6 +7,7 @@ import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
+import './Dashboard.styles.scss'
 
 const Dashboard = props => {
   console.log('props in Dashboard', props.sensors)
@@ -86,7 +87,7 @@ const Dashboard = props => {
   }
 
   return (
-    <div class='dashboard'>
+    <div className='dashBoard'>
       <Menu history={history} />
       <Map
         sensors={sensorSelector.sensors}
