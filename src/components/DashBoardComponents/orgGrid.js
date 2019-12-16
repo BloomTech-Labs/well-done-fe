@@ -25,7 +25,7 @@ class OrgGrid extends Component {
         },
         {
           headerName: "Pumps Owned",
-          field: "pumps_owned",
+          field: "pump",
           sortable: true,
           filter: true,
          
@@ -59,7 +59,7 @@ class OrgGrid extends Component {
   componentDidMount = () => {
     const token = localStorage.getItem("token");
     console.log(token);
-    fetch(`${process.env.REACT_APP_HEROKU_API}/api/orgs`, {
+    fetch(`${process.env.REACT_APP_HEROKU_API}/api/sensors`, {
       method: "GET",
       mode: "cors",
       headers: {
