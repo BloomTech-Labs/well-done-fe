@@ -17,11 +17,11 @@ class OrgGrid extends Component {
           field: "org_name",
           sortable: true,
           filter: true,
-          width: 125
+          width: 90
         },
         {
-          headerName: "Administrator",
-          field: "name",
+          headerName: "Headquarters",
+          field: "headquarter_city",
           sortable: true,
           filter: true,
           width: 95
@@ -49,7 +49,7 @@ class OrgGrid extends Component {
         },
         {
           headerName: "Date Joined",
-          field: "commune_name",
+          field: "created_at",
           sortable: true,
           filter: true,
           width: 100
@@ -62,7 +62,7 @@ class OrgGrid extends Component {
   componentDidMount = () => {
     const token = localStorage.getItem("token");
     console.log(token);
-    fetch(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent`, {
+    fetch(`${process.env.REACT_APP_HEROKU_API}/api/pumps`, {
       method: "GET",
       mode: "cors",
       headers: {
@@ -94,21 +94,23 @@ class OrgGrid extends Component {
   render() {
     return (
       <div>
+        <div
+        className="orgGridHeader">
+        <h1>Organizations</h1>
         <Button
           type="default"
           icon="download"
           size="small"
           onClick={this.exportToCsv.bind(this)}
         >
-          CSV
+          Open in Excel
         </Button>
+        </div>
         <div
           className="ag-theme-balham"
           style={{
             height: "500px",
-            width: "100%"
-            // marginTop: 15
-            // marginLeft: 100
+            width: "100%",
           }}
         >
           <AgGridReact

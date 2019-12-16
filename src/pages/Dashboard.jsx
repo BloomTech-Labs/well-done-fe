@@ -3,7 +3,7 @@ import Menu from '../components/Menu/Menu.component'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
-import Pumps from '../components/DashBoardComponents/Pumps'
+import Pumps from '../components/DashBoardComponents/pumps'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
@@ -35,7 +35,7 @@ const Dashboard = props => {
   }, [])
 
   const zoomInto = () => {
-    // console.log('checkkk', props.searchFiltered.length)
+    // console.log('check', props.searchFiltered.length)
     // props.searchFiltered[0].map(place => {
     if (props.searchFiltered.length == 0) {
       setViewport({
