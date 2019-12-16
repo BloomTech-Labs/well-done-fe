@@ -3,6 +3,7 @@ import Menu from '../components/Menu/Menu.component'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
+import Pumps from '../components/DashBoardComponents/Pumps'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
@@ -115,6 +116,7 @@ const Dashboard = props => {
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
       />
+      <Pumps />
     </div>
   )
 }
