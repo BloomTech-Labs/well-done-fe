@@ -1,6 +1,6 @@
 import React, {useState, useEffect}from 'react';
 import {useDispatch} from 'react-redux'
-import {fetchLogin} from '../redux-actions/login-action'
+import {fetchLogin} from '../../actions/signIn-action'
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
