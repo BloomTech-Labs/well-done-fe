@@ -5,12 +5,17 @@ import Landing from './pages/Landing.jsx'
 import Dashboard from './pages/Dashboard'
 import MonitorDetails from './pages/MonitorDetail'
 import Monitors from './pages/OverviewPage/MonitorsPage'
+import NavBar from './components/Navbar/Navbar.js'
+import {useSelector} from 'react-redux'
 
 import Settings from './pages/Settings/Settings'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from './components/PrivateRoute.jsx'
 
 function App(props) {
+ 
+  const displayNav = useSelector( state => state.navShow)
+
   console.log('props in App', props)
   const [searchFiltered, setSearchFiltered] = useState([])
   // const [sensors, setSensors] = useState([]);
@@ -18,6 +23,8 @@ function App(props) {
 
   return (
     <div>
+      {!!displayNav&&<NavBar/>}
+      
       <MetaTags>
         <title>Well-Done Dashboard</title>
         <meta
