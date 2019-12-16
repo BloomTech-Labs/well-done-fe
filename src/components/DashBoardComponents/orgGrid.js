@@ -51,8 +51,7 @@ class OrgGrid extends Component {
           filter: true,
           
         }
-       
-      ]
+       ]
     };
   }
 
@@ -85,7 +84,7 @@ class OrgGrid extends Component {
         <div
         className="orgGridHeader">
         <h1>Organizations</h1>
-        <h1>+ Add New Organization</h1>
+        <button className='orgHeaderButton'>+ Add Organization</button>
         </div>
         <div
           className="ag-theme-balham"
