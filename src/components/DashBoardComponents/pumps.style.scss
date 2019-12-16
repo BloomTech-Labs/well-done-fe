@@ -1,7 +1,38 @@
-// .ag-theme-blue {
-//   color: dimgray;
-//   font-weight: bold;
-//   align-content: center;
-//   padding: 20;
+.pumpChart {
+  width: 400px;
+  box-shadow: 1px 1px 15px;
+  background-color: #090c9b;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  
 
-// }
+
+  .pumpHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    padding: 0.25rem 0.6rem;
+    background-color: #090c9b;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    .pumpHeaderButton {
+      background-color: #090c9b;
+      color: white;
+      border: none;
+    }
+
+    .pumpHeaderName {
+      color: white;
+    }
+  }
+}
+
+.ag-theme-balham {
+  color: dimgray;
+  font-weight: bold;
+  align-content: center;
+  padding: 20;
+}

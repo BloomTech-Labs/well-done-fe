@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AxiosWithAuth from '../../components/AxiosWithAuth/axiosWithAuth'
-
+import OrgGrid from '../../components/DashBoardComponents/orgGrid'
 import StaticMenu from '../../components/Menu/StaticMenu'
 import Legend from './Legend'
 import StatusCards from './StatusCards'
@@ -75,6 +75,8 @@ const MonitorsPage = ({ history }) => {
               offset={1}
               style={{ maxWidth: '600px', minWidth: '270px' }}
             >
+              <OrgGrid />
+              
               <Grid sensors={sensorSelector.sensors} />
             </Col>
 
