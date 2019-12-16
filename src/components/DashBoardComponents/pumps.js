@@ -5,23 +5,24 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptions from '../Grid/Pagination'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../../actions/sensorActions'
+import './Pumps.style.scss'
 
 const Pumps = props => {
   const fields = {
     columnDefs: [
-      {
-        headerName: 'Project',
-        field: 'org_name',
-        sortable: true,
-        filter: true,
-        width: 125,
-      },
       {
         headerName: 'Sensor ID',
         field: 'physical_id',
         sortable: true,
         filter: true,
         width: 95,
+      },
+      {
+        headerName: 'Installed',
+        field: 'created_at',
+        sortable: true,
+        filter: true,
+        width: 125,
       },
       {
         headerName: 'Status',
@@ -31,25 +32,11 @@ const Pumps = props => {
         width: 90,
       },
       {
-        headerName: 'Province',
-        field: 'province_name',
+        headerName: 'NGO',
+        field: 'org_name',
         sortable: true,
         filter: true,
         width: 90,
-      },
-      {
-        headerName: 'District',
-        field: 'district_name',
-        sortable: true,
-        filter: true,
-        width: 90,
-      },
-      {
-        headerName: 'Commune',
-        field: 'commune_name',
-        sortable: true,
-        filter: true,
-        width: 100,
       },
     ],
   }
@@ -62,39 +49,34 @@ const Pumps = props => {
     dispatch(fetchSensors())
   }, [])
 
-  useEffect(() => {
-    // if (sensorSelector.sensors) setGrid(sensorSelector.sensors)
-  }, [sensorSelector.isFetching])
-
   console.log(grid, sensorSelector.sensors, 'PUMPS COMP')
 
-  const onGridReady = params => {
-    this.gridApi = params.api
-    this.gridColumnApi = params.columnApi
-  }
-
-  if (!sensorSelector.sensors) {
-    return <div>Loading</div>
-  }
+  // if (!sensorSelector.sensors) {
+  //   return <div>Loading</div>
+  // }
 
   return (
-    <div
-      className='ag-theme-balham'
-      style={{
-        height: '500px',
-        width: '750px',
-        // marginTop: 15
-        // marginLeft: 100
-      }}
-    >
-      <AgGridReact
-        columnDefs={fields.columnDefs}
-        rowData={sensorSelector.sensors}
-        // gridOptions={gridOptions}
-        // defaultColDef={this.state.defaultColDef}
-        // rowSelection={this.state.rowSelection}
-        // onGridReady={onGridReady}
-      />
+    <div className='pumpChart'>
+      <div className='pumpHeader'>
+        <div className='pumpHeaderName'>Pumps</div>
+        <button className='pumpHeaderButton'>+ Add Pumps</button>
+      </div>
+      <div
+        className='ag-theme-balham'
+        style={{
+          height: '500px',
+          width: '400px',
+        }}
+      >
+        <AgGridReact
+          columnDefs={fields.columnDefs}
+          rowData={sensorSelector.sensors}
+          // gridOptions={gridOptions}
+          // defaultColDef={this.state.defaultColDef}
+          // rowSelection={this.state.rowSelection}
+          // onGridReady={onGridReady}
+        />
+      </div>
     </div>
   )
 }
