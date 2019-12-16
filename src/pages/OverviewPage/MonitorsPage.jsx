@@ -4,7 +4,7 @@ import OrgGrid from '../../components/DashBoardComponents/orgGrid'
 import StaticMenu from '../../components/Menu/StaticMenu'
 import Legend from './Legend'
 import StatusCards from './StatusCards'
-import Grid from '../../components/Grid/Aggrid'
+// import Grid from '../../components/Grid/Aggrid'
 import PercentageChart from './PercentageChart'
 
 //redux
@@ -77,7 +77,7 @@ const MonitorsPage = ({ history }) => {
             >
               <OrgGrid />
               
-              <Grid sensors={sensorSelector.sensors} />
+              {/* <Grid sensors={sensorSelector.sensors} /> */}
             </Col>
 
             {/* Percentage Chart */}

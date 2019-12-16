@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { AgGridReact } from "ag-grid-react";
-import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-balham.css";
-import { css } from "emotion";
-import { Button } from "antd";
+import "./orgGrid.scss"
 import "antd/dist/antd.css";
 import gridOptions from "../Grid/Pagination";
 
@@ -81,30 +78,14 @@ class OrgGrid extends Component {
     this.gridColumnApi = params.columnApi;
   };
 
-  exportToCsv = function() {
-    var params = {
-      skipHeader: false,
-      skipFooters: true,
-      skipGroups: true,
-      fileName: "OverviewGrid.csv"
-    };
-    gridOptions.api.exportDataAsCsv(params);
-  };
 
   render() {
     return (
-      <div>
+      <div className="orgGridBody">
         <div
         className="orgGridHeader">
         <h1>Organizations</h1>
-        <Button
-          type="default"
-          icon="download"
-          size="small"
-          onClick={this.exportToCsv.bind(this)}
-        >
-          Open in Excel
-        </Button>
+        <h1>+ Add New Organization</h1>
         </div>
         <div
           className="ag-theme-balham"
