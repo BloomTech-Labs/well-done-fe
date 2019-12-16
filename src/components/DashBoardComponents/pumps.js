@@ -15,14 +15,14 @@ const Pumps = props => {
         field: 'physical_id',
         sortable: true,
         filter: true,
-        // minWidth: 95,
+        minWidth: 95,
       },
       {
         headerName: 'Installed',
         field: 'created_at',
         sortable: true,
         filter: true,
-        // minWidth: 90,
+        minWidth: 90,
       },
       {
         headerName: 'Status',
@@ -56,26 +56,51 @@ const Pumps = props => {
   // }
 
   return (
-    <div className='pumpChart'>
-      <div className='pumpHeader'>
-        <div className='pumpHeaderName'>Pumps</div>
-        <button className='pumpHeaderButton'>+ Add Pumps</button>
+    <div className='pumpCon'>
+      <div className='pumpChart'>
+        <div className='pumpHeader'>
+          <div className='pumpHeaderName'>Pumps</div>
+          <button className='pumpHeaderButton'>+ Add Pumps</button>
+        </div>
+        <div
+          className='ag-theme-balham'
+          style={{
+            height: '500px',
+            width: '100%',
+          }}
+        >
+          <AgGridReact
+            columnDefs={fields.columnDefs}
+            rowData={sensorSelector.sensors}
+            // gridOptions={gridOptions}
+            // defaultColDef={this.state.defaultColDef}
+            // rowSelection={this.state.rowSelection}
+            // onGridReady={onGridReady}
+          />
+        </div>
       </div>
-      <div
-        className='ag-theme-balham.css'
-        style={{
-          height: '500px',
-          width: '400px',
-        }}
-      >
-        <AgGridReact
-          columnDefs={fields.columnDefs}
-          rowData={sensorSelector.sensors}
-          // gridOptions={gridOptions}
-          // defaultColDef={this.state.defaultColDef}
-          // rowSelection={this.state.rowSelection}
-          // onGridReady={onGridReady}
-        />
+      <div className='pumpChart'>
+        <div className='pumpHeader'>
+          <div className='pumpHeaderName'>Pumps</div>
+          <button className='pumpHeaderButton'>+ Add Pumps</button>
+        </div>
+        <div
+          className='ag-theme-balham'
+          style={{
+            height: '500px',
+            width: '100%',
+          }}
+        >
+          <AgGridReact
+            columnDefs={fields.columnDefs}
+            rowData={sensorSelector.sensors}
+            // gridOptions={gridOptions}
+            // defaultColDef={this.state.defaultColDef}
+            // rowSelection={this.state.rowSelection}
+            // onGridReady={onGridReady}
+            // comment
+          />
+        </div>
       </div>
     </div>
   )
