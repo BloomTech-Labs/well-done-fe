@@ -49,11 +49,25 @@ const Pumps = props => {
     dispatch(fetchSensors())
   }, [])
 
-  console.log(grid, sensorSelector.sensors, 'PUMPS COMP')
-
-  // if (!sensorSelector.sensors) {
-  //   return <div>Loading</div>
-  // }
+  const onGridSizeChanged = params => {
+    var gridWidth = document.getElementById('grid-wrapper').offsetWidth
+    var columnsToShow = []
+    var columnsToHide = []
+    var totalColsWidth = 0
+    var allColumns = params.columnApi.getAllColumns()
+    for (var i = 0; i < allColumns.length; i++) {
+      var column = allColumns[i]
+      totalColsWidth += column.getMinWidth()
+      if (totalColsWidth > gridWidth) {
+        columnsToHide.push(column.colId)
+      } else {
+        columnsToShow.push(column.colId)
+      }
+    }
+    params.columnApi.setColumnsVisible(columnsToShow, true)
+    params.columnApi.setColumnsVisible(columnsToHide, false)
+    params.api.sizeColumnsToFit()
+  }
 
   return (
     <div className='pumpCon'>
@@ -62,21 +76,25 @@ const Pumps = props => {
           <div className='pumpHeaderName'>Pumps</div>
           <button className='pumpHeaderButton'>+ Add Pumps</button>
         </div>
-        <div
-          className='ag-theme-balham'
-          style={{
-            height: '500px',
-            width: '100%',
-          }}
-        >
-          <AgGridReact
-            columnDefs={fields.columnDefs}
-            rowData={sensorSelector.sensors}
-            // gridOptions={gridOptions}
-            // defaultColDef={this.state.defaultColDef}
-            // rowSelection={this.state.rowSelection}
-            // onGridReady={onGridReady}
-          />
+        <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
+          <div
+            id='myGrid'
+            style={{
+              height: '500px',
+              width: '100%',
+            }}
+            className='ag-theme-balham'
+          >
+            <AgGridReact
+              columnDefs={fields.columnDefs}
+              rowData={sensorSelector.sensors}
+              // gridOptions={gridOptions}
+              // defaultColDef={this.state.defaultColDef}
+              // rowSelection={this.state.rowSelection}
+              // onGridReady={onGridReady}
+              onGridSizeChanged={onGridSizeChanged}
+            />
+          </div>
         </div>
       </div>
       <div className='pumpChart'>
@@ -84,22 +102,25 @@ const Pumps = props => {
           <div className='pumpHeaderName'>Pumps</div>
           <button className='pumpHeaderButton'>+ Add Pumps</button>
         </div>
-        <div
-          className='ag-theme-balham'
-          style={{
-            height: '500px',
-            width: '100%',
-          }}
-        >
-          <AgGridReact
-            columnDefs={fields.columnDefs}
-            rowData={sensorSelector.sensors}
-            // gridOptions={gridOptions}
-            // defaultColDef={this.state.defaultColDef}
-            // rowSelection={this.state.rowSelection}
-            // onGridReady={onGridReady}
-            // comment
-          />
+        <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
+          <div
+            id='myGrid'
+            style={{
+              height: '500px',
+              width: '100%',
+            }}
+            className='ag-theme-balham'
+          >
+            <AgGridReact
+              columnDefs={fields.columnDefs}
+              rowData={sensorSelector.sensors}
+              // gridOptions={gridOptions}
+              // defaultColDef={this.state.defaultColDef}
+              // rowSelection={this.state.rowSelection}
+              // onGridReady={onGridReady}
+              onGridSizeChanged={onGridSizeChanged}
+            />
+          </div>
         </div>
       </div>
     </div>
