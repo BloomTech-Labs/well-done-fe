@@ -5,6 +5,7 @@ import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
 import AddOrg from '../AddOrganization'
+import AddOp from '../AddOperator'
 
 export default function Map(props) {
   console.log('props in Map', props)
@@ -26,7 +27,8 @@ export default function Map(props) {
 
   return (
     <div>
-      <AddOrg/>
+      {/* <AddOrg/> */}
+      <AddOp/>
       <ReactMapGl
         mapboxApiAccessToken={
           'pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w'

@@ -39,7 +39,6 @@ const AddOrg = props => {
   return (
     <>
     <div>
-    <button class="close-button" onClick={closeForm}>Create</button>
     <button class="open-button" onClick={openForm}>Create Account</button>
       <div id="popDiv" className="popBox-container">
         <div className="topCreate">
