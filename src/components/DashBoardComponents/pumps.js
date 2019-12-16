@@ -56,6 +56,7 @@ const Pumps = props => {
   // }
 
   return (
+ <div className="pumpsContainer">
     <div className='pumpChart'>
       <div className='pumpHeader'>
         <div className='pumpHeaderName'>Pumps</div>
@@ -78,6 +79,29 @@ const Pumps = props => {
         />
       </div>
     </div>
+    <div className='pumpChart'>
+      <div className='pumpHeader'>
+        <div className='pumpHeaderName'>Pumps</div>
+        <button className='pumpHeaderButton'>+ Add Pumps</button>
+      </div>
+      <div
+        className='ag-theme-balham.css'
+        style={{
+          height: '500px',
+          width: '400px',
+        }}
+      >
+        <AgGridReact
+          columnDefs={fields.columnDefs}
+          rowData={sensorSelector.sensors}
+          // gridOptions={gridOptions}
+          // defaultColDef={this.state.defaultColDef}
+          // rowSelection={this.state.rowSelection}
+          // onGridReady={onGridReady}
+        />
+      </div>
+    </div>
+  </div>
   )
 }
 
