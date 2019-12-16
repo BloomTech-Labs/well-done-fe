@@ -26,7 +26,7 @@ const AddOrg = props => {
     dispatch(addOrg(org));
   };
 
-  if (createOrgReducer.isFetching === true) {
+  if (addOrgReducer.isFetching === true) {
     return <div id="creating"><h1>...Creating Organization Member</h1></div>;
   }
 
