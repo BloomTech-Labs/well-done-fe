@@ -10,11 +10,11 @@ import { useSelector } from "react-redux";
 
 
 const AddOrg = props => {
-  const [orgMember, setOrgMember] = useState([]);
-  console.log("org", orgMember);
+  const [org, setOrg] = useState([]);
+  console.log("org", org);
 
   const handleChange = event => {
-    setOrgMember({ ...orgMember, [event.target.name]: event.target.value });
+    setOrg({ ...org, [event.target.name]: event.target.value });
   };
 
   const createOrgReducer = useSelector(state => state.orgCreateReducer);
@@ -23,7 +23,7 @@ const AddOrg = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(createOrg(orgMember));
+    dispatch(createOrg(org));
   };
 
   if (createOrgReducer.isFetching === true) {
@@ -62,7 +62,7 @@ const AddOrg = props => {
                 id="Name"
                 placeholder="name"
                 name="name"
-                value={orgMember.name}
+                value={org.name}
                 onChange={handleChange}
               />
             </div>
@@ -78,7 +78,7 @@ const AddOrg = props => {
                 name="email"
                 id="Email"
                 placeholder="email"
-                value={orgMember.email}
+                value={org.email}
                 onChange={handleChange}
               />
             </div>
@@ -93,7 +93,7 @@ const AddOrg = props => {
                 name="password"
                 id="Password"
                 placeholder="password"
-                value={orgMember.password}
+                value={org.password}
                 onChange={handleChange}
               />
             </div>
@@ -108,7 +108,7 @@ const AddOrg = props => {
                 name="password"
                 id="Password"
                 placeholder="password"
-                value={orgMember.password}
+                value={org.password}
                 onChange={handleChange}
               />
             </div>
