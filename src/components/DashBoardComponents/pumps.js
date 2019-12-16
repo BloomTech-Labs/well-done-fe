@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptions from '../Grid/Pagination'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchSensors } from '../../actions/sensorActions'
 
 const Pumps = props => {
   const fields = {
@@ -52,19 +54,37 @@ const Pumps = props => {
     ],
   }
 
-  const [grid, setGrid] = useState(fields)
+  const [grid, setGrid] = useState([])
+  const sensorSelector = useSelector(state => state.sensorReducer)
+  const dispatch = useDispatch()
 
-  console.log(grid, 'PUMPS COMP')
+  useEffect(() => {
+    dispatch(fetchSensors())
+  }, [])
+
+  useEffect(() => {
+    if (sensorSelector.sensors) setGrid(sensorSelector.sensors)
+  }, [sensorSelector.isFetching])
+
+  console.log(grid, sensorSelector.sensors, 'PUMPS COMP')
+
+  const onGridReady = params => {
+    this.gridApi = params.api
+    this.gridColumnApi = params.columnApi
+  }
+
+  // if (!sensorSelector.sensors) {
+  //   return <div>Loading</div>
+  // }
 
   return (
     <AgGridReact
-      columnDefs={grid}
-      // rowData={this.state.rowData}
+      columnDefs={fields}
+      rowData={grid}
       // gridOptions={gridOptions}
-      // modules={this.state.modules}
       // defaultColDef={this.state.defaultColDef}
       // rowSelection={this.state.rowSelection}
-      // onGridReady={this.onGridReady}
+      // onGridReady={onGridReady}
     />
   )
 }
