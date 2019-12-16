@@ -12,7 +12,6 @@ import {addOrg} from '../actions/addOrg-action'
 
 const AddOrg = props => {
   const [org, setOrg] = useState([]);
-  console.log("org", org);
 
   const handleChange = event => {
     setOrg({ ...org, [event.target.name]: event.target.value });
@@ -27,9 +26,6 @@ const AddOrg = props => {
     dispatch(addOrg(org));
   };
 
-  // if (addOrgReducer.isFetching === true) {
-  //   return <div id="creating"><h1>...Creating Organization Member</h1></div>;
-  // }
 
   const openForm = () => {
     document.getElementById("popDiv").style.display = "block";
