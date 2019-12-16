@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
-import 'ag-grid-community/dist/styles/ag-theme-balham.css'
+import 'ag-grid-community/dist/styles/ag-theme-blue.css'
 import gridOptions from '../Grid/Pagination'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../../actions/sensorActions'
@@ -14,42 +14,42 @@ const Pumps = props => {
         field: 'org_name',
         sortable: true,
         filter: true,
-        width: 125,
+        // minWidth: 125,
       },
       {
         headerName: 'Sensor ID',
         field: 'physical_id',
         sortable: true,
         filter: true,
-        width: 95,
+        // minWidth: 95,
       },
       {
         headerName: 'Status',
         field: 'status',
         sortable: true,
         filter: true,
-        width: 90,
+        // minWidth: 90,
       },
       {
         headerName: 'Province',
         field: 'province_name',
         sortable: true,
         filter: true,
-        width: 90,
+        minWwidth: 90,
       },
       {
         headerName: 'District',
         field: 'district_name',
         sortable: true,
         filter: true,
-        width: 90,
+        minWidth: 90,
       },
       {
         headerName: 'Commune',
         field: 'commune_name',
         sortable: true,
         filter: true,
-        width: 100,
+        minWidth: 100,
       },
     ],
   }
@@ -79,10 +79,13 @@ const Pumps = props => {
 
   return (
     <div
-      className='ag-theme-balham'
+      className='ag-theme-blue'
       style={{
         height: '500px',
-        width: '750px',
+        width: '1450px',
+        lineHeight:'3.4',
+        borderRadius:'15px',
+        background:'red'
         // marginTop: 15
         // marginLeft: 100
       }}
