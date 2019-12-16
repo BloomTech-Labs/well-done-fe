@@ -33,16 +33,14 @@ function App(props) {
 
       <Switch>
         <Route exact path='/' component={Landing} />
-        <div className='dashMap'>
-          <PrivateRoute
-            path='/dashboard'
-            searchFiltered={searchFiltered}
-            setSearchFiltered={setSearchFiltered}
-            selectedPump={selectedPump}
-            setSelectedPump={setSelectedPump}
-            page={Dashboard}
-          />
-        </div>
+        <PrivateRoute
+          path='/dashboard'
+          searchFiltered={searchFiltered}
+          setSearchFiltered={setSearchFiltered}
+          selectedPump={selectedPump}
+          setSelectedPump={setSelectedPump}
+          page={Dashboard}
+        />
 
         <PrivateRoute
           path='/monitorDetails'
