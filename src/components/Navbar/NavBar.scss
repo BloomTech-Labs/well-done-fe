@@ -1,0 +1,21 @@
+nav{
+    display:flex;
+    flex-direction: row-reverse;
+    border:1px solid red;
+}
+.nav-right{
+   
+    border:1px solid yellow;
+    text-align: right;
+    width:50%;
+
+
+}
+.nav-left{
+   width:50%;
+    border:1px solid blue;
+
+}
+.active{
+color:pink;
+}
