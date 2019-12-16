@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
 import './Dashboard.styles.scss'
-
+import OrgGrid from '../components/DashBoardComponents/orgGrid'
 const Dashboard = props => {
   console.log('props in Dashboard', props.sensors)
   const [viewport, setViewport] = useState({
@@ -116,6 +116,7 @@ const Dashboard = props => {
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
       />
+      <OrgGrid/>
       <Pumps />
     </div>
   )

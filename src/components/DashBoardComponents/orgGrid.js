@@ -14,42 +14,42 @@ class OrgGrid extends Component {
           field: "org_name",
           sortable: true,
           filter: true,
-          width: 90
+          
         },
         {
           headerName: "Headquarters",
           field: "headquarter_city",
           sortable: true,
           filter: true,
-          width: 95
+         
         },
         {
           headerName: "Pumps Owned",
           field: "pumps_owned",
           sortable: true,
           filter: true,
-          width: 90
+         
         },
         {
           headerName: "Pumps Operational",
           field: "active_pumps",
           sortable: true,
           filter: true,
-          width: 90
+         
         },
         {
           headerName: "Active Users",
           field: "active_users",
           sortable: true,
           filter: true,
-          width: 90
+          
         },
         {
           headerName: "Date Joined",
           field: "created_at",
           sortable: true,
           filter: true,
-          width: 100
+          
         }
        
       ]
@@ -59,7 +59,7 @@ class OrgGrid extends Component {
   componentDidMount = () => {
     const token = localStorage.getItem("token");
     console.log(token);
-    fetch(`${process.env.REACT_APP_HEROKU_API}/api/pumps`, {
+    fetch(`${process.env.REACT_APP_HEROKU_API}/api/orgs`, {
       method: "GET",
       mode: "cors",
       headers: {
