@@ -1,10 +1,10 @@
-.pumpChart {
+.orgActivityChart {
   width: 48%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.08);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 
-  .pumpHeader {
+  .orgActivityHeader {
     display: flex;
     height: 50px;
     font-size: 1.4rem;
@@ -16,33 +16,14 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
-    .pumpHeaderButton {
+    .orgActivityHeaderButton {
       background-color: #090c9b;
       color: white;
       border: none;
     }
 
-    .pumpHeaderName {
+    .orgActivityHeaderName {
       color: white;
     }
-  }
-}
-
-.ag-theme-balham {
-  color: #202020;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.6px;
-  line-height: 19px;
-  align-content: center;
-  font-size: 0.7rem;
-}
-
-.btnCon {
-  .btn-info {
-    color: blue;
-    background: none;
-    border: none;
   }
 }

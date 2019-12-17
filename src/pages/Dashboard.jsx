@@ -11,6 +11,8 @@ import { fetchSensors } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
 import './Dashboard.styles.scss'
 import OrgGrid from '../components/DashBoardComponents/orgGrid'
+import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
+import './Dashboard.styles.scss'
 
 const Dashboard = props => {
   console.log('props in Dashboard', props)
@@ -91,7 +93,7 @@ const Dashboard = props => {
 
   return (
     <div className='dashBoard'>
-      <Menu history={history} />
+      {/* <Menu history={history} /> */}
       {/* <Map
         sensors={sensorSelector.sensors}
         funcToggle={funcToggle}
@@ -103,7 +105,7 @@ const Dashboard = props => {
         selectedPump={props.selectedPump}
         setSelectedPump={props.setSelectedPump}
       /> */}
-      <Search
+      {/* <Search
         searchFiltered={props.searchFiltered}
         setSearchFiltered={props.setSearchFiltered}
         viewport={viewport}
@@ -117,18 +119,20 @@ const Dashboard = props => {
         setFuncToggle={setFuncToggle}
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
-      />
-      <Route
-        path='/dashboard'
-        render={prop => (
-          <Pumps
-            {...prop}
-            selectedPump={props.selectedPump}
-            setSelectedPump={props.setSelectedPump}
-          />
-        )}
-      />
-
+      /> */}
+      <div className='orgActPumps'>
+        <OrganizationActivity />
+        <Route
+          path='/dashboard'
+          render={prop => (
+            <Pumps
+              {...prop}
+              selectedPump={props.selectedPump}
+              setSelectedPump={props.setSelectedPump}
+            />
+          )}
+        />
+      </div>
       <OrgGrid />
     </div>
   )

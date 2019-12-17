@@ -100,85 +100,46 @@ const Pumps = props => {
   }
 
   return (
-    <div className='pumpCon'>
-      <div className='pumpChart'>
-        <div className='pumpHeader'>
-          <div className='pumpHeaderName'>Pumps</div>
-          <input
-            type='text'
-            onInput={onQuickFilterChanged}
-            id='quickFilter'
-            placeholder='search...'
-          />
-          <button className='pumpHeaderButton'>+ Add Pumps</button>
-        </div>
-        <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
-          <div
-            id='myGrid'
-            style={{
-              height: '500px',
-              width: '100%',
-            }}
-            className='ag-theme-balham'
-          >
-            <Route
-              path='/dashboard'
-              render={prop => (
-                <AgGridReact
-                  {...prop}
-                  columnDefs={fields.columnDefs}
-                  rowData={gridInfo}
-                  gridOptions={gridOptions}
-                  // defaultColDef={this.state.defaultColDef}
-                  // rowSelection={this.state.rowSelection}
-                  // onGridReady={onGridReady}
-                  selectedPump={props.selectedPump}
-                  setSelectedPump={props.setSelectedPump}
-                  context={fields.context}
-                  frameworkComponents={fields.frameworkComponents}
-                  onGridSizeChanged={onGridSizeChanged}
-                />
-              )}
-            />
-          </div>
-        </div>
+    <div className='pumpChart'>
+      <div className='pumpHeader'>
+        <div className='pumpHeaderName'>Pumps</div>
+        <input
+          type='text'
+          onInput={onQuickFilterChanged}
+          id='quickFilter'
+          placeholder='search...'
+        />
+        <button className='pumpHeaderButton'>+ Add Pumps</button>
       </div>
-      <div className='pumpChart'>
-        <div className='pumpHeader'>
-          <div className='pumpHeaderName'>Pumps</div>
-          <button className='pumpHeaderButton'>+ Add Pumps</button>
-        </div>
-        {/* <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
-            <div
-              id='myGrid'
-              style={{
-                height: '500px',
-                width: '100%',
-              }}
-              className='ag-theme-balham'
-            >
-              <Route
-                path='/dashboard'
-                render={prop => (
-                  <AgGridReact
-                    {...prop}
-                    columnDefs={fields.columnDefs}
-                    rowData={gridInfo}
-                    gridOptions={gridOptions}
-                    // defaultColDef={this.state.defaultColDef}
-                    // rowSelection={this.state.rowSelection}
-                    // onGridReady={onGridReady}
-                    selectedPump={props.selectedPump}
-                    setSelectedPump={props.setSelectedPump}
-                    context={fields.context}
-                    frameworkComponents={fields.frameworkComponents}
-                    onGridSizeChanged={onGridSizeChanged}
-                  />
-                )}
+      <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
+        <div
+          id='myGrid'
+          style={{
+            height: '500px',
+            width: '100%',
+          }}
+          className='ag-theme-balham'
+        >
+          <Route
+            path='/dashboard'
+            render={prop => (
+              <AgGridReact
+                {...prop}
+                columnDefs={fields.columnDefs}
+                rowData={gridInfo}
+                gridOptions={gridOptions}
+                // defaultColDef={this.state.defaultColDef}
+                // rowSelection={this.state.rowSelection}
+                // onGridReady={onGridReady}
+                selectedPump={props.selectedPump}
+                setSelectedPump={props.setSelectedPump}
+                context={fields.context}
+                frameworkComponents={fields.frameworkComponents}
+                onGridSizeChanged={onGridSizeChanged}
               />
-            </div>
-          </div>
-        </div> */}
+            )}
+          />
+        </div>
       </div>
     </div>
   )
