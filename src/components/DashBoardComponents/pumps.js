@@ -61,7 +61,6 @@ const Pumps = props => {
     },
   }
 
-  console.log(props, 'PROPS IN PUMP')
   const [gridInfo, setGridInfo] = useState([])
   const sensorSelector = useSelector(state => state.sensorReducer)
   const dispatch = useDispatch()
