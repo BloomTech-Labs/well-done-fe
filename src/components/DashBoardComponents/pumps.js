@@ -12,7 +12,7 @@ import ViewButton from './ViewButton'
 import './pumps.style.scss'
 
 const Pumps = props => {
-const [rowSelection]= useState("multiple")
+
 
 //grid style options
 gridOptions.rowHeight = 40
@@ -25,8 +25,6 @@ gridOptions.rowHeight = 40
         sortable: true,
         filter: true,
         minWidth: 95,
-        checkboxSelection: true,
-        headerCheckboxSelection: true,
         
       },
       {
@@ -41,7 +39,7 @@ gridOptions.rowHeight = 40
         field: 'status',
         sortable: true,
         filter: true,
-        minWwidth: 90,
+        minWidth: 90,
       },
       {
         headerName: 'NGO',
@@ -98,36 +96,7 @@ gridOptions.rowHeight = 40
     params.columnApi.setColumnsVisible(columnsToHide, false)
     params.api.sizeColumnsToFit()
   }
-//selection function to highlight row and print physical_id
-  // function onSelectionChanged(params) {
-  //   let selectedRows = params.api.getSelectedRows();
-  //   document.querySelector("#selectedRows").innerHTML = selectedRows.length === 1 ? selectedRows[0].physical_id  : "";
-  // }
 
-  const onSelectionChanged = (params) => {
-    let selectedRows = params.api.getSelectedRows();
-    let selectedRowsString = "";
-    let maxToShow = 5;
-    selectedRows.forEach(function(selectedRow, index) {
-      if (index >= maxToShow) {
-        return;
-      }
-      if (index > 0) {
-        selectedRowsString += ", ";
-      }
-      selectedRowsString += selectedRow.physical_id;
-    });
-    if (selectedRows.length > maxToShow) {
-      var othersCount = selectedRows.length - maxToShow;
-      selectedRowsString += " and " + othersCount + " other" + (othersCount !== 1 ? "s" : "");
-    }
-    document.querySelector("#selectedRows").innerHTML = selectedRowsString;
-  }
-
-//  const onGridReady = params => {
-//     params.gridApi = params.api;
-
-//   }
 
 // FIXME:  //filter function
 const onQuickFilterChanged=(params)=>  {
@@ -178,24 +147,10 @@ const onQuickFilterChanged=(params)=>  {
                   context={fields.context}
                   frameworkComponents={fields.frameworkComponents}
                   onGridSizeChanged={onGridSizeChanged}
-                  rowSelection={rowSelection}
-                  onSelectionChanged={onSelectionChanged}
+
                 />
               )}
             />
-            {/* <AgGridReact
-              columnDefs={fields.columnDefs}
-              rowData={gridInfo}
-              // gridOptions={gridOptions}
-              // defaultColDef={this.state.defaultColDef}
-              // rowSelection={this.state.rowSelection}
-              // onGridReady={onGridReady}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-              context={fields.context}
-              frameworkComponents={fields.frameworkComponents}
-              onGridSizeChanged={onGridSizeChanged}
-            /> */}
           </div>
         </div>
       </div>
@@ -232,19 +187,6 @@ const onQuickFilterChanged=(params)=>  {
                 />
               )}
             />
-            {/* <AgGridReact
-              columnDefs={fields.columnDefs}
-              rowData={gridInfo}
-              // gridOptions={gridOptions}
-              // defaultColDef={this.state.defaultColDef}
-              // rowSelection={this.state.rowSelection}
-              // onGridReady={onGridReady}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-              context={fields.context}
-              frameworkComponents={fields.frameworkComponents}
-              onGridSizeChanged={onGridSizeChanged}
-            /> */}
           </div>
         </div>
       </div>
