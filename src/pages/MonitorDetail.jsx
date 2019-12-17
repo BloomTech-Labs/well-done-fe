@@ -9,6 +9,7 @@ import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 const { Title } = Typography
 
 const MonitorDetails = props => {
+  console.log(props)
   const [viewport, setViewport] = useState({
     latitude: 13.5651,
     longitude: 104.7538,

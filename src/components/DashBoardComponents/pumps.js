@@ -1,14 +1,15 @@
-
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { Route, Switch } from 'react-router-dom'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptions from '../Grid/Pagination'
-import './pumps.style.scss'
 
-//redux
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensors } from '../../actions/sensorActions'
+import { fetchSensors, updateInfo } from '../../actions/sensorActions'
+import ViewButton from './ViewButton'
+import './pumps.style.scss'
 
 const Pumps = props => {
 const [rowSelection]= useState("multiple")
@@ -49,19 +50,35 @@ gridOptions.rowHeight = 40
         filter: true,
         minWidth: 90,
       },
-     
+      {
+        sortable: true,
+        filter: true,
+        cellRenderer: 'viewButton',
+        cellRendererParams: {
+          prop1: 'props.selectedPump',
+        },
+        minWidth: 90,
+      },
     ],
+    context: { componentParent: this },
+    frameworkComponents: {
+      viewButton: ViewButton,
+    },
   }
-  const [grid, setGrid] = useState([])
+
+  console.log(props, 'PROPS IN PUMP')
+  const [gridInfo, setGridInfo] = useState([])
   const sensorSelector = useSelector(state => state.sensorReducer)
   const dispatch = useDispatch()
 
-
-
+  useEffect(() => {
+    dispatch(updateInfo())
+  }, [])
 
   useEffect(() => {
-    dispatch(fetchSensors())
-  }, [])
+    setGridInfo(sensorSelector.gridInfo)
+  }, [gridInfo])
+
   const onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper').offsetWidth
     var columnsToShow = []
@@ -107,10 +124,10 @@ gridOptions.rowHeight = 40
     document.querySelector("#selectedRows").innerHTML = selectedRowsString;
   }
 
- const onGridReady = params => {
-    params.gridApi = params.api;
+//  const onGridReady = params => {
+//     params.gridApi = params.api;
 
-  }
+//   }
 
 // FIXME:  //filter function
 const onQuickFilterChanged=(params)=>  {
@@ -145,19 +162,40 @@ const onQuickFilterChanged=(params)=>  {
             }}
             className='ag-theme-balham'
           >
-            <AgGridReact
+            <Route
+              path='/dashboard'
+              render={prop => (
+                <AgGridReact
+                  {...prop}
+                  columnDefs={fields.columnDefs}
+                  rowData={gridInfo}
+                  gridOptions={gridOptions}
+                  // defaultColDef={this.state.defaultColDef}
+                  // rowSelection={this.state.rowSelection}
+                  // onGridReady={onGridReady}
+                  selectedPump={props.selectedPump}
+                  setSelectedPump={props.setSelectedPump}
+                  context={fields.context}
+                  frameworkComponents={fields.frameworkComponents}
+                  onGridSizeChanged={onGridSizeChanged}
+                  rowSelection={rowSelection}
+                  onSelectionChanged={onSelectionChanged}
+                />
+              )}
+            />
+            {/* <AgGridReact
               columnDefs={fields.columnDefs}
-              rowData={sensorSelector.sensors}
-              gridOptions={gridOptions}
+              rowData={gridInfo}
+              // gridOptions={gridOptions}
               // defaultColDef={this.state.defaultColDef}
               // rowSelection={this.state.rowSelection}
-              onGridReady={onGridReady}
+              // onGridReady={onGridReady}
+              selectedPump={props.selectedPump}
+              setSelectedPump={props.setSelectedPump}
+              context={fields.context}
+              frameworkComponents={fields.frameworkComponents}
               onGridSizeChanged={onGridSizeChanged}
-              onSelectionChanged={onSelectionChanged}
-              rowSelection={rowSelection}
-              rowMultiSelectWithClick={true}
-             
-            />
+            /> */}
           </div>
         </div>
       </div>
@@ -175,18 +213,38 @@ const onQuickFilterChanged=(params)=>  {
             }}
             className='ag-theme-balham'
           >
-            <AgGridReact
+            <Route
+              path='/dashboard'
+              render={prop => (
+                <AgGridReact
+                  {...prop}
+                  columnDefs={fields.columnDefs}
+                  rowData={gridInfo}
+                  gridOptions={gridOptions}
+                  // defaultColDef={this.state.defaultColDef}
+                  // rowSelection={this.state.rowSelection}
+                  // onGridReady={onGridReady}
+                  selectedPump={props.selectedPump}
+                  setSelectedPump={props.setSelectedPump}
+                  context={fields.context}
+                  frameworkComponents={fields.frameworkComponents}
+                  onGridSizeChanged={onGridSizeChanged}
+                />
+              )}
+            />
+            {/* <AgGridReact
               columnDefs={fields.columnDefs}
-              rowData={sensorSelector.sensors}
-              gridOptions={gridOptions}
+              rowData={gridInfo}
+              // gridOptions={gridOptions}
               // defaultColDef={this.state.defaultColDef}
               // rowSelection={this.state.rowSelection}
               // onGridReady={onGridReady}
+              selectedPump={props.selectedPump}
+              setSelectedPump={props.setSelectedPump}
+              context={fields.context}
+              frameworkComponents={fields.frameworkComponents}
               onGridSizeChanged={onGridSizeChanged}
-            
-              //comment
-              //comment
-            />
+            /> */}
           </div>
         </div>
       </div>

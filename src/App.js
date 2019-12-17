@@ -15,6 +15,7 @@ function App(props) {
   const [searchFiltered, setSearchFiltered] = useState([])
   // const [sensors, setSensors] = useState([]);
   const [selectedPump, setSelectedPump] = useState(null)
+  console.log(selectedPump, 'SELECTED PUMP')
 
   return (
     <div>
