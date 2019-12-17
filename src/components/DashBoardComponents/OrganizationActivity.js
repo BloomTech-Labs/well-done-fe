@@ -37,14 +37,6 @@ const OrganizationActivity = () => {
   ])
 
   const addAlert = pump => {
-    // const newAlert = {
-    //   id: Date.now(),
-    //   pumpId: pump.pumpId,
-    //   org: pump.org,
-    //   location: pump.location,
-    //   status: pump.status,
-    // }
-
     setAlert([...alert, ...pump])
   }
 
@@ -57,6 +49,24 @@ const OrganizationActivity = () => {
     <div className='orgActivityChart'>
       <div className='orgActivityHeader'>
         <div className='orgActivityHeaderName'>Organization Activity</div>
+      </div>
+      <div className='orgActivityContainer'>
+        {alert.map(items => {
+          return (
+            <div className='orgActivityAlertInfo'>
+              <div className="orgActivityCardContainer">
+              <div className='orgActivityCardLeft'>
+                <p><span className="orgSpan">Pump ID: </span>{items.pumpId}</p>
+                <p>Organization: {items.org}</p>
+              </div>
+              <div className='orgActivityCardRight'>
+                <p>Location: {items.location}</p>
+                <p>Status: {items.status}</p>
+              </div>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )
