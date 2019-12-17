@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 import {
   HISTORY_FETCH,
   HISTORY_SUCCESS,
@@ -21,7 +23,12 @@ export const historyReducer = (state = initialState, action) => {
     case HISTORY_SUCCESS:
       return {
         ...state,
-        history: action.payload,
+        history: action.payload.map(item => {
+          return {
+            ...item,
+            created_at: moment(item.created_at).format('MM/DD/YYYY'),
+          }
+        }),
         isFetching: false,
         error: '',
       }
