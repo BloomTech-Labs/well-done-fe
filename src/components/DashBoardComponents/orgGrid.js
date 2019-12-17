@@ -4,6 +4,7 @@ import "./orgGrid.scss"
 import "antd/dist/antd.css";
 import gridOptions from "../Grid/Pagination";
 
+
 class OrgGrid extends Component {
   constructor(props) {
     super(props);
@@ -24,22 +25,22 @@ class OrgGrid extends Component {
          
         },
         {
+          headerName: "Contact",
+          field: "name",
+          sortable: true,
+          filter: true,
+         
+        },
+        {
           headerName: "Pumps Owned",
-          field: "pump",
+          field: "physical_id",
           sortable: true,
           filter: true,
          
         },
         {
-          headerName: "Pumps Operational",
-          field: "active_pumps",
-          sortable: true,
-          filter: true,
-         
-        },
-        {
-          headerName: "Active Users",
-          field: "active_users",
+          headerName: "Users",
+          field: "operators",
           sortable: true,
           filter: true,
           
