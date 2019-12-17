@@ -4,13 +4,8 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptions from '../Grid/Pagination'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  fetchSensors,
-  dataFormat,
-  formatData,
-} from '../../actions/sensorActions'
+import { fetchSensors, updateInfo } from '../../actions/sensorActions'
 import './pumps.style.scss'
-import moment from 'moment'
 
 const Pumps = props => {
   const fields = {
@@ -43,47 +38,27 @@ const Pumps = props => {
         filter: true,
         minWidth: 90,
       },
-      // {
-      //   field: 'physical_id',
-      //   sortable: true,
-      //   filter: true,
-      //   minWidth: 90,
-      // },
+      {
+        field: 'value',
+        sortable: true,
+        filter: true,
+        minWidth: 90,
+      },
     ],
   }
 
+  console.log(props)
+  const [gridInfo, setGridInfo] = useState([])
   const sensorSelector = useSelector(state => state.sensorReducer)
   const dispatch = useDispatch()
 
-  const [gridInfo, setGridInfo] = useState([])
-
   useEffect(() => {
-    dispatch(fetchSensors())
+    dispatch(updateInfo())
   }, [])
 
   useEffect(() => {
-    setGridInfo(sensorSelector.sensors)
-  }, [sensorSelector.isFetching || gridInfo])
-
-  const formatData = arr => {
-    arr.map(item => {
-      if (item.status === null) {
-        return (item.status = 'N/A')
-      } else if (item.status === 2) {
-        return (item.status = 'Functioning')
-      } else if (item.status === 1) {
-        return (item.status = 'Non-Functioning')
-      } else {
-        return item
-      }
-    })
-
-    arr.map(item => {
-      return (item.created_at = moment(item.created_at).format('MM/DD/YYYY'))
-    })
-
-    return arr
-  }
+    setGridInfo(sensorSelector.gridInfo)
+  }, [gridInfo])
 
   const onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper').offsetWidth
@@ -105,7 +80,6 @@ const Pumps = props => {
     params.api.sizeColumnsToFit()
   }
 
-  // formatData(gridInfo)
   console.log(gridInfo, 'INFO!!!')
 
   return (

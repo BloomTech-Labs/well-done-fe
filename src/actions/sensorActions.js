@@ -12,3 +12,8 @@ export const fetchSensors = () => dispatch => {
     .then(res => dispatch({ type: SENSOR_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: SENSOR_FAILURE, payload: err }))
 }
+
+export const UPDATE_INFO = 'UPDATE_INFO'
+export const updateInfo = () => dispatch => {
+  dispatch({ type: UPDATE_INFO })
+}

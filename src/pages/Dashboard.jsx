@@ -117,7 +117,7 @@ const Dashboard = props => {
         setUnknownToggle={setUnknownToggle}
       />
       <Pumps selectedPump={props.selectedPump} sensors={sensorSelector} />
-      {/* <OrgGrid /> */}
+      <OrgGrid />
     </div>
   )
 }
