@@ -57,11 +57,11 @@ const OrganizationActivity = () => {
               <div className="orgActivityCardContainer">
               <div className='orgActivityCardLeft'>
                 <p><span className="orgSpan">Pump ID: </span>{items.pumpId}</p>
-                <p>Organization: {items.org}</p>
+                <p><span className="orgSpan">Organization: </span> {items.org}</p>
               </div>
               <div className='orgActivityCardRight'>
-                <p>Location: {items.location}</p>
-                <p>Status: {items.status}</p>
+                <p><span className="orgSpan">Location: </span> {items.location}</p>
+                <p><span className="orgSpan">Status: </span> {items.status}</p>
               </div>
               </div>
             </div>
