@@ -12,10 +12,10 @@ import ViewButton from './ViewButton'
 import './pumps.style.scss'
 
 const Pumps = props => {
-const [rowSelection]= useState("multiple")
+  const [rowSelection] = useState('multiple')
 
-//grid style options
-gridOptions.rowHeight = 40
+  //grid style options
+  gridOptions.rowHeight = 40
 
   const fields = {
     columnDefs: [
@@ -27,7 +27,6 @@ gridOptions.rowHeight = 40
         minWidth: 95,
         checkboxSelection: true,
         headerCheckboxSelection: true,
-        
       },
       {
         headerName: 'Installed',
@@ -98,157 +97,132 @@ gridOptions.rowHeight = 40
     params.columnApi.setColumnsVisible(columnsToHide, false)
     params.api.sizeColumnsToFit()
   }
-//selection function to highlight row and print physical_id
+  //selection function to highlight row and print physical_id
   // function onSelectionChanged(params) {
   //   let selectedRows = params.api.getSelectedRows();
   //   document.querySelector("#selectedRows").innerHTML = selectedRows.length === 1 ? selectedRows[0].physical_id  : "";
   // }
 
-  const onSelectionChanged = (params) => {
-    let selectedRows = params.api.getSelectedRows();
-    let selectedRowsString = "";
-    let maxToShow = 5;
+  const onSelectionChanged = params => {
+    let selectedRows = params.api.getSelectedRows()
+    let selectedRowsString = ''
+    let maxToShow = 5
     selectedRows.forEach(function(selectedRow, index) {
       if (index >= maxToShow) {
-        return;
+        return
       }
       if (index > 0) {
-        selectedRowsString += ", ";
+        selectedRowsString += ', '
       }
-      selectedRowsString += selectedRow.physical_id;
-    });
+      selectedRowsString += selectedRow.physical_id
+    })
     if (selectedRows.length > maxToShow) {
-      var othersCount = selectedRows.length - maxToShow;
-      selectedRowsString += " and " + othersCount + " other" + (othersCount !== 1 ? "s" : "");
+      var othersCount = selectedRows.length - maxToShow
+      selectedRowsString +=
+        ' and ' + othersCount + ' other' + (othersCount !== 1 ? 's' : '')
     }
-    document.querySelector("#selectedRows").innerHTML = selectedRowsString;
+    document.querySelector('#selectedRows').innerHTML = selectedRowsString
   }
 
-//  const onGridReady = params => {
-//     params.gridApi = params.api;
+  //  const onGridReady = params => {
+  //     params.gridApi = params.api;
 
-//   }
+  //   }
 
-// FIXME:  //filter function
-const onQuickFilterChanged=(params)=>  {
-  params.AgGridReact.setQuickFilter(document.getElementById("quickFilter").value);
-  console.log(params.AgGridReact,'this is the params')
+  // FIXME:  //filter function
+  const onQuickFilterChanged = params => {
+    params.AgGridReact.setQuickFilter(
+      document.getElementById('quickFilter').value
+    )
+    console.log(params.AgGridReact, 'this is the params')
   }
-
 
   return (
     <>
-    <input 
-    type="text"
-    onInput={()=> onQuickFilterChanged()}
-    id="quickFilter"
-    placeholder="search..."
-    
-    />
+      <input
+        type='text'
+        onInput={() => onQuickFilterChanged()}
+        id='quickFilter'
+        placeholder='search...'
+      />
       Sensor ID:
-            <span id="selectedRows"></span>
-    <div className='pumpCon'>
-      <div className='pumpChart'>
-        <div className='pumpHeader'>
-          <div className='pumpHeaderName'>Pumps</div>
-          <button className='pumpHeaderButton'>+ Add Pumps</button>
+      <span id='selectedRows'></span>
+      <div className='pumpCon'>
+        <div className='pumpChart'>
+          <div className='pumpHeader'>
+            <div className='pumpHeaderName'>Pumps</div>
+            <button className='pumpHeaderButton'>+ Add Pumps</button>
+          </div>
+          <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
+            <div
+              id='myGrid'
+              style={{
+                height: '500px',
+                width: '100%',
+              }}
+              className='ag-theme-balham'
+            >
+              <Route
+                path='/dashboard'
+                render={prop => (
+                  <AgGridReact
+                    {...prop}
+                    columnDefs={fields.columnDefs}
+                    rowData={gridInfo}
+                    gridOptions={gridOptions}
+                    // defaultColDef={this.state.defaultColDef}
+                    // rowSelection={this.state.rowSelection}
+                    // onGridReady={onGridReady}
+                    selectedPump={props.selectedPump}
+                    setSelectedPump={props.setSelectedPump}
+                    context={fields.context}
+                    frameworkComponents={fields.frameworkComponents}
+                    onGridSizeChanged={onGridSizeChanged}
+                    rowSelection={rowSelection}
+                    onSelectionChanged={onSelectionChanged}
+                  />
+                )}
+              />
+            </div>
+          </div>
         </div>
-        <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
-          <div
-            id='myGrid'
-            style={{
-              height: '500px',
-              width: '100%',
-            }}
-            className='ag-theme-balham'
-          >
-            <Route
-              path='/dashboard'
-              render={prop => (
-                <AgGridReact
-                  {...prop}
-                  columnDefs={fields.columnDefs}
-                  rowData={gridInfo}
-                  gridOptions={gridOptions}
-                  // defaultColDef={this.state.defaultColDef}
-                  // rowSelection={this.state.rowSelection}
-                  // onGridReady={onGridReady}
-                  selectedPump={props.selectedPump}
-                  setSelectedPump={props.setSelectedPump}
-                  context={fields.context}
-                  frameworkComponents={fields.frameworkComponents}
-                  onGridSizeChanged={onGridSizeChanged}
-                  rowSelection={rowSelection}
-                  onSelectionChanged={onSelectionChanged}
-                />
-              )}
-            />
-            {/* <AgGridReact
-              columnDefs={fields.columnDefs}
-              rowData={gridInfo}
-              // gridOptions={gridOptions}
-              // defaultColDef={this.state.defaultColDef}
-              // rowSelection={this.state.rowSelection}
-              // onGridReady={onGridReady}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-              context={fields.context}
-              frameworkComponents={fields.frameworkComponents}
-              onGridSizeChanged={onGridSizeChanged}
-            /> */}
+        <div className='pumpChart'>
+          <div className='pumpHeader'>
+            <div className='pumpHeaderName'>Pumps</div>
+            <button className='pumpHeaderButton'>+ Add Pumps</button>
+          </div>
+          <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
+            <div
+              id='myGrid'
+              style={{
+                height: '500px',
+                width: '100%',
+              }}
+              className='ag-theme-balham'
+            >
+              <Route
+                path='/dashboard'
+                render={prop => (
+                  <AgGridReact
+                    {...prop}
+                    columnDefs={fields.columnDefs}
+                    rowData={gridInfo}
+                    gridOptions={gridOptions}
+                    // defaultColDef={this.state.defaultColDef}
+                    // rowSelection={this.state.rowSelection}
+                    // onGridReady={onGridReady}
+                    selectedPump={props.selectedPump}
+                    setSelectedPump={props.setSelectedPump}
+                    context={fields.context}
+                    frameworkComponents={fields.frameworkComponents}
+                    onGridSizeChanged={onGridSizeChanged}
+                  />
+                )}
+              />
+            </div>
           </div>
         </div>
       </div>
-      <div className='pumpChart'>
-        <div className='pumpHeader'>
-          <div className='pumpHeaderName'>Pumps</div>
-          <button className='pumpHeaderButton'>+ Add Pumps</button>
-        </div>
-        <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
-          <div
-            id='myGrid'
-            style={{
-              height: '500px',
-              width: '100%',
-            }}
-            className='ag-theme-balham'
-          >
-            <Route
-              path='/dashboard'
-              render={prop => (
-                <AgGridReact
-                  {...prop}
-                  columnDefs={fields.columnDefs}
-                  rowData={gridInfo}
-                  gridOptions={gridOptions}
-                  // defaultColDef={this.state.defaultColDef}
-                  // rowSelection={this.state.rowSelection}
-                  // onGridReady={onGridReady}
-                  selectedPump={props.selectedPump}
-                  setSelectedPump={props.setSelectedPump}
-                  context={fields.context}
-                  frameworkComponents={fields.frameworkComponents}
-                  onGridSizeChanged={onGridSizeChanged}
-                />
-              )}
-            />
-            {/* <AgGridReact
-              columnDefs={fields.columnDefs}
-              rowData={gridInfo}
-              // gridOptions={gridOptions}
-              // defaultColDef={this.state.defaultColDef}
-              // rowSelection={this.state.rowSelection}
-              // onGridReady={onGridReady}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-              context={fields.context}
-              frameworkComponents={fields.frameworkComponents}
-              onGridSizeChanged={onGridSizeChanged}
-            /> */}
-          </div>
-        </div>
-      </div>
-    </div>
     </>
   )
 }
