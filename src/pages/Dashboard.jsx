@@ -24,7 +24,9 @@ const Dashboard = props => {
   const sensorSelector = useSelector(state => state.sensorReducer)
   const history = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
-
+dispatch({
+  type: "TOGGLE_NAV_STATE", payload:true
+})
   const [funcToggle, setFuncToggle] = useState(true)
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
   const [unknownToggle, setUnknownToggle] = useState(true)
@@ -89,7 +91,6 @@ const Dashboard = props => {
 
   return (
     <div className='dashBoard'>
-      <Menu history={history} />
       <Map
         sensors={sensorSelector.sensors}
         funcToggle={funcToggle}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AxiosWithAuth from "../../components/AxiosWithAuth/axiosWithAuth";
 
-import StaticMenu from "../../components/Menu/StaticMenu";
 import Legend from "./Legend";
 import StatusCards from "./StatusCards";
 import Grid from "../../components/Grid/Aggrid";
@@ -34,10 +33,6 @@ const MonitorsPage = ({ history }) => {
   return (
     <div>
       <Layout style={{ backgroundColor: "#E5E5E5" }}>
-        <Sider>
-          {/* Side Nav */}
-          <StaticMenu history={history} />
-        </Sider>
         <Content>
           {/* legend */}
           <Row type="flex" justify="start">
