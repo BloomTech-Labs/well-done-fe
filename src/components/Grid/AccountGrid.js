@@ -10,7 +10,7 @@ import gridOptions from "./Pagination";
 
 import AddAccount from '../../components/AddOperator'
 
-import Example from '../../components/modalOrganization'
+import ModalOperator from '../../components/modalOperator'
 
 
 
@@ -128,7 +128,7 @@ class Grid extends Component {
             width: "900px"
           }}
         >
-            <Example/>
+            <ModalOperator/>
             
           <AgGridReact
             columnDefs={this.state.columnDefs}

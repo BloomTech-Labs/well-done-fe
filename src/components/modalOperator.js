@@ -9,7 +9,7 @@ import { fetchPumps } from '../actions/pumpAction'
 
 import { addOp } from '../actions/addOp-action'
 
-const Example = () => {
+const ModalOperator = () => {
   const [operator, setOperator] = useState([])
   const [show, setShow] = useState(false)
 
@@ -24,7 +24,7 @@ const Example = () => {
     dispatch(fetchPumps())
   })
 
-  const pumpReducer = useSelector(state => state.sensorReducer)
+  const pumpReducer = useSelector(state => state.pumpReducer)
 
   //on submit add operator
   const handleSubmit = event => {
@@ -151,5 +151,5 @@ const Example = () => {
   )
 }
 
-//    render(<Example />);
-export default Example
+
+export default ModalOperator
