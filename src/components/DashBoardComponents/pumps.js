@@ -4,7 +4,11 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptions from '../Grid/Pagination'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensors } from '../../actions/sensorActions'
+import {
+  fetchSensors,
+  dataFormat,
+  formatData,
+} from '../../actions/sensorActions'
 import './pumps.style.scss'
 import moment from 'moment'
 
@@ -39,12 +43,19 @@ const Pumps = props => {
         filter: true,
         minWidth: 90,
       },
+      // {
+      //   field: 'physical_id',
+      //   sortable: true,
+      //   filter: true,
+      //   minWidth: 90,
+      // },
     ],
   }
 
-  const [gridInfo, setGridInfo] = useState([])
   const sensorSelector = useSelector(state => state.sensorReducer)
   const dispatch = useDispatch()
+
+  const [gridInfo, setGridInfo] = useState([])
 
   useEffect(() => {
     dispatch(fetchSensors())
@@ -52,7 +63,7 @@ const Pumps = props => {
 
   useEffect(() => {
     setGridInfo(sensorSelector.sensors)
-  }, [sensorSelector.isFetching])
+  }, [sensorSelector.isFetching || gridInfo])
 
   const formatData = arr => {
     arr.map(item => {
@@ -62,19 +73,17 @@ const Pumps = props => {
         return (item.status = 'Functioning')
       } else if (item.status === 1) {
         return (item.status = 'Non-Functioning')
+      } else {
+        return item
       }
-      // return (item.created_at = moment(item.created_at).format('YYYY'))
     })
 
     arr.map(item => {
-      console.log(item)
       return (item.created_at = moment(item.created_at).format('MM/DD/YYYY'))
     })
 
     return arr
   }
-
-  console.log(gridInfo, sensorSelector.isFetching, 'GRIDINFO')
 
   const onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper').offsetWidth
@@ -96,7 +105,8 @@ const Pumps = props => {
     params.api.sizeColumnsToFit()
   }
 
-  formatData(gridInfo)
+  // formatData(gridInfo)
+  console.log(gridInfo, 'INFO!!!')
 
   return (
     <div className='pumpCon'>

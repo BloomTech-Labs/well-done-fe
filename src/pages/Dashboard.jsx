@@ -116,8 +116,8 @@ const Dashboard = props => {
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
       />
-      <OrgGrid />
-      <Pumps />
+      <Pumps selectedPump={props.selectedPump} sensors={sensorSelector} />
+      {/* <OrgGrid /> */}
     </div>
   )
 }
