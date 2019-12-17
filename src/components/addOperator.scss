@@ -2,11 +2,12 @@
   padding: 20rem;
 }
 
-.sheet {
-  display: flex;
+// .sheet {
+//   display: flex;
+//   width: 900px;
 
   .headName {
-      width: 70%;
+      width: 65%;
       background: blue;
       font-size: 1.5rem;
   }
@@ -20,9 +21,9 @@
     opacity: 0.8;
     left: 10rem;
     right: 28px;
-    width: 30%px;
+    width: 10%;
   }
-}
+// }
 
   #popDiv {
     display: none;
@@ -32,7 +33,7 @@
     // display:'none';
     border-radius: 5%;
     background: whitesmoke;
-    width: 38%;
+    width: 100%;
     height: 40vh;
     margin: auto; //centers container
     padding: 2rem;

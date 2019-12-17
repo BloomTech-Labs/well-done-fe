@@ -10,6 +10,8 @@ import gridOptions from "./Pagination";
 
 import AddAccount from '../../components/AddOperator'
 
+import Example from '../../components/modalOrganization'
+
 
 
 class Grid extends Component {
@@ -79,7 +81,6 @@ class Grid extends Component {
 
   componentDidMount = () => {
     const token = localStorage.getItem("token");
-    console.log(token);
     fetch(`${process.env.REACT_APP_HEROKU_API}/api/accounts`, {
       method: "GET",
       mode: "cors",
@@ -90,7 +91,6 @@ class Grid extends Component {
     })
       .then(result => result.json())
       .then(rowData => this.setState({ rowData }))
-      // .then(rowData =>  console.log(rowData))
       .catch(err => console.log(err));
   };
 
@@ -124,11 +124,12 @@ class Grid extends Component {
         <div
           className="ag-theme-balham"
           style={{
-            height: "500px",
-            width: "100%"
+            height: "400px",
+            width: "900px"
           }}
         >
-            <AddAccount/>
+            <Example/>
+            
           <AgGridReact
             columnDefs={this.state.columnDefs}
             rowData={this.state.rowData}

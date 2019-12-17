@@ -27,8 +27,7 @@ export default function Map(props) {
 
   return (
     <div>
-      {/* <AddOrg/> */}
-      <AddOp/>
+     
       <ReactMapGl
         mapboxApiAccessToken={
           'pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w'
