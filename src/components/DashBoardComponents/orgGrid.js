@@ -69,7 +69,6 @@ class OrgGrid extends Component {
     })
       .then(result => result.json())
       .then(rowData => this.setState({ rowData }))
-      // .then(rowData =>  console.log(rowData))
       .catch(err => console.log(err));
   };
 
@@ -97,9 +96,7 @@ class OrgGrid extends Component {
     params.columnApi.setColumnsVisible(columnsToHide, false)
     params.api.sizeColumnsToFit()
   };
-
-
-  render() {
+render() {
     return (
       <div className="orgGridBody">
         <div
@@ -126,5 +123,4 @@ class OrgGrid extends Component {
     );
   }
 }
-
 export default OrgGrid;
