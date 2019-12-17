@@ -21,11 +21,11 @@ const Dropdown = props => {
   return (
     <div className='drop-down' ref={ref}>
        <div className="each-nav">
-          <IoIosSettings size={25} style={{ margin: "7.5px 10px" }} />
+          <IoIosSettings size={25} style={{ position: "relative", top:"7px" }} />
           <Link
             to="/settings"
             activeClassName="activeNavButton"
-            className="link"
+            className="set-link"
           >
             Settings
           </Link>

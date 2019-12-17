@@ -38,11 +38,10 @@ body {
     .each-nav {
       position: relative;
       color: white;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
       font-size: 1.5rem;
       width: 100%;
+      
+  }
       .link {
         color: white;
       }
