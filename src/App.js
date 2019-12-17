@@ -6,21 +6,30 @@ import Dashboard from './pages/Dashboard'
 import MonitorDetails from './pages/MonitorDetail'
 import Monitors from './pages/OverviewPage/MonitorsPage'
 import NavBar from './components/Navbar/Navbar.js'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import './App.style.scss'
 
 import Settings from './pages/Settings/Settings'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from './components/PrivateRoute.jsx'
 
 function App(props) {
+const dispatch = useDispatch ()
+const displayNav = useSelector( state => state.navShow)
+  useEffect (()=>{
+    if (window.location.pathname !== '/'){
+      dispatch({
+        type: "TOGGLE_NAV_STATE", payload:true
+      })
+    }
+  },[window.location.pathname, displayNav])
  
-  const displayNav = useSelector( state => state.navShow)
+ 
 
   console.log('props in App', props)
   const [searchFiltered, setSearchFiltered] = useState([])
   // const [sensors, setSensors] = useState([]);
   const [selectedPump, setSelectedPump] = useState(null)
-
   return (
     <div>
       {!!displayNav&&<NavBar/>}
