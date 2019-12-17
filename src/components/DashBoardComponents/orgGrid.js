@@ -69,7 +69,6 @@ class OrgGrid extends Component {
     })
       .then(result => result.json())
       .then(rowData => this.setState({ rowData }))
-      // .then(rowData =>  console.log(rowData))
       .catch(err => console.log(err));
   };
 
@@ -78,8 +77,26 @@ class OrgGrid extends Component {
     this.gridColumnApi = params.columnApi;
   };
 
-
-  render() {
+  onGridSizeChanged = params => {
+    var gridWidth = document.getElementById('grid-wrapper').offsetWidth
+    var columnsToShow = []
+    var columnsToHide = []
+    var totalColsWidth = 0
+    var allColumns = params.columnApi.getAllColumns()
+    for (var i = 0; i < allColumns.length; i++) {
+      var column = allColumns[i]
+      totalColsWidth += column.getMinWidth()
+      if (totalColsWidth > gridWidth) {
+        columnsToHide.push(column.colId)
+      } else {
+        columnsToShow.push(column.colId)
+      }
+    }
+    params.columnApi.setColumnsVisible(columnsToShow, true)
+    params.columnApi.setColumnsVisible(columnsToHide, false)
+    params.api.sizeColumnsToFit()
+  };
+render() {
     return (
       <div className="orgGridBody">
         <div
@@ -97,16 +114,13 @@ class OrgGrid extends Component {
           <AgGridReact
             columnDefs={this.state.columnDefs}
             rowData={this.state.rowData}
-            gridOptions={gridOptions}
-            modules={this.state.modules}
-            defaultColDef={this.state.defaultColDef}
-            rowSelection={this.state.rowSelection}
+  
             onGridReady={this.onGridReady}
+            onGridSizeChanged={this.onGridSizeChanged}
           />
         </div>
       </div>
     );
   }
 }
-
 export default OrgGrid;
