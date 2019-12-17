@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import Menu from '../components/Menu/Menu.component'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
-import Pumps from '../components/DashBoardComponents/pumps'
+import Pumps from '../components/DashBoardComponents/Pumps'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
 import './Dashboard.styles.scss'
 import OrgGrid from '../components/DashBoardComponents/orgGrid'
+
 const Dashboard = props => {
-  console.log('props in Dashboard', props.sensors)
+  console.log('props in Dashboard', props)
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
     longitude: 105.784788,
@@ -116,7 +118,17 @@ const Dashboard = props => {
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
       />
-      <Pumps selectedPump={props.selectedPump} sensors={sensorSelector} />
+      <Route
+        path='/dashboard'
+        render={prop => (
+          <Pumps
+            {...prop}
+            selectedPump={props.selectedPump}
+            setSelectedPump={props.setSelectedPump}
+          />
+        )}
+      />
+
       <OrgGrid />
     </div>
   )

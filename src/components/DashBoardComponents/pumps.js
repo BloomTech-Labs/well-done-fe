@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { Route, Switch } from 'react-router-dom'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptions from '../Grid/Pagination'
-import { useSelector, useDispatch } from 'react-redux'
+
 import { fetchSensors, updateInfo } from '../../actions/sensorActions'
-import './pumps.style.scss'
+import ViewButton from './ViewButton'
+import './Pumps.style.scss'
 
 const Pumps = props => {
   const fields = {
@@ -39,15 +43,22 @@ const Pumps = props => {
         minWidth: 90,
       },
       {
-        field: 'value',
         sortable: true,
         filter: true,
+        cellRenderer: 'viewButton',
+        cellRendererParams: {
+          prop1: 'props.selectedPump',
+        },
         minWidth: 90,
       },
     ],
+    context: { componentParent: this },
+    frameworkComponents: {
+      viewButton: ViewButton,
+    },
   }
 
-  console.log(props)
+  console.log(props, 'PROPS IN PUMP')
   const [gridInfo, setGridInfo] = useState([])
   const sensorSelector = useSelector(state => state.sensorReducer)
   const dispatch = useDispatch()
@@ -80,8 +91,6 @@ const Pumps = props => {
     params.api.sizeColumnsToFit()
   }
 
-  console.log(gridInfo, 'INFO!!!')
-
   return (
     <div className='pumpCon'>
       <div className='pumpChart'>
@@ -98,15 +107,38 @@ const Pumps = props => {
             }}
             className='ag-theme-balham'
           >
-            <AgGridReact
+            <Route
+              path='/dashboard'
+              render={prop => (
+                <AgGridReact
+                  {...prop}
+                  columnDefs={fields.columnDefs}
+                  rowData={gridInfo}
+                  // gridOptions={gridOptions}
+                  // defaultColDef={this.state.defaultColDef}
+                  // rowSelection={this.state.rowSelection}
+                  // onGridReady={onGridReady}
+                  selectedPump={props.selectedPump}
+                  setSelectedPump={props.setSelectedPump}
+                  context={fields.context}
+                  frameworkComponents={fields.frameworkComponents}
+                  onGridSizeChanged={onGridSizeChanged}
+                />
+              )}
+            />
+            {/* <AgGridReact
               columnDefs={fields.columnDefs}
               rowData={gridInfo}
               // gridOptions={gridOptions}
               // defaultColDef={this.state.defaultColDef}
               // rowSelection={this.state.rowSelection}
               // onGridReady={onGridReady}
+              selectedPump={props.selectedPump}
+              setSelectedPump={props.setSelectedPump}
+              context={fields.context}
+              frameworkComponents={fields.frameworkComponents}
               onGridSizeChanged={onGridSizeChanged}
-            />
+            /> */}
           </div>
         </div>
       </div>
@@ -124,17 +156,38 @@ const Pumps = props => {
             }}
             className='ag-theme-balham'
           >
-            <AgGridReact
+            <Route
+              path='/dashboard'
+              render={prop => (
+                <AgGridReact
+                  {...prop}
+                  columnDefs={fields.columnDefs}
+                  rowData={gridInfo}
+                  // gridOptions={gridOptions}
+                  // defaultColDef={this.state.defaultColDef}
+                  // rowSelection={this.state.rowSelection}
+                  // onGridReady={onGridReady}
+                  selectedPump={props.selectedPump}
+                  setSelectedPump={props.setSelectedPump}
+                  context={fields.context}
+                  frameworkComponents={fields.frameworkComponents}
+                  onGridSizeChanged={onGridSizeChanged}
+                />
+              )}
+            />
+            {/* <AgGridReact
               columnDefs={fields.columnDefs}
               rowData={gridInfo}
               // gridOptions={gridOptions}
               // defaultColDef={this.state.defaultColDef}
               // rowSelection={this.state.rowSelection}
               // onGridReady={onGridReady}
+              selectedPump={props.selectedPump}
+              setSelectedPump={props.setSelectedPump}
+              context={fields.context}
+              frameworkComponents={fields.frameworkComponents}
               onGridSizeChanged={onGridSizeChanged}
-              //comment
-              //comment
-            />
+            /> */}
           </div>
         </div>
       </div>

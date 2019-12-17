@@ -39,12 +39,10 @@
   padding: 20;
 }
 
-.ag-tooltip {
-  background-color: black;
-  color: #999eab;
-  border-radius: 2px;
-  padding: 5px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #545454;
+.btnCon {
+  .btn-info {
+    color: blue;
+    background: none;
+    border: none;
+  }
 }

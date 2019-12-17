@@ -1,5 +1,5 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react'
+import { Route, Redirect } from 'react-router-dom'
 
 const PrivateRoute = ({
   page: Component,
@@ -15,22 +15,22 @@ const PrivateRoute = ({
     <Route
       {...rest}
       render={props =>
-        localStorage.getItem("token") ? (
+        localStorage.getItem('token') ? (
           <Component
             {...props}
             searchFiltered={searchFiltered}
             setSearchFiltered={setSearchFiltered}
-            history={history}
+            // history={history}
             sensors={sensors}
             selectedPump={selectedPump}
             setSelectedPump={setSelectedPump}
           />
         ) : (
-          <Redirect to="/" />
+          <Redirect to='/' />
         )
       }
     />
-  );
-};
+  )
+}
 
-export default PrivateRoute;
+export default PrivateRoute
