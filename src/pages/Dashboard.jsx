@@ -36,7 +36,7 @@ const Dashboard = props => {
   useEffect(() => {
     dispatch(fetchSensors())
     dispatch(fetchHistory())
-  }, [])
+  }, [props.selectedPump])
 
   const zoomInto = () => {
     // console.log('check', props.searchFiltered.length)

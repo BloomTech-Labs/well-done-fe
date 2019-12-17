@@ -30,7 +30,7 @@ const OrganizationActivity = () => {
   ]
 
   const [alert, setAlert] = useState([])
-  const sensorSelector = useSelector(state => state.sensorReducer)
+  const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
 
   // const [count, setCount] = useState(0)
@@ -38,8 +38,8 @@ const OrganizationActivity = () => {
   const prevAlert = usePrevious(alert)
 
   useEffect(() => {
-    setAlert(sensorSelector.sensors)
-  }, [sensorSelector.isFetching])
+    setAlert(historySelector.history)
+  }, [historySelector.isFetching])
 
   // function checkStatus() {
   //   alert.forEach(item => {})
@@ -51,8 +51,8 @@ const OrganizationActivity = () => {
     return <div>Loading</div>
   }
 
-  console.log(alert[2].status, 'AFTER')
-  console.log(prevAlert[2], 'BEFORE')
+  console.log(alert[475], 'AFTER')
+  console.log(prevAlert[475], 'BEFORE')
 
   return (
     <div className='orgActivityChart'>
