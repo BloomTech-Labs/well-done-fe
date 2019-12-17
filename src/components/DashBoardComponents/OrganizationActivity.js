@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
 import './OrganizationActivity.style.scss'
 import usePrevious from '../../CustomHooks/usePrevious'
+import { checkDate } from '../../actions/sensorHistory'
 
 const OrganizationActivity = () => {
   const fakeAlerts = [
@@ -33,34 +34,42 @@ const OrganizationActivity = () => {
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
 
-  let today = new Date()
-  let year = today.getFullYear()
-  let month = today.getMonth() + 1
-  today = moment(today).format('MM/DD/YYYY')
+  // let today = new Date()
+  // let year = today.getFullYear()
+  // let month = today.getMonth() + 1
+  // today = moment(today).format('MM/DD/YYYY')
 
-  let yesterday = new Date()
-  yesterday = moment(yesterday).format('MM/DD/YYYY')
+  // let yesterday = new Date()
+  // yesterday = moment(yesterday).format('MM/DD/YYYY')
 
-  yesterday = yesterday
-    .split('')
-    .map((item, index) => {
-      if (index > 2 && index < 5) {
-        return Number(item)
-      }
-    })
-    .join('')
+  // yesterday = yesterday
+  //   .split('')
+  //   .map((item, index) => {
+  //     if (index > 2 && index < 5) {
+  //       return Number(item)
+  //     }
+  //   })
+  //   .join('')
 
-  yesterday = yesterday - 1
-  yesterday =
-    month.toString() + '/' + yesterday.toString() + '/' + year.toString()
+  // yesterday = yesterday - 1
+  // yesterday =
+  //   month.toString() + '/' + yesterday.toString() + '/' + year.toString()
+  let today = '12/10/2019'
+  let yesterday = '12/09/2019'
+
   console.log(today)
   console.log(yesterday)
+  console.log(alert, 'ALERT HERE')
 
-  const prevAlert = usePrevious(alert)
+  // const prevAlert = usePrevious(alert)
 
   useEffect(() => {
-    setAlert(historySelector.history)
-  }, [historySelector.isFetching])
+    dispatch(checkDate())
+  }, [])
+
+  useEffect(() => {
+    setAlert(historySelector.alertInfo)
+  }, [alert])
 
   // function checkStatus() {
   //   alert.forEach(item => {})
@@ -68,12 +77,9 @@ const OrganizationActivity = () => {
 
   // checkStatus()
 
-  if (!prevAlert) {
-    return <div>Loading</div>
-  }
-
-  console.log(alert[475], 'AFTER')
-  console.log(prevAlert[475], 'BEFORE')
+  // if (!prevAlert) {
+  //   return <div>Loading</div>
+  // }
 
   return (
     <div className='orgActivityChart'>
