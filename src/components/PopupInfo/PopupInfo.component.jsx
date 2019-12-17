@@ -6,7 +6,6 @@ import 'antd/dist/antd.css'
 import { FiHelpCircle, FiAlertCircle, FiCheckCircle } from 'react-icons/fi'
 
 const PopupInfo = props => {
-  console.log(props, 'POPUPINFO PROPS')
   const zeroNull = (
     <div className='nonFunc-back-icon'>
       <FiAlertCircle className='nonFunc-front-icon' />
@@ -28,14 +27,18 @@ const PopupInfo = props => {
   }
 
   const statusHistory = props.history.filter(day => {
-    return day.sensor_id == props.selectedPump.physical_id
+    return Number(day.sensor_id) === Number(props.selectedPump.physical_id)
   })
 
   const { status, sensor_pid, province_name, country_name } = props.selectedPump
   return (
     <div className='popupInfo'>
       <div className='pump_id'>
-        {status == 0 || status == null ? zeroNull : status == 1 ? one : two}
+        {Number(status) === 0 || status === null
+          ? zeroNull
+          : Number(status) === 1
+          ? one
+          : two}
         <p className='pump_num'>Pump {sensor_pid}</p>
       </div>
       <div className='pump_info'>

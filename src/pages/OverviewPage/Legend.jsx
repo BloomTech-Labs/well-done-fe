@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-import { FiMap } from "react-icons/fi";
-import Popup from "reactjs-popup";
-import Content from "../../../src/components/PopupInfoOverview/Content";
-import "../../../src/components/PopupInfoOverview/Content.styles.scss";
+import { FiMap } from 'react-icons/fi'
+import Popup from 'reactjs-popup'
+import Content from '../../../src/components/PopupInfoOverview/Content'
+import '../../../src/components/PopupInfoOverview/Content.styles.scss'
 
 function Legend() {
   return (
@@ -11,7 +11,7 @@ function Legend() {
       <Popup
         modal
         trigger={
-          <h3 className="overviewpopup">
+          <h3 className='overviewpopup'>
             Legend <FiMap />
           </h3>
         }
@@ -19,7 +19,7 @@ function Legend() {
         {close => <Content close={close} />}
       </Popup>
     </div>
-  );
+  )
 }
 
-export default Legend;
+export default Legend
