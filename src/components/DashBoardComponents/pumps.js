@@ -8,8 +8,6 @@ import { fetchSensors } from '../../actions/sensorActions'
 import './pumps.style.scss'
 import moment from 'moment'
 
-// const today = moment().format('MM DD YYYY')
-// console.log(today, 'MOMENT')
 const Pumps = props => {
   const fields = {
     columnDefs: [
