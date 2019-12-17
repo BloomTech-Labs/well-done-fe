@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
 import './OrganizationActivity.style.scss'
+import usePrevious from '../../CustomHooks/usePrevious'
 
 const OrganizationActivity = () => {
   const fakeAlerts = [
@@ -26,24 +29,30 @@ const OrganizationActivity = () => {
     },
   ]
 
-  const [alert, setAlert] = useState([
-    {
-      id: Date.now(),
-      pumpId: 4722,
-      org: 'Well Done',
-      location: 'Siem Reap',
-      status: 'Functioning',
-    },
-  ])
+  const [alert, setAlert] = useState([])
+  const sensorSelector = useSelector(state => state.sensorReducer)
+  const dispatch = useDispatch()
 
-  const addAlert = pump => {
-    setAlert([...alert, ...pump])
-  }
+  // const [count, setCount] = useState(0)
+
+  const prevAlert = usePrevious(alert)
 
   useEffect(() => {
-    addAlert(fakeAlerts)
-  }, [])
-  console.log(alert)
+    setAlert(sensorSelector.sensors)
+  }, [sensorSelector.isFetching])
+
+  // function checkStatus() {
+  //   alert.forEach(item => {})
+  // }
+
+  // checkStatus()
+
+  if (!prevAlert) {
+    return <div>Loading</div>
+  }
+
+  console.log(alert[2].status, 'AFTER')
+  console.log(prevAlert[2], 'BEFORE')
 
   return (
     <div className='orgActivityChart'>
@@ -51,18 +60,29 @@ const OrganizationActivity = () => {
         <div className='orgActivityHeaderName'>Organization Activity</div>
       </div>
       <div className='orgActivityContainer'>
-        {alert.map(items => {
+        {alert.map((items, index) => {
           return (
             <div className='orgActivityAlertInfo'>
-              <div className="orgActivityCardContainer">
-              <div className='orgActivityCardLeft'>
-                <p><span className="orgSpan">Pump ID: </span>{items.pumpId}</p>
-                <p><span className="orgSpan">Organization: </span> {items.org}</p>
-              </div>
-              <div className='orgActivityCardRight'>
-                <p><span className="orgSpan">Location: </span> {items.location}</p>
-                <p><span className="orgSpan">Status: </span> {items.status}</p>
-              </div>
+              <div className='orgActivityCardContainer'>
+                <div key={index} className='orgActivityCardLeft'>
+                  <p>
+                    <span className='orgSpan'>Pump ID: </span>
+                    {items.physical_id}
+                  </p>
+                  <p>
+                    <span className='orgSpan'>Organization: </span>{' '}
+                    {items.org_name}
+                  </p>
+                </div>
+                <div className='orgActivityCardRight'>
+                  <p>
+                    <span className='orgSpan'>Location: </span>{' '}
+                    {items.province_name}
+                  </p>
+                  <p>
+                    <span className='orgSpan'>Status: </span> {items.status}
+                  </p>
+                </div>
               </div>
             </div>
           )

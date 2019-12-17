@@ -93,8 +93,8 @@ const Dashboard = props => {
 
   return (
     <div className='dashBoard'>
-      {/* <Menu history={history} /> */}
-      {/* <Map
+      <Menu history={history} />
+      <Map
         sensors={sensorSelector.sensors}
         funcToggle={funcToggle}
         nonFuncToggle={nonFuncToggle}
@@ -104,8 +104,8 @@ const Dashboard = props => {
         history={history.history}
         selectedPump={props.selectedPump}
         setSelectedPump={props.setSelectedPump}
-      /> */}
-      {/* <Search
+      />
+      <Search
         searchFiltered={props.searchFiltered}
         setSearchFiltered={props.setSearchFiltered}
         viewport={viewport}
@@ -119,7 +119,7 @@ const Dashboard = props => {
         setFuncToggle={setFuncToggle}
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
-      /> */}
+      />
       <div className='orgActPumps'>
         <OrganizationActivity />
         <Route
