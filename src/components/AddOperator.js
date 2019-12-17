@@ -39,6 +39,8 @@ const AddOperator = props => {
   return (
     <>
     <div>
+    <div className="sheet">
+    <div className="headName">Operator</div>
     <button className="button-Operator" onClick={openForm}>+ Operator</button>
       <div id="popDiv" className="popBox-container">
         <div className="topCreate">
@@ -130,6 +132,7 @@ const AddOperator = props => {
           </button>
           </div>
         </div>
+      </div>
       </div>
       </div>
     </>

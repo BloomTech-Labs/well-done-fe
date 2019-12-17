@@ -10,6 +10,8 @@ import Settings from "./pages/Settings/Settings";
 import MetaTags from "react-meta-tags";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 
+import AccountGrid from './components/Grid/AccountGrid'
+
 function App(props) {
   console.log("props in App", props);
   const [searchFiltered, setSearchFiltered] = useState([]);
@@ -32,6 +34,7 @@ function App(props) {
       </MetaTags>
 
       <Switch>
+        <Route path="/accountgrid" component={AccountGrid}/>
         <Route exact path="/" component={Landing} />
         <PrivateRoute
           path="/dashboard"
