@@ -1,28 +1,33 @@
-.pumpChart {
-  width: 400px;
-  box-shadow: 1px 1px 15px;
-  background-color: #090c9b;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+.pumpCon {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.5rem;
 
-  .pumpHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    padding: 0.25rem 0.6rem;
-    background-color: #090c9b;
+  .pumpChart {
+    width: 47%;
+    box-shadow: 1px 1px 15px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
-    .pumpHeaderButton {
+    .pumpHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0.25rem 0.6rem;
       background-color: #090c9b;
-      color: white;
-      border: none;
-    }
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
 
-    .pumpHeaderName {
-      color: white;
+      .pumpHeaderButton {
+        background-color: #090c9b;
+        color: white;
+        border: none;
+      }
+
+      .pumpHeaderName {
+        color: white;
+      }
     }
   }
 }
