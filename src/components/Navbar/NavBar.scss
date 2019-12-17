@@ -13,13 +13,9 @@ nav{
     display: flex;
     justify-content: flex-end;
     color:white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     padding-right: 1rem;
-  
-    
-
-
-}
+  }
 .nav-left{
    width:50%;
     
@@ -35,9 +31,22 @@ color:pink;
     height: 35.61px;
   }
   .margin-left{
-    margin-left: 10px;
+    margin-left: 24px;
     color:white;
   }
   .margin-right{
-      margin-right:10px;
+      margin-right:60px;
+  }
+  .drop-down{
+      border:1px solid red;
+      position: absolute;
+      top: 53px; 
+      z-index: 5;
+      background:white;
+      right:60px;
+      color:black;
+      padding:5px;
+  }
+  .margin-left-droplet{
+    margin-left:40px;
   }
