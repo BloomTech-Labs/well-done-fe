@@ -10,9 +10,9 @@ export const fetchLogin = (account)=> dispatch=> {
     console.log(account)
     dispatch({type:LOGIN_FETCH})
     axios
-    .post("https://well-done-staging.herokuapp.com/api/auth/login", account)
+    .post(`res sign in`, account)
     .then(res => {
-        console.log('login-action res.data',res.data)
+        console.log(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`,res.data)
         localStorage.setItem("token", res.data.token)
         localStorage.setItem("userId", res.data.id)
         localStorage.setItem("userType", res.data.user)
