@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
@@ -7,6 +6,10 @@ import gridOptions from '../Grid/Pagination'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../../actions/sensorActions'
 import './pumps.style.scss'
+import moment from 'moment'
+
+// const today = moment().format('MM DD YYYY')
+// console.log(today, 'MOMENT')
 const Pumps = props => {
   const fields = {
     columnDefs: [
@@ -15,7 +18,7 @@ const Pumps = props => {
         field: 'physical_id',
         sortable: true,
         filter: true,
-        minWidth: 95,
+        minWidth: 90,
       },
       {
         headerName: 'Installed',
@@ -40,12 +43,41 @@ const Pumps = props => {
       },
     ],
   }
-  const [grid, setGrid] = useState([])
+
+  const [gridInfo, setGridInfo] = useState([])
   const sensorSelector = useSelector(state => state.sensorReducer)
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(fetchSensors())
   }, [])
+
+  useEffect(() => {
+    setGridInfo(sensorSelector.sensors)
+  }, [sensorSelector.isFetching])
+
+  const formatData = arr => {
+    arr.map(item => {
+      if (item.status === null) {
+        return (item.status = 'N/A')
+      } else if (item.status === 2) {
+        return (item.status = 'Functioning')
+      } else if (item.status === 1) {
+        return (item.status = 'Non-Functioning')
+      }
+      // return (item.created_at = moment(item.created_at).format('YYYY'))
+    })
+
+    arr.map(item => {
+      console.log(item)
+      return (item.created_at = moment(item.created_at).format('MM/DD/YYYY'))
+    })
+
+    return arr
+  }
+
+  console.log(gridInfo, sensorSelector.isFetching, 'GRIDINFO')
+
   const onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper').offsetWidth
     var columnsToShow = []
@@ -65,6 +97,9 @@ const Pumps = props => {
     params.columnApi.setColumnsVisible(columnsToHide, false)
     params.api.sizeColumnsToFit()
   }
+
+  formatData(gridInfo)
+
   return (
     <div className='pumpCon'>
       <div className='pumpChart'>
@@ -83,7 +118,7 @@ const Pumps = props => {
           >
             <AgGridReact
               columnDefs={fields.columnDefs}
-              rowData={sensorSelector.sensors}
+              rowData={gridInfo}
               // gridOptions={gridOptions}
               // defaultColDef={this.state.defaultColDef}
               // rowSelection={this.state.rowSelection}
@@ -109,7 +144,7 @@ const Pumps = props => {
           >
             <AgGridReact
               columnDefs={fields.columnDefs}
-              rowData={sensorSelector.sensors}
+              rowData={gridInfo}
               // gridOptions={gridOptions}
               // defaultColDef={this.state.defaultColDef}
               // rowSelection={this.state.rowSelection}
