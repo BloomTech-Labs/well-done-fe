@@ -3,7 +3,9 @@ nav{
     flex-direction: row-reverse;
     align-items: center;
     background: #082b84;
-    
+    position: sticky;
+    top: 0px;
+    z-index: 5;
 }
 .nav-right{
    
@@ -15,9 +17,11 @@ nav{
     color:white;
     font-size: 1.8rem;
     padding-right: 1rem;
+   
   }
 .nav-left{
    width:50%;
+   
     
 
 }

@@ -5,7 +5,7 @@ import './NavBar.scss'
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav classname="nav-bar">
       <NavRight />
       <NavLeft />
     </nav>
