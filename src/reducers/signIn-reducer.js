@@ -1,4 +1,4 @@
-import {LOGIN_FETCH, LOGIN_SUCCESS, LOGIN_FAILURE} from '../redux-actions/login-action'
+import {LOGIN_FETCH, LOGIN_SUCCESS, LOGIN_FAILURE} from '../actions/signIn-action'
 
 const initialState ={
     userInfo: [],

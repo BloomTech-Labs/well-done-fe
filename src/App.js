@@ -10,6 +10,8 @@ import Settings from "./pages/Settings/Settings";
 import MetaTags from "react-meta-tags";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 
+import SignIn from './components/SignIn/SignIn'
+
 function App(props) {
   console.log("props in App", props);
   const [searchFiltered, setSearchFiltered] = useState([]);
@@ -32,7 +34,7 @@ function App(props) {
       </MetaTags>
 
       <Switch>
-        <Route exact path="/" component={Landing} />
+        <Route exact path="/" component={SignIn} />
         <PrivateRoute
           path="/dashboard"
           searchFiltered={searchFiltered}

@@ -7,12 +7,12 @@ export const LOGIN_SUCCESS= 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
 export const fetchLogin = (account)=> dispatch=> {
-    console.log(account)
+    
     dispatch({type:LOGIN_FETCH})
     axios
-    .post(`res sign in`, account)
+    .post(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`, account)
     .then(res => {
-        console.log(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`,res.data)
+        console.log(`res.data`,res.data)
         localStorage.setItem("token", res.data.token)
         localStorage.setItem("userId", res.data.id)
         localStorage.setItem("userType", res.data.user)
