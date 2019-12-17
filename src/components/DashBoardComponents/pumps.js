@@ -4,10 +4,18 @@ import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptions from '../Grid/Pagination'
+import './pumps.style.scss'
+
+//redux
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../../actions/sensorActions'
-import './pumps.style.scss'
+
 const Pumps = props => {
+const [rowSelection]= useState("multiple")
+
+//grid style options
+gridOptions.rowHeight = 40
+
   const fields = {
     columnDefs: [
       {
@@ -16,6 +24,9 @@ const Pumps = props => {
         sortable: true,
         filter: true,
         minWidth: 95,
+        checkboxSelection: true,
+        headerCheckboxSelection: true,
+        
       },
       {
         headerName: 'Installed',
@@ -38,11 +49,16 @@ const Pumps = props => {
         filter: true,
         minWidth: 90,
       },
+     
     ],
   }
   const [grid, setGrid] = useState([])
   const sensorSelector = useSelector(state => state.sensorReducer)
   const dispatch = useDispatch()
+
+
+
+
   useEffect(() => {
     dispatch(fetchSensors())
   }, [])
@@ -65,7 +81,55 @@ const Pumps = props => {
     params.columnApi.setColumnsVisible(columnsToHide, false)
     params.api.sizeColumnsToFit()
   }
+//selection function to highlight row and print physical_id
+  // function onSelectionChanged(params) {
+  //   let selectedRows = params.api.getSelectedRows();
+  //   document.querySelector("#selectedRows").innerHTML = selectedRows.length === 1 ? selectedRows[0].physical_id  : "";
+  // }
+
+  const onSelectionChanged = (params) => {
+    let selectedRows = params.api.getSelectedRows();
+    let selectedRowsString = "";
+    let maxToShow = 5;
+    selectedRows.forEach(function(selectedRow, index) {
+      if (index >= maxToShow) {
+        return;
+      }
+      if (index > 0) {
+        selectedRowsString += ", ";
+      }
+      selectedRowsString += selectedRow.physical_id;
+    });
+    if (selectedRows.length > maxToShow) {
+      var othersCount = selectedRows.length - maxToShow;
+      selectedRowsString += " and " + othersCount + " other" + (othersCount !== 1 ? "s" : "");
+    }
+    document.querySelector("#selectedRows").innerHTML = selectedRowsString;
+  }
+
+ const onGridReady = params => {
+    params.gridApi = params.api;
+
+  }
+
+// FIXME:  //filter function
+const onQuickFilterChanged=(params)=>  {
+  params.AgGridReact.setQuickFilter(document.getElementById("quickFilter").value);
+  console.log(params.AgGridReact,'this is the params')
+  }
+
+
   return (
+    <>
+    <input 
+    type="text"
+    onInput={()=> onQuickFilterChanged()}
+    id="quickFilter"
+    placeholder="search..."
+    
+    />
+      Sensor ID:
+            <span id="selectedRows"></span>
     <div className='pumpCon'>
       <div className='pumpChart'>
         <div className='pumpHeader'>
@@ -84,11 +148,15 @@ const Pumps = props => {
             <AgGridReact
               columnDefs={fields.columnDefs}
               rowData={sensorSelector.sensors}
-              // gridOptions={gridOptions}
+              gridOptions={gridOptions}
               // defaultColDef={this.state.defaultColDef}
               // rowSelection={this.state.rowSelection}
-              // onGridReady={onGridReady}
+              onGridReady={onGridReady}
               onGridSizeChanged={onGridSizeChanged}
+              onSelectionChanged={onSelectionChanged}
+              rowSelection={rowSelection}
+              rowMultiSelectWithClick={true}
+             
             />
           </div>
         </div>
@@ -110,11 +178,12 @@ const Pumps = props => {
             <AgGridReact
               columnDefs={fields.columnDefs}
               rowData={sensorSelector.sensors}
-              // gridOptions={gridOptions}
+              gridOptions={gridOptions}
               // defaultColDef={this.state.defaultColDef}
               // rowSelection={this.state.rowSelection}
               // onGridReady={onGridReady}
               onGridSizeChanged={onGridSizeChanged}
+            
               //comment
               //comment
             />
@@ -122,6 +191,7 @@ const Pumps = props => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 export default Pumps

@@ -90,7 +90,7 @@ const Dashboard = props => {
   return (
     <div className='dashBoard'>
       <Menu history={history} />
-      <Map
+      {/* <Map
         sensors={sensorSelector.sensors}
         funcToggle={funcToggle}
         nonFuncToggle={nonFuncToggle}
@@ -100,7 +100,7 @@ const Dashboard = props => {
         history={history.history}
         selectedPump={props.selectedPump}
         setSelectedPump={props.setSelectedPump}
-      />
+      /> */}
       <Search
         searchFiltered={props.searchFiltered}
         setSearchFiltered={props.setSearchFiltered}
