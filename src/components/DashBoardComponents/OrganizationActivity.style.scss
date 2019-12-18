@@ -28,35 +28,52 @@
   }
 }
 
-
-
-.orgActivityContainer{
-  background:#fff;
-  width:100%;
+.orgActivityContainer {
+  background: #fff;
+  width: 100%;
   overflow-x: hidden;
   overflow-x: scroll;
-  height:500px;
+  height: 500px;
   padding: 0 20px;
-  
-  .orgActivityAlertInfo{
+
+  .orgActivityAlertInfo {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height:200px;
+    height: 200px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.08);
-    margin-top: 1.4rem;
+    margin-top: 1.5rem;
     font-size: 1rem;
 
-    
-    .orgSpan{
+    .orgSpan {
       font-weight: bold;
     }
-   
-   
-    .orgActivityCardContainer{
+
+    .orgActivityCardContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0 3rem;
+    }
+
+    .pumpOrg {
       display: flex;
       justify-content: space-between;
-      margin: 0 4.5rem;
+    }
+
+    .btnCon {
+      display: flex;
+      justify-content: space-between;
+      margin: 0rem 3rem;
+
+      .btn-info {
+        color: blue;
+        background: none;
+      }
+
+      .date {
+        font-style: italic;
+      }
     }
   }
 }

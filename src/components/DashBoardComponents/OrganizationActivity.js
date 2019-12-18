@@ -1,36 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Route } from 'react-router-dom'
 import moment from 'moment'
-import './OrganizationActivity.style.scss'
-import usePrevious from '../../CustomHooks/usePrevious'
+
 import { checkDate } from '../../actions/sensorHistory'
 
-const OrganizationActivity = () => {
-  const fakeAlerts = [
-    {
-      id: Date.now(),
-      pumpId: 4777,
-      org: 'Well Done',
-      location: 'Siem Reap',
-      status: 'Functioning',
-    },
-    {
-      id: Date.now(),
-      pumpId: 4734,
-      org: 'Well Done',
-      location: 'Siem Reap',
-      status: 'Non-Functioning',
-    },
-    {
-      id: Date.now(),
-      pumpId: 4787,
-      org: 'Well Done',
-      location: 'Siem Reap',
-      status: 'N/A',
-    },
-  ]
+import OrganizationActivityCard from './OrganizationActivityCard'
+import './OrganizationActivity.style.scss'
 
+const OrganizationActivity = props => {
   const [alert, setAlert] = useState([])
+  const [results, setResults] = useState()
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
 
@@ -67,18 +47,8 @@ const OrganizationActivity = () => {
 
   useEffect(() => {}, [historySelector.isFetching])
 
-  // function checkStatus() {
-  //   alert.forEach(item => {})
-  // }
-
-  // checkStatus()
-
-  // if (!prevAlert) {
-  //   return <div>Loading</div>
-  // }
-
-  let today = '12/10/2019'
-  let yesterday = '12/09/2019'
+  let today = '12/07/2019'
+  let yesterday = '12/06/2019'
 
   // console.log(today)
   // console.log(yesterday)
@@ -158,43 +128,147 @@ const OrganizationActivity = () => {
     }
   })
 
-  if (!alert) {
+  useEffect(() => {
+    setResults(result)
+  }, [alert])
+
+  // console.log(results)
+
+  if (!alert || !results) {
     return <div>Loading</div>
   }
 
-  console.log(result, 'ALERT HERE')
   return (
     <div className='orgActivityChart'>
       <div className='orgActivityHeader'>
         <div className='orgActivityHeaderName'>Organization Activity</div>
       </div>
       <div className='orgActivityContainer'>
-        {alert.map((items, index) => {
-          return (
-            <div className='orgActivityAlertInfo'>
-              <div className='orgActivityCardContainer'>
-                <div key={index} className='orgActivityCardLeft'>
-                  <p>
-                    <span className='orgSpan'>Pump ID: </span>
-                    {items.physical_id}
-                  </p>
-                  <p>
-                    <span className='orgSpan'>Organization: </span>{' '}
-                    {items.org_name}
-                  </p>
-                </div>
-                <div className='orgActivityCardRight'>
-                  <p>
-                    <span className='orgSpan'>Location: </span>{' '}
-                    {items.province_name}
-                  </p>
-                  <p>
-                    <span className='orgSpan'>Status: </span> {items.status}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )
+        {results.map((items, index) => {
+          if (items.status === 2) {
+            let currentStatus = '🟢'
+            if (items.status2 === 1) {
+              let prevStatus = '🟡'
+              return (
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
+                />
+              )
+            } else if (items.status2 === null) {
+              let prevStatus = '🔴'
+              return (
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
+                />
+              )
+            }
+          } else if (items.status === 1) {
+            let currentStatus = '🟡'
+            if (items.status2 === 2) {
+              let prevStatus = '🟢'
+              return (
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
+                />
+              )
+            } else if (items.status2 === null) {
+              let prevStatus = '🔴'
+              return (
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
+                />
+              )
+            }
+          } else if (items.status === null) {
+            let currentStatus = '🔴'
+            if (items.status2 === 2) {
+              let prevStatus = '🟢'
+              return (
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
+                />
+              )
+            } else if (items.status2 === 1) {
+              let prevStatus = '🟡'
+              return (
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
+                />
+              )
+            }
+          }
         })}
       </div>
     </div>
