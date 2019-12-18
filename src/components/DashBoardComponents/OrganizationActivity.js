@@ -54,12 +54,6 @@ const OrganizationActivity = () => {
   // yesterday = yesterday - 1
   // yesterday =
   //   month.toString() + '/' + yesterday.toString() + '/' + year.toString()
-  let today = '12/10/2019'
-  let yesterday = '12/09/2019'
-
-  console.log(today)
-  console.log(yesterday)
-  console.log(alert, 'ALERT HERE')
 
   // const prevAlert = usePrevious(alert)
 
@@ -80,6 +74,15 @@ const OrganizationActivity = () => {
   // if (!prevAlert) {
   //   return <div>Loading</div>
   // }
+
+  let today = '12/10/2019'
+  let yesterday = '12/09/2019'
+
+  console.log(today)
+  console.log(yesterday)
+  console.log(alert, 'ALERT HERE')
+
+  function filterDates() {}
 
   return (
     <div className='orgActivityChart'>
