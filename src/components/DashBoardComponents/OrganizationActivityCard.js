@@ -18,18 +18,22 @@ const OrganizationActivityCard = props => {
   return (
     <div className='orgActivityAlertInfo'>
       <div key={props.index} className='orgActivityCardContainer'>
+        <h2 className='pumpOrg'>
+          <span className='orgSpan'>
+            Pump #{props.items.sensor_id} ({found.org_name})
+          </span>
+          <span className='orgSpan prov'>Province: {found.province_name}</span>
+        </h2>
         <p className='pumpOrg'>
-          <span className='orgSpan'>Pump #{props.items.sensor_id}</span>
-          <span className='orgSpan'>Organization: {found.org_name}</span>
-        </p>
-        <p className='pumpOrg'>
-          <span className='orgSpan'>Status: {props.currentStatus}</span>
-          <span className='orgSpan'>Province: {found.province_name}</span>
-        </p>
-        <p className='pumpOrg'>
-          <span className='orgSpan'>Previous Status: {props.prevStatus}</span>
-
-          <span className='orgSpan'>District: {found.district_name}</span>
+          <h3 className='status'>
+            <span className='orgSpan'>
+              Current Status:{' '}
+              <span className='emoji'>{props.currentStatus}</span>
+            </span>
+            <span className='orgSpan'>
+              Previous Status: <span className='emoji'>{props.prevStatus}</span>
+            </span>
+          </h3>
         </p>
       </div>
       <span className='btnCon'>
