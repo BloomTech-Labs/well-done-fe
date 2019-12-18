@@ -115,7 +115,17 @@ const Dashboard = props => {
         setUnknownToggle={setUnknownToggle}
       />
       <div className='orgActPumps'>
-        <OrganizationActivity />
+        <Route
+          path='/dashboard'
+          render={prop => (
+            <OrganizationActivity
+              {...prop}
+              selectedPump={props.selectedPump}
+              setSelectedPump={props.setSelectedPump}
+              sensors={sensorSelector.sensors}
+            />
+          )}
+        />
         <Route
           path='/dashboard'
           render={prop => (

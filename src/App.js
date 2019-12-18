@@ -13,6 +13,8 @@ function App(props) {
   const [searchFiltered, setSearchFiltered] = useState([])
   const [selectedPump, setSelectedPump] = useState(null)
 
+  console.log(selectedPump)
+
   return (
     <div>
       <MetaTags>

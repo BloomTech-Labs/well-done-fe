@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Route } from 'react-router-dom'
 import moment from 'moment'
 
 import { checkDate } from '../../actions/sensorHistory'
@@ -7,31 +8,7 @@ import { checkDate } from '../../actions/sensorHistory'
 import OrganizationActivityCard from './OrganizationActivityCard'
 import './OrganizationActivity.style.scss'
 
-const OrganizationActivity = () => {
-  const fakeAlerts = [
-    {
-      id: Date.now(),
-      pumpId: 4777,
-      org: 'Well Done',
-      location: 'Siem Reap',
-      status: 'Functioning',
-    },
-    {
-      id: Date.now(),
-      pumpId: 4734,
-      org: 'Well Done',
-      location: 'Siem Reap',
-      status: 'Non-Functioning',
-    },
-    {
-      id: Date.now(),
-      pumpId: 4787,
-      org: 'Well Done',
-      location: 'Siem Reap',
-      status: 'N/A',
-    },
-  ]
-
+const OrganizationActivity = props => {
   const [alert, setAlert] = useState([])
   const [results, setResults] = useState()
   const historySelector = useSelector(state => state.historyReducer)
@@ -155,7 +132,7 @@ const OrganizationActivity = () => {
     setResults(result)
   }, [alert])
 
-  console.log(results)
+  // console.log(results)
 
   if (!alert || !results) {
     return <div>Loading</div>
@@ -173,21 +150,39 @@ const OrganizationActivity = () => {
             if (items.status2 === 1) {
               let prevStatus = '🟡'
               return (
-                <OrganizationActivityCard
-                  index={index}
-                  items={items}
-                  currentStatus={currentStatus}
-                  prevStatus={prevStatus}
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
                 />
               )
             } else if (items.status2 === null) {
               let prevStatus = '🔴'
               return (
-                <OrganizationActivityCard
-                  index={index}
-                  items={items}
-                  currentStatus={currentStatus}
-                  prevStatus={prevStatus}
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
                 />
               )
             }
@@ -196,21 +191,39 @@ const OrganizationActivity = () => {
             if (items.status2 === 2) {
               let prevStatus = '🟢'
               return (
-                <OrganizationActivityCard
-                  index={index}
-                  items={items}
-                  currentStatus={currentStatus}
-                  prevStatus={prevStatus}
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
                 />
               )
             } else if (items.status2 === null) {
               let prevStatus = '🔴'
               return (
-                <OrganizationActivityCard
-                  index={index}
-                  items={items}
-                  currentStatus={currentStatus}
-                  prevStatus={prevStatus}
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
                 />
               )
             }
@@ -219,21 +232,39 @@ const OrganizationActivity = () => {
             if (items.status2 === 2) {
               let prevStatus = '🟢'
               return (
-                <OrganizationActivityCard
-                  index={index}
-                  items={items}
-                  currentStatus={currentStatus}
-                  prevStatus={prevStatus}
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
                 />
               )
             } else if (items.status2 === 1) {
               let prevStatus = '🟡'
               return (
-                <OrganizationActivityCard
-                  index={index}
-                  items={items}
-                  currentStatus={currentStatus}
-                  prevStatus={prevStatus}
+                <Route
+                  path='/dashboard'
+                  render={prop => (
+                    <OrganizationActivityCard
+                      {...prop}
+                      selectedPump={props.selectedPump}
+                      setSelectedPump={props.setSelectedPump}
+                      sensors={props.sensors}
+                      index={index}
+                      items={items}
+                      currentStatus={currentStatus}
+                      prevStatus={prevStatus}
+                    />
+                  )}
                 />
               )
             }
