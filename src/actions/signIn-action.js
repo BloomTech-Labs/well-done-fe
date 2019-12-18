@@ -12,7 +12,6 @@ export const fetchLogin = (account)=> dispatch=> {
     axios
     .post(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`, account)
     .then(res => {
-        console.log(`res.data`,res.data)
         localStorage.setItem("token", res.data.token)
         localStorage.setItem("userId", res.data.id)
         localStorage.setItem("userType", res.data.user)

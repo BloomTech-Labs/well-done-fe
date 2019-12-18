@@ -1,7 +1,7 @@
 import {LOGIN_FETCH, LOGIN_SUCCESS, LOGIN_FAILURE} from '../actions/signIn-action'
 
 const initialState ={
-    userInfo: [],
+    userInfo: {},
     isFetching:false,
     error:""
 }
