@@ -125,8 +125,9 @@ class Grid extends Component {
           className="ag-theme-balham"
           style={{
             height: "400px",
-            width: "900px"
+            width: "90%"
           }}
+         
         >
             <ModalOperator/>
             

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 
+//css
+import './modalOperator.scss'
+
 import { Button, Modal, Dropdown, Form } from 'react-bootstrap'
 
 import { useDispatch } from 'react-redux'
@@ -39,13 +42,12 @@ const ModalOperator = () => {
 
   return (
     <>
-    <div className="gridHeader">
-      <Modal.Title>
-        <h1>Operators</h1>
-      </Modal.Title>
-      <button variant='primary' onClick={() => setShow(true)}>
-        + Operator
-      </button>
+      <div className='gridHeader'>
+        <h1>Accounts</h1>
+
+        <button variant='primary' onClick={() => setShow(true)}>
+          + Account
+        </button>
       </div>
 
       <Modal
@@ -161,14 +163,13 @@ const ModalOperator = () => {
           </Dropdown.Menu>
         </Dropdown> */}
         <Dropdown.Toggle variant='success' id='dropdown-basic'>
-            Assign Sensor
-          </Dropdown.Toggle>
+          Assign Sensor
+        </Dropdown.Toggle>
         <Form.Control
           as='select'
           value={operator.selectedPumps}
           onChange={handleChange}
         >
-          
           {pumpsReducer.map(e => (
             <React.Fragment>
               <option key={e.id}>{e.id}</option>
