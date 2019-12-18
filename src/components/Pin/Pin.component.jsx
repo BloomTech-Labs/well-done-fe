@@ -2,8 +2,6 @@ import React from 'react'
 import { Marker } from 'react-map-gl'
 
 function Pin(props) {
-  console.log('props in Pin', props)
-
   return (
     <div>
       {props.sensors.map(sensor => {
@@ -25,7 +23,6 @@ function Pin(props) {
               />
             </Marker>
           )
-          // showMarker(sensor,"https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png")
         } else if (sensor.status == 0 && props.nonFuncToggle) {
           return (
             <Marker
