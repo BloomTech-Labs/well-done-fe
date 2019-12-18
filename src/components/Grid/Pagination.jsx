@@ -1,8 +1,5 @@
 const gridOptions = {
-  onRowClicked(event) {
-    //   event.preventDefault();
-    console.log("The row was clicked.");
-  }
-};
+  onRowClicked(event) {},
+}
 
-export default gridOptions;
+export default gridOptions
