@@ -93,7 +93,7 @@ const Pumps = props => {
     params.api.sizeColumnsToFit()
   }
 
-  // FIXME:  //filter function
+  //filter function
   function onQuickFilterChanged(params) {
     gridOptions.api.setQuickFilter(document.getElementById('quickFilter').value)
   }
@@ -103,10 +103,11 @@ const Pumps = props => {
       <div className='pumpHeader'>
         <div className='pumpHeaderName'>Pumps</div>
         <input
+          className='searchInPumps'
           type='text'
           onInput={onQuickFilterChanged}
           id='quickFilter'
-          placeholder='search...'
+          placeholder=' search...'
         />
         <button className='pumpHeaderButton'>+ Add Pumps</button>
       </div>
