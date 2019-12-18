@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AxiosWithAuth from '../../components/AxiosWithAuth/axiosWithAuth'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchSensors } from '../../actions/sensorActions'
 
 import StaticMenu from '../../components/Menu/StaticMenu'
 import Legend from './Legend'
@@ -71,8 +73,6 @@ const MonitorsPage = ({ history }) => {
               offset={1}
               style={{ maxWidth: '600px', minWidth: '270px' }}
             >
-              <OrgGrid />
-
               {/* <Grid sensors={sensorSelector.sensors} /> */}
             </Col>
 
