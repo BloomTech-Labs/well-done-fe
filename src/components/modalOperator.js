@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 
-import { Button, Modal, Dropdown } from 'react-bootstrap'
+import { Button, Modal, Dropdown, Form } from 'react-bootstrap'
 
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../actions/pumpAction'
@@ -11,6 +11,7 @@ import { addOp } from '../actions/addOp-action'
 
 const ModalOperator = () => {
   const [operator, setOperator] = useState([])
+  console.log(operator)
   const [show, setShow] = useState(false)
 
   const handleChange = event => {
@@ -22,9 +23,10 @@ const ModalOperator = () => {
   //fetch pumps for dropdown menu
   useEffect(() => {
     dispatch(fetchPumps())
-  })
+  }, [])
 
-  const pumpReducer = useSelector(state => state.pumpReducer)
+  const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
+  console.log(pumpsReducer)
 
   //on submit add operator
   const handleSubmit = event => {
@@ -40,9 +42,9 @@ const ModalOperator = () => {
       <Modal.Title>
         <h1>Operators</h1>
       </Modal.Title>
-      <Button variant='primary' onClick={() => setShow(true)}>
+      <button variant='primary' onClick={() => setShow(true)}>
         + Operator
-      </Button>
+      </button>
 
       <Modal
         show={show}
@@ -115,21 +117,65 @@ const ModalOperator = () => {
           />
         </Modal.Title>
         <br></br>
-        <Dropdown>
+        {/* <Dropdown>
           <Dropdown.Toggle variant='success' id='dropdown-basic'>
             Assign Pumps
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            {/* {pumpReducer.map(e => {
-
-              })} */}
-            <Dropdown.Item href='#/action-1'>Action</Dropdown.Item>
-            <Dropdown.Item href='#/action-2'>Another action</Dropdown.Item>
-            <Dropdown.Item href='#/action-3'>Something else</Dropdown.Item>
+            <div>
+              {pumpsReducer.map(e => (
+                <React.Fragment>
+                  <Dropdown.Item>{e.id}</Dropdown.Item>
+                </React.Fragment>
+              ))}
+            </div>
           </Dropdown.Menu>
-        </Dropdown>
+        </Dropdown> */}
+        {/* <Dropdown
+       
+        options= {pumpsReducer.map(e => {
+            let pumpsArray = []
+            pumpsArray.push(e.id)
+            pumpsArray.filter(x => !operator.pumpsSelected.includes(x) || x===operator.pumpsSelected[0])
+          })}
+        value={operator.pumpsSelected[0] || ''}
+        onChange={handleChange}/> */}
+        {/* <Dropdown.Toggle variant='success' id='dropdown-basic'>
+            Assign Pumps
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu as="select">
+              {pumpsReducer.map(e => {
+                  let pumpArray = []
+                  pumpArray.push(e.id)
+                })
+          options={pumpsReducer.filter(x => !operator.pumpsSelected.includes(x) || x===operator.pumpsSelected[0])}
+              {pumpsReducer.map(e => (
+                <React.Fragment>
+                
+              ))}
+           
+          </Dropdown.Menu>
+        </Dropdown> */}
+        <Dropdown.Toggle variant='success' id='dropdown-basic'>
+            Assign Sensor
+          </Dropdown.Toggle>
+        <Form.Control
+          as='select'
+          value={operator.selectedPumps}
+          onChange={handleChange}
+        >
+          
+          {pumpsReducer.map(e => (
+            <React.Fragment>
+              <option key={e.id}>{e.id}</option>
+            </React.Fragment>
+          ))}
+        </Form.Control>
         <br></br>
+        <br></br>
+
         <Modal.Title>
           <div className='CreateAccount'>
             <button type='Submit' onClick={handleSubmit}>
@@ -150,6 +196,5 @@ const ModalOperator = () => {
     </>
   )
 }
-
 
 export default ModalOperator
