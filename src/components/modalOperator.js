@@ -39,12 +39,14 @@ const ModalOperator = () => {
 
   return (
     <>
+    <div className="gridHeader">
       <Modal.Title>
         <h1>Operators</h1>
       </Modal.Title>
       <button variant='primary' onClick={() => setShow(true)}>
         + Operator
       </button>
+      </div>
 
       <Modal
         show={show}
