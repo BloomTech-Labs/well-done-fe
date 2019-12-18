@@ -80,8 +80,8 @@ const OrganizationActivity = () => {
   let today = '12/10/2019'
   let yesterday = '12/09/2019'
 
-  console.log(today)
-  console.log(yesterday)
+  // console.log(today)
+  // console.log(yesterday)
 
   function filterArrayToday() {
     return alert.filter(item => {
@@ -102,17 +102,35 @@ const OrganizationActivity = () => {
   let filteredArrayToday = filterArrayToday()
   let filteredArrayYesterday = filterArrayYesterday()
 
+  // console.log(filteredArrayToday, filteredArrayYesterday)
+
   function compare(today, yesterday) {
     let arr = []
 
-    today.forEach(item => {
-      yesterday.forEach(item2 => {
-        if (item.status !== item2.status) {
-          console.log(item)
-          arr = [...arr, item]
-        }
-      })
+    today = today.sort(function(a, b) {
+      if (a.sensor_id < b.sensor_id) {
+        return -1
+      } else {
+        return 0
+      }
     })
+
+    yesterday = yesterday.sort(function(a, b) {
+      if (a.sensor_id < b.sensor_id) {
+        return -1
+      } else {
+        return 0
+      }
+    })
+
+    for (let i = 0; i < today.length; i++) {
+      if (
+        today[i].status !== yesterday[i].status &&
+        today[i].sensor_id === yesterday[i].sensor_id
+      ) {
+        arr = [...arr, today[i], yesterday[i]]
+      }
+    }
 
     return arr
   }
