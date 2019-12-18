@@ -27,6 +27,13 @@ class Grid extends Component {
           width: 40
         },
         {
+            headerName: "Organization",
+            field: "organization",
+            sortable: true,
+            filter: true,
+            width: 150
+          },
+        {
           headerName: "First Name",
           field: "first_name",
           sortable: true,
@@ -52,8 +59,15 @@ class Grid extends Component {
           field: "mobile_number",
           sortable: true,
           filter: true,
-          width: 120
+          width: 150
         },
+        {
+            headerName: "Sensor",
+            field: "sensor",
+            sortable: true,
+            filter: true,
+            width: 120
+          },
         {
           headerName: "Super User",
           field: "super_user",
