@@ -3,7 +3,7 @@ import ReactMapGl, { Popup } from 'react-map-gl'
 import './Map.styles.scss'
 import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
-import AddOrg from '../AddOrganization'
+
 
 export default function Map(props) {
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Map(props) {
 
   return (
     <div>
-      <AddOrg/>
+      
       <ReactMapGl
         mapboxApiAccessToken={
           'pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w'
