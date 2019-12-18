@@ -232,24 +232,6 @@ class Grid extends Component {
         >
           CSV
         </Button>
-        {/* <label style={{ margin: "10px" }}>
-          <button
-            className={css({
-              borderRadius: "5px",
-              fontSize: "1.25rem",
-              border: "none",
-              backgroundColor: "#f3f7fc",
-              color: "#7f7f7f",
-              cursor: "pointer",
-              marginTop: "10px",
-              ":hover": { color: "black" }
-            })}
-            onClick={this.exportToCsv.bind(this)}
-          >
-            Export to CSV
-          </button>
-        </label> */}
-
         <div
           className='ag-theme-balham'
           style={{

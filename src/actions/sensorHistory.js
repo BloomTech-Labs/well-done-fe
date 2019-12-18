@@ -1,4 +1,3 @@
-import React from 'react'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 
 export const HISTORY_FETCH = 'HISTORY_FETCH'

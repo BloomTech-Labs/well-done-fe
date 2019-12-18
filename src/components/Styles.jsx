@@ -1,26 +1,25 @@
 import React from 'react'
 import { css } from 'emotion'
-import { Global } from "@emotion/core"
-import { FiHelpCircle, FiAlertCircle, FiCheckCircle } from "react-icons/fi"
+import { Global } from '@emotion/core'
+import { FiHelpCircle, FiAlertCircle, FiCheckCircle } from 'react-icons/fi'
 
 export const colors = {
-  main: "#fff",
-  brand: "#0282FA",
+  main: '#fff',
+  brand: '#0282FA',
   // btnHover: "#1C49BB",
-  backgroundColor: "#F3F7FC",
-  text: "#886BFE",
-  success: "#01c000",
-  danger: "#f44336",
-  orange: "#FFAD34",
-  darkText: "#2A2A32",
+  backgroundColor: '#F3F7FC',
+  text: '#886BFE',
+  success: '#01c000',
+  danger: '#f44336',
+  orange: '#FFAD34',
+  darkText: '#2A2A32',
 }
 
-
 export const breakingPoints = {
-  xl: "@media (max-width: 1200px)",
-  lg: "@media (max-width: 1000px)",
-  md: "@media (max-width: 800px)",
-  sm: "@media (max-width: 600px)",
+  xl: '@media (max-width: 1200px)',
+  lg: '@media (max-width: 1000px)',
+  md: '@media (max-width: 800px)',
+  sm: '@media (max-width: 600px)',
 }
 
 export const getPumpStyles = ({ iconSize = 20 }) => {
@@ -68,7 +67,7 @@ export default function Styles() {
         }
 
         body {
-          font-family: "Poppins", sans-serif;
+          font-family: 'Poppins', sans-serif;
           background-color: ${colors.backgroundColor};
         }
 

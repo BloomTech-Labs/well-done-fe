@@ -1,4 +1,3 @@
-import React from 'react'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 
 export const SENSOR_FETCH = 'SENSOR_FETCH'

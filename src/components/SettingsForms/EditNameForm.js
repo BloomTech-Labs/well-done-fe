@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import axiosWithAuth from '../AxiosWithAuth/axiosWithAuth.jsx'
 import { Button, Form } from 'react-bootstrap'
 import '../../pages/Settings/Settings.scss'
@@ -18,11 +17,9 @@ const EditNameForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log('new account name', account.new_name)
     // Checking if new name matches new name confirmation
-    if (account.new_name != account.new_name_conf) {
+    if (account.new_name !== account.new_name_conf) {
       alert('New name information must match')
-
       axiosWithAuth()
         .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts`)
         .then(res => {
@@ -32,7 +29,6 @@ const EditNameForm = props => {
           console.log(err)
         })
     } else {
-      console.log('submit', account)
       isValidUserCredential(account).then(res => {
         console.log('response line', res)
       })
@@ -43,7 +39,6 @@ const EditNameForm = props => {
     axiosWithAuth()
       .post(`${process.env.REACT_APP_HEROKU_API}/api/auth/login`, account)
       .then(res => {
-        console.log('res', res.data)
         getUserData(res.data.id)
         localStorage.setItem('userId', res.data.id)
         return true
@@ -58,13 +53,10 @@ const EditNameForm = props => {
     axiosWithAuth()
       .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${accountID}`)
       .then(res => {
-        console.log('res', res.data)
         var temp = res.data
-        // temp.password = account.password
         var nameSplit = account.new_name.split(' ')
         temp.first_name = nameSplit[0]
         temp.last_name = nameSplit[1]
-        console.log(temp)
         updateUserData(temp, accountID)
       })
       .catch(err => {
@@ -73,14 +65,12 @@ const EditNameForm = props => {
   }
 
   const updateUserData = (newData, accountID) => {
-    console.log(newData, accountID)
     axiosWithAuth()
       .put(
         `${process.env.REACT_APP_HEROKU_API}/api/accounts/${accountID}`,
         newData
       )
       .then(res => {
-        console.log('res', res.data)
         localStorage.setItem('userId', res.data.id)
         return true
       })

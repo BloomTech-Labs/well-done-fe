@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import AxiosWithAuth from '../../components/AxiosWithAuth/axiosWithAuth'
-import OrgGrid from '../../components/DashBoardComponents/orgGrid'
+
 import StaticMenu from '../../components/Menu/StaticMenu'
 import Legend from './Legend'
 import StatusCards from './StatusCards'
-// import Grid from '../../components/Grid/Aggrid'
+import Grid from '../../components/Grid/Aggrid'
 import PercentageChart from './PercentageChart'
-
-//redux
-import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensors } from '../../actions/sensorActions'
 
 // ant design style
 import { Row, Col, Layout } from 'antd'
@@ -76,7 +72,7 @@ const MonitorsPage = ({ history }) => {
               style={{ maxWidth: '600px', minWidth: '270px' }}
             >
               <OrgGrid />
-              
+
               {/* <Grid sensors={sensorSelector.sensors} /> */}
             </Col>
 

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import AxiosWithAuth from './components/AxiosWithAuth/axiosWithAuth'
 import Landing from './pages/Landing.jsx'
 import Dashboard from './pages/Dashboard'
 import MonitorDetails from './pages/MonitorDetail'
@@ -11,11 +10,8 @@ import MetaTags from 'react-meta-tags'
 import PrivateRoute from './components/PrivateRoute.jsx'
 
 function App(props) {
-  console.log('props in App', props)
   const [searchFiltered, setSearchFiltered] = useState([])
-  // const [sensors, setSensors] = useState([]);
   const [selectedPump, setSelectedPump] = useState(null)
-  console.log(selectedPump, 'SELECTED PUMP')
 
   return (
     <div>
