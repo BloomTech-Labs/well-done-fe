@@ -65,6 +65,8 @@ const OrganizationActivity = () => {
     setAlert(historySelector.alertInfo)
   }, [alert])
 
+  useEffect(() => {}, [historySelector.isFetching])
+
   // function checkStatus() {
   //   alert.forEach(item => {})
   // }
@@ -80,10 +82,48 @@ const OrganizationActivity = () => {
 
   console.log(today)
   console.log(yesterday)
-  console.log(alert, 'ALERT HERE')
 
-  function filterDates() {}
+  function filterArrayToday() {
+    return alert.filter(item => {
+      if (item.created_at === today) {
+        return item
+      }
+    })
+  }
 
+  function filterArrayYesterday() {
+    return alert.filter(item => {
+      if (item.created_at === yesterday) {
+        return item
+      }
+    })
+  }
+
+  let filteredArrayToday = filterArrayToday()
+  let filteredArrayYesterday = filterArrayYesterday()
+
+  function compare(today, yesterday) {
+    let arr = []
+
+    today.forEach(item => {
+      yesterday.forEach(item2 => {
+        if (item.status !== item2.status) {
+          console.log(item)
+          arr = [...arr, item]
+        }
+      })
+    })
+
+    return arr
+  }
+
+  let result = compare(filteredArrayToday, filteredArrayYesterday)
+
+  if (!alert) {
+    return <div>Loading</div>
+  }
+
+  console.log(result, 'ALERT HERE')
   return (
     <div className='orgActivityChart'>
       <div className='orgActivityHeader'>
