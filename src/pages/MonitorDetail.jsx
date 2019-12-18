@@ -14,7 +14,7 @@ const MonitorDetails = props => {
     latitude: 13.5651,
     longitude: 104.7538,
     width: '100%',
-    height: '30vh',
+    height: '40vh',
     zoom: 7,
   })
 
