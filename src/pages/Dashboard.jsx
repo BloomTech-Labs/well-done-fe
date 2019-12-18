@@ -14,6 +14,7 @@ import OrgGrid from '../components/DashBoardComponents/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 import './Dashboard.styles.scss'
 
+
 const Dashboard = props => {
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
@@ -21,7 +22,10 @@ const Dashboard = props => {
     width: '100vw',
     height: '100vh',
     zoom: 2,
+  
   })
+  
+
 
   const sensorSelector = useSelector(state => state.sensorReducer)
   const history = useSelector(state => state.historyReducer)
@@ -41,9 +45,12 @@ const Dashboard = props => {
       setViewport({
         latitude: 13.5651,
         longitude: 104.7538,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '70vh',
         zoom: 8,
+        scrollZoom: false,
+        boxZoom: false,
+        doubleClickZoom : false
       })
     } else if (props.searchFiltered.length == 1) {
       const searchedPlace = {
@@ -86,8 +93,10 @@ const Dashboard = props => {
   }
 
   return (
-    <div className='dashboard'>
-      <Menu history={history} />
+<div className='dashboard'>
+      {/* <Menu history={history} /> */}
+  <div className="mapSearchFilterContainer">
+    <div className="mapSFInner">
       <Map
         sensors={sensorSelector.sensors}
         funcToggle={funcToggle}
@@ -114,6 +123,8 @@ const Dashboard = props => {
         setNonFuncToggle={setNonFuncToggle}
         setUnknownToggle={setUnknownToggle}
       />
+      </div>
+  </div>
       <div className='orgActPumps'>
         <OrganizationActivity />
         <Route

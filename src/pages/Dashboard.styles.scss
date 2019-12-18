@@ -7,3 +7,21 @@
   justify-content: space-around;
   margin: 0.5rem;
 }
+
+.mapsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2.4rem 0px;
+}
+
+.innerMapFlex {
+  display: flex;
+  justify-content: center;
+  width: 96%;
+}
+
+.mapSearchFilterContainer {
+  position: relative;
+}

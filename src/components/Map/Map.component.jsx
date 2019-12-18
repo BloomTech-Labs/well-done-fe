@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import ReactMapGl, { Popup } from 'react-map-gl'
 import './Map.styles.scss'
 import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
+import { Row, Col, } from 'antd'
+
 
 export default function Map(props) {
+
   useEffect(() => {
     const listener = e => {
       if (e.key === 'Escape') {
@@ -19,9 +22,10 @@ export default function Map(props) {
   }, [props])
 
   return (
-    <div className='map'>
+    <div className='mapsContainer'>
+      <div className="innerMapFlex">
       <ReactMapGl
-        mapboxApiAccessToken={
+          mapboxApiAccessToken={
           'pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w'
         }
         mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
@@ -30,6 +34,7 @@ export default function Map(props) {
         }}
         {...props.viewport}
       >
+        
         <Pin
           sensors={props.sensors}
           setSelectedPump={props.setSelectedPump}
@@ -58,5 +63,6 @@ export default function Map(props) {
         ) : null}
       </ReactMapGl>
     </div>
+  </div>
   )
 }
