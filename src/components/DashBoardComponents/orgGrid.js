@@ -26,21 +26,21 @@ class OrgGrid extends Component {
         },
         {
           headerName: "Contact",
-          field: "name",
+          field: "org_admin",
           sortable: true,
           filter: true,
          
         },
         {
           headerName: "Pumps Owned",
-          field: "physical_id",
+          field: "pumps_owned",
           sortable: true,
           filter: true,
          
         },
         {
           headerName: "Users",
-          field: "operators",
+          field: "org_users",
           sortable: true,
           filter: true,
           
@@ -55,11 +55,11 @@ class OrgGrid extends Component {
        ]
     };
   }
-
+  // process.env.REACT_APP_HEROKU_API}
   componentDidMount = () => {
     const token = localStorage.getItem("token");
     console.log(token);
-    fetch(`${process.env.REACT_APP_HEROKU_API}/api/sensors`, {
+    fetch(`${process.env.REACT_APP_HEROKU_API}/api/orgs`, {
       method: "GET",
       mode: "cors",
       headers: {
