@@ -137,6 +137,27 @@ const OrganizationActivity = () => {
 
   let result = compare(filteredArrayToday, filteredArrayYesterday)
 
+  result = result.reduce(function(acc, val, index) {
+    const found = acc.find(a => a.sensor_id === val.sensor_id)
+
+    if (!found) {
+      acc.push(val)
+    } else {
+      acc = [
+        ...acc,
+        { ...acc[index - 1], date2: val.created_at, status2: val.status },
+      ]
+    }
+
+    return acc
+  }, [])
+
+  result = result.filter((item, index) => {
+    if (index % 2 !== 0) {
+      return item
+    }
+  })
+
   if (!alert) {
     return <div>Loading</div>
   }
