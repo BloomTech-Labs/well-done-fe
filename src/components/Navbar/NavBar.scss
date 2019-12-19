@@ -7,11 +7,10 @@ nav {
   top: 0px;
   z-index: 5;
 
-  // @media (max-width: 700px) {
-  //   display: flex;
-  //   flex-direction: column-reverse;
-  //   justify-content: space-between;
-  // }
+  @media (max-width: 800px) {
+    display: none;
+    
+  }
 }
 .nav-right {
   text-align: right;
@@ -21,22 +20,14 @@ nav {
   color: white;
   font-size: 1.8rem;
   padding-right: 1rem;
-  a:hover {
-    color: lightblue;
-  }
+  align-items: center;
 
-  // @media (max-width: 700px) {
-  //   width: 100%;
-  //   justify-content: space-between;
-  // }
+
 }
 .nav-left {
   width: 50%;
 
-  // @media (max-width: 700px) {
-  //   width: 100%;
-  //   text-align: center;
-  // }
+ 
 }
 .active {
   color: pink;
@@ -55,41 +46,79 @@ nav {
   margin-right: 60px;
 }
 .drop-down {
+  display: flex;
+  flex-direction: column;
+  align-content:center ;
   position: absolute;
   text-align:center;
   width:150px;
-  top: 56px;
+  top: 40px;
   z-index: 5;
-  background: #5DBCD2;
-  right: 4px;
+  background: #AFE2F9;
+  right: 0px;
   color: black;
   padding: 5px;
-  // @media (max-width: 700px) {
-  //   top: 101px;
-  // }
+  padding-top:20px;
+  height:130px;
+ 
+  
 }
 .margin-left-droplet {
+  position: relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 40px;
   cursor: pointer;
+  // border: 1px solid red;
+  width:50px;
+  height:50px;
+  a:hover {
+    background: #AFE2F9;
+  }
 }
 .set-link {
   position: relative;
   top: 1px;
+  left:5px;
+  color: black;
+
+}
+.set-link-logout {
+  position: relative;
+  top: -12px;
+  right:7px;
   color: black;
 
 }
 
-.logout-btn {
-  color: red !important;
-  cursor: pointer;
+
+.triangle {
+  // position: absolute;
+  // right:20px;
+  // top:-50px;
+  // width: 0; 
+  // height: 50px; 
+  // border-left: 150px solid transparent;
+  // border-right: 150px solid transparent;
+  // border-bottom: 50px solid #AFE2F9;
+  // z-index:0;
+}
+svg.drop-svg{
+  position: absolute;
+  top:8px;
+  height:60%;
+
   a:hover {
-    color: lightblue;
+    background: #AFE2F9;
   }
 }
-.triangle {
-  position: absolute;
-  top: 50px;
-  height: 50px;
-  width: 50px;
-  background-color: #555;
+.each-nav{
+  z-index:6;
+}
+.blue-back {
+  background: #AFE2F9;
+}
+.user-email{
+  border-top: 1px solid gray;
 }

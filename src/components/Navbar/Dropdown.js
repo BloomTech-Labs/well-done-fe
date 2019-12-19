@@ -36,9 +36,12 @@ const Dropdown = props => {
         </div>
         <div className="each-nav" onClick={logout}>
           <FiLogOut size={25} style={{ margin: "7.5px 10px" }} />
-          <Link activeClassName="activeNavButton" className="set-link">
+          
+          <Link activeClassName="activeNavButton" className="set-link-logout">
+            
             Logout
           </Link></div>
+          <div className="user-email">Email</div>
     </div>
   )
 }
