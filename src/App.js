@@ -12,6 +12,8 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 
 import AccountGrid from './components/Grid/AccountGrid'
 
+import ModalTest from './components/AddOperator'
+
 
 
 function App(props) {
@@ -36,6 +38,7 @@ function App(props) {
       </MetaTags>
 
       <Switch>
+        <Route path="/modal" component={ModalTest}/>
         <Route path="/accountgrid" component={AccountGrid}/>
         <Route exact path="/" component={Landing} />
         <PrivateRoute

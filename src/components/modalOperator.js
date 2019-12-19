@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 //css
-import './modalOperator.scss'
+//import './modalOperator.scss'
 
 import { Button, Modal, Dropdown, Form } from 'react-bootstrap'
 
@@ -49,7 +49,8 @@ const ModalOperator = () => {
       <Modal
         show={show}
         onHide={() => setShow(false)}
-        dialogClassName='modal-40w'
+        // dialogClassName='modal-40w'
+        animation={true}
       >
         <Modal.Title>
           <h1>Create Operator</h1>

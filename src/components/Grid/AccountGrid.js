@@ -10,7 +10,7 @@ import gridOptions from './Pagination'
 
 import AddAccount from '../../components/AddOperator'
 
-import ModalOperator from '../../components/modalOperator'
+import ModalOperator from '../../components/ModalTest'
 
 import './accountGrid.scss'
 

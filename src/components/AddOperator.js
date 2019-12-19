@@ -42,6 +42,7 @@ const AddOperator = props => {
     <div className="sheet">
     <div className="headName">Operator</div>
     <button className="button-Operator" onClick={openForm}>+ Operator</button>
+    
       <div id="popDiv" className="popBox-container">
         <div className="topCreate">
           <h1>Create Operator</h1>
