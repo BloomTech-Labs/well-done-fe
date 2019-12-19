@@ -20,7 +20,7 @@ export default function Map(props) {
   }, [props])
 
   return (
-    <div>
+    <div className='mapsContainer'>
       <div className='innerMapFlex'>
         <ReactMapGl
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
