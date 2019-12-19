@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { NavLink, Link, Redirect } from 'react-router-dom'
 import useOnClickOutside from 'use-onclickoutside'
 import {useDispatch} from 'react-redux'
 import {withRouter} from 'react-router'
@@ -22,15 +22,15 @@ const Dropdown = props => {
     <div className='drop-down' ref={ref}>
        <div className="each-nav">
           <IoIosSettings size={25} style={{ position: "relative", top:"7px" }} />
-          <Link
+          <NavLink
             to="/settings"
             activeClassName="activeNavButton"
             className="set-link"
           >
             Settings
-          </Link>
+          </NavLink>
         </div>
-      <div onClick={logout}>
+      <div classname= "logout-btn" onClick={logout}>
         Logout
       </div>
     </div>

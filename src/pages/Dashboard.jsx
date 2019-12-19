@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Menu from '../components/Menu/Menu.component'
+import MobileViewMenu from '../components/Menu/MobileViewMenu'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
@@ -91,6 +92,8 @@ dispatch({
 
   return (
     <div className='dashBoard'>
+      {/* <div className='dash-mob'>
+       <Menu  history={history} /></div> */}
       <Map
         sensors={sensorSelector.sensors}
         funcToggle={funcToggle}

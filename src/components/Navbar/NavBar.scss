@@ -6,6 +6,12 @@ nav{
     position: sticky;
     top: 0px;
     z-index: 5;
+    
+  @media (max-width: 700px){
+    display:flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
 }
 .nav-right{
    
@@ -17,47 +23,78 @@ nav{
     color:white;
     font-size: 1.8rem;
     padding-right: 1rem;
+    a:hover {
+      color: lightblue;
+    }
+
+    @media (max-width: 700px){
+      width: 100%;
+      justify-content: space-between;
+    }
    
   }
 .nav-left{
    width:50%;
    
-    
+   @media (max-width: 700px){
+    width: 100%;
+    text-align: center;
+  }
+ 
 
 }
 .active{
 color:pink;
+
 }
 .logo {
     width: 80%;
     margin: 20px 0px 20px 20px;
     width: 170.81px;
     height: 35.61px;
+    
+    
+    
   }
   .margin-left{
     margin-left: 24px;
     color:white;
+    
   }
   .margin-right{
       margin-right:60px;
   }
   .drop-down{
-      border:1px solid red;
       position: absolute;
       top: 53px; 
       z-index: 5;
       background:white;
-      right:60px;
+      right:80px;
       color:black;
       padding:5px;
+      @media (max-width: 700px){
+        top: 101px;
+      }
+      
   }
   .margin-left-droplet{
     margin-left:40px;
+    cursor: pointer;
+    
   }
   .set-link{
 
     position: relative;
     top:1px;
+    color:black;
+    
   }
 
+  .logout-btn{
+   color:red !important;
+    cursor: pointer;
+   a:hover {
+    color: lightblue;
+  }
+  }
   
