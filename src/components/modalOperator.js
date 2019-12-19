@@ -42,6 +42,7 @@ const ModalOperator = () => {
 
   return (
     <>
+    <div className='AccountContainer'>
       <div className='gridHeader'>
         <h1>Accounts</h1>
 
@@ -196,6 +197,7 @@ const ModalOperator = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+      </div>
     </>
   )
 }
