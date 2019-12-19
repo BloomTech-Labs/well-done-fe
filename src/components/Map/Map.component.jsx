@@ -24,7 +24,7 @@ export default function Map(props) {
       
       <ReactMapGl
         mapboxApiAccessToken={
-          'pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w'
+          process.env.REACT_APP_MAPBOX_TOKEN
         }
         mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
         onViewportChange={viewport => {
