@@ -1,13 +1,11 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactMapGl, { Popup } from 'react-map-gl'
 import './Map.styles.scss'
 import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
-import { Row, Col, } from 'antd'
-
+import { Row, Col } from 'antd'
 
 export default function Map(props) {
-
   useEffect(() => {
     const listener = e => {
       if (e.key === 'Escape') {
@@ -22,47 +20,44 @@ export default function Map(props) {
   }, [props])
 
   return (
-    <div className='mapsContainer'>
-      <div className="innerMapFlex">
-      <ReactMapGl
-          mapboxApiAccessToken={
-          'pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w'
-        }
-        mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
-        onViewportChange={viewport => {
-          props.setViewport(viewport)
-        }}
-        {...props.viewport}
-      >
-        
-        <Pin
-          sensors={props.sensors}
-          setSelectedPump={props.setSelectedPump}
-          funcToggle={props.funcToggle}
-          nonFuncToggle={props.nonFuncToggle}
-          unknownToggle={props.unknownToggle}
-          pumps={props.pumps}
-        />
+    <div>
+      <div className='innerMapFlex'>
+        <ReactMapGl
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
+          onViewportChange={viewport => {
+            props.setViewport(viewport)
+          }}
+          {...props.viewport}
+        >
+          <Pin
+            sensors={props.sensors}
+            setSelectedPump={props.setSelectedPump}
+            funcToggle={props.funcToggle}
+            nonFuncToggle={props.nonFuncToggle}
+            unknownToggle={props.unknownToggle}
+            pumps={props.pumps}
+          />
 
-        {props.selectedPump ? (
-          <Popup
-            className='popupCard'
-            latitude={props.selectedPump.latitude}
-            longitude={props.selectedPump.longitude}
-            onClose={() => {
-              props.setSelectedPump(null)
-            }}
-            closeOnClick={false}
-          >
-            <PopupInfo
-              sensors={props.sensors}
-              selectedPump={props.selectedPump}
-              history={props.history}
-            />
-          </Popup>
-        ) : null}
-      </ReactMapGl>
+          {props.selectedPump ? (
+            <Popup
+              className='popupCard'
+              latitude={props.selectedPump.latitude}
+              longitude={props.selectedPump.longitude}
+              onClose={() => {
+                props.setSelectedPump(null)
+              }}
+              closeOnClick={false}
+            >
+              <PopupInfo
+                sensors={props.sensors}
+                selectedPump={props.selectedPump}
+                history={props.history}
+              />
+            </Popup>
+          ) : null}
+        </ReactMapGl>
+      </div>
     </div>
-  </div>
   )
 }
