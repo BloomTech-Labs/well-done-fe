@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import AxiosWithAuth from "../../components/AxiosWithAuth/axiosWithAuth";
 
+import StaticMenu from "../../components/Menu/StaticMenu";
 import Legend from "./Legend";
 import StatusCards from "./StatusCards";
 import Grid from "../../components/Grid/Aggrid";
 import PercentageChart from "./PercentageChart";
+import Menu from '../../components/Menu/Menu.component'
 
 // ant design style
 import { Row, Col, Layout } from "antd";
@@ -36,6 +38,8 @@ const MonitorsPage = ({ history }) => {
         <Content>
           {/* legend */}
           <Row type="flex" justify="start">
+          <div className='dash-mob'>
+       <Menu  history={history} /></div>
             <Col span={23} offset={1}>
               <Legend />
             </Col>

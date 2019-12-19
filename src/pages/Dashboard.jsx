@@ -92,8 +92,8 @@ dispatch({
 
   return (
     <div className='dashBoard'>
-      {/* <div className='dash-mob'>
-       <Menu  history={history} /></div> */}
+      <div className='dash-mob'>
+       <Menu  history={history} /></div>
       <Map
         sensors={sensorSelector.sensors}
         funcToggle={funcToggle}

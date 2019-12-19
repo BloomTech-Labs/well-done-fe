@@ -3,7 +3,8 @@ import { NavLink, Link, Redirect } from 'react-router-dom'
 import useOnClickOutside from 'use-onclickoutside'
 import {useDispatch} from 'react-redux'
 import {withRouter} from 'react-router'
-import { IoIosSettings } from "react-icons/io"
+import { IoIosSettings} from "react-icons/io"
+import { FiLogOut } from "react-icons/fi";
 
 const Dropdown = props => {
   const dispatch = useDispatch()
@@ -17,9 +18,12 @@ const Dropdown = props => {
   const ref = React.useRef(null)
 
   useOnClickOutside(ref, () => props.setterFunction(false))
-
+  
   return (
     <div className='drop-down' ref={ref}>
+      <div className="triangle">
+
+      </div>
        <div className="each-nav">
           <IoIosSettings size={25} style={{ position: "relative", top:"7px" }} />
           <NavLink
@@ -30,9 +34,11 @@ const Dropdown = props => {
             Settings
           </NavLink>
         </div>
-      <div classname= "logout-btn" onClick={logout}>
-        Logout
-      </div>
+        <div className="each-nav" onClick={logout}>
+          <FiLogOut size={25} style={{ margin: "7.5px 10px" }} />
+          <Link activeClassName="activeNavButton" className="set-link">
+            Logout
+          </Link></div>
     </div>
   )
 }
