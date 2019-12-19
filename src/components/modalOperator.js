@@ -42,122 +42,116 @@ const ModalOperator = () => {
 
   return (
     <>
-      <div className='AccountContainer'>
-        <div className='gridHeader'>
-          <h1>Accounts</h1>
+      <button variant='primary' onClick={() => setShow(true)}>
+        + Account
+      </button>
 
-          <button variant='primary' onClick={() => setShow(true)}>
-            + Account
-          </button>
-        </div>
+      <Modal
+        show={show}
+        onHide={() => setShow(false)}
+        dialogClassName='modal-40w'
+      >
+        <Modal.Title>
+          <h1>Create Operator</h1>
+        </Modal.Title>
 
-        <Modal
-          show={show}
-          onHide={() => setShow(false)}
-          dialogClassName='modal-40w'
-        >
-          <Modal.Title>
-            <h1>Create Operator</h1>
-          </Modal.Title>
-
-          <Modal.Title>
-            <label for='Name'>First Name</label>
-            <br></br>
-            <input
-              type='text'
-              id='first_name'
-              placeholder='first name'
-              name='first_name'
-              value={operator.first_name}
-              onChange={handleChange}
-            />
-          </Modal.Title>
-
-          <Modal.Title>
-            <label for='Name'>Last Name</label>
-            <br></br>
-            <input
-              type='text'
-              id='last_name'
-              placeholder='last_name'
-              name='last_name'
-              value={operator.last_name}
-              onChange={handleChange}
-            />
-          </Modal.Title>
-          <Modal.Title>
-            <label for='Email'>Email</label>
-            <br></br>
-            <input
-              type='email'
-              name='email'
-              id='Email'
-              placeholder='email'
-              value={operator.email}
-              onChange={handleChange}
-            />
-          </Modal.Title>
-          <Modal.Title>
-            <label for='Password'>Password</label>
-            <br></br>
-            <input
-              type='password'
-              name='password'
-              id='Password'
-              placeholder='password'
-              value={operator.password}
-              onChange={handleChange}
-            />
-          </Modal.Title>
-          <Modal.Title>
-            <label for='Password'>Mobile Number</label>
-            <br></br>
-            <input
-              type='string'
-              name='mobile_number'
-              id='mobile_number'
-              placeholder='mobile_number'
-              value={operator.mobile_number}
-              onChange={handleChange}
-            />
-          </Modal.Title>
+        <Modal.Title>
+          <label for='Name'>First Name</label>
           <br></br>
-
-          <Dropdown.Toggle variant='success' id='dropdown-basic'>
-            Assign Sensor
-          </Dropdown.Toggle>
-          <Form.Control
-            as='select'
-            value={operator.selectedPumps}
+          <input
+            type='text'
+            id='first_name'
+            placeholder='first name'
+            name='first_name'
+            value={operator.first_name}
             onChange={handleChange}
-          >
-            {pumpsReducer.map(e => (
-              <React.Fragment>
-                <option key={e.id}>{e.id}</option>
-              </React.Fragment>
-            ))}
-          </Form.Control>
-          <br></br>
-          <br></br>
+          />
+        </Modal.Title>
 
-          <Modal.Title>
-            <div className='CreateAccount'>
-              <button type='Submit' onClick={handleSubmit}>
-                Create Operator
-              </button>
-            </div>
-          </Modal.Title>
+        <Modal.Title>
+          <label for='Name'>Last Name</label>
           <br></br>
-          <Modal.Footer>
-            <Button variant='secondary' onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant='primary' onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
+          <input
+            type='text'
+            id='last_name'
+            placeholder='last_name'
+            name='last_name'
+            value={operator.last_name}
+            onChange={handleChange}
+          />
+        </Modal.Title>
+        <Modal.Title>
+          <label for='Email'>Email</label>
+          <br></br>
+          <input
+            type='email'
+            name='email'
+            id='Email'
+            placeholder='email'
+            value={operator.email}
+            onChange={handleChange}
+          />
+        </Modal.Title>
+        <Modal.Title>
+          <label for='Password'>Password</label>
+          <br></br>
+          <input
+            type='password'
+            name='password'
+            id='Password'
+            placeholder='password'
+            value={operator.password}
+            onChange={handleChange}
+          />
+        </Modal.Title>
+        <Modal.Title>
+          <label for='Password'>Mobile Number</label>
+          <br></br>
+          <input
+            type='string'
+            name='mobile_number'
+            id='mobile_number'
+            placeholder='mobile_number'
+            value={operator.mobile_number}
+            onChange={handleChange}
+          />
+        </Modal.Title>
+        <br></br>
+
+        <Dropdown.Toggle variant='success' id='dropdown-basic'>
+          Assign Sensor
+        </Dropdown.Toggle>
+        <Form.Control
+          as='select'
+          value={operator.selectedPumps}
+          onChange={handleChange}
+        >
+          {pumpsReducer.map(e => (
+            <React.Fragment>
+              <option key={e.id}>{e.id}</option>
+            </React.Fragment>
+          ))}
+        </Form.Control>
+        <br></br>
+        <br></br>
+
+        <Modal.Title>
+          <div className='CreateAccount'>
+            <button type='Submit' onClick={handleSubmit}>
+              Create Operator
+            </button>
+          </div>
+        </Modal.Title>
+        <br></br>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant='primary' onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }
