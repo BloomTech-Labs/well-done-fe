@@ -40,10 +40,7 @@ const OrganizationActivityCard = props => {
         <span className='date'>
           {moment(props.items.created_at).format('MMMM Do, YYYY')}
         </span>
-        <button
-          onClick={e => routeHandler(e, props.data)}
-          className='btn btn-info'
-        >
+        <button onClick={e => routeHandler(e)} className='btn btn-info'>
           View
         </button>
       </span>

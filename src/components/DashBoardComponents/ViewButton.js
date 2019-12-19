@@ -11,7 +11,7 @@ const ViewButton = props => {
     <span className='btnCon'>
       <button
         style={{ height: 20, lineHeight: 0.5 }}
-        onClick={e => routeHandler(e)}
+        onClick={e => routeHandler(e, props.data)}
         className='btn btn-info'
       >
         View
