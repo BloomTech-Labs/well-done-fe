@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
 import { Route } from 'react-router-dom'
-import moment from 'moment'
-
-import { checkDate } from '../../actions/sensorHistory'
 
 import OrganizationActivityCard from './OrganizationActivityCard'
 import './OrganizationActivity.style.scss'
 
 const OrganizationActivity = props => {
-  const [alert, setAlert] = useState([])
-  const [results, setResults] = useState()
-  const historySelector = useSelector(state => state.historyReducer)
-  const dispatch = useDispatch()
-
   // let today = new Date()
   // let year = today.getFullYear()
   // let month = today.getMonth() + 1
@@ -35,26 +26,13 @@ const OrganizationActivity = props => {
   // yesterday =
   //   month.toString() + '/' + yesterday.toString() + '/' + year.toString()
 
-  // const prevAlert = usePrevious(alert)
-
-  useEffect(() => {
-    dispatch(checkDate())
-  }, [])
-
-  useEffect(() => {
-    setAlert(historySelector.alertInfo)
-  }, [alert])
-
-  useEffect(() => {}, [historySelector.isFetching])
-
   let today = '12/07/2019'
   let yesterday = '12/06/2019'
 
-  // console.log(today)
-  // console.log(yesterday)
+  let alerts = props.alertInfo
 
   function filterArrayToday() {
-    return alert.filter(item => {
+    return alerts.filter(item => {
       if (item.created_at === today) {
         return item
       }
@@ -62,7 +40,7 @@ const OrganizationActivity = props => {
   }
 
   function filterArrayYesterday() {
-    return alert.filter(item => {
+    return alerts.filter(item => {
       if (item.created_at === yesterday) {
         return item
       }
@@ -128,13 +106,7 @@ const OrganizationActivity = props => {
     }
   })
 
-  useEffect(() => {
-    setResults(result)
-  }, [alert])
-
-  // console.log(results)
-
-  if (!alert || !results) {
+  if (props.alertInfo.length === 0) {
     return <div>Loading</div>
   }
 
@@ -144,7 +116,7 @@ const OrganizationActivity = props => {
         <div className='orgActivityHeaderName'>Organization Activity</div>
       </div>
       <div className='orgActivityContainer'>
-        {results.map((items, index) => {
+        {result.map((items, index) => {
           if (items.status === 2) {
             let currentStatus = '🟢'
             if (items.status2 === 1) {

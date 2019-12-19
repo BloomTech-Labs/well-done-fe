@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
 
 import { Route } from 'react-router-dom'
 import { AgGridReact } from 'ag-grid-react'
@@ -7,7 +6,6 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptions from '../Grid/Pagination'
 
-import { fetchSensors, updateInfo } from '../../actions/sensorActions'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
 
@@ -60,18 +58,6 @@ const Pumps = props => {
       viewButton: ViewButton,
     },
   }
-
-  const [gridInfo, setGridInfo] = useState([])
-  const sensorSelector = useSelector(state => state.sensorReducer)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(updateInfo())
-  }, [])
-
-  useEffect(() => {
-    setGridInfo(sensorSelector.gridInfo)
-  }, [gridInfo])
 
   const onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper').offsetWidth
@@ -126,7 +112,7 @@ const Pumps = props => {
               <AgGridReact
                 {...prop}
                 columnDefs={fields.columnDefs}
-                rowData={gridInfo}
+                rowData={props.gridInfo}
                 gridOptions={gridOptions}
                 // defaultColDef={this.state.defaultColDef}
                 // rowSelection={this.state.rowSelection}
