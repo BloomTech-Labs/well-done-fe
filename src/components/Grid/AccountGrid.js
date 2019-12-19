@@ -107,11 +107,27 @@ class Grid extends Component {
       .then(rowData => this.setState({ rowData }))
       .catch(err => console.log(err));
   };
+  
+  onGridSizeChanged = params => {
+    var gridWidth = document.getElementById('grid-wrapper').offsetWidth
+    var columnsToShow = []
+    var columnsToHide = []
+    var totalColsWidth = 0
+    var allColumns = params.columnApi.getAllColumns()
+    for (var i = 0; i < allColumns.length; i++) {
+      var column = allColumns[i]
+      totalColsWidth += column.getMinWidth()
+      if (totalColsWidth > gridWidth) {
+        columnsToHide.push(column.colId)
+      } else {
+        columnsToShow.push(column.colId)
+      }
+    }
+    params.columnApi.setColumnsVisible(columnsToShow, true)
+    params.columnApi.setColumnsVisible(columnsToHide, false)
+    params.api.sizeColumnsToFit()
+  }
 
-  onGridReady = params => {
-    this.gridApi = params.api;
-    this.gridColumnApi = params.columnApi;
-  };
 
   exportToCsv = function() {
     var params = {
@@ -123,23 +139,24 @@ class Grid extends Component {
     gridOptions.api.exportDataAsCsv(params);
   };
 
+  //filter function
+ onQuickFilterChanged(params) {
+    gridOptions.api.setQuickFilter(document.getElementById('quickFilter').value)
+  }
+
   render() {
     return (
       <div>
-        <Button
-          type="default"
-          icon="download"
-          size="small"
-          onClick={this.exportToCsv.bind(this)}
-        >
-          CSV
-        </Button>
 
         <div
-          className="ag-theme-balham"
+          id="grid-wrapper"
           style={{
             height: "400px",
-            width: "90%"
+            width: "90%",
+            margin:"0",
+            border:"solid",
+            margin:"auto",
+            
           }}
          
         >
@@ -152,7 +169,7 @@ class Grid extends Component {
             modules={this.state.modules}
             defaultColDef={this.state.defaultColDef}
             rowSelection={this.state.rowSelection}
-            onGridReady={this.onGridReady}
+            onGridSizeChanged={this.onGridSizeChanged}
           />
         </div>
       </div>
