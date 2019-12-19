@@ -14,7 +14,6 @@ import OrgGrid from '../components/DashBoardComponents/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 import './Dashboard.styles.scss'
 
-
 const Dashboard = props => {
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
@@ -22,13 +21,10 @@ const Dashboard = props => {
     width: '100vw',
     height: '100vh',
     zoom: 2,
-  
   })
-  
-
 
   const sensorSelector = useSelector(state => state.sensorReducer)
-  const history = useSelector(state => state.historyReducer)
+  const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
 
   const [funcToggle, setFuncToggle] = useState(true)
@@ -38,7 +34,7 @@ const Dashboard = props => {
   useEffect(() => {
     dispatch(fetchSensors())
     dispatch(fetchHistory())
-  }, [props.selectedPump])
+  }, [])
 
   const zoomInto = () => {
     if (props.searchFiltered.length == 0) {
@@ -50,7 +46,7 @@ const Dashboard = props => {
         zoom: 8,
         scrollZoom: false,
         boxZoom: false,
-        doubleClickZoom : false
+        doubleClickZoom: false,
       })
     } else if (props.searchFiltered.length == 1) {
       const searchedPlace = {
@@ -93,44 +89,45 @@ const Dashboard = props => {
   }
 
   return (
-<div className='dashboard'>
+    <div className='dashboard'>
       {/* <Menu history={history} /> */}
-  <div className="mapSearchFilterContainer">
-    <div className="mapSFInner">
-      <Map
-        sensors={sensorSelector.sensors}
-        funcToggle={funcToggle}
-        nonFuncToggle={nonFuncToggle}
-        unknownToggle={unknownToggle}
-        viewport={viewport}
-        setViewport={setViewport}
-        history={history.history}
-        selectedPump={props.selectedPump}
-        setSelectedPump={props.setSelectedPump}
-      />
-      <Search
-        searchFiltered={props.searchFiltered}
-        setSearchFiltered={props.setSearchFiltered}
-        viewport={viewport}
-        setViewport={setViewport}
-        sensors={sensorSelector.sensors}
-      />
-      <Filter
-        searchFiltered={props.searchFiltered}
-        setSearchFiltered={props.setSearchFiltered}
-        sensors={sensorSelector.sensors}
-        setFuncToggle={setFuncToggle}
-        setNonFuncToggle={setNonFuncToggle}
-        setUnknownToggle={setUnknownToggle}
-      />
+      <div className='mapSearchFilterContainer'>
+        <div className='mapSFInner'>
+          <Map
+            sensors={sensorSelector.sensors}
+            funcToggle={funcToggle}
+            nonFuncToggle={nonFuncToggle}
+            unknownToggle={unknownToggle}
+            viewport={viewport}
+            setViewport={setViewport}
+            history={historySelector.history}
+            selectedPump={props.selectedPump}
+            setSelectedPump={props.setSelectedPump}
+          />
+          <Search
+            searchFiltered={props.searchFiltered}
+            setSearchFiltered={props.setSearchFiltered}
+            viewport={viewport}
+            setViewport={setViewport}
+            sensors={sensorSelector.sensors}
+          />
+          <Filter
+            searchFiltered={props.searchFiltered}
+            setSearchFiltered={props.setSearchFiltered}
+            sensors={sensorSelector.sensors}
+            setFuncToggle={setFuncToggle}
+            setNonFuncToggle={setNonFuncToggle}
+            setUnknownToggle={setUnknownToggle}
+          />
+        </div>
       </div>
-  </div>
       <div className='orgActPumps'>
         <Route
           path='/dashboard'
           render={prop => (
             <OrganizationActivity
               {...prop}
+              alertInfo={historySelector.alertInfo}
               selectedPump={props.selectedPump}
               setSelectedPump={props.setSelectedPump}
               sensors={sensorSelector.sensors}
