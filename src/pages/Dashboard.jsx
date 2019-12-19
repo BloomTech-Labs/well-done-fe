@@ -139,6 +139,7 @@ const Dashboard = props => {
           render={prop => (
             <Pumps
               {...prop}
+              gridInfo={sensorSelector.sensors}
               selectedPump={props.selectedPump}
               setSelectedPump={props.setSelectedPump}
             />

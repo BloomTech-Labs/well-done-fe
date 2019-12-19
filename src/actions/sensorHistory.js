@@ -14,8 +14,5 @@ export const fetchHistory = () => dispatch => {
     .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
     .then(res => dispatch({ type: HISTORY_SUCCESS, payload: res.data }))
     .then(res => dispatch({ type: CHECK_DATE }))
-    .catch(err => console.log(err))
     .catch(err => dispatch({ type: HISTORY_FAILURE, payload: err }))
 }
-
-// export const checkDate = () => dispatch => {}

@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
 import { Route } from 'react-router-dom'
-import moment from 'moment'
 
 import OrganizationActivityCard from './OrganizationActivityCard'
 import './OrganizationActivity.style.scss'
@@ -28,13 +26,8 @@ const OrganizationActivity = props => {
   // yesterday =
   //   month.toString() + '/' + yesterday.toString() + '/' + year.toString()
 
-  // const prevAlert = usePrevious(alert)
-
   let today = '12/07/2019'
   let yesterday = '12/06/2019'
-
-  // console.log(today)
-  // console.log(yesterday)
 
   let alerts = props.alertInfo
 
