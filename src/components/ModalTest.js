@@ -6,6 +6,8 @@ import { fetchPumps } from '../actions/pumpAction'
 
 import { addOp } from '../actions/addOp-action'
 
+import './modalOperator.scss'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
@@ -65,7 +67,7 @@ const ModalOperator = () => {
 
   return (
     <>
-      <button type='button' onClick={handleOpen}>
+      <button className='button' type='button' onClick={handleOpen}>
         ++Account
       </button>
 
