@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Modal from '../ModalTest'
 
 
 import { Form, Icon, Input, Button, Row, Col, Typography } from "antd";
@@ -34,7 +33,7 @@ const SignIn = props => {
 
   return (
     <>
-    <Modal/>
+    
     <Row>
       <Col span={24} offset={3} style={{ marginBottom: "20px" }}>
         <Title>Sign In</Title>

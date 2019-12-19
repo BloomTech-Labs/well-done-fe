@@ -30,6 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 const ModalOperator = () => {
   const [operator, setOperator] = useState([])
+  console.log(operator)
   
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
