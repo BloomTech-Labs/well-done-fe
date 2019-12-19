@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Landing from './pages/Landing.jsx'
+import MetaTags from 'react-meta-tags'
+
 import Dashboard from './pages/Dashboard'
 import MonitorDetails from './pages/MonitorDetail'
 import Monitors from './pages/OverviewPage/MonitorsPage'
-
 import Settings from './pages/Settings/Settings'
-import MetaTags from 'react-meta-tags'
 import PrivateRoute from './components/PrivateRoute.jsx'
+import SignIn from './components/SignIn/SignIn'
 
 function App(props) {
   const [searchFiltered, setSearchFiltered] = useState([])
@@ -29,7 +29,7 @@ function App(props) {
       </MetaTags>
 
       <Switch>
-        <Route exact path='/' component={Landing} />
+        <Route exact path="/" component={SignIn} />
         <PrivateRoute
           path='/dashboard'
           searchFiltered={searchFiltered}
