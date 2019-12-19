@@ -95,7 +95,9 @@ const Pumps = props => {
           id='quickFilter'
           placeholder=' search...'
         />
-        <button className='pumpHeaderButton'>+ Add Pumps</button>
+        <div className='pumpHeaderCon'>
+          <button className='pumpHeaderButton'>+ Add Pumps</button>
+        </div>
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div

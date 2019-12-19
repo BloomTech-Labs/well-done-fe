@@ -1,3 +1,4 @@
+
 .pumpChart {
   width: 48%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.08);
@@ -16,28 +17,34 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
-    .pumpHeaderButton {
-      background-color: #090c9b;
-      color: white;
-      border: none;
+    .pumpHeaderCon {
+      height: 100%;
+      width: 500px;
+
+      .pumpHeaderButton {
+        height: 100%;
+        background-color: #090c9b;
+        color: white;
+        border: none;
+      }
     }
 
     .pumpHeaderName {
       color: white;
     }
-  }
-  .searchInPumps{
-    border:none;
-    height:30px;
-    padding: .8rem 1.4rem;
-    border-radius: 5px;
-    font-size: .89rem;
-    margin-right: 23%;
 
-    @media (max-width: 1200px) {
-      padding:2px 5px;
-      margin-left: 2%;
-      font-size: .75rem;
+    .searchInPumps {
+      border: none;
+      height: 30px;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.89rem;
+
+      @media (max-width: 1200px) {
+        padding:2px 5px;
+        margin-left: 2%;
+        font-size: .75rem;
+    }
     }
   }
 }
