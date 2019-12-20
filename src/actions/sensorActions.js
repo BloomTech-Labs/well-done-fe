@@ -16,13 +16,13 @@ export const fetchSensors = () => dispatch => {
 }
 
 //  posting sensors
-export const postSensor = () => dispatch => {
+export const postSensor = (sensors) => dispatch => {
   dispatch({
     type: SENSOR_FETCH,
   })
   
   AxiosWithAuth()
-    .post(`${process.env.REACT_APP_HEROKU_API}/api/sensors/`)
+    .post(`${process.env.REACT_APP_HEROKU_API}/api/sensors/` ,sensors )
     .then(res => dispatch({type: SENSOR_SUCCESS, payload: res.data}))
     .catch(res => dispatch({type: SENSOR_FAILURE, payload: res.data}))
   
