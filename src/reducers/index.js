@@ -2,11 +2,12 @@ import { combineReducers } from 'redux'
 
 import sensorReducer from './sensorReducer'
 import { historyReducer } from './sensorHistory'
-import signInReducer from './signIn-reducer'
+import {navReducer as nav} from './navReducer'
 
 const rootReducer = combineReducers({
   sensorReducer,
   historyReducer,
+  navShow: nav,
   signInReducer,
 })
 
