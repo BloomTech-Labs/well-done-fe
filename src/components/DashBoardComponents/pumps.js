@@ -9,6 +9,8 @@ import gridOptions from '../Grid/Pagination'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
 
+import PumpsModal from './PumpsModal'
+
 const Pumps = props => {
   //grid style options
   gridOptions.rowHeight = 40
@@ -115,9 +117,13 @@ const Pumps = props => {
           id='quickFilter'
           placeholder=' search...'
         />
-        <div className='pumpHeaderCon'>
+        
+        <div className="modal">
+            <PumpsModal/>
+          </div>
+        {/* <div className='pumpHeaderCon'>
           <button className='pumpHeaderButton'>+ Add Pumps</button>
-        </div>
+        </div> */}
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div

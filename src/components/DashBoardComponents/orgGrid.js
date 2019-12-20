@@ -4,6 +4,8 @@ import './orgGrid.scss'
 import 'antd/dist/antd.css'
 import gridOptions from '../Grid/Pagination'
 
+import OrgModal from './OrgModal'
+
 class OrgGrid extends Component {
   constructor(props) {
     super(props)
@@ -113,12 +115,28 @@ class OrgGrid extends Component {
     params.columnApi.setColumnsVisible(columnsToHide, false)
     params.api.sizeColumnsToFit()
   }
+
+  onQuickFilterChanged(params) {
+    gridOptions.api.setQuickFilter(document.getElementById('quickFilter').value)
+  }
+
   render() {
     return (
       <div className='orgGridBody'>
         <div className='orgGridHeader'>
           <h1>Organizations</h1>
-          <button className='orgHeaderButton'>+ Add Organization</button>
+
+          <input
+            className='searchAccounts'
+            type='text'
+            onInput={this.onQuickFilterChanged}
+            id='quickFilter'
+            placeholder=' search...'
+          />
+
+          <div className='modal'>
+            <OrgModal />
+          </div>
         </div>
         <div
           className='ag-theme-balham'
@@ -130,6 +148,7 @@ class OrgGrid extends Component {
           <AgGridReact
             columnDefs={this.state.columnDefs}
             rowData={this.state.rowData}
+            gridOptions={gridOptions}
             onGridReady={this.onGridReady}
             onGridSizeChanged={this.onGridSizeChanged}
             // getRowHeight={this.state.getRowHeight}

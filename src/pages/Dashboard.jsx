@@ -15,6 +15,8 @@ import OrgGrid from '../components/DashBoardComponents/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 import './Dashboard.styles.scss'
 
+import AccountGrid from '../components/Grid/AccountGrid'
+
 const Dashboard = props => {
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
@@ -151,6 +153,7 @@ const Dashboard = props => {
         />
       </div>
       <OrgGrid />
+      <AccountGrid/>
     </div>
   )
 }

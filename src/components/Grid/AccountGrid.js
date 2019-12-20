@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
-import { css } from 'emotion'
-import { Button } from 'antd'
 import 'antd/dist/antd.css'
 
 import gridOptions from './Pagination'
-
-import AddAccount from '../../components/AddOperator'
 
 import ModalOperator from '../../components/ModalTest'
 
@@ -146,42 +142,41 @@ class Grid extends Component {
   render() {
     return (
       <div>
-        <div className='accountHeader'>
-          <h1>Accounts</h1>
+        <div className='accountBody'>
+          <div className='accountHeader'>
+            <h1>Accounts</h1>
 
-          <input
-            className='searchAccounts'
-            type='text'
-            onInput={this.onQuickFilterChanged}
-            id='quickFilter'
-            placeholder=' search...'
-          />
+            <input
+              className='searchAccounts'
+              type='text'
+              onInput={this.onQuickFilterChanged}
+              id='quickFilter'
+              placeholder=' search...'
+            />
 
-          <div className="modal">
-            <ModalOperator />
+            <div className='modal'>
+              <ModalOperator />
+            </div>
           </div>
-        </div>
 
-        <div
-          id='grid-wrapper'
-          style={{
-            height: '400px',
-            width: '90%',
-            margin: '0',
-            border: 'solid',
-            margin: 'auto',
-          }}
-          className='ag-theme-balham'
-        >
-          <AgGridReact
-            columnDefs={this.state.columnDefs}
-            rowData={this.state.rowData}
-            gridOptions={gridOptions}
-            modules={this.state.modules}
-            defaultColDef={this.state.defaultColDef}
-            rowSelection={this.state.rowSelection}
-            onGridSizeChanged={this.onGridSizeChanged}
-          />
+          <div
+            id='grid-wrapper'
+            style={{
+              height: '500px',
+              width: '100%',
+            }}
+            className='ag-theme-balham'
+          >
+            <AgGridReact
+              columnDefs={this.state.columnDefs}
+              rowData={this.state.rowData}
+              gridOptions={gridOptions}
+              modules={this.state.modules}
+              defaultColDef={this.state.defaultColDef}
+              rowSelection={this.state.rowSelection}
+              onGridSizeChanged={this.onGridSizeChanged}
+            />
+          </div>
         </div>
       </div>
     )

@@ -1,13 +1,30 @@
+html,
+body {
+  margin: 0;
+}
+
+.accountBody{
+    width:80%;
+    border: 2px solid #090c9b;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:2.5%;
+    box-shadow: 2px 1px 10px;
+}
+
 .accountHeader{
     display: flex;
-    border:solid;
-    background: blue;
-    width: 90%;
-    margin:auto;
     justify-content: space-between;
+    background:#090c9b;
+    padding-left: 2%;
+    padding-right:2%;
+    height: auto;
+   
 
 
     h1{
+        color:white;
         padding-right: 5rem;
         padding-left: 1rem;
     }
