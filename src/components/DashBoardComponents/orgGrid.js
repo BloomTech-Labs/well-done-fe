@@ -4,6 +4,7 @@ import "./orgGrid.scss"
 import "antd/dist/antd.css";
 import gridOptions from "../Grid/Pagination";
 
+import OrgModal from './OrgModal'
 
 class OrgGrid extends Component {
   constructor(props) {
@@ -102,7 +103,9 @@ render() {
         <div
         className="orgGridHeader">
         <h1>Organizations</h1>
-        <button className='orgHeaderButton'>+ Add Organization</button>
+        <div className="modal">
+            <OrgModal/>
+          </div>
         </div>
         <div
           className="ag-theme-balham"
