@@ -14,3 +14,5 @@ export const fetchPumps = () => dispatch => {
     .then(res => {dispatch({type:PUMPS_SUCCESS, payload: res.data})})
     .catch(err => dispatch({type:PUMPS_FAILURE, payload: err }))
 }
+
+//add .post 

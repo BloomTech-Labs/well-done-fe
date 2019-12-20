@@ -25,6 +25,7 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 40,
+        
         },
         {
           headerName: 'Organization',
