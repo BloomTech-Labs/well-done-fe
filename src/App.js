@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard'
 import MonitorDetails from './pages/MonitorDetail'
 import Monitors from './pages/OverviewPage/MonitorsPage'
 import NavBar from './components/Navbar/Navbar.js'
+import SignIn from './components/SignIn/SignIn'
 import { useSelector, useDispatch } from 'react-redux'
 import './App.style.scss'
 
