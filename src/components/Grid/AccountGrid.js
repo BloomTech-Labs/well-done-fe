@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
-import { css } from 'emotion'
-import { Button } from 'antd'
 import 'antd/dist/antd.css'
 
 import gridOptions from './Pagination'
-
-import AddAccount from '../../components/AddOperator'
 
 import ModalOperator from '../../components/ModalTest'
 
