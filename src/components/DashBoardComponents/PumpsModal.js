@@ -70,7 +70,7 @@ const PumpsModal = () => {
   return (
     <>
       <button className='button' type='button' onClick={handleOpen}>
-        ++Account
+        ++Pump
       </button>
 
       <Modal
@@ -88,8 +88,7 @@ const PumpsModal = () => {
         <Fade in={open}>
           <div className={classes.paper}>
             <div className='col1'>
-              <h2>
-                {/* org_id: 1,
+              {/* org_id: 1,
 				sensor_pid: 1234,
 				country_name: '1st country',
 				province_name: '1st province',
@@ -98,7 +97,7 @@ const PumpsModal = () => {
 				latitude: 1.234,
 				longitude: 2.345 */}
 
-                {/* <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              {/* <Dropdown.Toggle variant='success' id='dropdown-basic'>
                   Organization
                 </Dropdown.Toggle>
                 <Form.Control
@@ -112,7 +111,31 @@ const PumpsModal = () => {
                     </React.Fragment>
                   ))}
                 </Form.Control> */}
-
+              <h2>
+                <label for='Country'>Organization</label>
+                <br></br>
+                <input
+                  type='text'
+                  id='organization'
+                  placeholder='organization'
+                  name='organization'
+                  value={pump.organization}
+                  onChange={handleChange}
+                />
+              </h2>
+              <h2>
+                <label for='Country'>Sensor pid</label>
+                <br></br>
+                <input
+                  type='text'
+                  id='sensor_pid'
+                  placeholder='sensor_pid'
+                  name='sensor_pid'
+                  value={pump.sensor_pid}
+                  onChange={handleChange}
+                />
+              </h2>
+              <h2>
                 <label for='Country'>Country</label>
                 <br></br>
                 <input
@@ -149,7 +172,8 @@ const PumpsModal = () => {
                   onChange={handleChange}
                 />
               </h2>
-
+            </div>
+            <div className='col2'>
               <h2>
                 <label for='Password'>Commune</label>
                 <br></br>
@@ -162,8 +186,7 @@ const PumpsModal = () => {
                   onChange={handleChange}
                 />
               </h2>
-            </div>
-            <div className='col2'>
+
               <h2>
                 <label for='Password'>latitude</label>
                 <br></br>
@@ -189,22 +212,6 @@ const PumpsModal = () => {
                   onChange={handleChange}
                 />
               </h2>
-                <br></br>
-              {/* <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                Sensor
-              </Dropdown.Toggle>
-              <Form.Control
-                as='select'
-                value={pump.selectedPumps}
-                onChange={handleChange}
-              >
-                {pumpsReducer.map(e => (
-                  <React.Fragment>
-                    <option key={e.id}>{e.id}</option>
-                  </React.Fragment>
-                ))}
-              </Form.Control> */}
-              <br></br>
               <br></br>
 
               <h2>
