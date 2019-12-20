@@ -62,10 +62,6 @@ const Pumps = props => {
         },
       },
       {
-        cellStyle: {
-          'font-size': '1.5rem',
-          'padding-top': '.75rem',
-        },
         sortable: true,
         filter: true,
         cellRenderer: 'viewButton',
@@ -117,10 +113,10 @@ const Pumps = props => {
           id='quickFilter'
           placeholder=' search...'
         />
-        
-        <div className="modal">
-            <PumpsModal/>
-          </div>
+
+        <div className='modal'>
+          <PumpsModal />
+        </div>
         {/* <div className='pumpHeaderCon'>
           <button className='pumpHeaderButton'>+ Add Pumps</button>
         </div> */}

@@ -66,11 +66,12 @@ class OrgGrid extends Component {
           field: 'created_at',
           sortable: true,
           filter: true,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
       ],
-      // getRowHeight: function(params) {
-      //   return params.data.rowHeight
-      // },
     }
   }
 

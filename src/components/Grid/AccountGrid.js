@@ -21,6 +21,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 40,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
         {
           headerName: 'Organization',
@@ -28,6 +32,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 150,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
         {
           headerName: 'First Name',
@@ -35,6 +43,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 120,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
         {
           headerName: 'Last Name',
@@ -42,6 +54,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 120,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
         {
           headerName: 'Eamil',
@@ -49,6 +65,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 200,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
         {
           headerName: 'Mobile',
@@ -56,6 +76,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 150,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
         {
           headerName: 'Sensor',
@@ -63,6 +87,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 120,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
         {
           headerName: 'Super User',
@@ -70,6 +98,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 100,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
         {
           headerName: 'Org User',
@@ -77,6 +109,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 100,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
         {
           headerName: 'Org Admin',
@@ -84,6 +120,10 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 100,
+          cellStyle: {
+            'font-size': '2rem',
+            'padding-top': '.75rem',
+          },
         },
       ],
     }
