@@ -17,7 +17,7 @@ const Settings = ({ history }) => {
           <EditPasswordForm />
         </div>
     </div>
-  );
-};
+  )
+}
 
-export default Settings;
+export default Settings

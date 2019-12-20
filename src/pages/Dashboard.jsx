@@ -12,14 +12,12 @@ import { fetchHistory } from '../actions/sensorHistory'
 import './Dashboard.styles.scss'
 
 const Dashboard = props => {
-  console.log('props in Dashboard', props.sensors)
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
     longitude: 105.784788,
     width: '100vw',
     height: '100vh',
     zoom: 2,
-    // center: [13.043945, 105.221241]
   })
 
   const sensorSelector = useSelector(state => state.sensorReducer)
@@ -38,8 +36,6 @@ dispatch({
   }, [])
 
   const zoomInto = () => {
-    // console.log('checkkk', props.searchFiltered.length)
-    // props.searchFiltered[0].map(place => {
     if (props.searchFiltered.length == 0) {
       setViewport({
         latitude: 13.5651,
@@ -56,7 +52,6 @@ dispatch({
         height: '100vh',
         zoom: 11,
       }
-      //   console.log('searchPlace one', searchedPlace)
       setViewport(searchedPlace)
     } else if (props.searchFiltered.length > 1) {
       function avgCoordinate(arr) {
@@ -77,7 +72,6 @@ dispatch({
         height: '100vh',
         zoom: 11,
       }
-      console.log('searchPlace many', searchedPlace)
       setViewport(searchedPlace)
     }
   }

@@ -26,9 +26,7 @@ const displayNav = useSelector( state => state.navShow)
  
  
 
-  console.log('props in App', props)
   const [searchFiltered, setSearchFiltered] = useState([])
-  // const [sensors, setSensors] = useState([]);
   const [selectedPump, setSelectedPump] = useState(null)
   return (
     <div>
@@ -48,7 +46,7 @@ const displayNav = useSelector( state => state.navShow)
       </MetaTags>
 
       <Switch>
-        <Route exact path='/' component={Landing} />
+        <Route exact path="/" component={SignIn} />
         <PrivateRoute
           path='/dashboard'
           searchFiltered={searchFiltered}

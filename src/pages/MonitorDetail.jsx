@@ -23,7 +23,6 @@ const MonitorDetails = props => {
     AxiosWithAuth()
       .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
       .then(res => {
-        //console.log("history from app.js", res.data);
         setHistory(res.data)
       })
       .catch(err => {
