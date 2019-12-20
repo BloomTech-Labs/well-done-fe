@@ -21,6 +21,10 @@ const Pumps = props => {
         sortable: true,
         filter: true,
         minWidth: 95,
+        cellStyle: {
+          'font-size': '2rem',
+          'padding-top': '.75rem',
+        },
       },
       {
         headerName: 'Installed',
@@ -28,6 +32,10 @@ const Pumps = props => {
         sortable: true,
         filter: true,
         minWidth: 90,
+        cellStyle: {
+          'font-size': '1.5rem',
+          'padding-top': '.75rem',
+        },
       },
       {
         headerName: 'Status',
@@ -35,6 +43,10 @@ const Pumps = props => {
         sortable: true,
         filter: true,
         minWidth: 90,
+        cellStyle: {
+          'font-size': '1.5rem',
+          'padding-top': '.75rem',
+        },
       },
       {
         headerName: 'NGO',
@@ -42,8 +54,16 @@ const Pumps = props => {
         sortable: true,
         filter: true,
         minWidth: 90,
+        cellStyle: {
+          'font-size': '1.5rem',
+          'padding-top': '.75rem',
+        },
       },
       {
+        cellStyle: {
+          'font-size': '1.5rem',
+          'padding-top': '.75rem',
+        },
         sortable: true,
         filter: true,
         cellRenderer: 'viewButton',

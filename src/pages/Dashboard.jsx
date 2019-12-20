@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Menu from '../components/Menu/Menu.component'
+import MobileViewMenu from '../components/Menu/MobileViewMenu'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
@@ -26,7 +27,10 @@ const Dashboard = props => {
   const sensorSelector = useSelector(state => state.sensorReducer)
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
-
+  dispatch({
+    type: 'TOGGLE_NAV_STATE',
+    payload: true,
+  })
   const [funcToggle, setFuncToggle] = useState(true)
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
   const [unknownToggle, setUnknownToggle] = useState(true)

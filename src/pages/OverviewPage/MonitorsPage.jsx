@@ -3,11 +3,11 @@ import AxiosWithAuth from '../../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../../actions/sensorActions'
 
-import StaticMenu from '../../components/Menu/StaticMenu'
-import Legend from './Legend'
-import StatusCards from './StatusCards'
-import Grid from '../../components/Grid/Aggrid'
-import PercentageChart from './PercentageChart'
+import Legend from "./Legend"
+import StatusCards from "./StatusCards"
+import Grid from "../../components/Grid/Aggrid"
+import PercentageChart from "./PercentageChart"
+import Menu from '../../components/Menu/Menu.component'
 
 // ant design style
 import { Row, Col, Layout } from 'antd'
@@ -41,14 +41,12 @@ const MonitorsPage = ({ history }) => {
 
   return (
     <div>
-      <Layout style={{ backgroundColor: '#E5E5E5' }}>
-        <Sider>
-          {/* Side Nav */}
-          <StaticMenu history={history} />
-        </Sider>
+      <Layout style={{ backgroundColor: "#E5E5E5" }}>
         <Content>
           {/* legend */}
-          <Row type='flex' justify='start'>
+          <Row type="flex" justify="start">
+          <div className='dash-mob'>
+       <Menu  history={history} /></div>
             <Col span={23} offset={1}>
               <Legend />
             </Col>
