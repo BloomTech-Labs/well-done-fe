@@ -1,26 +1,30 @@
 import React, { useState, useEffect } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import Menu from '../components/Menu/Menu.component'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
+import Pumps from '../components/DashBoardComponents/pumps'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
+import './Dashboard.styles.scss'
+import OrgGrid from '../components/DashBoardComponents/orgGrid'
+import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
+import './Dashboard.styles.scss'
 
 const Dashboard = props => {
-  console.log('props in Dashboard', props.sensors)
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
     longitude: 105.784788,
     width: '100vw',
     height: '100vh',
     zoom: 2,
-    // center: [13.043945, 105.221241]
   })
 
   const sensorSelector = useSelector(state => state.sensorReducer)
-  const history = useSelector(state => state.historyReducer)
+  const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
 
   const [funcToggle, setFuncToggle] = useState(true)
@@ -33,15 +37,16 @@ const Dashboard = props => {
   }, [])
 
   const zoomInto = () => {
-    // console.log('checkkk', props.searchFiltered.length)
-    // props.searchFiltered[0].map(place => {
     if (props.searchFiltered.length == 0) {
       setViewport({
         latitude: 13.5651,
         longitude: 104.7538,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '70vh',
         zoom: 8,
+        scrollZoom: false,
+        boxZoom: false,
+        doubleClickZoom: false,
       })
     } else if (props.searchFiltered.length == 1) {
       const searchedPlace = {
@@ -51,7 +56,6 @@ const Dashboard = props => {
         height: '100vh',
         zoom: 11,
       }
-      //   console.log('searchPlace one', searchedPlace)
       setViewport(searchedPlace)
     } else if (props.searchFiltered.length > 1) {
       function avgCoordinate(arr) {
@@ -72,7 +76,6 @@ const Dashboard = props => {
         height: '100vh',
         zoom: 11,
       }
-      console.log('searchPlace many', searchedPlace)
       setViewport(searchedPlace)
     }
   }
@@ -86,34 +89,64 @@ const Dashboard = props => {
   }
 
   return (
-    <div class='dashboard'>
-      <Menu history={history} />
-      <Map
-        sensors={sensorSelector.sensors}
-        funcToggle={funcToggle}
-        nonFuncToggle={nonFuncToggle}
-        unknownToggle={unknownToggle}
-        viewport={viewport}
-        setViewport={setViewport}
-        history={history.history}
-        selectedPump={props.selectedPump}
-        setSelectedPump={props.setSelectedPump}
-      />
-      <Search
-        searchFiltered={props.searchFiltered}
-        setSearchFiltered={props.setSearchFiltered}
-        viewport={viewport}
-        setViewport={setViewport}
-        sensors={sensorSelector.sensors}
-      />
-      <Filter
-        searchFiltered={props.searchFiltered}
-        setSearchFiltered={props.setSearchFiltered}
-        sensors={sensorSelector.sensors}
-        setFuncToggle={setFuncToggle}
-        setNonFuncToggle={setNonFuncToggle}
-        setUnknownToggle={setUnknownToggle}
-      />
+    <div className='dashboard'>
+      {/* <Menu history={history} /> */}
+      <div className='mapSearchFilterContainer'>
+        <div className='mapSFInner'>
+          <Map
+            sensors={sensorSelector.sensors}
+            funcToggle={funcToggle}
+            nonFuncToggle={nonFuncToggle}
+            unknownToggle={unknownToggle}
+            viewport={viewport}
+            setViewport={setViewport}
+            history={historySelector.history}
+            selectedPump={props.selectedPump}
+            setSelectedPump={props.setSelectedPump}
+          />
+          <Search
+            searchFiltered={props.searchFiltered}
+            setSearchFiltered={props.setSearchFiltered}
+            viewport={viewport}
+            setViewport={setViewport}
+            sensors={sensorSelector.sensors}
+          />
+          <Filter
+            searchFiltered={props.searchFiltered}
+            setSearchFiltered={props.setSearchFiltered}
+            sensors={sensorSelector.sensors}
+            setFuncToggle={setFuncToggle}
+            setNonFuncToggle={setNonFuncToggle}
+            setUnknownToggle={setUnknownToggle}
+          />
+        </div>
+      </div>
+      <div className='orgActPumps'>
+        <Route
+          path='/dashboard'
+          render={prop => (
+            <OrganizationActivity
+              {...prop}
+              alertInfo={historySelector.alertInfo}
+              selectedPump={props.selectedPump}
+              setSelectedPump={props.setSelectedPump}
+              sensors={sensorSelector.sensors}
+            />
+          )}
+        />
+        <Route
+          path='/dashboard'
+          render={prop => (
+            <Pumps
+              {...prop}
+              gridInfo={sensorSelector.gridInfo}
+              selectedPump={props.selectedPump}
+              setSelectedPump={props.setSelectedPump}
+            />
+          )}
+        />
+      </div>
+      <OrgGrid />
     </div>
   )
 }

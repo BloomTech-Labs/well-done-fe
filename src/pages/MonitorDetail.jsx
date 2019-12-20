@@ -9,11 +9,12 @@ import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 const { Title } = Typography
 
 const MonitorDetails = props => {
+  console.log(props)
   const [viewport, setViewport] = useState({
     latitude: 13.5651,
     longitude: 104.7538,
     width: '100%',
-    height: '30vh',
+    height: '40vh',
     zoom: 7,
   })
 
@@ -23,7 +24,6 @@ const MonitorDetails = props => {
     AxiosWithAuth()
       .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
       .then(res => {
-        //console.log("history from app.js", res.data);
         setHistory(res.data)
       })
       .catch(err => {
