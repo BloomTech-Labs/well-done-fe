@@ -60,7 +60,7 @@ class Grid extends Component {
           },
         },
         {
-          headerName: 'Eamil',
+          headerName: 'Email',
           field: 'email_address',
           sortable: true,
           filter: true,

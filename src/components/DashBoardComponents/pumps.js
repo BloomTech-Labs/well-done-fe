@@ -65,6 +65,10 @@ const Pumps = props => {
         sortable: true,
         filter: true,
         cellRenderer: 'viewButton',
+        cellStyle: {
+          'font-size': '1.5rem',
+          'padding-top': '.75rem',
+        },
         cellRendererParams: {
           prop1: 'props.selectedPump',
         },
