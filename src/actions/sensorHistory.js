@@ -16,3 +16,5 @@ export const fetchHistory = () => dispatch => {
     .then(res => dispatch({ type: CHECK_DATE }))
     .catch(err => dispatch({ type: HISTORY_FAILURE, payload: err }))
 }
+
+
