@@ -8,6 +8,7 @@ import Monitors from './pages/OverviewPage/MonitorsPage'
 import NavBar from './components/Navbar/Navbar.js'
 import {useSelector, useDispatch} from 'react-redux'
 import './App.style.scss'
+import SignIn from './components/SignIn/SignIn'
 
 import Settings from './pages/Settings/Settings'
 import MetaTags from 'react-meta-tags'

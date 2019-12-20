@@ -16,6 +16,7 @@
     "formik": "^2.0.4",
     "icomoon-react": "^1.0.0",
     "mapbox-gl": "^1.5.0",
+    "material-ui": "^0.20.2",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
