@@ -15,7 +15,9 @@ export const fetchLogin = (account)=> dispatch=> {
         localStorage.setItem("token", res.data.token)
         localStorage.setItem("userId", res.data.id)
         localStorage.setItem("userType", res.data.user)
+        localStorage.setItem("userEmail", res.data.email_address)
         dispatch({type: LOGIN_SUCCESS, payload:res.data})
+        console.log(res.data,"signin")
         
     })
     .catch(err => console.log(err.response))

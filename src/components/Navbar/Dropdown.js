@@ -18,6 +18,7 @@ const Dropdown = props => {
   const ref = React.useRef(null)
 
   useOnClickOutside(ref, () => props.setterFunction(false))
+  const email = localStorage.getItem("userEmail");
   
   return (
     <div className='drop-down' ref={ref}>
@@ -41,7 +42,7 @@ const Dropdown = props => {
             
             Logout
           </Link></div>
-          <div className="user-email">Email</div>
+          <div className="user-email">{email}</div>
     </div>
   )
 }
