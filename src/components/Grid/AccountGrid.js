@@ -25,7 +25,6 @@ class Grid extends Component {
           sortable: true,
           filter: true,
           width: 40,
-        
         },
         {
           headerName: 'Organization',
@@ -147,42 +146,41 @@ class Grid extends Component {
   render() {
     return (
       <div>
-        <div className='accountHeader'>
-          <h1>Accounts</h1>
+        <div className='accountBody'>
+          <div className='accountHeader'>
+            <h1>Accounts</h1>
 
-          <input
-            className='searchAccounts'
-            type='text'
-            onInput={this.onQuickFilterChanged}
-            id='quickFilter'
-            placeholder=' search...'
-          />
+            <input
+              className='searchAccounts'
+              type='text'
+              onInput={this.onQuickFilterChanged}
+              id='quickFilter'
+              placeholder=' search...'
+            />
 
-          <div className="modal">
-            <ModalOperator />
+            <div className='modal'>
+              <ModalOperator />
+            </div>
           </div>
-        </div>
 
-        <div
-          id='grid-wrapper'
-          style={{
-            height: '400px',
-            width: '90%',
-            margin: '0',
-            border: 'solid',
-            margin: 'auto',
-          }}
-          className='ag-theme-balham'
-        >
-          <AgGridReact
-            columnDefs={this.state.columnDefs}
-            rowData={this.state.rowData}
-            gridOptions={gridOptions}
-            modules={this.state.modules}
-            defaultColDef={this.state.defaultColDef}
-            rowSelection={this.state.rowSelection}
-            onGridSizeChanged={this.onGridSizeChanged}
-          />
+          <div
+            id='grid-wrapper'
+            style={{
+              height: '500px',
+              width: '100%',
+            }}
+            className='ag-theme-balham'
+          >
+            <AgGridReact
+              columnDefs={this.state.columnDefs}
+              rowData={this.state.rowData}
+              gridOptions={gridOptions}
+              modules={this.state.modules}
+              defaultColDef={this.state.defaultColDef}
+              rowSelection={this.state.rowSelection}
+              onGridSizeChanged={this.onGridSizeChanged}
+            />
+          </div>
         </div>
       </div>
     )
