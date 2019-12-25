@@ -15,10 +15,19 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background-color: #090c9b;
   padding-left: 2%;
   padding-right: 2%;
   height: auto;
+
+  .searchAccounts{
+      border: none;
+      height: 30px;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.89rem;
+  }
 
   h1 {
     color: white;
