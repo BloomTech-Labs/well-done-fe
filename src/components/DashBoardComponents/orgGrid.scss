@@ -1,14 +1,9 @@
-
-$paleCBlue:#ACCDFF;
-
-@mixin defaultColor{
-    background-color:$paleCBlue;
-  }
-
+@import "colors";
 
 .orgGridBody {
+  @include background;
   width: 97.5%;
-  border: 2px solid $paleCBlue;
+  @include border;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -16,7 +11,7 @@ $paleCBlue:#ACCDFF;
   box-shadow: 2px 1px 10px;
 }
 .orgGridHeader {
-  @include defaultColor;
+  @include background;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -37,7 +32,7 @@ $paleCBlue:#ACCDFF;
     color: white;
   }
   .orgHeaderButton {
-    @include defaultColor;
+    @include background;
     color: white;
     border: none;
   }

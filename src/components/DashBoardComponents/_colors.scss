@@ -1,0 +1,9 @@
+$coolBlue:#ACCDFF;
+
+@mixin background{
+    background-color:$coolBlue;
+  }
+
+@mixin border{
+    border:2px solid $coolBlue
+}

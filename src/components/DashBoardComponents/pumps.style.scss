@@ -1,9 +1,4 @@
-
-$paleCBlue:#ACCDFF;
-
-@mixin defaultColor{
-    background-color:$paleCBlue;
-  }
+@import "colors";
 
 .pumpChart {
   width: 48%;
@@ -19,7 +14,7 @@ $paleCBlue:#ACCDFF;
     align-items: center;
     width: 100%;
     padding: 0.25rem 0.6rem;
-    @include defaultColor;
+    @include background;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
@@ -29,7 +24,7 @@ $paleCBlue:#ACCDFF;
 
       .pumpHeaderButton {
         height: 100%;
-        @include defaultColor;
+        @include background;
         color: white;
         border: none;
       }
