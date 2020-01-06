@@ -31,7 +31,7 @@
     }
 
     .pumpHeaderName {
-      color: white;
+      @include header-text;
     }
 
     .searchInPumps {
@@ -63,7 +63,7 @@
 
 .btnCon {
   .btn-info {
-    color: blue;
+    @include view-onGrid;
     background: none;
     border: none;
   }

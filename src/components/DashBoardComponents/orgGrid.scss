@@ -29,11 +29,10 @@
   }
 
   h1 {
-    color: white;
+    @include header-text;
   }
   .orgHeaderButton {
     @include grid-background;
-    color: white;
-    border: none;
+    @include header-text;
   }
 }

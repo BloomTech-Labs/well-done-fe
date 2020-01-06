@@ -20,7 +20,7 @@
   height: auto;
 
   h1 {
-    color: white;
+    @include header-text;
     padding-right: 5rem;
     padding-left: 1rem;
   }
