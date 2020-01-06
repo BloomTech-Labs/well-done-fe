@@ -8,7 +8,7 @@ import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 
 //redux
 import {useDispatch} from 'react-redux'
-import deletePump from '../actions/pumpAction'
+import {deleteSensor} from '../actions/sensorActions'
 
 
 const { Title } = Typography
@@ -55,10 +55,10 @@ const MonitorDetails = props => {
 
   //delete
   const dispatch = useDispatch()
-  
+
   const deleteHandler = e => {
     e.prevent.Default()
-    dispatch(deletePump(physical_id))
+    dispatch(deleteSensor(physical_id))
   }
 
   const padHistory = history.filter(pad => {

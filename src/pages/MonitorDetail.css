@@ -1,3 +1,10 @@
 .mapboxgl-ctrl-logo {
     display: none !important;
 }
+
+.DeleteMonitorDetails{
+    position: fixed;
+    right:30px;
+    
+    color:red;
+}
