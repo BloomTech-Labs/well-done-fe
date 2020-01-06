@@ -16,3 +16,8 @@ export const fetchPumps = () => dispatch => {
 }
 
 //add .post 
+
+//delete
+export const deletePump = () => dispatch => {
+    
+}
