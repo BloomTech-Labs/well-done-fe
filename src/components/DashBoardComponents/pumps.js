@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
-import gridOptions from '../Grid/Pagination'
 
+import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
 
@@ -13,7 +13,7 @@ import PumpsModal from './PumpsModal'
 
 const Pumps = props => {
   //grid style options
-  gridOptions.rowHeight = 40
+ 
 
   const fields = {
     columnDefs: [
@@ -103,7 +103,8 @@ const Pumps = props => {
 
   //filter function
   function onQuickFilterChanged(params) {
-    gridOptions.api.setQuickFilter(document.getElementById('quickFilter').value)
+    gridOptionss.api.setQuickFilter(document.getElementById('quickFilter').value)
+    console.log(gridOptionss, 'looks here for pumps filter')
   }
 
   return (
@@ -141,7 +142,7 @@ const Pumps = props => {
                 {...prop}
                 columnDefs={fields.columnDefs}
                 rowData={props.gridInfo}
-                gridOptions={gridOptions}
+                gridOptions={gridOptionss}
                 // defaultColDef={this.state.defaultColDef}
                 // rowSelection={this.state.rowSelection}
                 // onGridReady={onGridReady}
