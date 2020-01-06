@@ -11,6 +11,9 @@ import './pumps.style.scss'
 
 import PumpsModal from './PumpsModal'
 
+import { AiOutlineSearch } from "react-icons/ai";
+
+
 const Pumps = props => {
   //grid style options
  
@@ -111,20 +114,23 @@ const Pumps = props => {
     <div className='pumpChart'>
       <div className='pumpHeader'>
         <div className='pumpHeaderName'>Pumps</div>
+      <div className="searchContainer">
         <input
           className='searchInPumps'
           type='text'
           onInput={onQuickFilterChanged}
           id='quickFilter'
-          placeholder=' search...'
-        />
-
-        <div className='modal'>
-          <PumpsModal />
+          placeholder=' search...' 
+          />
+          <AiOutlineSearch  className="searchIcon" />
         </div>
-        {/* <div className='pumpHeaderCon'>
-          <button className='pumpHeaderButton'>+ Add Pumps</button>
+
+
+        {/* <div className='modal'>
+          <PumpsModal />
         </div> */}
+        {/* <div className='pumpHeaderCon'>
+          <button className='pumpHeaderButton'>+ Add Pumps</button> */}
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div

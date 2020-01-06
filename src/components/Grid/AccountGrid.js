@@ -7,6 +7,8 @@ import 'antd/dist/antd.css'
 import ModalOperator from '../../components/ModalTest'
 import gridOptions3 from '../Grid/gridOptions3'
 
+import { AiOutlineSearch } from "react-icons/ai";
+
 import './accountGrid.scss'
 
 class Grid extends Component {
@@ -184,7 +186,7 @@ class Grid extends Component {
         <div className='accountBody'>
           <div className='accountHeader'>
             <h1>Accounts</h1>
-
+          <div className="searchContainer">
             <input
               className='searchAccounts'
               type='text'
@@ -192,10 +194,12 @@ class Grid extends Component {
               id='quickFilterss'
               placeholder=' search...'
             />
+            <AiOutlineSearch  className="searchIcon" />
+        </div>
 
-            <div className='modal'>
+            {/* <div className='modal'>
               <ModalOperator />
-            </div>
+            </div> */}
           </div>
 
           <div
