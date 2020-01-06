@@ -1,0 +1,9 @@
+$paleCBlue:#ACCDFF;
+
+@mixin defaultColor{
+    background-color:$paleCBlue;
+  }
+
+@mixin charBorderColor{
+    background-color:$paleCBlue;
+}

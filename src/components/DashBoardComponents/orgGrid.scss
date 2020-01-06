@@ -1,10 +1,14 @@
-html,
-body {
-  margin: 0;
-}
+
+$paleCBlue:#ACCDFF;
+
+@mixin defaultColor{
+    background-color:$paleCBlue;
+  }
+
+
 .orgGridBody {
   width: 97.5%;
-  border: 2px solid #090c9b;
+  border: 2px solid $paleCBlue;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -12,11 +16,11 @@ body {
   box-shadow: 2px 1px 10px;
 }
 .orgGridHeader {
+  @include defaultColor;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #090c9b;
   padding-left: 2%;
   padding-right: 2%;
   height: auto;
@@ -33,7 +37,7 @@ body {
     color: white;
   }
   .orgHeaderButton {
-    background-color: #090c9b;
+    @include defaultColor;
     color: white;
     border: none;
   }
