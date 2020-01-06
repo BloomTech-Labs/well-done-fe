@@ -1,3 +1,9 @@
+$paleCBlue:#ACCDFF;
+
+@mixin defaultColor{
+    background-color:$paleCBlue;
+  }
+
 html,
 body {
   margin: 0;
@@ -5,7 +11,7 @@ body {
 
 .accountBody {
   width: 97.5%;
-  border: 2px solid #090c9b;
+  border: 2px solid $paleCBlue;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -16,7 +22,7 @@ body {
 .accountHeader {
   display: flex;
   justify-content: space-between;
-  background: #090c9b;
+  @include defaultColor;
   padding-left: 2%;
   padding-right: 2%;
   height: auto;
