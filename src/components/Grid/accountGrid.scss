@@ -1,11 +1,9 @@
-html,
-body {
-  margin: 0;
-}
+@import "src/colors";
+
 
 .accountBody {
   width: 97.5%;
-  border: 2px solid #090c9b;
+  @include grid-border;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -16,7 +14,7 @@ body {
 .accountHeader {
   display: flex;
   justify-content: space-between;
-  background: #090c9b;
+  @include grid-background;
   padding-left: 2%;
   padding-right: 2%;
   height: auto;

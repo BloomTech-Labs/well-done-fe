@@ -1,10 +1,9 @@
-html,
-body {
-  margin: 0;
-}
+@import "src/colors";
+
 .orgGridBody {
+  @include grid-background;
   width: 97.5%;
-  border: 2px solid #090c9b;
+  @include grid-border;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -12,19 +11,28 @@ body {
   box-shadow: 2px 1px 10px;
 }
 .orgGridHeader {
+  @include grid-background;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #090c9b;
+  align-items: center;
   padding-left: 2%;
   padding-right: 2%;
   height: auto;
+
+  .searchAccounts{
+      border: none;
+      height: 30px;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.89rem;
+  }
 
   h1 {
     color: white;
   }
   .orgHeaderButton {
-    background-color: #090c9b;
+    @include grid-background;
     color: white;
     border: none;
   }
