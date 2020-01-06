@@ -4,8 +4,7 @@ import './orgGrid.scss'
 import 'antd/dist/antd.css'
 // import gridOptions from '../Grid/Pagination'
 import gridOptions2 from '../Grid/gridOptions2'
-
-
+import { AiOutlineSearch } from "react-icons/ai"
 import OrgModal from './OrgModal'
 
 class OrgGrid extends Component {
@@ -135,17 +134,24 @@ class OrgGrid extends Component {
       <div className='orgGridBody'>
         <div className='orgGridHeader'>
           <h1>Organizations</h1>
+      <div className="inputContainer">
 
           <input
             className='searchAccounts'
             type='text'
             onInput={this.onQuickFilterChanged}
             id='quickFilters'
-            placeholder=' search...'
-          />
+            placeholder='Search'
+   
 
+          />
+            <AiOutlineSearch size={24} style={{ position: "relative", right:"28px",top:"2px", background:"transparent" }} />
+              </div>  
+       
+    
           <div className='modal'>
-            <OrgModal />
+            {/* <OrgModal /> */}
+           
           </div>
         </div>
         <div
