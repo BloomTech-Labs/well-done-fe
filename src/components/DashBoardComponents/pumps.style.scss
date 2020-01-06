@@ -14,7 +14,7 @@
     align-items: center;
     width: 100%;
     padding: 0.25rem 0.6rem;
-    @include background;
+    @include grid-background;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
@@ -24,7 +24,7 @@
 
       .pumpHeaderButton {
         height: 100%;
-        @include background;
+        @include grid-background;
         color: white;
         border: none;
       }

@@ -1,9 +1,9 @@
 @import "src/colors";
 
 .orgGridBody {
-  @include background;
+  @include grid-background;
   width: 97.5%;
-  @include border;
+  @include grid-border;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -11,7 +11,7 @@
   box-shadow: 2px 1px 10px;
 }
 .orgGridHeader {
-  @include background;
+  @include grid-background;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -32,7 +32,7 @@
     color: white;
   }
   .orgHeaderButton {
-    @include background;
+    @include grid-background;
     color: white;
     border: none;
   }

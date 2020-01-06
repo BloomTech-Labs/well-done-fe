@@ -1,9 +1,18 @@
 $coolBlue:#ACCDFF;
+$periwinkle:#BFC2FF;
+$vLBlue:#6562FF;
+$green:#01c000;
+$red: #FA0707;
+$duke: #090c9b;
+$navy:#000066;
+$oxford:#000048;
+$black:#202020;
+$orange:#FFAD34;
 
-@mixin background{
+@mixin grid-background{
     background-color:$coolBlue;
   }
 
-@mixin border{
+@mixin grid-border{
     border:2px solid $coolBlue
 }
