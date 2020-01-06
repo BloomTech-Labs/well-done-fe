@@ -1,3 +1,4 @@
+@import "src/colors";
 html {
   font-size: 62.5%;
 }
@@ -6,7 +7,7 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #e5e5e5 !important;
+  @include body-background;
 }
 
 code {

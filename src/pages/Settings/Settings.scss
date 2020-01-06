@@ -1,4 +1,5 @@
 // For Settings Page
+@import "src/colors";
 html,
 head,
 body {
@@ -9,7 +10,7 @@ body {
   height: 100vh;
   width: 100%;
   display: flex;
-  background: #e5e5e5;
+  @include body-background;
   .forms {
     display: flex;
     flex-direction: column;

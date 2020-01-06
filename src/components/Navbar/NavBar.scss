@@ -1,8 +1,9 @@
+@import "src/colors";
 nav {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  background: #082b84;
+  @include navbar-bg;
   position: sticky;
   top: 0px;
   z-index: 5;
@@ -54,9 +55,8 @@ nav {
   width:150px;
   top: 40px;
   z-index: 5;
-  background: #AFE2F9;
+ @include dropDown-Bgclr;
   right: 0px;
-  color: black;
   padding: 5px;
   padding-top:20px;
   height:130px;

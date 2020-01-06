@@ -14,14 +14,22 @@
 .accountHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   @include grid-background;
   padding-left: 2%;
   padding-right: 2%;
   height: auto;
 
   h1 {
-    color: white;
+    @include header-text;
     padding-right: 5rem;
     padding-left: 1rem;
   }
+  .searchAccounts{
+    border: none;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 0.89rem;
+}
+
 }
