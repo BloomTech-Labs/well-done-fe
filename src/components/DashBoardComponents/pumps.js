@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Route } from 'react-router-dom'
 import { AgGridReact } from 'ag-grid-react'
@@ -10,13 +10,13 @@ import ViewButton from './ViewButton'
 import './pumps.style.scss'
 
 import PumpsModal from './PumpsModal'
+import TrashCan from './TrashCan'
 
-import { AiOutlineSearch } from "react-icons/ai";
-
+import { AiOutlineSearch } from 'react-icons/ai'
 
 const Pumps = props => {
+  const [displayView, setDisplayView] = useState(0)
   //grid style options
- 
 
   const fields = {
     columnDefs: [
@@ -80,8 +80,19 @@ const Pumps = props => {
     ],
     context: { componentParent: this },
     frameworkComponents: {
-      viewButton: ViewButton,
+      viewButton: displayView === 0 ? ViewButton : TrashCan,
     },
+  }
+
+  const viewHandler = () => {
+    if (displayView === 0) {
+      setDisplayView(displayView + 1)
+    } else {
+      setDisplayView(0)
+    }
+
+    refreshCells()
+    console.log('working', displayView)
   }
 
   const onGridSizeChanged = params => {
@@ -106,26 +117,32 @@ const Pumps = props => {
 
   //filter function
   function onQuickFilterChanged(params) {
-    gridOptionss.api.setQuickFilter(document.getElementById('quickFilter').value)
+    gridOptionss.api.setQuickFilter(
+      document.getElementById('quickFilter').value
+    )
     console.log(gridOptionss, 'looks here for pumps filter')
+  }
+
+  function refreshCells(params) {
+    gridOptionss.api.refreshCells(document.getElementById('myGrid2'))
   }
 
   return (
     <div className='pumpChart'>
       <div className='pumpHeader'>
         <div className='pumpHeaderName'>Pumps</div>
-      <div className="searchContainer">
-        <input
-          className='searchInPumps'
-          type='text'
-          onInput={onQuickFilterChanged}
-          id='quickFilter'
-          placeholder=' search...' 
+        <div className='searchContainer'>
+          <input
+            className='searchInPumps'
+            type='text'
+            onInput={onQuickFilterChanged}
+            id='quickFilter'
+            placeholder=' search...'
           />
-          <AiOutlineSearch  className="searchIcon" />
+          <AiOutlineSearch className='searchIcon' />
         </div>
 
-
+        <button onClick={() => viewHandler()}>Delete</button>
         {/* <div className='modal'>
           <PumpsModal />
         </div> */}
@@ -134,7 +151,7 @@ const Pumps = props => {
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
-          id='myGrid'
+          id='myGrid2'
           style={{
             height: '500px',
             width: '100%',
@@ -152,6 +169,7 @@ const Pumps = props => {
                 // defaultColDef={this.state.defaultColDef}
                 // rowSelection={this.state.rowSelection}
                 // onGridReady={onGridReady}
+                refreshCells={refreshCells}
                 selectedPump={props.selectedPump}
                 setSelectedPump={props.setSelectedPump}
                 context={fields.context}

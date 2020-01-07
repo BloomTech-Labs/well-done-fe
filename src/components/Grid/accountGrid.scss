@@ -1,5 +1,4 @@
-@import "src/colors";
-
+@import 'src/colors';
 
 .accountBody {
   width: 97.5%;
@@ -9,53 +8,40 @@
   margin-right: auto;
   margin-top: 2.5%;
   box-shadow: 2px 1px 10px;
-  border:none;
+  border: none;
 }
 
 .accountHeader {
-<<<<<<< HEAD
-=======
   display: flex;
   justify-content: space-between;
   align-items: center;
->>>>>>> 734feb3441ad4e2b2f1447bdc6be3e0b8c42d727
   @include grid-background;
   display: flex;
   align-items: center;
- 
 
   h1 {
-<<<<<<< HEAD
-    font-size:2.2rem;
-    color: white;
-    padding-right: 1.1rem;
-=======
     @include header-text;
     padding-right: 5rem;
->>>>>>> 734feb3441ad4e2b2f1447bdc6be3e0b8c42d727
     padding-left: 1rem;
-    margin-bottom:.5%;
-    margin-top:.5%;
-    
+    margin-bottom: 0.5%;
+    margin-top: 0.5%;
   }
-  .searchAccounts{
-      border: none;
-      width:26rem;
-      height:25px;
-      margin-left:10%;
-      border-radius: 2px;
-      font-size: 0.89rem;
+  .searchAccounts {
+    border: none;
+    width: 26rem;
+    height: 25px;
+    margin-left: 10%;
+    border-radius: 2px;
+    font-size: 0.89rem;
 
-      .searchContainer{
-        display:flex;
+    .searchContainer {
+      display: flex;
     }
   }
-  .searchAccounts{
+  .searchAccounts {
     border: none;
     height: 30px;
     border-radius: 8px;
     font-size: 0.89rem;
+  }
 }
-
-}
-
