@@ -15,7 +15,7 @@ const NonFuncToggle = props => {
   return checked?(
     <div class="tooltip" >
       <button onClick={handleChange} className="iconBtn" >
-        <img src={NonFunctioning} alt='Non-functioning pump'/>
+        <img src={NonFunctioning} alt='Non-functioning pump' className="iconPump"/>
         <span class="tooltiptext">Non-Functioning</span>
       </button>
     </div>

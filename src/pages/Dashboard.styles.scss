@@ -1,6 +1,4 @@
-.dashBoard {
-  position: relative;
-}
+
 
 .orgActPumps {
   display: flex;
@@ -8,28 +6,26 @@
   margin: 0.5rem;
 }
 
-.mapsContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 3.9rem 0px;
-}
-
 .innerMapFlex {
   display: flex;
   justify-content: center;
-  width: 97%;
+  width: 96%;
+  margin-bottom:5rem;
 }
 
-.mapSearchFilterContainer {
-  border: 2px solid red;
-  height: 400px;
-
-}
 .dash-mob {
   display: none;
   @media (max-width: 800px) {
     display: inherit;
   }
+}
+.tables-container {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.filterContainer{
+  position: absolute;
+  top:200px;
+  right:50px;
 }
