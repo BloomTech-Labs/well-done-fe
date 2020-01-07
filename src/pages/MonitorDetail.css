@@ -1,3 +1,8 @@
 .mapboxgl-ctrl-logo {
     display: none !important;
 }
+
+.deleteMonitorDetails{
+    right:30px;
+    color:red;
+}

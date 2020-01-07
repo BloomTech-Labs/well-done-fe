@@ -6,6 +6,11 @@ import 'antd/dist/antd.css'
 import './MonitorDetail.css'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 
+//redux
+import {useDispatch} from 'react-redux'
+import {deleteSensor} from '../actions/sensorActions'
+
+
 const { Title } = Typography
 
 const MonitorDetails = props => {
@@ -45,6 +50,17 @@ const MonitorDetails = props => {
     longitude,
   } = props.selectedPump
 
+  console.log(`physical id`,physical_id)
+
+
+  //delete
+  const dispatch = useDispatch()
+
+  const deleteHandler = event => {
+    event.preventDefault()
+    dispatch(deleteSensor(physical_id))
+  }
+
   const padHistory = history.filter(pad => {
     return pad.sensor_id == physical_id
   })
@@ -70,6 +86,7 @@ const MonitorDetails = props => {
 
   return (
     <div>
+      <button  className="deleteMonitorDetails" onClick={deleteHandler}><i class="icon-trash"></i>Delete</button>
       <Row>
         <Col span={20} offset={4}>
           <Title>{physical_id}</Title>
