@@ -9,7 +9,7 @@ export default function Map(props) {
     const listener = e => {
       if (e.key === 'Escape') {
         props.setSelectedPump(null)
-      }
+      } 
     }
     window.addEventListener('keydown', listener)
 
@@ -23,7 +23,14 @@ export default function Map(props) {
         <ReactMapGl
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
-          onViewportChange={props.setViewport(props.viewport)}
+          onViewportChange={viewport => {
+            viewport.width = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+            
+            
+            props.setViewport(viewport)
+          }}
           {...props.viewport}
         >
           <Pin
