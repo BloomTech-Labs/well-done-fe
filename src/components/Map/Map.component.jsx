@@ -3,7 +3,6 @@ import ReactMapGl, { Popup } from 'react-map-gl'
 import './Map.styles.scss'
 import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
-import { Row, Col } from 'antd'
 
 export default function Map(props) {
   useEffect(() => {
