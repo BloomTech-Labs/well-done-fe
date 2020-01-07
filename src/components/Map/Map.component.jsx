@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import ReactMapGl, { Popup } from 'react-map-gl'
 import './Map.styles.scss'
 import PopupInfo from '../PopupInfo/PopupInfo.component'
@@ -23,9 +23,7 @@ export default function Map(props) {
         <ReactMapGl
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
-          onViewportChange={viewport => {
-            props.setViewport(viewport)
-          }}
+          onViewportChange={props.setViewport(props.viewport)}
           {...props.viewport}
         >
           <Pin
