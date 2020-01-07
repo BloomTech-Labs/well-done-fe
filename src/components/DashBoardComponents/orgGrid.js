@@ -133,7 +133,7 @@ class OrgGrid extends Component {
     return (
       <div className='orgGridBody'>
         <div className='orgGridHeader'>
-          <h1>Organizations</h1>
+         <h1>Organizations</h1> 
       <div className="inputContainer">
 
           <input
