@@ -17,6 +17,12 @@ import { AiOutlineSearch } from 'react-icons/ai'
 
 import Archivebutton from '../../icons/Archivebutton.svg'
 
+//redux
+import { connect } from 'react-redux';
+import {deleteSensor} from '../../actions/sensorActions'
+
+
+
 
 class pumps extends Component {
   constructor(props) {
@@ -89,6 +95,7 @@ class pumps extends Component {
                     setSelectedPump={this.props.setSelectedPump}
                     data={params.data}
                     otherProps={this.props}
+                    deleteSensor = {this.props.deleteSensor}
                   />
                 )}
               </div>
@@ -208,4 +215,14 @@ class pumps extends Component {
     )
   }
 }
-export default pumps
+// export default pumps
+const mapStateToProps = state => {
+  return {
+   
+  };
+  };
+
+export default connect(
+  mapStateToProps,
+  { deleteSensor}
+  )(pumps);

@@ -1,5 +1,9 @@
 import React from 'react'
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
+// import { connect } from 'react-redux';
+// import {deleteSensor} from '../../actions/sensorActions'
+
+
 
 
 const TrashCan = props => {
@@ -9,9 +13,7 @@ const TrashCan = props => {
 
   const deleteHandler = (event, sensor_index) => {
     event.preventDefault()
-    AxiosWithAuth()
-    .delete(`localhost:4000/api/sensors/${sensor_index}`)
-    .then(res => console.log(res.data))
+    props.deleteSensor(sensor_index)
   }
 
   return(
@@ -29,3 +31,7 @@ const TrashCan = props => {
 }
 
 export default TrashCan
+
+// export default connect(
+//   { deleteSensor}
+//   )(TrashCan);

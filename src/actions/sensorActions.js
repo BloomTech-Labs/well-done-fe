@@ -6,6 +6,8 @@ export const SENSOR_SUCCESS = 'SENSOR_SUCCESS'
 export const UPDATE_INFO = 'UPDATE_INFO'
 export const SENSOR_POST= 'SENSOR_POST'
 
+export const SENSOR_DELETE = 'SENSOR_DELETE'
+
 export const fetchSensors = () => dispatch => {
   dispatch({ type: SENSOR_FETCH })
   AxiosWithAuth()
@@ -30,7 +32,9 @@ export const postSensor = (sensors) => dispatch => {
 
   //delete
 export const deleteSensor = (sensor_index) => dispatch => {
+  dispatch({type: SENSOR_FETCH})
   AxiosWithAuth()
   .delete(`${process.env.REACT_APP_HEROKU_API}/api/sensors/${sensor_index}`)
-  .then(res => console.log(res.data))
+  .then(res =>  dispatch({type: SENSOR_DELETE, payload: res.data}))
+  .catch(res => dispatch({type: SENSOR_FAILURE, payload:res.data}))
 }
