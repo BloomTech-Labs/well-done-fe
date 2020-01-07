@@ -1,4 +1,5 @@
 @import "src/colors";
+
 html {
   font-size: 62.5%;
 }
@@ -13,4 +14,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.app-container{
+  border:2px solid black;
+  margin: 0 auto;
+  width:auto;
+  height: auto;
+
 }

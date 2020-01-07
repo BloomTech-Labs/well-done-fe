@@ -3,7 +3,7 @@
 .orgGridBody {
   @include grid-background;
   width: 97.5%;
-  // @include grid-border;
+  @include grid-border;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -13,10 +13,12 @@
 .orgGridHeader {
   @include grid-background;
   display: flex;
-  // flex-direction: row;
-  // justify-content: space-between;
+  font-size: 2rem;
   align-items: center;
-  padding: 0.25rem 0.6rem;
+  h1 {
+    @include header-text;
+    
+  }
 
   .searchAccounts {
     border: none;
@@ -31,11 +33,12 @@
     display: flex;
   }
 
-  h1 {
-    @include header-text;
-  }
   .orgHeaderButton {
     @include grid-background;
     @include header-text;
   }
 }
+ .downloadButton{
+   background: transparent;
+   border: none;
+ }

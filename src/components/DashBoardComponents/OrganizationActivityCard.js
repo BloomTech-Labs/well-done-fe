@@ -7,7 +7,7 @@ const OrganizationActivityCard = props => {
       return item
     }
   })
-  console.log(found)
+  // console.log(found)
 
   const routeHandler = e => {
     e.preventDefault()
