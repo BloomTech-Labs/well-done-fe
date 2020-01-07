@@ -8,11 +8,19 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
+import { Button } from 'antd'
 
 import PumpsModal from './PumpsModal'
 import TrashCan from './TrashCan'
 
+<<<<<<< HEAD
+import { AiOutlineSearch } from "react-icons/ai";
+
+import Archivebutton from "../../icons/Archivebutton.svg"
+
+=======
 import { AiOutlineSearch } from 'react-icons/ai'
+>>>>>>> 85e0e409f3da1377ab7fc5f14f6d023428e8485b
 
 const Pumps = props => {
   const [displayView, setDisplayView] = useState(0)
@@ -117,10 +125,8 @@ const Pumps = props => {
 
   //filter function
   function onQuickFilterChanged(params) {
-    gridOptionss.api.setQuickFilter(
-      document.getElementById('quickFilter').value
-    )
-    console.log(gridOptionss, 'looks here for pumps filter')
+    gridOptionss.api.setQuickFilter(document.getElementById('quickFilter').value)
+    console.log(gridOptionss, 'look here for pumps filter')
   }
 
   function refreshCells(params) {
@@ -130,6 +136,16 @@ const Pumps = props => {
     console.log('working')
   }
 
+//CSV
+  function  exportToCsv () {
+    var params = {
+      skipHeader: false,
+      skipFooters: true,
+      skipGroups: true,
+      fileName: 'OverviewGrid.csv',
+    }
+    gridOptionss.api.exportDataAsCsv(params)
+  }
   return (
     <div className='pumpChart'>
       <div className='pumpHeader'>
@@ -144,6 +160,16 @@ const Pumps = props => {
           />
           <AiOutlineSearch className='searchIcon' />
         </div>
+        <button
+        className="dwnbutton"
+          type='default'
+          icon='download'
+          size='small'
+          onClick={exportToCsv}
+        >
+          <img src={Archivebutton} alt="download"></img>
+        </button>
+
 
         <button onClick={refreshCells}>Delete</button>
         {/* <div className='modal'>

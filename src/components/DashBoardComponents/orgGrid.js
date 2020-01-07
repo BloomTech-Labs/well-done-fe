@@ -4,15 +4,15 @@ import './orgGrid.scss'
 import 'antd/dist/antd.css'
 // import gridOptions from '../Grid/Pagination'
 import gridOptions2 from '../Grid/gridOptions2'
-import { AiOutlineSearch } from "react-icons/ai"
+import { AiOutlineSearch } from 'react-icons/ai'
 import OrgModal from './OrgModal'
 
-class OrgGrid extends Component {
+import Archivebutton from 'icons/Archivebutton.svg'
 
+class OrgGrid extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
       columnDefs: [
         {
           headerName: 'Organization',
@@ -120,39 +120,58 @@ class OrgGrid extends Component {
     params.api.sizeColumnsToFit()
   }
 
-
-
-  onQuickFilterChanged(params){ 
-    gridOptions2.api.setQuickFilter(document.getElementById('quickFilters').value)
+  onQuickFilterChanged(params) {
+    gridOptions2.api.setQuickFilter(
+      document.getElementById('quickFilters').value
+    )
     console.log(gridOptions2, 'this is the grid api')
   }
 
-
+  exportToCsv = function() {
+    var params = {
+      skipHeader: false,
+      skipFooters: true,
+      skipGroups: true,
+      fileName: 'OverviewGrid.csv',
+    }
+    gridOptions2.api.exportDataAsCsv(params)
+  }
 
   render() {
     return (
       <div className='orgGridBody'>
         <div className='orgGridHeader'>
-    <h1>Organizations</h1>
-      <div className="inputContainer">
-
-          <input
-            className='searchAccounts'
-            type='text'
-            onInput={this.onQuickFilterChanged}
-            id='quickFilters'
-            placeholder='Search'
-   
-
-          />
-            <AiOutlineSearch size={24} style={{ position: "relative", right:"28px",top:"2px", background:"transparent" }} />
-              </div>  
-       
-    
-          <div className='modal'>
-            {/* <OrgModal /> */}
-           
+          <h1>Organizations</h1>
+          <div className='inputContainer'>
+            <input
+              className='searchAccounts'
+              type='text'
+              onInput={this.onQuickFilterChanged}
+              id='quickFilters'
+              placeholder='Search'
+            />
+            <AiOutlineSearch
+              size={24}
+              style={{
+                position: 'relative',
+                right: '28px',
+                top: '2px',
+                background: 'transparent',
+              }}
+            />
           </div>
+
+          <button
+            className='downloadButton'
+            type='default'
+            icon='download'
+            size='small'
+            onClick={this.exportToCsv.bind(this)}
+          >
+            <img src={Archivebutton} alt="download"></img>
+          </button>
+
+          <div className='modal'>{/* <OrgModal /> */}</div>
         </div>
         <div
           className='ag-theme-balham'
