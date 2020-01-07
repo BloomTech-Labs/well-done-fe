@@ -1,6 +1,4 @@
-.dashBoard {
-  position: relative;
-}
+
 
 .orgActPumps {
   display: flex;
@@ -19,4 +17,9 @@
   @media (max-width: 800px) {
     display: inherit;
   }
+}
+.tables-container {
+  border: 3px solid green;
+  max-width: 1800px;
+  margin: 0 auto;
 }
