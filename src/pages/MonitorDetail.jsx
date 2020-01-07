@@ -37,6 +37,7 @@ const MonitorDetails = props => {
   }, [])
 
   const {
+    sensor_index,
     physical_id,
     data_finished,
     reported_percent,
@@ -50,7 +51,7 @@ const MonitorDetails = props => {
     longitude,
   } = props.selectedPump
 
-  console.log(`physical id`,physical_id)
+  console.log(`physical id`,sensor_index)
 
 
   //delete
@@ -58,7 +59,7 @@ const MonitorDetails = props => {
 
   const deleteHandler = event => {
     event.preventDefault()
-    dispatch(deleteSensor(physical_id))
+    dispatch(deleteSensor(sensor_index))
   }
 
   const padHistory = history.filter(pad => {
