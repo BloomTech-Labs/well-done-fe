@@ -17,7 +17,6 @@ import { AiOutlineSearch } from 'react-icons/ai'
 
 import Archivebutton from '../../icons/Archivebutton.svg'
 
-
 class pumps extends Component {
   constructor(props) {
     super(props)
@@ -107,8 +106,6 @@ class pumps extends Component {
     }
   }
 
- 
-
   // process.env.REACT_APP_HEROKU_API}
   componentDidMount = () => {}
 
@@ -169,7 +166,9 @@ class pumps extends Component {
             <AiOutlineSearch className='searchIcon' />
           </div>
 
-          <button onClick={() => this.viewHandler()}>Delete</button>
+          <button onClick={() => this.viewHandler()}>
+            Delete<i class='icon-trash'></i>
+          </button>
           {/* <div className='modal'>
           <PumpsModal />
         </div> */}

@@ -101,7 +101,7 @@ const Dashboard = props => {
       {/* <Menu history={history} /> */}
       <div className='mapSearchFilterContainer'>
         <div className='mapSFInner'>
-          <Map
+          {/* <Map
             sensors={sensorSelector.sensors}
             funcToggle={funcToggle}
             nonFuncToggle={nonFuncToggle}
@@ -111,7 +111,7 @@ const Dashboard = props => {
             history={historySelector.history}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
-          />
+          /> */}
           <Search
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
@@ -120,13 +120,12 @@ const Dashboard = props => {
             sensors={sensorSelector.sensors}
           />
           <IconsFilter
-          sensors={sensorSelector.sensors}
-          setFuncToggle={setFuncToggle}
-          setNonFuncToggle={setNonFuncToggle}
-          setUnknownToggle={setUnknownToggle}
+            sensors={sensorSelector.sensors}
+            setFuncToggle={setFuncToggle}
+            setNonFuncToggle={setNonFuncToggle}
+            setUnknownToggle={setUnknownToggle}
           />
 
-          
           <Filter
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
