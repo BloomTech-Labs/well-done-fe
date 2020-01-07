@@ -8,10 +8,13 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
+import { Button } from 'antd'
 
 import PumpsModal from './PumpsModal'
 
 import { AiOutlineSearch } from "react-icons/ai";
+
+import Archivebutton from "../../icons/Archivebutton.svg"
 
 
 const Pumps = props => {
@@ -110,6 +113,16 @@ const Pumps = props => {
     console.log(gridOptionss, 'looks here for pumps filter')
   }
 
+//CSV
+  function  exportToCsv () {
+    var params = {
+      skipHeader: false,
+      skipFooters: true,
+      skipGroups: true,
+      fileName: 'OverviewGrid.csv',
+    }
+    gridOptionss.api.exportDataAsCsv(params)
+  }
   return (
     <div className='pumpChart'>
       <div className='pumpHeader'>
@@ -124,7 +137,15 @@ const Pumps = props => {
           />
           <AiOutlineSearch  className="searchIcon" />
         </div>
-
+        <button
+        className="dwnbutton"
+          type='default'
+          icon='download'
+          size='small'
+          onClick={exportToCsv}
+        >
+          <img src={Archivebutton} alt="download"></img>
+        </button>
 
         {/* <div className='modal'>
           <PumpsModal />
