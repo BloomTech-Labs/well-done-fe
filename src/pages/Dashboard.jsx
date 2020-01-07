@@ -15,6 +15,7 @@ import './Dashboard.styles.scss'
 import OrgGrid from '../components/DashBoardComponents/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 import './Dashboard.styles.scss'
+import Testing from '../components/DashBoardComponents/pumps'
 
 import AccountGrid from '../components/Grid/AccountGrid'
 
@@ -162,7 +163,7 @@ const Dashboard = props => {
         />
       </div>
       <OrgGrid />
-      <AccountGrid/>
+      <AccountGrid />
     </div>
   )
 }
