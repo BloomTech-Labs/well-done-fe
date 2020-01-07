@@ -98,7 +98,6 @@ const Dashboard = props => {
     <div className='dashboard'>
       {/* <Menu history={history} /> */}
       <div className='mapSearchFilterContainer'>
-        <div className='mapSFInner'>
           <Map
             sensors={sensorSelector.sensors}
             funcToggle={funcToggle}
@@ -125,7 +124,6 @@ const Dashboard = props => {
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
           />
-        </div>
       </div>
       <div className='orgActPumps'>
         <Route

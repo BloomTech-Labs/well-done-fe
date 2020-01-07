@@ -21,7 +21,6 @@ export default function Map(props) {
 
   return (
     <div className='mapsContainer'>
-      <div className='innerMapFlex'>
         <ReactMapGl
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
@@ -57,7 +56,6 @@ export default function Map(props) {
             </Popup>
           ) : null}
         </ReactMapGl>
-      </div>
     </div>
   )
 }
