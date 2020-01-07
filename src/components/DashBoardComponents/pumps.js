@@ -153,7 +153,7 @@ class pumps extends Component {
     this.gridApi.redrawRows()
     console.log('working', this.state.displayView)
   }
-
+ 
   onQuickFilterChanged(params) {
     gridOptionss.api.setQuickFilter(
       document.getElementById('quickFilter').value
@@ -164,7 +164,7 @@ class pumps extends Component {
     return (
       <div className='pumpChart'>
         <div className='pumpHeader'>
-          <div className='pumpHeaderName'>Pumps</div>
+          <div className='pumpHeaderName'><h1>Pumps</h1></div>
           <div className='searchContainer'>
             <input
               className='searchInPumps'

@@ -25,8 +25,11 @@
     }
 
     .orgActivityHeaderName {
-      @include header-text;
+      h1{
+        @include header-text;
+      }
     }
+   
   }
 }
 

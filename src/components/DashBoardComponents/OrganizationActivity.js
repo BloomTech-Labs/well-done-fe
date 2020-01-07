@@ -113,7 +113,9 @@ const OrganizationActivity = props => {
   return (
     <div className='orgActivityChart'>
       <div className='orgActivityHeader'>
-        <div className='orgActivityHeaderName'>Organization Activity</div>
+        <div className='orgActivityHeaderName'>
+          <h1>Organization Activity</h1>
+          </div>
       </div>
       <div className='orgActivityContainer'>
         {result.map((items, index) => {
