@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Switch from 'react-switch'
 
 import Functioning from '../../icons/PumpFunctioning.svg'
-
+import disabled from '../../icons/MapButtonDisabled.svg'
+import '../Toggle/FuncToggle.scss'
 
 const FuncToggle = props => {
   const [checked, setChecked] = useState(true)
@@ -12,13 +13,21 @@ const FuncToggle = props => {
     props.setFuncToggle(!checked)
   }
 
-  return (
-    <div>
-      <button onClick={handleChange} >
+  return checked?(
+    <div class="tooltip" >
+      <button onClick={handleChange}  className="iconBtn">
         <img src={Functioning} alt='Functioning pump'/>
+        <span class="tooltiptext">Functioning</span>
       </button>
     
     </div>
+  ):(
+    <div class="tooltip" >
+    <button onClick={handleChange}  className="iconBtn">
+      <img src={disabled} alt='Functioning pump'/>
+      <span class="tooltiptext">Functioning</span>
+    </button>
+  </div>
   )
 }
 
