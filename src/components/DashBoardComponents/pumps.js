@@ -65,6 +65,7 @@ const Pumps = props => {
         },
       },
       {
+        headerName: 'view',
         sortable: true,
         filter: true,
         cellRenderer: 'viewButton',
@@ -91,7 +92,6 @@ const Pumps = props => {
       setDisplayView(0)
     }
 
-    refreshCells()
     console.log('working', displayView)
   }
 
@@ -124,7 +124,10 @@ const Pumps = props => {
   }
 
   function refreshCells(params) {
+    gridOptionss.api.flashCells(document.getElementById('view'))
     gridOptionss.api.refreshCells(document.getElementById('myGrid2'))
+
+    console.log('working')
   }
 
   return (
@@ -142,7 +145,7 @@ const Pumps = props => {
           <AiOutlineSearch className='searchIcon' />
         </div>
 
-        <button onClick={() => viewHandler()}>Delete</button>
+        <button onClick={refreshCells}>Delete</button>
         {/* <div className='modal'>
           <PumpsModal />
         </div> */}
@@ -169,7 +172,6 @@ const Pumps = props => {
                 // defaultColDef={this.state.defaultColDef}
                 // rowSelection={this.state.rowSelection}
                 // onGridReady={onGridReady}
-                refreshCells={refreshCells}
                 selectedPump={props.selectedPump}
                 setSelectedPump={props.setSelectedPump}
                 context={fields.context}
