@@ -1,30 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import Menu from '../components/Menu/Menu.component'
-import MobileViewMenu from '../components/Menu/MobileViewMenu'
+import { Route } from 'react-router-dom'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
 import IconsFilter from '../components/Filter/IconFilters'
 import Pumps from '../components/DashBoardComponents/pumps'
-import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
-import './Dashboard.styles.scss'
 import OrgGrid from '../components/DashBoardComponents/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
-import './Dashboard.styles.scss'
 import Testing from '../components/DashBoardComponents/pumps'
-
 import AccountGrid from '../components/Grid/AccountGrid'
+
+import './Dashboard.styles.scss'
 
 const Dashboard = props => {
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
     longitude: 105.784788,
-    width: '100vw',
-    height: '100vh',
+    width: '100%',
+    height: '720px',
     zoom: 2,
   })
 
@@ -50,7 +46,7 @@ const Dashboard = props => {
         latitude: 13.5651,
         longitude: 104.7538,
         width: '100%',
-        height: '70vh',
+        height: '720px',
         zoom: 8,
         scrollZoom: false,
         boxZoom: false,
@@ -60,8 +56,7 @@ const Dashboard = props => {
       const searchedPlace = {
         latitude: props.searchFiltered[0].latitude,
         longitude: props.searchFiltered[0].longitude,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
         zoom: 11,
       }
       setViewport(searchedPlace)
@@ -98,7 +93,6 @@ const Dashboard = props => {
 
   return (
     <div className='dashboard'>
-      {/* <Menu history={history} /> */}
       <div className='mapSearchFilterContainer'>
         <div className='mapSFInner'>
           {/* <Map
@@ -125,7 +119,6 @@ const Dashboard = props => {
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
           />
-
           <Filter
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
@@ -133,36 +126,39 @@ const Dashboard = props => {
             setFuncToggle={setFuncToggle}
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
-          />
+          />{' '}
+          */}
         </div>
       </div>
-      <div className='orgActPumps'>
-        <Route
-          path='/dashboard'
-          render={prop => (
-            <OrganizationActivity
-              {...prop}
-              alertInfo={historySelector.alertInfo}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-              sensors={sensorSelector.sensors}
-            />
-          )}
-        />
-        <Route
-          path='/dashboard'
-          render={prop => (
-            <Pumps
-              {...prop}
-              gridInfo={sensorSelector.gridInfo}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-            />
-          )}
-        />
+      <div className='tables-container'>
+        <div className='orgActPumps'>
+          <Route
+            path='/dashboard'
+            render={prop => (
+              <OrganizationActivity
+                {...prop}
+                alertInfo={historySelector.alertInfo}
+                selectedPump={props.selectedPump}
+                setSelectedPump={props.setSelectedPump}
+                sensors={sensorSelector.sensors}
+              />
+            )}
+          />
+          <Route
+            path='/dashboard'
+            render={prop => (
+              <Pumps
+                {...prop}
+                gridInfo={sensorSelector.gridInfo}
+                selectedPump={props.selectedPump}
+                setSelectedPump={props.setSelectedPump}
+              />
+            )}
+          />
+        </div>
+        <OrgGrid />
+        <AccountGrid />
       </div>
-      <OrgGrid />
-      <AccountGrid />
     </div>
   )
 }

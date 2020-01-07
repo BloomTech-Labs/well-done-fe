@@ -29,6 +29,10 @@ $mainBackground:#e5e5e5;
 @mixin header-text{
   color:$black;
   font-size: 2.8rem;
+  padding-right: 1.1rem;
+  padding-left: 1rem;
+  margin-top: 0.5%;
+  
 }
 
 // changes color of view buttons on all grids on dashboard

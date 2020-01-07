@@ -1,5 +1,7 @@
 import React from 'react'
 import AxiosWithAuth from '../AxiosWithAuth/axiosWithAuth'
+// import { connect } from 'react-redux';
+// import {deleteSensor} from '../../actions/sensorActions'
 
 const TrashCan = props => {
   console.log('trashcan', props)
@@ -8,11 +10,7 @@ const TrashCan = props => {
 
   const deleteHandler = (event, sensor_index) => {
     event.preventDefault()
-    AxiosWithAuth()
-      .delete(
-        `https://well-done-staging-notification.herokuapp.com/api/sensors/${sensor_index}`
-      )
-      .then(res => console.log(res.data))
+    props.deleteSensor(sensor_index)
   }
 
   return (
@@ -29,3 +27,7 @@ const TrashCan = props => {
 }
 
 export default TrashCan
+
+// export default connect(
+//   { deleteSensor}
+//   )(TrashCan);

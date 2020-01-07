@@ -1,5 +1,7 @@
 .tooltip {
     position: relative;
+
+
   }
   
   .tooltip .tooltiptext {
@@ -10,6 +12,8 @@
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
+    right:90%;
+    top:30%;
   
     /* Position the tooltip */
     position: absolute;
@@ -22,9 +26,17 @@
 
   .iconBtn{
       border:none;
-      background:transparent;
       
       &:focus{
         outline:none;
       }
+  }
+
+  .iconPump{
+      background: #fff;
+      border-radius: 50%;
+    &:hover{
+        background: #EAEAEA;
+        border-radius: 50%;
+    }
   }

@@ -5,6 +5,7 @@ import {
   SENSOR_SUCCESS,
   SENSOR_FAILURE,
   UPDATE_INFO,
+  SENSOR_DELETE
 } from '../actions/sensorActions'
 
 const initialState = {
@@ -34,6 +35,17 @@ const sensorReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         error: action.payload,
+      }
+    case SENSOR_DELETE:
+      return {
+        ...state,
+        isFetching:false,
+        sensors: state.sensors.filter(e => {
+          if (e.sensor_index !== action.payload.id){
+            return e
+          }
+        })
+       
       }
     case UPDATE_INFO: {
       return {
