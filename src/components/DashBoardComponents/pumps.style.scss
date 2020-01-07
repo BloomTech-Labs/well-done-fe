@@ -1,9 +1,4 @@
-
-$paleCBlue:#ACCDFF;
-
-@mixin defaultColor{
-    background-color:$paleCBlue;
-  }
+@import "src/colors";
 
 .pumpChart {
   width: 48%;
@@ -15,11 +10,11 @@ $paleCBlue:#ACCDFF;
     display: flex;
     height: 50px;
     font-size: 2rem;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 0.25rem 0.6rem;
-    @include defaultColor;
+    @include grid-background;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
@@ -27,30 +22,31 @@ $paleCBlue:#ACCDFF;
       height: 100%;
       width: 500px;
 
-      .pumpHeaderButton {
-        height: 100%;
-        @include defaultColor;
-        color: white;
-        border: none;
-      }
+      // .pumpHeaderButton {
+      //   height: 100%;
+      //   @include grid-background;
+      //   color: white;
+      //   border: none;
+      // }
     }
 
     .pumpHeaderName {
-      color: white;
+      @include header-text;
     }
 
     .searchInPumps {
       border: none;
-      height: 30px;
-      padding: 0.8rem 1.4rem;
-      border-radius: 8px;
+      width:26rem;
+      height:25px;
+      margin-left:10%;
+      border-radius: 2px;
       font-size: 0.89rem;
 
-      @media (max-width: 1200px) {
-        padding: 2px 5px;
-        margin-left: 2%;
-        font-size: 0.75rem;
-      }
+      // @media (max-width: 1200px) {
+      //   padding: 2px 5px;
+      //   margin-left: 2%;
+      //   font-size: 0.75rem;
+      // }
     }
   }
 }
@@ -68,8 +64,20 @@ $paleCBlue:#ACCDFF;
 
 .btnCon {
   .btn-info {
-    color: blue;
+    @include view-onGrid;
     background: none;
     border: none;
   }
+}
+
+.searchIcon{
+   position: relative;
+   border:none;
+   font-size:24px;
+   right:28px;
+   top:0px;
+   background:transparent
+}
+.searchContainer{
+  display:flex;
 }

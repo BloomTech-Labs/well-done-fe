@@ -1,35 +1,50 @@
-$paleCBlue:#ACCDFF;
-
-@mixin defaultColor{
-    background-color:$paleCBlue;
-  }
-
-html,
-body {
-  margin: 0;
-}
+@import 'src/colors';
 
 .accountBody {
   width: 97.5%;
-  border: 2px solid $paleCBlue;
+  @include grid-border;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2.5%;
   box-shadow: 2px 1px 10px;
+  border: none;
 }
 
 .accountHeader {
   display: flex;
   justify-content: space-between;
-  @include defaultColor;
-  padding-left: 2%;
-  padding-right: 2%;
-  height: auto;
+  align-items: center;
+  @include grid-background;
+  display: flex;
+  align-items: center;
 
   h1 {
+    font-size: 2.2rem;
     color: white;
+    padding-right: 1.1rem;
+    @include header-text;
     padding-right: 5rem;
     padding-left: 1rem;
+    margin-bottom: 0.5%;
+    margin-top: 0.5%;
+  }
+  .searchAccounts {
+    border: none;
+    width: 26rem;
+    height: 25px;
+    margin-left: 10%;
+    border-radius: 2px;
+    font-size: 0.89rem;
+
+    .searchContainer {
+      display: flex;
+    }
+  }
+  .searchAccounts {
+    border: none;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 0.89rem;
   }
 }

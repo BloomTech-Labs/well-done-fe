@@ -1,14 +1,9 @@
-
-$paleCBlue:#ACCDFF;
-
-@mixin defaultColor{
-    background-color:$paleCBlue;
-  }
-
+@import 'src/colors';
 
 .orgGridBody {
+  @include grid-background;
   width: 97.5%;
-  border: 2px solid $paleCBlue;
+  // @include grid-border;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -16,29 +11,31 @@ $paleCBlue:#ACCDFF;
   box-shadow: 2px 1px 10px;
 }
 .orgGridHeader {
-  @include defaultColor;
+  @include grid-background;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  // flex-direction: row;
+  // justify-content: space-between;
   align-items: center;
-  padding-left: 2%;
-  padding-right: 2%;
-  height: auto;
+  padding: 0.25rem 0.6rem;
 
-  .searchAccounts{
-      border: none;
-      height: 30px;
-      padding: 0.8rem 1.4rem;
-      border-radius: 8px;
-      font-size: 0.89rem;
+  .searchAccounts {
+    border: none;
+    height: 3rem;
+    width: 26rem;
+    padding: 0.8rem 1.4rem;
+    border-radius: 8px;
+    font-size: 0.89rem;
+    margin-left: 10%;
+  }
+  .inputContainer {
+    display: flex;
   }
 
   h1 {
-    color: white;
+    @include header-text;
   }
   .orgHeaderButton {
-    @include defaultColor;
-    color: white;
-    border: none;
+    @include grid-background;
+    @include header-text;
   }
 }

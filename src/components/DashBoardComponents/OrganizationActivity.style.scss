@@ -1,8 +1,4 @@
-$paleCBlue:#ACCDFF;
-
-@mixin defaultColor{
-    background-color:$paleCBlue;
-  }
+@import "src/colors";
 
 .orgActivityChart {
   width: 48%;
@@ -18,12 +14,12 @@ $paleCBlue:#ACCDFF;
     align-items: center;
     width: 100%;
     padding: 0.25rem 0.6rem;
-    @include defaultColor;
+    @include grid-background;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 
     .orgActivityHeaderButton {
-      background-color: #090c9b;
+      @include grid-background;
       color: white;
       border: none;
     }
@@ -84,7 +80,7 @@ $paleCBlue:#ACCDFF;
       font-size: 1.5rem;
 
       .btn-info {
-        color: blue;
+        @include view-onGrid;
         background: none;
       }
     }

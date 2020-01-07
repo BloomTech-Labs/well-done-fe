@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import './orgGrid.scss'
 import 'antd/dist/antd.css'
-import gridOptions from '../Grid/Pagination'
-
+// import gridOptions from '../Grid/Pagination'
+import gridOptions2 from '../Grid/gridOptions2'
+import { AiOutlineSearch } from "react-icons/ai"
 import OrgModal from './OrgModal'
 
 class OrgGrid extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
+
       columnDefs: [
         {
           headerName: 'Organization',
@@ -117,26 +120,38 @@ class OrgGrid extends Component {
     params.api.sizeColumnsToFit()
   }
 
-  onQuickFilterChanged(params) {
-    gridOptions.api.setQuickFilter(document.getElementById('quickFilter').value)
+
+
+  onQuickFilterChanged(params){ 
+    gridOptions2.api.setQuickFilter(document.getElementById('quickFilters').value)
+    console.log(gridOptions2, 'this is the grid api')
   }
+
+
 
   render() {
     return (
       <div className='orgGridBody'>
         <div className='orgGridHeader'>
           <h1>Organizations</h1>
+      <div className="inputContainer">
 
           <input
             className='searchAccounts'
             type='text'
             onInput={this.onQuickFilterChanged}
-            id='quickFilter'
-            placeholder=' search...'
-          />
+            id='quickFilters'
+            placeholder='Search'
+   
 
+          />
+            <AiOutlineSearch size={24} style={{ position: "relative", right:"28px",top:"2px", background:"transparent" }} />
+              </div>  
+       
+    
           <div className='modal'>
-            <OrgModal />
+            {/* <OrgModal /> */}
+           
           </div>
         </div>
         <div
@@ -149,10 +164,9 @@ class OrgGrid extends Component {
           <AgGridReact
             columnDefs={this.state.columnDefs}
             rowData={this.state.rowData}
-            gridOptions={gridOptions}
+            gridOptions={gridOptions2}
             onGridReady={this.onGridReady}
             onGridSizeChanged={this.onGridSizeChanged}
-            // getRowHeight={this.state.getRowHeight}
           />
         </div>
       </div>

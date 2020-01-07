@@ -4,9 +4,10 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import 'antd/dist/antd.css'
 
-import gridOptions from './Pagination'
-
 import ModalOperator from '../../components/ModalTest'
+import gridOptions3 from '../Grid/gridOptions3'
+
+import { AiOutlineSearch } from "react-icons/ai";
 
 import './accountGrid.scss'
 
@@ -171,12 +172,12 @@ class Grid extends Component {
       skipGroups: true,
       fileName: 'OverviewGrid.csv',
     }
-    gridOptions.api.exportDataAsCsv(params)
+    gridOptions3.api.exportDataAsCsv(params)
   }
 
-  //filter function
+  // filter function
   onQuickFilterChanged(params) {
-    gridOptions.api.setQuickFilter(document.getElementById('quickFilter').value)
+    gridOptions3.api.setQuickFilter(document.getElementById('quickFilterss').value)
   }
 
   render() {
@@ -185,18 +186,20 @@ class Grid extends Component {
         <div className='accountBody'>
           <div className='accountHeader'>
             <h1>Accounts</h1>
-
+          <div className="searchContainer">
             <input
               className='searchAccounts'
               type='text'
-              onInput={this.onQuickFilterChanged}
-              id='quickFilter'
+              onInput={this.onQuickFilterChanged.bind(this)}
+              id='quickFilterss'
               placeholder=' search...'
             />
+            <AiOutlineSearch  className="searchIcon" />
+        </div>
 
-            <div className='modal'>
+            {/* <div className='modal'>
               <ModalOperator />
-            </div>
+            </div> */}
           </div>
 
           <div
@@ -210,7 +213,7 @@ class Grid extends Component {
             <AgGridReact
               columnDefs={this.state.columnDefs}
               rowData={this.state.rowData}
-              gridOptions={gridOptions}
+              gridOptions={gridOptions3}
               modules={this.state.modules}
               defaultColDef={this.state.defaultColDef}
               rowSelection={this.state.rowSelection}
