@@ -127,14 +127,14 @@ const Dashboard = props => {
           />
 
           
-          {/* <Filter
+          <Filter
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
             sensors={sensorSelector.sensors}
             setFuncToggle={setFuncToggle}
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
-          /> */}
+          />
         </div>
       </div>
       <div className='orgActPumps'>

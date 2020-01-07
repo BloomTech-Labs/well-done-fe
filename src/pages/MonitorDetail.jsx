@@ -86,7 +86,7 @@ const MonitorDetails = props => {
 
   return (
     <div>
-      <button  className="deleteMonitorDetails" onClick={deleteHandler}>Delete</button>
+      <button  className="deleteMonitorDetails" onClick={deleteHandler}><i class="icon-trash"></i>Delete</button>
       <Row>
         <Col span={20} offset={4}>
           <Title>{physical_id}</Title>

@@ -17,6 +17,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 
 import Archivebutton from '../../icons/Archivebutton.svg'
 
+
 class pumps extends Component {
   constructor(props) {
     super(props)
@@ -86,6 +87,8 @@ class pumps extends Component {
                   <TrashCan
                     selectedPump={this.props.selectedPump}
                     setSelectedPump={this.props.setSelectedPump}
+                    data={params.data}
+                    otherProps={this.props}
                   />
                 )}
               </div>
@@ -103,6 +106,8 @@ class pumps extends Component {
       ],
     }
   }
+
+ 
 
   // process.env.REACT_APP_HEROKU_API}
   componentDidMount = () => {}
