@@ -7,8 +7,9 @@ import 'antd/dist/antd.css'
 import ModalOperator from '../../components/ModalTest'
 import gridOptions3 from '../Grid/gridOptions3'
 
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch } from 'react-icons/ai'
 
+import Archivebutton from 'icons/Archivebutton.svg'
 import './accountGrid.scss'
 
 class Grid extends Component {
@@ -167,7 +168,7 @@ class Grid extends Component {
 
   exportToCsv = function() {
     var params = {
-      skipHeader: false,
+      skipHeader: true,
       skipFooters: true,
       skipGroups: true,
       fileName: 'OverviewGrid.csv',
@@ -177,7 +178,9 @@ class Grid extends Component {
 
   // filter function
   onQuickFilterChanged(params) {
-    gridOptions3.api.setQuickFilter(document.getElementById('quickFilterss').value)
+    gridOptions3.api.setQuickFilter(
+      document.getElementById('quickFilterss').value
+    )
   }
 
   render() {
@@ -186,16 +189,25 @@ class Grid extends Component {
         <div className='accountBody'>
           <div className='accountHeader'>
             <h1>Accounts</h1>
-          <div className="searchContainer">
-            <input
-              className='searchAccounts'
-              type='text'
-              onInput={this.onQuickFilterChanged.bind(this)}
-              id='quickFilterss'
-              placeholder=' search...'
-            />
-            <AiOutlineSearch  className="searchIcon" />
-        </div>
+            <div className='searchContainer'>
+              <input
+                className='searchAccounts'
+                type='text'
+                onInput={this.onQuickFilterChanged.bind(this)}
+                id='quickFilterss'
+                placeholder=' search...'
+              />
+              <AiOutlineSearch className='searchIcon' />
+            </div>
+            <button
+              className='downloadButton'
+              type='default'
+              icon='download'
+              size='small'
+              onClick={this.exportToCsv.bind(this)}
+            >
+               <img src={Archivebutton} alt="download"></img>
+            </button>
 
             {/* <div className='modal'>
               <ModalOperator />
