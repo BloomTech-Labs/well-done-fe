@@ -13,14 +13,10 @@ import { Button } from 'antd'
 import PumpsModal from './PumpsModal'
 import TrashCan from './TrashCan'
 
-<<<<<<< HEAD
 import { AiOutlineSearch } from "react-icons/ai";
 
 import Archivebutton from "../../icons/Archivebutton.svg"
 
-=======
-import { AiOutlineSearch } from 'react-icons/ai'
->>>>>>> 85e0e409f3da1377ab7fc5f14f6d023428e8485b
 
 const Pumps = props => {
   const [displayView, setDisplayView] = useState(0)
