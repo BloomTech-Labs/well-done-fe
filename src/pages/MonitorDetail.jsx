@@ -56,8 +56,8 @@ const MonitorDetails = props => {
   //delete
   const dispatch = useDispatch()
 
-  const deleteHandler = e => {
-    e.prevent.Default()
+  const deleteHandler = event => {
+    event.preventDefault()
     dispatch(deleteSensor(physical_id))
   }
 
@@ -86,7 +86,7 @@ const MonitorDetails = props => {
 
   return (
     <div>
-      <button  className="DeleteMonitorDetails" onClick={deleteHandler}>Delete</button>
+      <button  className="deleteMonitorDetails" onClick={deleteHandler}>Delete</button>
       <Row>
         <Col span={20} offset={4}>
           <Title>{physical_id}</Title>

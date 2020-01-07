@@ -2,9 +2,7 @@
     display: none !important;
 }
 
-.DeleteMonitorDetails{
-    position: fixed;
+.deleteMonitorDetails{
     right:30px;
-    
     color:red;
 }

@@ -31,6 +31,6 @@ export const postSensor = (sensors) => dispatch => {
   //delete
 export const deleteSensor = (physical_id) => dispatch => {
   AxiosWithAuth()
-  .delete(`${process.env.REACT_APP_HEROKU_API}/api/pumps/${physical_id}`)
+  .delete(`${process.env.REACT_APP_HEROKU_API}/api/sensors/${physical_id}`)
   .then(res => console.log(res.data))
 }
