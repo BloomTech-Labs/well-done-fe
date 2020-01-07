@@ -8,15 +8,11 @@
 
   .pumpHeader {
     display: flex;
-    height: 50px;
-    font-size: 2rem;
     // justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 0.25rem 0.6rem;
+ 
     @include grid-background;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  
 
     .pumpHeaderCon {
       height: 100%;
@@ -25,7 +21,9 @@
     }
 
     .pumpHeaderName {
-      @include header-text;
+      h1{
+        @include header-text;
+      }
     }
 
     .searchInPumps {
