@@ -29,7 +29,7 @@ function App(props) {
   const [searchFiltered, setSearchFiltered] = useState([])
   const [selectedPump, setSelectedPump] = useState(null)
   return (
-    <div>
+    <div className='app-container'>
       {!!displayNav && <NavBar />}
 
       <MetaTags>

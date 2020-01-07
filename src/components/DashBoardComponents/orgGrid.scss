@@ -13,13 +13,10 @@
 .orgGridHeader {
   @include grid-background;
   display: flex;
+  font-size: 2rem;
   align-items: center;
   h1 {
     @include header-text;
-    padding-right: 5rem;
-    padding-left: 1rem;
-    margin-bottom:.5%;
-    margin-top:.5%;
     
   }
 
