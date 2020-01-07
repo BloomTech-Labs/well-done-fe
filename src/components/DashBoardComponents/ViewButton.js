@@ -3,8 +3,8 @@ import React from 'react'
 const ViewButton = props => {
   const routeHandler = (e, selPump) => {
     e.preventDefault()
-    props.agGridReact.props.setSelectedPump(selPump)
-    props.agGridReact.props.history.push('/monitordetails')
+    props.setSelectedPump(selPump)
+    props.otherProps.history.push('/monitordetails')
   }
 
   return (
