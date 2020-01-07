@@ -13,22 +13,15 @@
 }
 
 .accountHeader {
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   @include grid-background;
   display: flex;
   align-items: center;
  
 
   h1 {
-
     font-size:2.2rem;
     color: white;
     padding-right: 1.1rem;
-    @include header-text;
-    padding-right: 5rem;
     padding-left: 1rem;
     margin-bottom:.5%;
     margin-top:.5%;
@@ -49,9 +42,14 @@
   .searchAccounts{
     border: none;
     height: 30px;
-    border-radius: 8px;
+    border-radius: 2px;
     font-size: 0.89rem;
 }
 
+}
+
+.downloadButton{
+  background: transparent;
+  border: none;
 }
 

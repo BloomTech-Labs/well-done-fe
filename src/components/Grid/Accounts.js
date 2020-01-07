@@ -9,9 +9,6 @@ import "antd/dist/antd.css";
 import gridOptions from "./Pagination";
 
 
-
-
-
 class Grid extends Component {
   constructor(props) {
     super(props);

@@ -107,7 +107,7 @@ const Pumps = props => {
   //filter function
   function onQuickFilterChanged(params) {
     gridOptionss.api.setQuickFilter(document.getElementById('quickFilter').value)
-    console.log(gridOptionss, 'looks here for pumps filter')
+    console.log(gridOptionss, 'look here for pumps filter')
   }
 
   return (
