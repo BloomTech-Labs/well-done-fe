@@ -18,8 +18,8 @@ const Dashboard = props => {
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
     longitude: 105.784788,
-    width: '100vw',
-    height: '100vh',
+    width: '100%',
+    height: '720px',
     zoom: 2,
   })
 
@@ -45,7 +45,7 @@ const Dashboard = props => {
         latitude: 13.5651,
         longitude: 104.7538,
         width: '100%',
-        height: '70vh',
+        height: '720px',
         zoom: 8,
         scrollZoom: false,
         boxZoom: false,
@@ -93,7 +93,6 @@ const Dashboard = props => {
 
   return (
     <div className='dashboard'>
-      {/* <Menu history={history} /> */}
       <div className='mapSearchFilterContainer'>
           <Map
             sensors={sensorSelector.sensors}
@@ -122,6 +121,7 @@ const Dashboard = props => {
             setUnknownToggle={setUnknownToggle}
           />
       </div>
+      <div className="tables-container">
       <div className='orgActPumps'>
         <Route
           path='/dashboard'
@@ -149,6 +149,7 @@ const Dashboard = props => {
       </div>
       <OrgGrid />
       <AccountGrid/>
+      </div>
     </div>
   )
 }
