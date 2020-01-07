@@ -1,25 +1,21 @@
 @import 'src/colors';
 
 .orgGridBody {
-  @include grid-background;
   width: 97.5%;
   @include grid-border;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2.5%;
   box-shadow: 2px 1px 10px;
+  border: none;
 }
 .orgGridHeader {
   @include grid-background;
   display: flex;
-  font-size: 2rem;
   align-items: center;
-  h1 {
+  h1{
     @include header-text;
-    
   }
-
   .searchAccounts {
     border: none;
     height: 3rem;

@@ -145,7 +145,7 @@ const Pumps = props => {
   return (
     <div className='pumpChart'>
       <div className='pumpHeader'>
-        <div className='pumpHeaderName'>Pumps</div>
+        <div className='pumpHeaderName'><h1>Pumps</h1></div>
         <div className='searchContainer'>
           <input
             className='searchInPumps'
