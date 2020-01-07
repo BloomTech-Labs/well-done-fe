@@ -5,6 +5,7 @@ import MobileViewMenu from '../components/Menu/MobileViewMenu'
 import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
+import IconsFilter from '../components/Filter/IconFilters'
 import Pumps from '../components/DashBoardComponents/pumps'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
@@ -117,14 +118,22 @@ const Dashboard = props => {
             setViewport={setViewport}
             sensors={sensorSelector.sensors}
           />
-          <Filter
+          <IconsFilter
+          sensors={sensorSelector.sensors}
+          setFuncToggle={setFuncToggle}
+          setNonFuncToggle={setNonFuncToggle}
+          setUnknownToggle={setUnknownToggle}
+          />
+
+          
+          {/* <Filter
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
             sensors={sensorSelector.sensors}
             setFuncToggle={setFuncToggle}
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
-          />
+          /> */}
         </div>
       </div>
       <div className='orgActPumps'>
