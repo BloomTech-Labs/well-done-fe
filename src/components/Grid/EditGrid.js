@@ -49,7 +49,9 @@ const EditGrid = props => {
   const handleSubmit = (e) =>{
       e.preventDefault()
       props.editAccount(account)
+      setOpen(false)
   }
+
 
   return (
     <>
