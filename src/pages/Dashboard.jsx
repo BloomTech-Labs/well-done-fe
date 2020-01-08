@@ -12,6 +12,7 @@ import OrgGrid from '../components/DashBoardComponents/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 import Testing from '../components/DashBoardComponents/pumps'
 import AccountGrid from '../components/Grid/AccountGrid'
+import Banner from './Banner'
 
 import './Dashboard.styles.scss'
 
@@ -105,6 +106,7 @@ const Dashboard = props => {
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
           />
+          <Banner/>
           <Search
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
