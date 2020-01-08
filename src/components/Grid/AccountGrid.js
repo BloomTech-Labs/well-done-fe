@@ -7,6 +7,8 @@ import 'antd/dist/antd.css'
 import ModalOperator from '../../components/ModalTest'
 import gridOptions3 from '../Grid/gridOptions3'
 
+import { withRouter } from 'react-router'
+
 import { AiOutlineSearch } from 'react-icons/ai'
 
 import Archivebutton from 'icons/Archivebutton.svg'
@@ -14,9 +16,16 @@ import './accountGrid.scss'
 
 import EditGrid from './EditGrid'
 
+
+//redux
+import { connect } from 'react-redux'
+import {editAccount} from '../../actions/addOp-action'
+
+
 class Grid extends Component {
   constructor(props) {
     super(props)
+    console.log(`AccountGrid props`, this.props)
     this.state = {
       columnDefs: [
         {
@@ -134,7 +143,7 @@ class Grid extends Component {
           field: 'edit',
           sortable: true,
           filter: true,
-          cellRenderer: params => {
+          cellRendererFramework: params => {
             return(
               <div>
                 <EditGrid/>
@@ -252,5 +261,11 @@ class Grid extends Component {
     )
   }
 }
+const mapStateToProps = state => {
+  return{}
+}
 
-export default Grid
+export default connect(
+  mapStateToProps,
+  {editAccount})
+  (withRouter(Grid))

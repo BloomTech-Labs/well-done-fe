@@ -1,6 +1,7 @@
 import React from 'react'
 
 const EditGrid = props => {
+    console.log(props)
 
     const editHandler = (e, selItem)=> {
         e.preventDefault()
@@ -14,7 +15,7 @@ const EditGrid = props => {
         onClick={e => editHandler(e, props.data)}
         className='btn btn-info'
       >
-        Edit
+      Edit
       </button>
     </span>
     )
