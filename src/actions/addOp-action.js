@@ -19,9 +19,10 @@ export const addOp = (operator) => dispatch => {
 }   
 
 export const editAccount = account => dispatch => {
+    const id = account.id
     console.log('action edit', account)
     AxiosWithAuth()
-    .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts`,account)
+    .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`,account)
     .then(res => console.log(res))
     .catch(err => dispatch({type: EDIT_FAILURE, payload: err.response}))
 }

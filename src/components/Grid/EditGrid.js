@@ -28,6 +28,9 @@ const EditGrid = props => {
   const [account, setAccount] = useState([])
   console.log(`account`, account)
 
+  //account id added automatically, needed to .put
+  account.id = props.data.id
+
   const classes = useStyles()
 
   const [open, setOpen] = useState(false)
@@ -75,13 +78,13 @@ const EditGrid = props => {
           <div className={classes.paper}>
             <div className='col1'>
               <h2>
-                <label for='Id'>Id</label>
+                <label for='Id'>Must retype Id to confirm change.</label>
                 <br></br>
                 <input
                   type='text'
                   id='id'
                   placeholder={props.data.id}
-                  name='id'
+                  name={props.data.id}
                   value={account.id}
                   onChange={handleChange}
                 />
