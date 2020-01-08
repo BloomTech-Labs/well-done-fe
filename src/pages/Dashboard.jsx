@@ -35,7 +35,22 @@ const Dashboard = props => {
   const [funcToggle, setFuncToggle] = useState(true)
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
   const [unknownToggle, setUnknownToggle] = useState(true)
-
+  useEffect(() => {
+    const updateWidth = () => {
+      setViewport({
+        latitude: 13.5651,
+        longitude: 104.7538,
+        width: window.innerWidth - 20,
+        height: '720px',
+        zoom: 8,
+        scrollZoom: false,
+        boxZoom: false,
+        doubleClickZoom: false,
+      })
+    }
+    window.addEventListener('resize', updateWidth)
+    return () => window.removeEventListener('resize', updateWidth)
+  })
   useEffect(() => {
     dispatch(fetchSensors())
     dispatch(fetchHistory())
@@ -95,70 +110,46 @@ const Dashboard = props => {
   return (
     <div className='dashboard'>
       <div className='mapSearchFilterContainer'>
-        <div className='mapSFInner'>
-          <Map
-            sensors={sensorSelector.sensors}
-            funcToggle={funcToggle}
-            nonFuncToggle={nonFuncToggle}
-            unknownToggle={unknownToggle}
-            viewport={viewport}
-            setViewport={setViewport}
-            history={historySelector.history}
-            selectedPump={props.selectedPump}
-            setSelectedPump={props.setSelectedPump}
-          />
-          <Banner/>
-          <Search
-            searchFiltered={props.searchFiltered}
-            setSearchFiltered={props.setSearchFiltered}
-            viewport={viewport}
-            setViewport={setViewport}
-            sensors={sensorSelector.sensors}
-          />
-          <div className='filterContainer'>
-          <IconsFilter
-            sensors={sensorSelector.sensors}
-            setFuncToggle={setFuncToggle}
-            setNonFuncToggle={setNonFuncToggle}
-            setUnknownToggle={setUnknownToggle}
-          />
-          </div>
-          {/*
-          <Filter
-            searchFiltered={props.searchFiltered}
-            setSearchFiltered={props.setSearchFiltered}
-            sensors={sensorSelector.sensors}
-            setFuncToggle={setFuncToggle}
-            setNonFuncToggle={setNonFuncToggle}
-            setUnknownToggle={setUnknownToggle}
-          />{' '}
-           */}
-        </div>
+        <Map
+          sensors={sensorSelector.sensors}
+          funcToggle={funcToggle}
+          nonFuncToggle={nonFuncToggle}
+          unknownToggle={unknownToggle}
+          viewport={viewport}
+          setViewport={setViewport}
+          history={historySelector.history}
+          selectedPump={props.selectedPump}
+          setSelectedPump={props.setSelectedPump}
+        />
+        <Search
+          searchFiltered={props.searchFiltered}
+          setSearchFiltered={props.setSearchFiltered}
+          viewport={viewport}
+          setViewport={setViewport}
+          sensors={sensorSelector.sensors}
+        />
+        <Filter
+          searchFiltered={props.searchFiltered}
+          setSearchFiltered={props.setSearchFiltered}
+          sensors={sensorSelector.sensors}
+          setFuncToggle={setFuncToggle}
+          setNonFuncToggle={setNonFuncToggle}
+          setUnknownToggle={setUnknownToggle}
+        />
       </div>
       <div className='tables-container'>
         <div className='orgActPumps'>
-          <Route
-            path='/dashboard'
-            render={prop => (
-              <OrganizationActivity
-                {...prop}
-                alertInfo={historySelector.alertInfo}
-                selectedPump={props.selectedPump}
-                setSelectedPump={props.setSelectedPump}
-                sensors={sensorSelector.sensors}
-              />
-            )}
+          <OrganizationActivity
+            alertInfo={historySelector.alertInfo}
+            selectedPump={props.selectedPump}
+            setSelectedPump={props.setSelectedPump}
+            sensors={sensorSelector.sensors}
           />
-          <Route
-            path='/dashboard'
-            render={prop => (
-              <Pumps
-                {...prop}
-                gridInfo={sensorSelector.gridInfo}
-                selectedPump={props.selectedPump}
-                setSelectedPump={props.setSelectedPump}
-              />
-            )}
+
+          <Pumps
+            gridInfo={sensorSelector.gridInfo}
+            selectedPump={props.selectedPump}
+            setSelectedPump={props.setSelectedPump}
           />
         </div>
         <OrgGrid />

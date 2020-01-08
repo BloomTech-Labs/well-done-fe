@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { Route } from 'react-router-dom'
+import {withRouter} from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
@@ -8,18 +9,16 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
-import { Button } from 'antd'
 
-import PumpsModal from './PumpsModal'
 import TrashCan from './TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
 
-import Archivebutton from '../../icons/Archivebutton.svg'
-
 //redux
 import { connect } from 'react-redux';
 import {deleteSensor} from '../../actions/sensorActions'
+
+import Archivebutton from '../../icons/Archivebutton.svg'
 
 
 
@@ -27,6 +26,7 @@ import {deleteSensor} from '../../actions/sensorActions'
 class pumps extends Component {
   constructor(props) {
     super(props)
+    console.log('propsssss', this.props)
     this.state = {
       displayView: 0,
       columnDefs: [
@@ -210,11 +210,9 @@ class pumps extends Component {
             }}
             className='ag-theme-balham'
           >
-            <Route
-              path='/dashboard'
-              render={prop => (
+
                 <AgGridReact
-                  {...prop}
+                  history={this.props.history}
                   columnDefs={this.state.columnDefs}
                   rowData={this.props.gridInfo}
                   gridOptions={gridOptionss}
@@ -225,8 +223,7 @@ class pumps extends Component {
                   onGridSizeChanged={this.onGridSizeChanged}
                   onGridReady={this.onGridReady}
                 />
-              )}
-            />
+
           </div>
         </div>
       </div>
@@ -243,4 +240,4 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   { deleteSensor}
-  )(pumps);
+  )(withRouter(pumps));
