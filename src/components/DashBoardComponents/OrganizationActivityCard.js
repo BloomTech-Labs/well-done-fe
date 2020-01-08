@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import {withRouter} from 'react-router'
 
 const OrganizationActivityCard = props => {
   let found = props.sensors.find(item => {
@@ -48,4 +49,4 @@ const OrganizationActivityCard = props => {
   )
 }
 
-export default OrganizationActivityCard
+export default withRouter(OrganizationActivityCard)

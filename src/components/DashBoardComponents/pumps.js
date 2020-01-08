@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { Route } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
@@ -8,13 +9,10 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
-import { Button } from 'antd'
 
-import PumpsModal from './PumpsModal'
 import TrashCan from './TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
-
 import Archivebutton from '../../icons/Archivebutton.svg'
 
 //redux
@@ -24,6 +22,7 @@ import { deleteSensor } from '../../actions/sensorActions'
 class pumps extends Component {
   constructor(props) {
     super(props)
+    console.log('propsssss', this.props)
     this.state = {
       displayView: 0,
       columnDefs: [
@@ -210,22 +209,15 @@ class pumps extends Component {
             }}
             className='ag-theme-balham'
           >
-            <Route
-              path='/dashboard'
-              render={prop => (
-                <AgGridReact
-                  {...prop}
-                  columnDefs={this.state.columnDefs}
-                  rowData={this.props.gridInfo}
-                  gridOptions={gridOptionss}
-                  context={this.state.columnDefs.context}
-                  frameworkComponents={
-                    this.state.columnDefs.frameworkComponents
-                  }
-                  onGridSizeChanged={this.onGridSizeChanged}
-                  onGridReady={this.onGridReady}
-                />
-              )}
+            <AgGridReact
+              history={this.props.history}
+              columnDefs={this.state.columnDefs}
+              rowData={this.props.gridInfo}
+              gridOptions={gridOptionss}
+              context={this.state.columnDefs.context}
+              frameworkComponents={this.state.columnDefs.frameworkComponents}
+              onGridSizeChanged={this.onGridSizeChanged}
+              onGridReady={this.onGridReady}
             />
           </div>
         </div>
@@ -238,4 +230,4 @@ const mapStateToProps = state => {
   return {}
 }
 
-export default connect(mapStateToProps, { deleteSensor })(pumps)
+export default connect(mapStateToProps, { deleteSensor })(withRouter(pumps))
