@@ -13,7 +13,7 @@ export const ACCOUNT_FAILURE = "ACCOUNT_FAILURE"
 
 export const fetchAccounts = () => dispatch => {
     AxiosWithAuth()
-    .get(`${process.env.REACT_APP_HEROKU_API_G}/api/accounts`,)
+    .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts`,)
     .then(res => dispatch({type: ACCOUNT_SUCCESS, payload:res.data}))
     .catch(err => dispatch({type: ACCOUNT_FAILURE}))
 }
@@ -33,7 +33,7 @@ export const editAccount = account => dispatch => {
     const id = account.id
     console.log('action edit', account)
     AxiosWithAuth()
-    .put(`${process.env.REACT_APP_HEROKU_API_G}/api/accounts/${id}`,account)
+    .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`,account)
     .then(res => dispatch({type: EDIT_SUCCESS, payload: res.data}))
     .catch(err => dispatch({type: EDIT_FAILURE, payload: err.response}))
 }
