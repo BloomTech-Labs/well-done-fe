@@ -12,6 +12,7 @@ import OrgGrid from '../components/DashBoardComponents/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 import Testing from '../components/DashBoardComponents/pumps'
 import AccountGrid from '../components/Grid/AccountGrid'
+import Banner from './Banner'
 
 import './Dashboard.styles.scss'
 
@@ -95,7 +96,7 @@ const Dashboard = props => {
     <div className='dashboard'>
       <div className='mapSearchFilterContainer'>
         <div className='mapSFInner'>
-       <Map
+          <Map
             sensors={sensorSelector.sensors}
             funcToggle={funcToggle}
             nonFuncToggle={nonFuncToggle}
@@ -105,7 +106,8 @@ const Dashboard = props => {
             history={historySelector.history}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
-          /> 
+          />
+          <Banner/>
           <Search
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
@@ -113,17 +115,16 @@ const Dashboard = props => {
             setViewport={setViewport}
             sensors={sensorSelector.sensors}
           />
-          <div className="filterContainer">
-
+          <div className='filterContainer'>
           <IconsFilter
             sensors={sensorSelector.sensors}
             setFuncToggle={setFuncToggle}
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
           />
-
           </div>
-          {/* <Filter
+          {/*
+          <Filter
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
             sensors={sensorSelector.sensors}
