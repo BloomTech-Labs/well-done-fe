@@ -15,6 +15,7 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 
 export default function SignInSide(props) {
+
   const [account, setAccount] = useState({ email_address: '', password: '' })
 
   const handleChange = event => {
@@ -25,12 +26,10 @@ export default function SignInSide(props) {
   const signIn = useSelector(state => state.signInReducer)
 
 
-  const handleSubmit = event => {
+  const handleSubmit = (event)=> {
     event.preventDefault()
-    dispatch(fetchLogin(account))
-    props.history.push('/dashboard')
+    dispatch(fetchLogin(account, props.history))
   }
-
 
 
   const classes = useStyles()
@@ -122,7 +121,6 @@ export default function SignInSide(props) {
           value={account.email_address}
           onChange={handleChange}
           autoFocus
-          helperText="Incorrect entry."
         />
         <TextField
           error
@@ -137,7 +135,7 @@ export default function SignInSide(props) {
           value={account.password}
           onChange={handleChange}
           autoFocus
-          helperText="Incorrect entry."
+          helperText="Incorrect email or password."
         />
       </div>
           <FormControlLabel
