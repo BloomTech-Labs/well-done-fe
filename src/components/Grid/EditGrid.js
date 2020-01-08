@@ -50,6 +50,7 @@ const EditGrid = props => {
       e.preventDefault()
       props.editAccount(account)
       setOpen(false)
+      props.api.api.redrawRows()
   }
 
 

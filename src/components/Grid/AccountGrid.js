@@ -15,11 +15,12 @@ import Archivebutton from 'icons/Archivebutton.svg'
 import './accountGrid.scss'
 
 import EditGrid from './EditGrid'
+import {fetchAccounts} from '../../actions/accountAction'
 
 
 //redux
 import { connect } from 'react-redux'
-import {editAccount} from '../../actions/addOp-action'
+import {editAccount} from '../../actions/accountAction'
 
 
 class Grid extends Component {
@@ -147,6 +148,7 @@ class Grid extends Component {
             return(
               <div>
                 <EditGrid
+                api={params}
                 data={params.data}
                 otherProps={this.props}
                 editAccount={this.props.editAccount}/>
@@ -161,18 +163,19 @@ class Grid extends Component {
   }
 
   componentDidMount = () => {
-    const token = localStorage.getItem('token')
-    fetch(`${process.env.REACT_APP_HEROKU_API}/api/accounts`, {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `${token}`,
-      },
-    })
-      .then(result => result.json())
-      .then(rowData => this.setState({ rowData }))
-      .catch(err => console.log(err))
+    this.props.fetchAccounts()
+    // const token = localStorage.getItem('token')
+    // fetch(`${process.env.REACT_APP_HEROKU_API_G}/api/accounts`, {
+    //   method: 'GET',
+    //   mode: 'cors',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: `${token}`,
+    //   },
+    // })
+    //   .then(result => result.json())
+    //   .then(rowData => this.setState({ rowData }))
+    //   .catch(err => console.log(err))
   }
 
   onGridSizeChanged = params => {
@@ -251,7 +254,7 @@ class Grid extends Component {
           >
             <AgGridReact
               columnDefs={this.state.columnDefs}
-              rowData={this.state.rowData}
+              rowData={this.props.accountReducer}
               gridOptions={gridOptions3}
               modules={this.state.modules}
               defaultColDef={this.state.defaultColDef}
@@ -265,10 +268,12 @@ class Grid extends Component {
   }
 }
 const mapStateToProps = state => {
-  return{}
+  return{
+    accountReducer : state.accountReducer.accounts
+  }
 }
 
 export default connect(
   mapStateToProps,
-  {editAccount})
+  {editAccount, fetchAccounts})
   (withRouter(Grid))
