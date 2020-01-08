@@ -78,7 +78,7 @@ const EditGrid = props => {
           <div className={classes.paper}>
             <div className='col1'>
               <h2>
-                <label for='Id'>Must retype Id to confirm change.</label>
+                <label for='Id'>Id</label>
                 <br></br>
                 <input
                   type='text'
