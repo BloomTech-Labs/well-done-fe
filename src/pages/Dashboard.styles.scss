@@ -38,11 +38,7 @@
 
 }
 .header{
-  color:white;
-  font-size: 3rem;
-  font-weight: 350;
-  padding-top:3rem;
-  padding-left:3rem;
+@include banner-text;
 
 }
 .title{

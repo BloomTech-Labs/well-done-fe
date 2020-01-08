@@ -32,7 +32,7 @@ $mainBackground:#e5e5e5;
   padding-right: 1.1rem;
   padding-left: 1rem;
   margin-top: 0.5%;
-  
+
 }
 
 // changes color of view buttons on all grids on dashboard
@@ -63,4 +63,12 @@ $mainBackground:#e5e5e5;
 //map filter menu color
 @mixin mapfilter-clr{
   background-color: $navy;
+}
+
+@mixin banner-text{
+  color:white;
+  font-size: 3rem;
+  font-weight: 350;
+  padding-top:3rem;
+  padding-left:3rem;
 }
