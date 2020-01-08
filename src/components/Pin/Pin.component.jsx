@@ -1,5 +1,8 @@
 import React from 'react'
 import { Marker } from 'react-map-gl'
+import NewMapMarkerFunctioning from '../../icons/NewMapMarkerFunctioning.svg'
+import NewMapMarkerNonFunctioning from '../../icons/NewMapMarkerNonFunctioning.svg'
+import NewMapMarkerNoData from '../../icons/NewMapMarkerNoData.svg'
 
 function Pin(props) {
   return (
@@ -18,7 +21,7 @@ function Pin(props) {
                   props.setSelectedPump(sensor)
                 }}
                 className='location-icon'
-                src='https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png'
+                src={NewMapMarkerNonFunctioning}
                 alt='location'
               />
             </Marker>
@@ -36,7 +39,7 @@ function Pin(props) {
                   props.setSelectedPump(sensor)
                 }}
                 className='location-icon'
-                src='https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png'
+                src={NewMapMarkerNonFunctioning}
                 alt='location'
               />
             </Marker>
@@ -54,7 +57,7 @@ function Pin(props) {
                   props.setSelectedPump(sensor)
                 }}
                 className='location-icon'
-                src='https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png'
+                src={NewMapMarkerNoData}
                 alt='location'
               />
             </Marker>
@@ -72,7 +75,7 @@ function Pin(props) {
                   props.setSelectedPump(sensor)
                 }}
                 className='location-icon'
-                src='https://res.cloudinary.com/dfulxq7so/image/upload/v1573056725/Vector_1_xzgama.png'
+                src={NewMapMarkerFunctioning}
                 alt='location'
               />
             </Marker>
