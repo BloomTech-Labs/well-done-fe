@@ -8,7 +8,7 @@ function Pin(props) {
   return (
     <div>
       {props.sensors.map(sensor => {
-        if (sensor.status == null && props.nonFuncToggle) {
+        if (sensor.status === null && props.nonFuncToggle) {
           return (
             <Marker
               key={sensor.sensor_id}
@@ -26,7 +26,7 @@ function Pin(props) {
               />
             </Marker>
           )
-        } else if (sensor.status == 0 && props.nonFuncToggle) {
+        } else if (sensor.status === 0 && props.nonFuncToggle) {
           return (
             <Marker
               key={sensor.sensor_id}
@@ -44,7 +44,7 @@ function Pin(props) {
               />
             </Marker>
           )
-        } else if (sensor.status == 1 && props.unknownToggle) {
+        } else if (sensor.status === 1 && props.unknownToggle) {
           return (
             <Marker
               key={sensor.sensor_id}
@@ -62,7 +62,7 @@ function Pin(props) {
               />
             </Marker>
           )
-        } else if (sensor.status == 2 && props.funcToggle) {
+        } else if (sensor.status === 2 && props.funcToggle) {
           return (
             <Marker
               key={sensor.sensor_id}

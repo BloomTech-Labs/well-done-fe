@@ -94,6 +94,7 @@ class pumps extends Component {
                     data={params.data}
                     otherProps={this.props}
                     deleteSensor={this.props.deleteSensor}
+                    params={params}
                   />
                 )}
               </div>

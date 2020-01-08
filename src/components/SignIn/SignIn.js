@@ -14,13 +14,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 
-
-
-
-
 export default function SignInSide(props) {
   const [account, setAccount] = useState({ email_address: '', password: '' })
- 
 
   const handleChange = event => {
     setAccount({ ...account, [event.target.name]: event.target.value })
@@ -55,7 +50,7 @@ export default function SignInSide(props) {
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
-              variant='outlined'
+              // variant='outlined'
               margin='normal'
               fullWidth
               id='email_address'
@@ -65,9 +60,10 @@ export default function SignInSide(props) {
               value={account.email_address}
               onChange={handleChange}
               autoFocus
+              InputProps={{ disableUnderline: true }}
             />
             <TextField
-              variant='outlined'
+              // variant='outlined'
               margin='normal'
               fullWidth
               name='password'
@@ -77,6 +73,7 @@ export default function SignInSide(props) {
               autoComplete='current-password'
               value={account.password}
               onChange={handleChange}
+              InputProps={{ disableUnderline: true }}
             />
             <FormControlLabel
               control={<Checkbox value='remember' color='primary' />}
