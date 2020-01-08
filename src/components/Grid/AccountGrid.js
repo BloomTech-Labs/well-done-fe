@@ -146,7 +146,9 @@ class Grid extends Component {
           cellRendererFramework: params => {
             return(
               <div>
-                <EditGrid/>
+                <EditGrid
+                data={params.data}
+                otherProps={this.props}/>
               </div>
             )
           }
