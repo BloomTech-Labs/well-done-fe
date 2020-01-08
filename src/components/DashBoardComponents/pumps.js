@@ -17,16 +17,10 @@ import { AiOutlineSearch } from 'react-icons/ai'
 
 import Archivebutton from '../../icons/Archivebutton.svg'
 
-<<<<<<< HEAD
-=======
 //redux
-import { connect } from 'react-redux';
-import {deleteSensor} from '../../actions/sensorActions'
+import { connect } from 'react-redux'
+import { deleteSensor } from '../../actions/sensorActions'
 
-
-
-
->>>>>>> 45802576e2e1cc4be0547494abab1cb3a5e0f1bd
 class pumps extends Component {
   constructor(props) {
     super(props)
@@ -98,7 +92,8 @@ class pumps extends Component {
                     setSelectedPump={this.props.setSelectedPump}
                     data={params.data}
                     otherProps={this.props}
-                    deleteSensor = {this.props.deleteSensor}
+                    deleteSensor={this.props.deleteSensor}
+                    params={params}
                   />
                 )}
               </div>
@@ -154,7 +149,7 @@ class pumps extends Component {
     this.gridApi.redrawRows()
     console.log('working', this.state.displayView)
   }
- 
+
   onQuickFilterChanged(params) {
     gridOptionss.api.setQuickFilter(
       document.getElementById('quickFilter').value
@@ -165,7 +160,9 @@ class pumps extends Component {
     return (
       <div className='pumpChart'>
         <div className='pumpHeader'>
-          <div className='pumpHeaderName'><h1>Pumps</h1></div>
+          <div className='pumpHeaderName'>
+            <h1>Pumps</h1>
+          </div>
           <div className='searchContainer'>
             <input
               className='searchInPumps'
@@ -220,12 +217,7 @@ class pumps extends Component {
 }
 // export default pumps
 const mapStateToProps = state => {
-  return {
-   
-  };
-  };
+  return {}
+}
 
-export default connect(
-  mapStateToProps,
-  { deleteSensor}
-  )(pumps);
+export default connect(mapStateToProps, { deleteSensor })(pumps)
