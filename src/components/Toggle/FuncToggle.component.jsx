@@ -14,18 +14,18 @@ const FuncToggle = props => {
   }
 
   return checked?(
-    <div class="tooltip" >
+    <div className="tooltip" >
       <button onClick={handleChange}  className="iconBtn">
         <img src={Functioning} alt='Functioning pump' className="iconPump"/>
-        <span class="tooltiptext">Functioning</span>
+        <span className="tooltiptext">Functioning</span>
       </button>
     
     </div>
   ):(
-    <div class="tooltip" >
+    <div className="tooltip" >
     <button onClick={handleChange}  className="iconBtn">
       <img src={disabled} alt='Functioning pump'/>
-      <span class="tooltiptext">Functioning</span>
+      <span className="tooltiptext">Functioning</span>
     </button>
   </div>
   )

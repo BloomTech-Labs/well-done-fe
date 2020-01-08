@@ -132,7 +132,7 @@ const Dashboard = props => {
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
           />{' '}
-          */}
+           */}
         </div>
       </div>
       <div className='tables-container'>
