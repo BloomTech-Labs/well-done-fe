@@ -143,7 +143,6 @@ const Dashboard = props => {
           setSearchFiltered={props.setSearchFiltered}
           sensors={sensorSelector.sensors}
           setFuncToggle={setFuncToggle}
-          setNonFuncToggle={setNonFuncToggle}
           setUnknownToggle={setUnknownToggle}
         />
       </div>
