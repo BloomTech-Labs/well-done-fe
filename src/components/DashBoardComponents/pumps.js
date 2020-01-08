@@ -26,7 +26,7 @@ import Archivebutton from '../../icons/Archivebutton.svg'
 class pumps extends Component {
   constructor(props) {
     super(props)
-    console.log('propsssss', this.props)
+    console.log('props', this.props)
     this.state = {
       displayView: 0,
       columnDefs: [
@@ -193,7 +193,7 @@ class pumps extends Component {
           </button>
 
           <button onClick={() => this.viewHandler()}>
-            Delete<i class='icon-trash'></i>
+            Delete<i className='icon-trash'></i>
           </button>
           {/* <div className='modal'>
           <PumpsModal />
