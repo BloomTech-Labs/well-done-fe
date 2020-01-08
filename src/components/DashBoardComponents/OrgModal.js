@@ -107,7 +107,7 @@ const OrgModal = () => {
                   type='text'
                   id='organization'
                   placeholder='organization'
-                  name='organization'
+                  name='organization name'
                   value={org.organization}
                   onChange={handleChange}
                 />
@@ -117,10 +117,10 @@ const OrgModal = () => {
                 <br></br>
                 <input
                   type='text'
-                  id='headquart_city'
-                  placeholder='headquart_city'
-                  name='headquart_city'
-                  value={org.headquart_city}
+                  id='headquarter_city'
+                  placeholder='headquarter_city'
+                  name='city'
+                  value={org.headquarter_city}
                   onChange={handleChange}
                 />
               </h2>
