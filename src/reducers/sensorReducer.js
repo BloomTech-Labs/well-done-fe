@@ -5,7 +5,7 @@ import {
   SENSOR_SUCCESS,
   SENSOR_FAILURE,
   UPDATE_INFO,
-  SENSOR_DELETE
+  SENSOR_DELETE,
 } from '../actions/sensorActions'
 
 const initialState = {
@@ -39,13 +39,13 @@ const sensorReducer = (state = initialState, action) => {
     case SENSOR_DELETE:
       return {
         ...state,
-        isFetching:false,
-        sensors: state.sensors.filter(e => {
-          if (e.sensor_index !== action.payload.id){
+        isFetching: false,
+        gridInfo: state.gridInfo.filter(e => {
+          if (e.sensor_index !== action.payload.id) {
+            console.log(e)
             return e
           }
-        })
-       
+        }),
       }
     case UPDATE_INFO: {
       return {
