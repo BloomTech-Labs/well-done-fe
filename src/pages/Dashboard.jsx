@@ -56,8 +56,7 @@ const Dashboard = props => {
       const searchedPlace = {
         latitude: props.searchFiltered[0].latitude,
         longitude: props.searchFiltered[0].longitude,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
         zoom: 11,
       }
       setViewport(searchedPlace)
@@ -95,7 +94,8 @@ const Dashboard = props => {
   return (
     <div className='dashboard'>
       <div className='mapSearchFilterContainer'>
-          <Map
+        <div className='mapSFInner'>
+       <Map
             sensors={sensorSelector.sensors}
             funcToggle={funcToggle}
             nonFuncToggle={nonFuncToggle}
@@ -105,7 +105,7 @@ const Dashboard = props => {
             history={historySelector.history}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
-          />
+          /> 
           <Search
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
@@ -113,14 +113,16 @@ const Dashboard = props => {
             setViewport={setViewport}
             sensors={sensorSelector.sensors}
           />
-        
-         <div className="filterContainer"> 
-         <IconsFilter
-          sensors={sensorSelector.sensors}
-          setFuncToggle={setFuncToggle}
-          setNonFuncToggle={setNonFuncToggle}
-          setUnknownToggle={setUnknownToggle}
+          <div className="filterContainer">
+
+          <IconsFilter
+            sensors={sensorSelector.sensors}
+            setFuncToggle={setFuncToggle}
+            setNonFuncToggle={setNonFuncToggle}
+            setUnknownToggle={setUnknownToggle}
           />
+
+          </div>
           {/* <Filter
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
@@ -128,40 +130,40 @@ const Dashboard = props => {
             setFuncToggle={setFuncToggle}
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
-          />   */}
-        </div> 
+          />{' '}
+           */}
+        </div>
       </div>
-      <div className="tables-container">
-      <div className='orgActPumps'>
-        <Route
-          path='/dashboard'
-          render={prop => (
-            <OrganizationActivity
-              {...prop}
-              alertInfo={historySelector.alertInfo}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-              sensors={sensorSelector.sensors}
-            />
-          )}
-        />
-        <Route
-          path='/dashboard'
-          render={prop => (
-            <Pumps
-              {...prop}
-              gridInfo={sensorSelector.gridInfo}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-            />
-          )}
-        />
-      </div>
-      <OrgGrid />
-      <AccountGrid/>
+      <div className='tables-container'>
+        <div className='orgActPumps'>
+          <Route
+            path='/dashboard'
+            render={prop => (
+              <OrganizationActivity
+                {...prop}
+                alertInfo={historySelector.alertInfo}
+                selectedPump={props.selectedPump}
+                setSelectedPump={props.setSelectedPump}
+                sensors={sensorSelector.sensors}
+              />
+            )}
+          />
+          <Route
+            path='/dashboard'
+            render={prop => (
+              <Pumps
+                {...prop}
+                gridInfo={sensorSelector.gridInfo}
+                selectedPump={props.selectedPump}
+                setSelectedPump={props.setSelectedPump}
+              />
+            )}
+          />
+        </div>
+        <OrgGrid />
+        <AccountGrid />
       </div>
     </div>
-
   )
 }
 

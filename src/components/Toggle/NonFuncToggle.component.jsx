@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Switch from 'react-switch'
 import NonFunctioning from '../../icons/PumpNon-Functioning.svg'
-import disabled from '../../icons/MapButtonDisabled.svg'
 import '../Toggle/NonFunctioning.scss'
+import NonFunctionDisabled from '../../icons/Non-FunctioningDisabled.svg'
 
 const NonFuncToggle = props => {
   const [checked, setChecked] = useState(true)
@@ -22,7 +22,7 @@ const NonFuncToggle = props => {
   ):(
     <div className="tooltip" >
     <button onClick={handleChange}  className="iconBtn">
-      <img src={disabled} alt='Functioning pump'/>
+      <img src={NonFunctionDisabled} alt='Functioning pump'/>
       <span className="tooltiptext">Non-Functioning</span>
     </button>
   </div>
