@@ -59,6 +59,7 @@ function App(props) {
           page={MonitorDetails}
           selectedPump={selectedPump}
         />
+        
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>

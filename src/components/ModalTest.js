@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../actions/pumpAction'
 
-import { addOp } from '../actions/addOp-action'
+import { addOp } from '../actions/accountAction'
 
 import './modalOperator.scss'
 

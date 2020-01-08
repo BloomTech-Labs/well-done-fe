@@ -10,7 +10,7 @@ import { Button, Modal, Dropdown, Form } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../actions/pumpAction'
 
-import { addOp } from '../actions/addOp-action'
+import { addOp } from '../actions/accountAction'
 
 const ModalOperator = () => {
   const [operator, setOperator] = useState([])

@@ -4,7 +4,7 @@ import "./addOperator.scss"
 
 import { useDispatch } from "react-redux";
 
-import {addOp} from '../actions/addOp-action'
+import {addOp} from '../actions/accountAction'
 
 
 
