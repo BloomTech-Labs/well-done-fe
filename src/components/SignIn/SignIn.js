@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState} from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchLogin } from '../../actions/signIn-action'
 
 import Avatar from '@material-ui/core/Avatar'
@@ -27,6 +27,8 @@ export default function SignInSide(props) {
   }
 
   const dispatch = useDispatch()
+  const signIn = useSelector(state => state.signInReducer)
+
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -34,9 +36,12 @@ export default function SignInSide(props) {
     props.history.push('/dashboard')
   }
 
+
+
   const classes = useStyles()
 
-  return (
+  return !signIn.error ? (
+  
     <Grid container component='main' className={classes.root}>
       <CssBaseline />
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
@@ -52,7 +57,6 @@ export default function SignInSide(props) {
             <TextField
               variant='outlined'
               margin='normal'
-              required
               fullWidth
               id='email_address'
               label='Email Address'
@@ -65,7 +69,6 @@ export default function SignInSide(props) {
             <TextField
               variant='outlined'
               margin='normal'
-              required
               fullWidth
               name='password'
               label='Password'
@@ -93,6 +96,71 @@ export default function SignInSide(props) {
         </div>
       </Grid>
     </Grid>
+
+    // error message form
+  ):(
+    <Grid container component='main' className={classes.root}>
+    <CssBaseline />
+    <Grid item xs={false} sm={4} md={7} className={classes.image} />
+    <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component='h1' variant='h5'>
+          Sign in
+        </Typography>
+        <form className={classes.form} noValidate>
+          <div>
+        <TextField
+          error
+          label="Error"
+          variant="outlined"
+          margin='normal'
+          required
+          fullWidth
+          id='email_address'
+          name='email_address'
+          autoComplete='email'
+          value={account.email_address}
+          onChange={handleChange}
+          autoFocus
+          helperText="Incorrect entry."
+        />
+        <TextField
+          error
+          label="Error"
+          variant="outlined"
+          margin='normal'
+          required
+          fullWidth
+          type='password'
+          id='password'
+          name='password'
+          value={account.password}
+          onChange={handleChange}
+          autoFocus
+          helperText="Incorrect entry."
+        />
+      </div>
+          <FormControlLabel
+            control={<Checkbox value='remember' color='primary' />}
+            label='Remember me'
+          />
+          <Button
+            type='submit'
+            fullWidth
+            variant='contained'
+            color='primary'
+            className={classes.submit}
+            onClick={handleSubmit}
+          >
+            Sign In
+          </Button>
+        </form>
+      </div>
+    </Grid>
+  </Grid>
   )
 }
 
