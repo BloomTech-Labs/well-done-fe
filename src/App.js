@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import AxiosWithAuth from './components/AxiosWithAuth/axiosWithAuth'
-import Landing from './pages/Landing.jsx'
 import Dashboard from './pages/Dashboard'
 import MonitorDetails from './pages/MonitorDetail'
 import Monitors from './pages/OverviewPage/MonitorsPage'

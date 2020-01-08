@@ -13,16 +13,18 @@ import './pumps.style.scss'
 import TrashCan from './TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
-import Archivebutton from '../../icons/Archivebutton.svg'
+import PumpsModal from './PumpsModal'
 
 //redux
 import { connect } from 'react-redux'
 import { deleteSensor } from '../../actions/sensorActions'
 
+import Archivebutton from '../../icons/Archivebutton.svg'
+
 class pumps extends Component {
   constructor(props) {
     super(props)
-    console.log('propsssss', this.props)
+    console.log('props', this.props)
     this.state = {
       displayView: 0,
       columnDefs: [
@@ -192,13 +194,11 @@ class pumps extends Component {
           </button>
 
           <button onClick={() => this.viewHandler()}>
-            Delete<i class='icon-trash'></i>
+            Delete<i className='icon-trash'></i>
           </button>
-          {/* <div className='modal'>
-          <PumpsModal />
-        </div> */}
-          {/* <div className='pumpHeaderCon'>
-          <button className='pumpHeaderButton'>+ Add Pumps</button> */}
+          <div className='modalHeader'>
+            <PumpsModal />
+          </div>
         </div>
         <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
           <div

@@ -208,12 +208,10 @@ class Grid extends Component {
             >
                <img src={Archivebutton} alt="download"></img>
             </button>
-
-            {/* <div className='modal'>
+            <div className="modalHeaderAccount">
               <ModalOperator />
-            </div> */}
+            </div>
           </div>
-
           <div
             id='grid-wrapper'
             style={{

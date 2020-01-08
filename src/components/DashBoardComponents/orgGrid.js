@@ -170,8 +170,7 @@ class OrgGrid extends Component {
           >
             <img src={Archivebutton} alt="download"></img>
           </button>
-
-          <div className='modal'>{/* <OrgModal /> */}</div>
+          <div className='modalHeaderOrg'><OrgModal /></div>
         </div>
         <div
           className='ag-theme-balham'
