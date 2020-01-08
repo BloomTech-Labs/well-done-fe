@@ -121,6 +121,7 @@ const Dashboard = props => {
           selectedPump={props.selectedPump}
           setSelectedPump={props.setSelectedPump}
         />
+        <Banner/>
         <Search
           searchFiltered={props.searchFiltered}
           setSearchFiltered={props.setSearchFiltered}
@@ -128,14 +129,23 @@ const Dashboard = props => {
           setViewport={setViewport}
           sensors={sensorSelector.sensors}
         />
-        <Filter
+           <div className='filterContainer'>
+          <IconsFilter
+            sensors={sensorSelector.sensors}
+            setFuncToggle={setFuncToggle}
+            setNonFuncToggle={setNonFuncToggle}
+            setUnknownToggle={setUnknownToggle}
+          />
+          </div>
+        
+        {/* <Filter
           searchFiltered={props.searchFiltered}
           setSearchFiltered={props.setSearchFiltered}
           sensors={sensorSelector.sensors}
           setFuncToggle={setFuncToggle}
           setNonFuncToggle={setNonFuncToggle}
           setUnknownToggle={setUnknownToggle}
-        />
+        /> */}
       </div>
       <div className='tables-container'>
         <div className='orgActPumps'>
