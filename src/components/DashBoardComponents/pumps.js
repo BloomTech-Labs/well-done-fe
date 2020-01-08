@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { Route } from 'react-router-dom'
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
@@ -13,15 +13,13 @@ import './pumps.style.scss'
 import TrashCan from './TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
+import PumpsModal from './PumpsModal'
 
 //redux
-import { connect } from 'react-redux';
-import {deleteSensor} from '../../actions/sensorActions'
+import { connect } from 'react-redux'
+import { deleteSensor } from '../../actions/sensorActions'
 
 import Archivebutton from '../../icons/Archivebutton.svg'
-
-
-
 
 class pumps extends Component {
   constructor(props) {
@@ -95,7 +93,7 @@ class pumps extends Component {
                     setSelectedPump={this.props.setSelectedPump}
                     data={params.data}
                     otherProps={this.props}
-                    deleteSensor = {this.props.deleteSensor}
+                    deleteSensor={this.props.deleteSensor}
                   />
                 )}
               </div>
@@ -151,7 +149,7 @@ class pumps extends Component {
     this.gridApi.redrawRows()
     console.log('working', this.state.displayView)
   }
- 
+
   onQuickFilterChanged(params) {
     gridOptionss.api.setQuickFilter(
       document.getElementById('quickFilter').value
@@ -171,7 +169,9 @@ class pumps extends Component {
     return (
       <div className='pumpChart'>
         <div className='pumpHeader'>
-          <div className='pumpHeaderName'><h1>Pumps</h1></div>
+          <div className='pumpHeaderName'>
+            <h1>Pumps</h1>
+          </div>
           <div className='searchContainer'>
             <input
               className='searchInPumps'
@@ -189,17 +189,15 @@ class pumps extends Component {
             size='small'
             onClick={this.exportToCsv.bind(this)}
           >
-            <img src={Archivebutton} alt="download"></img>
+            <img src={Archivebutton} alt='download'></img>
           </button>
 
           <button onClick={() => this.viewHandler()}>
             Delete<i class='icon-trash'></i>
           </button>
-          {/* <div className='modal'>
-          <PumpsModal />
-        </div> */}
-          {/* <div className='pumpHeaderCon'>
-          <button className='pumpHeaderButton'>+ Add Pumps</button> */}
+          <div className='modalHeader'>
+            <PumpsModal />
+          </div>
         </div>
         <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
           <div
@@ -210,20 +208,16 @@ class pumps extends Component {
             }}
             className='ag-theme-balham'
           >
-
-                <AgGridReact
-                  history={this.props.history}
-                  columnDefs={this.state.columnDefs}
-                  rowData={this.props.gridInfo}
-                  gridOptions={gridOptionss}
-                  context={this.state.columnDefs.context}
-                  frameworkComponents={
-                    this.state.columnDefs.frameworkComponents
-                  }
-                  onGridSizeChanged={this.onGridSizeChanged}
-                  onGridReady={this.onGridReady}
-                />
-
+            <AgGridReact
+              history={this.props.history}
+              columnDefs={this.state.columnDefs}
+              rowData={this.props.gridInfo}
+              gridOptions={gridOptionss}
+              context={this.state.columnDefs.context}
+              frameworkComponents={this.state.columnDefs.frameworkComponents}
+              onGridSizeChanged={this.onGridSizeChanged}
+              onGridReady={this.onGridReady}
+            />
           </div>
         </div>
       </div>
@@ -232,12 +226,7 @@ class pumps extends Component {
 }
 // export default pumps
 const mapStateToProps = state => {
-  return {
-   
-  };
-  };
+  return {}
+}
 
-export default connect(
-  mapStateToProps,
-  { deleteSensor}
-  )(withRouter(pumps));
+export default connect(mapStateToProps, { deleteSensor })(withRouter(pumps))

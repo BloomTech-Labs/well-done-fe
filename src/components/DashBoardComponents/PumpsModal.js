@@ -88,29 +88,6 @@ const PumpsModal = () => {
         <Fade in={open}>
           <div className={classes.paper}>
             <div className='col1'>
-              {/* org_id: 1,
-				sensor_pid: 1234,
-				country_name: '1st country',
-				province_name: '1st province',
-				district_name: '1st district',
-				commune_name: '1st commune',
-				latitude: 1.234,
-				longitude: 2.345 */}
-
-              {/* <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                  Organization
-                </Dropdown.Toggle>
-                <Form.Control
-                  as='select'
-                  value={pump.org_id}
-                  onChange={handleChange}
-                >
-                  {pumpsReducer.map(e => (
-                    <React.Fragment>
-                      <option key={e.id}>{e.org_id}</option>
-                    </React.Fragment>
-                  ))}
-                </Form.Control> */}
               <h2>
                 <label for='Country'>Organization</label>
                 <br></br>
