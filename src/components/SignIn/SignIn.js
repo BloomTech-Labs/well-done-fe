@@ -55,7 +55,6 @@ export default function SignInSide(props) {
               value={account.email_address}
               onChange={handleChange}
               autoFocus
-              borderBottom='none'
               InputProps={{ disableUnderline: true }}
             />
             <TextField
