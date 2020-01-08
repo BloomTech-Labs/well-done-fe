@@ -155,6 +155,15 @@ class pumps extends Component {
       document.getElementById('quickFilter').value
     )
   }
+  exportToCsv = function() {
+    var params = {
+      skipHeader: false,
+      skipFooters: true,
+      skipGroups: true,
+      fileName: 'OverviewGrid.csv',
+    }
+    gridOptionss.api.exportDataAsCsv(params)
+  }
 
   render() {
     return (
@@ -173,6 +182,15 @@ class pumps extends Component {
             />
             <AiOutlineSearch className='searchIcon' />
           </div>
+          <button
+            className='downloadButton'
+            type='default'
+            icon='download'
+            size='small'
+            onClick={this.exportToCsv.bind(this)}
+          >
+            <img src={Archivebutton} alt='download'></img>
+          </button>
 
           <button onClick={() => this.viewHandler()}>
             Delete<i class='icon-trash'></i>

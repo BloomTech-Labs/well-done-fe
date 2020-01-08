@@ -1,5 +1,6 @@
 .tooltip {
   position: relative;
+  z-index: inherit;
 }
 
 .tooltip .tooltiptext {
