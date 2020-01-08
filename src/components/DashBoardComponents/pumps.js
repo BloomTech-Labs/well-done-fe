@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-
-import { Route } from 'react-router-dom'
+import {withRouter} from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
@@ -8,15 +7,12 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
-import { Button } from 'antd'
 
-import PumpsModal from './PumpsModal'
 import TrashCan from './TrashCan'
 
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch } from 'react-icons/ai'
 
-import Archivebutton from "../../icons/Archivebutton.svg"
-
+import Archivebutton from '../../icons/Archivebutton.svg'
 
 const Pumps = props => {
   const [displayView, setDisplayView] = useState(0)
@@ -95,8 +91,6 @@ const Pumps = props => {
     } else {
       setDisplayView(0)
     }
-
-    console.log('working', displayView)
   }
 
   const onGridSizeChanged = params => {
@@ -121,8 +115,9 @@ const Pumps = props => {
 
   //filter function
   function onQuickFilterChanged(params) {
-    gridOptionss.api.setQuickFilter(document.getElementById('quickFilter').value)
-    console.log(gridOptionss, 'look here for pumps filter')
+    gridOptionss.api.setQuickFilter(
+      document.getElementById('quickFilter').value
+    )
   }
 
   function refreshCells(params) {
@@ -132,8 +127,8 @@ const Pumps = props => {
     console.log('working')
   }
 
-//CSV
-  function  exportToCsv () {
+  //CSV
+  function exportToCsv() {
     var params = {
       skipHeader: false,
       skipFooters: true,
@@ -145,7 +140,9 @@ const Pumps = props => {
   return (
     <div className='pumpChart'>
       <div className='pumpHeader'>
-        <div className='pumpHeaderName'><h1>Pumps</h1></div>
+        <div className='pumpHeaderName'>
+          <h1>Pumps</h1>
+        </div>
         <div className='searchContainer'>
           <input
             className='searchInPumps'
@@ -157,22 +154,16 @@ const Pumps = props => {
           <AiOutlineSearch className='searchIcon' />
         </div>
         <button
-        className="dwnbutton"
+          className='dwnbutton'
           type='default'
           icon='download'
           size='small'
           onClick={exportToCsv}
         >
-          <img src={Archivebutton} alt="download"></img>
+          <img src={Archivebutton} alt='download'></img>
         </button>
 
-
         <button onClick={refreshCells}>Delete</button>
-        {/* <div className='modal'>
-          <PumpsModal />
-        </div> */}
-        {/* <div className='pumpHeaderCon'>
-          <button className='pumpHeaderButton'>+ Add Pumps</button> */}
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
@@ -183,28 +174,20 @@ const Pumps = props => {
           }}
           className='ag-theme-balham'
         >
-          <Route
-            path='/dashboard'
-            render={prop => (
-              <AgGridReact
-                {...prop}
-                columnDefs={fields.columnDefs}
-                rowData={props.gridInfo}
-                gridOptions={gridOptionss}
-                // defaultColDef={this.state.defaultColDef}
-                // rowSelection={this.state.rowSelection}
-                // onGridReady={onGridReady}
-                selectedPump={props.selectedPump}
-                setSelectedPump={props.setSelectedPump}
-                context={fields.context}
-                frameworkComponents={fields.frameworkComponents}
-                onGridSizeChanged={onGridSizeChanged}
-              />
-            )}
+          <AgGridReact
+            history={props.history}
+            columnDefs={fields.columnDefs}
+            rowData={props.gridInfo}
+            gridOptions={gridOptionss}
+            selectedPump={props.selectedPump}
+            setSelectedPump={props.setSelectedPump}
+            context={fields.context}
+            frameworkComponents={fields.frameworkComponents}
+            onGridSizeChanged={onGridSizeChanged}
           />
         </div>
       </div>
     </div>
   )
 }
-export default Pumps
+export default withRouter(Pumps)

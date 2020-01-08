@@ -34,7 +34,7 @@ const Dashboard = props => {
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
   const [unknownToggle, setUnknownToggle] = useState(true)
   useEffect(() => {
-    const updateWidthAndHeight = () => {
+    const updateWidth = () => {
       setViewport({
         latitude: 13.5651,
         longitude: 104.7538,
@@ -46,8 +46,8 @@ const Dashboard = props => {
         doubleClickZoom: false,
       })
     }
-    window.addEventListener('resize', updateWidthAndHeight)
-    return () => window.removeEventListener('resize', updateWidthAndHeight)
+    window.addEventListener('resize', updateWidth)
+    return () => window.removeEventListener('resize', updateWidth)
   })
   useEffect(() => {
     dispatch(fetchSensors())

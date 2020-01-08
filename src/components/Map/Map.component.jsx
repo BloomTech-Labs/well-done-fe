@@ -5,6 +5,7 @@ import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
 
 export default function Map(props) {
+
   useEffect(() => {
     const listener = e => {
       if (e.key === 'Escape') {
@@ -24,11 +25,6 @@ export default function Map(props) {
           mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
           mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
           onViewportChange={viewport => {
-            viewport.width = window.innerWidth
-            || document.documentElement.clientWidth
-            || document.body.clientWidth;
-            
-            
             props.setViewport(viewport)
           }}
           {...props.viewport}
