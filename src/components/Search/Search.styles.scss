@@ -1,24 +1,27 @@
 .search {
     // margin: 60px;
+    display: flex;
     position: absolute;
-    z-index: 3;
-    top: 25px;
-    left: 100px;
-    width: 280px;
-    height: 30px;
+    z-index: 30;
+    top: 12rem;
+    left: 6rem;
+    width: 30rem;
+    height: 3rem;
     
     @media (max-width: 800px) {
-        left: 120px;
+        top:10rem;
+        left: 5rem;
         width: 240px;
       }
 
     @media (max-width: 500px) {
-        left: 100px;
+        left:5rem;
+        top:10rem;
         width: 180px;
       }
 
     input {
-    width: 245px;
+    width: 36rem;
     height: 35px;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -53,4 +56,10 @@
         
     }
     
+}
+.search-icon{
+    position: absolute;
+    right:1rem;
+    top:1rem;
+
 }
