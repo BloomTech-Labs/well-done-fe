@@ -23,10 +23,10 @@ const OrganizationActivityCard = props => {
           <span className='orgSpan'>
             Pump #{props.items.sensor_id} ({found.org_name})
           </span>
-          <span className='orgSpan prov'>Province: {found.province_name}</span>
+          <span className='orgSpan prov'>Province:{found.province_name}</span>
         </h2>
-        <p className='pumpOrg'>
-          <h3 className='status'>
+        <p className='pumpOrg'/>
+          <h3 className='status'/>
             <span className='orgSpan'>
               Current Status:{' '}
               <span className='emoji'>{props.currentStatus}</span>
@@ -34,8 +34,7 @@ const OrganizationActivityCard = props => {
             <span className='orgSpan'>
               Previous Status: <span className='emoji'>{props.prevStatus}</span>
             </span>
-          </h3>
-        </p>
+         
       </div>
       <span className='btnCon'>
         <span className='date'>
