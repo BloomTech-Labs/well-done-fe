@@ -12,6 +12,8 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import Archivebutton from 'icons/Archivebutton.svg'
 import './accountGrid.scss'
 
+import EditGrid from './EditGrid'
+
 class Grid extends Component {
   constructor(props) {
     super(props)
@@ -127,6 +129,21 @@ class Grid extends Component {
             'padding-top': '.75rem',
           },
         },
+        {
+          headerName: 'edit',
+          field: 'edit',
+          sortable: true,
+          filter: true,
+          cellRenderer: params => {
+            return(
+              <div>
+                <EditGrid/>
+              </div>
+            )
+          }
+         
+
+        }
       ],
     }
   }
