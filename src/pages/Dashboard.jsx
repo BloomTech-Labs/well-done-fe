@@ -95,6 +95,7 @@ const Dashboard = props => {
   return (
     <div className='dashboard'>
       <div className='mapSearchFilterContainer'>
+        <div className='mapSFInner'>
           <Map
             sensors={sensorSelector.sensors}
             funcToggle={funcToggle}
@@ -114,55 +115,56 @@ const Dashboard = props => {
             setViewport={setViewport}
             sensors={sensorSelector.sensors}
           />
-        
-         <div className="filterContainer"> 
-         <IconsFilter
-          sensors={sensorSelector.sensors}
-          setFuncToggle={setFuncToggle}
-          setNonFuncToggle={setNonFuncToggle}
-          setUnknownToggle={setUnknownToggle}
+          <div className='filterContainer'>
+          <IconsFilter
+            sensors={sensorSelector.sensors}
+            setFuncToggle={setFuncToggle}
+            setNonFuncToggle={setNonFuncToggle}
+            setUnknownToggle={setUnknownToggle}
           />
-          {/* <Filter
+          </div>
+          {/*
+          <Filter
             searchFiltered={props.searchFiltered}
             setSearchFiltered={props.setSearchFiltered}
             sensors={sensorSelector.sensors}
             setFuncToggle={setFuncToggle}
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
-          />   */}
-        </div> 
+          />{' '}
+          */}
+        </div>
       </div>
-      <div className="tables-container">
-      <div className='orgActPumps'>
-        <Route
-          path='/dashboard'
-          render={prop => (
-            <OrganizationActivity
-              {...prop}
-              alertInfo={historySelector.alertInfo}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-              sensors={sensorSelector.sensors}
-            />
-          )}
-        />
-        <Route
-          path='/dashboard'
-          render={prop => (
-            <Pumps
-              {...prop}
-              gridInfo={sensorSelector.gridInfo}
-              selectedPump={props.selectedPump}
-              setSelectedPump={props.setSelectedPump}
-            />
-          )}
-        />
-      </div>
-      <OrgGrid />
-      <AccountGrid/>
+      <div className='tables-container'>
+        <div className='orgActPumps'>
+          <Route
+            path='/dashboard'
+            render={prop => (
+              <OrganizationActivity
+                {...prop}
+                alertInfo={historySelector.alertInfo}
+                selectedPump={props.selectedPump}
+                setSelectedPump={props.setSelectedPump}
+                sensors={sensorSelector.sensors}
+              />
+            )}
+          />
+          <Route
+            path='/dashboard'
+            render={prop => (
+              <Pumps
+                {...prop}
+                gridInfo={sensorSelector.gridInfo}
+                selectedPump={props.selectedPump}
+                setSelectedPump={props.setSelectedPump}
+              />
+            )}
+          />
+        </div>
+        <OrgGrid />
+        <AccountGrid />
       </div>
     </div>
-
   )
 }
 
