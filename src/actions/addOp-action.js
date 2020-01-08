@@ -19,6 +19,7 @@ export const addOp = (operator) => dispatch => {
 }   
 
 export const editAccount = account => dispatch => {
+    console.log('action edit', account)
     AxiosWithAuth()
     .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts`,account)
     .then(res => console.log(res))

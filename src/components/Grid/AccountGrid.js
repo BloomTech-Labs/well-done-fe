@@ -148,7 +148,8 @@ class Grid extends Component {
               <div>
                 <EditGrid
                 data={params.data}
-                otherProps={this.props}/>
+                otherProps={this.props}
+                editAccount={this.props.editAccount}/>
               </div>
             )
           }
