@@ -18,5 +18,9 @@ export const fetchLogin = (account)=> dispatch=> {
         dispatch({type: LOGIN_SUCCESS, payload:res.data})
         
     })
-    .catch(err => console.log(err.response))
+    .catch(err => {
+        console.log('error here', err)
+        dispatch({type:LOGIN_FAILURE, payload:err})
+    })
+
 }

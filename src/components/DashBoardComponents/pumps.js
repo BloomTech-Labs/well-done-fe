@@ -10,7 +10,7 @@ import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
 
-import TrashCan from './TrashCan'
+import TrashCan from './TrashCan' 
 
 import { AiOutlineSearch } from 'react-icons/ai'
 import PumpsModal from './PumpsModal'
@@ -24,7 +24,7 @@ import Archivebutton from '../../icons/Archivebutton.svg'
 class pumps extends Component {
   constructor(props) {
     super(props)
-    console.log('props', this.props)
+    console.log('propsssss', this.props)
     this.state = {
       displayView: 0,
       columnDefs: [
@@ -94,6 +94,7 @@ class pumps extends Component {
                     data={params.data}
                     otherProps={this.props}
                     deleteSensor={this.props.deleteSensor}
+                    params={params}
                   />
                 )}
               </div>
@@ -193,7 +194,7 @@ class pumps extends Component {
           </button>
 
           <button onClick={() => this.viewHandler()}>
-            Delete<i className='icon-trash'></i>
+            Delete<i class='icon-trash'></i>
           </button>
           <div className='modalHeader'>
             <PumpsModal />
