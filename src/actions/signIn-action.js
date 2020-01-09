@@ -16,6 +16,8 @@ export const fetchLogin = (account, history)=> dispatch=> {
         localStorage.setItem("token", res.data.token)
         localStorage.setItem("userId", res.data.id)
         localStorage.setItem("userType", res.data.user)
+        localStorage.setItem("userEmail", res.data.email_address)
+
         history.push('/dashboard')    
     })
     .catch(err => {
