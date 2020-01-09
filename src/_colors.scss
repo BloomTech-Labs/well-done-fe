@@ -10,6 +10,9 @@ $oxford:#000048;
 $black:#202020;
 $orange:#FFAD34;
 $mainBackground:#e5e5e5;
+$iconBackground:#AEDFFC;
+
+
 
 // changes background color for entire app
 @mixin body-background{
@@ -55,7 +58,7 @@ $mainBackground:#e5e5e5;
 
 //drop down menu color
 @mixin dropDown-Bgclr{
-  background-color:$coolBlue;
+  background-color:$iconBackground;
   color:$black;
 }
 

@@ -2,12 +2,16 @@ import React, { Component } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import './orgGrid.scss'
 import 'antd/dist/antd.css'
-// import gridOptions from '../Grid/Pagination'
 import gridOptions2 from '../Grid/gridOptions2'
 import { AiOutlineSearch } from 'react-icons/ai'
 import OrgModal from './OrgModal'
 
 import Archivebutton from 'icons/Archivebutton.svg'
+
+import {deleteOrg, fetchOrg} from '../../actions/orgAction'
+import {withRouter} from 'react-router'
+import {connect} from 'react-redux'
+import DeleteOrg from './DeleteOrg'
 
 class OrgGrid extends Component {
   constructor(props) {
@@ -74,25 +78,43 @@ class OrgGrid extends Component {
             'padding-top': '.75rem',
           },
         },
+        {
+          headerName: 'Delete',
+          field: 'Delete',
+          sortable: true,
+          filter: true,
+          cellRendererFramework: params => {
+            return(
+              <div>
+                <DeleteOrg
+                params={params}
+                data={params.data}
+                otherProps={this.props}
+                deleteOrg={this.props.deleteOrg}/>
+              </div>
+            )
+          }
+        }
       ],
     }
   }
 
   // process.env.REACT_APP_HEROKU_API}
   componentDidMount = () => {
-    const token = localStorage.getItem('token')
-    console.log(token)
-    fetch(`${process.env.REACT_APP_HEROKU_API}/api/orgs`, {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `${token}`,
-      },
-    })
-      .then(result => result.json())
-      .then(rowData => this.setState({ rowData }))
-      .catch(err => console.log(err))
+      this.props.fetchOrg()
+    // const token = localStorage.getItem('token')
+    // console.log(token)
+    // fetch(`${process.env.REACT_APP_STAGING}/api/orgs`, {
+    //   method: 'GET',
+    //   mode: 'cors',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: `${token}`,
+    //   },
+    // })
+    //   .then(result => result.json())
+    //   .then(rowData => this.setState({ rowData }))
+    //   .catch(err => console.log(err))
   }
 
   onGridReady = params => {
@@ -181,7 +203,7 @@ class OrgGrid extends Component {
         >
           <AgGridReact
             columnDefs={this.state.columnDefs}
-            rowData={this.state.rowData}
+            rowData={this.props.orgReducer}
             gridOptions={gridOptions2}
             onGridReady={this.onGridReady}
             onGridSizeChanged={this.onGridSizeChanged}
@@ -191,4 +213,14 @@ class OrgGrid extends Component {
     )
   }
 }
-export default OrgGrid
+
+const mapStateToProps =state => {
+  return {
+    orgReducer: state.orgReducer.org
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  {deleteOrg, fetchOrg})
+(withRouter(OrgGrid))

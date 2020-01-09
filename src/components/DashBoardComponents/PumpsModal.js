@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../../actions/pumpAction'
 
+import './pumps.style.scss'
+
 //will be changed to pumpsAction
 // import { addOp } from '../actions/addOp-action'
 

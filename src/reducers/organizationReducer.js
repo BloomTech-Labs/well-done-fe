@@ -2,6 +2,8 @@ import {
   ORG_FETCH,
   ORG_SUCCESS,
   ORG_FAILURE,
+  DELETE_SUCCESS,
+  DELETE_FAILURE,
 } from '../actions/orgAction'
 
 const initialState = {
@@ -31,6 +33,16 @@ export const orgReducer = (state = initialState, action) => {
         isFetching: false,
         error: action.payload,
       }
+      case DELETE_SUCCESS:
+        return {
+          ...state,
+          isFetching: false,
+          org: state.org.filter(e => { 
+            if (e.id !== action.payload.id) {
+              return e
+            }
+          }),
+        }
     default:
       return state
   }
