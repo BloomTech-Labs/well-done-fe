@@ -171,7 +171,7 @@ class Grid extends Component {
             return(
               <div>
                 <DeleteAccount
-                api={params}
+                params={params}
                 data={params.data}
                 otherProps={this.props}
                 deleteAccount={this.props.deleteAccount}/>

@@ -45,6 +45,18 @@ const accountReducer = (state = initialState, action) => {
                     console.log(`e`, e)
                 })
             }
+
+            case DELETE_SUCCESS:
+                return{
+                    ...state,
+                    isFetching:false,
+                    accounts: state.accounts.filter(e => {
+                        if(e.id !== action.payload.id){
+                            return e
+                        }
+                    })
+                }
+            
         default:
             return state;
     }
