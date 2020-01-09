@@ -38,7 +38,7 @@ class Grid extends Component {
           field: 'id',
           sortable: true,
           filter: true,
-          width: 40,
+          width: 60,
           cellStyle: {
             'font-size': '2rem',
             'padding-top': '.75rem',
@@ -111,43 +111,23 @@ class Grid extends Component {
           },
         },
         {
-          headerName: 'Super User',
-          field: 'super_user',
+          headerName: 'Role',
+          field: 'Role',
           sortable: true,
           filter: true,
-          width: 100,
+          width: 150,
           cellStyle: {
             'font-size': '2rem',
             'padding-top': '.75rem',
           },
         },
-        {
-          headerName: 'Org User',
-          field: 'org_user',
-          sortable: true,
-          filter: true,
-          width: 100,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Org Admin',
-          field: 'org_admin',
-          sortable: true,
-          filter: true,
-          width: 100,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
+        
         {
           headerName: 'Edit',
           field: 'Edit',
           sortable: true,
           filter: true,
+          width: 60,
           cellRendererFramework: params => {
             return(
               <div>
@@ -167,6 +147,7 @@ class Grid extends Component {
           field: 'Delete',
           sortable: true,
           filter: true,
+          width: 60,
           cellRendererFramework: params => {
             return(
               <div>
