@@ -7,7 +7,10 @@ import gridOptions2 from '../Grid/gridOptions2'
 import { AiOutlineSearch } from 'react-icons/ai'
 import OrgModal from './OrgModal'
 
+import EditOrgGrid from './OrgEdit'
 import Archivebutton from 'icons/Archivebutton.svg'
+
+import {editOrg} from '../../actions/orgAction'
 
 class OrgGrid extends Component {
   constructor(props) {
@@ -74,6 +77,25 @@ class OrgGrid extends Component {
             'padding-top': '.75rem',
           },
         },
+        {
+          headerName: 'edit',
+          field: 'edit',
+          sortable: true,
+          filter: true,
+          cellRendererFramework: params => {
+            return(
+              <div>
+                <EditOrgGrid
+                api={params}
+                data={params.data}
+                otherProps={this.props}
+                editOrganization={this.props.editOrganization}/>
+              </div>
+            )
+          }
+         
+
+        }
       ],
     }
   }
