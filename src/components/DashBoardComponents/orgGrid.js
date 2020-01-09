@@ -7,10 +7,10 @@ import gridOptions2 from '../Grid/gridOptions2'
 import { AiOutlineSearch } from 'react-icons/ai'
 import OrgModal from './OrgModal'
 
-import EditOrgGrid from './OrgView'
+import ViewOrgGrid from './OrgView'
 import Archivebutton from 'icons/Archivebutton.svg'
 
-import {editOrg} from '../../actions/orgAction'
+
 
 class OrgGrid extends Component {
   constructor(props) {
@@ -85,7 +85,7 @@ class OrgGrid extends Component {
           cellRendererFramework: params => {
             return(
               <div>
-                <EditOrgGrid
+                <ViewOrgGrid
                 api={params}
                 data={params.data}
                 otherProps={this.props}

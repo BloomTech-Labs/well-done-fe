@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 //button on Organization Grid
-const EditOrgGrid = props => {
+const ViewOrgGrid = props => {
   console.log(props)
   const [organization, setOrg] = useState([])
   console.log(`organization`, organization)
@@ -88,7 +88,9 @@ const EditOrgGrid = props => {
                 <br></br>
                 Base of Operations: {props.data.headquarter_city}
               </h2>
+              
               <br></br>
+      
               <footer>
                 <button variant='secondary' onClick={handleClose}>
                   Close
@@ -102,4 +104,4 @@ const EditOrgGrid = props => {
   )
 }
 
-export default EditOrgGrid
+export default ViewOrgGrid
