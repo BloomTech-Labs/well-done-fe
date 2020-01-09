@@ -26,7 +26,7 @@ export default function SignInSide(props) {
   const signIn = useSelector(state => state.signInReducer)
 
 
-  const handleSubmit = (event)=> {
+  const handleSubmit = (event) => {
     event.preventDefault()
     dispatch(fetchLogin(account, props.history))
   }

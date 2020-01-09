@@ -35,6 +35,7 @@ const Dashboard = props => {
   const [funcToggle, setFuncToggle] = useState(true)
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
   const [unknownToggle, setUnknownToggle] = useState(true)
+ 
   useEffect(() => {
     const updateWidth = () => {
       setViewport({

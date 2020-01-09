@@ -7,14 +7,26 @@ import 'antd/dist/antd.css'
 import ModalOperator from '../../components/ModalTest'
 import gridOptions3 from '../Grid/gridOptions3'
 
+import { withRouter } from 'react-router'
+
 import { AiOutlineSearch } from 'react-icons/ai'
 
 import Archivebutton from 'icons/Archivebutton.svg'
 import './accountGrid.scss'
 
+import EditGrid from './EditGrid'
+import {fetchAccounts} from '../../actions/accountAction'
+
+
+//redux
+import { connect } from 'react-redux'
+import {editAccount} from '../../actions/accountAction'
+
+
 class Grid extends Component {
   constructor(props) {
     super(props)
+    console.log(`AccountGrid props`, this.props)
     this.state = {
       columnDefs: [
         {
@@ -127,23 +139,43 @@ class Grid extends Component {
             'padding-top': '.75rem',
           },
         },
+        {
+          headerName: 'edit',
+          field: 'edit',
+          sortable: true,
+          filter: true,
+          cellRendererFramework: params => {
+            return(
+              <div>
+                <EditGrid
+                api={params}
+                data={params.data}
+                otherProps={this.props}
+                editAccount={this.props.editAccount}/>
+              </div>
+            )
+          }
+         
+
+        }
       ],
     }
   }
 
   componentDidMount = () => {
-    const token = localStorage.getItem('token')
-    fetch(`${process.env.REACT_APP_HEROKU_API}/api/accounts`, {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `${token}`,
-      },
-    })
-      .then(result => result.json())
-      .then(rowData => this.setState({ rowData }))
-      .catch(err => console.log(err))
+    this.props.fetchAccounts()
+    // const token = localStorage.getItem('token')
+    // fetch(`${process.env.REACT_APP_HEROKU_API_G}/api/accounts`, {
+    //   method: 'GET',
+    //   mode: 'cors',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: `${token}`,
+    //   },
+    // })
+    //   .then(result => result.json())
+    //   .then(rowData => this.setState({ rowData }))
+    //   .catch(err => console.log(err))
   }
 
   onGridSizeChanged = params => {
@@ -222,7 +254,7 @@ class Grid extends Component {
           >
             <AgGridReact
               columnDefs={this.state.columnDefs}
-              rowData={this.state.rowData}
+              rowData={this.props.accountReducer}
               gridOptions={gridOptions3}
               modules={this.state.modules}
               defaultColDef={this.state.defaultColDef}
@@ -235,5 +267,13 @@ class Grid extends Component {
     )
   }
 }
+const mapStateToProps = state => {
+  return{
+    accountReducer : state.accountReducer.accounts
+  }
+}
 
-export default Grid
+export default connect(
+  mapStateToProps,
+  {editAccount, fetchAccounts})
+  (withRouter(Grid))

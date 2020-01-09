@@ -5,13 +5,15 @@ import { historyReducer } from './sensorHistory'
 import { navReducer as nav } from './navReducer'
 import signInReducer from './signIn-reducer'
 import pumpsReducer from './pumpReducer' //used in dropdown Accounts
+import accountReducer from './accountReducer'
 
 const rootReducer = combineReducers({
   sensorReducer,
   historyReducer,
   navShow: nav,
   signInReducer,
-  pumpsReducer
+  pumpsReducer,
+  accountReducer
 })
 
 export default rootReducer
