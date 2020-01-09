@@ -45,7 +45,7 @@ export const deleteAccount = id => dispatch => {
     console.log(`account action`, id)
     //const account = account
     AxiosWithAuth()
-    .delete(`${process.env.REACT_APP_HEROKU_API_G}/api/accounts/${id}`)
+    .delete(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`)
     .then(res => dispatch({type: DELETE_SUCCESS, payload: res.data}))
     .catch(err => dispatch({type: DELETE_FAILURE, payload: err.response}))
 }

@@ -25,9 +25,9 @@ export const deleteOrg = id => dispatch => {
   dispatch({ type: ORG_FETCH })
   console.log(id)
   AxiosWithAuth()
-    .delete(`${process.env.REACT_APP_STAGING}/api/orgs/${id}`)
+    .delete(`${process.env.REACT_APP_HEROKU_API}/api/orgs/${id}`)
     .then(res => {
-      // dispatch({ type: ORG_DELETE, payload: res.data })
+      dispatch({ type:DELETE_SUCCESS, payload: res.data })
       console.log('this is the response ',res.data)
     })
     .catch(res => dispatch({ type: ORG_FAILURE, payload: res.data }))
@@ -38,7 +38,7 @@ export const deleteOrg = id => dispatch => {
 export const fetchOrg = () => dispatch => {
   dispatch({type:ORG_FETCH})
   AxiosWithAuth()
-  .get(`${process.env.REACT_APP_STAGING}/api/orgs`)
+  .get(`${process.env.REACT_APP_HEROKU_API}/api/orgs`)
   .then(res => {dispatch({type:ORG_SUCCESS, payload: res.data})})
   .catch(err => dispatch({type:ORG_FAILURE, payload: err }))
 }

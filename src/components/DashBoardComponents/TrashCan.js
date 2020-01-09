@@ -1,7 +1,7 @@
 import React from 'react'
 
 const TrashCan = props => {
-  console.log(props)
+  console.log('trash props',props)
   const deleteHandler = (event, sensor_index) => {
     event.preventDefault()
     props.deleteSensor(sensor_index)

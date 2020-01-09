@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import './orgGrid.scss'
 import 'antd/dist/antd.css'
-// import gridOptions from '../Grid/Pagination'
 import gridOptions2 from '../Grid/gridOptions2'
 import { AiOutlineSearch } from 'react-icons/ai'
 import OrgModal from './OrgModal'
@@ -88,7 +87,7 @@ class OrgGrid extends Component {
             return(
               <div>
                 <DeleteOrg
-                api={params}
+                params={params}
                 data={params.data}
                 otherProps={this.props}
                 deleteOrg={this.props.deleteOrg}/>

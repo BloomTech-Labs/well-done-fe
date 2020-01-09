@@ -1,10 +1,10 @@
 import React from 'react'
 const DeleteOrg = props => {
-  console.log('this is the org props',props)
-  const deleteHandler = (event, id) => {
+    const deleteHandler = (event, id) => {
+        console.log('this is the org props',props)
     event.preventDefault()
     props.deleteOrg(id) //actions
-    // props.params.api.redrawRows()
+    props.params.api.redrawRows()
   }
   return (
     <span className='btnCon'>
