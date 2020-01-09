@@ -107,8 +107,8 @@ class Grid extends Component {
           },
         },
         {
-          headerName: 'Super User',
-          field: 'super_user',
+          headerName: 'role',
+          field: 'role',
           sortable: true,
           filter: true,
           width: 100,
@@ -117,28 +117,7 @@ class Grid extends Component {
             'padding-top': '.75rem',
           },
         },
-        {
-          headerName: 'Org User',
-          field: 'org_user',
-          sortable: true,
-          filter: true,
-          width: 100,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Org Admin',
-          field: 'org_admin',
-          sortable: true,
-          filter: true,
-          width: 100,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
+      
         {
           headerName: 'edit',
           field: 'edit',
