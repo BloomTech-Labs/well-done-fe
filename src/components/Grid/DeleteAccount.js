@@ -5,7 +5,7 @@ const DeleteAccount = props => {
   const deleteHandler = (event, id) => {
     event.preventDefault()
     props.deleteAccount(id)
-   // props.params.api.redrawRows()
+    props.params.api.redrawRows()
   }
 
   return (
