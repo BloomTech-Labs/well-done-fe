@@ -1,4 +1,4 @@
-import {ADDOP_FETCH, ADDOP_SUCCESS, ADDOP_FAILURE, EDIT_SUCCESS, ACCOUNT_SUCCESS} from '../actions/accountAction'
+import {ADDOP_FETCH, ADDOP_SUCCESS, ADDOP_FAILURE, EDIT_SUCCESS, ACCOUNT_SUCCESS, DELETE_SUCCESS, DELETE_FAILURE} from '../actions/accountAction'
 
 const initialState = {
     accounts : [],

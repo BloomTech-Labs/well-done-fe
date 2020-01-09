@@ -18,9 +18,13 @@ import EditGrid from './EditGrid'
 import {fetchAccounts} from '../../actions/accountAction'
 
 
+
 //redux
 import { connect } from 'react-redux'
 import {editAccount} from '../../actions/accountAction'
+
+import DeleteAccount from './DeleteAccount'
+import {deleteAccount} from '../../actions/accountAction.js'
 
 
 class Grid extends Component {
@@ -140,8 +144,8 @@ class Grid extends Component {
           },
         },
         {
-          headerName: 'edit',
-          field: 'edit',
+          headerName: 'Edit',
+          field: 'Edit',
           sortable: true,
           filter: true,
           cellRendererFramework: params => {
@@ -152,6 +156,25 @@ class Grid extends Component {
                 data={params.data}
                 otherProps={this.props}
                 editAccount={this.props.editAccount}/>
+              </div>
+            )
+          }
+         
+
+        },
+        {
+          headerName: 'Delete',
+          field: 'Delete',
+          sortable: true,
+          filter: true,
+          cellRendererFramework: params => {
+            return(
+              <div>
+                <DeleteAccount
+                api={params}
+                data={params.data}
+                otherProps={this.props}
+                deleteAccount={this.props.deleteAccount}/>
               </div>
             )
           }
@@ -275,5 +298,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {editAccount, fetchAccounts})
+  {editAccount, fetchAccounts, deleteAccount})
   (withRouter(Grid))

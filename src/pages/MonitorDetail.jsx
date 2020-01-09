@@ -63,7 +63,7 @@ const MonitorDetails = props => {
   }
 
   const padHistory = history.filter(pad => {
-    return pad.sensor_id == physical_id
+    return pad.sensor_id === physical_id
   })
 
   const date = padHistory.map(day => day.date)
@@ -170,9 +170,9 @@ const MonitorDetails = props => {
             style={{ fontWeight: 'bold' }}
           >
             <Descriptions.Item label='Status'>
-              {status == 0 || status == null ? (
+              {status === 0 || status === null ? (
                 <Badge status='error' text='Not Functioning' />
-              ) : status == 1 ? (
+              ) : status === 1 ? (
                 <Badge status='warning' text='Unknown' />
               ) : (
                 <Badge status='success' text='Functioning' />
