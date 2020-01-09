@@ -1,17 +1,29 @@
+@import "src/colors";
 .modal {
+  display:flex;
+  justify-content:baseline ;
+  align-items: center;
+  margin-left:0;
+  top: 40%;
+  left: 40%;
+  z-index: 1050;
+  flex-direction: column;
+    width: 53%;
     font-size: 15px;
     padding: 1px;
-    border: 2px solid skyblue;
     text-align: center;
   }
   .modal > .header {
     width: 100%;
-    border-bottom: 1px solid skyblue;
+    border-bottom: 1px solid $navy;
     font-size: 22px;
     text-align: center;
     padding: 8px;
+    color: $black;
   }
   .modal > .content {
+    display: flex;
+    flex-direction:column;
     width: 100%;
     padding: 5px 5px;
   }
@@ -27,10 +39,7 @@
     cursor: pointer;
     position: absolute;
     display: block;
-    padding: 2px 5px;
-    line-height: 20px;
-    right: -10px;
-    top: -10px;
+  
     font-size: 24px;
     background: #ffffff;
     border-radius: 18px;
