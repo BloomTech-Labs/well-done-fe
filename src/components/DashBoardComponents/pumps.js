@@ -194,7 +194,7 @@ class pumps extends Component {
           </button>
 
           <button onClick={() => this.viewHandler()}>
-            Delete<i class='icon-trash'></i>
+            Delete<i className='icon-trash'></i>
           </button>
           <div className='modalHeader'>
             <PumpsModal />
