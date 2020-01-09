@@ -7,7 +7,7 @@ import gridOptions2 from '../Grid/gridOptions2'
 import { AiOutlineSearch } from 'react-icons/ai'
 import OrgModal from './OrgModal'
 
-import EditOrgGrid from './OrgEdit'
+import EditOrgGrid from './OrgView'
 import Archivebutton from 'icons/Archivebutton.svg'
 
 import {editOrg} from '../../actions/orgAction'
@@ -78,8 +78,8 @@ class OrgGrid extends Component {
           },
         },
         {
-          headerName: 'edit',
-          field: 'edit',
+          headerName: 'view',
+          field: 'view',
           sortable: true,
           filter: true,
           cellRendererFramework: params => {

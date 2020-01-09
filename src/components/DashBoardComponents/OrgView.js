@@ -62,7 +62,7 @@ const EditOrgGrid = props => {
           onClick={e => handleOpen(e, props.data)}
           className='btn btn-info'
         >
-          Edit
+          View
         </button>
       </span>
       <Modal
@@ -79,38 +79,19 @@ const EditOrgGrid = props => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <div className='col1'>
+            <div className='orgInfoBody'>
               <h2>
-                <label for='Organization'>Organization Name</label>
+                {props.data.org_name}
                 <br></br>
-                <input
-                  type='text'
-                  id='organization_name'
-                  placeholder={props.data.org_name}
-                  name='organization_name'
-                    value={organization.org_name}
-                    onChange={handleChange}
-                />
               </h2>
               <h2>
-                <label for='HqCity'>headquarter city</label>
                 <br></br>
-                <input
-                  type='text'
-                  id='headquarter_city'
-                  placeholder={props.data.headquarter_city}
-                  name='headquarter_city'
-                  value={organization.headquarter_city}
-                  onChange={handleChange}
-                />
+                Base of Operations: {props.data.headquarter_city}
               </h2>
               <br></br>
               <footer>
                 <button variant='secondary' onClick={handleClose}>
                   Close
-                </button>
-                <button variant='primary' onClick={handleSubmit}>
-                  Save Changes
                 </button>
               </footer>
             </div>
