@@ -53,7 +53,6 @@ const PumpsModal = () => {
   }, [])
 
   const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
-  console.log(pumpsReducer)
 
   //on submit add operator
   const handleSubmit = event => {

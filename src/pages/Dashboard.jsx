@@ -28,6 +28,7 @@ const Dashboard = props => {
   const sensorSelector = useSelector(state => state.sensorReducer)
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
+
   dispatch({
     type: 'TOGGLE_NAV_STATE',
     payload: true,
@@ -35,7 +36,7 @@ const Dashboard = props => {
   const [funcToggle, setFuncToggle] = useState(true)
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
   const [unknownToggle, setUnknownToggle] = useState(true)
- 
+
   useEffect(() => {
     const updateWidth = () => {
       setViewport({
@@ -108,6 +109,8 @@ const Dashboard = props => {
     return <div>loading...</div>
   }
 
+  console.log(sensorSelector)
+
   return (
     <div className='dashboard'>
       <div className='mapSearchFilterContainer'>
@@ -122,7 +125,7 @@ const Dashboard = props => {
           selectedPump={props.selectedPump}
           setSelectedPump={props.setSelectedPump}
         />
-        <Banner/>
+        <Banner />
         <Search
           searchFiltered={props.searchFiltered}
           setSearchFiltered={props.setSearchFiltered}
@@ -130,15 +133,15 @@ const Dashboard = props => {
           setViewport={setViewport}
           sensors={sensorSelector.sensors}
         />
-           <div className='filterContainer'>
+        <div className='filterContainer'>
           <IconsFilter
             sensors={sensorSelector.sensors}
             setFuncToggle={setFuncToggle}
             setNonFuncToggle={setNonFuncToggle}
             setUnknownToggle={setUnknownToggle}
           />
-          </div>
-        
+        </div>
+
         <Filter
           searchFiltered={props.searchFiltered}
           setSearchFiltered={props.setSearchFiltered}

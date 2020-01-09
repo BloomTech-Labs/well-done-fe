@@ -1,4 +1,4 @@
-@import "src/colors";
+@import 'src/colors';
 
 .pumpChart {
   width: 48%;
@@ -10,30 +10,27 @@
     display: flex;
     // justify-content: space-between;
     align-items: center;
- 
+
     @include grid-background;
-  
 
     .pumpHeaderCon {
       height: 100%;
       width: 500px;
-
     }
 
     .pumpHeaderName {
-      h1{
+      h1 {
         @include header-text;
       }
     }
 
     .searchInPumps {
       border: none;
-      width:26rem;
-      height:25px;
-      margin-left:10%;
+      width: 26rem;
+      height: 25px;
+      margin-left: 10%;
       border-radius: 2px;
       font-size: 0.89rem;
-
     }
   }
 }
@@ -57,22 +54,56 @@
   }
 }
 
-.searchIcon{
-   position: relative;
-   border:none;
-   font-size:24px;
-   right:28px;
-   top:0px;
-   background:transparent
-}
-.searchContainer{
-  display:flex;
-}
-.dwnbutton{
+.searchIcon {
+  position: relative;
+  border: none;
+  font-size: 24px;
+  right: 28px;
+  top: 0px;
   background: transparent;
-  border:none;
+}
+.searchContainer {
+  display: flex;
+}
+.dwnbutton {
+  background: transparent;
+  border: none;
 }
 
-.classes.paper{
-  border:20px solid red;
+.classes.paper {
+  border: 20px solid red;
+}
+
+.modCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .modBtns {
+    display: flex;
+    justify-content: space-around;
+    align-items: space-between;
+    margin-top: 20%;
+    width: 100%;
+
+    .confirmBtn {
+      border: none;
+      background: red;
+      height: 30px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16),
+        0px 0px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .closeBtn {
+      border: none;
+      background: lightgrey;
+      height: 30px;
+      border-radius: 5px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16),
+        0px 0px 4px rgba(0, 0, 0, 0.08);
+    }
+  }
 }
