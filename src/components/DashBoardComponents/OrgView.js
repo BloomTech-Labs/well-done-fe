@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import './orgView.scss'
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
@@ -15,9 +15,8 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: '2px solid #000048',
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
     display: 'flex',
   },
 }))
@@ -90,7 +89,7 @@ const ViewOrgGrid = props => {
               </h2>
               
               <br></br>
-      
+
               <footer>
                 <button variant='secondary' onClick={handleClose}>
                   Close
