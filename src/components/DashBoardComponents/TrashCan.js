@@ -13,13 +13,12 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     display: 'flex',
     height: '20rem',
-    width: '20%',
-    borderRadius: '5px',
+    width: '25%',
+    borderRadius: '20px',
   },
 }))
 
@@ -83,17 +82,17 @@ const TrashCan = props => {
         <Fade in={open}>
           <div className={classes.paper}>
             <div className='modCon'>
-              {`Confirm Delete of sensor ${props.data.sensor_id} in 
+              {`Are you sure you want to delete sensor ${props.data.sensor_id} in 
                 ${props.data.province_name}`}
               <div className='modBtns'>
+                <button className='closeBtn' onClick={handleClose}>
+                  Cancel
+                </button>
                 <button
                   className='confirmBtn'
                   onClick={e => deleteHandler(e, props.data.sensor_index)}
                 >
-                  Confirm
-                </button>
-                <button className='closeBtn' onClick={handleClose}>
-                  Close
+                  Delete
                 </button>
               </div>
             </div>
