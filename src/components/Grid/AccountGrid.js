@@ -18,9 +18,12 @@ import EditGrid from './EditGrid'
 import {fetchAccounts} from '../../actions/accountAction'
 
 
+
 //redux
 import { connect } from 'react-redux'
 import {editAccount} from '../../actions/accountAction'
+
+import DeleteAccount from './DeleteAccount'
 
 
 class Grid extends Component {
@@ -140,14 +143,33 @@ class Grid extends Component {
           },
         },
         {
-          headerName: 'edit',
-          field: 'edit',
+          headerName: 'Edit',
+          field: 'Edit',
           sortable: true,
           filter: true,
           cellRendererFramework: params => {
             return(
               <div>
                 <EditGrid
+                api={params}
+                data={params.data}
+                otherProps={this.props}
+                editAccount={this.props.editAccount}/>
+              </div>
+            )
+          }
+         
+
+        },
+        {
+          headerName: 'Delete',
+          field: 'Delete',
+          sortable: true,
+          filter: true,
+          cellRendererFramework: params => {
+            return(
+              <div>
+                <DeleteAccount
                 api={params}
                 data={params.data}
                 otherProps={this.props}
