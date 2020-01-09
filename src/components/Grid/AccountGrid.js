@@ -24,6 +24,7 @@ import { connect } from 'react-redux'
 import {editAccount} from '../../actions/accountAction'
 
 import DeleteAccount from './DeleteAccount'
+import {deleteAccount} from '../../actions/accountAction.js'
 
 
 class Grid extends Component {
@@ -173,7 +174,7 @@ class Grid extends Component {
                 api={params}
                 data={params.data}
                 otherProps={this.props}
-                editAccount={this.props.editAccount}/>
+                deleteAccount={this.props.deleteAccount}/>
               </div>
             )
           }
@@ -297,5 +298,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {editAccount, fetchAccounts})
+  {editAccount, fetchAccounts, deleteAccount})
   (withRouter(Grid))

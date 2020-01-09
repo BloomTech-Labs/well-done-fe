@@ -1,18 +1,18 @@
 import React from 'react'
 
 const DeleteAccount = props => {
-  console.log(props)
-  const deleteHandler = (event, sensor_index) => {
+  console.log(`DeleteAccount props`,props)
+  const deleteHandler = (event, id) => {
     event.preventDefault()
-    props.deleteSensor(sensor_index)
-    props.params.api.redrawRows()
+    props.deleteAccount(id)
+   // props.params.api.redrawRows()
   }
 
   return (
     <span className='btnCon'>
       <button
         style={{ height: 20, lineHeight: 0.5 }}
-        onClick={e => deleteHandler(e, props.data.sensor_index)}
+        onClick={e => deleteHandler(e, props.data.id)}
         className='btn btn-info'
       >
         <i class='icon-trash'></i>
