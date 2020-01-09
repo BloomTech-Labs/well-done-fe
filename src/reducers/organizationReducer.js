@@ -2,6 +2,8 @@ import {
   ORG_FETCH,
   ORG_SUCCESS,
   ORG_FAILURE,
+  DELETE_SUCCESS,
+  DELETE_FAILURE,
 } from '../actions/orgAction'
 
 const initialState = {
