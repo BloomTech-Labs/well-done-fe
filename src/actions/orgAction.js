@@ -6,15 +6,17 @@ export const ORG_FAILURE = 'ORG_FAILURE'
 export const ORG_DELETE = "ORG_DELETE"
 export const DELETE_SUCCESS = "DELETE_SUCCESS"
 export const DELETE_FAILURE = "DELETE_FAILURE"
+export const ORG_ADD = "ORG_ADD"
 
-export const postOrg = (organization) => dispatch => {
+export const postOrg = (org) => dispatch => {
+  
     dispatch({
       type: ORG_FETCH,
     })
     
     AxiosWithAuth()
-      .post(`${process.env.REACT_APP_HEROKU_API}/api/orgs` ,organization)
-      .then(res => dispatch({type: ORG_SUCCESS, payload: res.data}))
+      .post(`${process.env.REACT_APP_HEROKU_API}/api/orgs` ,org)
+      .then(res => dispatch ({type: ORG_SUCCESS, payload: res.data}))
       .catch(res => dispatch({type: ORG_FAILURE, payload: res.data}))
     }
 
