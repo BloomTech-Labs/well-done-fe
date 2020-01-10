@@ -21,7 +21,7 @@ export const postOrg = organization => dispatch => {
 
   AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/orgs`, organization)
-    .then(res =>  dispatch({ type: ORG_SUCCESS, payload: res.data  } ))
+    .then(res =>  dispatch({ type: ORG_ADD, payload: res.data  } ))
     .catch(res => dispatch({ type: ORG_FAILURE, payload: res.data }))
 }
 

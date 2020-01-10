@@ -25,6 +25,13 @@ export const orgReducer = (state = initialState, action) => {
     case ORG_SUCCESS:
       return {
         ...state,
+        org: action.payload,
+        isFetching: false,
+        error: '',
+      }
+    case ORG_ADD:
+      return {
+        ...state,
         org: [...state.org, action.payload],
         isFetching: false,
         error: '',

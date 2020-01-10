@@ -5,14 +5,11 @@ import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 
-
-
 const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -24,9 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 //button on Organization Grid
 const ViewOrgGrid = props => {
-  console.log(props)
   const [organization, setOrg] = useState([])
-  console.log(`organization`, organization)
 
   //organization id added automatically, needed to .put
   organization.id = props.data.id
@@ -46,13 +41,12 @@ const ViewOrgGrid = props => {
     setOpen(false)
   }
 
-  const handleSubmit = (e) =>{
-      e.preventDefault()
-      props.editOrg(organization)
-      setOpen(false)
-      props.api.api.redrawRows()
+  const handleSubmit = e => {
+    e.preventDefault()
+    props.editOrg(organization)
+    setOpen(false)
+    props.api.api.redrawRows()
   }
-
 
   return (
     <>
@@ -88,7 +82,7 @@ const ViewOrgGrid = props => {
                 <br></br>
                 Base of Operations: {props.data.headquarter_city}
               </h2>
-              
+
               <br></br>
 
               <footer>

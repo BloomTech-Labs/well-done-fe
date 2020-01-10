@@ -90,14 +90,12 @@ class OrgGrid extends Component {
       this.setState({ displayView: 0 })
     }
     this.gridApi.redrawRows()
-    console.log('working', this.state.displayView)
   }
 
   onQuickFilterChanged(params) {
     gridOptions2.api.setQuickFilter(
       document.getElementById('quickFilters').value
     )
-    console.log(gridOptions2, 'this is the grid api')
   }
 
   exportToCsv = function() {
@@ -121,7 +119,7 @@ class OrgGrid extends Component {
               type='text'
               onInput={this.onQuickFilterChanged}
               id='quickFilters'
-              placeholder='Search'
+              placeholder='search...'
             />
             <AiOutlineSearch
               size={24}

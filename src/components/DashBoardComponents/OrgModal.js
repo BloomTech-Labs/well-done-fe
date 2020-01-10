@@ -63,9 +63,6 @@ const OrgModal = props => {
     event.preventDefault()
     props.postOrg(org) //will use addPumps
   }
-  useEffect(() => {
-    props.postOrg()
-  }, [])
 
   const handleOpen = () => {
     setOpen(true)
@@ -77,10 +74,8 @@ const OrgModal = props => {
 
   return (
     <>
-      <button className='addOrg' type='button' onClick={handleOpen}>
-        {/* ++Organization
-      <button type='button' onClick={handleOpen} className='addBtn'> */}
-        <img src={add} alt='add'></img>
+      <button type='button' onClick={handleOpen} className='addBtn'>
+        <img src={add} alt='download'></img>
       </button>
 
       <Modal
@@ -141,7 +136,7 @@ const OrgModal = props => {
 
               <h2>
                 <div className='CreateAccount'>
-                  <button type='Submit' onClick={handleSubmit}>
+                  <button type='Submit' onClick={e => handleSubmit(e)}>
                     Create Organization
                   </button>
                 </div>

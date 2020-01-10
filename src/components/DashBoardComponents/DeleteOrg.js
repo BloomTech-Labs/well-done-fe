@@ -24,14 +24,12 @@ const useStyles = makeStyles(theme => ({
 
 const DeleteOrg = props => {
   const deleteHandler = (event, id) => {
-    console.log('this is the org props', props)
     event.preventDefault()
     props.deleteOrg(id) //actions
     props.params.api.redrawRows()
   }
 
   const [pump, setPump] = useState([])
-  console.log(pump)
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)

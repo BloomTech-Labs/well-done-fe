@@ -8,15 +8,9 @@
 
   .sensorHeader {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
 
     @include grid-background;
-
-    .sensorHeaderCon {
-      height: 100%;
-      width: 500px;
-    }
 
     .sensorHeaderName {
       h1 {
@@ -26,11 +20,12 @@
 
     .searchInsensors {
       border: none;
+      height: 3rem;
       width: 26rem;
-      height: 25px;
-      margin-left: 10%;
-      border-radius: 2px;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
       font-size: 0.89rem;
+      margin-left: 10%;
     }
 
     .headerBtns {
