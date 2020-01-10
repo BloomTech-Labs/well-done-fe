@@ -4,6 +4,7 @@ import {
   ORG_FAILURE,
   DELETE_SUCCESS,
   DELETE_FAILURE,
+  ORG_ADD
 } from '../actions/orgAction'
 
 const initialState = {
@@ -43,6 +44,7 @@ export const orgReducer = (state = initialState, action) => {
             }
           }),
         }
+        
     default:
       return state
   }
