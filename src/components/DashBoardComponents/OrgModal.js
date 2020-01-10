@@ -15,10 +15,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
-import {postOrg} from '../../actions/orgAction'
+import { postOrg } from '../../actions/orgAction'
 import { Dropdown, Form } from 'react-bootstrap'
-import { connect } from 'react-redux';
-import {withRouter} from 'react-router'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
+import gridOptions2 from '../Grid/gridOptions2'
+import add from '../../icons/AddButton.svg'
+import './pumps.style.scss'
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -35,11 +38,10 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const OrgModal = (props) => {
- 
+const OrgModal = props => {
   const [org, setOrg] = useState({
-    org_name:'',
-    headquarter_city:''
+    org_name: '',
+    headquarter_city: '',
   })
   console.log(org)
 
@@ -50,8 +52,6 @@ const OrgModal = (props) => {
     setOrg({ ...org, [event.target.name]: event.target.value })
   }
 
- 
-
   const dispatch = useDispatch()
 
   //fetch 0rgs for dropdown menu
@@ -61,15 +61,15 @@ const OrgModal = (props) => {
 
   //on submit add operator
   const handleSubmit = event => {
-    console.log(org, "new")
+    console.log(org, 'new')
     event.preventDefault()
-   props.postOrg(org) //will use addPumps
-  //  props.onGridReady.api.redrawRows()
-  //  console.log( props.onGridReady.api, 'API')
+    props.postOrg(org)
+    props.onGridReady.params.api.redrawRows()
+    console.log( props.onGridReady,'this here APIII')
   }
-  useEffect(()=> {
-props.postOrg()
-  },[])
+  useEffect(() => {
+    props.postOrg()
+  }, [])
 
   const handleOpen = () => {
     setOpen(true)
@@ -81,8 +81,8 @@ props.postOrg()
 
   return (
     <>
-      <button className='button' type='button' onClick={handleOpen}>
-        ++Organization
+      <button type='button' onClick={handleOpen} className='addBtn'>
+      <img src={add} alt='download' ></img>
       </button>
 
       <Modal
@@ -170,7 +170,7 @@ const mapStateToProps = state => {
     orgReducer: state.orgReducer.org,
     org: state.org,
     isFetching: state.isFetching,
-    error: state.error
+    error: state.error,
   }
 }
-export default connect(mapStateToProps, { postOrg })(withRouter(OrgModal));
+export default connect(mapStateToProps, { postOrg })(withRouter(OrgModal))

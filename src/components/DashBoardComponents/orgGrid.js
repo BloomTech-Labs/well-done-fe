@@ -86,7 +86,7 @@ class OrgGrid extends Component {
           field: 'Delete',
           sortable: true,
           filter: true,
-          cellRendererFramework: params => {
+          cellRendererFramework: params => {          
             return (
               <div>
                 <ViewOrgGrid
@@ -116,7 +116,10 @@ class OrgGrid extends Component {
   onGridReady = params => {
     this.gridApi = params.api
     this.gridColumnApi = params.columnApi
+
+  
   }
+
 
   onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper').offsetWidth
@@ -188,7 +191,7 @@ class OrgGrid extends Component {
           >
             <img src={Archivebutton} alt='download'></img>
           </button>
-          <div className='modalHeaderOrg'><OrgModal  onGridReady={this.onGridReady}/></div>
+            <div className='modalHeaderOrg'><OrgModal /></div>
         </div>
         <div
           className='ag-theme-balham'
