@@ -70,8 +70,8 @@ const PumpsModal = () => {
 
   return (
     <>
-      <button className='button' type='button' onClick={handleOpen}>
-        ++Pump
+      <button className='addSensor' type='button' onClick={handleOpen}>
+        ++Sensor
       </button>
 
       <Modal

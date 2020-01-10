@@ -10,7 +10,7 @@ import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
 import './pumps.style.scss'
 
-import TrashCan from './TrashCan' 
+import TrashCan from './TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
 import PumpsModal from './PumpsModal'
@@ -66,7 +66,7 @@ class pumps extends Component {
           field: 'org_name',
           sortable: true,
           filter: true,
-          minWidth: 90,
+          maxWidth: 90,
           cellStyle: {
             'font-size': '1.5rem',
             'padding-top': '.75rem',
@@ -168,14 +168,14 @@ class pumps extends Component {
 
   render() {
     return (
-      <div className='pumpChart'>
-        <div className='pumpHeader'>
-          <div className='pumpHeaderName'>
-            <h1>Pumps</h1>
+      <div className='sensorChart'>
+        <div className='sensorHeader'>
+          <div className='sensorHeaderName'>
+            <h1>Sensors</h1>
           </div>
           <div className='searchContainer'>
             <input
-              className='searchInPumps'
+              className='searchInsensors'
               type='text'
               onInput={this.onQuickFilterChanged}
               id='quickFilter'
@@ -183,21 +183,24 @@ class pumps extends Component {
             />
             <AiOutlineSearch className='searchIcon' />
           </div>
-          <button
-            className='downloadButton'
-            type='default'
-            icon='download'
-            size='small'
-            onClick={this.exportToCsv.bind(this)}
-          >
-            <img src={Archivebutton} alt='download'></img>
-          </button>
+          <div className='headerBtns'>
+            <button
+              className='downloadButton'
+              type='default'
+              icon='download'
+              size='small'
+              onClick={this.exportToCsv.bind(this)}
+            >
+              <img src={Archivebutton} alt='download'></img>
+            </button>
 
-          <button onClick={() => this.viewHandler()}>
-            Delete<i className='icon-trash'></i>
-          </button>
-          <div className='modalHeader'>
-            <PumpsModal />
+            <button className='deleteBtn' onClick={() => this.viewHandler()}>
+              <i className='icon-trash'></i>
+            </button>
+
+            <div className='modalHeader'>
+              <PumpsModal />
+            </div>
           </div>
         </div>
         <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
