@@ -27,7 +27,6 @@ import { deleteAccount } from '../../actions/accountAction.js'
 class Grid extends Component {
   constructor(props) {
     super(props)
-    console.log(`AccountGrid props`, this.props)
     this.state = {
       displayView: 0,
       columnDefs: [

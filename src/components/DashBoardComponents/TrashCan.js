@@ -30,7 +30,6 @@ const TrashCan = props => {
   }
 
   const [pump, setPump] = useState([])
-  console.log(pump)
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
