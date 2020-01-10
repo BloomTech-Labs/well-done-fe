@@ -4,7 +4,9 @@ import {
   ORG_FAILURE,
   DELETE_SUCCESS,
   DELETE_FAILURE,
+  ORG_ADD
 } from '../actions/orgAction'
+
 
 const initialState = {
   org: [],
@@ -23,7 +25,7 @@ export const orgReducer = (state = initialState, action) => {
     case ORG_SUCCESS:
       return {
         ...state,
-        org: action.payload,
+        org: [...state.org, action.payload],
         isFetching: false,
         error: '',
       }
@@ -43,6 +45,7 @@ export const orgReducer = (state = initialState, action) => {
             }
           }),
         }
+        
     default:
       return state
   }

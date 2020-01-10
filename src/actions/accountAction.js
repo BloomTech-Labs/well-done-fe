@@ -22,19 +22,17 @@ export const fetchAccounts = () => dispatch => {
 }
 
 export const addOp = (operator) => dispatch => {
-
     dispatch({type: ADDOP_FETCH})
 
     AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/accounts`,operator)
-    .then(res =>
-        dispatch({type: ADDOP_SUCCESS, payload: res.data}))
+    .then(res => dispatch({type: ADDOP_SUCCESS, payload: res.data}))
     .catch(err => dispatch({type: ADDOP_FAILURE, payload: err.response}))
 }   
 
 export const editAccount = account => dispatch => {
     const id = account.id
-    console.log('action edit', account)
+
     AxiosWithAuth()
     .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`,account)
     .then(res => dispatch({type: EDIT_SUCCESS, payload: res.data}))
@@ -42,7 +40,6 @@ export const editAccount = account => dispatch => {
 }
 
 export const deleteAccount = id => dispatch => {
-    console.log(`account action`, id)
     
     AxiosWithAuth()
     .delete(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`)

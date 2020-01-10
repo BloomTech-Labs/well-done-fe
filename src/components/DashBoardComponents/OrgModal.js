@@ -15,8 +15,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
-
+import { postOrg } from '../../actions/orgAction'
 import { Dropdown, Form } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
+import gridOptions2 from '../Grid/gridOptions2'
+import add from '../../icons/AddButton.svg'
+import './pumps.style.scss'
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -33,9 +38,11 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const OrgModal = () => {
-  const [org, setOrg] = useState([])
-  console.log(org)
+const OrgModal = props => {
+  const [org, setOrg] = useState({
+    org_name: '',
+    headquarter_city: '',
+  })
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
@@ -54,8 +61,11 @@ const OrgModal = () => {
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
-    // dispatch(addOp(operator)) //will use addPumps
+    props.postOrg(org) //will use addPumps
   }
+  useEffect(() => {
+    props.postOrg()
+  }, [])
 
   const handleOpen = () => {
     setOpen(true)
@@ -68,7 +78,9 @@ const OrgModal = () => {
   return (
     <>
       <button className='addOrg' type='button' onClick={handleOpen}>
-        ++Organization
+        {/* ++Organization
+      <button type='button' onClick={handleOpen} className='addBtn'> */}
+        <img src={add} alt='add'></img>
       </button>
 
       <Modal
@@ -107,8 +119,8 @@ const OrgModal = () => {
                   type='text'
                   id='organization'
                   placeholder='organization'
-                  name='organization name'
-                  value={org.organization}
+                  name='org_name'
+                  value={org.org_name}
                   onChange={handleChange}
                 />
               </h2>
@@ -119,7 +131,7 @@ const OrgModal = () => {
                   type='text'
                   id='headquarter_city'
                   placeholder='headquarter_city'
-                  name='city'
+                  name='headquarter_city'
                   value={org.headquarter_city}
                   onChange={handleChange}
                 />
@@ -150,4 +162,13 @@ const OrgModal = () => {
     </>
   )
 }
-export default OrgModal
+
+const mapStateToProps = state => {
+  return {
+    orgReducer: state.orgReducer.org,
+    org: state.org,
+    isFetching: state.isFetching,
+    error: state.error,
+  }
+}
+export default connect(mapStateToProps, { postOrg })(withRouter(OrgModal))

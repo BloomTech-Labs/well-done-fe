@@ -16,6 +16,7 @@ const rootReducer = combineReducers({
   pumpsReducer,
   accountReducer,
   orgReducer,
+ 
 })
 
 export default rootReducer
