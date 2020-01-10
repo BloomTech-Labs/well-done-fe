@@ -23,6 +23,7 @@ import gridOptions2 from '../Grid/gridOptions2'
 import add from '../../icons/AddButton.svg'
 import './pumps.style.scss'
 
+
 const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
@@ -43,7 +44,7 @@ const OrgModal = props => {
     org_name: '',
     headquarter_city: '',
   })
-  console.log(org)
+
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
@@ -61,11 +62,10 @@ const OrgModal = props => {
 
   //on submit add operator
   const handleSubmit = event => {
-    console.log(org, 'new')
+ 
     event.preventDefault()
-    props.postOrg(org)
-    props.onGridReady.params.api.redrawRows()
-    console.log( props.onGridReady,'this here APIII')
+   props.postOrg(org) //will use addPumps
+
   }
   useEffect(() => {
     props.postOrg()
