@@ -38,7 +38,7 @@ class Grid extends Component {
           field: 'id',
           sortable: true,
           filter: true,
-          width: 40,
+          width: 60,
           cellStyle: {
             'font-size': '2rem',
             'padding-top': '.75rem',
@@ -99,55 +99,35 @@ class Grid extends Component {
             'padding-top': '.75rem',
           },
         },
+        // {
+        //   headerName: 'Sensor',
+        //   field: 'sensor',
+        //   sortable: true,
+        //   filter: true,
+        //   width: 120,
+        //   cellStyle: {
+        //     'font-size': '2rem',
+        //     'padding-top': '.75rem',
+        //   },
+        // },
         {
-          headerName: 'Sensor',
-          field: 'sensor',
+          headerName: 'Role',
+          field: 'Role',
           sortable: true,
           filter: true,
-          width: 120,
+          width: 150,
           cellStyle: {
             'font-size': '2rem',
             'padding-top': '.75rem',
           },
         },
-        {
-          headerName: 'Super User',
-          field: 'super_user',
-          sortable: true,
-          filter: true,
-          width: 100,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Org User',
-          field: 'org_user',
-          sortable: true,
-          filter: true,
-          width: 100,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Org Admin',
-          field: 'org_admin',
-          sortable: true,
-          filter: true,
-          width: 100,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
+        
         {
           headerName: 'Edit',
           field: 'Edit',
           sortable: true,
           filter: true,
+          width: 60,
           cellRendererFramework: params => {
             return(
               <div>
@@ -162,11 +142,13 @@ class Grid extends Component {
          
 
         },
+      
         {
           headerName: 'Delete',
           field: 'Delete',
           sortable: true,
           filter: true,
+          width: 60,
           cellRendererFramework: params => {
             return(
               <div>
@@ -187,18 +169,6 @@ class Grid extends Component {
 
   componentDidMount = () => {
     this.props.fetchAccounts()
-    // const token = localStorage.getItem('token')
-    // fetch(`${process.env.REACT_APP_HEROKU_API_G}/api/accounts`, {
-    //   method: 'GET',
-    //   mode: 'cors',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `${token}`,
-    //   },
-    // })
-    //   .then(result => result.json())
-    //   .then(rowData => this.setState({ rowData }))
-    //   .catch(err => console.log(err))
   }
 
   onGridSizeChanged = params => {

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const DeleteAccount = props => {
-  console.log(`DeleteAccount props`,props)
   const deleteHandler = (event, id) => {
     event.preventDefault()
     props.deleteAccount(id)
