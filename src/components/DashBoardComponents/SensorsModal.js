@@ -4,12 +4,12 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../../actions/pumpAction'
 
-import './pumps.style.scss'
+import './Sensors'
 
-//will be changed to pumpsAction
+//will be changed to sensorsAction
 // import { addOp } from '../actions/addOp-action'
 
-//need to change for pumps
+//need to change for sensors
 import '../../components/modalOperator.scss'
 
 import { makeStyles } from '@material-ui/core/styles'

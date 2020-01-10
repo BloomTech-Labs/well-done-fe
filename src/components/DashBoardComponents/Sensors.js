@@ -8,7 +8,7 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 
 import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
-import './pumps.style.scss'
+import './Sensors.style.scss'
 
 import TrashCan from './TrashCan'
 

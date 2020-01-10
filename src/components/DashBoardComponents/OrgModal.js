@@ -21,7 +21,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import gridOptions2 from '../Grid/gridOptions2'
 import add from '../../icons/AddButton.svg'
-import './pumps.style.scss'
+import './Sensors.style.scss'
 
 const useStyles = makeStyles(theme => ({
   modal: {
