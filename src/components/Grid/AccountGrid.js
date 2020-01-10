@@ -112,7 +112,7 @@ class Grid extends Component {
         // },
         {
           headerName: 'Role',
-          field: 'Role',
+          field: 'role',
           sortable: true,
           filter: true,
           width: 150,
