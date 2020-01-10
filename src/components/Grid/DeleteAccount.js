@@ -14,7 +14,7 @@ const DeleteAccount = props => {
         onClick={e => deleteHandler(e, props.data.id)}
         className='btn btn-info'
       >
-        <i class='icon-trash'></i>
+        <i className='icon-trash'></i>
       </button>
     </span>
   )
