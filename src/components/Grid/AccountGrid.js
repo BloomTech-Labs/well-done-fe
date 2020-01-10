@@ -99,17 +99,17 @@ class Grid extends Component {
             'padding-top': '.75rem',
           },
         },
-        {
-          headerName: 'Sensor',
-          field: 'sensor',
-          sortable: true,
-          filter: true,
-          width: 120,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
+        // {
+        //   headerName: 'Sensor',
+        //   field: 'sensor',
+        //   sortable: true,
+        //   filter: true,
+        //   width: 120,
+        //   cellStyle: {
+        //     'font-size': '2rem',
+        //     'padding-top': '.75rem',
+        //   },
+        // },
         {
           headerName: 'Role',
           field: 'Role',
