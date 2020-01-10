@@ -141,7 +141,7 @@ const OrgModal = props => {
 
               <h2>
                 <div className='CreateAccount'>
-                  <button type='Submit' onClick={() => handleSubmit()}>
+                  <button type='Submit' onClick={e => handleSubmit(e)}>
                     Create Organization
                   </button>
                 </div>
