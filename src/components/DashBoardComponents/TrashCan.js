@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
@@ -35,16 +35,6 @@ const TrashCan = props => {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
-  const handleChange = event => {
-    setPump({ ...pump, [event.target.name]: event.target.value })
-  }
-
-  //on submit add operator
-  const handleSubmit = event => {
-    event.preventDefault()
-    // dispatch(addOp(operator)) //will use addPumps
-  }
-
   const handleOpen = () => {
     setOpen(true)
   }
@@ -52,8 +42,6 @@ const TrashCan = props => {
   const handleClose = () => {
     setOpen(false)
   }
-
-  // onClick={e => deleteHandler(e, props.data.sensor_index)}
 
   return (
     <div>

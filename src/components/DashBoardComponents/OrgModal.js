@@ -67,7 +67,7 @@ const OrgModal = () => {
 
   return (
     <>
-      <button className='button' type='button' onClick={handleOpen}>
+      <button className='addOrg' type='button' onClick={handleOpen}>
         ++Organization
       </button>
 

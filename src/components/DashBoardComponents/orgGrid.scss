@@ -13,9 +13,10 @@
   @include grid-background;
   display: flex;
   align-items: center;
-  h1{
+  h1 {
     @include header-text;
   }
+
   .searchAccounts {
     border: none;
     height: 3rem;
@@ -24,6 +25,36 @@
     border-radius: 8px;
     font-size: 0.89rem;
     margin-left: 10%;
+  }
+
+  .headerBtns {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 2rem;
+
+    .deleteBtn {
+      border: none;
+      background: #accdff;
+      font-size: 2.5rem;
+      width: 5%;
+    }
+
+    .downloadButton {
+      width: 5%;
+    }
+
+    .modalHeaderOrg {
+      display: flex;
+      justify-content: center;
+      width: 10%;
+
+      .addOrg {
+        font-size: 1.5rem;
+        border: none;
+        background: #accdff;
+      }
+    }
   }
   .inputContainer {
     display: flex;
@@ -34,7 +65,7 @@
     @include header-text;
   }
 }
- .downloadButton{
-   background: transparent;
-   border: none;
- }
+.downloadButton {
+  background: transparent;
+  border: none;
+}

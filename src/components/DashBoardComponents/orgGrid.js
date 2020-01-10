@@ -18,6 +18,7 @@ class OrgGrid extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      displayView: 0,
       columnDefs: [
         {
           headerName: 'Organization',
@@ -89,18 +90,21 @@ class OrgGrid extends Component {
           cellRendererFramework: params => {
             return (
               <div>
-                <ViewOrgGrid
-                  api={params}
-                  data={params.data}
-                  otherProps={this.props}
-                  editOrganization={this.props.editOrganization}
-                />
-                <DeleteOrg
-                  params={params}
-                  data={params.data}
-                  otherProps={this.props}
-                  deleteOrg={this.props.deleteOrg}
-                />
+                {this.state.displayView === 0 ? (
+                  <ViewOrgGrid
+                    api={params}
+                    data={params.data}
+                    otherProps={this.props}
+                    editOrganization={this.props.editOrganization}
+                  />
+                ) : (
+                  <DeleteOrg
+                    params={params}
+                    data={params.data}
+                    otherProps={this.props}
+                    deleteOrg={this.props.deleteOrg}
+                  />
+                )}
               </div>
             )
           },
@@ -136,6 +140,16 @@ class OrgGrid extends Component {
     params.columnApi.setColumnsVisible(columnsToShow, true)
     params.columnApi.setColumnsVisible(columnsToHide, false)
     params.api.sizeColumnsToFit()
+  }
+
+  viewHandler = () => {
+    if (this.state.displayView === 0) {
+      this.setState({ displayView: 1 })
+    } else {
+      this.setState({ displayView: 0 })
+    }
+    this.gridApi.redrawRows()
+    console.log('working', this.state.displayView)
   }
 
   onQuickFilterChanged(params) {
@@ -178,18 +192,22 @@ class OrgGrid extends Component {
               }}
             />
           </div>
-
-          <button
-            className='downloadButton'
-            type='default'
-            icon='download'
-            size='small'
-            onClick={this.exportToCsv.bind(this)}
-          >
-            <img src={Archivebutton} alt='download'></img>
-          </button>
-          <div className='modalHeaderOrg'>
-            <OrgModal />
+          <div className='headerBtns'>
+            <button
+              className='downloadButton'
+              type='default'
+              icon='download'
+              size='small'
+              onClick={this.exportToCsv.bind(this)}
+            >
+              <img src={Archivebutton} alt='download'></img>
+            </button>
+            <button className='deleteBtn' onClick={() => this.viewHandler()}>
+              <i className='icon-trash'></i>
+            </button>
+            <div className='modalHeaderOrg'>
+              <OrgModal />
+            </div>
           </div>
         </div>
         <div
