@@ -4,13 +4,13 @@ import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
 import IconsFilter from '../components/Filter/IconFilters'
-import Pumps from '../components/DashBoardComponents/pumps'
+import Sensors from '../components/DashBoardComponents/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
 import OrgGrid from 'components/DashBoardComponents/orgGrid/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
-import Testing from '../components/DashBoardComponents/pumps'
+import Testing from '../components/DashBoardComponents/Sensors'
 import AccountGrid from '../components/Grid/AccountGrid'
 import Banner from './Banner'
 
@@ -105,9 +105,9 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  if (sensorSelector.sensors.length === 0) {
-    return <div>loading...</div>
-  }
+  // if (sensorSelector.sensors.length === 0) {
+  //   return <div>loading...</div>
+  // }
 
   console.log(sensorSelector)
 
@@ -159,7 +159,7 @@ const Dashboard = props => {
             sensors={sensorSelector.sensors}
           />
 
-          <Pumps
+          <Sensors
             gridInfo={sensorSelector.gridInfo}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}

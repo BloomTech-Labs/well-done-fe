@@ -5,7 +5,7 @@ import 'antd/dist/antd.css'
 import gridOptions2 from '../../Grid/gridOptions2'
 import { AiOutlineSearch } from 'react-icons/ai'
 import OrgModal from '../OrgModal'
-import {orgGridColumns} from './orgGridColumns'
+import { orgGridColumns } from './orgGridColumns'
 import ViewOrgGrid from '../OrgView'
 import Archivebutton from 'icons/Archivebutton.svg'
 
@@ -18,8 +18,9 @@ class OrgGrid extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      displayView: 0,
       columnDefs: [
-      ...orgGridColumns,
+        ...orgGridColumns,
         {
           headerName: 'view',
           field: 'view',
@@ -27,22 +28,24 @@ class OrgGrid extends Component {
           field: 'Delete',
           sortable: true,
           filter: true,
-          cellRendererFramework: params => {          
+          cellRendererFramework: params => {
             return (
               <div>
-                <ViewOrgGrid
-                  api={params}
-                  data={params.data}
-                  otherProps={this.props}
-                  editOrganization={this.props.editOrganization}
-                />
-                <DeleteOrg
-                  params={params}
-                  data={params.data}
-                  otherProps={this.props}
-                  deleteOrg={this.props.deleteOrg}
-                />
-               
+                {this.state.displayView === 0 ? (
+                  <ViewOrgGrid
+                    api={params}
+                    data={params.data}
+                    otherProps={this.props}
+                    editOrganization={this.props.editOrganization}
+                  />
+                ) : (
+                  <DeleteOrg
+                    params={params}
+                    data={params.data}
+                    otherProps={this.props}
+                    deleteOrg={this.props.deleteOrg}
+                  />
+                )}
               </div>
             )
           },
@@ -58,10 +61,7 @@ class OrgGrid extends Component {
   onGridReady = params => {
     this.gridApi = params.api
     this.gridColumnApi = params.columnApi
-
-  
   }
-
 
   onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper').offsetWidth
@@ -83,11 +83,19 @@ class OrgGrid extends Component {
     params.api.sizeColumnsToFit()
   }
 
+  viewHandler = () => {
+    if (this.state.displayView === 0) {
+      this.setState({ displayView: 1 })
+    } else {
+      this.setState({ displayView: 0 })
+    }
+    this.gridApi.redrawRows()
+  }
+
   onQuickFilterChanged(params) {
     gridOptions2.api.setQuickFilter(
       document.getElementById('quickFilters').value
     )
-    console.log(gridOptions2, 'this is the grid api')
   }
 
   exportToCsv = function() {
@@ -111,7 +119,7 @@ class OrgGrid extends Component {
               type='text'
               onInput={this.onQuickFilterChanged}
               id='quickFilters'
-              placeholder='Search'
+              placeholder='search...'
             />
             <AiOutlineSearch
               size={24}
@@ -123,17 +131,23 @@ class OrgGrid extends Component {
               }}
             />
           </div>
-
-          <button
-            className='downloadButton'
-            type='default'
-            icon='download'
-            size='small'
-            onClick={this.exportToCsv.bind(this)}
-          >
-            <img src={Archivebutton} alt='download'></img>
-          </button>
-            <div className='modalHeaderOrg'><OrgModal /></div>
+          <div className='headerBtns'>
+            <button
+              className='downloadButton'
+              type='default'
+              icon='download'
+              size='small'
+              onClick={this.exportToCsv.bind(this)}
+            >
+              <img src={Archivebutton} alt='download'></img>
+            </button>
+            <button className='deleteBtn' onClick={() => this.viewHandler()}>
+              <i className='icon-trash'></i>
+            </button>
+            <div className='modalHeaderOrg'>
+              <OrgModal />
+            </div>
+          </div>
         </div>
         <div
           className='ag-theme-balham'

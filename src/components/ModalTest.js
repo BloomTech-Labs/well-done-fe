@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
+import add from '../icons/AddButton.svg'
 
 import { Dropdown, Form } from 'react-bootstrap'
 
@@ -48,7 +49,6 @@ const ModalOperator = () => {
   }, [])
 
   const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
-  console.log(pumpsReducer)
 
   //on submit add operator
   const handleSubmit = event => {
@@ -86,8 +86,8 @@ const ModalOperator = () => {
 
   return (
     <>
-      <button className='button' type='button' onClick={handleOpen}>
-        ++Account
+      <button className='addAccount' type='button' onClick={handleOpen}>
+        <img src={add} alt='add'></img>
       </button>
 
       <Modal
@@ -190,23 +190,21 @@ const ModalOperator = () => {
               </h2>
               <br></br>
 
-              
               <br></br>
               <br></br>
 
               <h2>
                 <div className='CreateAccount'>
-                  <button type='Submit' onClick={handleSubmit}>
+                  <button type='Submit' onClick={e => handleSubmit(e)}>
                     Create Operator
                   </button>
                 </div>
               </h2>
               <br></br>
               <footer>
-                <button variant='secondary' onClick={handleClose}>
+                <button variant='secondary' onClick={() => handleClose()}>
                   Cancel
                 </button>
-                
               </footer>
             </div>
           </div>

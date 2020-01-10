@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
 
 const OrganizationActivityCard = props => {
   let found = props.sensors.find(item => {
@@ -8,7 +8,6 @@ const OrganizationActivityCard = props => {
       return item
     }
   })
-  // console.log(found)
 
   const routeHandler = e => {
     e.preventDefault()
@@ -25,16 +24,14 @@ const OrganizationActivityCard = props => {
           </span>
           <span className='orgSpan prov'>Province:{found.province_name}</span>
         </h2>
-        <p className='pumpOrg'/>
-          <h3 className='status'/>
-            <span className='orgSpan'>
-              Current Status:{' '}
-              <span className='emoji'>{props.currentStatus}</span>
-            </span>
-            <span className='orgSpan'>
-              Previous Status: <span className='emoji'>{props.prevStatus}</span>
-            </span>
-         
+        <p className='pumpOrg' />
+        <h3 className='status' />
+        <span className='orgSpan'>
+          Current Status: <span className='emoji'>{props.currentStatus}</span>
+        </span>
+        <span className='orgSpan'>
+          Previous Status: <span className='emoji'>{props.prevStatus}</span>
+        </span>
       </div>
       <span className='btnCon'>
         <span className='date'>

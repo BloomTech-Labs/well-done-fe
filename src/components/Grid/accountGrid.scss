@@ -12,13 +12,12 @@
 }
 
 .accountHeader {
-  
   @include grid-background;
   display: flex;
   align-items: center;
-h1{
-  @include header-text;
-}
+  h1 {
+    @include header-text;
+  }
   .searchAccounts {
     border: none;
     width: 26rem;
@@ -37,17 +36,46 @@ h1{
     border-radius: 2px;
     font-size: 0.89rem;
   }
+
+  .headerBtns {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 2rem;
+
+    .deleteBtn {
+      border: none;
+      background: #accdff;
+      font-size: 3.5rem;
+      width: 5%;
+    }
+
+    .downloadButton {
+      width: 5%;
+    }
+
+    .modalHeaderAccount {
+      display: flex;
+      justify-content: center;
+      width: 5%;
+
+      .addAccount {
+        font-size: 1.5rem;
+        border: none;
+        background: #accdff;
+      }
+    }
+  }
 }
 
-
-.downloadButton{
+.downloadButton {
   background: transparent;
   border: none;
 }
 
-.modal{
+.modal {
   position: relative;
-  width:0px;
-  border:none;
-  background:transparent;
+  width: 0px;
+  border: none;
+  background: transparent;
 }

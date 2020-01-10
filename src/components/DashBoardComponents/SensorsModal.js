@@ -4,18 +4,19 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../../actions/pumpAction'
 
-import './pumps.style.scss'
+import './Sensors'
 
-//will be changed to pumpsAction
+//will be changed to sensorsAction
 // import { addOp } from '../actions/addOp-action'
 
-//need to change for pumps
+//need to change for sensors
 import '../../components/modalOperator.scss'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
+import add from '../../icons/AddButton.svg'
 
 import { Dropdown, Form } from 'react-bootstrap'
 
@@ -36,7 +37,6 @@ const useStyles = makeStyles(theme => ({
 
 const PumpsModal = () => {
   const [pump, setPump] = useState([])
-  console.log(pump)
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
@@ -70,8 +70,8 @@ const PumpsModal = () => {
 
   return (
     <>
-      <button className='button' type='button' onClick={handleOpen}>
-        ++Pump
+      <button className='addSensor' type='button' onClick={handleOpen}>
+        <img src={add} alt='add'></img>
       </button>
 
       <Modal

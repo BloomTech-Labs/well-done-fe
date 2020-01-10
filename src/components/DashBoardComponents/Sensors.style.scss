@@ -1,36 +1,63 @@
 @import 'src/colors';
 
-.pumpChart {
+.sensorChart {
   width: 48%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.08);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 
-  .pumpHeader {
+  .sensorHeader {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
 
     @include grid-background;
 
-    .pumpHeaderCon {
-      height: 100%;
-      width: 500px;
-    }
-
-    .pumpHeaderName {
+    .sensorHeaderName {
       h1 {
         @include header-text;
       }
     }
 
-    .searchInPumps {
+    .searchInsensors {
       border: none;
+      height: 3rem;
       width: 26rem;
-      height: 25px;
-      margin-left: 10%;
-      border-radius: 2px;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
       font-size: 0.89rem;
+      margin-left: 10%;
+    }
+
+    .headerBtns {
+      display: flex;
+      justify-content: flex-end;
+      width: 50%;
+      margin-right: 2rem;
+
+      .deleteBtn {
+        border: none;
+        background: #accdff;
+        font-size: 2.5rem;
+        width: 10%;
+        margin-right: 1rem;
+      }
+
+      .downloadButton {
+        width: 10%;
+        margin-right: 1rem;
+      }
+
+      .modalHeader {
+        display: flex;
+        justify-content: center;
+        width: 10%;
+
+        .addSensor {
+          font-size: 1.5rem;
+          border: none;
+          background: #accdff;
+        }
+      }
     }
   }
 }
@@ -109,7 +136,7 @@
   }
 }
 
-.addBtn{
+.addBtn {
   background: transparent;
   border: none;
 }
