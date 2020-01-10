@@ -20,6 +20,7 @@ import { Dropdown, Form } from 'react-bootstrap'
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router'
 
+
 const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
@@ -41,7 +42,7 @@ const OrgModal = (props) => {
     org_name:'',
     headquarter_city:''
   })
-  console.log(org)
+
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
@@ -61,11 +62,10 @@ const OrgModal = (props) => {
 
   //on submit add operator
   const handleSubmit = event => {
-    console.log(org, "new")
+ 
     event.preventDefault()
    props.postOrg(org) //will use addPumps
-  //  props.onGridReady.api.redrawRows()
-  //  console.log( props.onGridReady.api, 'API')
+
   }
   useEffect(()=> {
 props.postOrg()

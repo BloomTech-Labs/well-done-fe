@@ -7,6 +7,7 @@ import {
   ORG_ADD
 } from '../actions/orgAction'
 
+
 const initialState = {
   org: [],
   isFetching: false,
@@ -24,7 +25,7 @@ export const orgReducer = (state = initialState, action) => {
     case ORG_SUCCESS:
       return {
         ...state,
-        org: action.payload,
+        org: [...state.org, action.payload],
         isFetching: false,
         error: '',
       }

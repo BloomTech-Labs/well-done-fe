@@ -101,6 +101,7 @@ class OrgGrid extends Component {
                   otherProps={this.props}
                   deleteOrg={this.props.deleteOrg}
                 />
+               
               </div>
             )
           },
@@ -188,7 +189,8 @@ class OrgGrid extends Component {
           >
             <img src={Archivebutton} alt='download'></img>
           </button>
-          <div className='modalHeaderOrg'><OrgModal  onGridReady={this.onGridReady}/></div>
+          <div className='modalHeaderOrg'><OrgModal/>
+          </div>
         </div>
         <div
           className='ag-theme-balham'
