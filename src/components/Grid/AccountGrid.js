@@ -196,6 +196,7 @@ class Grid extends Component {
   }
 
   render() {
+    console.log(this.gridApi)
     return (
       <div>
         <div className='accountBody'>
@@ -246,6 +247,7 @@ class Grid extends Component {
               defaultColDef={this.state.defaultColDef}
               rowSelection={this.state.rowSelection}
               onGridSizeChanged={this.onGridSizeChanged}
+              onGridReady={this.onGridReady}
             />
           </div>
         </div>
