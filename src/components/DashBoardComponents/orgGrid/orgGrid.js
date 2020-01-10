@@ -121,7 +121,7 @@ class OrgGrid extends Component {
               type='text'
               onInput={this.onQuickFilterChanged}
               id='quickFilters'
-              placeholder='Search'
+              placeholder='search...'
             />
             <AiOutlineSearch
               size={24}

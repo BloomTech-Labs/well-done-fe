@@ -15,23 +15,21 @@ import Archivebutton from 'icons/Archivebutton.svg'
 import './accountGrid.scss'
 
 import EditGrid from './EditGrid'
-import {fetchAccounts} from '../../actions/accountAction'
-
-
+import { fetchAccounts } from '../../actions/accountAction'
 
 //redux
 import { connect } from 'react-redux'
-import {editAccount} from '../../actions/accountAction'
+import { editAccount } from '../../actions/accountAction'
 
 import DeleteAccount from './DeleteAccount'
-import {deleteAccount} from '../../actions/accountAction.js'
-
+import { deleteAccount } from '../../actions/accountAction.js'
 
 class Grid extends Component {
   constructor(props) {
     super(props)
     console.log(`AccountGrid props`, this.props)
     this.state = {
+      displayView: 0,
       columnDefs: [
         {
           headerName: 'id',
@@ -99,17 +97,6 @@ class Grid extends Component {
             'padding-top': '.75rem',
           },
         },
-        // {
-        //   headerName: 'Sensor',
-        //   field: 'sensor',
-        //   sortable: true,
-        //   filter: true,
-        //   width: 120,
-        //   cellStyle: {
-        //     'font-size': '2rem',
-        //     'padding-top': '.75rem',
-        //   },
-        // },
         {
           headerName: 'Role',
           field: 'Role',
@@ -121,7 +108,7 @@ class Grid extends Component {
             'padding-top': '.75rem',
           },
         },
-        
+
         {
           headerName: 'Edit',
           field: 'Edit',
@@ -129,46 +116,38 @@ class Grid extends Component {
           filter: true,
           width: 60,
           cellRendererFramework: params => {
-            return(
+            return (
               <div>
-                <EditGrid
-                api={params}
-                data={params.data}
-                otherProps={this.props}
-                editAccount={this.props.editAccount}/>
+                {this.state.displayView === 0 ? (
+                  <EditGrid
+                    api={params}
+                    data={params.data}
+                    otherProps={this.props}
+                    editAccount={this.props.editAccount}
+                  />
+                ) : (
+                  <DeleteAccount
+                    params={params}
+                    data={params.data}
+                    otherProps={this.props}
+                    deleteAccount={this.props.deleteAccount}
+                  />
+                )}
               </div>
             )
-          }
-         
-
+          },
         },
-      
-        {
-          headerName: 'Delete',
-          field: 'Delete',
-          sortable: true,
-          filter: true,
-          width: 60,
-          cellRendererFramework: params => {
-            return(
-              <div>
-                <DeleteAccount
-                params={params}
-                data={params.data}
-                otherProps={this.props}
-                deleteAccount={this.props.deleteAccount}/>
-              </div>
-            )
-          }
-         
-
-        }
       ],
     }
   }
 
   componentDidMount = () => {
     this.props.fetchAccounts()
+  }
+
+  onGridReady = params => {
+    this.gridApi = params.api
+    this.gridColumnApi = params.columnApi
   }
 
   onGridSizeChanged = params => {
@@ -201,6 +180,15 @@ class Grid extends Component {
     gridOptions3.api.exportDataAsCsv(params)
   }
 
+  viewHandler = () => {
+    if (this.state.displayView === 0) {
+      this.setState({ displayView: 1 })
+    } else {
+      this.setState({ displayView: 0 })
+    }
+    this.gridApi.redrawRows()
+  }
+
   // filter function
   onQuickFilterChanged(params) {
     gridOptions3.api.setQuickFilter(
@@ -224,17 +212,23 @@ class Grid extends Component {
               />
               <AiOutlineSearch className='searchIcon' />
             </div>
-            <button
-              className='downloadButton'
-              type='default'
-              icon='download'
-              size='small'
-              onClick={this.exportToCsv.bind(this)}
-            >
-               <img src={Archivebutton} alt="download"></img>
-            </button>
-            <div className="modalHeaderAccount">
-              <ModalOperator />
+            <div className='headerBtns'>
+              <button
+                className='downloadButton'
+                type='default'
+                icon='download'
+                size='small'
+                onClick={this.exportToCsv.bind(this)}
+              >
+                <img src={Archivebutton} alt='download'></img>
+              </button>
+
+              <button className='deleteBtn' onClick={() => this.viewHandler()}>
+                <i className='icon-trash'></i>
+              </button>
+              <div className='modalHeaderAccount'>
+                <ModalOperator />
+              </div>
             </div>
           </div>
           <div
@@ -261,12 +255,13 @@ class Grid extends Component {
   }
 }
 const mapStateToProps = state => {
-  return{
-    accountReducer : state.accountReducer.accounts
+  return {
+    accountReducer: state.accountReducer.accounts,
   }
 }
 
-export default connect(
-  mapStateToProps,
-  {editAccount, fetchAccounts, deleteAccount})
-  (withRouter(Grid))
+export default connect(mapStateToProps, {
+  editAccount,
+  fetchAccounts,
+  deleteAccount,
+})(withRouter(Grid))
