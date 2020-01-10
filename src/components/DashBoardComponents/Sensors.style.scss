@@ -97,9 +97,7 @@
   border: none;
 }
 
-.classes.paper {
-  border: 20px solid red;
-}
+
 
 .modCon {
   display: flex;
@@ -139,4 +137,55 @@
 .addBtn {
   background: transparent;
   border: none;
+}
+
+.btnContainer{
+  width:100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 5px;
+
+}
+
+.col1{
+width:100%;
+
+}
+.createNgoBtn{
+  margin-left: 15px;
+  border-radius:3px;
+  border:none;
+  @include navbar-bg;
+  color:white;
+  padding:8px 15px;
+  font-size: 14px;
+ 
+
+  }
+.cancelBtn{
+border:none;
+color: #090C9B;
+background:transparent;
+font-weight:600;
+}
+.orgHeader{
+font-size: 24px;
+font-weight: 600;
+margin-bottom: 4rem;
+}
+.orgInput{
+border:1px solid red
+}
+.orgLabel{
+  font-size:10px;
+  margin-bottom:-8px;
+}
+.hqLabel{
+  font-size:10px;
+  margin-bottom:-8px;
+
+}
+.textInput{
+  height:3rem !important;
+  width:18rem !important;
 }

@@ -105,9 +105,9 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  if (sensorSelector.sensors.length === 0) {
-    return <div>loading...</div>
-  }
+  // if (sensorSelector.sensors.length === 0) {
+  //   return <div>loading...</div>
+  // }
 
   console.log(sensorSelector)
 

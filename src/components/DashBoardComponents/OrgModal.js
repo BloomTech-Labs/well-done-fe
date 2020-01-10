@@ -30,11 +30,14 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    backgroundColor: '#F4F4F6',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     display: 'flex',
+    width: '400px',
+    borderRadius: '12px'
+    
+   
   },
 }))
 
@@ -108,47 +111,49 @@ const OrgModal = props => {
                   ))}
                 </Form.Control> */}
               <h2>
-                <label for='Country'>Organization</label>
-                <br></br>
+                <label className="orgHeader" for='Country'>Create Organization</label>
+                
+                <label className='orgLabel' for='Country'>Organization Name</label>
+
                 <input
+                  className="textInput"
                   type='text'
                   id='organization'
-                  placeholder='organization'
+                  placeholder='Organization Name'
                   name='org_name'
                   value={org.org_name}
                   onChange={handleChange}
                 />
               </h2>
               <h2>
-                <label for='Country'>Headquarter City</label>
-                <br></br>
+                <label className='hqLabel' for='Country'>Headquarters</label>
+            
                 <input
+                  className="textInput"
                   type='text'
                   id='headquarter_city'
-                  placeholder='headquarter_city'
+                  placeholder='Headquarters'
                   name='headquarter_city'
                   value={org.headquarter_city}
                   onChange={handleChange}
                 />
               </h2>
 
-              <br></br>
+           
 
               <h2>
                 <div className='CreateAccount'>
-                  <button type='Submit' onClick={e => handleSubmit(e)}>
-                    Create Organization
-                  </button>
+                
                 </div>
               </h2>
-              <br></br>
-              <footer>
-                <button variant='secondary' onClick={handleClose}>
-                  Close
+              
+              <footer className="btnContainer">
+                <button className="cancelBtn" variant='secondary' onClick={handleClose}>
+                  Cancel
                 </button>
-                <button variant='primary' onClick={handleClose}>
-                  Save Changes
-                </button>
+                 <button className='createNgoBtn' type='Submit' onClick={e => handleSubmit(e)}>
+                    Create NGO
+                  </button>
               </footer>
             </div>
           </div>
