@@ -142,6 +142,7 @@ class Grid extends Component {
          
 
         },
+      
         {
           headerName: 'Delete',
           field: 'Delete',
@@ -168,18 +169,6 @@ class Grid extends Component {
 
   componentDidMount = () => {
     this.props.fetchAccounts()
-    // const token = localStorage.getItem('token')
-    // fetch(`${process.env.REACT_APP_HEROKU_API_G}/api/accounts`, {
-    //   method: 'GET',
-    //   mode: 'cors',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `${token}`,
-    //   },
-    // })
-    //   .then(result => result.json())
-    //   .then(rowData => this.setState({ rowData }))
-    //   .catch(err => console.log(err))
   }
 
   onGridSizeChanged = params => {

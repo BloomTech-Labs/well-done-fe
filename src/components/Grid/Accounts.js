@@ -50,26 +50,12 @@ class Grid extends Component {
           width: 90
         },
         {
-          headerName: "Super User",
-          field: "super_user",
+          headerName: "role",
+          field: "role",
           sortable: true,
           filter: true,
           width: 100
-        },
-        {
-            headerName: "Org User",
-            field: "org_user",
-            sortable: true,
-            filter: true,
-            width: 100
-          },
-          {
-            headerName: "Org Admin",
-            field: "org_admin",
-            sortable: true,
-            filter: true,
-            width: 100
-          }
+        }
       ]
     };
   }
