@@ -2,83 +2,24 @@ import React, { Component } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import './orgGrid.scss'
 import 'antd/dist/antd.css'
-import gridOptions2 from '../Grid/gridOptions2'
+import gridOptions2 from '../../Grid/gridOptions2'
 import { AiOutlineSearch } from 'react-icons/ai'
-import OrgModal from './OrgModal'
-
-import ViewOrgGrid from './OrgView'
+import OrgModal from '../OrgModal'
+import {orgGridColumns} from './orgGridColumns'
+import ViewOrgGrid from '../OrgView'
 import Archivebutton from 'icons/Archivebutton.svg'
 
-import { deleteOrg, fetchOrg } from '../../actions/orgAction'
+import { deleteOrg, fetchOrg } from '../../../actions/orgAction'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
-import DeleteOrg from './DeleteOrg'
+import DeleteOrg from '../DeleteOrg'
 
 class OrgGrid extends Component {
   constructor(props) {
     super(props)
     this.state = {
       columnDefs: [
-        {
-          headerName: 'Organization',
-          field: 'org_name',
-          sortable: true,
-          filter: true,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Headquarters',
-          field: 'headquarter_city',
-          sortable: true,
-          filter: true,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Contact',
-          field: 'org_admin',
-          sortable: true,
-          filter: true,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Pumps Owned',
-          field: 'pumps_owned',
-          sortable: true,
-          filter: true,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Users',
-          field: 'org_users',
-          sortable: true,
-          filter: true,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Date Joined',
-          field: 'created_at',
-          sortable: true,
-          filter: true,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
+      ...orgGridColumns,
         {
           headerName: 'view',
           field: 'view',

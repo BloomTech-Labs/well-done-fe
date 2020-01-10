@@ -19,7 +19,8 @@ const accountReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error:'',
-                accounts: action.payload
+                //add to array of accounts 
+                accounts: [...state.accounts, action.payload]
             }
         case ADDOP_FAILURE:
             return{

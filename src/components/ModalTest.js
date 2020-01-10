@@ -154,10 +154,10 @@ const ModalOperator = () => {
                 <br></br>
                 <input
                   type='email'
-                  name='email'
+                  name='email_address'
                   id='Email'
                   placeholder='email'
-                  value={operator.email}
+                  value={operator.email_address}
                   onChange={handleChange}
                 />
               </h2>
