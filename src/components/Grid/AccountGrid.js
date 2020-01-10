@@ -18,9 +18,13 @@ import EditGrid from './EditGrid'
 import {fetchAccounts} from '../../actions/accountAction'
 
 
+
 //redux
 import { connect } from 'react-redux'
 import {editAccount} from '../../actions/accountAction'
+
+import DeleteAccount from './DeleteAccount'
+import {deleteAccount} from '../../actions/accountAction.js'
 
 
 class Grid extends Component {
@@ -34,7 +38,7 @@ class Grid extends Component {
           field: 'id',
           sortable: true,
           filter: true,
-          width: 40,
+          width: 60,
           cellStyle: {
             'font-size': '2rem',
             'padding-top': '.75rem',
@@ -107,22 +111,23 @@ class Grid extends Component {
           },
         },
         {
-          headerName: 'role',
-          field: 'role',
+          headerName: 'Role',
+          field: 'Role',
           sortable: true,
           filter: true,
-          width: 100,
+          width: 150,
           cellStyle: {
             'font-size': '2rem',
             'padding-top': '.75rem',
           },
         },
-      
+        
         {
-          headerName: 'edit',
-          field: 'edit',
+          headerName: 'Edit',
+          field: 'Edit',
           sortable: true,
           filter: true,
+          width: 60,
           cellRendererFramework: params => {
             return(
               <div>
@@ -136,6 +141,27 @@ class Grid extends Component {
           }
          
 
+        },
+      
+        {
+          headerName: 'Delete',
+          field: 'Delete',
+          sortable: true,
+          filter: true,
+          width: 60,
+          cellRendererFramework: params => {
+            return(
+              <div>
+                <DeleteAccount
+                params={params}
+                data={params.data}
+                otherProps={this.props}
+                deleteAccount={this.props.deleteAccount}/>
+              </div>
+            )
+          }
+         
+
         }
       ],
     }
@@ -143,18 +169,6 @@ class Grid extends Component {
 
   componentDidMount = () => {
     this.props.fetchAccounts()
-    // const token = localStorage.getItem('token')
-    // fetch(`${process.env.REACT_APP_HEROKU_API_G}/api/accounts`, {
-    //   method: 'GET',
-    //   mode: 'cors',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `${token}`,
-    //   },
-    // })
-    //   .then(result => result.json())
-    //   .then(rowData => this.setState({ rowData }))
-    //   .catch(err => console.log(err))
   }
 
   onGridSizeChanged = params => {
@@ -254,5 +268,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {editAccount, fetchAccounts})
+  {editAccount, fetchAccounts, deleteAccount})
   (withRouter(Grid))

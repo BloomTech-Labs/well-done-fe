@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { AgGridReact } from 'ag-grid-react'
 import './orgGrid.scss'
 import 'antd/dist/antd.css'
-// import gridOptions from '../Grid/Pagination'
 import gridOptions2 from '../Grid/gridOptions2'
 import { AiOutlineSearch } from 'react-icons/ai'
 import OrgModal from './OrgModal'
@@ -10,7 +9,10 @@ import OrgModal from './OrgModal'
 import ViewOrgGrid from './OrgView'
 import Archivebutton from 'icons/Archivebutton.svg'
 
-
+import { deleteOrg, fetchOrg } from '../../actions/orgAction'
+import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
+import DeleteOrg from './DeleteOrg'
 
 class OrgGrid extends Component {
   constructor(props) {
@@ -80,41 +82,35 @@ class OrgGrid extends Component {
         {
           headerName: 'view',
           field: 'view',
+          headerName: 'Delete',
+          field: 'Delete',
           sortable: true,
           filter: true,
           cellRendererFramework: params => {
-            return(
+            return (
               <div>
                 <ViewOrgGrid
-                api={params}
-                data={params.data}
-                otherProps={this.props}
-                editOrganization={this.props.editOrganization}/>
+                  api={params}
+                  data={params.data}
+                  otherProps={this.props}
+                  editOrganization={this.props.editOrganization}
+                />
+                <DeleteOrg
+                  params={params}
+                  data={params.data}
+                  otherProps={this.props}
+                  deleteOrg={this.props.deleteOrg}
+                />
               </div>
             )
-          }
-         
-
-        }
+          },
+        },
       ],
     }
   }
 
-  // process.env.REACT_APP_HEROKU_API}
   componentDidMount = () => {
-    const token = localStorage.getItem('token')
-    console.log(token)
-    fetch(`${process.env.REACT_APP_HEROKU_API}/api/orgs`, {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `${token}`,
-      },
-    })
-      .then(result => result.json())
-      .then(rowData => this.setState({ rowData }))
-      .catch(err => console.log(err))
+    this.props.fetchOrg()
   }
 
   onGridReady = params => {
@@ -190,9 +186,11 @@ class OrgGrid extends Component {
             size='small'
             onClick={this.exportToCsv.bind(this)}
           >
-            <img src={Archivebutton} alt="download"></img>
+            <img src={Archivebutton} alt='download'></img>
           </button>
-          <div className='modalHeaderOrg'><OrgModal /></div>
+          <div className='modalHeaderOrg'>
+            <OrgModal />
+          </div>
         </div>
         <div
           className='ag-theme-balham'
@@ -203,7 +201,7 @@ class OrgGrid extends Component {
         >
           <AgGridReact
             columnDefs={this.state.columnDefs}
-            rowData={this.state.rowData}
+            rowData={this.props.orgReducer}
             gridOptions={gridOptions2}
             onGridReady={this.onGridReady}
             onGridSizeChanged={this.onGridSizeChanged}
@@ -213,4 +211,13 @@ class OrgGrid extends Component {
     )
   }
 }
-export default OrgGrid
+
+const mapStateToProps = state => {
+  return {
+    orgReducer: state.orgReducer.org,
+  }
+}
+
+export default connect(mapStateToProps, { deleteOrg, fetchOrg })(
+  withRouter(OrgGrid)
+)

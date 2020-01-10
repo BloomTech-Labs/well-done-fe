@@ -11,6 +11,9 @@ export const EDIT_SUCCESS = "EDIT_SUCCESS"
 export const ACCOUNT_SUCCESS = "ACCOUNT_SUCCESS"
 export const ACCOUNT_FAILURE = "ACCOUNT_FAILURE"
 
+export const DELETE_SUCCESS = "DELETE_SUCCESS"
+export const DELETE_FAILURE = "DELETE_FAILURE"
+
 export const fetchAccounts = () => dispatch => {
     AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts`,)
@@ -36,4 +39,13 @@ export const editAccount = account => dispatch => {
     .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`,account)
     .then(res => dispatch({type: EDIT_SUCCESS, payload: res.data}))
     .catch(err => dispatch({type: EDIT_FAILURE, payload: err.response}))
+}
+
+export const deleteAccount = id => dispatch => {
+    console.log(`account action`, id)
+    
+    AxiosWithAuth()
+    .delete(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`)
+    .then(res => dispatch({type: DELETE_SUCCESS, payload: res.data}))
+    .catch(err => dispatch({type: DELETE_FAILURE, payload: err.response}))
 }

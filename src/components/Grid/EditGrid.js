@@ -5,8 +5,6 @@ import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 
-
-
 const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
@@ -24,9 +22,7 @@ const useStyles = makeStyles(theme => ({
 
 //button on AccountGrid
 const EditGrid = props => {
-  console.log(props)
   const [account, setAccount] = useState([])
-  console.log(`account`, account)
 
   //account id added automatically, needed to .put
   account.id = props.data.id
@@ -46,13 +42,12 @@ const EditGrid = props => {
     setOpen(false)
   }
 
-  const handleSubmit = (e) =>{
-      e.preventDefault()
-      props.editAccount(account)
-      setOpen(false)
-      props.api.api.redrawRows()
+  const handleSubmit = e => {
+    e.preventDefault()
+    props.editAccount(account)
+    setOpen(false)
+    props.api.api.redrawRows()
   }
-
 
   return (
     <>
@@ -100,8 +95,8 @@ const EditGrid = props => {
                   id='organization'
                   placeholder={props.data.organization}
                   name='organization'
-                    value={account.last_name}
-                    onChange={handleChange}
+                  value={account.last_name}
+                  onChange={handleChange}
                 />
               </h2>
               <h2>
@@ -125,8 +120,8 @@ const EditGrid = props => {
                   id='last_name'
                   placeholder={props.data.last_name}
                   name='last_name'
-                    value={account.last_name}
-                    onChange={handleChange}
+                  value={account.last_name}
+                  onChange={handleChange}
                 />
               </h2>
               <h2>
@@ -137,11 +132,10 @@ const EditGrid = props => {
                   name='email'
                   id='Email'
                   placeholder={props.data.email}
-                    value={account.email}
-                    onChange={handleChange}
+                  value={account.email}
+                  onChange={handleChange}
                 />
               </h2>
-
             </div>
             <div className='col2'>
               <h2>
@@ -152,16 +146,13 @@ const EditGrid = props => {
                   name='mobile_number'
                   id='mobile_number'
                   placeholder={props.data.mobile_number}
-                    value={account.mobile_number}
-                    onChange={handleChange}
+                  value={account.mobile_number}
+                  onChange={handleChange}
                 />
               </h2>
               <br></br>
 
-
-              <h2>
-                
-              </h2>
+              <h2></h2>
               <br></br>
               <footer>
                 <button variant='secondary' onClick={handleClose}>
