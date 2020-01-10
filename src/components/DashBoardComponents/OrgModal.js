@@ -23,7 +23,6 @@ import gridOptions2 from '../Grid/gridOptions2'
 import add from '../../icons/AddButton.svg'
 import './pumps.style.scss'
 
-
 const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
@@ -45,7 +44,6 @@ const OrgModal = props => {
     headquarter_city: '',
   })
 
-
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -62,10 +60,8 @@ const OrgModal = props => {
 
   //on submit add operator
   const handleSubmit = event => {
- 
     event.preventDefault()
-   props.postOrg(org) //will use addPumps
-
+    props.postOrg(org) //will use addPumps
   }
   useEffect(() => {
     props.postOrg()
@@ -82,7 +78,7 @@ const OrgModal = props => {
   return (
     <>
       <button type='button' onClick={handleOpen} className='addBtn'>
-      <img src={add} alt='download' ></img>
+        <img src={add} alt='download'></img>
       </button>
 
       <Modal
@@ -143,7 +139,7 @@ const OrgModal = props => {
 
               <h2>
                 <div className='CreateAccount'>
-                  <button type='Submit' onClick={handleSubmit}>
+                  <button type='Submit' onClick={e => handleSubmit(e)}>
                     Create Organization
                   </button>
                 </div>
