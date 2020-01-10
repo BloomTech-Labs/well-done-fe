@@ -74,7 +74,7 @@ const DeleteOrg = props => {
                 </button>
                 <button
                   className='confirmBtn'
-                  onClick={e => deleteHandler(e, props.data.sensor_index)}
+                  onClick={e => deleteHandler(e, props.data.id)}
                 >
                   Delete
                 </button>
