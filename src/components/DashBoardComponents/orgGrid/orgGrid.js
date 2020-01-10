@@ -133,12 +133,12 @@ class OrgGrid extends Component {
           >
             <img src={Archivebutton} alt='download'></img>
           </button>
-<<<<<<< HEAD:src/components/DashBoardComponents/orgGrid.js
+
             <div className='modalHeaderOrg'><OrgModal /></div>
-=======
+
           <div className='modalHeaderOrg'><OrgModal/>
           </div>
->>>>>>> 1eb27195bfbf452f9a4264545750bee57d9a0bb5:src/components/DashBoardComponents/orgGrid/orgGrid.js
+
         </div>
         <div
           className='ag-theme-balham'
