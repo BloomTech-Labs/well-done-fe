@@ -63,9 +63,6 @@ const OrgModal = props => {
     event.preventDefault()
     props.postOrg(org) //will use addPumps
   }
-  useEffect(() => {
-    props.postOrg()
-  }, [])
 
   const handleOpen = () => {
     setOpen(true)
