@@ -139,7 +139,7 @@ class OrgGrid extends Component {
               size='small'
               onClick={this.exportToCsv.bind(this)}
             >
-              <img src={Archivebutton} alt='download'></img>
+              <img  className="dwnBtn" src={Archivebutton} alt='download'></img>
             </button>
             <button className='deleteBtn' onClick={() => this.viewHandler()}>
               <i className='icon-trash'></i>
