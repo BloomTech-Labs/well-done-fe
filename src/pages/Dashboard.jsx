@@ -30,6 +30,8 @@ const Dashboard = props => {
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
 
+  console.log(sensorSelector)
+
   dispatch({
     type: 'TOGGLE_NAV_STATE',
     payload: true,
