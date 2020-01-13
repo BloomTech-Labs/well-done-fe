@@ -7,7 +7,7 @@ import { fetchPumps } from '../../actions/pumpAction'
 import './Sensors'
 
 //will be changed to sensorsAction
-// import { addOp } from '../actions/addOp-action'
+import { postSensor } from '../../actions/sensorActions'
 
 //need to change for sensors
 import '../../components/modalOperator.scss'
@@ -37,12 +37,28 @@ const useStyles = makeStyles(theme => ({
 
 const PumpsModal = () => {
   const [pump, setPump] = useState([])
+  const [sensor, setSensor] = useState([])
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
-  const handleChange = event => {
+  const handleChangePump = event => {
     setPump({ ...pump, [event.target.name]: event.target.value })
+  }
+
+  const handleChangeSensor = event => {
+    let value = event.target.value
+    if (
+      event.target.name === 'physical_id' ||
+      event.target.name === 'cellular' ||
+      event.target.name === 'bluetooth' ||
+      event.target.name === 'depth' ||
+      event.target.name === 'static' ||
+      event.target.name === 'yield'
+    ) {
+      value = Number(value)
+    }
+    setSensor({ ...sensor, [event.target.name]: event.target.value })
   }
 
   const dispatch = useDispatch()
@@ -54,10 +70,15 @@ const PumpsModal = () => {
 
   const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
 
+  console.log(pump)
+  console.log(sensor)
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
+
     // dispatch(addOp(operator)) //will use addPumps
+    dispatch(postSensor(pump))
+    handleClose()
   }
 
   const handleOpen = () => {
@@ -98,7 +119,7 @@ const PumpsModal = () => {
                   placeholder='organization'
                   name='organization'
                   value={pump.organization}
-                  onChange={handleChange}
+                  onChange={handleChangePump}
                 />
               </h2>
               <h2>
@@ -110,7 +131,7 @@ const PumpsModal = () => {
                   placeholder='sensor_pid'
                   name='sensor_pid'
                   value={pump.sensor_pid}
-                  onChange={handleChange}
+                  onChange={handleChangePump}
                 />
               </h2>
               <h2>
@@ -122,7 +143,7 @@ const PumpsModal = () => {
                   placeholder='country_name'
                   name='country_name'
                   value={pump.country_name}
-                  onChange={handleChange}
+                  onChange={handleChangePump}
                 />
               </h2>
 
@@ -135,7 +156,7 @@ const PumpsModal = () => {
                   placeholder='Province'
                   name='province_name'
                   value={pump.province_name}
-                  onChange={handleChange}
+                  onChange={handleChangePump}
                 />
               </h2>
               <h2>
@@ -147,7 +168,7 @@ const PumpsModal = () => {
                   id='district'
                   placeholder='District'
                   value={pump.district}
-                  onChange={handleChange}
+                  onChange={handleChangePump}
                 />
               </h2>
             </div>
@@ -161,7 +182,7 @@ const PumpsModal = () => {
                   id='commune'
                   placeholder='Commune'
                   value={pump.commune_name}
-                  onChange={handleChange}
+                  onChange={handleChangePump}
                 />
               </h2>
 
@@ -174,7 +195,7 @@ const PumpsModal = () => {
                   id='latitude'
                   placeholder='latitude'
                   value={pump.latitude}
-                  onChange={handleChange}
+                  onChange={handleChangePump}
                 />
               </h2>
               <br></br>
@@ -187,7 +208,152 @@ const PumpsModal = () => {
                   id='longitude'
                   placeholder='longitude'
                   value={pump.longitude}
-                  onChange={handleChange}
+                  onChange={handleChangePump}
+                />
+              </h2>
+
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='number'
+                  name='physical_id'
+                  id='physical_id'
+                  placeholder='physical_id'
+                  value={sensor.physical_id}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='text'
+                  name='kind'
+                  id='kind'
+                  placeholder='kind'
+                  value={sensor.kind}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='text'
+                  name='type'
+                  id='type'
+                  placeholder='type'
+                  value={sensor.type}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='number'
+                  name='cellular'
+                  id='cellular'
+                  placeholder='cellular'
+                  value={sensor.cellular}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='number'
+                  name='bluetooth'
+                  id='bluetooth'
+                  placeholder='bluetooth'
+                  value={sensor.bluetooth}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='text'
+                  name='training'
+                  id='training'
+                  placeholder='training'
+                  value={sensor.training}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='text'
+                  name='remark'
+                  id='remark'
+                  placeholder='remark'
+                  value={sensor.remark}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='text'
+                  name='date_finished'
+                  id='date_finished'
+                  placeholder='date_finished'
+                  value={sensor.date_finished}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='number'
+                  name='depth'
+                  id='depth'
+                  placeholder='depth'
+                  value={sensor.depth}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='number'
+                  name='yield'
+                  id='yield'
+                  placeholder='yield'
+                  value={sensor.yield}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='number'
+                  name='static'
+                  id='static'
+                  placeholder='static'
+                  value={sensor.static}
+                  onChange={handleChangeSensor}
+                />
+              </h2>
+              <h2>
+                <label for=''></label>
+                <br></br>
+                <input
+                  type='text'
+                  name='quality'
+                  id='quality'
+                  placeholder='quality'
+                  value={sensor.quality}
+                  onChange={handleChangeSensor}
                 />
               </h2>
               <br></br>
@@ -203,9 +369,6 @@ const PumpsModal = () => {
               <footer>
                 <button variant='secondary' onClick={handleClose}>
                   Close
-                </button>
-                <button variant='primary' onClick={handleClose}>
-                  Save Changes
                 </button>
               </footer>
             </div>

@@ -1,7 +1,6 @@
-@import "src/colors";
+@import 'src/colors';
 .button {
   height: 100%;
   @include gridBtn-bg;
   font-size: large;
-
 }
