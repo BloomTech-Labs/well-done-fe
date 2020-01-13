@@ -4,8 +4,8 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import 'antd/dist/antd.css'
 
-import ModalOperator from '../../components/ModalTest'
-import gridOptions3 from '../Grid/gridOptions3'
+import ModalOperator from '../../ModalTest'
+import gridOptions3 from '../gridOptions3'
 
 import { withRouter } from 'react-router'
 
@@ -14,15 +14,15 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import Archivebutton from 'icons/Archivebutton.svg'
 import './accountGrid.scss'
 
-import EditGrid from './EditGrid'
-import { fetchAccounts } from '../../actions/accountAction'
-
+import EditGrid from '../EditGrid'
+import { fetchAccounts } from '../../../actions/accountAction'
+import {accountColumns} from './accountGridColumn'
 //redux
 import { connect } from 'react-redux'
-import { editAccount } from '../../actions/accountAction'
+import { editAccount } from '../../../actions/accountAction'
 
-import DeleteAccount from './DeleteAccount'
-import { deleteAccount } from '../../actions/accountAction.js'
+import DeleteAccount from '../DeleteAccount'
+import { deleteAccount } from '../../../actions/accountAction.js'
 
 class Grid extends Component {
   constructor(props) {
@@ -30,84 +30,7 @@ class Grid extends Component {
     this.state = {
       displayView: 0,
       columnDefs: [
-        {
-          headerName: 'id',
-          field: 'id',
-          sortable: true,
-          filter: true,
-          width: 60,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Organization',
-          field: 'organization',
-          sortable: true,
-          filter: true,
-          width: 150,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'First Name',
-          field: 'first_name',
-          sortable: true,
-          filter: true,
-          width: 120,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Last Name',
-          field: 'last_name',
-          sortable: true,
-          filter: true,
-          width: 120,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Email',
-          field: 'email_address',
-          sortable: true,
-          filter: true,
-          width: 200,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Mobile',
-          field: 'mobile_number',
-          sortable: true,
-          filter: true,
-          width: 150,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Role',
-          field: 'role',
-          sortable: true,
-          filter: true,
-          width: 150,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-
+        ...accountColumns,
         {
           headerName: 'Edit',
           field: 'Edit',

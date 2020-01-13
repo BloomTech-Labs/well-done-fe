@@ -11,7 +11,7 @@ import { fetchHistory } from '../actions/sensorHistory'
 import OrgGrid from 'components/DashBoardComponents/orgGrid/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 import Testing from '../components/DashBoardComponents/Sensors'
-import AccountGrid from '../components/Grid/AccountGrid'
+import AccountGrid from '../components/Grid/accountGrid/AccountGrid'
 import Banner from './Banner'
 
 import './Dashboard.styles.scss'
