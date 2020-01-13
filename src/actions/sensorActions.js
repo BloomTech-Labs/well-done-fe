@@ -23,8 +23,6 @@ export const postSensor = sensors => dispatch => {
     type: SENSOR_FETCH,
   })
 
-  console.log(sensors)
-
   AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/sensors/`, sensors)
     .then(res => console.log(res))
