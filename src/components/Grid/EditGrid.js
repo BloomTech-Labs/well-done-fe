@@ -129,10 +129,10 @@ const EditGrid = props => {
                 <br></br>
                 <input
                   type='email'
-                  name='email'
+                  name='email_address'
                   id='Email'
-                  placeholder={props.data.email}
-                  value={account.email}
+                  placeholder={props.data.email_address}
+                  value={account.email_address}
                   onChange={handleChange}
                 />
               </h2>
