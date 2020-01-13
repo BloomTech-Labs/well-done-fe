@@ -83,7 +83,7 @@ const EditGrid = props => {
               <h3>Edit Account Info</h3>
             </div>
             <div className='col1'>
-                <label for='First Name'>First Name</label>
+                <label htmlFor='First Name'>First Name</label>
                
                 <input
                   type='text'
@@ -96,7 +96,7 @@ const EditGrid = props => {
             
 
               
-                <label for='Last Name'>Last Name</label>
+                <label htmlFor='Last Name'>Last Name</label>
                 
                 <input
                   type='text'
@@ -108,7 +108,7 @@ const EditGrid = props => {
                 />
               
               
-                <label for='Email'>Email</label>
+                <label htmlFor='Email'>Email</label>
                <input
                   type='email'
                   name='email_address'
@@ -117,7 +117,7 @@ const EditGrid = props => {
                   value={account.email_address}
                   onChange={handleChange}
                 />
-                   <label for='mobile number'>Mobile Number</label>
+                   <label htmlFor='mobile number'>Mobile Number</label>
                 <input
                   type='string'
                   name='mobile_number'
