@@ -25,6 +25,7 @@
     .sensorHeaderName {
       h1 {
         @include header-text;
+        margin: 0;
       }
     }
 
@@ -36,6 +37,7 @@
       border-radius: 8px;
       font-size: 0.89rem;
       margin-left: 10%;
+      margin-top:5%;
 
       @media screen and (max-width:1200px) {
         width: 18rem;
@@ -47,26 +49,32 @@
       display: flex;
       justify-content: flex-end;
       width: 100%;
-      margin-right: 2rem;
+      margin-right: 2%;
+  
+      @media screen and (max-width:1200px) {
+        margin-left: 0%;
+     }
 
       .deleteBtn {
         border: none;
-        background: transparent;
-        font-size: 3.5rem;
-        margin: 0 1rem;
+        font-size: 2.3rem;
+        background:transparent;
+        min-width: 6rem;
+        min-height: 6rem;
+        margin-right:1%;
 
-        @media screen and (max-width:1265px) {
-          margin-left: -.08rem;
-       }
         @media screen and (max-width:1000px) {
-          margin: 0 1rem;
+          margin:0;
        }
       }
 
       .downloadButton {
         margin:0;
-        min-width: 4rem;
+        font-size: 2.3rem;
+        min-width: 6rem;
         min-height: 6rem;
+        background: transparent;
+        border: none;
       }
 
       .modalHeader {
@@ -77,8 +85,9 @@
         .addSensor {
           border: none;
           background:transparent;
-          min-width: 6rem;
-          min-height: 6rem;
+          font-size: 2.3rem;
+          min-width: 8rem;
+          min-height: 8rem;
 
         }
       }
@@ -110,11 +119,12 @@
   border: none;
   font-size: 24px;
   right: 28px;
-  top: 4px;
   background: transparent;
 }
 .searchContainer {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .dwnbutton {
   background: transparent;
