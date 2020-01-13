@@ -8,6 +8,7 @@ import OrgModal from '../OrgModal'
 import { orgGridColumns } from './orgGridColumns'
 import ViewOrgGrid from '../OrgView'
 import Archivebutton from 'icons/Archivebutton.svg'
+import deleteIcon from 'icons/DeleteModeButton.svg'
 
 import { deleteOrg, fetchOrg } from '../../../actions/orgAction'
 import { withRouter } from 'react-router'
@@ -143,7 +144,7 @@ class OrgGrid extends Component {
               <img  src={Archivebutton} alt='download'></img>
             </button>
             <button className='deleteBtn' onClick={() => this.viewHandler()}>
-              <i className='icon-trash'></i>
+            <img  src={deleteIcon} alt='download'></img>
             </button>
             <div className='modalHeaderOrg'>
               <OrgModal />
