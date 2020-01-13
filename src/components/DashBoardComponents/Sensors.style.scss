@@ -6,16 +6,15 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 
-  @media screen and (max-width:1000px) {
+  @media screen and (max-width: 1000px) {
     display: flex;
     flex-direction: column;
-    width:97%;
+    width: 97%;
     margin-top: 4%;
     margin-left: auto;
     margin-right: auto;
- }
+  }
 
- 
   .sensorHeader {
     display: flex;
     align-items: center;
@@ -37,10 +36,9 @@
       font-size: 0.89rem;
       margin-left: 10%;
 
-      @media screen and (max-width:1200px) {
+      @media screen and (max-width: 1200px) {
         width: 18rem;
-     }
-      
+      }
     }
 
     .headerBtns {
@@ -55,16 +53,16 @@
         font-size: 3.5rem;
         margin: 0 1rem;
 
-        @media screen and (max-width:1265px) {
-          margin-left: -.08rem;
-       }
-        @media screen and (max-width:1000px) {
+        @media screen and (max-width: 1265px) {
+          margin-left: -0.08rem;
+        }
+        @media screen and (max-width: 1000px) {
           margin: 0 1rem;
-       }
+        }
       }
 
       .downloadButton {
-        margin:0;
+        margin: 0;
         min-width: 4rem;
         min-height: 6rem;
       }
@@ -76,10 +74,9 @@
 
         .addSensor {
           border: none;
-          background:transparent;
+          background: transparent;
           min-width: 6rem;
           min-height: 6rem;
-
         }
       }
     }
@@ -121,8 +118,6 @@
   border: none;
 }
 
-
-
 .modCon {
   display: flex;
   flex-direction: column;
@@ -163,55 +158,66 @@
   border: none;
   min-width: 6rem;
   min-height: 6rem;
-
 }
 
-.btnContainer{
-  width:100%;
+.btnContainer {
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-left: 5px;
-
 }
 
-.col1{
-width:100%;
-
+.col1 {
+  width: 100%;
 }
-.createNgoBtn{
+.createNgoBtn {
   margin-left: 15px;
-  border-radius:3px;
-  border:none;
+  border-radius: 3px;
+  border: none;
   @include navbar-bg;
-  color:white;
-  padding:8px 15px;
+  color: white;
+  padding: 8px 15px;
   font-size: 14px;
+}
+
+.cancelBtn {
+  border: none;
+  color: #090c9b;
+  background: transparent;
+  font-weight: 600;
+}
+.orgHeader {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4rem;
+}
+.orgInput {
+  border: 1px solid red;
+}
+.orgLabel {
+  font-size: 10px;
+  margin-bottom: -8px;
+}
+.hqLabel {
+  font-size: 10px;
+  margin-bottom: -8px;
+}
+.textInput {
+  height: 3rem !important;
+  width: 18rem !important;
+}
+
+.col1 {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  .CreateAccount {
+    margin: auto;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
   }
-
-.cancelBtn{
-border:none;
-color: #090C9B;
-background:transparent;
-font-weight:600;
-}
-.orgHeader{
-font-size: 24px;
-font-weight: 600;
-margin-bottom: 4rem;
-}
-.orgInput{
-border:1px solid red
-}
-.orgLabel{
-  font-size:10px;
-  margin-bottom:-8px;
-}
-.hqLabel{
-  font-size:10px;
-  margin-bottom:-8px;
-
-}
-.textInput{
-  height:3rem !important;
-  width:18rem !important;
 }

@@ -8,9 +8,10 @@ import './Sensors'
 
 //will be changed to sensorsAction
 import { postSensor } from '../../actions/sensorActions'
+import { postPump } from '../../actions/pumpAction'
 
 //need to change for sensors
-import '../../components/modalOperator.scss'
+import './Sensors.style.scss'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
@@ -31,7 +32,12 @@ const useStyles = makeStyles(theme => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    overflowX: 'hidden',
+    overflowX: 'scroll',
+    width: '80%',
+    height: '90%',
     display: 'flex',
+    alignItems: 'space-around',
   },
 }))
 
@@ -47,17 +53,6 @@ const PumpsModal = () => {
   }
 
   const handleChangeSensor = event => {
-    let value = event.target.value
-    if (
-      event.target.name === 'physical_id' ||
-      event.target.name === 'cellular' ||
-      event.target.name === 'bluetooth' ||
-      event.target.name === 'depth' ||
-      event.target.name === 'static' ||
-      event.target.name === 'yield'
-    ) {
-      value = Number(value)
-    }
     setSensor({ ...sensor, [event.target.name]: event.target.value })
   }
 
@@ -79,7 +74,8 @@ const PumpsModal = () => {
     event.preventDefault()
 
     // dispatch(addOp(operator)) //will use addPumps
-    dispatch(postSensor(pump))
+    dispatch(postSensor(sensor))
+    dispatch(postPump(pump))
     handleClose()
   }
 
@@ -112,6 +108,18 @@ const PumpsModal = () => {
         <Fade in={open}>
           <div className={classes.paper}>
             <div className='col1'>
+              <h2>
+                <label for='Country'>Organization</label>
+                <br></br>
+                <input
+                  type='text'
+                  id='id'
+                  placeholder='id'
+                  name='id'
+                  value={pump.id}
+                  onChange={handleChangePump}
+                />
+              </h2>
               <h2>
                 <label for='Country'>Organization</label>
                 <br></br>
@@ -173,8 +181,6 @@ const PumpsModal = () => {
                   onChange={handleChangePump}
                 />
               </h2>
-            </div>
-            <div className='col2'>
               <h2>
                 <label for='Password'>Commune</label>
                 <br></br>
@@ -189,10 +195,10 @@ const PumpsModal = () => {
               </h2>
 
               <h2>
-                <label for='Password'>latitude</label>
+                <label for='Password'>Latitude</label>
                 <br></br>
                 <input
-                  type='float'
+                  type='number'
                   name='latitude'
                   id='latitude'
                   placeholder='latitude'
@@ -202,10 +208,10 @@ const PumpsModal = () => {
               </h2>
               <br></br>
               <h2>
-                <label for='Password'>longitude</label>
+                <label for='Password'>Longitude</label>
                 <br></br>
                 <input
-                  type='float'
+                  type='number'
                   name='longitude'
                   id='longitude'
                   placeholder='longitude'
@@ -215,7 +221,7 @@ const PumpsModal = () => {
               </h2>
 
               <h2>
-                <label for=''></label>
+                <label for=''>Physical ID</label>
                 <br></br>
                 <input
                   type='number'
@@ -227,7 +233,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Kind</label>
                 <br></br>
                 <input
                   type='text'
@@ -239,7 +245,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Type</label>
                 <br></br>
                 <input
                   type='text'
@@ -251,7 +257,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Cellular</label>
                 <br></br>
                 <input
                   type='number'
@@ -263,7 +269,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Bluetooth</label>
                 <br></br>
                 <input
                   type='number'
@@ -275,7 +281,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Training</label>
                 <br></br>
                 <input
                   type='text'
@@ -287,7 +293,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Renmark</label>
                 <br></br>
                 <input
                   type='text'
@@ -299,7 +305,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Date Finished</label>
                 <br></br>
                 <input
                   type='text'
@@ -311,7 +317,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Depth</label>
                 <br></br>
                 <input
                   type='number'
@@ -323,7 +329,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Yield</label>
                 <br></br>
                 <input
                   type='number'
@@ -335,7 +341,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Static</label>
                 <br></br>
                 <input
                   type='number'
@@ -347,7 +353,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''></label>
+                <label for=''>Quality</label>
                 <br></br>
                 <input
                   type='text'
@@ -360,19 +366,14 @@ const PumpsModal = () => {
               </h2>
               <br></br>
 
-              <h2>
-                <div className='CreateAccount'>
-                  <button type='Submit' onClick={handleSubmit}>
-                    Create Pump
-                  </button>
-                </div>
-              </h2>
-              <br></br>
-              <footer>
+              <div className='CreateAccount'>
+                <button type='Submit' onClick={handleSubmit}>
+                  Create Pump
+                </button>
                 <button variant='secondary' onClick={handleClose}>
                   Close
                 </button>
-              </footer>
+              </div>
             </div>
           </div>
         </Fade>
