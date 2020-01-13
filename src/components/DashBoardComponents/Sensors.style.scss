@@ -6,6 +6,16 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 
+  @media screen and (max-width:1000px) {
+    display: flex;
+    flex-direction: column;
+    width:97%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+ 
   .sensorHeader {
     display: flex;
     align-items: center;
@@ -26,25 +36,37 @@
       border-radius: 8px;
       font-size: 0.89rem;
       margin-left: 10%;
+
+      @media screen and (max-width:1200px) {
+        width: 18rem;
+     }
+      
     }
 
     .headerBtns {
       display: flex;
       justify-content: flex-end;
-      width: 50%;
+      width: 100%;
       margin-right: 2rem;
 
       .deleteBtn {
         border: none;
-        background: #accdff;
-        font-size: 2.5rem;
-        width: 10%;
-        margin-right: 1rem;
+        background: transparent;
+        font-size: 3.5rem;
+        margin: 0 1rem;
+
+        @media screen and (max-width:1265px) {
+          margin-left: -.08rem;
+       }
+        @media screen and (max-width:1000px) {
+          margin: 0 1rem;
+       }
       }
 
       .downloadButton {
-        width: 10%;
-        margin-right: 1rem;
+        margin:0;
+        min-width: 4rem;
+        min-height: 6rem;
       }
 
       .modalHeader {
@@ -53,9 +75,11 @@
         width: 10%;
 
         .addSensor {
-          font-size: 1.5rem;
           border: none;
-          background: #accdff;
+          background:transparent;
+          min-width: 6rem;
+          min-height: 6rem;
+
         }
       }
     }
@@ -86,7 +110,7 @@
   border: none;
   font-size: 24px;
   right: 28px;
-  top: 0px;
+  top: 4px;
   background: transparent;
 }
 .searchContainer {
@@ -137,9 +161,9 @@
 .addBtn {
   background: transparent;
   border: none;
-  font-size: 1.5rem;
   min-width: 6rem;
-  min-height:6rem;
+  min-height: 6rem;
+
 }
 
 .btnContainer{
@@ -162,9 +186,8 @@ width:100%;
   color:white;
   padding:8px 15px;
   font-size: 14px;
- 
-
   }
+
 .cancelBtn{
 border:none;
 color: #090C9B;
