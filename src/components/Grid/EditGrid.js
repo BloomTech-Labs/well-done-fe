@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
+import './grid.scss'
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+   
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     display: 'flex',
@@ -77,10 +78,13 @@ const EditGrid = props => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <div className='modalContent'>
+            <div className='modalHeader'>
+              <h3>Edit Account Info</h3>
+            </div>
             <div className='col1'>
                 <label for='First Name'>First Name</label>
-                <br></br>
+               
                 <input
                   type='text'
                   id='first_name'
@@ -93,7 +97,7 @@ const EditGrid = props => {
 
               
                 <label for='Last Name'>Last Name</label>
-                <br></br>
+                
                 <input
                   type='text'
                   id='last_name'
@@ -105,8 +109,7 @@ const EditGrid = props => {
               
               
                 <label for='Email'>Email</label>
-                <br></br>
-                <input
+               <input
                   type='email'
                   name='email_address'
                   id='Email'
@@ -114,12 +117,7 @@ const EditGrid = props => {
                   value={account.email_address}
                   onChange={handleChange}
                 />
-             
-            </div>
-            <div className='col2'>
-          
-                <label for='mobile number'>Mobile Number</label>
-                <br></br>
+                   <label for='mobile number'>Mobile Number</label>
                 <input
                   type='string'
                   name='mobile_number'
@@ -129,20 +127,21 @@ const EditGrid = props => {
                   onChange={handleChange}
                 />
              
-              <br></br>
-
+            </div>
+              <div className='col2Body'>
              
-              <br></br>
+                </div>
               <footer>
-                <button variant='secondary' onClick={handleClose}>
+                <div className='buttonsCont'>
+                <button className='closeBtn' variant='secondary' onClick={handleClose}>
                   Close
                 </button>
-                <button variant='primary' onClick={handleSubmit}>
+                <button  className='saveBtn' variant='primary' onClick={handleSubmit}>
                   Save Changes
                 </button>
+                </div>
               </footer>
             </div>
-          </div>
         </Fade>
       </Modal>
     </>
