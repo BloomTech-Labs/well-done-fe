@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
@@ -30,7 +30,9 @@ const EditGrid = props => {
   const classes = useStyles()
 
   const [open, setOpen] = useState(false)
-
+  useEffect(()=>{
+    setAccount({...props.data})
+  },[])
   const handleChange = event => {
     setAccount({ ...account, [event.target.name]: event.target.value })
   }
@@ -48,6 +50,8 @@ const EditGrid = props => {
     setOpen(false)
     props.api.api.redrawRows()
   }
+
+
 
   return (
     <>
@@ -75,19 +79,6 @@ const EditGrid = props => {
         <Fade in={open}>
           <div className={classes.paper}>
             <div className='col1'>
-                <label for='Id'>Id</label>
-                <br></br>
-                <input
-                  type='text'
-                  id='id'
-                  placeholder={props.data.id}
-                  name={props.data.id}
-                  value={account.id}
-                  onChange={handleChange}
-                />
-       
-            
-            
                 <label for='First Name'>First Name</label>
                 <br></br>
                 <input
