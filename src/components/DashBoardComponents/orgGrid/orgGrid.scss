@@ -27,9 +27,11 @@
     margin-left: 10%;
   }
 
+
   .headerBtns {
     display: flex;
     justify-content: flex-end;
+    // justify-content: space-evenly;
     width: 100%;
     margin-right: 2rem;
 
@@ -37,11 +39,23 @@
       border: none;
       background: #accdff;
       font-size: 3.5rem;
-      width: 5%;
-    }
+      margin:0 1rem;
+      margin-bottom:5px;
+    
+      
+
+      @media screen and (max-width:1000px){
+         margin-left: -1rem;
+      }
+     
+
+  
+  }
 
     .downloadButton {
-      width: 5%;
+      min-height:1rem;
+      min-width:1rem;
+     
     }
 
     .modalHeaderOrg {
@@ -49,15 +63,15 @@
       justify-content: center;
       width: 5%;
 
-      .addOrg {
-        font-size: 1.5rem;
-        border: none;
-        background: #accdff;
-      }
+   
     }
   }
   .inputContainer {
     display: flex;
+
+    @media screen and (max-width:1000px){
+      width:15rem;   }
+  
   }
 
   .orgHeaderButton {
@@ -65,13 +79,4 @@
     @include header-text;
   }
 }
-.downloadButton {
-  background: transparent;
-  border: none;
-  font-size:2rem;
-  
-}
-.dwnBtn{
-  min-height:40px;
-  min-width:40px;
-}
+
