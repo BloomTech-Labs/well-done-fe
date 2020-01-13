@@ -2,6 +2,7 @@
   margin: 30px;
   position: absolute;
   z-index: 1;
+  display: none;
 
   span {
     background-color: #082b84;
@@ -23,6 +24,7 @@
   background-color: #082b84;
   overflow-x: hidden;
   transition: 0.5s;
+  display: none;
 
   .closebtn {
     position: relative;

@@ -13,7 +13,8 @@ import OrganizationActivity from '../components/DashBoardComponents/Organization
 import Testing from '../components/DashBoardComponents/Sensors'
 import AccountGrid from '../components/Grid/AccountGrid'
 import Banner from './Banner'
-
+import StaticMenu from '../components/Menu/StaticMenu.js'
+import Menu from '../components/Menu/Menu.component'
 import './Dashboard.styles.scss'
 
 const Dashboard = props => {
@@ -105,14 +106,15 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  if (sensorSelector.sensors.length === 0) {
-    return <div>loading...</div>
-  }
+  // if (sensorSelector.sensors.length === 0) {
+  //   return <div>loading...</div>
+  // }
 
   console.log(sensorSelector)
 
   return (
     <div className='dashboard'>
+      <Menu/>
       <div className='mapSearchFilterContainer'>
         <Map
           sensors={sensorSelector.sensors}
@@ -142,13 +144,13 @@ const Dashboard = props => {
           />
         </div>
 
-        <Filter
+        {/* <Filter
           searchFiltered={props.searchFiltered}
           setSearchFiltered={props.setSearchFiltered}
           sensors={sensorSelector.sensors}
           setFuncToggle={setFuncToggle}
           setUnknownToggle={setUnknownToggle}
-        />
+        /> */}
       </div>
       <div className='tables-container'>
         <div className='orgActPumps'>
