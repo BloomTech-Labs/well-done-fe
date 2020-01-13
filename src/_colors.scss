@@ -84,11 +84,14 @@ $iconBackground:#AEDFFC;
   background: $duke;
   color: white;
   border-radius: 8px;
+  font-size: medium;
 }
 
 @mixin closeBtn{
   border: none;
   background: none;
+  font-size: medium;
   color: $duke;
-  text-decoration: underline;
+  margin-right: 6%;
+  font-weight: 700;
 }

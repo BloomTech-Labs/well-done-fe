@@ -29,12 +29,15 @@
   }
 
 
-  .headerBtns {
+.headerBtns {
     display: flex;
     justify-content: flex-end;
-    // justify-content: space-evenly;
     width: 100%;
-    margin-right: 2rem;
+    margin-right: 2%;
+    @media screen and (max-width:900px) {
+      width:60%;
+      justify-content: space-evenly;
+   }
 
     .deleteBtn {
       border: none;
