@@ -134,7 +134,7 @@ const EditGrid = props => {
               <footer>
                 <div className='buttonsCont'>
                 <button className='closeBtn' variant='secondary' onClick={handleClose}>
-                  Close
+                  Cancel
                 </button>
                 <button  className='saveBtn' variant='primary' onClick={handleSubmit}>
                   Save Changes
