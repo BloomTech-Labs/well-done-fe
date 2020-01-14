@@ -9,7 +9,6 @@ import './Sensors'
 import { postSensor } from '../../actions/sensorActions'
 import { postPump } from '../../actions/pumpAction'
 
-
 //need to change for sensors
 import './sensorModal.scss'
 
@@ -20,6 +19,9 @@ import Fade from '@material-ui/core/Fade'
 import add from '../../icons/AddButton.svg'
 
 import { Dropdown, Form } from 'react-bootstrap'
+
+import TextField from '@material-ui/core/TextField'
+import Autocomplete from '@material-ui/lab/Autocomplete'
 
 import './Sensors.style.scss'
 
@@ -47,6 +49,8 @@ const PumpsModal = () => {
   const [pump, setPump] = useState([])
   const [sensor, setSensor] = useState([])
 
+  console.log(pump)
+
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -60,7 +64,19 @@ const PumpsModal = () => {
 
   const orgReducer = useSelector(state => state.orgReducer.org)
 
-  console.log(orgReducer)
+  const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
+
+  //unique province names
+  const provinceArray = pumpsReducer.map(e => e.province_name)
+  const provinceName = [...new Set(provinceArray)]
+
+  //unique district
+  const districtArray = pumpsReducer.map(e => e.district_name)
+  const districtName = [...new Set(districtArray)]
+
+  //unique commune
+  const communeArray = pumpsReducer.map(e => e.commune_name)
+  const communeName = [...new Set(communeArray)]
 
   const dispatch = useDispatch()
 
@@ -111,6 +127,7 @@ const PumpsModal = () => {
               <Dropdown.Toggle variant='success' id='dropdown-basic'>
                 Organization
               </Dropdown.Toggle>
+
               <Form.Control
                 as='select'
                 name='organization'
@@ -124,7 +141,6 @@ const PumpsModal = () => {
                 ))}
               </Form.Control>
 
-              
               <div className='senInput'>
                 <label for='Country'>Country</label>
 
@@ -138,18 +154,45 @@ const PumpsModal = () => {
                 />
               </div>
 
-              <div className='senInput'>
-                <label for='Name'>Province</label>
 
-                <input
-                  type='text'
-                  id='province_name'
-                  placeholder='Province'
-                  name='province_name'
-                  value={pump.province_name}
-                  onChange={handleChangePump}
-                />
-              </div>
+              <Autocomplete
+                freeSolo
+                id='free-solo-2-demo'
+                disableClearable
+                options={provinceName.map(option => option)}
+                renderInput={params => (
+                  <TextField
+                    {...params}
+                    name='province_name'
+                    value={pump.province_name}
+                    onSelect={handleChangePump}
+                    label='Search input'
+                    margin='normal'
+                    variant='outlined'
+                    fullWidth
+                    InputProps={{ ...params.InputProps, type: 'search' }}
+                  />
+                )}
+              />
+
+             
+
+              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                Existing District
+              </Dropdown.Toggle>
+              <Form.Control
+                as='select'
+                name='district_name'
+                value={pump.district_name}
+                onChange={handleChangePump}
+              >
+                {districtName.map(district => (
+                  <option key={district} value={district}>
+                    {district}
+                  </option>
+                ))}
+              </Form.Control>
+
               <div className='senInput'>
                 <label for='Email'>District</label>
 
@@ -162,6 +205,23 @@ const PumpsModal = () => {
                   onChange={handleChangePump}
                 />
               </div>
+
+              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                Existing Commune
+              </Dropdown.Toggle>
+              <Form.Control
+                as='select'
+                name='commune_name'
+                value={pump.commune_name}
+                onChange={handleChangePump}
+              >
+                {communeName.map(commune => (
+                  <option key={commune} value={commune}>
+                    {commune}
+                  </option>
+                ))}
+              </Form.Control>
+
               <div className='senInput'>
                 <label for='Password'>Commune</label>
 
@@ -174,32 +234,32 @@ const PumpsModal = () => {
                   onChange={handleChangePump}
                 />
               </div>
+            </div>
 
-              <div className='senInput'>
-                <label for='labitude'>Latitude</label>
+            <div className='senInput'>
+              <label for='labitude'>Latitude</label>
 
-                <input
-                  type='number'
-                  name='latitude'
-                  id='latitude'
-                  placeholder='latitude'
-                  value={pump.latitude}
-                  onChange={handleChangePump}
-                />
-              </div>
+              <input
+                type='number'
+                name='latitude'
+                id='latitude'
+                placeholder='latitude'
+                value={pump.latitude}
+                onChange={handleChangePump}
+              />
+            </div>
 
-              <div className='senInput'>
-                <label for='longitude'>Longitude</label>
+            <div className='senInput'>
+              <label for='longitude'>Longitude</label>
 
-                <input
-                  type='number'
-                  name='longitude'
-                  id='longitude'
-                  placeholder='longitude'
-                  value={pump.longitude}
-                  onChange={handleChangePump}
-                />
-              </div>
+              <input
+                type='number'
+                name='longitude'
+                id='longitude'
+                placeholder='longitude'
+                value={pump.longitude}
+                onChange={handleChangePump}
+              />
             </div>
 
             <div className='senModal1'>
