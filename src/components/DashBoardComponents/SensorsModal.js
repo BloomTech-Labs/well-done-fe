@@ -60,7 +60,15 @@ const PumpsModal = () => {
 
   const orgReducer = useSelector(state => state.orgReducer.org)
 
-  console.log(orgReducer)
+  const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
+
+  console.log(pumpsReducer)
+
+  //unique province names
+  const provinceArray = pumpsReducer.map(e => e.province_name)
+  const provinceName = [...new Set(provinceArray)]
+
+  
 
   const dispatch = useDispatch()
 
@@ -137,6 +145,23 @@ const PumpsModal = () => {
                   onChange={handleChangePump}
                 />
               </div>
+
+              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                Province
+              </Dropdown.Toggle>
+              <Form.Control
+                as='select'
+                name='province'
+                value={pump.province}
+                onChange={handleChangePump}
+              >
+                
+                {provinceName.map(province => (                
+                  <option key={province} value={province}>
+                    {province}
+                  </option>
+                ))}
+              </Form.Control>
 
               <div className='senInput'>
                 <label for='Name'>Province</label>
