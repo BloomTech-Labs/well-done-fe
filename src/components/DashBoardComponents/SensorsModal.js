@@ -102,7 +102,7 @@ const PumpsModal = () => {
           <div className={classes.paper}>
             <div className='col1'>
               <h2>
-                <label for='Country'>Organization</label>
+                <label htmlFor='Country'>Organization</label>
                 <br></br>
                 <input
                   type='text'
@@ -114,7 +114,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for='Country'>Sensor pid</label>
+                <label htmlFor='Country'>Sensor pid</label>
                 <br></br>
                 <input
                   type='text'
@@ -126,7 +126,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for='Country'>Country</label>
+                <label htmlFor='Country'>Country</label>
                 <br></br>
                 <input
                   type='text'
@@ -139,7 +139,7 @@ const PumpsModal = () => {
               </h2>
 
               <h2>
-                <label for='Name'>Province</label>
+                <label htmlFor='Name'>Province</label>
                 <br></br>
                 <input
                   type='text'
@@ -151,7 +151,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for='Email'>District</label>
+                <label htmlFor='Email'>District</label>
                 <br></br>
                 <input
                   type='text'
@@ -163,7 +163,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for='Password'>Commune</label>
+                <label htmlFor='Password'>Commune</label>
                 <br></br>
                 <input
                   type='text'
@@ -176,7 +176,7 @@ const PumpsModal = () => {
               </h2>
 
               <h2>
-                <label for='Password'>Latitude</label>
+                <label htmlFor='Password'>Latitude</label>
                 <br></br>
                 <input
                   type='number'
@@ -189,7 +189,7 @@ const PumpsModal = () => {
               </h2>
               <br></br>
               <h2>
-                <label for='Password'>Longitude</label>
+                <label htmlFor='Password'>Longitude</label>
                 <br></br>
                 <input
                   type='number'
@@ -202,7 +202,7 @@ const PumpsModal = () => {
               </h2>
 
               <h2>
-                <label for=''>Physical ID</label>
+                <label htmlFor=''>Physical ID</label>
                 <br></br>
                 <input
                   type='number'
@@ -214,7 +214,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Kind</label>
+                <label htmlFor=''>Kind</label>
                 <br></br>
                 <input
                   type='text'
@@ -226,7 +226,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Type</label>
+                <label htmlFor=''>Type</label>
                 <br></br>
                 <input
                   type='text'
@@ -238,7 +238,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Cellular</label>
+                <label htmlFor=''>Cellular</label>
                 <br></br>
                 <input
                   type='number'
@@ -250,7 +250,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Bluetooth</label>
+                <label htmlFor=''>Bluetooth</label>
                 <br></br>
                 <input
                   type='number'
@@ -262,7 +262,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Training</label>
+                <label htmlFor=''>Training</label>
                 <br></br>
                 <input
                   type='text'
@@ -274,7 +274,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Renmark</label>
+                <label htmlFor=''>Renmark</label>
                 <br></br>
                 <input
                   type='text'
@@ -286,7 +286,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Date Finished</label>
+                <label htmlFor=''>Date Finished</label>
                 <br></br>
                 <input
                   type='text'
@@ -298,7 +298,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Depth</label>
+                <label htmlFor=''>Depth</label>
                 <br></br>
                 <input
                   type='number'
@@ -310,7 +310,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Yield</label>
+                <label htmlFor=''>Yield</label>
                 <br></br>
                 <input
                   type='number'
@@ -322,7 +322,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Static</label>
+                <label htmlFor=''>Static</label>
                 <br></br>
                 <input
                   type='number'
@@ -334,7 +334,7 @@ const PumpsModal = () => {
                 />
               </h2>
               <h2>
-                <label for=''>Quality</label>
+                <label htmlFor=''>Quality</label>
                 <br></br>
                 <input
                   type='text'
