@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchPumps } from '../../actions/pumpAction'
 
 import './Sensors'
@@ -8,6 +8,7 @@ import './Sensors'
 //will be changed to sensorsAction
 import { postSensor } from '../../actions/sensorActions'
 import { postPump } from '../../actions/pumpAction'
+
 
 //need to change for sensors
 import './sensorModal.scss'
@@ -57,6 +58,10 @@ const PumpsModal = () => {
     setSensor({ ...sensor, [event.target.name]: event.target.value })
   }
 
+  const orgReducer = useSelector(state => state.orgReducer.org)
+
+  console.log(orgReducer)
+
   const dispatch = useDispatch()
 
   //fetch pumps for dropdown menu
@@ -103,17 +108,23 @@ const PumpsModal = () => {
             <div className='locationModal'>
               <h3>Location</h3>
 
-              <div className='senInput'>
-                <label for='Country'>Organization</label>
-                <input
-                  type='text'
-                  id='organization'
-                  placeholder='organization'
-                  name='organization'
-                  value={pump.organization}
-                  onChange={handleChangePump}
-                />
-              </div>
+              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                Organization
+              </Dropdown.Toggle>
+              <Form.Control
+                as='select'
+                name='organization'
+                value={pump.organization}
+                onChange={handleChangePump}
+              >
+                {orgReducer.map(org => (
+                  <option key={org.id} value={org.org_name}>
+                    {org.org_name}
+                  </option>
+                ))}
+              </Form.Control>
+
+              
               <div className='senInput'>
                 <label for='Country'>Country</label>
 
