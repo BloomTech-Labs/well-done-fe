@@ -40,13 +40,13 @@ const Dropdown = props => {
           activeClassName='activeNavButton'
           className='set-link'
         >  
-        <IoIosSettings size={25} style={{ position: 'relative', top: '7px' }} />
+        <IoIosSettings size={25} style={{ position: 'relative', top: '7px', right:'5px' }} />
           Settings
         </NavLink>
       </div>
       <div className='logout-btn' onClick={logout}>
         <div className='navSvg'>
-          <FiLogOut size={25} style={{ margin: '-6.5px 0px' }} />
+          <FiLogOut size={25} style={{position: 'relative', margin: '-6.5px 0px', right:'5px' }} />
          
           Logout
         </div>
