@@ -1,6 +1,48 @@
+@import "src/colors";
+
 .ag-theme-balham {
   color: rgb(3, 3, 3);
-  font-weight: bold;
+ 
   align-content: center;
   padding: 20;
+}
+.modalContent{
+  background: $mainBackground;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2%;
+  border-radius: 8px;
+  width: min-content;
+}
+.col1{
+  .modalHeader{
+    @include header-text;
+  }
+  input{
+    display: inline-block;
+   height:40%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
+    border-radius:5px;
+  }
+}
+.col2Body{
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+}
+.buttonsCont{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 37%;
+  .closeBtn{
+ @include closeBtn;
+  }
+  .saveBtn{
+  @include saveButton;
+  }
 }

@@ -20,6 +20,8 @@ import add from '../../icons/AddButton.svg'
 
 import { Dropdown, Form } from 'react-bootstrap'
 
+import './Sensors.style.scss'
+
 const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',

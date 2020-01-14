@@ -24,6 +24,9 @@ import { editAccount } from '../../actions/accountAction'
 import DeleteAccount from './DeleteAccount'
 import { deleteAccount } from '../../actions/accountAction.js'
 
+import deleteIcon from '../../icons/DeleteModeButton.svg'
+
+
 class Grid extends Component {
   constructor(props) {
     super(props)
@@ -210,7 +213,7 @@ class Grid extends Component {
                 id='quickFilterss'
                 placeholder=' search...'
               />
-              <AiOutlineSearch className='searchIcon' />
+              <AiOutlineSearch className='searchIcons' />
             </div>
             <div className='headerBtns'>
               <button
@@ -224,7 +227,7 @@ class Grid extends Component {
               </button>
 
               <button className='deleteBtn' onClick={() => this.viewHandler()}>
-                <i className='icon-trash'></i>
+              <img src={deleteIcon} alt='delete'></img>
               </button>
               <div className='modalHeaderAccount'>
                 <ModalOperator />

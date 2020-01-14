@@ -76,3 +76,22 @@ $iconBackground:#AEDFFC;
   padding-top:3rem;
   padding-left:3rem;
 }
+
+//buttons on modals
+
+@mixin saveButton{
+  border: 2px solid $duke;
+  background: $duke;
+  color: white;
+  border-radius: 8px;
+  font-size: medium;
+}
+
+@mixin closeBtn{
+  border: none;
+  background: none;
+  font-size: medium;
+  color: $duke;
+  margin-right: 6%;
+  font-weight: 700;
+}
