@@ -29,7 +29,8 @@ const Dashboard = props => {
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
 
-  console.log(sensorSelector)
+  console.log(sensorSelector.sensors)
+  console.log(sensorSelector.gridInfo)
 
   dispatch({
     type: 'TOGGLE_NAV_STATE',
@@ -107,11 +108,9 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  // if (sensorSelector.sensors.length === 0) {
-  //   return <div>loading...</div>
-  // }
-
-  console.log(sensorSelector)
+  if (sensorSelector.sensors.length === 0) {
+    return <div>loading...</div>
+  }
 
   return (
     <div className='dashboard'>

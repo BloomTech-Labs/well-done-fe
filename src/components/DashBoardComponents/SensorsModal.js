@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../../actions/pumpAction'
 
@@ -63,15 +62,9 @@ const PumpsModal = () => {
     dispatch(fetchPumps())
   }, [])
 
-  const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
-
-  console.log(pump)
-  console.log(sensor)
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
-
-    // dispatch(addOp(operator)) //will use addPumps
     dispatch(postSensor(sensor))
     dispatch(postPump(pump))
     handleClose()
@@ -106,18 +99,6 @@ const PumpsModal = () => {
         <Fade in={open}>
           <div className={classes.paper}>
             <div className='col1'>
-              <h2>
-                <label for='Country'>Organization</label>
-                <br></br>
-                <input
-                  type='text'
-                  id='id'
-                  placeholder='id'
-                  name='id'
-                  value={pump.id}
-                  onChange={handleChangePump}
-                />
-              </h2>
               <h2>
                 <label for='Country'>Organization</label>
                 <br></br>
