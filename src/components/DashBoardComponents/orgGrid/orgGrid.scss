@@ -15,6 +15,7 @@
   align-items: center;
   h1 {
     @include header-text;
+    margin:1%;
   }
 
   .searchAccounts {
@@ -27,7 +28,6 @@
     margin-left: 10%;
 
   }
-
 
 .headerBtns {
     position: relative;
@@ -51,10 +51,7 @@
       @media screen and (max-width:1000px){
         right:25px;
       }
-     
-     
 
-  
   }
 
     .downloadButton {
@@ -85,6 +82,9 @@
   }
   .inputContainer {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
 
     @media screen and (max-width:1000px){
       width:15rem;   }
@@ -96,6 +96,7 @@
     @include header-text;
   }
 }
+
 
 
 .addOrg{

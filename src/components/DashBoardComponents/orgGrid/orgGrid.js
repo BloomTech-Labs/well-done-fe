@@ -127,7 +127,7 @@ class OrgGrid extends Component {
               style={{
                 position: 'relative',
                 right: '28px',
-                top: '2px',
+                bottom: '5px',
                 background: 'transparent',
               }}
             />

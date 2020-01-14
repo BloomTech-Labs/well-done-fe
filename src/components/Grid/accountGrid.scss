@@ -18,14 +18,14 @@
   justify-content: center;
   h1 {
     @include header-text;
-    margin: 0;
+    margin: 1%;
   }
 
   .searchContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1%;
+    margin-top: .7rem;
   }
 
   .searchAccounts {
