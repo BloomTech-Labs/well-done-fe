@@ -22,6 +22,7 @@ import { Dropdown, Form } from 'react-bootstrap'
 
 import './Sensors.style.scss'
 
+
 const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',

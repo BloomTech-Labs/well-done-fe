@@ -44,6 +44,7 @@
     }
 
     .headerBtns {
+      position: relative;
       display: flex;
       justify-content: flex-end;
       width: 100%;
@@ -54,12 +55,13 @@
      }
 
       .deleteBtn {
+        position: absolute;
+        top:8px;
+        right:50px;
         border: none;
-        font-size: 2.3rem;
-        background:transparent;
-        min-width: 6rem;
-        min-height: 6rem;
-        margin-right:1%;
+        background: transparent;
+        font-size: 3.5rem;
+
 
         @media screen and (max-width:1000px) {
           margin:0;
@@ -67,12 +69,14 @@
       }
 
       .downloadButton {
+        position: absolute;
+        top:10px;
+        right:95px;
         margin:0;
-        font-size: 2.3rem;
         min-width: 6rem;
         min-height: 6rem;
         background: transparent;
-        border: none;
+        border:none;
       }
 
       .modalHeader {
@@ -124,10 +128,10 @@
   justify-content: center;
   align-items: center;
 }
-.dwnbutton {
-  background: transparent;
-  border: none;
-}
+// .dwnbutton {
+//   background: transparent;
+//   border: none;
+// }
 
 .modCon {
   display: flex;
@@ -164,11 +168,20 @@
   }
 }
 
-.addBtn {
+
+.addSensor {
+  position: relative;
+  top:-2px;
+  right:10px;
   background: transparent;
-  border: none;
   min-width: 6rem;
   min-height: 6rem;
+
+  @media screen and (max-width:800px){
+    right:20px;
+    // margin-left: -1.3rem;
+
+  }
 }
 
 .btnContainer {
