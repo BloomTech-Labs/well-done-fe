@@ -78,8 +78,8 @@ const Dashboard = props => {
       const searchedPlace = {
         latitude: props.searchFiltered[0].latitude,
         longitude: props.searchFiltered[0].longitude,
-        width: "100vw",
-        height: "100vh",
+        width: '100vw',
+        height: '100vh',
         zoom: 11,
       }
       setViewport(searchedPlace)
@@ -116,7 +116,7 @@ const Dashboard = props => {
 
   return (
     <div className='dashboard'>
-      <Menu/>
+      <Menu />
       <div className='mapSearchFilterContainer'>
         <Map
           sensors={sensorSelector.sensors}

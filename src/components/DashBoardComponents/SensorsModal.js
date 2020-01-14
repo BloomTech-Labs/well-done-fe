@@ -9,7 +9,6 @@ import './Sensors'
 import { postSensor } from '../../actions/sensorActions'
 import { postPump } from '../../actions/pumpAction'
 
-
 //need to change for sensors
 import './sensorModal.scss'
 
@@ -67,8 +66,6 @@ const PumpsModal = () => {
   //unique province names
   const provinceArray = pumpsReducer.map(e => e.province_name)
   const provinceName = [...new Set(provinceArray)]
-
-  
 
   const dispatch = useDispatch()
 
@@ -132,7 +129,6 @@ const PumpsModal = () => {
                 ))}
               </Form.Control>
 
-              
               <div className='senInput'>
                 <label for='Country'>Country</label>
 
@@ -155,8 +151,7 @@ const PumpsModal = () => {
                 value={pump.province}
                 onChange={handleChangePump}
               >
-                
-                {provinceName.map(province => (                
+                {provinceName.map(province => (
                   <option key={province} value={province}>
                     {province}
                   </option>
