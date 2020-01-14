@@ -42,8 +42,6 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-//commit
-
 const PumpsModal = () => {
   const [pump, setPump] = useState([])
   const [sensor, setSensor] = useState([])
