@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../../actions/pumpAction'
 
@@ -20,6 +19,8 @@ import Fade from '@material-ui/core/Fade'
 import add from '../../icons/AddButton.svg'
 
 import { Dropdown, Form } from 'react-bootstrap'
+
+import './Sensors.style.scss'
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -63,15 +64,9 @@ const PumpsModal = () => {
     dispatch(fetchPumps())
   }, [])
 
-  const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
-
-  console.log(pump)
-  console.log(sensor)
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
-
-    // dispatch(addOp(operator)) //will use addPumps
     dispatch(postSensor(sensor))
     dispatch(postPump(pump))
     handleClose()

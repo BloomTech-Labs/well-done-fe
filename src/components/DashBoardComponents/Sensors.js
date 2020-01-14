@@ -19,6 +19,7 @@ import SensorsModal from './SensorsModal'
 import { connect } from 'react-redux'
 import { deleteSensor } from '../../actions/sensorActions'
 
+import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
 
 class pumps extends Component {
@@ -193,7 +194,7 @@ class pumps extends Component {
             </button>
 
             <button className='deleteBtn' onClick={() => this.viewHandler()}>
-              <i className='icon-trash'></i>
+            <img src={deleteIcon} alt='delete'></img>
             </button>
 
             <div className='modalHeader'>

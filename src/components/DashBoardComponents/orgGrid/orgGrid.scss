@@ -25,15 +25,19 @@
     border-radius: 8px;
     font-size: 0.89rem;
     margin-left: 10%;
+
   }
 
 
-  .headerBtns {
+.headerBtns {
     display: flex;
     justify-content: flex-end;
-    // justify-content: space-evenly;
     width: 100%;
-    margin-right: 2rem;
+    margin-right: 2%;
+    @media screen and (max-width:900px) {
+      width:60%;
+      justify-content: space-evenly;
+   }
 
     .deleteBtn {
       border: none;
@@ -43,7 +47,6 @@
       margin-bottom:5px;
     
       
-
       @media screen and (max-width:1000px){
          margin-left: -1rem;
       }
@@ -55,7 +58,8 @@
     .downloadButton {
       min-height:1rem;
       min-width:1rem;
-     
+     background: none;
+     border-style:none;
     }
 
     .modalHeaderOrg {

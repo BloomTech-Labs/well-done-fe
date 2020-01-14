@@ -8,10 +8,7 @@ nav {
   top: 0px;
   z-index: 5;
 
-  @media (max-width: 800px) {
-    
-    
-  }
+
 }
 .nav-right {
   text-align: right;
@@ -47,6 +44,9 @@ nav {
 .margin-left {
   margin-left: 24px;
   color: white;
+  @media screen and (max-width:1024px){
+    display: none;
+}
 }
 .margin-right {
   margin-right: 60px;
@@ -64,9 +64,16 @@ nav {
   right: 0px;
   padding: 5px;
   padding-top:20px;
-  height:150px;
+  
  
   
+}
+.item-container{
+  padding-left: 1rem;
+  height:100%;
+  
+  text-align: left;
+
 }
 .margin-left-droplet {
   position: relative;
@@ -85,7 +92,7 @@ nav {
 .set-link {
   position: relative;
   top: 1px;
-  left:5px;
+  left:-4px;
   color: black;
   a:hover {
     background: #AFE2F9;
@@ -102,7 +109,13 @@ nav {
 .navSvg{
   margin: 10px 1px;
 }
+.tab-nav{
+  color: black;
+  @media screen and (min-width:1024px){
+    display: none;
+}
 
+}
 
 svg.drop-svg{
   position: absolute;
@@ -114,6 +127,8 @@ svg.drop-svg{
   }
 }
 .each-nav{
+  display: flex;
+  flex-direction: column;
   z-index:6;
   margin-bottom: 5px;
 }

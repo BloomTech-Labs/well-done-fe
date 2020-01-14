@@ -13,7 +13,8 @@ import OrganizationActivity from '../components/DashBoardComponents/Organization
 import Testing from '../components/DashBoardComponents/Sensors'
 import AccountGrid from '../components/Grid/AccountGrid'
 import Banner from './Banner'
-
+import StaticMenu from '../components/Menu/StaticMenu.js'
+import Menu from '../components/Menu/Menu.component'
 import './Dashboard.styles.scss'
 
 const Dashboard = props => {
@@ -29,7 +30,8 @@ const Dashboard = props => {
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
 
-  console.log(sensorSelector)
+  console.log(sensorSelector.sensors)
+  console.log(sensorSelector.gridInfo)
 
   dispatch({
     type: 'TOGGLE_NAV_STATE',
@@ -76,7 +78,8 @@ const Dashboard = props => {
       const searchedPlace = {
         latitude: props.searchFiltered[0].latitude,
         longitude: props.searchFiltered[0].longitude,
-        width: '100%',
+        width: "100vw",
+        height: "100vh",
         zoom: 11,
       }
       setViewport(searchedPlace)
@@ -107,14 +110,18 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  // if (sensorSelector.sensors.length === 0) {
-  //   return <div>loading...</div>
-  // }
+  if (sensorSelector.sensors.length === 0) {
+    return <div>loading...</div>
+  }
+<<<<<<< HEAD
+=======
 
   console.log(sensorSelector)
+>>>>>>> 0305a33befd79356768c81cc1e8807f0f9e60e1f
 
   return (
     <div className='dashboard'>
+      <Menu/>
       <div className='mapSearchFilterContainer'>
         <Map
           sensors={sensorSelector.sensors}
@@ -144,13 +151,13 @@ const Dashboard = props => {
           />
         </div>
 
-        <Filter
+        {/* <Filter
           searchFiltered={props.searchFiltered}
           setSearchFiltered={props.setSearchFiltered}
           sensors={sensorSelector.sensors}
           setFuncToggle={setFuncToggle}
           setUnknownToggle={setUnknownToggle}
-        />
+        /> */}
       </div>
       <div className='tables-container'>
         <div className='orgActPumps'>

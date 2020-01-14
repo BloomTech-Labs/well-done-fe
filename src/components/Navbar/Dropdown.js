@@ -23,18 +23,28 @@ const Dropdown = props => {
 
   return (
     <div className='drop-down' ref={ref}>
-      <div className='triangle'></div>
+      <div className='item-container'>
       <div className='each-nav'>
-        <IoIosSettings size={25} style={{ position: 'relative', top: '7px' }} />
+      
+        <NavLink className='tab-nav' to='/dashboard'>
+        Dashboard
+      </NavLink>
+      <NavLink className='tab-nav' to='/overview'>
+        Monitors
+      </NavLink>
+      <NavLink className='tab-nav' to='/organization'>
+        Organizations
+      </NavLink>
         <NavLink
           to='/settings'
           activeClassName='activeNavButton'
           className='set-link'
-        >
+        >  
+        <IoIosSettings size={25} style={{ position: 'relative', top: '7px' }} />
           Settings
         </NavLink>
       </div>
-      <div className='each-nav' onClick={logout}>
+      <div className='logout-btn' onClick={logout}>
         <div className='navSvg'>
           <FiLogOut size={25} style={{ margin: '-6.5px 0px' }} />
          
@@ -42,6 +52,7 @@ const Dropdown = props => {
         </div>
       </div>
       <div className='user-email'>{email}</div>
+      </div>
     </div>
   )
 }

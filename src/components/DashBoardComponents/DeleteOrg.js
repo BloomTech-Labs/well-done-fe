@@ -49,7 +49,7 @@ const DeleteOrg = props => {
         style={{ height: 20, lineHeight: 0.5 }}
         className='btn btn-info'
       >
-        <i class='icon-trash'></i>
+        <i className='icon-trash'></i>
       </button>
 
       <Modal
