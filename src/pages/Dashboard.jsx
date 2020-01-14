@@ -113,11 +113,8 @@ const Dashboard = props => {
   if (sensorSelector.sensors.length === 0) {
     return <div>loading...</div>
   }
-<<<<<<< HEAD
-=======
 
   console.log(sensorSelector)
->>>>>>> 0305a33befd79356768c81cc1e8807f0f9e60e1f
 
   return (
     <div className='dashboard'>
