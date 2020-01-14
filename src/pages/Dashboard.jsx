@@ -77,7 +77,8 @@ const Dashboard = props => {
       const searchedPlace = {
         latitude: props.searchFiltered[0].latitude,
         longitude: props.searchFiltered[0].longitude,
-        width: '100%',
+        width: "100vw",
+        height: "100vh",
         zoom: 11,
       }
       setViewport(searchedPlace)
@@ -108,9 +109,9 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  // if (sensorSelector.sensors.length === 0) {
-  //   return <div>loading...</div>
-  // }
+  if (sensorSelector.sensors.length === 0) {
+    return <div>loading...</div>
+  }
 
   console.log(sensorSelector)
 
