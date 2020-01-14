@@ -1,3 +1,56 @@
-.dashboard {
-    position: relative
+@import 'src/colors';
+
+.orgActPumps {
+  display: flex;
+  justify-content: space-around;
+  margin-top:5rem;
+  margin-bottom: 5rem;
+
+  @media screen and (max-width:1000px) {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+ }
+
+}
+
+.innerMapFlex {
+  display: flex;
+  justify-content: center;
+  width: 96%;
+  margin-bottom:5rem;
+}
+
+.dash-mob {
+  display: none;
+  @media (max-width: 800px) {
+    display: inherit;
+  }
+}
+.tables-container {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.filterContainer{
+  position: absolute;
+  top:340px;
+  right:50px;
+}
+.banner-container{
+  width:100%;
+  height:15rem;
+  margin-bottom:5rem;
+  @include navbar-bg;
+
+}
+.header{
+@include banner-text;
+
+}
+.title{
+  color:white;
+  font-size:5rem;
+  font-weight: 350;
+  padding-left:2.8rem;
 }

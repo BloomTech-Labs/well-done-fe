@@ -1,0 +1,232 @@
+@import 'src/colors';
+
+.sensorChart {
+  width: 48%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.08);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    width: 97%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sensorHeader {
+    display: flex;
+    align-items: center;
+
+    @include grid-background;
+
+    .sensorHeaderName {
+      h1 {
+        @include header-text;
+        margin: 0;
+      }
+    }
+
+    .searchInsensors {
+      border: none;
+      height: 3rem;
+      width: 26rem;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.89rem;
+      margin-left: 10%;
+      margin-top:5%;
+
+      @media screen and (max-width: 1200px) {
+        width: 18rem;
+      }
+    }
+
+    .headerBtns {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-right: 2%;
+  
+      @media screen and (max-width:1200px) {
+        margin-left: -3rem;
+     }
+
+      .deleteBtn {
+        border: none;
+        font-size: 2.3rem;
+        background:transparent;
+        min-width: 6rem;
+        min-height: 6rem;
+        margin-right:1%;
+
+        @media screen and (max-width:1000px) {
+          margin:0;
+       }
+      }
+
+      .downloadButton {
+        margin:0;
+        font-size: 2.3rem;
+        min-width: 6rem;
+        min-height: 6rem;
+        background: transparent;
+        border: none;
+      }
+
+      .modalHeader {
+        display: flex;
+        justify-content: center;
+        width: 10%;
+
+        .addSensor {
+          border: none;
+          background:transparent;
+          font-size: 2.3rem;
+          min-width: 8rem;
+          min-height: 8rem;
+
+        }
+      }
+    }
+  }
+}
+
+.ag-theme-balham {
+  color: #202020;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.6px;
+  line-height: 19px;
+  align-content: center;
+  font-size: 0.7rem;
+}
+
+.btnCon {
+  .btn-info {
+    @include view-onGrid;
+    background: none;
+    border: none;
+  }
+}
+
+.searchIcon {
+  position: relative;
+  border: none;
+  font-size: 24px;
+  right: 28px;
+  background: transparent;
+}
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dwnbutton {
+  background: transparent;
+  border: none;
+}
+
+.modCon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  .modBtns {
+    display: flex;
+    justify-content: space-around;
+    align-items: space-between;
+    margin-top: 20%;
+    width: 70%;
+
+    .confirmBtn {
+      border: none;
+      background: red;
+      color: white;
+      height: 30px;
+      border-radius: 5px;
+      height: 40px;
+      width: 100px;
+    }
+
+    .closeBtn {
+      border: none;
+      color: #090c9b;
+      height: 30px;
+      border-radius: 5px;
+      height: 40px;
+      width: 100px;
+    }
+  }
+}
+
+.addBtn {
+  background: transparent;
+  border: none;
+  min-width: 6rem;
+  min-height: 6rem;
+}
+
+.btnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 5px;
+}
+
+
+.createNgoBtn {
+  margin-left: 15px;
+  border-radius: 3px;
+  border: none;
+  @include navbar-bg;
+  color: white;
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+.cancelBtn {
+  border: none;
+  color: #090c9b;
+  background: transparent;
+  font-weight: 600;
+}
+.orgHeader {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 4rem;
+}
+.orgInput {
+  border: 1px solid red;
+}
+.orgLabel {
+  font-size: 10px;
+  margin-bottom: -8px;
+}
+.hqLabel {
+  font-size: 10px;
+  margin-bottom: -8px;
+}
+.textInput {
+  height: 3rem !important;
+  width: 18rem !important;
+}
+
+.col1 {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  .CreateAccount {
+    margin: auto;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+  }
+}

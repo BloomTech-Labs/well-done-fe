@@ -1,20 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import MetaTags from 'react-meta-tags'
-
 import Dashboard from './pages/Dashboard'
 import MonitorDetails from './pages/MonitorDetail'
 import Monitors from './pages/OverviewPage/MonitorsPage'
-import Settings from './pages/Settings/Settings'
-import PrivateRoute from './components/PrivateRoute.jsx'
+import NavBar from './components/Navbar/Navbar.js'
 import SignIn from './components/SignIn/SignIn'
+import { useSelector, useDispatch } from 'react-redux'
+import './App.style.scss'
+
+import Settings from './pages/Settings/Settings'
+import MetaTags from 'react-meta-tags'
+import PrivateRoute from './components/PrivateRoute.jsx'
 
 function App(props) {
+  const dispatch = useDispatch()
+  const displayNav = useSelector(state => state.navShow)
+  useEffect(() => {
+    if (window.location.pathname !== '/') {
+      dispatch({
+        type: 'TOGGLE_NAV_STATE',
+        payload: true,
+      })
+    }
+  }, [window.location.pathname, displayNav])
+
   const [searchFiltered, setSearchFiltered] = useState([])
   const [selectedPump, setSelectedPump] = useState(null)
-
   return (
-    <div>
+    <div className='app-container'>
+      {!!displayNav && <NavBar />}
+
       <MetaTags>
         <title>Well-Done Dashboard</title>
         <meta
@@ -29,7 +44,7 @@ function App(props) {
       </MetaTags>
 
       <Switch>
-        <Route exact path="/" component={SignIn} />
+        <Route exact path='/' component={SignIn} />
         <PrivateRoute
           path='/dashboard'
           searchFiltered={searchFiltered}
@@ -38,11 +53,13 @@ function App(props) {
           setSelectedPump={setSelectedPump}
           page={Dashboard}
         />
+
         <PrivateRoute
           path='/monitorDetails'
           page={MonitorDetails}
           selectedPump={selectedPump}
         />
+        
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>

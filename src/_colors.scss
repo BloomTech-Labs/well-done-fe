@@ -1,0 +1,97 @@
+/// all colors in FIGMA
+$coolBlue:#ACCDFF;
+$periwinkle:#BFC2FF;
+$vLBlue:#6562FF;
+$green:#01c000;
+$red: #FA0707;
+$duke: #090c9b;
+$navy:#000066;
+$oxford:#000048;
+$black:#202020;
+$orange:#FFAD34;
+$mainBackground:#e5e5e5;
+$iconBackground:#AEDFFC;
+
+
+
+// changes background color for entire app
+@mixin body-background{
+  background-color: $mainBackground;
+}
+//changes background color for all grids on dashboard
+@mixin grid-background{
+    background-color:$coolBlue;
+  }
+
+// changes border settings on all grids on dashboard
+@mixin grid-border{
+    border:2px solid $coolBlue
+}
+
+// changes all text colors on grids on dashboard
+@mixin header-text{
+  color:$black;
+  font-size: 2.8rem;
+  padding-right: 1.1rem;
+  padding-left: 1rem;
+  margin-top: 0.5%;
+
+}
+
+// changes color of view buttons on all grids on dashboard
+@mixin view-onGrid{
+  color:$duke;
+}
+
+//changes all ++buttons on grid on dashboard
+@mixin gridBtn-bg{
+  background-color: $coolBlue;
+   border: $coolBlue;
+   color:white;
+}
+
+//NAV bar
+//nav bar color
+@mixin navbar-bg{
+  background-color: $duke;
+}
+
+//drop down menu color
+@mixin dropDown-Bgclr{
+  background-color:$iconBackground;
+  color:$black;
+}
+
+//MAP
+//map filter menu color
+@mixin mapfilter-clr{
+  background-color: $navy;
+}
+
+///Banner
+@mixin banner-text{
+  color:white;
+  font-size: 3rem;
+  font-weight: 350;
+  padding-top:3rem;
+  padding-left:3rem;
+}
+
+//buttons on modals
+
+@mixin saveButton{
+  border: 2px solid $duke;
+  background: $duke;
+  color: white;
+  border-radius: 8px;
+  font-size: medium;
+}
+
+@mixin closeBtn{
+  border: none;
+  background: none;
+  font-size: medium;
+  color: $duke;
+  margin-right: 6%;
+  font-weight: 700;
+}

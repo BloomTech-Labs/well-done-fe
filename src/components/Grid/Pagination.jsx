@@ -1,5 +1,5 @@
-const gridOptions = {
-  onRowClicked(event) {},
+const gridOptionss = {
+  rowHeight: 40
 }
 
-export default gridOptions
+export default gridOptionss

@@ -31,6 +31,7 @@ const PopupInfo = props => {
   })
 
   const { status, sensor_pid, province_name, country_name } = props.selectedPump
+
   return (
     <div className='popupInfo'>
       <div className='pump_id'>

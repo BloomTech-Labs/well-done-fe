@@ -1,0 +1,23 @@
+@import "src/colors";
+
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include body-background;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.app-container{
+  margin: 0 auto;
+  width:auto;
+  height: auto;
+
+}

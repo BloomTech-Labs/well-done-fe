@@ -19,7 +19,7 @@ const Menu = props => {
   }
 
   return (
-    <div>
+    <div className='main-menu'>
       <div className='hamburger-menu' onClick={openNav}>
         <span style={{ backgroundColor: '#082B84' }}></span>
         <span style={{ backgroundColor: '#082B84' }}></span>
@@ -48,7 +48,7 @@ const Menu = props => {
           </div>
           <div className='eachNav'>
             <IoMdCreate size={25} />
-            <NavLink to='/overview'>Overview</NavLink>
+            <NavLink to='/overview'>Monitors</NavLink>
           </div>
           <div className='eachNav'>
             <IoIosSettings size={25} />

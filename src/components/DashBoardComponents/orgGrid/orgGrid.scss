@@ -1,0 +1,86 @@
+@import 'src/colors';
+
+.orgGridBody {
+  width: 97.5%;
+  @include grid-border;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 2px 1px 10px;
+  border: none;
+}
+.orgGridHeader {
+  @include grid-background;
+  display: flex;
+  align-items: center;
+  h1 {
+    @include header-text;
+  }
+
+  .searchAccounts {
+    border: none;
+    height: 3rem;
+    width: 26rem;
+    padding: 0.8rem 1.4rem;
+    border-radius: 8px;
+    font-size: 0.89rem;
+    margin-left: 10%;
+
+  }
+
+
+.headerBtns {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 2%;
+    @media screen and (max-width:900px) {
+      width:60%;
+      justify-content: space-evenly;
+   }
+
+    .deleteBtn {
+      border: none;
+      background: #accdff;
+      font-size: 3.5rem;
+      margin:0 1rem;
+      margin-bottom:5px;
+    
+      
+      @media screen and (max-width:1000px){
+         margin-left: -1rem;
+      }
+     
+
+  
+  }
+
+    .downloadButton {
+      min-height:1rem;
+      min-width:1rem;
+     background: none;
+     border-style:none;
+    }
+
+    .modalHeaderOrg {
+      display: flex;
+      justify-content: center;
+      width: 5%;
+
+   
+    }
+  }
+  .inputContainer {
+    display: flex;
+
+    @media screen and (max-width:1000px){
+      width:15rem;   }
+  
+  }
+
+  .orgHeaderButton {
+    @include grid-background;
+    @include header-text;
+  }
+}
+

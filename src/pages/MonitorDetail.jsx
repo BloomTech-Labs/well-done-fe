@@ -6,14 +6,20 @@ import 'antd/dist/antd.css'
 import './MonitorDetail.css'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 
+//redux
+import {useDispatch} from 'react-redux'
+import {deleteSensor} from '../actions/sensorActions'
+
+
 const { Title } = Typography
 
 const MonitorDetails = props => {
+  console.log(props)
   const [viewport, setViewport] = useState({
     latitude: 13.5651,
     longitude: 104.7538,
     width: '100%',
-    height: '30vh',
+    height: '40vh',
     zoom: 7,
   })
 
@@ -31,6 +37,7 @@ const MonitorDetails = props => {
   }, [])
 
   const {
+    sensor_index,
     physical_id,
     data_finished,
     reported_percent,
@@ -44,8 +51,19 @@ const MonitorDetails = props => {
     longitude,
   } = props.selectedPump
 
+  console.log(`physical id`,sensor_index)
+
+
+  //delete
+  const dispatch = useDispatch()
+
+  const deleteHandler = event => {
+    event.preventDefault()
+    dispatch(deleteSensor(sensor_index))
+  }
+
   const padHistory = history.filter(pad => {
-    return pad.sensor_id == physical_id
+    return pad.sensor_id === physical_id
   })
 
   const date = padHistory.map(day => day.date)
@@ -69,6 +87,7 @@ const MonitorDetails = props => {
 
   return (
     <div>
+      <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button>
       <Row>
         <Col span={20} offset={4}>
           <Title>{physical_id}</Title>
@@ -151,9 +170,9 @@ const MonitorDetails = props => {
             style={{ fontWeight: 'bold' }}
           >
             <Descriptions.Item label='Status'>
-              {status == 0 || status == null ? (
+              {status === 0 || status === null ? (
                 <Badge status='error' text='Not Functioning' />
-              ) : status == 1 ? (
+              ) : status === 1 ? (
                 <Badge status='warning' text='Unknown' />
               ) : (
                 <Badge status='success' text='Functioning' />

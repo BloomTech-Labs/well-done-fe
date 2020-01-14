@@ -20,7 +20,7 @@ const PrivateRoute = ({
             {...props}
             searchFiltered={searchFiltered}
             setSearchFiltered={setSearchFiltered}
-            history={history}
+            // history={history}
             sensors={sensors}
             selectedPump={selectedPump}
             setSelectedPump={setSelectedPump}

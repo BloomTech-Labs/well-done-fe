@@ -1,0 +1,29 @@
+.tooltip {
+    position: relative;
+    opacity: 1;
+
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .iconBtn{
+    // border:none;
+    // background:transparent;
+    // z-index: 1000;
+    // &:focus{
+    //   outline:none;
+    // }
+}

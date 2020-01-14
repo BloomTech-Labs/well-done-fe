@@ -1,23 +1,32 @@
 import React, { useState } from 'react'
 import Switch from 'react-switch'
+import Unknown from '../../icons/PumpNoData.svg'
+import '../Toggle/Unknown.scss'
+import NoDataDisabled from '../../icons/NoDataDisabled.svg'
 
 const UnknownToggle = props => {
   const [checked, setChecked] = useState(true)
 
   const handleChange = status => {
-    setChecked(status)
-    props.setUnknownToggle(status)
+    setChecked(!checked) 
+    props.setUnknownToggle(!checked)
   }
 
-  return (
-    <div>
-      <Switch
-        className='react-switch'
-        checked={checked}
-        onChange={handleChange}
-        onColor='#FFAD34'
-      />
+  return checked? (
+    <div className="tooltip" >
+       <button onClick={handleChange} className="iconBtn" >
+        <img src={Unknown} alt='Unknown pump status' className="iconPump"/>
+        <span className="tooltiptext">Unknown</span>
+      </button>
+
     </div>
+  ):(
+    <div className="tooltip" >
+    <button onClick={handleChange} className="iconBtn" >
+      <img src={NoDataDisabled} alt='Functioning pump' />
+      <span className="tooltiptext">Unknown</span>
+    </button>
+  </div>
   )
 }
 

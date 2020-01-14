@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import AxiosWithAuth from '../../components/AxiosWithAuth/axiosWithAuth'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchSensors } from '../../actions/sensorActions'
 
-import StaticMenu from '../../components/Menu/StaticMenu'
-import Legend from './Legend'
-import StatusCards from './StatusCards'
-import Grid from '../../components/Grid/Aggrid'
-import PercentageChart from './PercentageChart'
+import Legend from "./Legend"
+import StatusCards from "./StatusCards"
+import Grid from "../../components/Grid/Aggrid"
+import PercentageChart from "./PercentageChart"
+import Menu from '../../components/Menu/Menu.component'
 
 // ant design style
 import { Row, Col, Layout } from 'antd'
@@ -18,29 +20,33 @@ const MonitorsPage = ({ history }) => {
   const [unPumps, setUnPumps] = useState([])
   const [nonPumps, setNonPumps] = useState([])
 
+  const sensorSelector = useSelector(state => state.sensorReducer)
+  const dispatch = useDispatch()
+  console.log(sensorSelector)
+
   useEffect(() => {
-    AxiosWithAuth()
-      .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent`)
-      .then(res => {
-        setPumpData(res.data)
-        setFuncPumps(res.data.filter(pump => pump.status === 2))
-        setUnPumps(res.data.filter(pump => pump.status === 1))
-        setNonPumps(
-          res.data.filter(pump => pump.status === 0 || pump.status === null)
-        )
-      })
+    dispatch(fetchSensors())
   }, [])
+
+  useEffect(() => {
+    setPumpData(sensorSelector.sensors)
+    setFuncPumps(sensorSelector.sensors.filter(pump => pump.status === 2))
+    setUnPumps(sensorSelector.sensors.filter(pump => pump.status === 1))
+    setNonPumps(
+      sensorSelector.sensors.filter(
+        pump => pump.status === 0 || pump.status === null
+      )
+    )
+  }, [sensorSelector.isFetching])
 
   return (
     <div>
-      <Layout style={{ backgroundColor: '#E5E5E5' }}>
-        <Sider>
-          {/* Side Nav */}
-          <StaticMenu history={history} />
-        </Sider>
+      <Layout style={{ backgroundColor: "#E5E5E5" }}>
         <Content>
           {/* legend */}
-          <Row type='flex' justify='start'>
+          <Row type="flex" justify="start">
+          <div className='dash-mob'>
+       <Menu  history={history} /></div>
             <Col span={23} offset={1}>
               <Legend />
             </Col>
@@ -65,7 +71,7 @@ const MonitorsPage = ({ history }) => {
               offset={1}
               style={{ maxWidth: '600px', minWidth: '270px' }}
             >
-              <Grid />
+              {/* <Grid sensors={sensorSelector.sensors} /> */}
             </Col>
 
             {/* Percentage Chart */}
