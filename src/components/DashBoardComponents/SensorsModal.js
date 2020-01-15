@@ -149,26 +149,6 @@ const PumpsModal = () => {
                 freeSolo
                 id='free-solo-2-demo'
                 disableClearable
-                options={villageName.map(option => option)}
-                renderInput={params => (
-                  <TextField
-                    {...params}
-                    name='village_name'
-                    value={pump.village_name}
-                    onSelect={handleChangePump}
-                    label='Village'
-                    margin='normal'
-                    variant='outlined'
-                    fullWidth
-                    InputProps={{ ...params.InputProps, type: 'search' }}
-                  />
-                )}
-              />
-
-              <Autocomplete
-                freeSolo
-                id='free-solo-2-demo'
-                disableClearable
                 options={provinceName.map(option => option)}
                 renderInput={params => (
                   <TextField
@@ -217,6 +197,26 @@ const PumpsModal = () => {
                     value={pump.commune_name}
                     onSelect={handleChangePump}
                     label='Commune Name'
+                    margin='normal'
+                    variant='outlined'
+                    fullWidth
+                    InputProps={{ ...params.InputProps, type: 'search' }}
+                  />
+                )}
+              />
+
+              <Autocomplete
+                freeSolo
+                id='free-solo-2-demo'
+                disableClearable
+                options={villageName.map(option => option)}
+                renderInput={params => (
+                  <TextField
+                    {...params}
+                    name='village_name'
+                    value={pump.village_name}
+                    onSelect={handleChangePump}
+                    label='Village'
                     margin='normal'
                     variant='outlined'
                     fullWidth
