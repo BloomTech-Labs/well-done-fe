@@ -1,0 +1,34 @@
+.senModalWrap{
+    display: flex;
+    background: white;
+    width:60%;
+
+    .locationModal{
+        display: flex;
+    flex-direction: column;
+    margin:5%;
+
+    .senInput{
+        margin: 5%;
+    }
+    }
+    .senModal1{
+        display: flex;
+    flex-direction: column;
+    margin:5%;
+
+    .senInput{
+        margin: 5%;
+    }
+    }
+
+    .senModal2{
+        display: flex;
+    flex-direction: column;
+    margin:5%;
+
+    .senInput{
+        margin: 5%;
+    }
+    }
+}
