@@ -12,8 +12,16 @@ $orange:#FFAD34;
 $mainBackground:#e5e5e5;
 $iconBackground:#AEDFFC;
 
-
-
+//changes all input fields accross all modals
+@mixin globalInputStyle{
+  display: inline-block;
+  height:40%;
+   margin-bottom: 10px;
+   font-size: 14px;
+   line-height: 20px;
+   vertical-align: middle;
+   border-radius:5px;
+}
 // changes background color for entire app
 @mixin body-background{
   background-color: $mainBackground;

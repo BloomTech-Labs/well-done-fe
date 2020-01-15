@@ -107,11 +107,10 @@ const PumpsModal = () => {
         <Fade in={open}>
           <div className='senModalWrap'>
             <div className='locationModal'>
+              <div className='modalHeader'>
               <h3>Location</h3>
-
-              <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                Organization
-              </Dropdown.Toggle>
+              </div>
+              <label for='organization'>Organization</label>
               <Form.Control
                 as='select'
                 name='organization'

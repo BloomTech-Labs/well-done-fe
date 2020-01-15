@@ -1,8 +1,15 @@
+@import "src/colors";
 .senModalWrap{
     display: flex;
-    background: white;
-    width:60%;
+    background: $mainBackground;
+    margin: 0 auto;
+    padding: 2%;
+    border-radius: 8px;
+    width: 60%;
 
+    .modalHeader{
+        @include header-text;
+    }
     .locationModal{
         display: flex;
     flex-direction: column;
@@ -10,6 +17,9 @@
 
     .senInput{
         margin: 5%;
+        input{
+          @include globalInputStyle;
+        }
     }
     }
     .senModal1{
