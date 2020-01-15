@@ -4,7 +4,7 @@
 width:50%;
 }
 .orgProfCon{
-    background: $mainBackground;
+    background: $oxford;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -22,12 +22,38 @@ width:50%;
     .infoBox{
         display:flex;
         flex-direction: column;
+        color:white;
         h2{
-            color:$duke;
+            color:white;
+        }
+        h3{
+            color:white;
+        }
+        h4{
+            color:white;
         }
     }
     .contactInfo{
         display:flex;
         flex-direction: column;
+        color:white;
+        h4{
+            color:white;
+        }
+    }
+    .closeBtn{
+        display: flex;
+        height: auto;
+        margin-bottom: 45%;
+    
+
+        button{
+        border: none;
+        background: none;
+        font-size: medium;
+        color: white;
+        margin-right: 6%;
+        font-weight: 700;
+        }
     }
 }

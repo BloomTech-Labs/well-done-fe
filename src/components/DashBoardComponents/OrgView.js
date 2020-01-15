@@ -75,10 +75,10 @@ const ViewOrgGrid = props => {
               <div className='ceoPic'> null </div>
               <div className='infoBox'>
             <h2>{props.data.org_name}</h2>
-            founded:
+            <h4>founded:</h4>
             <h4>Base of Operations: {props.data.headquarter_city}</h4>
             <div className='ceoName'>
-                <h2>Admin: </h2>
+                <h3>Admin: </h3>
             </div>
             </div>
             <div className='contactInfo'>
