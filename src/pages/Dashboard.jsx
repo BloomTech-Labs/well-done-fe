@@ -114,6 +114,11 @@ const Dashboard = props => {
     return <div>loading...</div>
   }
 
+
+  console.log(sensorSelector)
+
+
+
   return (
     <div className='dashboard'>
       <Menu/>
