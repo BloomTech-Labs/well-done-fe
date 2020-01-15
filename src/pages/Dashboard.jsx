@@ -6,7 +6,7 @@ import Filter from '../components/Filter/Filter.component'
 import IconsFilter from '../components/Filter/IconFilters'
 import Sensors from '../components/DashBoardComponents/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensors } from '../actions/sensorActions'
+import { fetchSensors, fetchSensorsByOrgId } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
 import OrgGrid from 'components/DashBoardComponents/orgGrid/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
@@ -59,7 +59,10 @@ const Dashboard = props => {
     return () => window.removeEventListener('resize', updateWidth)
   })
   useEffect(() => {
-    dispatch(fetchSensors())
+    if(userRole === 'super_user'){
+    dispatch(fetchSensors())} else{
+      dispatch(fetchSensorsByOrgId(orgId))
+    }
     dispatch(fetchHistory())
   }, [])
 
@@ -111,7 +114,7 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  if (sensorSelector.sensors.length === 0) {
+  if (sensorSelector.sensors.length === 0 || sensorSelector.gridInfo.length === 0) {
     return <div>loading...</div>
   }
 
@@ -164,12 +167,12 @@ const Dashboard = props => {
       </div>
       <div className='tables-container'>
         <div className='orgActPumps'>
-          <OrganizationActivity
+          {/* <OrganizationActivity
             alertInfo={historySelector.alertInfo}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
             sensors={sensorSelector.sensors}
-          />
+          /> */}
 
           <Sensors
             gridInfo={sensorSelector.gridInfo}
