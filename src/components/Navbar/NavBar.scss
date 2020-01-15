@@ -48,9 +48,9 @@ nav {
     display: none;
 }
 }
-.margin-right {
-  margin-right: 60px;
-}
+// .margin-right {
+//   margin-right: 60px;
+// }
 .drop-down {
   display: flex;
   flex-direction: column;
@@ -75,6 +75,11 @@ nav {
  
   
 }
+.margin-left-droplet, .close-nav{
+   
+
+}
+
 .item-container{
   padding-left: 1rem;
   height:100%;
@@ -88,6 +93,7 @@ nav {
   justify-content: center;
   align-items: center;
   margin-left: 40px;
+  margin-right: 60px;
   cursor: pointer;
   // border: 1px solid red;
   width:10%;
@@ -96,6 +102,7 @@ nav {
     background: #AFE2F9;
   }
 }
+
 .set-link {
   position: relative;
   top: 1px;

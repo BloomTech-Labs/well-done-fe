@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGl, { Marker } from 'react-map-gl'
+import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from 'antd'
 import 'antd/dist/antd.css'
@@ -96,9 +97,11 @@ const MonitorDetails = props => {
       <Row gutter={[8, 32]}>
         <Col span={2}></Col>
         <Col span={1}>
-          <Button type='primary' shape='circle' href='/dashboard'>
+        <Link to={{ pathname: '/dashboard' }}>
+          <Button type='primary' shape='circle' >
             <Icon type='left' />
           </Button>
+        </Link>
         </Col>
         <Col span={1}></Col>
         <Col span={8}>
