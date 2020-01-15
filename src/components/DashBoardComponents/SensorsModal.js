@@ -20,6 +20,9 @@ import add from '../../icons/AddButton.svg'
 
 import { Dropdown, Form } from 'react-bootstrap'
 
+import TextField from '@material-ui/core/TextField'
+import Autocomplete from '@material-ui/lab/Autocomplete'
+
 import './Sensors.style.scss'
 
 const useStyles = makeStyles(theme => ({
@@ -46,6 +49,8 @@ const PumpsModal = () => {
   const [pump, setPump] = useState([])
   const [sensor, setSensor] = useState([])
 
+  console.log(pump)
+
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -61,11 +66,28 @@ const PumpsModal = () => {
 
   const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
 
+<<<<<<< HEAD
   console.log(pumpsReducer)
+=======
+  //unique province names
+  const villageArray = pumpsReducer.map(e => e.village_name)
+  const villageName = [...new Set(villageArray)]
+>>>>>>> 6317be7a8adbb3765a23f3ddfd3b5b3bae758cc0
 
   //unique province names
   const provinceArray = pumpsReducer.map(e => e.province_name)
   const provinceName = [...new Set(provinceArray)]
+<<<<<<< HEAD
+=======
+
+  //unique district
+  const districtArray = pumpsReducer.map(e => e.district_name)
+  const districtName = [...new Set(districtArray)]
+
+  //unique commune
+  const communeArray = pumpsReducer.map(e => e.commune_name)
+  const communeName = [...new Set(communeArray)]
+>>>>>>> 6317be7a8adbb3765a23f3ddfd3b5b3bae758cc0
 
   const dispatch = useDispatch()
 
@@ -116,6 +138,7 @@ const PumpsModal = () => {
               <Dropdown.Toggle variant='success' id='dropdown-basic'>
                 Organization
               </Dropdown.Toggle>
+
               <Form.Control
                 as='select'
                 name='organization'
@@ -129,6 +152,7 @@ const PumpsModal = () => {
                 ))}
               </Form.Control>
 
+<<<<<<< HEAD
               <div className='senInput'>
                 <label for='Country'>Country</label>
 
@@ -194,6 +218,87 @@ const PumpsModal = () => {
                   onChange={handleChangePump}
                 />
               </div>
+=======
+              <Autocomplete
+                freeSolo
+                id='free-solo-2-demo'
+                disableClearable
+                options={provinceName.map(option => option)}
+                renderInput={params => (
+                  <TextField
+                    {...params}
+                    name='province_name'
+                    value={pump.province_name}
+                    onSelect={handleChangePump}
+                    label='Province'
+                    margin='normal'
+                    variant='outlined'
+                    fullWidth
+                    InputProps={{ ...params.InputProps, type: 'search' }}
+                  />
+                )}
+              />
+
+              <Autocomplete
+                freeSolo
+                id='free-solo-2-demo'
+                disableClearable
+                options={districtName.map(option => option)}
+                renderInput={params => (
+                  <TextField
+                    {...params}
+                    name='district_name'
+                    value={pump.district_name}
+                    onSelect={handleChangePump}
+                    label='District'
+                    margin='normal'
+                    variant='outlined'
+                    fullWidth
+                    InputProps={{ ...params.InputProps, type: 'search' }}
+                  />
+                )}
+              />
+
+              <Autocomplete
+                freeSolo
+                id='free-solo-2-demo'
+                disableClearable
+                options={communeName.map(option => option)}
+                renderInput={params => (
+                  <TextField
+                    {...params}
+                    name='commune_name'
+                    value={pump.commune_name}
+                    onSelect={handleChangePump}
+                    label='Commune Name'
+                    margin='normal'
+                    variant='outlined'
+                    fullWidth
+                    InputProps={{ ...params.InputProps, type: 'search' }}
+                  />
+                )}
+              />
+
+              <Autocomplete
+                freeSolo
+                id='free-solo-2-demo'
+                disableClearable
+                options={villageName.map(option => option)}
+                renderInput={params => (
+                  <TextField
+                    {...params}
+                    name='village_name'
+                    value={pump.village_name}
+                    onSelect={handleChangePump}
+                    label='Village'
+                    margin='normal'
+                    variant='outlined'
+                    fullWidth
+                    InputProps={{ ...params.InputProps, type: 'search' }}
+                  />
+                )}
+              />
+>>>>>>> 6317be7a8adbb3765a23f3ddfd3b5b3bae758cc0
 
               <div className='senInput'>
                 <label for='labitude'>Latitude</label>

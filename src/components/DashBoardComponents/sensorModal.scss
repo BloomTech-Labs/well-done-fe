@@ -1,34 +1,46 @@
-.senModalWrap{
+$phone: 900px;
+
+.senModalWrap {
+  display: flex;
+  background: white;
+  width: 70%;
+  height: 95%;
+  overflow: hidden;
+  overflow: scroll;
+  padding:5% 10%;
+
+  @media (max-width: $phone) {
+    flex-direction: column;
+    overflow: scroll;
+  }
+
+  .locationModal {
     display: flex;
-    background: white;
-    width:60%;
-
-    .locationModal{
-        display: flex;
     flex-direction: column;
-    margin:5%;
+    flex-wrap: nowrap;
+    margin: 3%;
 
-    .senInput{
-        margin: 5%;
+    .senInput {
+      margin: 3%;
     }
-    }
-    .senModal1{
-        display: flex;
+  }
+  .senModal1 {
+    display: flex;
     flex-direction: column;
-    margin:5%;
+    margin: 3%;
 
-    .senInput{
-        margin: 5%;
+    .senInput {
+      margin: 3%;
     }
-    }
+  }
 
-    .senModal2{
-        display: flex;
+  .senModal2 {
+    display: flex;
     flex-direction: column;
-    margin:5%;
+    margin: 3%;
 
-    .senInput{
-        margin: 5%;
+    .senInput {
+      margin: 3%;
     }
-    }
+  }
 }
