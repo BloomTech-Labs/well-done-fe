@@ -3,11 +3,28 @@
 .modal{
 width:50%;
 }
-.orgInfoBody{
-    background-color: $navy;
-    
-
-    h2{
-        color:white;
+.orgProfCon{
+    background: $mainBackground;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    padding: 2%;
+    border-radius: 8px;
+    .ceoPic{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 17%;
+        margin-right: 3%;
     }
+    .infoBox{
+        display:flex;
+        flex-direction: column;
+        h2{
+            color:$duke;
+        }
+    }
+    
 }
