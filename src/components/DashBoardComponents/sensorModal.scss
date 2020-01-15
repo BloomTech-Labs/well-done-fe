@@ -1,34 +1,72 @@
-.senModalWrap{
-    display: flex;
-    background: white;
-    width:60%;
+@import "src/colors";
 
+.senModalWrap{
+    background: $mainBackground;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    padding: 2%;
+    border-radius: 8px;
+
+    .modalHeader{
+        @include header-text;
+    }
     .locationModal{
         display: flex;
-    flex-direction: column;
-    margin:5%;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2%;
 
-    .senInput{
-        margin: 5%;
+    .locInput{
+        margin: 2%;
+        input{
+          @include globalInputStyle;
+        }
     }
     }
-    .senModal1{
+
+    .senColumn{
         display: flex;
-    flex-direction: column;
-    margin:5%;
-
-    .senInput{
-        margin: 5%;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2%;;
+        .senHeader{
+            @include header-text;
+        }
+        .senInput{
+            input{
+            @include globalInputStyle;
+            }
+        }
     }
-    }
 
-    .senModal2{
+    .notesColumn{
         display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2%;
+        .notesHeader{
+            @include header-text;
+        }
+        .notesInput{
+            input{
+            @include globalInputStyle;
+            }
+        }
+    }
+    .buttonBox{
+    display: flex;
     flex-direction: column;
-    margin:5%;
+    width: -webkit-fill-available;
+        .submitBtn{
+            @include saveButton
+        }
+        .closeBtn{
+            @include closeBtn
+        }
+    }
 
-    .senInput{
-        margin: 5%;
-    }
-    }
+
 }
