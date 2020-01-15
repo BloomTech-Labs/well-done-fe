@@ -143,10 +143,10 @@ class Grid extends Component {
   }
 
   componentDidMount = () => {
-    if (this.props.userSelector.userInfo.role === 'super_user') {
+    if (this.props.usesRole === 'super_user') {
       this.props.fetchAccounts()
     } else {
-      this.props.fetchOrgAccounts(this.props.userSelector.userInfo.org_id)
+      this.props.fetchOrgAccounts(this.props.orgId)
     }
   }
 

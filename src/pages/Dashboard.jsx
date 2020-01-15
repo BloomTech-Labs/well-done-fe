@@ -28,11 +28,11 @@ const Dashboard = props => {
 
   const sensorSelector = useSelector(state => state.sensorReducer)
   const historySelector = useSelector(state => state.historyReducer)
-  const userSelector = useSelector(state => state.signInReducer)
+
   const dispatch = useDispatch()
 
-  console.log(sensorSelector.sensors)
-  console.log(sensorSelector.gridInfo)
+  const userRole = localStorage.getItem('role')
+  const orgId = localStorage.getItem('org_id')
 
   dispatch({
     type: 'TOGGLE_NAV_STATE',
@@ -115,14 +115,12 @@ const Dashboard = props => {
     return <div>loading...</div>
   }
 
- 
   const renderOrgGrid = () => {
-    if(userSelector.userInfo.role === 'super_user' && userSelector.userInfo.hasOwnProperty('role')){
-      return <OrgGrid/>
+    if (userRole === 'super_user' && userRole) {
+      return <OrgGrid />
     }
   }
-console.log(renderOrgGrid())
-  
+  console.log(renderOrgGrid())
 
   return (
     <div className='dashboard'>
@@ -179,9 +177,9 @@ console.log(renderOrgGrid())
             setSelectedPump={props.setSelectedPump}
           />
         </div>
-       {renderOrgGrid()}
-     
-        <AccountGrid userSelector={userSelector} />
+        {renderOrgGrid()}
+
+        <AccountGrid orgId={orgId} userRole={userRole} />
       </div>
     </div>
   )
