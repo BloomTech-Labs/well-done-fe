@@ -1,3 +1,4 @@
+@import "src/colors";
 .popupInfo {
     display: flex;
     margin: 5px;
@@ -56,7 +57,11 @@
         
         
         .pump_num {
-            font-size: 13px;
+            font-weight: bold;
+            font-size: 16px;
+            color:rgba(0, 0, 0, 0.87);
+            margin-left:-2px;
+            margin-top:1px;
         }
     }
 
@@ -70,13 +75,14 @@
 
         .spread {
             display: flex;
+            position: relative;
     
             .spread-green {
                 background-color: #01c000;
                 border-radius: 5px;
                 height: 16px;
                 width: 6px;
-                // margin: 0.1px;
+                margin: 1px;
                 padding-right: 0.1px;
             
             }
@@ -86,7 +92,7 @@
                 border-radius: 5px;
                 height: 16px;
                 width: 6px;
-                // margin: 0.1px;
+                margin: 1px;
                 padding-right: 0.1px;
             }
     
@@ -95,20 +101,28 @@
                 border-radius: 5px;
                 height: 16px;
                 width: 6px;
+                margin: 1px;
                 padding-right: 0.1px;
             }
         }
 
-        h3 {
-            font-size: 18px;
-            margin: 10px 0px 0px 0px;
-           
-        }
+     
 
         .province_name {
             font-size: 14px;
-            margin: 10px 0px 0px 0px;
+            
            
+        }
+        .district_name{
+           
+            width:150px;
+            text-align: right;
+            font-size: 16px;
+            margin:0px;
+            margin-top:5px;
+            
+           
+          
         }
 
         .link {
@@ -122,6 +136,44 @@
 
     }
 
-    
+    .details_btn{
+        background: $buttonBlue;
+        border-radius: 2px;
+        color:white;
+        border-radius: 2px;
+        margin-top:5px;
+    }
+    .triangle-red{
+        
+        position: absolute;
+        top:-15px;
+        right:23.5rem;
+       
+        width:0;
+        height: 0;
+        border-top: 20px solid red;
+        border-right: 20px solid transparent;
+
+    }
+    .triangle-yellow{
+        position: absolute;
+        top:-15px;
+        right:23.5rem;
+       
+        width:0;
+        height: 0;
+        border-top: 20px solid #FFAD34;
+        border-right: 20px solid transparent;
+    }
+    .triangle-green{
+        position: absolute;
+        top:-15px;
+        right:23.5rem;
+       
+        width:0;
+        height: 0;
+        border-top: 20px solid #01c000;
+        border-right: 20px solid transparent;
+    }
 }
 
