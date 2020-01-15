@@ -15,7 +15,7 @@ $iconBackground:#AEDFFC;
 //changes all input fields accross all modals
 @mixin globalInputStyle{
   display: inline-block;
-  height:40%;
+  height:auto;
    margin-bottom: 10px;
    font-size: 14px;
    line-height: 20px;

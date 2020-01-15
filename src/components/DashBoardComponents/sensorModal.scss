@@ -16,26 +16,12 @@
     flex-direction: column;
     margin:5%;
 
-    .senInput{
+    .locInput{
         margin: 5%;
         input{
-        //   @include globalInputStyle;
+          @include globalInputStyle;
         }
     }
     }
-    .senModal1{
-        display: flex;
-        flex-direction: column;
-        margin:5%;
-    }
-
-    .senModal2{
-        display: flex;
-        flex-direction: column;
-        margin:5%;
-
-    .senInput{
-        margin: 5%;
-    }
-    }
+    
 }

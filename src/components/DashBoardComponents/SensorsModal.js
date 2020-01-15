@@ -110,9 +110,9 @@ const PumpsModal = () => {
               <div className='modalHeader'>
               <h3>Location</h3>
               </div>
-              
-              <div className='senInput'>
-              <label for='organization'>Organization</label>
+
+              <div className='locInput'>
+              <label htmlFor='organization'>Organization</label>
               <Form.Control
                 as='select'
                 name='organization'
@@ -128,7 +128,7 @@ const PumpsModal = () => {
 
               
             
-                <label for='Country'>Country</label>
+                <label htmlFor='Country'>Country</label>
 
                 <input
                   type='text'
@@ -141,7 +141,7 @@ const PumpsModal = () => {
              
 
               
-                <label for='Name'>Province</label>
+                <label htmlFor='Name'>Province</label>
 
                 <input
                   type='text'
@@ -153,7 +153,7 @@ const PumpsModal = () => {
                 />
              
               
-                <label for='Email'>District</label>
+                <label htmlFor='Email'>District</label>
 
                 <input
                   type='text'
@@ -165,7 +165,7 @@ const PumpsModal = () => {
                 />
              
               
-                <label for='Password'>Commune</label>
+                <label htmlFor='Password'>Commune</label>
 
                 <input
                   type='text'
@@ -178,7 +178,7 @@ const PumpsModal = () => {
             
 
               
-                <label for='latitude'>Latitude</label>
+                <label htmlFor='latitude'>Latitude</label>
 
                 <input
                   type='number'
@@ -189,7 +189,7 @@ const PumpsModal = () => {
                   onChange={handleChangePump}
                 />
             
-                <label for='longitude'>Longitude</label>
+                <label htmlFor='longitude'>Longitude</label>
 
                 <input
                   type='number'
@@ -202,11 +202,12 @@ const PumpsModal = () => {
               </div>
             </div>
 
-            <div className='senModal1'>
+            <div className='senColumn'>
+              <div className='senHeader'>
               <h3>Sensor</h3>
+              </div>
               <div className='senInput'>
-                <label for='Country'>Sensor pid</label>
-
+                <label htmlFor='sensor_pid'>Sensor pid</label>
                 <input
                   type='text'
                   id='sensor_pid'
@@ -215,11 +216,7 @@ const PumpsModal = () => {
                   value={pump.sensor_pid}
                   onChange={handleChangePump}
                 />
-              </div>
-
-              <div className='senInput'>
-                <label for=''>Physical ID</label>
-
+              <label htmlFor='physical_id'>Physical ID</label>
                 <input
                   type='number'
                   name='physical_id'
@@ -228,11 +225,8 @@ const PumpsModal = () => {
                   value={sensor.physical_id}
                   onChange={handleChangeSensor}
                 />
-              </div>
-              <div className='senInput'>
-                <label for=''>Kind</label>
-
-                <input
+              <label htmlFor='kind'>Kind</label>
+              <input
                   type='text'
                   name='kind'
                   id='kind'
@@ -242,8 +236,7 @@ const PumpsModal = () => {
                 />
               </div>
               <div className='senInput'>
-                <label for=''>Type</label>
-
+                <label htmlFor='type'>Type</label>
                 <input
                   type='text'
                   name='type'
@@ -254,8 +247,7 @@ const PumpsModal = () => {
                 />
               </div>
               <div className='senInput'>
-                <label for=''>Cellular</label>
-
+                <label htmlFor='cellular'>Cellular</label>
                 <input
                   type='number'
                   name='cellular'
@@ -267,7 +259,7 @@ const PumpsModal = () => {
               </div>
 
               <div className='senInput'>
-                <label for=''>Bluetooth</label>
+                <label htmlFor='bluetooth'>Bluetooth</label>
 
                 <input
                   type='number'
@@ -279,7 +271,7 @@ const PumpsModal = () => {
                 />
               </div>
               <div className='senInput'>
-                <label for=''>Training</label>
+                <label htmlFor='training'>Training</label>
 
                 <input
                   type='text'
@@ -294,7 +286,7 @@ const PumpsModal = () => {
             <div className='senModal2'>
               <h3>Notes</h3>
               <div className='senInput'>
-                <label for=''>Remark</label>
+                <label htmlFor='remark'>Remark</label>
 
                 <input
                   type='text'
@@ -306,7 +298,7 @@ const PumpsModal = () => {
                 />
               </div>
               <div className='senInput'>
-                <label for=''>Date Finished</label>
+                <label htmlFor='completion_date'>Date Finished</label>
 
                 <input
                   type='text'
@@ -318,7 +310,7 @@ const PumpsModal = () => {
                 />
               </div>
               <div className='senInput'>
-                <label for=''>Depth</label>
+                <label htmlFor='depth'>Depth</label>
 
                 <input
                   type='number'
@@ -331,7 +323,7 @@ const PumpsModal = () => {
               </div>
 
               <div className='senInput'>
-                <label for=''>Yield</label>
+                <label htmlFor='yield'>Yield</label>
 
                 <input
                   type='number'
@@ -343,7 +335,7 @@ const PumpsModal = () => {
                 />
               </div>
               <div className='senInput'>
-                <label for=''>Static</label>
+                <label HtmlFor='static'>Static</label>
 
                 <input
                   type='number'
@@ -355,7 +347,7 @@ const PumpsModal = () => {
                 />
               </div>
               <div className='senInput'>
-                <label for=''>Quality</label>
+                <label htmlFor='quality'>Quality</label>
 
                 <input
                   type='text'
