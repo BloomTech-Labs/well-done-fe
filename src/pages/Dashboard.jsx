@@ -28,6 +28,7 @@ const Dashboard = props => {
 
   const sensorSelector = useSelector(state => state.sensorReducer)
   const historySelector = useSelector(state => state.historyReducer)
+  const userSelector = useSelector(state => state.signInReducer)
   const dispatch = useDispatch()
 
   console.log(sensorSelector.sensors)
@@ -170,7 +171,7 @@ const Dashboard = props => {
           />
         </div>
         <OrgGrid />
-        <AccountGrid />
+        <AccountGrid userSelector={userSelector} />
       </div>
     </div>
   )

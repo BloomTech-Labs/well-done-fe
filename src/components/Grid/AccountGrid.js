@@ -22,10 +22,9 @@ import { connect } from 'react-redux'
 import { editAccount } from '../../actions/accountAction'
 
 import DeleteAccount from './DeleteAccount'
-import { deleteAccount } from '../../actions/accountAction.js'
+import { deleteAccount, fetchOrgAccounts } from '../../actions/accountAction.js'
 
 import deleteIcon from '../../icons/DeleteModeButton.svg'
-
 
 class Grid extends Component {
   constructor(props) {
@@ -144,7 +143,11 @@ class Grid extends Component {
   }
 
   componentDidMount = () => {
-    this.props.fetchAccounts()
+    if (this.props.userSelector.userInfo.role === 'super_user') {
+      this.props.fetchAccounts()
+    } else {
+      this.props.fetchOrgAccounts(this.props.userSelector.userInfo.org_id)
+    }
   }
 
   onGridReady = params => {
@@ -227,7 +230,7 @@ class Grid extends Component {
               </button>
 
               <button className='deleteBtn' onClick={() => this.viewHandler()}>
-              <img src={deleteIcon} alt='delete'></img>
+                <img src={deleteIcon} alt='delete'></img>
               </button>
               <div className='modalHeaderAccount'>
                 <ModalOperator />
@@ -268,4 +271,5 @@ export default connect(mapStateToProps, {
   editAccount,
   fetchAccounts,
   deleteAccount,
+  fetchOrgAccounts,
 })(withRouter(Grid))
