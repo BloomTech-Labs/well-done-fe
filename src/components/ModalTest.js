@@ -24,7 +24,6 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     display: 'flex',
@@ -76,7 +75,7 @@ const ModalOperator = () => {
     },
     {
       value: 'org_user',
-      label: 'Organizationl User',
+      label: 'Organization User',
     },
     {
       value: 'operator',
@@ -103,11 +102,14 @@ const ModalOperator = () => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+          <div className='modalBody'>
             <div className='col1'>
-              <h2>
-                <label for='Name'>First Name</label>
-                <br></br>
+           <div className='modalHeader'>
+             <h3>Create Account</h3>
+             
+            </div>
+                <label htmlFor='Name'>First Name</label>
+            
                 <input
                   type='text'
                   id='first_name'
@@ -116,11 +118,8 @@ const ModalOperator = () => {
                   value={operator.first_name}
                   onChange={handleChange}
                 />
-              </h2>
-
-              <h2>
-                <label for='Name'>Last Name</label>
-                <br></br>
+              <label htmlFor='Name'>Last Name</label>
+              
                 <input
                   type='text'
                   id='last_name'
@@ -129,13 +128,8 @@ const ModalOperator = () => {
                   value={operator.last_name}
                   onChange={handleChange}
                 />
-              </h2>
-
-              <br></br>
-              <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                Role
-              </Dropdown.Toggle>
-              <br></br>
+          
+                <label htmlFor='Role'>Role</label>
               <Form.Control
                 as='select'
                 name='role'
@@ -148,10 +142,8 @@ const ModalOperator = () => {
                   </option>
                 ))}
               </Form.Control>
-              <br></br>
-              <h2>
-                <label for='Email'>Email</label>
-                <br></br>
+              
+                <label htmlFor='Email'>Email</label>
                 <input
                   type='email'
                   name='email_address'
@@ -160,10 +152,8 @@ const ModalOperator = () => {
                   value={operator.email_address}
                   onChange={handleChange}
                 />
-              </h2>
-
-              <h2>
-                <label for='Password'>Password</label>
+             
+                <label htmlFor='Password'>Password</label>
                 <br></br>
                 <input
                   type='password'
@@ -173,11 +163,7 @@ const ModalOperator = () => {
                   value={operator.password}
                   onChange={handleChange}
                 />
-              </h2>
-            </div>
-            <div className='col2'>
-              <h2>
-                <label for='Password'>Mobile Number</label>
+               <label htmlFor='Password'>Mobile Number</label>
                 <br></br>
                 <input
                   type='string'
@@ -187,27 +173,18 @@ const ModalOperator = () => {
                   value={operator.mobile_number}
                   onChange={handleChange}
                 />
-              </h2>
-              <br></br>
-
-              <br></br>
-              <br></br>
-
-              <h2>
-                <div className='CreateAccount'>
-                  <button type='Submit' onClick={e => handleSubmit(e)}>
-                    Create Operator
-                  </button>
-                </div>
-              </h2>
-              <br></br>
-              <footer>
-                <button variant='secondary' onClick={() => handleClose()}>
+            </div>
+            <div className='col2'>
+             
+            <button className='createAcct' type='Submit' onClick={e => handleSubmit(e)}>
+                    Create Account
+              </button>
+              <button className='cancelButton' variant='cancelButton' onClick={() => handleClose()}>
                   Cancel
                 </button>
-              </footer>
+                </div>
             </div>
-          </div>
+        
         </Fade>
       </Modal>
     </>

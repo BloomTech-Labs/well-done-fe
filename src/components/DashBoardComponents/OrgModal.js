@@ -111,9 +111,9 @@ const OrgModal = props => {
                   ))}
                 </Form.Control> */}
               <h2>
-                <label className="orgHeader" for='Country'>Create Organization</label>
+                <label className="orgHeader" htmlFor='Country'>Create Organization</label>
                 
-                <label className='orgLabel' for='Country'>Organization Name</label>
+                <label className='orgLabel' htmlFor='Country'>Organization Name</label>
 
                 <input
                   className="textInput"
@@ -126,7 +126,7 @@ const OrgModal = props => {
                 />
               </h2>
               <h2>
-                <label className='hqLabel' for='Country'>Headquarters</label>
+                <label className='hqLabel' htmlFor='Country'>Headquarters</label>
             
                 <input
                   className="textInput"
