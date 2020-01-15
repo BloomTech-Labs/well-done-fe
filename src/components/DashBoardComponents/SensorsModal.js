@@ -110,6 +110,8 @@ const PumpsModal = () => {
               <div className='modalHeader'>
               <h3>Location</h3>
               </div>
+              
+              <div className='senInput'>
               <label for='organization'>Organization</label>
               <Form.Control
                 as='select'
@@ -125,7 +127,7 @@ const PumpsModal = () => {
               </Form.Control>
 
               
-              <div className='senInput'>
+            
                 <label for='Country'>Country</label>
 
                 <input
@@ -136,9 +138,9 @@ const PumpsModal = () => {
                   value={pump.country_name}
                   onChange={handleChangePump}
                 />
-              </div>
+             
 
-              <div className='senInput'>
+              
                 <label for='Name'>Province</label>
 
                 <input
@@ -149,8 +151,8 @@ const PumpsModal = () => {
                   value={pump.province_name}
                   onChange={handleChangePump}
                 />
-              </div>
-              <div className='senInput'>
+             
+              
                 <label for='Email'>District</label>
 
                 <input
@@ -161,8 +163,8 @@ const PumpsModal = () => {
                   value={pump.district}
                   onChange={handleChangePump}
                 />
-              </div>
-              <div className='senInput'>
+             
+              
                 <label for='Password'>Commune</label>
 
                 <input
@@ -173,10 +175,10 @@ const PumpsModal = () => {
                   value={pump.commune_name}
                   onChange={handleChangePump}
                 />
-              </div>
+            
 
-              <div className='senInput'>
-                <label for='labitude'>Latitude</label>
+              
+                <label for='latitude'>Latitude</label>
 
                 <input
                   type='number'
@@ -186,9 +188,7 @@ const PumpsModal = () => {
                   value={pump.latitude}
                   onChange={handleChangePump}
                 />
-              </div>
-
-              <div className='senInput'>
+            
                 <label for='longitude'>Longitude</label>
 
                 <input
