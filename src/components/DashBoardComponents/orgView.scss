@@ -26,5 +26,8 @@ width:50%;
             color:$duke;
         }
     }
-    
+    .contactInfo{
+        display:flex;
+        flex-direction: column;
+    }
 }

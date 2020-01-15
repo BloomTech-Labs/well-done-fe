@@ -75,22 +75,26 @@ const ViewOrgGrid = props => {
               <div className='ceoPic'> null </div>
               <div className='infoBox'>
             <h2>{props.data.org_name}</h2>
-            <h4>founded:</h4>
+            founded:
             <h4>Base of Operations: {props.data.headquarter_city}</h4>
             <div className='ceoName'>
                 <h2>Admin: </h2>
             </div>
             </div>
-
             <div className='contactInfo'>
-            <footer>
+            <h4>Contact: M-F, 8am - 6pm EST</h4>
+            phone:
+            <h4>email:</h4>
+
+            </div>
+            <div className='closeBtn'>
                 <button variant='secondary' onClick={handleClose}>
                   Close
                 </button>
-              </footer>
+                </div>
            </div>
+          
             </div>
-          </div>
         </Fade>
       </Modal>
     </>
