@@ -108,9 +108,8 @@ const PumpsModal = () => {
           <div className='senModalWrap'>
             <div className='locationModal'>
               <div className='modalHeader'>
-              <h3>Location</h3>
+              Location
               </div>
-
               <div className='locInput'>
               <label htmlFor='organization'>Organization</label>
               <Form.Control
@@ -201,10 +200,10 @@ const PumpsModal = () => {
                 />
               </div>
             </div>
-
+            {/* BEGIN SENSORS COLUMN */}
             <div className='senColumn'>
               <div className='senHeader'>
-              <h3>Sensor</h3>
+              Sensor
               </div>
               <div className='senInput'>
                 <label htmlFor='sensor_pid'>Sensor pid</label>
@@ -234,8 +233,8 @@ const PumpsModal = () => {
                   value={sensor.kind}
                   onChange={handleChangeSensor}
                 />
-              </div>
-              <div className='senInput'>
+              
+              
                 <label htmlFor='type'>Type</label>
                 <input
                   type='text'
@@ -245,8 +244,8 @@ const PumpsModal = () => {
                   value={sensor.type}
                   onChange={handleChangeSensor}
                 />
-              </div>
-              <div className='senInput'>
+              
+              
                 <label htmlFor='cellular'>Cellular</label>
                 <input
                   type='number'
@@ -256,9 +255,9 @@ const PumpsModal = () => {
                   value={sensor.cellular}
                   onChange={handleChangeSensor}
                 />
-              </div>
+              
 
-              <div className='senInput'>
+              
                 <label htmlFor='bluetooth'>Bluetooth</label>
 
                 <input
@@ -269,8 +268,8 @@ const PumpsModal = () => {
                   value={sensor.bluetooth}
                   onChange={handleChangeSensor}
                 />
-              </div>
-              <div className='senInput'>
+              
+              
                 <label htmlFor='training'>Training</label>
 
                 <input
@@ -281,6 +280,7 @@ const PumpsModal = () => {
                   value={sensor.training}
                   onChange={handleChangeSensor}
                 />
+              
               </div>
             </div>
             <div className='senModal2'>

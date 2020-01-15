@@ -2,6 +2,7 @@
 
 .senModalWrap{
     display: flex;
+    align-items: center;
     background: $mainBackground;
     margin: 0 auto;
     padding: 2%;
@@ -23,5 +24,19 @@
         }
     }
     }
-    
+
+    .senColumn{
+        display: flex;
+        flex-direction: column;
+        .senHeader{
+            @include header-text;
+        }
+        .senInput{
+            input{
+            @include globalInputStyle;
+            }
+        }
+    }
+
+
 }
