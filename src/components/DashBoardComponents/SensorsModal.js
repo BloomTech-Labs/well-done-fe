@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchPumps } from '../../actions/pumpAction'
 
 import './Sensors'
@@ -9,8 +9,9 @@ import './Sensors'
 import { postSensor } from '../../actions/sensorActions'
 import { postPump } from '../../actions/pumpAction'
 
+
 //need to change for sensors
-import './Sensors.style.scss'
+import './sensorModal.scss'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
@@ -57,6 +58,10 @@ const PumpsModal = () => {
     setSensor({ ...sensor, [event.target.name]: event.target.value })
   }
 
+  const orgReducer = useSelector(state => state.orgReducer.org)
+
+  console.log(orgReducer)
+
   const dispatch = useDispatch()
 
   //fetch pumps for dropdown menu
@@ -99,35 +104,30 @@ const PumpsModal = () => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
-            <div className='col1'>
-              <h2>
-                <label htmlFor='Country'>Organization</label>
-                <br></br>
-                <input
-                  type='text'
-                  id='organization'
-                  placeholder='organization'
-                  name='organization'
-                  value={pump.organization}
-                  onChange={handleChangePump}
-                />
-              </h2>
-              <h2>
-                <label htmlFor='Country'>Sensor pid</label>
-                <br></br>
-                <input
-                  type='text'
-                  id='sensor_pid'
-                  placeholder='sensor_pid'
-                  name='sensor_pid'
-                  value={pump.sensor_pid}
-                  onChange={handleChangePump}
-                />
-              </h2>
-              <h2>
-                <label htmlFor='Country'>Country</label>
-                <br></br>
+          <div className='senModalWrap'>
+            <div className='locationModal'>
+              <h3>Location</h3>
+
+              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                Organization
+              </Dropdown.Toggle>
+              <Form.Control
+                as='select'
+                name='organization'
+                value={pump.organization}
+                onChange={handleChangePump}
+              >
+                {orgReducer.map(org => (
+                  <option key={org.id} value={org.org_name}>
+                    {org.org_name}
+                  </option>
+                ))}
+              </Form.Control>
+
+              
+              <div className='senInput'>
+                <label for='Country'>Country</label>
+
                 <input
                   type='text'
                   id='country_name'
@@ -136,11 +136,11 @@ const PumpsModal = () => {
                   value={pump.country_name}
                   onChange={handleChangePump}
                 />
-              </h2>
+              </div>
 
-              <h2>
-                <label htmlFor='Name'>Province</label>
-                <br></br>
+              <div className='senInput'>
+                <label for='Name'>Province</label>
+
                 <input
                   type='text'
                   id='province_name'
@@ -149,10 +149,10 @@ const PumpsModal = () => {
                   value={pump.province_name}
                   onChange={handleChangePump}
                 />
-              </h2>
-              <h2>
-                <label htmlFor='Email'>District</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for='Email'>District</label>
+
                 <input
                   type='text'
                   name='district'
@@ -161,10 +161,10 @@ const PumpsModal = () => {
                   value={pump.district}
                   onChange={handleChangePump}
                 />
-              </h2>
-              <h2>
-                <label htmlFor='Password'>Commune</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for='Password'>Commune</label>
+
                 <input
                   type='text'
                   name='commune'
@@ -173,11 +173,11 @@ const PumpsModal = () => {
                   value={pump.commune_name}
                   onChange={handleChangePump}
                 />
-              </h2>
+              </div>
 
-              <h2>
-                <label htmlFor='Password'>Latitude</label>
-                <br></br>
+              <div className='senInput'>
+                <label for='labitude'>Latitude</label>
+
                 <input
                   type='number'
                   name='latitude'
@@ -186,11 +186,11 @@ const PumpsModal = () => {
                   value={pump.latitude}
                   onChange={handleChangePump}
                 />
-              </h2>
-              <br></br>
-              <h2>
-                <label htmlFor='Password'>Longitude</label>
-                <br></br>
+              </div>
+
+              <div className='senInput'>
+                <label for='longitude'>Longitude</label>
+
                 <input
                   type='number'
                   name='longitude'
@@ -199,11 +199,27 @@ const PumpsModal = () => {
                   value={pump.longitude}
                   onChange={handleChangePump}
                 />
-              </h2>
+              </div>
+            </div>
 
-              <h2>
-                <label htmlFor=''>Physical ID</label>
-                <br></br>
+            <div className='senModal1'>
+              <h3>Sensor</h3>
+              <div className='senInput'>
+                <label for='Country'>Sensor pid</label>
+
+                <input
+                  type='text'
+                  id='sensor_pid'
+                  placeholder='sensor_pid'
+                  name='sensor_pid'
+                  value={pump.sensor_pid}
+                  onChange={handleChangePump}
+                />
+              </div>
+
+              <div className='senInput'>
+                <label for=''>Physical ID</label>
+
                 <input
                   type='number'
                   name='physical_id'
@@ -212,10 +228,10 @@ const PumpsModal = () => {
                   value={sensor.physical_id}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Kind</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for=''>Kind</label>
+
                 <input
                   type='text'
                   name='kind'
@@ -224,10 +240,10 @@ const PumpsModal = () => {
                   value={sensor.kind}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Type</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for=''>Type</label>
+
                 <input
                   type='text'
                   name='type'
@@ -236,10 +252,10 @@ const PumpsModal = () => {
                   value={sensor.type}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Cellular</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for=''>Cellular</label>
+
                 <input
                   type='number'
                   name='cellular'
@@ -248,10 +264,11 @@ const PumpsModal = () => {
                   value={sensor.cellular}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Bluetooth</label>
-                <br></br>
+              </div>
+
+              <div className='senInput'>
+                <label for=''>Bluetooth</label>
+
                 <input
                   type='number'
                   name='bluetooth'
@@ -260,10 +277,10 @@ const PumpsModal = () => {
                   value={sensor.bluetooth}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Training</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for=''>Training</label>
+
                 <input
                   type='text'
                   name='training'
@@ -272,10 +289,13 @@ const PumpsModal = () => {
                   value={sensor.training}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Renmark</label>
-                <br></br>
+              </div>
+            </div>
+            <div className='senModal2'>
+              <h3>Notes</h3>
+              <div className='senInput'>
+                <label for=''>Remark</label>
+
                 <input
                   type='text'
                   name='remark'
@@ -284,10 +304,10 @@ const PumpsModal = () => {
                   value={sensor.remark}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Date Finished</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for=''>Date Finished</label>
+
                 <input
                   type='text'
                   name='date_finished'
@@ -296,10 +316,10 @@ const PumpsModal = () => {
                   value={sensor.date_finished}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Depth</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for=''>Depth</label>
+
                 <input
                   type='number'
                   name='depth'
@@ -308,10 +328,11 @@ const PumpsModal = () => {
                   value={sensor.depth}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Yield</label>
-                <br></br>
+              </div>
+
+              <div className='senInput'>
+                <label for=''>Yield</label>
+
                 <input
                   type='number'
                   name='yield'
@@ -320,10 +341,10 @@ const PumpsModal = () => {
                   value={sensor.yield}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Static</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for=''>Static</label>
+
                 <input
                   type='number'
                   name='static'
@@ -332,10 +353,10 @@ const PumpsModal = () => {
                   value={sensor.static}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <h2>
-                <label htmlFor=''>Quality</label>
-                <br></br>
+              </div>
+              <div className='senInput'>
+                <label for=''>Quality</label>
+
                 <input
                   type='text'
                   name='quality'
@@ -344,8 +365,7 @@ const PumpsModal = () => {
                   value={sensor.quality}
                   onChange={handleChangeSensor}
                 />
-              </h2>
-              <br></br>
+              </div>
 
               <div className='CreateAccount'>
                 <button type='Submit' onClick={handleSubmit}>
