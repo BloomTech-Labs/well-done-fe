@@ -66,19 +66,13 @@ const PumpsModal = () => {
 
   const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
 
-<<<<<<< HEAD
-  console.log(pumpsReducer)
-=======
   //unique province names
   const villageArray = pumpsReducer.map(e => e.village_name)
   const villageName = [...new Set(villageArray)]
->>>>>>> 6317be7a8adbb3765a23f3ddfd3b5b3bae758cc0
 
   //unique province names
   const provinceArray = pumpsReducer.map(e => e.province_name)
   const provinceName = [...new Set(provinceArray)]
-<<<<<<< HEAD
-=======
 
   //unique district
   const districtArray = pumpsReducer.map(e => e.district_name)
@@ -87,7 +81,6 @@ const PumpsModal = () => {
   //unique commune
   const communeArray = pumpsReducer.map(e => e.commune_name)
   const communeName = [...new Set(communeArray)]
->>>>>>> 6317be7a8adbb3765a23f3ddfd3b5b3bae758cc0
 
   const dispatch = useDispatch()
 
@@ -151,8 +144,6 @@ const PumpsModal = () => {
                   </option>
                 ))}
               </Form.Control>
-
-<<<<<<< HEAD
               <div className='senInput'>
                 <label for='Country'>Country</label>
 
@@ -181,7 +172,6 @@ const PumpsModal = () => {
                   </option>
                 ))}
               </Form.Control>
-
               <div className='senInput'>
                 <label for='Name'>Province</label>
 
@@ -218,7 +208,6 @@ const PumpsModal = () => {
                   onChange={handleChangePump}
                 />
               </div>
-=======
               <Autocomplete
                 freeSolo
                 id='free-solo-2-demo'
@@ -298,7 +287,6 @@ const PumpsModal = () => {
                   />
                 )}
               />
->>>>>>> 6317be7a8adbb3765a23f3ddfd3b5b3bae758cc0
 
               <div className='senInput'>
                 <label for='labitude'>Latitude</label>
