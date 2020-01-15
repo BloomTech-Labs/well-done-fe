@@ -31,16 +31,8 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    overflowX: 'hidden',
-    overflowX: 'scroll',
-    width: '80%',
-    height: '90%',
-    display: 'flex',
-    alignItems: 'space-around',
   },
 }))
 
@@ -251,7 +243,7 @@ const PumpsModal = () => {
               </div>
             </div>
             {/* BEGIN NOTES COLUMN */}
-            <div className='notesModal'>
+            <div className='notesColumn'>
               <div className='notesHeader'>
               Notes
               </div>
@@ -302,7 +294,7 @@ const PumpsModal = () => {
                 />
               
               
-                <label HtmlFor='static'>Static</label>
+                <label htmlFor='static'>Static</label>
 
                 <input
                   type='number'
@@ -325,10 +317,10 @@ const PumpsModal = () => {
                 />            
                   </div>
               <div className='buttonBox'>
-                <button type='Submit' onClick={handleSubmit}>
+                <button className='submitBtn' type='Submit' onClick={handleSubmit}>
                   Create Pump
                 </button>
-                <button variant='secondary' onClick={handleClose}>
+                <button className='closeBtn' variant='secondary' onClick={handleClose}>
                   Close
                 </button>
               </div>

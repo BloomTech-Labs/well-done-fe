@@ -1,24 +1,26 @@
 @import "src/colors";
 
 .senModalWrap{
-    display: flex;
-    align-items: center;
     background: $mainBackground;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
     padding: 2%;
     border-radius: 8px;
-    width: 60%;
 
     .modalHeader{
         @include header-text;
     }
     .locationModal{
         display: flex;
-    flex-direction: column;
-    margin:5%;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2%;
 
     .locInput{
-        margin: 5%;
+        margin: 2%;
         input{
           @include globalInputStyle;
         }
@@ -27,7 +29,9 @@
 
     .senColumn{
         display: flex;
+        align-items: flex-start;
         flex-direction: column;
+        margin: 2%;;
         .senHeader{
             @include header-text;
         }
@@ -35,6 +39,32 @@
             input{
             @include globalInputStyle;
             }
+        }
+    }
+
+    .notesColumn{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2%;
+        .notesHeader{
+            @include header-text;
+        }
+        .notesInput{
+            input{
+            @include globalInputStyle;
+            }
+        }
+    }
+    .buttonBox{
+    display: flex;
+    flex-direction: column;
+    width: -webkit-fill-available;
+        .submitBtn{
+            @include saveButton
+        }
+        .closeBtn{
+            @include closeBtn
         }
     }
 
