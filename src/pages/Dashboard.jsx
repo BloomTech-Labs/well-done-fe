@@ -115,6 +115,15 @@ const Dashboard = props => {
     return <div>loading...</div>
   }
 
+ 
+  const renderOrgGrid = () => {
+    if(userSelector.userInfo.role === 'super_user' && userSelector.userInfo.hasOwnProperty('role')){
+      return <OrgGrid/>
+    }
+  }
+console.log(renderOrgGrid())
+  
+
   return (
     <div className='dashboard'>
       <Menu />
@@ -170,7 +179,8 @@ const Dashboard = props => {
             setSelectedPump={props.setSelectedPump}
           />
         </div>
-        <OrgGrid />
+       {renderOrgGrid()}
+     
         <AccountGrid userSelector={userSelector} />
       </div>
     </div>
