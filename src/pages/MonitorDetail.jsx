@@ -12,7 +12,7 @@ import OrganizationActivity from '../components/DashBoardComponents/Organization
 
 //redux
 import { deleteSensor } from '../actions/sensorActions'
-import { fetchHistoryById } from 'actions/sensorHistory'
+import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
 import { fetchSensors } from 'actions/sensorActions'
 
 const { Title } = Typography
@@ -36,22 +36,8 @@ const MonitorDetails = props => {
 
   useEffect(() => {
     dispatch(fetchHistoryById(selectedSensor))
+    dispatch(fetchSensorById(selectedSensor))
   }, [])
-
-  const {
-    sensor_index,
-    physical_id,
-    data_finished,
-    reported_percent,
-    commune_name,
-    province_name,
-    village_name,
-    status,
-    depth,
-    total,
-    latitude,
-    longitude,
-  } = historySelector.individualSensor
 
   const padHistory = historySelector.individualSensorHistory
 
@@ -76,9 +62,24 @@ const MonitorDetails = props => {
   const functioning =
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056725/Vector_1_xzgama.png'
 
-  if (historySelector.individualSensorHistory.length === 0) {
+  if (historySelector.individualSensor.length === 0) {
     return <div>loading...</div>
   }
+
+  const {
+    physical_id,
+    data_finished,
+    reported_percent,
+    commune_name,
+    province_name,
+    village_name,
+    status,
+    depth,
+    total,
+    latitude,
+    longitude,
+  } = historySelector.individualSensor[0]
+
   return (
     <div>
       <OrganizationActivity
@@ -212,7 +213,7 @@ const MonitorDetails = props => {
               setViewport(viewport)
             }}
           >
-            {/* <Marker key={physical_id} latitude={latitude} longitude={longitude}>
+            <Marker key={physical_id} latitude={latitude} longitude={longitude}>
               {status === 0 || status == null ? (
                 <img src={notFunctioning} alt='not functioning icon' />
               ) : status === 1 ? (
@@ -220,7 +221,7 @@ const MonitorDetails = props => {
               ) : (
                 <img src={functioning} alt='functioning icon' />
               )}
-            </Marker> */}
+            </Marker>
           </ReactMapGl>
         </Col>
       </Row>

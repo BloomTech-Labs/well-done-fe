@@ -7,7 +7,7 @@ import {
   CHECK_DATE,
   CHECK_DATE_FOR_SENSOR_HISTORY,
   INDIVIDUAL_SENSOR_HISTORY_SUCCESS,
-  INDIVIDUAL_SENSOR,
+  INDIVIDUAL_SENSOR_SUCCESS,
 } from '../actions/sensorHistory'
 
 const initialState = {
@@ -50,7 +50,7 @@ export const historyReducer = (state = initialState, action) => {
           }
         }),
       }
-    case INDIVIDUAL_SENSOR:
+    case INDIVIDUAL_SENSOR_SUCCESS:
       return {
         ...state,
         individualSensor: action.payload,
@@ -67,7 +67,7 @@ export const historyReducer = (state = initialState, action) => {
     case CHECK_DATE_FOR_SENSOR_HISTORY:
       return {
         ...state,
-        individualSensor: state.history.map(item => {
+        individualSensorHistory: state.individualSensorHistory.map(item => {
           return {
             ...item,
             created_at: moment(item.created_at).format('MM/DD/YYYY'),
