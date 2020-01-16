@@ -17,7 +17,7 @@ const NavRight = () => {
         Organizations
       </NavLink>
       <div
-        className={displayDropdown ? 'margin-left-droplet margin-right blue-back' : 'margin-left-droplet margin-right'}
+        className={displayDropdown ? 'margin-left-droplet' : 'margin-left-droplet'}
         onClick={() => 
           setdisplayDropdown(!displayDropdown)
       }
