@@ -80,9 +80,6 @@ const MonitorDetails = props => {
     <div>
       <OrganizationActivity
         alertInfo={historySelector.alertInfo}
-        selectedPump={props.selectedPump}
-        setSelectedPump={props.setSelectedPump}
-        sensors={sensorSelector.sensors}
         individualSensor={historySelector.individualSensor[0]}
         individualSensorHistory={historySelector.individualSensorHistory}
       />

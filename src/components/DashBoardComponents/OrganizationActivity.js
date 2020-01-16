@@ -167,7 +167,7 @@ const OrganizationActivity = props => {
     <div className='orgActivityChart'>
       <div className='orgActivityHeader'>
         <div className='orgActivityHeaderName'>
-          <h1>Organization Activity</h1>
+          <h1>Sensor Activity</h1>
         </div>
       </div>
       <div className='orgActivityContainer'>

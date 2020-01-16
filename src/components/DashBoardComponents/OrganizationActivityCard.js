@@ -10,7 +10,7 @@ const OrganizationActivityCard = props => {
       <div key={props.index} className='orgActivityCardContainer'>
         <h2 className='pumpOrg'>
           <span className='orgSpan'>
-            Pump #{props.item.sensor_id} ({props.individualSensor.org_name})
+            Sensor #{props.item.sensor_id} ({props.individualSensor.org_name})
           </span>
           <span className='orgSpan prov'>
             Province:
