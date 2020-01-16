@@ -1,73 +1,70 @@
-@import "src/colors";
+@import 'src/colors';
 
-.senModalWrap{
-    background: $mainBackground;
+.senModalWrap {
+  background: $mainBackground;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  padding: 2%;
+  border-radius: 8px;
+
+  .modalHeader {
+    @include header-text;
+  }
+  .locationModal {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 1%;
-    padding: 2%;
-    border-radius: 8px;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 2%;
 
-    .modalHeader{
-        @include header-text;
-    }
-    .locationModal{
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        margin: 2%;
-
-    .locInput{
-        margin: 2%;
-        input{
-          @include globalInputStyle;
-        }
-    }
-    }
-
-    .senColumn{
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        margin: 2%;;
-        .senHeader{
-            @include header-text;
-        }
-        .senInput{
-            input{
-            @include globalInputStyle;
-            }
-        }
+    .locInput {
+      margin: 2%;
+      input {
+        @include globalInputStyle;
+      }
     }
   }
 
-    .notesColumn{
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        margin: 2%;
-        .notesHeader{
-            @include header-text;
-        }
-        .notesInput{
-            input{
-            @include globalInputStyle;
-            }
-        }
-    }
-    .buttonBox{
+  .senColumn {
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    width: -webkit-fill-available;
-        .submitBtn{
-            @include saveButton
-        }
-        .closeBtn{
-            @include closeBtn
-        }
+    margin: 2%;
+    .senHeader {
+      @include header-text;
     }
+    .senInput {
+      input {
+        @include globalInputStyle;
+      }
+    }
+  }
+}
 
-
+.notesColumn {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 2%;
+  .notesHeader {
+    @include header-text;
+  }
+  .notesInput {
+    input {
+      @include globalInputStyle;
+    }
+  }
+}
+.buttonBox {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  .submitBtn {
+    @include saveButton;
+  }
+  .closeBtn {
+    @include closeBtn;
+  }
 }
