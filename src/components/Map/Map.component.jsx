@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import ReactMapGl, { Popup } from 'react-map-gl'
+import MapGL, { NavigationControl, FullscreenControl} from 'react-map-gl';
 import './Map.styles.scss'
 import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
@@ -19,6 +20,8 @@ export default function Map(props) {
     }
   }, [props])
 
+
+
   return (
     <div className='mapsContainer'>
         <ReactMapGl
@@ -29,6 +32,7 @@ export default function Map(props) {
           }}
           {...props.viewport}
         >
+                     
           <Pin
             sensors={props.sensors}
             setSelectedPump={props.setSelectedPump}
@@ -55,6 +59,11 @@ export default function Map(props) {
               />
             </Popup>
           ) : null}
+          
+          <div className="navStyle">
+          <NavigationControl />
+         </div>
+         
         </ReactMapGl>
     </div>
   )
