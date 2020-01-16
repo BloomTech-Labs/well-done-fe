@@ -202,7 +202,6 @@ class Grid extends Component {
   }
 
   render() {
-    console.log(this.props.accountReducer)
     return (
       <div>
         <div className='accountBody'>
