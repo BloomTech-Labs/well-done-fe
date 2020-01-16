@@ -54,25 +54,50 @@ const PumpsModal = () => {
     setSensor({ ...sensor, [event.target.name]: event.target.value })
   }
 
-  const orgReducer = useSelector(state => state.orgReducer.org)
+  //redux useSelector 
+  const [
+    orgReducer,
+    pumpsReducer,
+  ] = useSelector(({ orgReducer, pumpsReducer }) => [
+    orgReducer.org,
+    pumpsReducer.pumps,
+  ])
 
-  const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
+  let villageArray = []
+  let provinceArray = []
+  let districtArray = []
+  let communeArray = []
 
-  //unique province names
-  const villageArray = pumpsReducer.map(e => e.village_name)
+
+  for (let i = 0; i < pumpsReducer.length; i++){
+    villageArray.push(pumpsReducer[i].village_name)
+    provinceArray.push(pumpsReducer[i].province_name)
+    districtArray.push(pumpsReducer[i].district_name)
+    communeArray.push(pumpsReducer[i].commune_name)
+  }  
+
   const villageName = [...new Set(villageArray)]
-
-  //unique province names
-  const provinceArray = pumpsReducer.map(e => e.province_name)
   const provinceName = [...new Set(provinceArray)]
-
-  //unique district
-  const districtArray = pumpsReducer.map(e => e.district_name)
   const districtName = [...new Set(districtArray)]
-
-  //unique commune
-  const communeArray = pumpsReducer.map(e => e.commune_name)
   const communeName = [...new Set(communeArray)]
+
+  // //unique province names
+  // const villageArray = pumpsReducer.map(e => e.village_name)
+  // const villageName = [...new Set(villageArray)]
+  // console.log(villageArray)
+  // console.log(villageName)
+
+  // //unique province names
+  // const provinceArray = pumpsReducer.map(e => e.province_name)
+  // const provinceName = [...new Set(provinceArray)]
+
+  // //unique district
+  // const districtArray = pumpsReducer.map(e => e.district_name)
+  // const districtName = [...new Set(districtArray)]
+
+  // //unique commune
+  // const communeArray = pumpsReducer.map(e => e.commune_name)
+  // const communeName = [...new Set(communeArray)]
 
   const dispatch = useDispatch()
 
