@@ -33,17 +33,6 @@ class Grid extends Component {
       displayView: 0,
       columnDefs: [
         {
-          headerName: 'id',
-          field: 'id',
-          sortable: true,
-          filter: true,
-          width: 60,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
           headerName: 'Organization',
           field: 'org_name',
           sortable: true,
