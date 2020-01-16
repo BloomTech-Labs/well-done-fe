@@ -1,9 +1,34 @@
-.monitorspage {
-  // width: 90%;
-  margin-left: 8rem;
-  margin-right: 2rem;
+@import 'src/colors';
+
+.monitorContainer {
+  display: flex;
+  background: $duke;
+  
+ 
 }
 
-.parent-div {
-  width: 90%;
+
+.cardsContainer{
+
+}
+.percentContainer{
+width:36%;
+height:500px;
+}
+// .insidePie{
+//   width:300%
+// }
+.chartjs-render-monitor{
+ 
+ height:300px !important;
+ width:550px !important;
+}
+
+.statusContainer{
+  display: flex;
+}
+.monitorCard{
+  border:5px solid red;
+
+  height:2rem;
 }

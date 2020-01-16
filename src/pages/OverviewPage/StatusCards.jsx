@@ -7,22 +7,27 @@ import {
 } from 'react-icons/fi'
 import { Row, Col, Card, Statistic } from 'antd'
 import 'antd/dist/antd.css'
+import './MonitorsPage.scss'
+
 
 function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
   return (
-    <div>
-      <Row gutter={[16, { xs: 8, sm: 16, md: 24, lg: 32 }]}>
+    <div className='statusContainer'>
+      {/* <Row gutter={[16, { xs: 8, sm: 16, md: 24, lg: 32 }]}> */}
         {/* Monitor Reports */}
-        <Col span={6} style={{ minWidth: '270px' }}>
-          <Card style={{ textAlign: 'center', height: '203px' }}>
+        <Col span={6} style={{ minWidth: '270px', height:'1rem'}}>
+        
+        <div className='monitorCard'>
+          <Card style={{ textAlign: 'center' }}>
             <FiEdit size={'2em'} color={'#082B84'} />
             <h2>Monitor Reports</h2>
             <Statistic title='Total Pumps' value={pumpData.length} />
           </Card>
+          </div>
         </Col>
 
         {/* Functional */}
-        <Col span={6} style={{ minWidth: '270px' }}>
+        {/* <Col span={6} style={{ minWidth: '270px' }}> */}
           <Card style={{ textAlign: 'center' }}>
             <FiCheckCircle size={'2em'} color={'#01C800'} />
             <Statistic title='Functioning Pumps' value={funcPumps.length} />
@@ -33,10 +38,10 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
               suffix='%'
             />
           </Card>
-        </Col>
+        {/* </Col> */}
 
         {/* Not Functioning */}
-        <Col span={6} style={{ minWidth: '270px' }}>
+        {/* <Col span={6} style={{ minWidth: '270px' }}> */}
           <Card style={{ textAlign: 'center' }}>
             <FiAlertCircle size={'2em'} color={'#FA0707'} />
             <Statistic title='Not Functioning Pumps' value={nonPumps.length} />
@@ -47,10 +52,10 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
               suffix='%'
             />
           </Card>
-        </Col>
+        {/* </Col> */}
 
         {/* Status Unknown */}
-        <Col span={6} style={{ minWidth: '270px' }}>
+        {/* <Col span={6} style={{ minWidth: '270px' }}> */}
           <Card style={{ textAlign: 'center' }}>
             <FiHelpCircle size={'2em'} color={'#FFAD34'} />
             <Statistic title='Status Uknown' value={unPumps.length} />
@@ -61,8 +66,8 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
               suffix='%'
             />
           </Card>
-        </Col>
-      </Row>
+        {/* </Col> */}
+      {/* </Row> */}
     </div>
   )
 }
