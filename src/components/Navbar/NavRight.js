@@ -13,8 +13,8 @@ const NavRight = () => {
       <NavLink className='margin-left' to='/overview'>
         Monitors
       </NavLink>
-      <NavLink className='margin-left' to='/organization'>
-        Organizations
+      <NavLink className='margin-left' to='/admin'>
+        Admin
       </NavLink>
       <div
         className={displayDropdown ? 'margin-left-droplet margin-right blue-back' : 'margin-left-droplet margin-right'}
