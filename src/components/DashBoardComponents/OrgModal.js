@@ -21,7 +21,8 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import gridOptions2 from '../Grid/gridOptions2'
 import add from '../../icons/AddButton.svg'
-import './Sensors.style.scss'
+// import './Sensors.style.scss'
+import './orgGrid/orgGrid.scss'
 
 const useStyles = makeStyles(theme => ({
   modal: {
@@ -77,7 +78,7 @@ const OrgModal = props => {
 
   return (
     <>
-      <button type='button' onClick={handleOpen} className='addBtn'>
+      <button type='button' onClick={handleOpen} className='addOrg'>
         <img src={add} alt='download'></img>
       </button>
 
@@ -111,9 +112,9 @@ const OrgModal = props => {
                   ))}
                 </Form.Control> */}
               <h2>
-                <label className="orgHeader" for='Country'>Create Organization</label>
+                <label className="orgHeader" htmlFor='Country'>Create Organization</label>
                 
-                <label className='orgLabel' for='Country'>Organization Name</label>
+                <label className='orgLabel' htmlFor='Country'>Organization Name</label>
 
                 <input
                   className="textInput"
@@ -126,7 +127,7 @@ const OrgModal = props => {
                 />
               </h2>
               <h2>
-                <label className='hqLabel' for='Country'>Headquarters</label>
+                <label className='hqLabel' htmlFor='Country'>Headquarters</label>
             
                 <input
                   className="textInput"
