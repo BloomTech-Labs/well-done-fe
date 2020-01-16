@@ -6,7 +6,7 @@ import Filter from '../components/Filter/Filter.component'
 import IconsFilter from '../components/Filter/IconFilters'
 import Sensors from '../components/DashBoardComponents/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensors } from '../actions/sensorActions'
+import { fetchSensors, fetchSensorsByOrgId } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
 import OrgGrid from 'components/DashBoardComponents/orgGrid/orgGrid'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
@@ -28,10 +28,11 @@ const Dashboard = props => {
 
   const sensorSelector = useSelector(state => state.sensorReducer)
   const historySelector = useSelector(state => state.historyReducer)
+
   const dispatch = useDispatch()
 
-  console.log(sensorSelector.sensors)
-  console.log(sensorSelector.gridInfo)
+  const userRole = localStorage.getItem('role')
+  const orgId = localStorage.getItem('org_id')
 
   dispatch({
     type: 'TOGGLE_NAV_STATE',
@@ -58,7 +59,11 @@ const Dashboard = props => {
     return () => window.removeEventListener('resize', updateWidth)
   })
   useEffect(() => {
-    dispatch(fetchSensors())
+    if (userRole === 'super_user') {
+      dispatch(fetchSensors())
+    } else {
+      dispatch(fetchSensorsByOrgId(orgId))
+    }
     dispatch(fetchHistory())
   }, [])
 
@@ -78,8 +83,8 @@ const Dashboard = props => {
       const searchedPlace = {
         latitude: props.searchFiltered[0].latitude,
         longitude: props.searchFiltered[0].longitude,
-        width: "100vw",
-        height: "100vh",
+        width: '100vw',
+        height: '100vh',
         zoom: 11,
       }
       setViewport(searchedPlace)
@@ -110,18 +115,16 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  if (sensorSelector.sensors.length === 0) {
+  if (
+    sensorSelector.sensors.length === 0 ||
+    sensorSelector.gridInfo.length === 0
+  ) {
     return <div>loading...</div>
   }
 
-
-  console.log(sensorSelector)
-
-
-
   return (
     <div className='dashboard'>
-      <Menu/>
+      <Menu />
       <div className='mapSearchFilterContainer'>
         <Map
           sensors={sensorSelector.sensors}
@@ -174,8 +177,8 @@ const Dashboard = props => {
             setSelectedPump={props.setSelectedPump}
           />
         </div>
-        <OrgGrid />
-        <AccountGrid />
+        {userRole === 'super_user' ? <OrgGrid /> : null}
+        <AccountGrid orgId={orgId} userRole={userRole} />
       </div>
     </div>
   )

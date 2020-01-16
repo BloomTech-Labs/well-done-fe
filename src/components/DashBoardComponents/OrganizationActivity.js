@@ -141,6 +141,7 @@ const OrganizationActivity = props => {
     return <div>Loading</div>
   }
 
+  console.log(filteredArray)
   return (
     <div className='orgActivityChart'>
       <div className='orgActivityHeader'>
