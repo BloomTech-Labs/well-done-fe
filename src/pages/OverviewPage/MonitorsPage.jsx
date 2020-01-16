@@ -8,21 +8,23 @@ import StatusCards from "./StatusCards"
 import Grid from "../../components/Grid/Aggrid"
 import PercentageChart from "./PercentageChart"
 import Menu from '../../components/Menu/Menu.component'
+import Sensors from '../../components/DashBoardComponents/Sensors'
 
 // ant design style
 import { Row, Col, Layout } from 'antd'
 import 'antd/dist/antd.css'
 const { Sider, Content } = Layout
 
-const MonitorsPage = ({ history }) => {
+const MonitorsPage = (props) => {
   const [pumpData, setPumpData] = useState([])
   const [funcPumps, setFuncPumps] = useState([])
   const [unPumps, setUnPumps] = useState([])
   const [nonPumps, setNonPumps] = useState([])
 
   const sensorSelector = useSelector(state => state.sensorReducer)
+
   const dispatch = useDispatch()
-  console.log(sensorSelector)
+  console.log(props, "PROPS")
 
   useEffect(() => {
     dispatch(fetchSensors())
@@ -41,50 +43,55 @@ const MonitorsPage = ({ history }) => {
 
   return (
     <div>
-      <Layout style={{ backgroundColor: "#E5E5E5" }}>
-        <Content>
+      {/* <Layout style={{ backgroundColor: "#E5E5E5" }}>
+        <Content> */}
           {/* legend */}
-          <Row type="flex" justify="start">
-          <div className='dash-mob'>
-       <Menu  history={history} /></div>
-            <Col span={23} offset={1}>
+          {/* <Row type="flex" justify="start"> */}
+          {/* <div className='dash-mob'> 
+        <Menu  history={props.history} /></div> */}
+            {/* <Col span={23} offset={1}> */}
               <Legend />
-            </Col>
-          </Row>
+            {/* </Col>
+          </Row> */}
 
           {/* Cards */}
-          <Row type='flex' justify='space-around'>
-            <Col span={20}>
+          {/* <Row type='flex' justify='space-around'>
+            <Col span={20}> */}
               <StatusCards
                 pumpData={pumpData}
                 funcPumps={funcPumps}
                 unPumps={unPumps}
                 nonPumps={nonPumps}
               />
-            </Col>
-          </Row>
+            {/* </Col>
+          </Row> */}
 
           {/* Grid */}
-          <Row type='flex' justify='space-between'>
+          {/* <Row type='flex' justify='space-between'>
             <Col
               span={10}
               offset={1}
               style={{ maxWidth: '600px', minWidth: '270px' }}
-            >
+            > */}
               {/* <Grid sensors={sensorSelector.sensors} /> */}
-            </Col>
+            {/* </Col> */}
 
             {/* Percentage Chart */}
-            <Col span={13} style={{ minWidth: '270px' }}>
+            {/* <Col span={13} style={{ minWidth: '270px' }}> */}
               <PercentageChart
                 funcPumps={funcPumps}
                 unPumps={unPumps}
                 nonPumps={nonPumps}
               />
-            </Col>
-          </Row>
+            {/* </Col> */}
+          {/* </Row>
         </Content>
-      </Layout>
+      </Layout> */}
+      <Sensors
+            gridInfo={sensorSelector.gridInfo}
+            selectedPump={props.selectedPump}
+            setSelectedPump={props.setSelectedPump}
+          />
     </div>
   )
 }

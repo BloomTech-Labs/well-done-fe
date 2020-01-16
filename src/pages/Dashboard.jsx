@@ -171,11 +171,11 @@ const Dashboard = props => {
             sensors={sensorSelector.sensors}
           />
 
-          <Sensors
+          {/* <Sensors
             gridInfo={sensorSelector.gridInfo}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
-          />
+          /> */}
         </div>
         {userRole === 'super_user' ? <OrgGrid /> : null}
         <AccountGrid orgId={orgId} userRole={userRole} />
