@@ -45,7 +45,7 @@ class Grid extends Component {
         },
         {
           headerName: 'Organization',
-          field: 'organization',
+          field: 'org_name',
           sortable: true,
           filter: true,
           width: 150,
@@ -202,7 +202,7 @@ class Grid extends Component {
   }
 
   render() {
-    console.log(this.gridApi)
+    console.log(this.props.accountReducer)
     return (
       <div>
         <div className='accountBody'>

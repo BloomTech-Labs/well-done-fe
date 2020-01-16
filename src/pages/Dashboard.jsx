@@ -59,8 +59,9 @@ const Dashboard = props => {
     return () => window.removeEventListener('resize', updateWidth)
   })
   useEffect(() => {
-    if(userRole === 'super_user'){
-    dispatch(fetchSensors())} else{
+    if (userRole === 'super_user') {
+      dispatch(fetchSensors())
+    } else {
       dispatch(fetchSensorsByOrgId(orgId))
     }
     dispatch(fetchHistory())
@@ -114,16 +115,12 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  if (sensorSelector.sensors.length === 0 || sensorSelector.gridInfo.length === 0) {
+  if (
+    sensorSelector.sensors.length === 0 ||
+    sensorSelector.gridInfo.length === 0
+  ) {
     return <div>loading...</div>
   }
-
-  const renderOrgGrid = () => {
-    if (userRole === 'super_user' && userRole) {
-      return <OrgGrid />
-    }
-  }
-  console.log(renderOrgGrid())
 
   return (
     <div className='dashboard'>
@@ -167,12 +164,12 @@ const Dashboard = props => {
       </div>
       <div className='tables-container'>
         <div className='orgActPumps'>
-          {/* <OrganizationActivity
+          <OrganizationActivity
             alertInfo={historySelector.alertInfo}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
             sensors={sensorSelector.sensors}
-          /> */}
+          />
 
           <Sensors
             gridInfo={sensorSelector.gridInfo}
@@ -180,8 +177,7 @@ const Dashboard = props => {
             setSelectedPump={props.setSelectedPump}
           />
         </div>
-        {renderOrgGrid()}
-
+        {userRole === 'super_user' ? <OrgGrid /> : null}
         <AccountGrid orgId={orgId} userRole={userRole} />
       </div>
     </div>
