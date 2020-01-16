@@ -12,7 +12,6 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   paper: {
-    boxShadow: theme.shadows[5],
     display: 'flex',
   },
 }))
@@ -72,6 +71,7 @@ const ViewOrgGrid = props => {
         <Fade in={open}>
           <div className={classes.paper}>
             <div className='orgProfCon'>
+            <div className='orgProfBody'>
               <div className='ceoPic'> null </div>
               <div className='infoBox'>
             <h2>{props.data.org_name}</h2>
@@ -92,9 +92,12 @@ const ViewOrgGrid = props => {
                   Close
                 </button>
                 </div>
+              <div className='gridBody'>
+               
+               </div>         
            </div>
-          
-            </div>
+          </div>
+          </div>
         </Fade>
       </Modal>
     </>
