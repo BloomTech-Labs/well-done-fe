@@ -26,8 +26,6 @@ const MonitorDetails = props => {
     zoom: 7,
   })
 
-  const [history, setHistory] = useState([])
-
   const sensorSelector = useSelector(state => state.sensorReducer)
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
@@ -40,8 +38,6 @@ const MonitorDetails = props => {
   }, [])
 
   const padHistory = historySelector.individualSensorHistory
-
-  console.log(historySelector.individualSensor)
 
   const date = padHistory.map(day => day.date)
 
@@ -87,6 +83,8 @@ const MonitorDetails = props => {
         selectedPump={props.selectedPump}
         setSelectedPump={props.setSelectedPump}
         sensors={sensorSelector.sensors}
+        individualSensor={historySelector.individualSensor[0]}
+        individualSensorHistory={historySelector.individualSensorHistory}
       />
       <Row>
         <Col span={20} offset={4}>
