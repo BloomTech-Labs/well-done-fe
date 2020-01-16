@@ -145,12 +145,12 @@ const OrganizationActivity = props => {
 
   return (
     <div className='orgActivityChart'>
-      {/* <div className='orgActivityHeader'>
+      <div className='orgActivityHeader'>
         <div className='orgActivityHeaderName'>
           <h1>Organization Activity</h1>
         </div>
       </div>
-      <div className='orgActivityContainer'>
+      {/* <div className='orgActivityContainer'>
         {filteredArray.map(item => {
           return item.map((items, index) => {
             if (items.status === 2) {

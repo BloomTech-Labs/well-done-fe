@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors, fetchSensorsByOrgId } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
 import OrgGrid from 'components/DashBoardComponents/orgGrid/orgGrid'
-import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
+
 import Testing from '../components/DashBoardComponents/Sensors'
 import AccountGrid from '../components/Grid/AccountGrid'
 import Banner from './Banner'
@@ -122,6 +122,8 @@ const Dashboard = props => {
     return <div>loading...</div>
   }
 
+  console.log(sensorSelector.sensors)
+
   return (
     <div className='dashboard'>
       <Menu />
@@ -164,13 +166,6 @@ const Dashboard = props => {
       </div>
       <div className='tables-container'>
         <div className='orgActPumps'>
-          <OrganizationActivity
-            alertInfo={historySelector.alertInfo}
-            selectedPump={props.selectedPump}
-            setSelectedPump={props.setSelectedPump}
-            sensors={sensorSelector.sensors}
-          />
-
           <Sensors
             gridInfo={sensorSelector.gridInfo}
             selectedPump={props.selectedPump}

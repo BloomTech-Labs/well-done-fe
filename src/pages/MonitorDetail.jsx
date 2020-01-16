@@ -5,17 +5,19 @@ import { Bar } from 'react-chartjs-2'
 import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from 'antd'
 import 'antd/dist/antd.css'
 import './MonitorDetail.css'
+import { useSelector, useDispatch } from 'react-redux'
+
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
+import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 
 //redux
-import {useDispatch} from 'react-redux'
-import {deleteSensor} from '../actions/sensorActions'
-
+import { deleteSensor } from '../actions/sensorActions'
+import { fetchHistoryById } from 'actions/sensorHistory'
+import { fetchSensors } from 'actions/sensorActions'
 
 const { Title } = Typography
 
 const MonitorDetails = props => {
-  console.log(props)
   const [viewport, setViewport] = useState({
     latitude: 13.5651,
     longitude: 104.7538,
@@ -26,15 +28,14 @@ const MonitorDetails = props => {
 
   const [history, setHistory] = useState([])
 
+  const sensorSelector = useSelector(state => state.sensorReducer)
+  const historySelector = useSelector(state => state.historyReducer)
+  const dispatch = useDispatch()
+
+  let selectedSensor = localStorage.getItem('sensor')
+
   useEffect(() => {
-    AxiosWithAuth()
-      .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
-      .then(res => {
-        setHistory(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    dispatch(fetchHistoryById(selectedSensor))
   }, [])
 
   const {
@@ -50,22 +51,11 @@ const MonitorDetails = props => {
     total,
     latitude,
     longitude,
-  } = props.selectedPump
+  } = historySelector.individualSensor
 
-  console.log(`physical id`,sensor_index)
+  const padHistory = historySelector.individualSensorHistory
 
-
-  //delete
-  const dispatch = useDispatch()
-
-  const deleteHandler = event => {
-    event.preventDefault()
-    dispatch(deleteSensor(sensor_index))
-  }
-
-  const padHistory = history.filter(pad => {
-    return pad.sensor_id === physical_id
-  })
+  console.log(historySelector.individualSensor)
 
   const date = padHistory.map(day => day.date)
 
@@ -86,9 +76,17 @@ const MonitorDetails = props => {
   const functioning =
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056725/Vector_1_xzgama.png'
 
+  if (historySelector.individualSensorHistory.length === 0) {
+    return <div>loading...</div>
+  }
   return (
     <div>
-      <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button>
+      <OrganizationActivity
+        alertInfo={historySelector.alertInfo}
+        selectedPump={props.selectedPump}
+        setSelectedPump={props.setSelectedPump}
+        sensors={sensorSelector.sensors}
+      />
       <Row>
         <Col span={20} offset={4}>
           <Title>{physical_id}</Title>
@@ -97,11 +95,11 @@ const MonitorDetails = props => {
       <Row gutter={[8, 32]}>
         <Col span={2}></Col>
         <Col span={1}>
-        <Link to={{ pathname: '/dashboard' }}>
-          <Button type='primary' shape='circle' >
-            <Icon type='left' />
-          </Button>
-        </Link>
+          <Link to={{ pathname: '/dashboard' }}>
+            <Button type='primary' shape='circle'>
+              <Icon type='left' />
+            </Button>
+          </Link>
         </Col>
         <Col span={1}></Col>
         <Col span={8}>
@@ -201,6 +199,7 @@ const MonitorDetails = props => {
           </Descriptions>
         </Col>
       </Row>
+
       <Row gutter={[8, 32]}>
         <Col span={16} offset={4}>
           <ReactMapGl
@@ -213,7 +212,7 @@ const MonitorDetails = props => {
               setViewport(viewport)
             }}
           >
-            <Marker key={physical_id} latitude={latitude} longitude={longitude}>
+            {/* <Marker key={physical_id} latitude={latitude} longitude={longitude}>
               {status === 0 || status == null ? (
                 <img src={notFunctioning} alt='not functioning icon' />
               ) : status === 1 ? (
@@ -221,7 +220,7 @@ const MonitorDetails = props => {
               ) : (
                 <img src={functioning} alt='functioning icon' />
               )}
-            </Marker>
+            </Marker> */}
           </ReactMapGl>
         </Col>
       </Row>
