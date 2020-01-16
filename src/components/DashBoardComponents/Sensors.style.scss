@@ -169,7 +169,7 @@
 }
 
 
-.addSensor {
+#addSensor {
   position: relative;
   top:-2px;
   right:10px;
@@ -181,6 +181,10 @@
     right:20px;
 
   }
+}
+
+#none{
+ visibility: hidden;;
 }
 
 .btnContainer {

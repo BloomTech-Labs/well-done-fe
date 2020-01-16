@@ -54,7 +54,7 @@ const PumpsModal = () => {
     setSensor({ ...sensor, [event.target.name]: event.target.value })
   }
 
-  //redux useSelector 
+  //redux useSelector
   const [
     orgReducer,
     pumpsReducer,
@@ -68,13 +68,12 @@ const PumpsModal = () => {
   let districtArray = []
   let communeArray = []
 
-
-  for (let i = 0; i < pumpsReducer.length; i++){
+  for (let i = 0; i < pumpsReducer.length; i++) {
     villageArray.push(pumpsReducer[i].village_name)
     provinceArray.push(pumpsReducer[i].province_name)
     districtArray.push(pumpsReducer[i].district_name)
     communeArray.push(pumpsReducer[i].commune_name)
-  }  
+  }
 
   const villageName = [...new Set(villageArray)]
   const provinceName = [...new Set(provinceArray)]
@@ -122,11 +121,27 @@ const PumpsModal = () => {
     setOpen(false)
   }
 
+  const userRole = localStorage.getItem('role')
+
+  const modalDisplay = () => {
+    if (userRole === 'super_user') {
+      return (
+        <button id='addSensor' type='button' onClick={handleOpen}>
+          <img src={add} alt='add'></img>
+        </button>
+      )
+    } else {
+      return (
+        <button id='none' type='button'>
+          <img src={add} alt='add'></img>
+        </button>
+      )
+    }
+  }
+
   return (
     <>
-      <button className='addSensor' type='button' onClick={handleOpen}>
-        <img src={add} alt='add'></img>
-      </button>
+      {modalDisplay()}
       <Modal
         aria-labelledby='transition-modal-title'
         aria-describedby='transition-modal-description'
