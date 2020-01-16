@@ -20,13 +20,7 @@
     @include header-text;
   }
   input{
-    display: inline-block;
-   height:40%;
-    margin-bottom: 10px;
-    font-size: 14px;
-    line-height: 20px;
-    vertical-align: middle;
-    border-radius:5px;
+    @include globalInputStyle
   }
 }
 .col2Body{

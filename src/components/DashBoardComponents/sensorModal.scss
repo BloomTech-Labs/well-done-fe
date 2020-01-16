@@ -1,46 +1,73 @@
-$phone: 900px;
+@import "src/colors";
 
-.senModalWrap {
-  display: flex;
-  background: white;
-  width: 70%;
-  height: 95%;
-  overflow: hidden;
-  overflow: scroll;
-  padding:5% 10%;
-
-  @media (max-width: $phone) {
-    flex-direction: column;
-    overflow: scroll;
-  }
-
-  .locationModal {
+.senModalWrap{
+    background: $mainBackground;
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    margin: 3%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    padding: 2%;
+    border-radius: 8px;
 
-    .senInput {
-      margin: 3%;
+    .modalHeader{
+        @include header-text;
+    }
+    .locationModal{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2%;
+
+    .locInput{
+        margin: 2%;
+        input{
+          @include globalInputStyle;
+        }
+    }
+    }
+
+    .senColumn{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2%;;
+        .senHeader{
+            @include header-text;
+        }
+        .senInput{
+            input{
+            @include globalInputStyle;
+            }
+        }
     }
   }
-  .senModal1 {
+
+    .notesColumn{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 2%;
+        .notesHeader{
+            @include header-text;
+        }
+        .notesInput{
+            input{
+            @include globalInputStyle;
+            }
+        }
+    }
+    .buttonBox{
     display: flex;
     flex-direction: column;
-    margin: 3%;
-
-    .senInput {
-      margin: 3%;
+    width: -webkit-fill-available;
+        .submitBtn{
+            @include saveButton
+        }
+        .closeBtn{
+            @include closeBtn
+        }
     }
-  }
 
-  .senModal2 {
-    display: flex;
-    flex-direction: column;
-    margin: 3%;
 
-    .senInput {
-      margin: 3%;
-    }
-  }
 }
