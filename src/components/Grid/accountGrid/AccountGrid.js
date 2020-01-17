@@ -22,9 +22,9 @@ import { connect } from 'react-redux'
 import { editAccount } from '../../../actions/accountAction'
 
 import DeleteAccount from './DeleteAccount'
-import { deleteAccount, fetchOrgAccounts } from '../../actions/accountAction.js'
+import { deleteAccount, fetchOrgAccounts } from 'actions/accountAction.js'
 
-import deleteIcon from '../../icons/DeleteModeButton.svg'
+import deleteIcon from 'icons/DeleteModeButton.svg'
 
 class Grid extends Component {
   constructor(props) {
