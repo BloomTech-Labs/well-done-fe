@@ -41,8 +41,6 @@ const PumpsModal = () => {
   const [pump, setPump] = useState([])
   const [sensor, setSensor] = useState([])
 
-  console.log(pump)
-
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 

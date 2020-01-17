@@ -8,13 +8,13 @@ import {
   SENSOR_DELETE,
   SENSOR_POST,
   WITHOUT_HISTORY_SUCCESS,
-  UPDATE_INFO_WITHOUT_HISTORY
+  UPDATE_INFO_WITHOUT_HISTORY,
 } from '../actions/sensorActions'
 
 const initialState = {
   sensors: [],
   gridInfo: [],
-  gridInfoWithOutHistory:[],
+  gridInfoWithOutHistory: [],
   isFetching: false,
   error: '',
 }
@@ -83,22 +83,21 @@ const sensorReducer = (state = initialState, action) => {
         sensors: [...state.sensors, action.payload],
       }
     }
-    case WITHOUT_HISTORY_SUCCESS:{
-      return{
+    case WITHOUT_HISTORY_SUCCESS: {
+      return {
         ...state,
-        gridInfoWithOutHistory:action.payload
+        gridInfoWithOutHistory: action.payload,
       }
     }
-    case UPDATE_INFO_WITHOUT_HISTORY:{
-      return{
+    case UPDATE_INFO_WITHOUT_HISTORY: {
+      return {
         ...state,
         gridInfoWithOutHistory: state.gridInfoWithOutHistory.map(item => {
           return {
             ...item,
             date_finished: moment(item.date_finished).format('MM/DD/YYYY'),
           }
-
-        })
+        }),
       }
     }
     default:

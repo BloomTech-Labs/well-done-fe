@@ -95,30 +95,30 @@ const OrganizationActivity = props => {
   //     console.log(today)
   //     console.log(yesterday, 'yesterday')
 
-  //     today = today.sort(function(a, b) {
-  //       if (a.sensor_id < b.sensor_id) {
-  //         return -1
-  //       } else {
-  //         return 0
-  //       }
-  //     })
+  // today = today.sort(function(a, b) {
+  //   if (a.sensor_id < b.sensor_id) {
+  //     return -1
+  //   } else {
+  //     return 0
+  //   }
+  // })
 
-  //     yesterday = yesterday.sort(function(a, b) {
-  //       if (a.sensor_id < b.sensor_id) {
-  //         return -1
-  //       } else {
-  //         return 0
-  //       }
-  //     })
+  // yesterday = yesterday.sort(function(a, b) {
+  //   if (a.sensor_id < b.sensor_id) {
+  //     return -1
+  //   } else {
+  //     return 0
+  //   }
+  // })
 
-  //     for (let c = 0; c < today.length; c++) {
-  //       if (
-  //         today[c].status !== yesterday[c].status &&
-  //         today[c].sensor_id === yesterday[c].sensor_id
-  //       ) {
-  //         arr = [...arr, today[c], yesterday[c]]
-  //       }
-  //     }
+  // for (let c = 0; c < today.length; c++) {
+  //   if (
+  //     today[c].status !== yesterday[c].status &&
+  //     today[c].sensor_id === yesterday[c].sensor_id
+  //   ) {
+  //     arr = [...arr, today[c], yesterday[c]]
+  //   }
+  // }
 
   //     return arr
   //   }
