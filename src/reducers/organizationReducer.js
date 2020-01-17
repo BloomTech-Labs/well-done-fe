@@ -1,11 +1,4 @@
-import {
-  ORG_FETCH,
-  ORG_SUCCESS,
-  ORG_FAILURE,
-  DELETE_SUCCESS,
-  DELETE_FAILURE,
-  ORG_ADD
-} from '../actions/orgAction'
+import * as types from 'actions/orgAction'
 
 
 const initialState = {
@@ -16,33 +9,33 @@ const initialState = {
 
 export const orgReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ORG_FETCH:
+    case types.ORG_FETCH:
       return {
         ...state,
         isFetching: true,
         error: '',
       }
-    case ORG_SUCCESS:
+    case types.ORG_SUCCESS:
       return {
         ...state,
         org: action.payload,
         isFetching: false,
         error: '',
       }
-    case ORG_ADD:
+    case types.ORG_ADD:
       return {
         ...state,
         org: [...state.org, action.payload],
         isFetching: false,
         error: '',
       }
-    case ORG_FAILURE:
+    case types.ORG_FAILURE:
       return {
         ...state,
         isFetching: false,
         error: action.payload,
       }
-      case DELETE_SUCCESS:
+      case types.DELETE_SUCCESS:
         return {
           ...state,
           isFetching: false,

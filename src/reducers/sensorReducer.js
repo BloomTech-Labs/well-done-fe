@@ -1,13 +1,6 @@
 import moment from 'moment'
 
-import {
-  SENSOR_FETCH,
-  SENSOR_SUCCESS,
-  SENSOR_FAILURE,
-  UPDATE_INFO,
-  SENSOR_DELETE,
-  SENSOR_POST,
-} from '../actions/sensorActions'
+import * as types from 'actions/sensorActions'
 
 const initialState = {
   sensors: [],
@@ -18,26 +11,26 @@ const initialState = {
 
 const sensorReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SENSOR_FETCH:
+    case types.SENSOR_FETCH:
       return {
         ...state,
         isFetching: true,
         error: '',
       }
-    case SENSOR_SUCCESS:
+    case types.SENSOR_SUCCESS:
       return {
         ...state,
         isFetching: false,
         error: '',
         sensors: action.payload,
       }
-    case SENSOR_FAILURE:
+    case types.SENSOR_FAILURE:
       return {
         ...state,
         isFetching: false,
         error: action.payload,
       }
-    case SENSOR_DELETE:
+    case types.SENSOR_DELETE:
       return {
         ...state,
         isFetching: false,
@@ -48,7 +41,7 @@ const sensorReducer = (state = initialState, action) => {
           }
         }),
       }
-    case UPDATE_INFO: {
+    case types.UPDATE_INFO: {
       return {
         ...state,
         gridInfo: state.sensors.map(item => {
@@ -74,7 +67,7 @@ const sensorReducer = (state = initialState, action) => {
         }),
       }
     }
-    case SENSOR_POST: {
+    case types.SENSOR_POST: {
       return {
         ...state,
         sensors: [...state.sensors, action.payload],

@@ -1,4 +1,4 @@
-import {TOGGLE_NAV_STATE} from '../actions/navActions.js'
+import { TOGGLE_NAV_STATE } from 'actions/navActions.js'
 
 export const navReducer = (state = false, action) => {
   switch (action.type) {
