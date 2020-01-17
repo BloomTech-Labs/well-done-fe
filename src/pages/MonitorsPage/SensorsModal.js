@@ -78,23 +78,6 @@ const PumpsModal = () => {
   const districtName = [...new Set(districtArray)]
   const communeName = [...new Set(communeArray)]
 
-  // //unique province names
-  // const villageArray = pumpsReducer.map(e => e.village_name)
-  // const villageName = [...new Set(villageArray)]
-  // console.log(villageArray)
-  // console.log(villageName)
-
-  // //unique province names
-  // const provinceArray = pumpsReducer.map(e => e.province_name)
-  // const provinceName = [...new Set(provinceArray)]
-
-  // //unique district
-  // const districtArray = pumpsReducer.map(e => e.district_name)
-  // const districtName = [...new Set(districtArray)]
-
-  // //unique commune
-  // const communeArray = pumpsReducer.map(e => e.commune_name)
-  // const communeName = [...new Set(communeArray)]
 
   const dispatch = useDispatch()
 
