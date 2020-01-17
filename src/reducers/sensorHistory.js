@@ -5,12 +5,16 @@ import {
   HISTORY_SUCCESS,
   HISTORY_FAILURE,
   CHECK_DATE,
-
+  CHECK_DATE_FOR_SENSOR_HISTORY,
+  INDIVIDUAL_SENSOR_HISTORY_SUCCESS,
+  INDIVIDUAL_SENSOR_SUCCESS,
 } from '../actions/sensorHistory'
 
 const initialState = {
   history: [],
   alertInfo: [],
+  individualSensor: [],
+  individualSensorHistory: [],
   isFetching: false,
   error: '',
 }
@@ -40,6 +44,30 @@ export const historyReducer = (state = initialState, action) => {
       return {
         ...state,
         alertInfo: state.history.map(item => {
+          return {
+            ...item,
+            created_at: moment(item.created_at).format('MM/DD/YYYY'),
+          }
+        }),
+      }
+    case INDIVIDUAL_SENSOR_SUCCESS:
+      return {
+        ...state,
+        individualSensor: action.payload,
+        isFetching: false,
+        error: '',
+      }
+    case INDIVIDUAL_SENSOR_HISTORY_SUCCESS:
+      return {
+        ...state,
+        individualSensorHistory: action.payload,
+        isFetching: false,
+        error: '',
+      }
+    case CHECK_DATE_FOR_SENSOR_HISTORY:
+      return {
+        ...state,
+        individualSensorHistory: state.individualSensorHistory.map(item => {
           return {
             ...item,
             created_at: moment(item.created_at).format('MM/DD/YYYY'),

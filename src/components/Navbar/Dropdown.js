@@ -18,7 +18,8 @@ const Dropdown = props => {
   }
   const ref = React.useRef(null)
 
-  useOnClickOutside(ref, () => props.setterFunction(false))
+  useOnClickOutside(ref, () => props.setterFunction(true))
+
   const email = localStorage.getItem("userEmail")
 
   return (

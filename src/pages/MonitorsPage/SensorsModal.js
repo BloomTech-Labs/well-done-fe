@@ -41,8 +41,6 @@ const PumpsModal = () => {
   const [pump, setPump] = useState([])
   const [sensor, setSensor] = useState([])
 
-  console.log(pump)
-
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -165,12 +163,12 @@ const PumpsModal = () => {
 
               <Form.Control
                 as='select'
-                name='organization'
-                value={pump.organization}
+                name='org_id'
+                value={pump.org_id}
                 onChange={handleChangePump}
               >
                 {orgReducer.map(org => (
-                  <option key={org.id} value={org.org_name}>
+                  <option key={org.id} value={org.id}>
                     {org.org_name}
                   </option>
                 ))}
@@ -188,21 +186,6 @@ const PumpsModal = () => {
                 />
               </div>
 
-              <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                Province
-              </Dropdown.Toggle>
-              <Form.Control
-                as='select'
-                name='province'
-                value={pump.province}
-                onChange={handleChangePump}
-              >
-                {provinceName.map(province => (
-                  <option key={province} value={province}>
-                    {province}
-                  </option>
-                ))}
-              </Form.Control>
               <div className='senInput'>
                 <label for='Name'>Province</label>
 
