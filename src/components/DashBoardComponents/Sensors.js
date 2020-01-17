@@ -5,6 +5,7 @@ import { withRouter } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
+import CustomDateComponent from '../Filter/CustomDateCompnent'
 
 import gridOptionss from '../Grid/Pagination'
 import ViewButton from './ViewButton'
@@ -27,10 +28,7 @@ class pumps extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      displayView: 0,
-      agFiltersToolPanel:true,
-      
-     
+      displayView: 0,     
       columnDefs: [
         {
           headerName: 'Sensor ID',
@@ -57,6 +55,8 @@ class pumps extends Component {
           filter: "agDateColumnFilter",
           filterParams: {
             comparator: function(filterLocalDateAtMidnight, cellValue,) {
+
+
               var dateAsString = moment(cellValue).format('DD/MM/YYYY');
               var dateParts = dateAsString.split("/");
               var cellDate = new Date(Number(dateParts[2]), Number(dateParts[1]) - 1, Number(dateParts[0]));
@@ -71,7 +71,7 @@ class pumps extends Component {
                 return 1;
               }
             },
-            browserDatePicker: true
+            // browserDatePicker: true
           }
          
         },
@@ -100,8 +100,8 @@ class pumps extends Component {
         {
           headerName: 'view',
           field: 'view',
-          sortable: true,
-          filter: true,
+          // sortable: true,
+          // filter: true,
           cellRendererFramework: params => {
             return (
               <div>
@@ -126,7 +126,6 @@ class pumps extends Component {
             )
           },
           
-          
           cellStyle: {
             'font-size': '1.5rem',
             'padding-top': '.75rem',
@@ -137,8 +136,10 @@ class pumps extends Component {
           minWidth: 90, 
         },
    
-        
       ],
+      // frameworkComponents: { agDateInput: CustomDateComponent },
+      defaultColDef: { filter: true },
+      sideBar: "filters",
     }
   }
 
@@ -179,11 +180,25 @@ class pumps extends Component {
     this.gridApi.redrawRows()
   }
 
-  onQuickFilterChanged(params) {
+  onQuickFilterChanged() {
     gridOptionss.api.setQuickFilter(
       document.getElementById('quickFilter').value
     )
   }
+  onQuickFilterByCal() {
+    let dateInput = moment(document.getElementById('dateCal').value).format('MM/DD/YYYY');
+    console.log(dateInput,'Value')
+    return gridOptionss.api.setQuickFilter(dateInput === 'Invalid date' ? '' : dateInput)
+
+    // if(dateInput === 'Invalid date'){
+    //   return gridOptionss.api.setQuickFilter('')
+    // }else{
+    //   return gridOptionss.api.setQuickFilter(dateInput)
+    //  }
+  }
+
+  
+
   exportToCsv = function() {
     var params = {
       skipHeader: false,
@@ -205,7 +220,7 @@ class pumps extends Component {
             <input
               className='searchInsensors'
               type='text'
-              onInput={this.onQuickFilterChanged}
+              onChange={this.onQuickFilterChanged}
               id='quickFilter'
               placeholder=' search...'
             />
@@ -214,8 +229,8 @@ class pumps extends Component {
           <div className="calContainer">
             <input
               type='date'
-              // id='dateCal'
-              onInput={this.comparator}
+              onChange={this.onQuickFilterByCal}
+              id='dateCal'
               />
           </div>
           <div className='headerBtns'>
@@ -257,7 +272,7 @@ class pumps extends Component {
               onGridSizeChanged={this.onGridSizeChanged}
               onGridReady={this.onGridReady}
               floatingFilter={true}
-              sideBar={true}
+              sideBar={this.state.sideBar}
             />
           </div>
         </div>
