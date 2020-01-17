@@ -91,23 +91,20 @@ const PumpsModal = () => {
     event.preventDefault()
     dispatch(postSensor(sensor))
     dispatch(postPump(pump))
-    handleClose()
+    handleModal()
   }
 
-  const handleOpen = () => {
-    setOpen(true)
+ const handleModal = () => {
+  setOpen(!open)
   }
 
-  const handleClose = () => {
-    setOpen(false)
-  }
 
   const userRole = localStorage.getItem('role')
 
   const modalDisplay = () => {
     if (userRole === 'super_user') {
       return (
-        <button id='addSensor' type='button' onClick={handleOpen}>
+        <button id='addSensor' type='button' onClick={handleModal}>
           <img src={add} alt='add'></img>
         </button>
       )
@@ -128,7 +125,7 @@ const PumpsModal = () => {
         aria-describedby='transition-modal-description'
         className={classes.modal}
         open={open}
-        onClose={handleClose}
+        onClose={handleModal}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -448,7 +445,7 @@ const PumpsModal = () => {
                 <button
                   className='closeBtn'
                   variant='secondary'
-                  onClick={handleClose}
+                  onClick={handleModal}
                 >
                   Close
                 </button>
