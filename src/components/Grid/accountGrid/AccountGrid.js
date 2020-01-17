@@ -16,7 +16,7 @@ import './accountGrid.scss'
 
 import EditGrid from '../EditGrid'
 import { fetchAccounts } from '../../../actions/accountAction'
-import {accountColumns} from './accountGridColumn'
+import { accountColumns } from './accountGridColumn'
 //redux
 import { connect } from 'react-redux'
 import { editAccount } from '../../../actions/accountAction'
@@ -32,77 +32,7 @@ class Grid extends Component {
     this.state = {
       displayView: 0,
       columnDefs: [
-<<<<<<< HEAD:src/components/Grid/accountGrid/AccountGrid.js
         ...accountColumns,
-=======
-        {
-          headerName: 'Organization',
-          field: 'org_name',
-          sortable: true,
-          filter: true,
-          width: 150,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'First Name',
-          field: 'first_name',
-          sortable: true,
-          filter: true,
-          width: 120,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Last Name',
-          field: 'last_name',
-          sortable: true,
-          filter: true,
-          width: 120,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Email',
-          field: 'email_address',
-          sortable: true,
-          filter: true,
-          width: 200,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Mobile',
-          field: 'mobile_number',
-          sortable: true,
-          filter: true,
-          width: 150,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-        {
-          headerName: 'Role',
-          field: 'role',
-          sortable: true,
-          filter: true,
-          width: 150,
-          cellStyle: {
-            'font-size': '2rem',
-            'padding-top': '.75rem',
-          },
-        },
-
->>>>>>> a709ac63b0c209ab928cca7870efd22c3ea2b65c:src/components/Grid/AccountGrid.js
         {
           headerName: 'Edit',
           field: 'Edit',
