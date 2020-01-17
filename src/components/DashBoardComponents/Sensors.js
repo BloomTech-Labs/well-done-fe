@@ -14,6 +14,7 @@ import TrashCan from './TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
 import SensorsModal from './SensorsModal'
+import moment from 'moment'
 
 //redux
 import { connect } from 'react-redux'
@@ -27,6 +28,9 @@ class pumps extends Component {
     super(props)
     this.state = {
       displayView: 0,
+      agFiltersToolPanel:true,
+      
+     
       columnDefs: [
         {
           headerName: 'Sensor ID',
@@ -44,7 +48,7 @@ class pumps extends Component {
           headerName: 'Installed',
           field: 'created_at',
           // sortable: true,
-          // filter: true,
+          filter: true,
           minWidth: 90,
           cellStyle: {
             'font-size': '1.5rem',
@@ -52,16 +56,16 @@ class pumps extends Component {
           },
           filter: "agDateColumnFilter",
           filterParams: {
-            comparator: function(filterLocalDateAtMidnight, cellValue) {
-              var dateAsString = cellValue;
-              if (dateAsString == null) return -1;
+            comparator: function(filterLocalDateAtMidnight, cellValue,) {
+              var dateAsString = moment(cellValue).format('DD/MM/YYYY');
               var dateParts = dateAsString.split("/");
               var cellDate = new Date(Number(dateParts[2]), Number(dateParts[1]) - 1, Number(dateParts[0]));
               if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
-                return 0;
+                return 0
               }
               if (cellDate < filterLocalDateAtMidnight) {
                 return -1;
+           
               }
               if (cellDate > filterLocalDateAtMidnight) {
                 return 1;
@@ -121,6 +125,8 @@ class pumps extends Component {
               </div>
             )
           },
+          
+          
           cellStyle: {
             'font-size': '1.5rem',
             'padding-top': '.75rem',
@@ -128,8 +134,10 @@ class pumps extends Component {
           cellRendererParams: {
             prop1: 'props.selectedPump',
           },
-          minWidth: 90,
+          minWidth: 90, 
         },
+   
+        
       ],
     }
   }
@@ -142,25 +150,25 @@ class pumps extends Component {
     this.gridColumnApi = params.columnApi
   }
 
-  onGridSizeChanged = params => {
-    var gridWidth = document.getElementById('grid-wrapper').offsetWidth
-    var columnsToShow = []
-    var columnsToHide = []
-    var totalColsWidth = 0
-    var allColumns = params.columnApi.getAllColumns()
-    for (var i = 0; i < allColumns.length; i++) {
-      var column = allColumns[i]
-      totalColsWidth += column.getMinWidth()
-      if (totalColsWidth > gridWidth) {
-        columnsToHide.push(column.colId)
-      } else {
-        columnsToShow.push(column.colId)
-      }
-    }
-    params.columnApi.setColumnsVisible(columnsToShow, true)
-    params.columnApi.setColumnsVisible(columnsToHide, false)
-    params.api.sizeColumnsToFit()
-  }
+  // onGridSizeChanged = params => {
+  //   var gridWidth = document.getElementById('grid-wrapper').offsetWidth
+  //   var columnsToShow = []
+  //   var columnsToHide = []
+  //   var totalColsWidth = 0
+  //   var allColumns = params.columnApi.getAllColumns()
+  //   for (var i = 0; i < allColumns.length; i++) {
+  //     var column = allColumns[i]
+  //     totalColsWidth += column.getMinWidth()
+  //     if (totalColsWidth > gridWidth) {
+  //       columnsToHide.push(column.colId)
+  //     } else {
+  //       columnsToShow.push(column.colId)
+  //     }
+  //   }
+  //   params.columnApi.setColumnsVisible(columnsToShow, true)
+  //   params.columnApi.setColumnsVisible(columnsToHide, false)
+  //   params.api.sizeColumnsToFit()
+  // }
 
   viewHandler = () => {
     if (this.state.displayView === 0) {
@@ -203,6 +211,13 @@ class pumps extends Component {
             />
             <AiOutlineSearch className='searchIcon' />
           </div>
+          <div className="calContainer">
+            <input
+              type='date'
+              // id='dateCal'
+              onInput={this.comparator}
+              />
+          </div>
           <div className='headerBtns'>
             <button
               className='downloadButton'
@@ -241,6 +256,8 @@ class pumps extends Component {
               frameworkComponents={this.state.columnDefs.frameworkComponents}
               onGridSizeChanged={this.onGridSizeChanged}
               onGridReady={this.onGridReady}
+              floatingFilter={true}
+              sideBar={true}
             />
           </div>
         </div>
