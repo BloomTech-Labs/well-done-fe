@@ -27,7 +27,10 @@ import Archivebutton from '../../icons/Archivebutton.svg'
 class pumps extends Component {
   constructor(props) {
     super(props)
-    this.state = {
+
+   
+
+      this.state = {
       displayView: 0,     
       columnDefs: [
         {
@@ -151,25 +154,25 @@ class pumps extends Component {
     this.gridColumnApi = params.columnApi
   }
 
-  // onGridSizeChanged = params => {
-  //   var gridWidth = document.getElementById('grid-wrapper').offsetWidth
-  //   var columnsToShow = []
-  //   var columnsToHide = []
-  //   var totalColsWidth = 0
-  //   var allColumns = params.columnApi.getAllColumns()
-  //   for (var i = 0; i < allColumns.length; i++) {
-  //     var column = allColumns[i]
-  //     totalColsWidth += column.getMinWidth()
-  //     if (totalColsWidth > gridWidth) {
-  //       columnsToHide.push(column.colId)
-  //     } else {
-  //       columnsToShow.push(column.colId)
-  //     }
-  //   }
-  //   params.columnApi.setColumnsVisible(columnsToShow, true)
-  //   params.columnApi.setColumnsVisible(columnsToHide, false)
-  //   params.api.sizeColumnsToFit()
-  // }
+  onGridSizeChanged = params => {
+    var gridWidth = document.getElementById('grid-wrapper').offsetWidth
+    var columnsToShow = []
+    var columnsToHide = []
+    var totalColsWidth = 0
+    var allColumns = params.columnApi.getAllColumns()
+    for (var i = 0; i < allColumns.length; i++) {
+      var column = allColumns[i]
+      totalColsWidth += column.getMinWidth()
+      if (totalColsWidth > gridWidth) {
+        columnsToHide.push(column.colId)
+      } else {
+        columnsToShow.push(column.colId)
+      }
+    }
+    params.columnApi.setColumnsVisible(columnsToShow, true)
+    params.columnApi.setColumnsVisible(columnsToHide, false)
+    params.api.sizeColumnsToFit()
+  }
 
   viewHandler = () => {
     if (this.state.displayView === 0) {
@@ -178,6 +181,22 @@ class pumps extends Component {
       this.setState({ displayView: 0 })
     }
     this.gridApi.redrawRows()
+  }
+   userRole = localStorage.getItem('role')
+
+  deleteDisplay = () => {
+    if (this.userRole === 'super_user') {
+      return (
+        <button className='deleteBtn' onClick={() => this.viewHandler()}>
+        <img src={deleteIcon} alt='delete'></img>
+        </button>
+      )
+    } else {
+      return (
+        <button id='none' type='button'>
+         </button>
+      )
+    }
   }
 
   onQuickFilterChanged() {
@@ -244,9 +263,7 @@ class pumps extends Component {
               <img src={Archivebutton} alt='download'></img>
             </button>
 
-            <button className='deleteBtn' onClick={() => this.viewHandler()}>
-            <img src={deleteIcon} alt='delete'></img>
-            </button>
+            {this.deleteDisplay()}
 
             <div className='modalHeader'>
               <SensorsModal />
