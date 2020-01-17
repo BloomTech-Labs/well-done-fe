@@ -21,8 +21,10 @@ import {accountColumns} from './accountGridColumn'
 import { connect } from 'react-redux'
 import { editAccount } from '../../../actions/accountAction'
 
-import DeleteAccount from '../DeleteAccount'
-import { deleteAccount } from '../../../actions/accountAction.js'
+import DeleteAccount from './DeleteAccount'
+import { deleteAccount, fetchOrgAccounts } from '../../actions/accountAction.js'
+
+import deleteIcon from '../../icons/DeleteModeButton.svg'
 
 class Grid extends Component {
   constructor(props) {
@@ -64,7 +66,11 @@ class Grid extends Component {
   }
 
   componentDidMount = () => {
-    this.props.fetchAccounts()
+    if (this.props.usesRole === 'super_user') {
+      this.props.fetchAccounts()
+    } else {
+      this.props.fetchOrgAccounts(this.props.orgId)
+    }
   }
 
   onGridReady = params => {
@@ -119,7 +125,6 @@ class Grid extends Component {
   }
 
   render() {
-    console.log(this.gridApi)
     return (
       <div>
         <div className='accountBody'>
@@ -133,7 +138,7 @@ class Grid extends Component {
                 id='quickFilterss'
                 placeholder=' search...'
               />
-              <AiOutlineSearch className='searchIcon' />
+              <AiOutlineSearch className='searchIcons' />
             </div>
             <div className='headerBtns'>
               <button
@@ -147,7 +152,7 @@ class Grid extends Component {
               </button>
 
               <button className='deleteBtn' onClick={() => this.viewHandler()}>
-                <i className='icon-trash'></i>
+                <img src={deleteIcon} alt='delete'></img>
               </button>
               <div className='modalHeaderAccount'>
                 <ModalOperator />
@@ -188,4 +193,5 @@ export default connect(mapStateToProps, {
   editAccount,
   fetchAccounts,
   deleteAccount,
+  fetchOrgAccounts,
 })(withRouter(Grid))

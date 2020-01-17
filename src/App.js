@@ -26,6 +26,8 @@ function App(props) {
 
   const [searchFiltered, setSearchFiltered] = useState([])
   const [selectedPump, setSelectedPump] = useState(null)
+
+  console.log(selectedPump)
   return (
     <div className='app-container'>
       {!!displayNav && <NavBar />}
@@ -59,7 +61,7 @@ function App(props) {
           page={MonitorDetails}
           selectedPump={selectedPump}
         />
-        
+
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>

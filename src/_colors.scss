@@ -11,9 +11,18 @@ $black:#202020;
 $orange:#FFAD34;
 $mainBackground:#e5e5e5;
 $iconBackground:#AEDFFC;
+$buttonBlue: #082B84;
 
-
-
+//changes all input fields accross all modals
+@mixin globalInputStyle{
+  display: inline-block;
+  height:auto;
+   margin-bottom: 10px;
+   font-size: 14px;
+   line-height: 20px;
+   vertical-align: middle;
+   border-radius:5px;
+}
 // changes background color for entire app
 @mixin body-background{
   background-color: $mainBackground;
@@ -75,4 +84,23 @@ $iconBackground:#AEDFFC;
   font-weight: 350;
   padding-top:3rem;
   padding-left:3rem;
+}
+
+//buttons on modals
+
+@mixin saveButton{
+  border: 2px solid $duke;
+  background: $duke;
+  color: white;
+  border-radius: 8px;
+  font-size: medium;
+}
+
+@mixin closeBtn{
+  border: none;
+  background: none;
+  font-size: medium;
+  color: $duke;
+  margin-right: 6%;
+  font-weight: 700;
 }

@@ -1,7 +1,53 @@
 @import "src/colors";
 .button {
   height: 100%;
-  @include gridBtn-bg;
   font-size: large;
+}
+.modalBody{
+  background: $mainBackground;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2%;
+  border-radius: 8px;
+  width: min-content;
+}
 
+.col1{
+  .modalHeader{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    @include header-text;
+  }
+
+  input{
+    display: inline-block;
+    height:40%;
+     margin-bottom: 10px;
+     font-size: 14px;
+     line-height: 20px;
+     vertical-align: middle;
+     border-radius:5px;
+
+  }
+}
+.col2{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  padding-top: 37%;
+  justify-content: space-around;
+ 
+}
+.createAcct{
+  @include saveButton
+}
+.cancelButton{
+  border: none;
+  background: none;
+  font-size: medium;
+  color: $duke;
+  margin-right: 6%;
+  font-weight: 700;
 }

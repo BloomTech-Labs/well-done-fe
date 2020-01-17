@@ -17,6 +17,15 @@ export const fetchSensors = () => dispatch => {
     .catch(err => dispatch({ type: SENSOR_FAILURE, payload: err }))
 }
 
+export const fetchSensorsByOrgId = (org_id) => dispatch => {
+  dispatch({ type: SENSOR_FETCH })
+  AxiosWithAuth()
+    .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent/${org_id}`)
+    .then(res => dispatch({ type: SENSOR_SUCCESS, payload: res.data }))
+    .then(res => dispatch({ type: UPDATE_INFO }))
+    .catch(err => dispatch({ type: SENSOR_FAILURE, payload: err }))
+}
+
 //  posting sensors
 export const postSensor = sensors => dispatch => {
   dispatch({
@@ -25,7 +34,8 @@ export const postSensor = sensors => dispatch => {
 
   AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/sensors/`, sensors)
-    .then(res => dispatch({ type: SENSOR_SUCCESS, payload: res.data }))
+    .then(res => dispatch({ type: SENSOR_POST, payload: res.data }))
+    .then(res => dispatch({ type: UPDATE_INFO }))
     .catch(res => dispatch({ type: SENSOR_FAILURE, payload: res.data }))
 }
 

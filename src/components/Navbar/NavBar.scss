@@ -8,10 +8,7 @@ nav {
   top: 0px;
   z-index: 5;
 
-  @media (max-width: 800px) {
-    
-    
-  }
+
 }
 .nav-right {
   text-align: right;
@@ -47,26 +44,40 @@ nav {
 .margin-left {
   margin-left: 24px;
   color: white;
+  @media screen and (max-width:1024px){
+    display: none;
 }
-.margin-right {
-  margin-right: 60px;
 }
+
 .drop-down {
   display: flex;
   flex-direction: column;
   align-content:center ;
   position: absolute;
   text-align:center;
-  width:160px;
-  top: 43px;
+ 
+  width:180px;
+  top: 68px;
   z-index: 5;
- @include dropDown-Bgclr;
+  background-color: $duke;
+  color:black;
   right: 0px;
   padding: 5px;
   padding-top:20px;
-  height:150px;
- 
+  border-top: 1px solid rgb(3, 3, 94);
+
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.08);
   
+}
+
+.item-container{
+  padding-left: 1rem;
+  height:100%;
+  text-align: left;
+  padding-bottom: 8px;
+
 }
 .margin-left-droplet {
   position: relative;
@@ -74,22 +85,23 @@ nav {
   justify-content: center;
   align-items: center;
   margin-left: 40px;
+  margin-right: 60px;
   cursor: pointer;
   // border: 1px solid red;
   width:10%;
   height:50px;
-  a:hover {
-    background: #AFE2F9;
-  }
+ 
 }
+
 .set-link {
   position: relative;
   top: 1px;
-  left:5px;
-  color: black;
-  a:hover {
-    background: #AFE2F9;
-  }
+  left:-4px;
+  color: white;
+  padding:5px;
+  margin-left: 5px;
+
+  border-top: 2px solid rgb(66, 66, 160);
 
 }
 .set-link-logout {
@@ -101,29 +113,38 @@ nav {
 }
 .navSvg{
   margin: 10px 1px;
+  margin-left: 3px;
+  padding:5px;
+  color:white;
+}
+.tab-nav{
+  color: white;
+  margin-bottom:3px;
+  @media screen and (min-width:1024px){
+    display: none;
 }
 
+}
 
 svg.drop-svg{
   position: absolute;
   top:8px;
   height:60%;
 
-  a:hover {
-    background: #AFE2F9;
-  }
+ 
 }
 .each-nav{
+  display: flex;
+  flex-direction: column;
   z-index:6;
   margin-bottom: 5px;
 }
-.blue-back {
-  background: #AFE2F9;
-}
+
 .user-email{
   padding-top:6px;
-  border-top: 1px solid gray;
+  border-top: 1px solid rgb(3, 3, 94);
   font-size: 1.5rem;
+  color:white;
  
 }
 

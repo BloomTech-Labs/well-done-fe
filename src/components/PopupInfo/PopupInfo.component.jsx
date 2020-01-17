@@ -30,7 +30,19 @@ const PopupInfo = props => {
     return Number(day.sensor_id) === Number(props.selectedPump.physical_id)
   })
 
-  const { status, sensor_pid, province_name, country_name } = props.selectedPump
+  const {
+    status,
+    sensor_pid,
+    province_name,
+    village_name,
+    district_name,
+  } = props.selectedPump
+
+  console.log(props.selectedPump)
+
+  const setSensor = () => {
+    localStorage.setItem('sensor', props.selectedPump.sensor_pid)
+  }
 
   return (
     <div className='popupInfo'>
@@ -40,25 +52,38 @@ const PopupInfo = props => {
           : Number(status) === 1
           ? one
           : two}
-        <p className='pump_num'>Pump {sensor_pid}</p>
+        <p className='pump_num'> {sensor_pid}</p>
       </div>
       <div className='pump_info'>
         <div className='spread'>
+          {statusHistory
+            .slice(-14)
+            .map(day =>
+              day.status == null || day.status == 0 ? (
+                <div key={day.history_id} className='spread-red'></div>
+              ) : day.status == 1 ? (
+                <div key={day.history_id} className='spread-yellow'></div>
+              ) : (
+                <div key={day.history_id} className='spread-green'></div>
+              )
+            )}
           {statusHistory.map(day =>
             day.status == null || day.status == 0 ? (
-              <div key={day.history_id} className='spread-red'></div>
+              <div key={day.history_id} className='triangle-red'></div>
             ) : day.status == 1 ? (
-              <div key={day.history_id} className='spread-yellow'></div>
+              <div key={day.history_id} className='triangle-yellow'></div>
             ) : (
-              <div key={day.history_id} className='spread-green'></div>
+              <div key={day.history_id} className='triangle-green'></div>
             )
           )}
         </div>
-        <h3>{country_name}</h3>
+        <h4 className='district_name'>{district_name}</h4>
         <p className='province_name'>{province_name}</p>
 
         <Link to={{ pathname: '/monitorDetails' }}>
-          <Button type='link'>More details</Button>
+          <Button onClick={() => setSensor()} className='details_btn'>
+            More details
+          </Button>
         </Link>
       </div>
     </div>

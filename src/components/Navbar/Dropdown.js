@@ -18,30 +18,42 @@ const Dropdown = props => {
   }
   const ref = React.useRef(null)
 
-  useOnClickOutside(ref, () => props.setterFunction(false))
+  useOnClickOutside(ref, () => props.setterFunction(true))
+
   const email = localStorage.getItem("userEmail")
 
   return (
     <div className='drop-down' ref={ref}>
-      <div className='triangle'></div>
+      <div className='item-container'>
       <div className='each-nav'>
-        <IoIosSettings size={25} style={{ position: 'relative', top: '7px' }} />
+      
+        <NavLink className='tab-nav' to='/dashboard'>
+        Dashboard
+      </NavLink>
+      <NavLink className='tab-nav' to='/overview'>
+        Monitors
+      </NavLink>
+      <NavLink className='tab-nav' to='/organization'>
+        Organizations
+      </NavLink>
         <NavLink
           to='/settings'
           activeClassName='activeNavButton'
           className='set-link'
-        >
+        >  
+        <IoIosSettings size={25} style={{ position: 'relative', top: '7px', right:'5px' }} />
           Settings
         </NavLink>
       </div>
-      <div className='each-nav' onClick={logout}>
+      <div className='logout-btn' onClick={logout}>
         <div className='navSvg'>
-          <FiLogOut size={25} style={{ margin: '-6.5px 0px' }} />
+          <FiLogOut size={25} style={{position: 'relative', margin: '-6.5px 0px', right:'5px' }} />
          
           Logout
         </div>
       </div>
       <div className='user-email'>{email}</div>
+      </div>
     </div>
   )
 }

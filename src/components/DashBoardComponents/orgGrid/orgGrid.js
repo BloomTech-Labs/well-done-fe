@@ -8,6 +8,7 @@ import OrgModal from '../OrgModal'
 import { orgGridColumns } from './orgGridColumns'
 import ViewOrgGrid from '../OrgView'
 import Archivebutton from 'icons/Archivebutton.svg'
+import deleteIcon from 'icons/DeleteModeButton.svg'
 
 import { deleteOrg, fetchOrg } from '../../../actions/orgAction'
 import { withRouter } from 'react-router'
@@ -126,11 +127,12 @@ class OrgGrid extends Component {
               style={{
                 position: 'relative',
                 right: '28px',
-                top: '2px',
+                bottom: '5px',
                 background: 'transparent',
               }}
             />
           </div>
+         
           <div className='headerBtns'>
             <button
               className='downloadButton'
@@ -139,15 +141,15 @@ class OrgGrid extends Component {
               size='small'
               onClick={this.exportToCsv.bind(this)}
             >
-              <img  className="dwnBtn" src={Archivebutton} alt='download'></img>
+              <img  src={Archivebutton} alt='download'></img>
             </button>
             <button className='deleteBtn' onClick={() => this.viewHandler()}>
-              <i className='icon-trash'></i>
+            <img  src={deleteIcon} alt='download'></img>
             </button>
             <div className='modalHeaderOrg'>
               <OrgModal />
             </div>
-          </div>
+            </div>
         </div>
         <div
           className='ag-theme-balham'
