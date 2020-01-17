@@ -5,15 +5,25 @@ export const SENSOR_FAILURE = 'SENSOR_FAILURE'
 export const SENSOR_SUCCESS = 'SENSOR_SUCCESS'
 export const UPDATE_INFO = 'UPDATE_INFO'
 export const SENSOR_POST = 'SENSOR_POST'
-
+export const WITHOUT_HISTORY_SUCCESS = 'WITHOUT_HISTORY_SUCCESS' 
+export const UPDATE_INFO_WITHOUT_HISTORY = 'UPDATE_INFO_WITHOUT_HISTORY'
 export const SENSOR_DELETE = 'SENSOR_DELETE'
 
-export const fetchSensors = () => dispatch => {
+export const fetchSensorsWithHistory = () => dispatch => {
   dispatch({ type: SENSOR_FETCH })
   AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent`)
     .then(res => dispatch({ type: SENSOR_SUCCESS, payload: res.data }))
     .then(res => dispatch({ type: UPDATE_INFO }))
+    .catch(err => dispatch({ type: SENSOR_FAILURE, payload: err }))
+}
+
+export const fetchSensorsWithOutHistory = () => dispatch => {
+  dispatch({ type: SENSOR_FETCH })
+  AxiosWithAuth()
+    .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors`)
+    .then(res => dispatch({ type: WITHOUT_HISTORY_SUCCESS, payload: res.data }))
+    .then(res => dispatch({ type: UPDATE_INFO_WITHOUT_HISTORY }))
     .catch(err => dispatch({ type: SENSOR_FAILURE, payload: err }))
 }
 

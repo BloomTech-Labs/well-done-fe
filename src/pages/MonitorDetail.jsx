@@ -13,7 +13,7 @@ import OrganizationActivity from '../components/DashBoardComponents/Organization
 //redux
 import { deleteSensor } from '../actions/sensorActions'
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
-import { fetchSensors } from 'actions/sensorActions'
+
 
 const { Title } = Typography
 

@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import AxiosWithAuth from '../../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensors } from '../../actions/sensorActions'
+import { fetchSensorsWithHistory, fetchSensorsWithOutHistory } from '../../actions/sensorActions'
 
+
+import SensorsWithoutHistory from './SensorsWithOutHistory'
 import Legend from "./Legend"
 import StatusCards from "./StatusCards"
 import Grid from "../../components/Grid/Aggrid"
 import PercentageChart from "./PercentageChart"
 import Menu from '../../components/Menu/Menu.component'
-import Sensors from '../../components/DashBoardComponents/Sensors'
+import Sensors from './Sensors'
 import './MonitorsPage.scss'
 
 // ant design style
@@ -23,12 +25,13 @@ const MonitorsPage = (props) => {
   const [nonPumps, setNonPumps] = useState([])
 
   const sensorSelector = useSelector(state => state.sensorReducer)
-
+  
   const dispatch = useDispatch()
   console.log(props, "PROPS")
 
   useEffect(() => {
-    dispatch(fetchSensors())
+    dispatch(fetchSensorsWithHistory());
+    dispatch(fetchSensorsWithOutHistory())
   }, [])
 
   useEffect(() => {
@@ -65,6 +68,12 @@ const MonitorsPage = (props) => {
                 />
         
       </div>
+      </div>
+      <div className="sensorsWithoutHistory">
+        <SensorsWithoutHistory
+        gridInfoWithOutHistory={sensorSelector.gridInfoWithOutHistory}
+        gridInfo={sensorSelector.gridInfo}
+        />
       </div>
       <div className='sensorTable'>
       <Sensors
