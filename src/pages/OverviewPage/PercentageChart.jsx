@@ -1,5 +1,7 @@
 import React from 'react'
 import { Pie } from 'react-chartjs-2'
+import './MonitorsPage.scss'
+
 
 function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   const data = {
@@ -32,8 +34,8 @@ function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   }
   // Pie chart settings - end
   return (
-    <div>
-      <Pie data={data} options={option} />
+    <div className='pieChart'>
+      <Pie className="insidePie" data={data} options={option} />
     </div>
   )
 }

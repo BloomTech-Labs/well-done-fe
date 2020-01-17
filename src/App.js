@@ -5,6 +5,7 @@ import MonitorDetails from './pages/MonitorDetail'
 import Monitors from './pages/OverviewPage/MonitorsPage'
 import NavBar from './components/Navbar/Navbar.js'
 import SignIn from './components/SignIn/SignIn'
+import MonitorsPage from './pages/OverviewPage/MonitorsPage'
 import { useSelector, useDispatch } from 'react-redux'
 import './App.style.scss'
 
@@ -26,6 +27,8 @@ function App(props) {
 
   const [searchFiltered, setSearchFiltered] = useState([])
   const [selectedPump, setSelectedPump] = useState(null)
+
+  console.log(selectedPump)
   return (
     <div className='app-container'>
       {!!displayNav && <NavBar />}
@@ -53,13 +56,18 @@ function App(props) {
           setSelectedPump={setSelectedPump}
           page={Dashboard}
         />
+        <PrivateRoute  path='/overview' 
+        page={MonitorsPage}
+        selectedPump={selectedPump}
+        setSelectedPump={setSelectedPump}
+        />
 
         <PrivateRoute
           path='/monitorDetails'
           page={MonitorDetails}
           selectedPump={selectedPump}
         />
-        
+
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>

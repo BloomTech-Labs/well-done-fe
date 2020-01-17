@@ -1,9 +1,48 @@
-.monitorspage {
-  // width: 90%;
-  margin-left: 8rem;
-  margin-right: 2rem;
+@import 'src/colors';
+
+.monitorContainer {
+  display: flex;
+  // background: $duke;
+ 
 }
 
-.parent-div {
-  width: 90%;
+
+// .cardsContainer{
+//  display: flex;
+//  border:2px solid green;
+//  width:100%;
+// }
+
+.percentContainer{
+width:36%;
+height:500px;
+}
+
+.chartjs-render-monitor{
+ 
+//  height:300px !important;
+//  width:550px !important;
+}
+
+.statusContainer{
+  display: flex;
+}
+.monitorCard{
+  display: flex;
+  flex-direction: column;
+  border:5px solid red;
+  height:9rem;
+  text-align: center;
+  color:#fff;
+}
+
+
+.functioningCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:20rem;
+  height:15rem;
+  border:2px solid red;
 }

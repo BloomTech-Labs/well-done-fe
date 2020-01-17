@@ -22,7 +22,6 @@ export const fetchAccounts = () => dispatch => {
 }
 
 export const fetchOrgAccounts = org_id => dispatch => {
-  console.log(org_id)
   AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/org/${org_id}`)
     .then(res => dispatch({ type: ACCOUNT_SUCCESS, payload: res.data }))
@@ -40,6 +39,7 @@ export const addOp = operator => dispatch => {
 
 export const editAccount = account => dispatch => {
   const id = account.id
+  console.log(`account `,account)
 
   AxiosWithAuth()
     .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`, account)
