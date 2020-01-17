@@ -5,6 +5,7 @@ import MonitorDetails from './pages/MonitorDetail'
 import Monitors from './pages/OverviewPage/MonitorsPage'
 import NavBar from './components/Navbar/Navbar.js'
 import SignIn from './components/SignIn/SignIn'
+import MonitorsPage from './pages/OverviewPage/MonitorsPage'
 import { useSelector, useDispatch } from 'react-redux'
 import './App.style.scss'
 
@@ -54,6 +55,11 @@ function App(props) {
           selectedPump={selectedPump}
           setSelectedPump={setSelectedPump}
           page={Dashboard}
+        />
+        <PrivateRoute  path='/overview' 
+        page={MonitorsPage}
+        selectedPump={selectedPump}
+        setSelectedPump={setSelectedPump}
         />
 
         <PrivateRoute

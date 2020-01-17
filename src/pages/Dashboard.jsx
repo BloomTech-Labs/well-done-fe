@@ -166,10 +166,11 @@ const Dashboard = props => {
       </div>
       <div className='tables-container'>
         <div className='orgActPumps'>
-          <Sensors
-            gridInfo={sensorSelector.gridInfo}
+          <OrganizationActivity
+            alertInfo={historySelector.alertInfo}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
+            sensors={sensorSelector.sensors}
           />
         </div>
         {userRole === 'super_user' ? <OrgGrid /> : null}
