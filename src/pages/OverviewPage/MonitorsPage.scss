@@ -2,33 +2,47 @@
 
 .monitorContainer {
   display: flex;
-  background: $duke;
-  
+  // background: $duke;
  
 }
 
 
-.cardsContainer{
+// .cardsContainer{
+//  display: flex;
+//  border:2px solid green;
+//  width:100%;
+// }
 
-}
 .percentContainer{
 width:36%;
 height:500px;
 }
-// .insidePie{
-//   width:300%
-// }
+
 .chartjs-render-monitor{
  
- height:30rem !important;
- width:55rem !important;
+//  height:300px !important;
+//  width:550px !important;
 }
 
 .statusContainer{
   display: flex;
 }
 .monitorCard{
+  display: flex;
+  flex-direction: column;
   border:5px solid red;
+  height:9rem;
+  text-align: center;
+  color:#fff;
+}
 
-  height:2rem;
+
+.functioningCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:20rem;
+  height:15rem;
+  border:2px solid red;
 }

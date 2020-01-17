@@ -13,22 +13,35 @@ import './MonitorsPage.scss'
 function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
   return (
     <div className='statusContainer'>
-      {/* <Row gutter={[16, { xs: 8, sm: 16, md: 24, lg: 32 }]}> */}
-        {/* Monitor Reports */}
-        <Col span={6} style={{ minWidth: '270px', height:'1rem'}}>
+
+        <div className="monitorCard">
+          <div className="innerMonitorCard">
+              <h2>Monitor Reports</h2>
+              <p>{pumpData.length}</p>
+            </div>
+        </div>
+
+        <div className="functioningCard">
+            <p>Functional</p>
+            <p>{Number.parseFloat((100 * (funcPumps.length / pumpData.length))).toFixed(2)}</p>
+            <h4>{funcPumps.length}</h4>
+        </div>
+
         
-        <div className='monitorCard'>
-          <Card style={{ textAlign: 'center' }}>
+        {/* <div className='monitorCard'>
+          <Card style={{ textAlign: 'center'}}>
+            <div className='innerCard'>
             <FiEdit size={'2em'} color={'#082B84'} />
             <h2>Monitor Reports</h2>
             <Statistic title='Total Pumps' value={pumpData.length} />
+            </div>
           </Card>
-          </div>
-        </Col>
+        </div> */}
+
 
         {/* Functional */}
         {/* <Col span={6} style={{ minWidth: '270px' }}> */}
-          <Card style={{ textAlign: 'center' }}>
+          {/* <Card style={{ textAlign: 'center' }}>
             <FiCheckCircle size={'2em'} color={'#01C800'} />
             <Statistic title='Functioning Pumps' value={funcPumps.length} />
             <Statistic
@@ -37,12 +50,12 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
               precision={2}
               suffix='%'
             />
-          </Card>
+          </Card> */}
         {/* </Col> */}
 
         {/* Not Functioning */}
         {/* <Col span={6} style={{ minWidth: '270px' }}> */}
-          <Card style={{ textAlign: 'center' }}>
+          {/* <Card style={{ textAlign: 'center' }}>
             <FiAlertCircle size={'2em'} color={'#FA0707'} />
             <Statistic title='Not Functioning Pumps' value={nonPumps.length} />
             <Statistic
@@ -51,12 +64,12 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
               precision={2}
               suffix='%'
             />
-          </Card>
+          </Card> */}
         {/* </Col> */}
 
         {/* Status Unknown */}
         {/* <Col span={6} style={{ minWidth: '270px' }}> */}
-          <Card style={{ textAlign: 'center' }}>
+          {/* <Card style={{ textAlign: 'center' }}>
             <FiHelpCircle size={'2em'} color={'#FFAD34'} />
             <Statistic title='Status Uknown' value={unPumps.length} />
             <Statistic
@@ -65,7 +78,7 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
               precision={2}
               suffix='%'
             />
-          </Card>
+          </Card> */}
         {/* </Col> */}
       {/* </Row> */}
     </div>
