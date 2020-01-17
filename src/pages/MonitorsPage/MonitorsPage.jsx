@@ -5,6 +5,7 @@ import {
   fetchSensorsWithHistory,
   fetchSensorsWithOutHistory,
 } from '../../actions/sensorActions'
+import { fetchOrg } from 'actions/orgAction'
 
 import SensorsWithoutHistory from './SensorsWithOutHistory'
 import Legend from './Legend'
@@ -18,6 +19,7 @@ import './MonitorsPage.scss'
 // ant design style
 import { Row, Col, Layout } from 'antd'
 import 'antd/dist/antd.css'
+
 const { Sider, Content } = Layout
 
 const MonitorsPage = props => {
@@ -33,6 +35,7 @@ const MonitorsPage = props => {
   useEffect(() => {
     dispatch(fetchSensorsWithHistory())
     dispatch(fetchSensorsWithOutHistory())
+    dispatch(fetchOrg())
   }, [])
 
   useEffect(() => {

@@ -9,6 +9,8 @@
   margin: 1%;
   padding: 2%;
   border-radius: 8px;
+ 
+  
 
   .modalHeader {
     @include header-text;
@@ -18,6 +20,7 @@
     align-items: flex-start;
     flex-direction: column;
     margin: 2%;
+    
 
     .locInput {
       margin: 2%;
