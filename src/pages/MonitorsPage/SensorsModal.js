@@ -78,24 +78,6 @@ const PumpsModal = () => {
   const districtName = [...new Set(districtArray)]
   const communeName = [...new Set(communeArray)]
 
-  // //unique province names
-  // const villageArray = pumpsReducer.map(e => e.village_name)
-  // const villageName = [...new Set(villageArray)]
-  // console.log(villageArray)
-  // console.log(villageName)
-
-  // //unique province names
-  // const provinceArray = pumpsReducer.map(e => e.province_name)
-  // const provinceName = [...new Set(provinceArray)]
-
-  // //unique district
-  // const districtArray = pumpsReducer.map(e => e.district_name)
-  // const districtName = [...new Set(districtArray)]
-
-  // //unique commune
-  // const communeArray = pumpsReducer.map(e => e.commune_name)
-  // const communeName = [...new Set(communeArray)]
-
   const dispatch = useDispatch()
 
   //fetch pumps for dropdown menu
@@ -106,18 +88,12 @@ const PumpsModal = () => {
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
-    //dispatch(postSensor(sensor))
-    //dispatch(postPump(pump))
     dispatch(postSensorNPump(sensor, pump))
-    handleClose()
+    handleModal()
   }
 
-  const handleOpen = () => {
-    setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
+  const handleModal = () => {
+    setOpen(!open)
   }
 
   const userRole = localStorage.getItem('role')
@@ -125,7 +101,7 @@ const PumpsModal = () => {
   const modalDisplay = () => {
     if (userRole === 'super_user') {
       return (
-        <button id='addSensor' type='button' onClick={handleOpen}>
+        <button id='addSensor' type='button' onClick={handleModal}>
           <img src={add} alt='add'></img>
         </button>
       )
@@ -146,7 +122,7 @@ const PumpsModal = () => {
         aria-describedby='transition-modal-description'
         className={classes.modal}
         open={open}
-        onClose={handleClose}
+        onClose={handleModal}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -466,7 +442,7 @@ const PumpsModal = () => {
                 <button
                   className='closeBtn'
                   variant='secondary'
-                  onClick={handleClose}
+                  onClick={handleModal}
                 >
                   Close
                 </button>
