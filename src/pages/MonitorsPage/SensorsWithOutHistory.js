@@ -64,6 +64,7 @@ class SensorsWithOutHistory extends Component {
       })
     })
 
+    console.log(sensorsWOH, 'sWOH')
     return sensorsWOH
   }
 

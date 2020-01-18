@@ -6,7 +6,7 @@ import { fetchPumps } from '../../actions/pumpAction'
 import './Sensors'
 
 //will be changed to sensorsAction
-import { postSensor } from '../../actions/sensorActions'
+import { postSensor, postSensorNPump } from '../../actions/sensorActions'
 import { postPump } from '../../actions/pumpAction'
 
 //need to change for sensors
@@ -67,13 +67,13 @@ const PumpsModal = () => {
   let communeArray = []
 
   for (let i = 0; i < pumpsReducer.length; i++) {
-    villageArray.push(pumpsReducer[i].village_name)
+    // villageArray.push(pumpsReducer[i].village_name)
     provinceArray.push(pumpsReducer[i].province_name)
     districtArray.push(pumpsReducer[i].district_name)
     communeArray.push(pumpsReducer[i].commune_name)
   }
 
-  const villageName = [...new Set(villageArray)]
+  // const villageName = [...new Set(villageArray)]
   const provinceName = [...new Set(provinceArray)]
   const districtName = [...new Set(districtArray)]
   const communeName = [...new Set(communeArray)]
@@ -106,8 +106,9 @@ const PumpsModal = () => {
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
-    dispatch(postSensor(sensor))
-    dispatch(postPump(pump))
+    //dispatch(postSensor(sensor))
+    //dispatch(postPump(pump))
+    dispatch(postSensorNPump(sensor, pump))
     handleClose()
   }
 
@@ -276,7 +277,7 @@ const PumpsModal = () => {
                 )}
               />
 
-              <Autocomplete
+              {/* <Autocomplete
                 freeSolo
                 id='free-solo-2-demo'
                 disableClearable
@@ -294,7 +295,7 @@ const PumpsModal = () => {
                     InputProps={{ ...params.InputProps, type: 'search' }}
                   />
                 )}
-              />
+              /> */}
 
               <div className='senInput'>
                 <label for='labitude'>Latitude</label>

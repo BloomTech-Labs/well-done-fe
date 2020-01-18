@@ -80,7 +80,10 @@ const sensorReducer = (state = initialState, action) => {
     case SENSOR_POST: {
       return {
         ...state,
-        sensors: [...state.sensors, action.payload],
+        gridInfoWithOutHistory: [
+          ...state.gridInfoWithOutHistory,
+          action.payload,
+        ],
       }
     }
     case WITHOUT_HISTORY_SUCCESS: {
