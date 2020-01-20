@@ -15,7 +15,7 @@ const data = new Array(yLabels.length)
     new Array(xLabels.length).fill(0).map(() => Math.floor(Math.random() * 100))
   );
 
-export default HeatChart(){
+export default  function HeatChart(){
     return (
         <div style={{ fontSize = "13px"}}>
         <HeatMap
