@@ -3,12 +3,12 @@ import 'react-calendar-heatmap/dist/styles.css';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 
-import 'react-calendar-heatmap/dist/styles.css';
-import './styles.css';
+import './heatChartStyles.scss';
+
 
 const today = new Date();
 
-function App() {
+export default function HeatChart() {
   const randomValues = getRange(200).map(index => {
     return {
       date: shiftDate(today, -index),
@@ -17,8 +17,6 @@ function App() {
   });
   return (
     <div>
-      <h1>react-calendar-heatmap demos</h1>
-      <p>Random values with onClick and react-tooltip</p>
       <CalendarHeatmap
         startDate={shiftDate(today, -150)}
         endDate={today}
