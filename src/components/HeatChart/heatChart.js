@@ -1,40 +1,59 @@
 import React from 'react';
-import HeatMap from 'react-heatmap-grid';
+import 'react-calendar-heatmap/dist/styles.css';
+import CalendarHeatmap from 'react-calendar-heatmap';
+import ReactTooltip from 'react-tooltip';
 
-const xLabels = new Array(24).fill(0).map((_,i) => `${i}`);
+import 'react-calendar-heatmap/dist/styles.css';
+import './styles.css';
 
-// labels on even #'s only
-const xLabelsDisplay = new Array(24)
-.fill(0)
-.map((_,i)=>(i % 2 === 0 ? true : false));
+const today = new Date();
 
-const yLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const data = new Array(yLabels.length)
-  .fill(0)
-  .map(() =>
-    new Array(xLabels.length).fill(0).map(() => Math.floor(Math.random() * 100))
+function App() {
+  const randomValues = getRange(200).map(index => {
+    return {
+      date: shiftDate(today, -index),
+      count: getRandomInt(1, 3),
+    };
+  });
+  return (
+    <div>
+      <h1>react-calendar-heatmap demos</h1>
+      <p>Random values with onClick and react-tooltip</p>
+      <CalendarHeatmap
+        startDate={shiftDate(today, -150)}
+        endDate={today}
+        values={randomValues}
+        classForValue={value => {
+          if (!value) {
+            return 'color-empty';
+          }
+          return `color-github-${value.count}`;
+        }}
+        tooltipDataAttrs={value => {
+          return {
+            'data-tip': `${value.date.toISOString().slice(0, 10)} has count: ${
+              value.count
+            }`,
+          };
+        }}
+        showWeekdayLabels={true}
+        onClick={value => alert(`Clicked on value with count: ${value.count}`)}
+      />
+      <ReactTooltip />
+    </div>
   );
+}
 
-export default  function HeatChart(){
-    return (
-        <div style={{ fontSize = "13px"}}>
-        <HeatMap
-        xLabels={xLabels}
-        yLabels={yLabels}
-        xLabelsLocation={"bottom"}
-        xLabelsVisibility={xLabelsVisibility}
-        xLabelWidth={60}
-        data={data}
-        squares
-        onClick={(x,y)=>alert(`Clicked ${x},${y}`)}
-        cellStyle={(background, value, min, max, data, x, y) => ({
-            background: `rgb(0, 151, 230, ${1 - (max - value) / (max - min)})`,
-            fontSize: "11.5px",
-            color: "#000"
-          })}
-          cellRender={value => value && `${value}%`}
-          title={(value, unit, index) => value && `${value}% - ${xLabels[index]}`}
-        />
-        </div>
-    )
+function shiftDate(date, numDays) {
+  const newDate = new Date(date);
+  newDate.setDate(newDate.getDate() + numDays);
+  return newDate;
+}
+
+function getRange(count) {
+  return Array.from({ length: count }, (_, i) => i);
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }

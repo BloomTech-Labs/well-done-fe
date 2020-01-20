@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AxiosWithAuth from '../../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../../actions/sensorActions'
-
+import HeatChart from '../../components/HeatChart/heatChart'
 import Legend from "./Legend"
 import StatusCards from "./StatusCards"
 import Grid from "../../components/Grid/Aggrid"
@@ -44,6 +44,9 @@ const MonitorsPage = (props) => {
 
   return ( 
     <>
+    <div className= 'heatChartContainer'>
+    <HeatChart/>
+    </div>
     <div className='monitorContainer'>
          <div className='percentContainer'>
               <PercentageChart
