@@ -13,7 +13,7 @@ export default function HeatChart() {
     const randomValues = getRange(200).map(index => {
     return {
       date: shiftDate(today, -index),
-      count: getRandomInt(1, 3),
+      count: getRandomInt(1,3),
     };
   });
   return (
