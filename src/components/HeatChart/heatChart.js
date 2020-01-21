@@ -9,7 +9,8 @@ import './heatChartStyles.scss';
 const today = new Date();
 
 export default function HeatChart() {
-  const randomValues = getRange(200).map(index => {
+//   this is generating values TODO pull in values (1,2,3 from history)
+    const randomValues = getRange(200).map(index => {
     return {
       date: shiftDate(today, -index),
       count: getRandomInt(1, 3),
@@ -18,9 +19,11 @@ export default function HeatChart() {
   return (
     <div>
       <CalendarHeatmap
-        startDate={shiftDate(today, -150)}
+        startDate={shiftDate(today, -200)}
         endDate={today}
+        
         values={randomValues}
+
         classForValue={value => {
           if (!value) {
             return 'color-empty';
