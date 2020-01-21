@@ -10,6 +10,7 @@ import CustomDateComponent from '../../components/Filter/CustomDateCompnent'
 import gridOptionss from '../../components/Grid/Pagination'
 import ViewButton from '../../components/DashBoardComponents/ViewButton'
 import './Sensors.style.scss'
+import RadioButtons from './RadioButtons'
 
 import TrashCan from './TrashCan'
 
@@ -24,12 +25,13 @@ import { deleteSensor } from '../../actions/sensorActions'
 import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
 
-class pumps extends Component {
+class Sensors extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       displayView: 0,
+      radioButtons: false,
       columnDefs: [
         {
           headerName: 'Sensor ID',
@@ -214,20 +216,6 @@ class pumps extends Component {
     //  }
   }
 
-  onQuickFilterByStatus(){
-    gridOptionss.api.setQuickFilter(document.getElementById('radio').value)
-
-  }
-
-  onQuickFilterByStatus1(){
-    gridOptionss.api.setQuickFilter(document.getElementById('radio1').value)
-  }
-
-  onQuickFilterByStatus2(){
-    gridOptionss.api.setQuickFilter(document.getElementById('radio2').value)
-  }
-  
-
   exportToCsv = function() {
     var params = {
       skipHeader: false,
@@ -262,54 +250,18 @@ class pumps extends Component {
               id='dateCal'
             />
           </div>
-          <div className='radioButtons'>
-            <input
-              type='radio'
-              name='status'
-              onChange={this.onQuickFilterByStatus}
-              value="Functioning"
-              id='radio'
-              checked={this.state.checked}
-              /> Functioning
-              <input
-              type='radio'
-              name='status'
-              onChange={this.onQuickFilterByStatus1}
-              value="Out-of-Service"
-              id='radio1'
-             
-              /> Out-of-Service
-              <input
-              type='radio'
-              name='status'
-              onChange={this.onQuickFilterByStatus2}
-              value="Unknown"
-              id='radio2'
-             
-              />Unknown
-          </div>
-          <div>
-          {/* <form>
-        <div className="radio">
-          <label>
-            <input type="radio" value="Functioning" id='radio' />
-            Option 1
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="Out-of-Service" id='radio'/>
-            Option 2
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="Unknown" id='radio'/>
-            Option 3
-          </label>
-        </div>
-      </form> */}
-          </div>
+
+          <button
+            onClick={() =>
+              this.state.radioButtons === false
+                ? this.setState({ radioButtons: true })
+                : this.setState({ radioButtons: false })
+            }
+          >
+            CLICK HERE
+          </button>
+          {this.state.radioButtons === true ? <RadioButtons /> : null}
+
           <div className='headerBtns'>
             <button
               className='downloadButton'
@@ -355,9 +307,9 @@ class pumps extends Component {
     )
   }
 }
-// export default pumps
+// export default Sensors
 const mapStateToProps = state => {
   return {}
 }
 
-export default connect(mapStateToProps, { deleteSensor })(withRouter(pumps))
+export default connect(mapStateToProps, { deleteSensor })(withRouter(Sensors))
