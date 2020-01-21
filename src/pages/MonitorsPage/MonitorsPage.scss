@@ -4,7 +4,7 @@
   display: flex;
   padding-top: 5rem;
   background: $duke;
-  height: 40vh;
+  height: 35rem;
 }
 
 
@@ -49,15 +49,21 @@ width:33%;
   line-height: 10px;
   font-size: 1.8rem;
   border-radius: 6px;
+  font-weight: bold;
+
 
 
   h2{
      font-size: 1.8rem;
      line-height: 18px;
+     font-weight: bold;
+
    }
   p{
     color: black;
     line-height: 18px;
+    font-weight: bold;
+
 
     }
   
@@ -76,7 +82,7 @@ width:33%;
   color:#fff;
   font-size: 1.5rem;
   font-weight: bold;
-  line-height: 10px;
+  line-height: 8px;
   padding:20px;
   border-radius: 6px;
 
@@ -84,7 +90,7 @@ width:33%;
  h4{
     color:#fff;
     font-size: 1.6rem;
-    line-height: 16px;
+    line-height: 8px;
 }
 
 
@@ -102,7 +108,7 @@ width:33%;
   color:#fff;
   font-size: 1.5rem;
   font-weight: bold;
-  line-height: 10px;
+  line-height: 8px;
   border-radius: 6px;
 
 
@@ -111,7 +117,7 @@ width:33%;
   h4{
     color:#fff;
     font-size: 1.6rem;
-    line-height: 16px;
+    line-height: 8px;
 
   }
 
@@ -130,7 +136,7 @@ width:33%;
   color:#fff;
   font-size: 1.5rem;
   font-weight: bold;
-  line-height: 10px;
+  line-height: 8px;
   border-radius: 6px;
 
 
@@ -138,6 +144,7 @@ width:33%;
   h4{
     color:#fff;
     font-size: 16px;
+    line-height: 8px;
 
   }
 
