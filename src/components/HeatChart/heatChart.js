@@ -8,18 +8,20 @@ import './heatChartStyles.scss';
 
 const today = new Date();
 
-export default function HeatChart() {
-//   this is generating values TODO pull in values (1,2,3 from history)
-    const randomValues = getRange(200).map(index => {
+export default function HeatChart(props) {
+//   this is generating values TODO pull in values (1,2 or 3 from history)
+    const randomValues = getRange(360).map(index => {
+      // console.log(today);
     return {
       date: shiftDate(today, -index),
       count: getRandomInt(1,3),
+    
     };
   });
   return (
-    <div>
+    <div className='calendarBox'>
       <CalendarHeatmap
-        startDate={shiftDate(today, -200)}
+        startDate={shiftDate(today, -360)}
         endDate={today}
         
         values={randomValues}

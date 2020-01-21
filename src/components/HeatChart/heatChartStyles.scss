@@ -1,8 +1,14 @@
 @import "src/colors";
-
+.calandarBox{
+  background-color: $duke;
+}
+.react-calendar-heatmap{
+  height: fit-content;
+}
  .react-calendar-heatmap text {
     font-size: 10px;
-    fill: #aaa;
+    fill: white;
+    
   }
   
   .react-calendar-heatmap .react-calendar-heatmap-small-text {
