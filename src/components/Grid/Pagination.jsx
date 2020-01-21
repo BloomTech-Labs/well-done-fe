@@ -1,6 +1,6 @@
 const gridOptionss = {
   rowHeight: 40,
-  sideBar:'filter',
+  sideBar:true,
 }
 
 export default gridOptionss
