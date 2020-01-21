@@ -14,7 +14,6 @@ import OrganizationActivity from '../components/DashBoardComponents/Organization
 import { deleteSensor } from '../actions/sensorActions'
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
 
-
 const { Title } = Typography
 
 const MonitorDetails = props => {
@@ -36,6 +35,8 @@ const MonitorDetails = props => {
     dispatch(fetchHistoryById(selectedSensor))
     dispatch(fetchSensorById(selectedSensor))
   }, [])
+
+  console.log(historySelector.individualSensorHistory)
 
   const padHistory = historySelector.individualSensorHistory
 

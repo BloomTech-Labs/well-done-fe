@@ -12,6 +12,7 @@ import './App.style.scss'
 import Settings from './pages/Settings/Settings'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from './components/PrivateRoute.jsx'
+import Admin from './pages/Admin/Admin'
 
 function App(props) {
   const dispatch = useDispatch()
@@ -56,10 +57,11 @@ function App(props) {
           setSelectedPump={setSelectedPump}
           page={Dashboard}
         />
-        <PrivateRoute  path='/overview' 
-        page={MonitorsPage}
-        selectedPump={selectedPump}
-        setSelectedPump={setSelectedPump}
+        <PrivateRoute
+          path='/overview'
+          page={MonitorsPage}
+          selectedPump={selectedPump}
+          setSelectedPump={setSelectedPump}
         />
 
         <PrivateRoute
@@ -69,6 +71,7 @@ function App(props) {
         />
 
         <PrivateRoute path='/overview' page={Monitors} />
+        <PrivateRoute path='/admin' page={Admin} />
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>
     </div>
