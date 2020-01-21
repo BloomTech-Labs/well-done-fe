@@ -202,8 +202,6 @@ class pumps extends Component {
     let dateInput = moment(document.getElementById('dateCal').value).format(
       'MM/DD/YYYY'
     )
-  
-  
     console.log(dateInput, 'Value')
     return gridOptionss.api.setQuickFilter(
       dateInput === 'Invalid date' ? '' : dateInput

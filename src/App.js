@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import MonitorDetails from './pages/MonitorDetail'
-import Monitors from './pages/OverviewPage/MonitorsPage'
+import Monitors from './pages/MonitorsPage/MonitorsPage'
 import NavBar from './components/Navbar/Navbar.js'
 import SignIn from './components/SignIn/SignIn'
-import MonitorsPage from './pages/OverviewPage/MonitorsPage'
+import MonitorsPage from './pages/MonitorsPage/MonitorsPage'
 import { useSelector, useDispatch } from 'react-redux'
 import './App.style.scss'
 
 import Settings from './pages/Settings/Settings'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from './components/PrivateRoute.jsx'
+import Admin from './pages/Admin/Admin'
 
 function App(props) {
   const dispatch = useDispatch()
@@ -56,10 +57,11 @@ function App(props) {
           setSelectedPump={setSelectedPump}
           page={Dashboard}
         />
-        <PrivateRoute  path='/overview' 
-        page={MonitorsPage}
-        selectedPump={selectedPump}
-        setSelectedPump={setSelectedPump}
+        <PrivateRoute
+          path='/overview'
+          page={MonitorsPage}
+          selectedPump={selectedPump}
+          setSelectedPump={setSelectedPump}
         />
 
         <PrivateRoute
@@ -69,6 +71,7 @@ function App(props) {
         />
 
         <PrivateRoute path='/overview' page={Monitors} />
+        <PrivateRoute path='/admin' page={Admin} />
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>
     </div>

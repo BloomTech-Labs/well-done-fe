@@ -13,7 +13,6 @@ import OrganizationActivity from '../components/DashBoardComponents/Organization
 //redux
 import { deleteSensor } from '../actions/sensorActions'
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
-import { fetchSensors } from 'actions/sensorActions'
 
 const { Title } = Typography
 
@@ -36,6 +35,8 @@ const MonitorDetails = props => {
     dispatch(fetchHistoryById(selectedSensor))
     dispatch(fetchSensorById(selectedSensor))
   }, [])
+
+  console.log(historySelector.individualSensorHistory)
 
   const padHistory = historySelector.individualSensorHistory
 
