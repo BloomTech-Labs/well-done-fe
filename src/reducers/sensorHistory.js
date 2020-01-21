@@ -5,6 +5,7 @@ import {
   HISTORY_SUCCESS,
   HISTORY_FAILURE,
   CHECK_DATE,
+  COMPARE_DATE,
 
 } from '../actions/sensorHistory'
 

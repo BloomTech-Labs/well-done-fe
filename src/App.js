@@ -8,7 +8,7 @@ import SignIn from './components/SignIn/SignIn'
 import MonitorsPage from './pages/OverviewPage/MonitorsPage'
 import { useSelector, useDispatch } from 'react-redux'
 import './App.style.scss'
-
+import {fetchSensors} from 'actions/sensorActions'
 import Settings from './pages/Settings/Settings'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from './components/PrivateRoute.jsx'
@@ -16,6 +16,7 @@ import PrivateRoute from './components/PrivateRoute.jsx'
 function App(props) {
   const dispatch = useDispatch()
   const displayNav = useSelector(state => state.navShow)
+
   useEffect(() => {
     if (window.location.pathname !== '/') {
       dispatch({
@@ -27,6 +28,8 @@ function App(props) {
 
   const [searchFiltered, setSearchFiltered] = useState([])
   const [selectedPump, setSelectedPump] = useState(null)
+
+
   return (
     <div className='app-container'>
       {!!displayNav && <NavBar />}
@@ -58,6 +61,7 @@ function App(props) {
         page={MonitorsPage}
         selectedPump={selectedPump}
         setSelectedPump={setSelectedPump}
+        // gridInfo={sensorReducer.gridInfo}
         />
 
         <PrivateRoute

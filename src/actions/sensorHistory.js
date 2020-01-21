@@ -5,6 +5,7 @@ export const HISTORY_SUCCESS = 'HISTORY_SUCCESS'
 export const HISTORY_FAILURE = 'HISTORY_FAILURE'
 export const CHECK_DATE = 'CHECK_DATE'
 
+
 export const fetchHistory = () => dispatch => {
   dispatch({
     type: HISTORY_FETCH,

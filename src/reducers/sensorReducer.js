@@ -46,6 +46,7 @@ const sensorReducer = (state = initialState, action) => {
             console.log(e)
             return e
           }
+          return false
         }),
       }
     case UPDATE_INFO: {

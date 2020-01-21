@@ -23,15 +23,15 @@ import { deleteSensor } from '../../actions/sensorActions'
 
 import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
+import { date } from 'yup'
 
 class pumps extends Component {
   constructor(props) {
     super(props)
 
-   
-
       this.state = {
-      displayView: 0,     
+      displayView: 0,   
+      datesUpdate: '',  
       columnDefs: [
         {
           headerName: 'Sensor ID',
@@ -140,14 +140,23 @@ class pumps extends Component {
         },
    
       ],
-      // frameworkComponents: { agDateInput: CustomDateComponent },
-      defaultColDef: { filter: true },
-      sideBar: "filters",
+      frameworkComponents: { agDateInput: CustomDateComponent },
+ 
     }
   }
 
-  // process.env.REACT_APP_HEROKU_API}
-  componentDidMount = () => {}
+     
+   
+  componentDidMount=()=> {
+
+    // let gridInfoDate = this.props.gridInfo
+    // console.log(gridInfoDate, 'CDM')
+  }
+  
+  componentDidUpdate = () => {
+    // let dateUpdate = this.props.sensors
+    console.log('this is the sensors', this.props.sensors)
+    }
 
   onGridReady = params => {
     this.gridApi = params.api
@@ -204,17 +213,96 @@ class pumps extends Component {
       document.getElementById('quickFilter').value
     )
   }
-  onQuickFilterByCal() {
-    let dateInput = moment(document.getElementById('dateCal').value).format('MM/DD/YYYY');
-    console.log(dateInput,'Value')
-    return gridOptionss.api.setQuickFilter(dateInput === 'Invalid date' ? '' : dateInput)
 
-    // if(dateInput === 'Invalid date'){
+
+  // onQuickFilterByCal() {
+
+  //   let startDate = moment(document.getElementById('dateCal').value).format('MM/DD/YYYY');
+  //   let endDate = moment(document.getElementById('compCal').value).format('MM/DD/YYYY');
+  //   console.log(this.dateUpdate,'quickFilterCal')
+    
+    // if(startDate && endDate !== 'Invalid date'){
+      
+      // this.gridInfoDate.filter(date=> {
+      //   let  compareDate = moment(date.created_at).format('MM/DD/YYYY')
+  
+      //   if(compareDate.isBetween(startDate, endDate)){
+
+      //     return date
+      //   }else{
+      //     return false
+      //   }
+      // })
+    // }
+
+ 
+
+    // return gridOptionss.api.setQuickFilter(dateTogetherStart)
+  // }
+
+//   onQuickFilterByCal() {
+//     let startDate = moment(document.getElementById('dateCal').value).format('MM/DD/YYYY');
+//     let endDate = moment(document.getElementById('compCal').value).format('MM/DD/YYYY');
+
+//     let startSplit = startDate.split("/");
+//     let day = startSplit[0]
+//     let month = startSplit[1]
+//     let year = startSplit[2]
+    
+//     let endSplit = endDate.split("/");
+//     let dayEnd = endSplit[0]
+//     let monthEnd = endSplit[1]
+//     let yearEnd = endSplit[2]
+    
+//     let dateNumberStart = Number(`${day}${month}${year}`)  
+//     let dateNumberEnd = Number(`${dayEnd}${monthEnd}${yearEnd}`)
+
+//     let dateTogetherStart = `${day}/${month}/${year}`  
+//     let dateTogetherEnd =`${dayEnd}/${monthEnd}/${yearEnd}`
+
+    
+//     if(dateNumberStart > dateNumberEnd){
+//       let greater = (dateNumberStart + dateNumberEnd)
+//        console.log(greater,'greater')
+//       //  return gridOptionss.api.setQuickFilter(greater)
+//      }
+    
+
+
+//     if(dateTogetherStart === 'Invalid date/undefined/undefined'){
+//       console.log(dateTogetherStart,'Start')
+//       return gridOptionss.api.setQuickFilter('')
+//     }else{
+//       return gridOptionss.api.setQuickFilter(dateTogetherStart)
+//   }
+// }
+
+
+
+
+  //  else if((dateNumberStart + dateNumberEnd) >= dateNumberEnd){
+  //     return gridOptionss.api.setQuickFilter(dateTogetherStart + dateTogetherEnd)
+  //   }
+
+    // return gridOptionss.api.setQuickFilter(dateTogetherStart === 'Invalid date/undefined/undefined' ? '' : dateTogetherStart)
+
+
+
+    // if(startDate && endDate === 'Invalid date'){
     //   return gridOptionss.api.setQuickFilter('')
-    // }else{
-    //   return gridOptionss.api.setQuickFilter(dateInput)
-    //  }
-  }
+    // }else if(startDate >= endDate){
+    //   return gridOptionss.api.setQuickFilter(startDate + endDate)
+    // }
+
+  // }
+
+
+  // onQuickFilterCalCompare() {
+  //   let endDate = (document.getElementById('compCal').value);
+  //   console.log(endDate,'Value')
+  //   return gridOptionss.api.setQuickFilter(endDate === 'Invalid date' ? '' : endDate)
+  // }
+
 
   
 
@@ -250,6 +338,13 @@ class pumps extends Component {
               type='date'
               onChange={this.onQuickFilterByCal}
               id='dateCal'
+              />
+          </div>
+          <div className="calContainerComp">
+            <input
+              type='date'
+              onChange={this.onQuickFilterByCal}
+              id='compCal'
               />
           </div>
           <div className='headerBtns'>
