@@ -4,14 +4,14 @@ import Map from '../components/Map/Map.component'
 import Search from '../components/Search/Search.component'
 import Filter from '../components/Filter/Filter.component'
 import IconsFilter from '../components/Filter/IconFilters'
-import Sensors from '../components/DashBoardComponents/Sensors'
+import Sensors from './MonitorsPage/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensors, fetchSensorsByOrgId } from '../actions/sensorActions'
+import { fetchSensorsWithHistory, fetchSensorsByOrgId } from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
 import OrgGrid from 'components/DashBoardComponents/orgGrid/orgGrid'
-import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
-import Testing from '../components/DashBoardComponents/Sensors'
-import AccountGrid from '../components/Grid/AccountGrid'
+
+import Testing from './MonitorsPage/Sensors'
+import AccountGrid from '../components/Grid/accountGrid/AccountGrid'
 import Banner from './Banner'
 import StaticMenu from '../components/Menu/StaticMenu.js'
 import Menu from '../components/Menu/Menu.component'
@@ -60,7 +60,7 @@ const Dashboard = props => {
   })
   useEffect(() => {
     if (userRole === 'super_user') {
-      dispatch(fetchSensors())
+      dispatch(fetchSensorsWithHistory())
     } else {
       dispatch(fetchSensorsByOrgId(orgId))
     }
@@ -122,6 +122,8 @@ const Dashboard = props => {
     return <div>loading...</div>
   }
 
+  console.log(sensorSelector.sensors)
+
   return (
     <div className='dashboard'>
       <Menu />
@@ -164,17 +166,11 @@ const Dashboard = props => {
       </div>
       <div className='tables-container'>
         <div className='orgActPumps'>
-          <OrganizationActivity
+          {/* <OrganizationActivity
             alertInfo={historySelector.alertInfo}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
             sensors={sensorSelector.sensors}
-          />
-
-          {/* <Sensors
-            gridInfo={sensorSelector.gridInfo}
-            selectedPump={props.selectedPump}
-            setSelectedPump={props.setSelectedPump}
           /> */}
         </div>
         {userRole === 'super_user' ? <OrgGrid /> : null}

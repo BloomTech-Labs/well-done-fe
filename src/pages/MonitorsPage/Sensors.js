@@ -6,8 +6,8 @@ import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 
-import gridOptionss from '../Grid/Pagination'
-import ViewButton from './ViewButton'
+import gridOptionss from '../../components/Grid/Pagination'
+import ViewButton from '../../components/DashBoardComponents/ViewButton'
 import './Sensors.style.scss'
 
 import TrashCan from './TrashCan'
@@ -382,6 +382,7 @@ class pumps extends Component {
               onGridSizeChanged={this.onGridSizeChanged}
               onGridReady={this.onGridReady}
               floatingFilter={true}
+              sideBar={this.state.sideBar}
             />
           </div>
         </div>

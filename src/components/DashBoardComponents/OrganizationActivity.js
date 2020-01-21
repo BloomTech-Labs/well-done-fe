@@ -7,6 +7,30 @@ import './OrganizationActivity.style.scss'
 import { stat } from 'fs'
 
 const OrganizationActivity = props => {
+  let sensorHistory = props.individualSensorHistory
+
+  let statusChanges = []
+
+  for (let i = 1; i < sensorHistory.length; i++) {
+    if (sensorHistory[i].status !== sensorHistory[i - 1].status) {
+      statusChanges = [
+        ...statusChanges,
+        {
+          ...sensorHistory[i],
+          date2: sensorHistory[i - 1].created_at,
+          status2: sensorHistory[i - 1].status,
+        },
+      ]
+    }
+  }
+
+  if (
+    sensorHistory.length === 0 ||
+    !sensorHistory[sensorHistory.length - 1].status
+  ) {
+    return <div>Loading</div>
+  }
+
   //Getting and formatting dates for last seven days
   // let week = []
   // let count = 0
@@ -71,30 +95,30 @@ const OrganizationActivity = props => {
   //     console.log(today)
   //     console.log(yesterday, 'yesterday')
 
-  //     today = today.sort(function(a, b) {
-  //       if (a.sensor_id < b.sensor_id) {
-  //         return -1
-  //       } else {
-  //         return 0
-  //       }
-  //     })
+  // today = today.sort(function(a, b) {
+  //   if (a.sensor_id < b.sensor_id) {
+  //     return -1
+  //   } else {
+  //     return 0
+  //   }
+  // })
 
-  //     yesterday = yesterday.sort(function(a, b) {
-  //       if (a.sensor_id < b.sensor_id) {
-  //         return -1
-  //       } else {
-  //         return 0
-  //       }
-  //     })
+  // yesterday = yesterday.sort(function(a, b) {
+  //   if (a.sensor_id < b.sensor_id) {
+  //     return -1
+  //   } else {
+  //     return 0
+  //   }
+  // })
 
-  //     for (let c = 0; c < today.length; c++) {
-  //       if (
-  //         today[c].status !== yesterday[c].status &&
-  //         today[c].sensor_id === yesterday[c].sensor_id
-  //       ) {
-  //         arr = [...arr, today[c], yesterday[c]]
-  //       }
-  //     }
+  // for (let c = 0; c < today.length; c++) {
+  //   if (
+  //     today[c].status !== yesterday[c].status &&
+  //     today[c].sensor_id === yesterday[c].sensor_id
+  //   ) {
+  //     arr = [...arr, today[c], yesterday[c]]
+  //   }
+  // }
 
   //     return arr
   //   }
@@ -139,111 +163,93 @@ const OrganizationActivity = props => {
   //   filteredArray = [...filteredArray, filtered]
   // }
 
-  // if (props.alertInfo.length === 0) {
-  //   return <div>Loading</div>
-  // }
-
   return (
     <div className='orgActivityChart'>
-      {/* <div className='orgActivityHeader'>
+      <div className='orgActivityHeader'>
         <div className='orgActivityHeaderName'>
-          <h1>Organization Activity</h1>
+          <h1>Sensor Activity</h1>
         </div>
       </div>
       <div className='orgActivityContainer'>
-        {filteredArray.map(item => {
-          return item.map((items, index) => {
-            if (items.status === 2) {
-              let currentStatus = '🟢'
-              if (items.status2 === 1) {
-                let prevStatus = '🟡'
-                return (
-                  <OrganizationActivityCard
-                    selectedPump={props.selectedPump}
-                    setSelectedPump={props.setSelectedPump}
-                    sensors={props.sensors}
-                    index={index}
-                    items={items}
-                    currentStatus={currentStatus}
-                    prevStatus={prevStatus}
-                  />
-                )
-              } else if (items.status2 === null) {
-                let prevStatus = '🔴'
-                return (
-                  <OrganizationActivityCard
-                    selectedPump={props.selectedPump}
-                    setSelectedPump={props.setSelectedPump}
-                    sensors={props.sensors}
-                    index={index}
-                    items={items}
-                    currentStatus={currentStatus}
-                    prevStatus={prevStatus}
-                  />
-                )
-              }
-            } else if (items.status === 1) {
-              let currentStatus = '🟡'
-              if (items.status2 === 2) {
-                let prevStatus = '🟢'
-                return (
-                  <OrganizationActivityCard
-                    selectedPump={props.selectedPump}
-                    setSelectedPump={props.setSelectedPump}
-                    sensors={props.sensors}
-                    index={index}
-                    items={items}
-                    currentStatus={currentStatus}
-                    prevStatus={prevStatus}
-                  />
-                )
-              } else if (items.status2 === null) {
-                let prevStatus = '🔴'
-                return (
-                  <OrganizationActivityCard
-                    selectedPump={props.selectedPump}
-                    setSelectedPump={props.setSelectedPump}
-                    sensors={props.sensors}
-                    index={index}
-                    items={items}
-                    currentStatus={currentStatus}
-                    prevStatus={prevStatus}
-                  />
-                )
-              }
-            } else if (items.status === null) {
-              let currentStatus = '🔴'
-              if (items.status2 === 2) {
-                let prevStatus = '🟢'
-                return (
-                  <OrganizationActivityCard
-                    selectedPump={props.selectedPump}
-                    setSelectedPump={props.setSelectedPump}
-                    sensors={props.sensors}
-                    index={index}
-                    items={items}
-                    currentStatus={currentStatus}
-                    prevStatus={prevStatus}
-                  />
-                )
-              } else if (items.status2 === 1) {
-                let prevStatus = '🟡'
-                return (
-                  <OrganizationActivityCard
-                    selectedPump={props.selectedPump}
-                    setSelectedPump={props.setSelectedPump}
-                    sensors={props.sensors}
-                    index={index}
-                    items={items}
-                    currentStatus={currentStatus}
-                    prevStatus={prevStatus}
-                  />
-                )
-              }
+        {statusChanges.map((item, index) => {
+          if (item.status === 2) {
+            let currentStatus = '🟢'
+            if (item.status2 === 1) {
+              let prevStatus = '🟡'
+              return (
+                <OrganizationActivityCard
+                  index={index}
+                  item={item}
+                  currentStatus={currentStatus}
+                  prevStatus={prevStatus}
+                  individualSensor={props.individualSensor}
+                />
+              )
+            } else if (item.status2 === null) {
+              let prevStatus = '🔴'
+              return (
+                <OrganizationActivityCard
+                  index={index}
+                  item={item}
+                  currentStatus={currentStatus}
+                  prevStatus={prevStatus}
+                  individualSensor={props.individualSensor}
+                />
+              )
             }
-          })
+          } else if (item.status === 1) {
+            let currentStatus = '🟡'
+            if (item.status2 === 2) {
+              let prevStatus = '🟢'
+              return (
+                <OrganizationActivityCard
+                  index={index}
+                  item={item}
+                  currentStatus={currentStatus}
+                  prevStatus={prevStatus}
+                  individualSensor={props.individualSensor}
+                />
+              )
+            } else if (item.status2 === null) {
+              let prevStatus = '🔴'
+              return (
+                <OrganizationActivityCard
+                  index={index}
+                  item={item}
+                  currentStatus={currentStatus}
+                  prevStatus={prevStatus}
+                  individualSensor={props.individualSensor}
+                />
+              )
+            }
+          } else if (item.status === null) {
+            let currentStatus = '🔴'
+            if (item.status2 === 2) {
+              let prevStatus = '🟢'
+              return (
+                <OrganizationActivityCard
+                  index={index}
+                  item={item}
+                  currentStatus={currentStatus}
+                  prevStatus={prevStatus}
+                  individualSensor={props.individualSensor}
+                />
+              )
+            } else if (item.status2 === 1) {
+              let prevStatus = '🟡'
+              return (
+                <OrganizationActivityCard
+                  index={index}
+                  item={item}
+                  currentStatus={currentStatus}
+                  prevStatus={prevStatus}
+                  individualSensor={props.individualSensor}
+                />
+              )
+            }
+          }
         })}
-      </div> */}
+      </div>
     </div>
   )
 }

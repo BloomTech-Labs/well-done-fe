@@ -3,11 +3,67 @@
 .modal{
 width:50%;
 }
-.orgInfoBody{
-    background-color: $navy;
+.orgProfBody{
+    background: $oxford;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0%;
+    padding: 2%;
+    padding-left: 6%;
+    border-radius: 8px;
+    width:max-content;
+    .gridBody{
+        background-color: whitesmoke;
+    }
+}
+.orgProfCon{    
+    display: flex;
+    flex-direction: column;
+    .ceoPic{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 17%;
+        margin-right: 3%;
+        background-color: white;
+    }
+    .infoBox{
+        display:flex;
+        flex-direction: column;
+        color:white;
+        h2{
+            color:white;
+        }
+        h3{
+            color:white;
+        }
+        h4{
+            color:white;
+        }
+    }
+    .contactInfo{
+        display:flex;
+        flex-direction: column;
+        color:white;
+        h4{
+            color:white;
+        }
+    }
+    .closeBtn{
+        display: flex;
+        height: auto;
+        margin-bottom: 45%;
     
 
-    h2{
-        color:white;
+        button{
+        border: none;
+        background: none;
+        font-size: medium;
+        color: white;
+        margin-right: 6%;
+        font-weight: 700;
+        }
     }
 }
