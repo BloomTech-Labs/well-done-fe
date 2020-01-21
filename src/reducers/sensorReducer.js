@@ -58,7 +58,7 @@ const sensorReducer = (state = initialState, action) => {
           if (item.status === null) {
             return {
               ...item,
-              status: 'N/A',
+              status: 'Unknown',
               created_at: moment(item.created_at).format('MM/DD/YYYY'),
             }
           } else if (item.status === 2) {
@@ -70,7 +70,7 @@ const sensorReducer = (state = initialState, action) => {
           } else if (item.status === 1) {
             return {
               ...item,
-              status: 'Non-Functioning',
+              status: 'Out-of-Service',
               created_at: moment(item.created_at).format('MM/DD/YYYY'),
             }
           }

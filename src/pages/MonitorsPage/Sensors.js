@@ -215,8 +215,18 @@ class pumps extends Component {
   }
 
   onQuickFilterByStatus(){
-    let statusRaido = moment(document.getElementById('radio').value).format()
+    gridOptionss.api.setQuickFilter(document.getElementById('radio').value)
+
   }
+
+  onQuickFilterByStatus1(){
+    gridOptionss.api.setQuickFilter(document.getElementById('radio1').value)
+  }
+
+  onQuickFilterByStatus2(){
+    gridOptionss.api.setQuickFilter(document.getElementById('radio2').value)
+  }
+  
 
   exportToCsv = function() {
     var params = {
@@ -251,6 +261,54 @@ class pumps extends Component {
               onChange={this.onQuickFilterByCal}
               id='dateCal'
             />
+          </div>
+          <div className='radioButtons'>
+            <input
+              type='radio'
+              name='status'
+              onChange={this.onQuickFilterByStatus}
+              value="Functioning"
+              id='radio'
+              checked={this.state.checked}
+              /> Functioning
+              <input
+              type='radio'
+              name='status'
+              onChange={this.onQuickFilterByStatus1}
+              value="Out-of-Service"
+              id='radio1'
+             
+              /> Out-of-Service
+              <input
+              type='radio'
+              name='status'
+              onChange={this.onQuickFilterByStatus2}
+              value="Unknown"
+              id='radio2'
+             
+              />Unknown
+          </div>
+          <div>
+          {/* <form>
+        <div className="radio">
+          <label>
+            <input type="radio" value="Functioning" id='radio' />
+            Option 1
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" value="Out-of-Service" id='radio'/>
+            Option 2
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input type="radio" value="Unknown" id='radio'/>
+            Option 3
+          </label>
+        </div>
+      </form> */}
           </div>
           <div className='headerBtns'>
             <button

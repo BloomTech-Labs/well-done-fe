@@ -7,7 +7,6 @@ import {
 } from '../../actions/sensorActions'
 import { fetchOrg } from 'actions/orgAction'
 
-import SensorsWithoutHistory from './SensorsWithOutHistory'
 import Legend from './Legend'
 import StatusCards from './StatusCards'
 import Grid from '../../components/Grid/Aggrid'
@@ -71,12 +70,6 @@ const MonitorsPage = props => {
             nonPumps={nonPumps}
           />
         </div>
-      </div>
-      <div className='sensorsWithoutHistory'>
-        <SensorsWithoutHistory
-          gridInfoWithOutHistory={sensorSelector.gridInfoWithOutHistory}
-          gridInfo={sensorSelector.gridInfo}
-        />
       </div>
       <div className='sensorTable'>
         <Sensors
