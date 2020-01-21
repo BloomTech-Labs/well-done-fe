@@ -2,40 +2,66 @@
 
 .monitorContainer {
   display: flex;
-  // background: $duke;
- 
+  padding-top: 5rem;
+  background: $duke;
+  height: 40vh;
 }
 
 
-// .cardsContainer{
-//  display: flex;
-//  border:2px solid green;
-//  width:100%;
-// }
+ .cardsContainer{
+  display: flex;
+  width: 63%;
+  height: 35vh;
+
+ }
 
 .percentContainer{
-width:36%;
-height:500px;
+width:33%;
+// height:50px;
 }
 
-.chartjs-render-monitor{
+// .chartjs-render-monitor{
  
-//  height:300px !important;
-//  width:550px !important;
-}
+//  width:80% !important;
+// }
+.pieChart{
+  width:100%;
 
+}
 .statusContainer{
   display: flex;
+  // justify-content: space-between;
+  width:90%;
+  align-items: center;
+  padding-bottom: 2rem;
+
 }
 .monitorCard{
   display: flex;
   flex-direction: column;
-  border:5px solid red;
-  height:9rem;
+  justify-content: center;
+  align-items:center ;
+  height:8rem;
   text-align: center;
   color:#fff;
-}
+  background: #ACCDFF;
+  width:20rem;
+  line-height: 10px;
+  font-size: 1.8rem;
+  border-radius: 6px;
 
+
+  h2{
+     font-size: 1.8rem;
+     line-height: 18px;
+   }
+  p{
+    color: black;
+    line-height: 18px;
+
+    }
+  
+}
 
 .functioningCard{
   display: flex;
@@ -43,10 +69,79 @@ height:500px;
   justify-content: center;
   align-items: center;
   width:20rem;
-  height:15rem;
-  border:2px solid red;
+  height:8rem;
+  background: #23D322;
+  text-align: center;
+  margin-left:1.8rem;
+  color:#fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 10px;
+  padding:20px;
+  border-radius: 6px;
+
+
+ h4{
+    color:#fff;
+    font-size: 1.6rem;
+    line-height: 16px;
 }
 
+
+}
+.nonfunctioningCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FA0707;
+  height:8rem;
+  width:20rem;
+  text-align: center;
+  margin-left:1.8rem;
+  color:#fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 10px;
+  border-radius: 6px;
+
+
+
+
+  h4{
+    color:#fff;
+    font-size: 1.6rem;
+    line-height: 16px;
+
+  }
+
+}
+
+.noDataCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFAD34;
+  height:8rem;
+  width:20rem;
+  text-align: center;
+  margin-left:1.8rem;
+  color:#fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 10px;
+  border-radius: 6px;
+
+
+
+  h4{
+    color:#fff;
+    font-size: 16px;
+
+  }
+
+}
 .sensorTable{
   width:80%;
 }
