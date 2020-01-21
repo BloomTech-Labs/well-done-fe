@@ -28,16 +28,15 @@ class pumps extends Component {
   constructor(props) {
     super(props)
 
-      this.state = {
-      displayView: 0,   
-      datesUpdate: '',  
+    this.state = {
+      displayView: 0,
       columnDefs: [
         {
           headerName: 'Sensor ID',
           field: 'physical_id',
           sortable: true,
           filter: true,
-          filter: "agNumberColumnFilter",
+          filter: 'agNumberColumnFilter',
           minWidth: 95,
           cellStyle: {
             'font-size': '2rem',
@@ -54,28 +53,28 @@ class pumps extends Component {
             'font-size': '1.5rem',
             'padding-top': '.75rem',
           },
-          filter: "agDateColumnFilter",
+          filter: 'agDateColumnFilter',
           filterParams: {
-            comparator: function(filterLocalDateAtMidnight, cellValue,) {
-
-
-              var dateAsString = moment(cellValue).format('DD/MM/YYYY');
-              var dateParts = dateAsString.split("/");
-              var cellDate = new Date(Number(dateParts[2]), Number(dateParts[1]) - 1, Number(dateParts[0]));
+            comparator: function(filterLocalDateAtMidnight, cellValue) {
+              var dateAsString = moment(cellValue).format('DD/MM/YYYY')
+              var dateParts = dateAsString.split('/')
+              var cellDate = new Date(
+                Number(dateParts[2]),
+                Number(dateParts[1]) - 1,
+                Number(dateParts[0])
+              )
               if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
                 return 0
               }
               if (cellDate < filterLocalDateAtMidnight) {
-                return -1;
-           
+                return -1
               }
               if (cellDate > filterLocalDateAtMidnight) {
-                return 1;
+                return 1
               }
             },
             // browserDatePicker: true
-          }
-         
+          },
         },
         {
           headerName: 'Status',
@@ -127,7 +126,7 @@ class pumps extends Component {
               </div>
             )
           },
-          
+
           cellStyle: {
             'font-size': '1.5rem',
             'padding-top': '.75rem',
@@ -135,11 +134,12 @@ class pumps extends Component {
           cellRendererParams: {
             prop1: 'props.selectedPump',
           },
-          minWidth: 90, 
+          minWidth: 90,
         },
-   
       ],
- 
+      // frameworkComponents: { agDateInput: CustomDateComponent },
+      defaultColDef: { filter: true },
+      sideBar: 'filters',
     }
   }
 
@@ -189,20 +189,17 @@ class pumps extends Component {
     }
     this.gridApi.redrawRows()
   }
-   userRole = localStorage.getItem('role')
+  userRole = localStorage.getItem('role')
 
   deleteDisplay = () => {
     if (this.userRole === 'super_user') {
       return (
         <button className='deleteBtn' onClick={() => this.viewHandler()}>
-        <img src={deleteIcon} alt='delete'></img>
+          <img src={deleteIcon} alt='delete'></img>
         </button>
       )
     } else {
-      return (
-        <button id='none' type='button'>
-         </button>
-      )
+      return <button id='none' type='button'></button>
     }
   }
 
@@ -211,7 +208,15 @@ class pumps extends Component {
       document.getElementById('quickFilter').value
     )
   }
-
+  onQuickFilterByCal() {
+    let dateInput = moment(document.getElementById('dateCal').value).format(
+      'MM/DD/YYYY'
+    )
+    console.log(dateInput, 'Value')
+    return gridOptionss.api.setQuickFilter(
+      dateInput === 'Invalid date' ? '' : dateInput
+    )
+    }
 
   // onQuickFilterByCal() {
 
@@ -302,8 +307,6 @@ class pumps extends Component {
   // }
 
 
-  
-
   exportToCsv = function() {
     var params = {
       skipHeader: false,
@@ -331,12 +334,12 @@ class pumps extends Component {
             />
             <AiOutlineSearch className='searchIcon' />
           </div>
-          <div className="calContainer">
+          <div className='calContainer'>
             <input
               type='date'
               onChange={this.onQuickFilterByCal}
               id='dateCal'
-              />
+            />
           </div>
           <div className="calContainerComp">
             <input

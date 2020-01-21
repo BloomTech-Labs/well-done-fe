@@ -6,7 +6,10 @@ import Filter from '../components/Filter/Filter.component'
 import IconsFilter from '../components/Filter/IconFilters'
 import Sensors from './MonitorsPage/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensorsWithHistory, fetchSensorsByOrgId } from '../actions/sensorActions'
+import {
+  fetchSensorsWithHistory,
+  fetchSensorsByOrgId,
+} from '../actions/sensorActions'
 import { fetchHistory } from '../actions/sensorHistory'
 import OrgGrid from 'components/DashBoardComponents/orgGrid/orgGrid'
 
@@ -173,8 +176,8 @@ const Dashboard = props => {
             sensors={sensorSelector.sensors}
           /> */}
         </div>
-        {userRole === 'super_user' ? <OrgGrid /> : null}
-        <AccountGrid orgId={orgId} userRole={userRole} />
+        {/* {userRole === 'super_user' ? <OrgGrid /> : null}
+        <AccountGrid orgId={orgId} userRole={userRole} /> */}
       </div>
     </div>
   )
