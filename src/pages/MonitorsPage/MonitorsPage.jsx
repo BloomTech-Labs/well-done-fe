@@ -23,10 +23,10 @@ import 'antd/dist/antd.css'
 const { Sider, Content } = Layout
 
 const MonitorsPage = props => {
-  const [pumpData, setPumpData] = useState([])
-  const [funcPumps, setFuncPumps] = useState([])
-  const [unPumps, setUnPumps] = useState([])
-  const [nonPumps, setNonPumps] = useState([])
+  // const [pumpData, setPumpData] = useState([])
+  // const [funcPumps, setFuncPumps] = useState([])
+  // const [unPumps, setUnPumps] = useState([])
+  // const [nonPumps, setNonPumps] = useState([])
 
   const sensorSelector = useSelector(state => state.sensorReducer)
 
@@ -38,16 +38,10 @@ const MonitorsPage = props => {
     dispatch(fetchOrg())
   }, [])
 
-  useEffect(() => {
-    setPumpData(sensorSelector.sensors)
-    setFuncPumps(sensorSelector.sensors.filter(pump => pump.status === 2))
-    setUnPumps(sensorSelector.sensors.filter(pump => pump.status === 1))
-    setNonPumps(
-      sensorSelector.sensors.filter(
-        pump => pump.status === 0 || pump.status === null
-      )
-    )
-  }, [sensorSelector.isFetching])
+  let pumpData = sensorSelector.sensors
+  let funcPumps = sensorSelector.sensors.filter(pump => pump.status === 2)
+  let unPumps = sensorSelector.sensors.filter(pump => pump.status === 1)
+  let nonPumps = sensorSelector.sensors.filter(pump => pump.status === 0 || pump.status === null)
 
   return (
     <>

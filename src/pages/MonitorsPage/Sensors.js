@@ -28,8 +28,10 @@ class pumps extends Component {
   constructor(props) {
     super(props)
 
+
     this.state = {
       displayView: 0,
+      gridInfoUpdate:props.gridInfo,
       columnDefs: [
         {
           headerName: 'Sensor ID',
@@ -137,9 +139,6 @@ class pumps extends Component {
           minWidth: 90,
         },
       ],
-      // frameworkComponents: { agDateInput: CustomDateComponent },
-      defaultColDef: { filter: true },
-      sideBar: 'filters',
     }
   }
 
@@ -153,8 +152,8 @@ class pumps extends Component {
   
   componentDidUpdate = () => {
     // let dateUpdate = this.props.sensors
-    console.log('this is the sensors', this.props.sensors)
-    }
+    // console.log('this is the sensors', this.props.gridInfo)
+  }
 
   onGridReady = params => {
     this.gridApi = params.api
@@ -209,36 +208,43 @@ class pumps extends Component {
     )
   }
   onQuickFilterByCal() {
-    let dateInput = moment(document.getElementById('dateCal').value).format(
-      'MM/DD/YYYY'
-    )
+    let dateInput = moment(document.getElementById('dateCal').value).format( 'MM/DD/YYYY')
     console.log(dateInput, 'Value')
-    return gridOptionss.api.setQuickFilter(
-      dateInput === 'Invalid date' ? '' : dateInput
-    )
+    return gridOptionss.api.setQuickFilter(dateInput === 'Invalid date' ? '' : dateInput)
     }
 
-  // onQuickFilterByCal() {
-
+  // onQuickFilterByCal = () =>  {
   //   let startDate = moment(document.getElementById('dateCal').value).format('MM/DD/YYYY');
   //   let endDate = moment(document.getElementById('compCal').value).format('MM/DD/YYYY');
-  //   console.log(this.dateUpdate,'quickFilterCal')
     
-    // if(startDate && endDate !== 'Invalid date'){
+  //   if(startDate && endDate !== 'Invalid date'){
       
-      // this.gridInfoDate.filter(date=> {
-      //   let  compareDate = moment(date.created_at).format('MM/DD/YYYY')
-  
-      //   if(compareDate.isBetween(startDate, endDate)){
+  //     const filteredDates = this.state.gridInfoUpdate.filter(date=> {
+  //       let compareDate = moment(date.created_at)
 
-      //     return date
-      //   }else{
-      //     return false
-      //   }
-      // })
-    // }
+  //       if(moment(date.created_at).isBetween(startDate, endDate)){
+  //         console.log('in here')
+  //         return date
+  //       }else{
+  //         return false
+  //       }
+  //     })
+  //     this.setState({gridInfoUpdate: filteredDates})
+  //     // this.gridApi.redrawRows()
+  //     console.log( this.gridApi)
+  //     console.log(filteredDates, 'filtered dates')
+  //   }
+  //   this.gridApi.redrawRows()
+  // }
+
+
 
  
+
+  // redrawAllRows() {
+  //   filteredDates();
+  //   this.gridApi.redrawRows();
+  // }
 
     // return gridOptionss.api.setQuickFilter(dateTogetherStart)
   // }
@@ -318,6 +324,7 @@ class pumps extends Component {
   }
 
   render() {
+    console.log(this,'gridInfoUp')
     return (
       <div className='sensorChart'>
         <div className='sensorHeader'>
@@ -337,7 +344,7 @@ class pumps extends Component {
           <div className='calContainer'>
             <input
               type='date'
-              onChange={this.onQuickFilterByCal}
+              onChange={ this.onQuickFilterByCal}
               id='dateCal'
             />
           </div>
@@ -378,7 +385,7 @@ class pumps extends Component {
             <AgGridReact
               history={this.props.history}
               columnDefs={this.state.columnDefs}
-              rowData={this.props.gridInfo}
+              rowData={this.state.gridInfoUpdate}
               gridOptions={gridOptionss}
               context={this.state.columnDefs.context}
               frameworkComponents={this.state.columnDefs.frameworkComponents}

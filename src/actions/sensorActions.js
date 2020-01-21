@@ -9,6 +9,7 @@ export const WITHOUT_HISTORY_SUCCESS = 'WITHOUT_HISTORY_SUCCESS'
 export const UPDATE_INFO_WITHOUT_HISTORY = 'UPDATE_INFO_WITHOUT_HISTORY'
 export const SENSOR_DELETE = 'SENSOR_DELETE'
 
+
 export const fetchSensorsWithHistory = () => dispatch => {
   dispatch({ type: SENSOR_FETCH })
   AxiosWithAuth()
