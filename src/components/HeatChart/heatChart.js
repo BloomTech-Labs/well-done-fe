@@ -7,8 +7,17 @@ import './heatChartStyles.scss';
 
 //Redux 
 
+
+
 const HeatChart = props => {
- 
+
+const[pumps, setPumps]=useState([])
+
+const values = props.history.filter(day => {
+   return day.sensor_id ===
+   props.selectedPump.physical_id
+ }
+ )
 const today = new Date();
 
 function shiftDate(date, numDays) {
@@ -17,10 +26,9 @@ function shiftDate(date, numDays) {
   return newDate;
 }
 
-const statusHistory = props.history.filter(day => {
-  return day.sensor_id === props.selectedPump.physical_id
-})
-const { status, sensor_pid } = props.selectedPump
+
+const { status, created_at, sensor_pid } = props.selectedPump
+
 
 
 return( 
@@ -28,7 +36,7 @@ return(
 <CalendarHeatmap
   startDate={shiftDate(today, -360)}
   endDate={today}
-  value={statusHistory}
+  value = {values}
 
   classForValue={value => {
     if (!value) {
