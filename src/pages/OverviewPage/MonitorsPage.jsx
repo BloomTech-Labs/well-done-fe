@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import AxiosWithAuth from '../../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensors } from '../../actions/sensorActions'
-// import HeatChart from '../../components/HeatChart/heatChart'
 import Legend from "./Legend"
 import StatusCards from "./StatusCards"
 import Grid from "../../components/Grid/Aggrid"
@@ -14,6 +13,7 @@ import './MonitorsPage.scss'
 // ant design style
 import { Row, Col, Layout } from 'antd'
 import 'antd/dist/antd.css'
+
 const { Sider, Content } = Layout
 
 const MonitorsPage = (props) => {

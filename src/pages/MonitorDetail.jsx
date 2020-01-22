@@ -5,7 +5,7 @@ import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from 'antd'
 import 'antd/dist/antd.css'
 import './MonitorDetail.css'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
-import HeatChart from '../components/HeatChart/heatChart'
+import HeatChart from 'components/HeatChart/heatChart'
 //redux
 import {useDispatch} from 'react-redux'
 import {deleteSensor} from '../actions/sensorActions'
@@ -89,9 +89,8 @@ const MonitorDetails = props => {
 
     
     <div>
-    <div className="heatChartBox">
-      <HeatChart/>
-    </div>
+      <HeatChart
+      />
       <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button>
       <Row>
         <Col span={20} offset={4}>

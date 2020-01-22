@@ -5,15 +5,10 @@ import ReactTooltip from 'react-tooltip';
 
 import './heatChartStyles.scss';
 
-//Redux 
-
-
 
 const HeatChart = props => {
-
-const[pumps, setPumps]=useState([])
-
-const values = props.history.filter(day => {
+console.log(props, props.selectedPump)
+const statusHistory = props.history.filter(day => {
    return day.sensor_id ===
    props.selectedPump.physical_id
  }
@@ -25,14 +20,10 @@ function shiftDate(date, numDays) {
   newDate.setDate(newDate.getDate() + numDays);
   return newDate;
 }
-
-
 const { status, created_at, sensor_pid } = props.selectedPump
-
-
-
 return( 
 <div className='calendarBox'>
+<h1>{sensor_pid}</h1>
 <CalendarHeatmap
   startDate={shiftDate(today, -360)}
   endDate={today}
