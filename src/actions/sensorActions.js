@@ -8,6 +8,8 @@ export const SENSOR_POST = 'SENSOR_POST'
 export const WITHOUT_HISTORY_SUCCESS = 'WITHOUT_HISTORY_SUCCESS'
 export const UPDATE_INFO_WITHOUT_HISTORY = 'UPDATE_INFO_WITHOUT_HISTORY'
 export const SENSOR_DELETE = 'SENSOR_DELETE'
+export const CLEAR_FILTER='CLEAR_FILTER'
+export const FILTERED_SENSORS='FILTERED_SENSORS'
 
 
 export const fetchSensorsWithHistory = () => dispatch => {

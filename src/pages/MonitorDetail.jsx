@@ -7,7 +7,6 @@ import 'antd/dist/antd.css'
 import './MonitorDetail.css'
 import { useSelector, useDispatch } from 'react-redux'
 
-import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 
 //redux
@@ -25,15 +24,16 @@ const MonitorDetails = props => {
     zoom: 7,
   })
 
-  const sensorSelector = useSelector(state => state.sensorReducer)
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
-
-  let selectedSensor = localStorage.getItem('sensor')
+  let selectedSensor = props.selectedPump
 
   useEffect(() => {
-    dispatch(fetchHistoryById(selectedSensor))
-    dispatch(fetchSensorById(selectedSensor))
+    dispatch(fetchHistoryById(selectedSensor.sensor_pid))
+    dispatch(fetchSensorById(selectedSensor.sensor_pid))
+    return () => {
+      dispatch({type: 'CLEAR_SELECTED'})
+    }
   }, [])
 
   console.log(historySelector.individualSensorHistory)

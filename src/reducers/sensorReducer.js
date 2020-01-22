@@ -9,10 +9,14 @@ import {
   SENSOR_POST,
   WITHOUT_HISTORY_SUCCESS,
   UPDATE_INFO_WITHOUT_HISTORY,
+  FILTERED_SENSORS,
+  CLEAR_FILTER,
 } from '../actions/sensorActions'
 
 const initialState = {
   sensors: [],
+  isFiltered:false,
+  filteredSensors:[],
   gridInfo: [],
   gridInfoWithOutHistory: [],
   isFetching: false,
@@ -39,6 +43,17 @@ const sensorReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         error: action.payload,
+      }
+    case FILTERED_SENSORS:
+      return {
+        ...state,
+        isFiltered: true,
+        filteredSensors: action.payload,
+      }
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        isFiltered: false,
       }
     case SENSOR_DELETE:
       return {
