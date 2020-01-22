@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import AxiosWithAuth from '../../components/AxiosWithAuth/axiosWithAuth'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensors } from '../../actions/sensorActions'
+import { fetchSensors} from '../../actions/sensorActions'
+
 
 import Legend from "./Legend"
 import StatusCards from "./StatusCards"
@@ -10,37 +11,31 @@ import PercentageChart from "./PercentageChart"
 import Menu from '../../components/Menu/Menu.component'
 import Sensors from '../../components/DashBoardComponents/Sensors'
 import './MonitorsPage.scss'
-
-// ant design style
-import { Row, Col, Layout } from 'antd'
 import 'antd/dist/antd.css'
-const { Sider, Content } = Layout
+
 
 const MonitorsPage = (props) => {
-  const [pumpData, setPumpData] = useState([])
-  const [funcPumps, setFuncPumps] = useState([])
-  const [unPumps, setUnPumps] = useState([])
-  const [nonPumps, setNonPumps] = useState([])
+  console.log('what are my props ', props)
 
-  const sensorSelector = useSelector(state => state.sensorReducer)
+  const sensorReducer = useSelector(state => state.sensorReducer)
+
 
   const dispatch = useDispatch()
-  console.log(props, "PROPS")
 
   useEffect(() => {
     dispatch(fetchSensors())
   }, [])
 
-  useEffect(() => {
-    setPumpData(sensorSelector.sensors)
-    setFuncPumps(sensorSelector.sensors.filter(pump => pump.status === 2))
-    setUnPumps(sensorSelector.sensors.filter(pump => pump.status === 1))
-    setNonPumps(
-      sensorSelector.sensors.filter(
-        pump => pump.status === 0 || pump.status === null
-      )
-    )
-  }, [sensorSelector.isFetching])
+
+  // const historyDate = useSelector(state => state.historyReducer)
+
+  
+
+  let pumpData = sensorReducer.sensors
+  let funcPumps = sensorReducer.sensors.filter(pump => pump.status === 2)
+  let unPumps = sensorReducer.sensors.filter(pump => pump.status === 1)
+  let nonPumps = sensorReducer.sensors.filter(pump => pump.status === 0 || pump.status === null)
+  
 
   return ( 
     <>
@@ -68,7 +63,8 @@ const MonitorsPage = (props) => {
       </div>
       <div className='sensorTable'>
       <Sensors
-            gridInfo={sensorSelector.gridInfo}
+            gridInfo={sensorReducer.gridInfo}
+            sensors={sensorReducer.sensors}
             selectedPump={props.selectedPump}
             setSelectedPump={props.setSelectedPump}
           />

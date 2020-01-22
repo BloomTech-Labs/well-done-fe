@@ -1,10 +1,10 @@
 import React from 'react'
-
+import { handleSelected } from 'actions/selectedSensorsActions'
 const ViewButton = props => {
   const routeHandler = (e, selPump) => {
     e.preventDefault()
-    props.setSelectedPump(selPump)
-    props.otherProps.history.push('/monitordetails')
+    props.dispatch(handleSelected(selPump))
+    props.history.push('/monitordetails')
   }
 
   return (

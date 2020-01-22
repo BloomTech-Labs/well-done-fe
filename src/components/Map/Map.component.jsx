@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { CLEAR_SELECTED } from 'actions/selectedSensorsActions'
 import ReactMapGl, { Popup } from 'react-map-gl'
 import MapGL, { NavigationControl, FullscreenControl} from 'react-map-gl';
 import './Map.styles.scss'
@@ -6,11 +8,13 @@ import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
 
 export default function Map(props) {
+  const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
 
+  const dispatch = useDispatch()
   useEffect(() => {
     const listener = e => {
       if (e.key === 'Escape') {
-        props.setSelectedPump(null)
+        dispatch({type: CLEAR_SELECTED})
       } 
     }
     window.addEventListener('keydown', listener)
@@ -32,29 +36,28 @@ export default function Map(props) {
           }}
           {...props.viewport}
         >
-                     
+          {/* for each sensor create a pin to display on map */}
           <Pin
+            currentlySelected={Object.keys(currentlySelected).length}
             sensors={props.sensors}
-            setSelectedPump={props.setSelectedPump}
             funcToggle={props.funcToggle}
             nonFuncToggle={props.nonFuncToggle}
             unknownToggle={props.unknownToggle}
-            pumps={props.pumps}
           />
 
-          {props.selectedPump ? (
+          {Object.keys(currentlySelected).length > 0 ? (
             <Popup
               className='popupCard'
-              latitude={props.selectedPump.latitude}
-              longitude={props.selectedPump.longitude}
+              latitude={currentlySelected.latitude}
+              longitude={currentlySelected.longitude}
               onClose={() => {
-                props.setSelectedPump(null)
+                dispatch({type: CLEAR_SELECTED})
               }}
               closeOnClick={false}
             >
               <PopupInfo
                 sensors={props.sensors}
-                selectedPump={props.selectedPump}
+                selectedPump={currentlySelected}
                 history={props.history}
               />
             </Popup>

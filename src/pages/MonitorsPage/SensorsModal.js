@@ -6,7 +6,7 @@ import { fetchPumps } from '../../actions/pumpAction'
 import './Sensors'
 
 //will be changed to sensorsAction
-import { postSensor } from '../../actions/sensorActions'
+import { postSensor, postSensorNPump } from '../../actions/sensorActions'
 import { postPump } from '../../actions/pumpAction'
 
 //need to change for sensors
@@ -41,8 +41,6 @@ const PumpsModal = () => {
   const [pump, setPump] = useState([])
   const [sensor, setSensor] = useState([])
 
-  console.log(pump)
-
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
@@ -69,34 +67,16 @@ const PumpsModal = () => {
   let communeArray = []
 
   for (let i = 0; i < pumpsReducer.length; i++) {
-    villageArray.push(pumpsReducer[i].village_name)
+    // villageArray.push(pumpsReducer[i].village_name)
     provinceArray.push(pumpsReducer[i].province_name)
     districtArray.push(pumpsReducer[i].district_name)
     communeArray.push(pumpsReducer[i].commune_name)
   }
 
-  const villageName = [...new Set(villageArray)]
+  // const villageName = [...new Set(villageArray)]
   const provinceName = [...new Set(provinceArray)]
   const districtName = [...new Set(districtArray)]
   const communeName = [...new Set(communeArray)]
-
-  // //unique province names
-  // const villageArray = pumpsReducer.map(e => e.village_name)
-  // const villageName = [...new Set(villageArray)]
-  // console.log(villageArray)
-  // console.log(villageName)
-
-  // //unique province names
-  // const provinceArray = pumpsReducer.map(e => e.province_name)
-  // const provinceName = [...new Set(provinceArray)]
-
-  // //unique district
-  // const districtArray = pumpsReducer.map(e => e.district_name)
-  // const districtName = [...new Set(districtArray)]
-
-  // //unique commune
-  // const communeArray = pumpsReducer.map(e => e.commune_name)
-  // const communeName = [...new Set(communeArray)]
 
   const dispatch = useDispatch()
 
@@ -108,17 +88,12 @@ const PumpsModal = () => {
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
-    dispatch(postSensor(sensor))
-    dispatch(postPump(pump))
-    handleClose()
+    dispatch(postSensorNPump(sensor, pump))
+    handleModal()
   }
 
-  const handleOpen = () => {
-    setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
+  const handleModal = () => {
+    setOpen(!open)
   }
 
   const userRole = localStorage.getItem('role')
@@ -126,7 +101,7 @@ const PumpsModal = () => {
   const modalDisplay = () => {
     if (userRole === 'super_user') {
       return (
-        <button id='addSensor' type='button' onClick={handleOpen}>
+        <button id='addSensor' type='button' onClick={handleModal}>
           <img src={add} alt='add'></img>
         </button>
       )
@@ -147,7 +122,7 @@ const PumpsModal = () => {
         aria-describedby='transition-modal-description'
         className={classes.modal}
         open={open}
-        onClose={handleClose}
+        onClose={handleModal}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -165,12 +140,12 @@ const PumpsModal = () => {
 
               <Form.Control
                 as='select'
-                name='organization'
-                value={pump.organization}
+                name='org_id'
+                value={pump.org_id}
                 onChange={handleChangePump}
               >
                 {orgReducer.map(org => (
-                  <option key={org.id} value={org.org_name}>
+                  <option key={org.id} value={org.id}>
                     {org.org_name}
                   </option>
                 ))}
@@ -188,21 +163,6 @@ const PumpsModal = () => {
                 />
               </div>
 
-              <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                Province
-              </Dropdown.Toggle>
-              <Form.Control
-                as='select'
-                name='province'
-                value={pump.province}
-                onChange={handleChangePump}
-              >
-                {provinceName.map(province => (
-                  <option key={province} value={province}>
-                    {province}
-                  </option>
-                ))}
-              </Form.Control>
               <div className='senInput'>
                 <label for='Name'>Province</label>
 
@@ -293,7 +253,7 @@ const PumpsModal = () => {
                 )}
               />
 
-              <Autocomplete
+              {/* <Autocomplete
                 freeSolo
                 id='free-solo-2-demo'
                 disableClearable
@@ -311,7 +271,7 @@ const PumpsModal = () => {
                     InputProps={{ ...params.InputProps, type: 'search' }}
                   />
                 )}
-              />
+              /> */}
 
               <div className='senInput'>
                 <label for='labitude'>Latitude</label>
@@ -482,7 +442,7 @@ const PumpsModal = () => {
                 <button
                   className='closeBtn'
                   variant='secondary'
-                  onClick={handleClose}
+                  onClick={handleModal}
                 >
                   Close
                 </button>

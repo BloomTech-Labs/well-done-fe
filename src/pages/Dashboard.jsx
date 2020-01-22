@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Route } from 'react-router-dom'
-import Map from '../components/Map/Map.component'
-import Search from '../components/Search/Search.component'
-import Filter from '../components/Filter/Filter.component'
-import IconsFilter from '../components/Filter/IconFilters'
-import Sensors from '../components/DashBoardComponents/Sensors'
+import Map from 'components/Map/Map.component'
+import Search from 'components/Search/Search.component'
+import Filter from 'components/Filter/Filter.component'
+import IconsFilter from 'components/Filter/IconFilters'
+import Sensors from './MonitorsPage/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchSensors, fetchSensorsByOrgId } from '../actions/sensorActions'
-import { fetchHistory } from '../actions/sensorHistory'
-import OrgGrid from 'components/DashBoardComponents/orgGrid/orgGrid'
+import {
+  fetchSensorsWithHistory,
+  fetchSensorsByOrgId,
+} from 'actions/sensorActions'
+import { fetchHistory } from 'actions/sensorHistory'
 
-import Testing from '../components/DashBoardComponents/Sensors'
-import AccountGrid from '../components/Grid/accountGrid/AccountGrid'
+import Testing from './MonitorsPage/Sensors'
+import AccountGrid from 'components/Grid/accountGrid/AccountGrid'
 import Banner from './Banner'
-import StaticMenu from '../components/Menu/StaticMenu.js'
-import Menu from '../components/Menu/Menu.component'
+import StaticMenu from 'components/Menu/StaticMenu.js'
+import Menu from 'components/Menu/Menu.component'
 import './Dashboard.styles.scss'
 
 const Dashboard = props => {
@@ -25,7 +26,6 @@ const Dashboard = props => {
     height: '720px',
     zoom: 2,
   })
-
   const sensorSelector = useSelector(state => state.sensorReducer)
   const historySelector = useSelector(state => state.historyReducer)
 
@@ -38,8 +38,13 @@ const Dashboard = props => {
     type: 'TOGGLE_NAV_STATE',
     payload: true,
   })
+  // these booleans will control the filters of the map
+  // will switch to false === won't render on map view
+  // funcToggle = show all sensor that are functional aka status => 2
   const [funcToggle, setFuncToggle] = useState(true)
+  // nonFuncToggle = show all sensor that are nonFunctional aka sensor status 0
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
+  // unknowToogle = show all sensor that status is unknown aka status 1
   const [unknownToggle, setUnknownToggle] = useState(true)
 
   useEffect(() => {
@@ -60,7 +65,7 @@ const Dashboard = props => {
   })
   useEffect(() => {
     if (userRole === 'super_user') {
-      dispatch(fetchSensors())
+      dispatch(fetchSensorsWithHistory())
     } else {
       dispatch(fetchSensorsByOrgId(orgId))
     }
@@ -122,8 +127,6 @@ const Dashboard = props => {
     return <div>loading...</div>
   }
 
-  console.log(sensorSelector.sensors)
-
   return (
     <div className='dashboard'>
       <Menu />
@@ -137,15 +140,14 @@ const Dashboard = props => {
           setViewport={setViewport}
           history={historySelector.history}
           selectedPump={props.selectedPump}
-          setSelectedPump={props.setSelectedPump}
         />
         <Banner />
         <Search
+          sensors={sensorSelector.sensors}
           searchFiltered={props.searchFiltered}
           setSearchFiltered={props.setSearchFiltered}
           viewport={viewport}
           setViewport={setViewport}
-          sensors={sensorSelector.sensors}
         />
         <div className='filterContainer'>
           <IconsFilter
@@ -173,8 +175,8 @@ const Dashboard = props => {
             sensors={sensorSelector.sensors}
           /> */}
         </div>
-        {userRole === 'super_user' ? <OrgGrid /> : null}
-        <AccountGrid orgId={orgId} userRole={userRole} />
+        {/* {userRole === 'super_user' ? <OrgGrid /> : null}
+        <AccountGrid orgId={orgId} userRole={userRole} /> */}
       </div>
     </div>
   )
