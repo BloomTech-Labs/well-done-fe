@@ -25,7 +25,8 @@ const PopupInfo = props => {
   if (!props.history) {
     return <div>Loading</div>
   }
-
+ // call endpoint instead
+ // api/sensor_id/:id`
   const statusHistory = props.history.filter(day => {
     return Number(day.sensor_id) === Number(props.selectedPump.physical_id)
   })

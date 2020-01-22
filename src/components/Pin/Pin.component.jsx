@@ -1,8 +1,8 @@
 import React from 'react'
 import { Marker } from 'react-map-gl'
-import NewMapMarkerFunctioning from '../../icons/NewMapMarkerFunctioning.svg'
-import NewMapMarkerNonFunctioning from '../../icons/NewMapMarkerNonFunctioning.svg'
-import NewMapMarkerNoData from '../../icons/NewMapMarkerNoData.svg'
+import NewMapMarkerFunctioning from 'icons/NewMapMarkerFunctioning.svg'
+import NewMapMarkerNonFunctioning from 'icons/NewMapMarkerNonFunctioning.svg'
+import NewMapMarkerNoData from 'icons/NewMapMarkerNoData.svg'
 
 function Pin(props) {
   return (

@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Route } from 'react-router-dom'
-import Map from '../components/Map/Map.component'
-import Search from '../components/Search/Search.component'
-import Filter from '../components/Filter/Filter.component'
-import IconsFilter from '../components/Filter/IconFilters'
+import Map from 'components/Map/Map.component'
+import Search from 'components/Search/Search.component'
+import Filter from 'components/Filter/Filter.component'
+import IconsFilter from 'components/Filter/IconFilters'
 import Sensors from './MonitorsPage/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   fetchSensorsWithHistory,
   fetchSensorsByOrgId,
-} from '../actions/sensorActions'
-import { fetchHistory } from '../actions/sensorHistory'
-import OrgGrid from 'components/DashBoardComponents/orgGrid/orgGrid'
+} from 'actions/sensorActions'
+import { fetchHistory } from 'actions/sensorHistory'
 
 import Testing from './MonitorsPage/Sensors'
-import AccountGrid from '../components/Grid/accountGrid/AccountGrid'
+import AccountGrid from 'components/Grid/accountGrid/AccountGrid'
 import Banner from './Banner'
-import StaticMenu from '../components/Menu/StaticMenu.js'
-import Menu from '../components/Menu/Menu.component'
+import StaticMenu from 'components/Menu/StaticMenu.js'
+import Menu from 'components/Menu/Menu.component'
 import './Dashboard.styles.scss'
 
 const Dashboard = props => {
@@ -41,8 +39,13 @@ const Dashboard = props => {
     type: 'TOGGLE_NAV_STATE',
     payload: true,
   })
+  // these booleans will control the filters of the map
+  // will switch to false === won't render on map view
+  // funcToggle = show all sensor that are functional aka status => 2
   const [funcToggle, setFuncToggle] = useState(true)
+  // nonFuncToggle = show all sensor that are nonFunctional aka sensor status 0
   const [nonFuncToggle, setNonFuncToggle] = useState(true)
+  // unknowToogle = show all sensor that status is unknown aka status 1
   const [unknownToggle, setUnknownToggle] = useState(true)
 
   useEffect(() => {
@@ -125,8 +128,6 @@ const Dashboard = props => {
     return <div>loading...</div>
   }
 
-  console.log(sensorSelector.sensors)
-
   return (
     <div className='dashboard'>
       <Menu />
@@ -144,11 +145,11 @@ const Dashboard = props => {
         />
         <Banner />
         <Search
+          sensors={sensorSelector.sensors}
           searchFiltered={props.searchFiltered}
           setSearchFiltered={props.setSearchFiltered}
           viewport={viewport}
           setViewport={setViewport}
-          sensors={sensorSelector.sensors}
         />
         <div className='filterContainer'>
           <IconsFilter
