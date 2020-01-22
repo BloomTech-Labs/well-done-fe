@@ -1,6 +1,8 @@
 @import "src/colors";
-.calandarBox{
+.calendarBox{
   background-color: $duke;
+  display: flex;
+  flex-direction: column-reverse;
 }
 .react-calendar-heatmap{
   height: fit-content;
