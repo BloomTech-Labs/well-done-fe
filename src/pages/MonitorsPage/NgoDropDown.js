@@ -8,6 +8,7 @@ import gridOptionss from '../../components/Grid/Pagination'
 class NgoDropDown extends Component {
   onQuickFilterByCompany() {
     gridOptionss.api.setQuickFilter(document.getElementById('company').value)
+    console.log(document.getElementById('company').value)
   }
 
   render() {
@@ -21,11 +22,10 @@ class NgoDropDown extends Component {
           as='select'
           id='company'
           name='company'
-          value={'company'}
           onChange={this.onQuickFilterByCompany}
         >
           {this.props.ngos.map(org => (
-            <option key={org.id} value={org.id}>
+            <option key={org.id} value={org.org_name}>
               {org.org_name}
             </option>
           ))}
