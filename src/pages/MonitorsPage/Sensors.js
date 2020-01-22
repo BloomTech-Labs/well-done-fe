@@ -20,6 +20,7 @@ import { deleteSensor } from '../../actions/sensorActions'
 import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
 import { date } from 'yup'
+import CalendarFilter from './CalendarFilter'
 
 const Sensors = (props) =>  {
   const [showViewButton , setShowViewButton] = useState(0)
@@ -113,7 +114,11 @@ const Sensors = (props) =>  {
             />
             <AiOutlineSearch className='searchIcon' />
           </div>
-          <div className='calContainer'>
+          <CalendarFilter
+            gridInfo={props.gridInfo}
+            gridApi={gridApi}
+          />
+          {/* <div className='calContainer'>
             <input
               type='date'
               onChange={ onQuickFilterByCal}
@@ -126,7 +131,7 @@ const Sensors = (props) =>  {
               onChange={onQuickFilterByCal}
               id='compCal'
               />
-          </div>
+          </div> */}
           <div className='headerBtns'>
             <button
               className='downloadButton'

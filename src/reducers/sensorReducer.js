@@ -1,9 +1,11 @@
 import moment from 'moment'
-
 import * as types from 'actions/sensorActions'
+
 
 const initialState = {
   sensors: [],
+  isFiltered:false,
+  filteredSensors:[],
   gridInfo: [],
   gridInfoWithOutHistory: [],
   isFetching: false,
@@ -33,16 +35,28 @@ const sensorReducer = (state = initialState, action) => {
       }
     case types.SENSOR_DELETE:
       return {
+      ...state,
+      isFetching: false,
+      gridInfo: state.gridInfo.filter(e => {
+        if (e.sensor_index !== action.payload.id) {
+          console.log(e)
+          return e
+        }
+        return false
+      }),
+    }
+    case types.FILTERED_SENSORS:
+      return {
         ...state,
-        isFetching: false,
-        gridInfo: state.gridInfo.filter(e => {
-          if (e.sensor_index !== action.payload.id) {
-            console.log(e)
-            return e
-          }
-          return false
-        }),
+        isFiltered: true,
+        filteredSensors: action.payload,
       }
+    case types.CLEAR_FILTER:
+      return {
+        ...state,
+        isFiltered: false,
+      }
+
     case types.UPDATE_INFO: {
       return {
         ...state,
@@ -78,13 +92,13 @@ const sensorReducer = (state = initialState, action) => {
         ],
       }
     }
-    case WITHOUT_HISTORY_SUCCESS: {
+    case types.WITHOUT_HISTORY_SUCCESS: {
       return {
         ...state,
         gridInfoWithOutHistory: action.payload,
       }
     }
-    case UPDATE_INFO_WITHOUT_HISTORY: {
+    case types.UPDATE_INFO_WITHOUT_HISTORY: {
       return {
         ...state,
         gridInfoWithOutHistory: state.gridInfoWithOutHistory.map(item => {
