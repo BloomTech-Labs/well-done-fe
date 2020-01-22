@@ -82,8 +82,9 @@ export const columnsFunc =  (data,dispatch,showViewButton) => {
             return (
               <div>
                 {showViewButton === 0 ? (
-                  <ViewButton                    
-                    data={params.data}              dispatch={dispatch}
+                  <ViewButton  
+                    dispatch={dispatch}                  
+                    data={params.data}
                     history={data.history}
                   />
                 ) : (
