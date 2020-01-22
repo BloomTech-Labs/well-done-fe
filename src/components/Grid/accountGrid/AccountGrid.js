@@ -171,9 +171,6 @@ class Grid extends Component {
               columnDefs={this.state.columnDefs}
               rowData={this.props.accountReducer}
               gridOptions={gridOptions3}
-              modules={this.state.modules}
-              defaultColDef={this.state.defaultColDef}
-              rowSelection={this.state.rowSelection}
               onGridSizeChanged={this.onGridSizeChanged}
               onGridReady={this.onGridReady}
             />

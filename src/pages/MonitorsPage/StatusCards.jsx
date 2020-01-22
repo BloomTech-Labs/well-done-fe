@@ -22,11 +22,25 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
         </div>
 
         <div className="functioningCard">
+            
+            <p>{Number.parseFloat((100 * (funcPumps.length / pumpData.length))).toFixed(2)}%</p>
             <p>Functional</p>
-            <p>{Number.parseFloat((100 * (funcPumps.length / pumpData.length))).toFixed(2)}</p>
-            <h4>{funcPumps.length}</h4>
+            <h4>{funcPumps.length} out of {pumpData.length}</h4>
         </div>
 
+        <div className="nonfunctioningCard">
+            
+            <p>{Number.parseFloat((100 * (nonPumps.length / pumpData.length))).toFixed(2)}%</p>
+            <p>Non Functional</p>
+            <h4>{nonPumps.length} out of {pumpData.length}</h4>
+        </div>
+
+        <div className="noDataCard">
+            
+            <p>{Number.parseFloat((100 * (unPumps.length / pumpData.length))).toFixed(2)}%</p>
+            <p>No Data</p>
+            <h4>{unPumps.length} out of {pumpData.length}</h4>
+        </div>
         
         {/* <div className='monitorCard'>
           <Card style={{ textAlign: 'center'}}>

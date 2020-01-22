@@ -5,6 +5,7 @@ import * as types from 'actions/sensorActions'
 const initialState = {
   sensors: [],
   gridInfo: [],
+  gridInfoWithOutHistory: [],
   isFetching: false,
   error: '',
 }
@@ -39,6 +40,7 @@ const sensorReducer = (state = initialState, action) => {
             console.log(e)
             return e
           }
+          return false
         }),
       }
     case types.UPDATE_INFO: {
@@ -70,7 +72,27 @@ const sensorReducer = (state = initialState, action) => {
     case types.SENSOR_POST: {
       return {
         ...state,
-        sensors: [...state.sensors, action.payload],
+        gridInfoWithOutHistory: [
+          ...state.gridInfoWithOutHistory,
+          action.payload,
+        ],
+      }
+    }
+    case WITHOUT_HISTORY_SUCCESS: {
+      return {
+        ...state,
+        gridInfoWithOutHistory: action.payload,
+      }
+    }
+    case UPDATE_INFO_WITHOUT_HISTORY: {
+      return {
+        ...state,
+        gridInfoWithOutHistory: state.gridInfoWithOutHistory.map(item => {
+          return {
+            ...item,
+            date_finished: moment(item.date_finished).format('MM/DD/YYYY'),
+          }
+        }),
       }
     }
     default:
