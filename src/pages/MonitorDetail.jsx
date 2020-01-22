@@ -8,15 +8,16 @@ import './MonitorDetail.css'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import HeatChart from 'components/HeatChart/heatChart'
 //redux
-import {useDispatch} from 'react-redux'
-import {deleteSensor} from '../actions/sensorActions'
+
+
 import { useSelector, useDispatch } from 'react-redux'
 
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 
 //redux
-
+import { deleteSensor } from '../actions/sensorActions'
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
+
 
 const { Title } = Typography
 
@@ -28,7 +29,11 @@ const MonitorDetails = props => {
     height: '40vh',
     zoom: 7,
   })
-
+  const deleteHandler = (event, id) => {
+    event.preventDefault()
+    props.deleteOrg(id) //actions
+    props.params.api.redrawRows()
+  }
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
   let selectedSensor = props.selectedPump
@@ -87,8 +92,16 @@ const MonitorDetails = props => {
     
     <div>
       <HeatChart
+         sensors={props.sensors}
+         selectedPump={props.selectedSensors}
+         history={historySelector.history}/>
       />
       <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button>
+      <OrganizationActivity
+        alertInfo={historySelector.alertInfo}
+        individualSensor={historySelector.individualSensor[0]}
+        individualSensorHistory={historySelector.individualSensorHistory}
+      />
       <Row>
         <Col span={20} offset={4}>
           <Title>{physical_id}</Title>

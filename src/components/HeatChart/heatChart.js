@@ -2,32 +2,34 @@ import React from 'react';
 import 'react-calendar-heatmap/dist/styles.css';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
-
+import { useDispatch, useSelector } from 'react-redux'
 import './heatChartStyles.scss';
 
 
 const HeatChart = props => {
-console.log(props, props.selectedPump)
+const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
+console.log(props, props.selectedSensor)
+
 const statusHistory = props.history.filter(day => {
    return day.sensor_id ===
-   props.selectedPump.physical_id
+   currentlySelected.sensor_pid
  }
  )
 const today = new Date();
-
+console.log([statusHistory])
 function shiftDate(date, numDays) {
   const newDate = new Date(date);
   newDate.setDate(newDate.getDate() + numDays);
   return newDate;
 }
-const { status, created_at, sensor_pid } = props.selectedPump
+const { status, created_at, sensor_pid } = currentlySelected
 return( 
 <div className='calendarBox'>
 <h1>{sensor_pid}</h1>
 <CalendarHeatmap
   startDate={shiftDate(today, -360)}
   endDate={today}
-  value = {values}
+  value = {props.statusHistory}
 
   classForValue={value => {
     if (!value) {

@@ -29,10 +29,8 @@ const MonitorsPage = props => {
   return (
     <>
       <div className='heatchartContainer'>
-        <HeatChart
-         sensors={props.sensors}
-         selectedPump={props.selectedPump}
-         history={props.history}/>
+        
+      
       </div>
       <div className='monitorContainer'>
         <div className='percentContainer'>
