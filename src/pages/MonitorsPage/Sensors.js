@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-import { Route } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
@@ -8,7 +7,7 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import {columnsFunc} from './sensorGridColumns'
 import gridOptionss from '../../components/Grid/Pagination'
 import './Sensors.style.scss'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import TrashCan from './TrashCan'
 
@@ -16,8 +15,6 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import SensorsModal from './SensorsModal'
 import moment from 'moment'
 
-//redux
-import { connect } from 'react-redux'
 import { deleteSensor } from '../../actions/sensorActions'
 
 import deleteIcon from '../../icons/DeleteModeButton.svg'
@@ -66,6 +63,7 @@ const Sensors = (props) =>  {
   const userRole = localStorage.getItem('role')
 
   const deleteDisplay = () => {
+    // TO-DO  FIX SIGNINREDUCER STATE OR ACCOUNTS state
     if (true === 'super_user') {
       return (
         <button className='deleteBtn' onClick={() => viewHandler()}>
