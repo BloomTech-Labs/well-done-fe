@@ -7,6 +7,7 @@ import {orgReducer} from './organizationReducer'
 import signInReducer from './signIn-reducer'
 import pumpsReducer from './pumpReducer' //used in dropdown Accounts
 import accountReducer from './accountReducer'
+import { selectedSensorsReducer as selectedSensors } from './selectedSensorsReducer'
 
 const rootReducer = combineReducers({
   sensorReducer,
@@ -16,7 +17,7 @@ const rootReducer = combineReducers({
   pumpsReducer,
   accountReducer,
   orgReducer,
- 
+  selectedSensors,
 })
 
 export default rootReducer

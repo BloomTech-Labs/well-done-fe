@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGl, { Marker } from 'react-map-gl'
+import { Link } from 'react-router-dom'
 import { Bar } from 'react-chartjs-2'
 import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from 'antd'
 import 'antd/dist/antd.css'
@@ -9,12 +10,17 @@ import HeatChart from 'components/HeatChart/heatChart'
 //redux
 import {useDispatch} from 'react-redux'
 import {deleteSensor} from '../actions/sensorActions'
+import { useSelector, useDispatch } from 'react-redux'
 
+import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
+
+//redux
+
+import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
 
 const { Title } = Typography
 
 const MonitorDetails = props => {
-  console.log(props)
   const [viewport, setViewport] = useState({
     latitude: 13.5651,
     longitude: 104.7538,
@@ -23,48 +29,21 @@ const MonitorDetails = props => {
     zoom: 7,
   })
 
-  const [history, setHistory] = useState([])
+  const historySelector = useSelector(state => state.historyReducer)
+  const dispatch = useDispatch()
+  let selectedSensor = props.selectedPump
 
   useEffect(() => {
-    AxiosWithAuth()
-      .get(`${process.env.REACT_APP_HEROKU_API}/api/history`)
-      .then(res => {
-        setHistory(res.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    dispatch(fetchHistoryById(selectedSensor.sensor_pid))
+    dispatch(fetchSensorById(selectedSensor.sensor_pid))
+    return () => {
+      dispatch({type: 'CLEAR_SELECTED'})
+    }
   }, [])
 
-  const {
-    sensor_index,
-    physical_id,
-    data_finished,
-    reported_percent,
-    commune_name,
-    province_name,
-    village_name,
-    status,
-    depth,
-    total,
-    latitude,
-    longitude,
-  } = props.selectedPump
+  console.log(historySelector.individualSensorHistory)
 
-  console.log(`physical id`,sensor_index)
-
-
-  //delete
-  const dispatch = useDispatch()
-
-  const deleteHandler = event => {
-    event.preventDefault()
-    dispatch(deleteSensor(sensor_index))
-  }
-
-  const padHistory = history.filter(pad => {
-    return pad.sensor_id === physical_id
-  })
+  const padHistory = historySelector.individualSensorHistory
 
   const date = padHistory.map(day => day.date)
 
@@ -85,6 +64,24 @@ const MonitorDetails = props => {
   const functioning =
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056725/Vector_1_xzgama.png'
 
+  if (historySelector.individualSensor.length === 0) {
+    return <div>loading...</div>
+  }
+
+  const {
+    physical_id,
+    data_finished,
+    reported_percent,
+    commune_name,
+    province_name,
+    village_name,
+    status,
+    depth,
+    total,
+    latitude,
+    longitude,
+  } = historySelector.individualSensor[0]
+
   return (
 
     
@@ -100,9 +97,11 @@ const MonitorDetails = props => {
       <Row gutter={[8, 32]}>
         <Col span={2}></Col>
         <Col span={1}>
-          <Button type='primary' shape='circle' href='/dashboard'>
-            <Icon type='left' />
-          </Button>
+          <Link to={{ pathname: '/dashboard' }}>
+            <Button type='primary' shape='circle'>
+              <Icon type='left' />
+            </Button>
+          </Link>
         </Col>
         <Col span={1}></Col>
         <Col span={8}>
@@ -202,6 +201,7 @@ const MonitorDetails = props => {
           </Descriptions>
         </Col>
       </Row>
+
       <Row gutter={[8, 32]}>
         <Col span={16} offset={4}>
           <ReactMapGl

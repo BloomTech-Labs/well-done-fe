@@ -12,9 +12,6 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000048',
-    boxShadow: theme.shadows[5],
     display: 'flex',
   },
 }))
@@ -73,24 +70,33 @@ const ViewOrgGrid = props => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <div className='orgInfoBody'>
-              <h2>
-                {props.data.org_name}
-                <br></br>
-              </h2>
-              <h2>
-                <br></br>
-                Base of Operations: {props.data.headquarter_city}
-              </h2>
+            <div className='orgProfCon'>
+            <div className='orgProfBody'>
+              <div className='ceoPic'> null </div>
+              <div className='infoBox'>
+            <h2>{props.data.org_name}</h2>
+            <h4>founded:</h4>
+            <h4>Base of Operations: {props.data.headquarter_city}</h4>
+            <div className='ceoName'>
+                <h3>Admin: </h3>
+            </div>
+            </div>
+            <div className='contactInfo'>
+            <h4>Contact: M-F, 8am - 6pm EST</h4>
+            phone:
+            <h4>email:</h4>
 
-              <br></br>
-
-              <footer>
+            </div>
+            <div className='closeBtn'>
                 <button variant='secondary' onClick={handleClose}>
                   Close
                 </button>
-              </footer>
-            </div>
+                </div>
+              <div className='gridBody'>
+               
+               </div>         
+           </div>
+          </div>
           </div>
         </Fade>
       </Modal>

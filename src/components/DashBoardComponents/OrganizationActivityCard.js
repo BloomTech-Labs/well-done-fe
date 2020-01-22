@@ -3,26 +3,19 @@ import moment from 'moment'
 import { withRouter } from 'react-router'
 
 const OrganizationActivityCard = props => {
-  let found = props.sensors.find(item => {
-    if (item.sensor_id === props.items.sensor_id) {
-      return item
-    }
-  })
-
-  const routeHandler = e => {
-    e.preventDefault()
-    props.setSelectedPump(found)
-    props.history.push('/monitordetails')
-  }
+  console.log(props)
 
   return (
     <div className='orgActivityAlertInfo'>
       <div key={props.index} className='orgActivityCardContainer'>
         <h2 className='pumpOrg'>
           <span className='orgSpan'>
-            Pump #{props.items.sensor_id} ({found.org_name})
+            Sensor #{props.item.sensor_id} ({props.individualSensor.org_name})
           </span>
-          <span className='orgSpan prov'>Province:{found.province_name}</span>
+          <span className='orgSpan prov'>
+            Province:
+            {props.individualSensor.province_name}
+          </span>
         </h2>
         <p className='pumpOrg' />
         <h3 className='status' />
@@ -35,11 +28,8 @@ const OrganizationActivityCard = props => {
       </div>
       <span className='btnCon'>
         <span className='date'>
-          {moment(props.items.created_at).format('MMMM Do, YYYY')}
+          {moment(props.item.created_at).format('MMMM Do, YYYY')}
         </span>
-        <button onClick={e => routeHandler(e)} className='btn btn-info'>
-          View
-        </button>
       </span>
     </div>
   )

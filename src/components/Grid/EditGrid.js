@@ -30,7 +30,6 @@ const EditGrid = props => {
 
   //account id added automatically, needed to .put
   account.id = props.data.id
-  console.log(`props data`,props.data)
 
   const classes = useStyles()
 

@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Dashboard from './pages/Dashboard'
-import MonitorDetails from './pages/MonitorDetail'
-import Monitors from './pages/OverviewPage/MonitorsPage'
-import NavBar from './components/Navbar/Navbar.js'
-import SignIn from './components/SignIn/SignIn'
-import MonitorsPage from './pages/OverviewPage/MonitorsPage'
+import Dashboard from 'pages/Dashboard'
+import MonitorDetails from 'pages/MonitorDetail'
+import Monitors from 'pages/MonitorsPage/MonitorsPage'
+import NavBar from 'components/Navbar/Navbar.js'
+import SignIn from 'components/SignIn/SignIn'
+import MonitorsPage from 'pages/MonitorsPage/MonitorsPage'
 import { useSelector, useDispatch } from 'react-redux'
-import './App.style.scss'
-
-import Settings from './pages/Settings/Settings'
+import 'App.style.scss'
+  import Settings from 'pages/Settings/Settings'
 import MetaTags from 'react-meta-tags'
-import PrivateRoute from './components/PrivateRoute.jsx'
+import PrivateRoute from 'components/PrivateRoute.jsx'
+import Admin from 'pages/Admin/Admin'
 
 function App(props) {
   const dispatch = useDispatch()
   const displayNav = useSelector(state => state.navShow)
+  
+  const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
   useEffect(() => {
     if (window.location.pathname !== '/') {
       dispatch({
@@ -26,7 +28,7 @@ function App(props) {
   }, [window.location.pathname, displayNav])
 
   const [searchFiltered, setSearchFiltered] = useState([])
-  const [selectedPump, setSelectedPump] = useState(null)
+
   return (
     <div className='app-container'>
       {!!displayNav && <NavBar />}
@@ -50,23 +52,21 @@ function App(props) {
           path='/dashboard'
           searchFiltered={searchFiltered}
           setSearchFiltered={setSearchFiltered}
-          selectedPump={selectedPump}
-          setSelectedPump={setSelectedPump}
           page={Dashboard}
         />
-        <PrivateRoute  path='/overview' 
-        page={MonitorsPage}
-        selectedPump={selectedPump}
-        setSelectedPump={setSelectedPump}
+        <PrivateRoute
+          path='/overview'
+          page={MonitorsPage}
         />
 
         <PrivateRoute
           path='/monitorDetails'
           page={MonitorDetails}
-          selectedPump={selectedPump}
+          selectedPump={currentlySelected}
         />
-        
+
         <PrivateRoute path='/overview' page={Monitors} />
+        <PrivateRoute path='/admin' page={Admin} />
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>
     </div>
