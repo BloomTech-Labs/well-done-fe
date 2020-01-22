@@ -23,6 +23,7 @@ import { deleteSensor } from '../../actions/sensorActions'
 import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
 import { date } from 'yup'
+import CalendarFilter from './CalendarFilter'
 
 class pumps extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class pumps extends Component {
 
     this.state = {
       displayView: 0,
-      gridInfoUpdate:props.gridInfo,
+      dateUpdate: this.props.gridInfo ,
       columnDefs: [
         {
           headerName: 'Sensor ID',
@@ -207,21 +208,26 @@ class pumps extends Component {
       document.getElementById('quickFilter').value
     )
   }
-  onQuickFilterByCal() {
-    let dateInput = moment(document.getElementById('dateCal').value).format( 'MM/DD/YYYY')
-    console.log(dateInput, 'Value')
-    return gridOptionss.api.setQuickFilter(dateInput === 'Invalid date' ? '' : dateInput)
+  // onQuickFilterByCal() {
+  //   let dateInput = moment(document.getElementById('dateCal').value).format( 'MM/DD/YYYY')
+  //   console.log(dateInput, 'Value')
+  //   return gridOptionss.api.setQuickFilter(dateInput === 'Invalid date' ? '' : dateInput)
+  //   }
+
+  componentDidUpdate(prevProps, prevState) { 
+    if (prevState.props.gridInfo !== this.props.gridInfo) {
+      this.setState({dateUpdate: this.props.gridInfo })
     }
+  }
+ 
 
   // onQuickFilterByCal = () =>  {
   //   let startDate = moment(document.getElementById('dateCal').value).format('MM/DD/YYYY');
   //   let endDate = moment(document.getElementById('compCal').value).format('MM/DD/YYYY');
-    
+
   //   if(startDate && endDate !== 'Invalid date'){
       
-  //     const filteredDates = this.state.gridInfoUpdate.filter(date=> {
-  //       let compareDate = moment(date.created_at)
-
+  //     const filteredDates = this.props.gridInfo.filter(date=> {
   //       if(moment(date.created_at).isBetween(startDate, endDate)){
   //         console.log('in here')
   //         return date
@@ -229,15 +235,15 @@ class pumps extends Component {
   //         return false
   //       }
   //     })
-  //     this.setState({gridInfoUpdate: filteredDates})
-  //     // this.gridApi.redrawRows()
-  //     console.log( this.gridApi)
+  //     // return filteredDates
   //     console.log(filteredDates, 'filtered dates')
+  //     console.log( this.gridApi)
   //   }
-  //   this.gridApi.redrawRows()
+    
   // }
 
 
+  
 
  
 
@@ -324,7 +330,7 @@ class pumps extends Component {
   }
 
   render() {
-    console.log(this,'gridInfoUp')
+    console.log(this.state.dateUpdate,'updated')
     return (
       <div className='sensorChart'>
         <div className='sensorHeader'>
@@ -341,7 +347,11 @@ class pumps extends Component {
             />
             <AiOutlineSearch className='searchIcon' />
           </div>
-          <div className='calContainer'>
+          <CalendarFilter
+            gridInfo={this.props.gridInfo}
+            gridApi={this.state.gridApi}
+          />
+          {/* <div className='calContainer'>
             <input
               type='date'
               onChange={ this.onQuickFilterByCal}
@@ -354,7 +364,7 @@ class pumps extends Component {
               onChange={this.onQuickFilterByCal}
               id='compCal'
               />
-          </div>
+          </div> */}
           <div className='headerBtns'>
             <button
               className='downloadButton'
@@ -383,16 +393,16 @@ class pumps extends Component {
             className='ag-theme-balham'
           >
             <AgGridReact
+              sideBar={true}
               history={this.props.history}
               columnDefs={this.state.columnDefs}
-              rowData={this.state.gridInfoUpdate}
+              rowData={this.props.gridInfo}
               gridOptions={gridOptionss}
               context={this.state.columnDefs.context}
               frameworkComponents={this.state.columnDefs.frameworkComponents}
               onGridSizeChanged={this.onGridSizeChanged}
               onGridReady={this.onGridReady}
               floatingFilter={true}
-              sideBar={this.state.sideBar}
             />
           </div>
         </div>
