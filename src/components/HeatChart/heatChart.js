@@ -8,6 +8,7 @@ import './heatChartStyles.scss';
 //Redux 
 import { connect } from 'react-redux';
 
+const HeatChart = props => {
 function shiftDate(date, numDays) {
   const newDate = new Date(date);
   newDate.setDate(newDate.getDate() + numDays);
@@ -25,11 +26,10 @@ function getRandomInt(min, max) {
 
 const today = new Date();
 
-const HeatChart = props =>{
+
 const statusHistory = props.history.filter(day => {
   return day.sensor_id === props.selectedPump.physical_id
 })
-
 //   this is generating values TODO pull in values (1,2 or 3 from history)
     const randomValues = getRange(360).map(index => {
       // console.log(today);
