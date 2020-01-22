@@ -7,7 +7,6 @@ import 'antd/dist/antd.css'
 import './MonitorDetail.css'
 import { useSelector, useDispatch } from 'react-redux'
 
-import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 
 //redux
@@ -32,7 +31,6 @@ const MonitorDetails = props => {
   useEffect(() => {
     dispatch(fetchHistoryById(selectedSensor.sensor_pid))
     dispatch(fetchSensorById(selectedSensor.sensor_pid))
-
     return () => {
       dispatch({type: 'CLEAR_SELECTED'})
     }

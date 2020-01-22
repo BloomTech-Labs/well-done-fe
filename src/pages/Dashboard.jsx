@@ -26,7 +26,6 @@ const Dashboard = props => {
     height: '720px',
     zoom: 2,
   })
-
   const sensorSelector = useSelector(state => state.sensorReducer)
   const historySelector = useSelector(state => state.historyReducer)
 
@@ -141,7 +140,6 @@ const Dashboard = props => {
           setViewport={setViewport}
           history={historySelector.history}
           selectedPump={props.selectedPump}
-          setSelectedPump={props.setSelectedPump}
         />
         <Banner />
         <Search

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { CLEAR_SELECTED } from 'actions/selectedSensorsActions'
 import ReactMapGl, { Popup } from 'react-map-gl'
 import MapGL, { NavigationControl, FullscreenControl} from 'react-map-gl';
@@ -8,6 +8,8 @@ import PopupInfo from '../PopupInfo/PopupInfo.component'
 import Pin from '../Pin/Pin.component'
 
 export default function Map(props) {
+  const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
+
   const dispatch = useDispatch()
   useEffect(() => {
     const listener = e => {
@@ -36,18 +38,18 @@ export default function Map(props) {
         >
           {/* for each sensor create a pin to display on map */}
           <Pin
+            currentlySelected={Object.keys(currentlySelected).length}
             sensors={props.sensors}
-            setSelectedPump={props.setSelectedPump}
             funcToggle={props.funcToggle}
             nonFuncToggle={props.nonFuncToggle}
             unknownToggle={props.unknownToggle}
           />
 
-          {props.selectedPump ? (
+          {Object.keys(currentlySelected).length > 0 ? (
             <Popup
               className='popupCard'
-              latitude={props.selectedPump.latitude}
-              longitude={props.selectedPump.longitude}
+              latitude={currentlySelected.latitude}
+              longitude={currentlySelected.longitude}
               onClose={() => {
                 dispatch({type: CLEAR_SELECTED})
               }}
@@ -55,7 +57,7 @@ export default function Map(props) {
             >
               <PopupInfo
                 sensors={props.sensors}
-                selectedPump={props.selectedPump}
+                selectedPump={currentlySelected}
                 history={props.history}
               />
             </Popup>

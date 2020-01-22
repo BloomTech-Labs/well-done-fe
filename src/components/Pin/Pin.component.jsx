@@ -3,8 +3,18 @@ import { Marker } from 'react-map-gl'
 import NewMapMarkerFunctioning from 'icons/NewMapMarkerFunctioning.svg'
 import NewMapMarkerNonFunctioning from 'icons/NewMapMarkerNonFunctioning.svg'
 import NewMapMarkerNoData from 'icons/NewMapMarkerNoData.svg'
-
+import { handleSelected, CLEAR_SELECTED } from 'actions/selectedSensorsActions'
+import { useDispatch } from 'react-redux'
 function Pin(props) {
+  const dispatch = useDispatch()
+
+  const handleClick = async (sensor) => {
+    if (props.currentlySelected) {
+      await dispatch({type: CLEAR_SELECTED})
+    }
+    await dispatch(handleSelected(sensor))
+  }
+
   return (
     <div>
       {props.sensors.map(sensor => {
@@ -16,10 +26,7 @@ function Pin(props) {
               longitude={sensor.longitude}
             >
               <img
-                onClick={event => {
-                  event.preventDefault()
-                  props.setSelectedPump(sensor)
-                }}
+                onClick={() => handleClick(sensor)}
                 className='location-icon'
                 src={NewMapMarkerNonFunctioning}
                 alt='location'
@@ -34,10 +41,7 @@ function Pin(props) {
               longitude={sensor.longitude}
             >
               <img
-                onClick={event => {
-                  event.preventDefault()
-                  props.setSelectedPump(sensor)
-                }}
+                onClick={() => handleClick(sensor)}
                 className='location-icon'
                 src={NewMapMarkerNonFunctioning}
                 alt='location'
@@ -52,10 +56,7 @@ function Pin(props) {
               longitude={sensor.longitude}
             >
               <img
-                onClick={event => {
-                  event.preventDefault()
-                  props.setSelectedPump(sensor)
-                }}
+                onClick={() => handleClick(sensor)}
                 className='location-icon'
                 src={NewMapMarkerNoData}
                 alt='location'
@@ -70,10 +71,7 @@ function Pin(props) {
               longitude={sensor.longitude}
             >
               <img
-                onClick={event => {
-                  event.preventDefault()
-                  props.setSelectedPump(sensor)
-                }}
+                onClick={() => handleClick(sensor)}
                 className='location-icon'
                 src={NewMapMarkerFunctioning}
                 alt='location'
