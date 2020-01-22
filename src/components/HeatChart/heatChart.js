@@ -5,10 +5,31 @@ import ReactTooltip from 'react-tooltip';
 
 import './heatChartStyles.scss';
 
+//Redux 
+import { connect } from 'react-redux';
+
+function shiftDate(date, numDays) {
+  const newDate = new Date(date);
+  newDate.setDate(newDate.getDate() + numDays);
+  return newDate;
+}
+
+function getRange(count) {
+  return Array.from({ length: count }, (_, i) => i);
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 
 const today = new Date();
 
-export default function HeatChart(props) {
+const HeatChart = props =>{
+const statusHistory = props.history.filter(day => {
+  return day.sensor_id === props.selectedPump.physical_id
+})
+
 //   this is generating values TODO pull in values (1,2 or 3 from history)
     const randomValues = getRange(360).map(index => {
       // console.log(today);
@@ -47,16 +68,4 @@ export default function HeatChart(props) {
   );
 }
 
-function shiftDate(date, numDays) {
-  const newDate = new Date(date);
-  newDate.setDate(newDate.getDate() + numDays);
-  return newDate;
-}
-
-function getRange(count) {
-  return Array.from({ length: count }, (_, i) => i);
-}
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+export default HeatChart
