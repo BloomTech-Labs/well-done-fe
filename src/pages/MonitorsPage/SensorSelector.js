@@ -5,7 +5,6 @@ import { Slider } from 'antd';
 import {sensorSelected, FILTERED_SENSORS} from '../../actions/sensorActions'
 
 import {useSelector, dispatch, useDispatch} from 'react-redux'
-import {FILTERED_SENSORS} from 'actions/sensorActions'
 
 const SensorSelector = () => {
 
