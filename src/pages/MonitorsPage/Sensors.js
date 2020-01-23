@@ -24,11 +24,14 @@ import { date } from 'yup'
 
 const Sensors = (props) =>  {
   const [showViewButton , setShowViewButton] = useState(0)
+  const [gridApi, setgridApi] = useState (null)
   const dispatch = useDispatch()
-    let gridApi;
+  const user =useSelector(state => state.userReducer.user)
+
+
     let gridColumnApi;
   const onGridReady = params => {
-    gridApi = params.api
+    setgridApi(params.api) 
     gridColumnApi = params.columnApi
   }
 
@@ -59,13 +62,15 @@ const Sensors = (props) =>  {
       setShowViewButton(!showViewButton)
 
     }
-    gridApi.redrawRows()
+    console.log (gridApi.__proto__, "GRID API")
+     gridApi.__proto__.redrawRows()
+    
+    
   }
-  const userRole = localStorage.getItem('role')
+  
 
   const deleteDisplay = () => {
-    // TO-DO  FIX SIGNINREDUCER STATE OR ACCOUNTS state
-    if (true === 'super_user') {
+    if (user.role === 'super_user') {
       return (
         <button className='deleteBtn' onClick={() => viewHandler()}>
           <img src={deleteIcon} alt='delete'></img>

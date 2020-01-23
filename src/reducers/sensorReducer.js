@@ -78,13 +78,13 @@ const sensorReducer = (state = initialState, action) => {
         ],
       }
     }
-    case WITHOUT_HISTORY_SUCCESS: {
+    case types.WITHOUT_HISTORY_SUCCESS: {
       return {
         ...state,
         gridInfoWithOutHistory: action.payload,
       }
     }
-    case UPDATE_INFO_WITHOUT_HISTORY: {
+    case types.UPDATE_INFO_WITHOUT_HISTORY: {
       return {
         ...state,
         gridInfoWithOutHistory: state.gridInfoWithOutHistory.map(item => {
