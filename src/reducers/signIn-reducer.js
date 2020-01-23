@@ -1,8 +1,4 @@
-import {
-  LOGIN_FETCH,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-} from '../actions/signIn-action'
+import * as types from 'actions/signIn-action'
 
 const initialState = {
   userInfo: {},
@@ -12,17 +8,17 @@ const initialState = {
 
 const signInReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_FETCH:
+    case types.LOGIN_FETCH:
       return {
         ...state,
         isFetching: true,
       }
-    case LOGIN_SUCCESS:
+    case types.LOGIN_SUCCESS:
       return {
         userInfo: action.payload,
         isFetching: false,
       }
-    case LOGIN_FAILURE:
+    case types.LOGIN_FAILURE:
       return {
         error: action.payload,
       }

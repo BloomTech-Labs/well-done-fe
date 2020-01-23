@@ -13,11 +13,18 @@ import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
 
+import MonitorsLineChart from './pages/MonitorsLineChart'
+
+import {fetchUser} from './actions/userActions.js'
+
+
 function App(props) {
   const dispatch = useDispatch()
   const displayNav = useSelector(state => state.navShow)
-  
+  const user = useSelector(state => state.userReducer.user)
   const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
+  
+  const email = localStorage.getItem("userEmail")
   useEffect(() => {
     if (window.location.pathname !== '/') {
       dispatch({
@@ -25,7 +32,15 @@ function App(props) {
         payload: true,
       })
     }
-  }, [window.location.pathname, displayNav])
+
+    // if (!Object.keys(user).length){
+    // if (email) {
+    //   dispatch(fetchUser(email))
+    // }
+
+    // }
+   
+  }, [window.location.pathname, displayNav, user])
 
   const [searchFiltered, setSearchFiltered] = useState([])
 
@@ -59,11 +74,16 @@ function App(props) {
           page={MonitorsPage}
         />
 
-        <PrivateRoute
+        {/* <PrivateRoute
           path='/monitorDetails'
           page={MonitorDetails}
           selectedPump={currentlySelected}
-        />
+        /> */}
+        <PrivateRoute
+          path='/monitorDetails'
+          page={MonitorsLineChart}
+          selectedPump={currentlySelected}
+          />
 
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/admin' page={Admin} />
@@ -73,4 +93,6 @@ function App(props) {
   )
 }
 
-export default App
+
+
+export default App;

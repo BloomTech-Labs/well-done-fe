@@ -1,0 +1,35 @@
+.countCountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+}
+.countSecondContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  height: 500px;
+}
+.toggleBtn{
+    border-radius: 3px;
+    color:#fff;
+    background: rgb(56, 56, 147);
+    padding: 10px 20px;
+
+    &:focus{
+        outline:0;
+    }
+  
+}
+
+.toggleCountOff {
+  display: none;
+}
+.toggleSecondOff {
+  display: none;
+}

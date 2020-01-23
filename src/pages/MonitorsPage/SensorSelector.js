@@ -2,9 +2,10 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Slider } from 'antd';
-import {sensorSelected} from '../../actions/sensorActions'
+import {sensorSelected, FILTERED_SENSORS} from '../../actions/sensorActions'
 
 import {useSelector, dispatch, useDispatch} from 'react-redux'
+import {FILTERED_SENSORS} from 'actions/sensorActions'
 
 const SensorSelector = () => {
 
@@ -38,7 +39,7 @@ function onAfterChange(value) {
           return finalList.push(e)
       }
   })
-  dispatch(sensorSelected(finalList))
+  dispatch({type: FILTERED_SENSORS, payload:finalList})
 }
 
 
