@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
-import gridOptionss from '../../components/Grid/Pagination'
 import { useDispatch } from 'react-redux'
 import { FILTERED_SENSORS, CLEAR_FILTER } from 'actions/sensorActions'
 

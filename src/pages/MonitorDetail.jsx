@@ -8,10 +8,7 @@ import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from 'antd'
 
 import 'antd/dist/antd.css'
 import './MonitorDetail.css'
-import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 import HeatChart from 'components/HeatChart/heatChart'
-//redux
-
 
 import { useSelector, useDispatch } from 'react-redux'
 
