@@ -47,6 +47,7 @@ function App(props) {
     if (!Object.keys(historySelector).length){
       if (sensorId) {
         dispatch(fetchSensorById(sensorId))
+        dispatch(fetchHistoryById(sensorId))
       }
   
       }
