@@ -5,7 +5,12 @@ import ReactTooltip from 'react-tooltip';
 import { useDispatch, useSelector } from 'react-redux'
 import './heatChartStyles.scss';
 import moment from 'moment';
-// const handleClick = 
+
+const handleClick = value => {
+  if (value === null) return(alert(`no info`))
+   alert(`on Date:${value['date']} the status was 
+${value.count}`) 
+}
 
 const handleStatus = statCodeNum =>{
  return statCodeNum === 1 ? "Unknown": statCodeNum === 2 ?"Functional": statCodeNum === 0 || null ? "not functional":"Unknown"
@@ -15,7 +20,7 @@ const today = new Date();
 const HeatChart = props => {
 
 const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
-console.log(props, props.selectedSensor)
+
 
 const statusHistoryArr = props.history.filter(day => {
    return day.sensor_id ===
@@ -40,20 +45,6 @@ const statusHistoryArr = props.history.filter(day => {
    
 
 });
-
-
-//  values={[
-//   { date: '2016-01-01', count: 12 },
-//   { date: '2016-01-22', count: 122 },
-//   { date: '2016-01-30', count: 38 },
-//   // ...and so on
-// ]}
-// const valuesArr = statusHistoryArr.map(historyObj =>{
-//  return {date :'10/12/19' ,
-//     count: historyObj.status}
-// })
-
-
 
 function shiftDate(date, numDays) {
   const newDate = new Date(date);
@@ -83,17 +74,11 @@ return(
     };
   }}
   showWeekdayLabels={true}
-  onClick={value => alert(`on Date:${value.date} the status was 
-  ${value.count}`)}
+  onClick={value => handleClick(value) }
 />
 <ReactTooltip />
 </div>
 )   
-}
-function shiftDate(date, numDays) {
-  const newDate = new Date(date);
-  newDate.setDate(newDate.getDate() + numDays);
-  return newDate;
 }
 
 function getRange(count) {
