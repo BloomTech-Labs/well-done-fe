@@ -35,7 +35,7 @@ function App(props) {
 
     if (!Object.keys(user).length){
     if (email) {
-      dispatch(fetchUser(email))
+      // dispatch(fetchUser(email))
     }
 
     }
