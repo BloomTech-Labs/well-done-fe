@@ -4,62 +4,57 @@ import gridOptionss from '../../components/Grid/Pagination'
 import { useDispatch } from 'react-redux'
 import { FILTERED_SENSORS, CLEAR_FILTER } from 'actions/sensorActions'
 
-import 'date-fns';
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import MomentUtils from '@date-io/moment';
+import 'date-fns'
+import Grid from '@material-ui/core/Grid'
+import DateFnsUtils from '@date-io/date-fns'
+import MomentUtils from '@date-io/moment'
 import {
-    MuiPickersUtilsProvider,
-    KeyboardTimePicker,
-    KeyboardDatePicker,
-  } from '@material-ui/pickers';
-  
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers'
+import './CalFilter.scss'
 
 function CalendarFilter(props) {
+  const [selectedDate, setSelectedDate] = React.useState('')
+  const [selectedDateEnd, setSelectedDateEnd] = React.useState('')
 
-  const [selectedDate, setSelectedDate] = React.useState('');
-  const [selectedDateEnd, setSelectedDateEnd] = React.useState('');
-
-  const handleDateChange = date => {setSelectedDate(date);};
-  const handleDateChangeEnd = date => {setSelectedDateEnd(date);};
+  const handleDateChange = date => {
+    setSelectedDate(date)
+  }
+  const handleDateChangeEnd = date => {
+    setSelectedDateEnd(date)
+  }
 
   const dispatch = useDispatch()
 
-    const onQuickFilterByCal = () => {
-        let startDate = moment(document.getElementById('dateCal').value).format(
-          'MM/DD/YYYY'
-        )
-        let endDate = moment(document.getElementById('compCal').value).format(
-          'MM/DD/YYYY'
-        )
-        
-        // handleDateChange(startDate)
-        // console.log(startDate, 'start day')
-        // handleDateChangeEnd(endDate)
-            
-    
-        console.log(selectedDate,'handleChange')
-    
-        if (startDate && endDate === 'Invalid date') {
-            return  dispatch({ type: CLEAR_FILTER })
-        }else{
-            let filteredDates = props.gridInfo.filter(date => {
-                if (moment(date.created_at).isBetween(startDate, endDate)) {
-                  return date
-                } else {
-                  return false
-                }
-              })
-              dispatch({ type: FILTERED_SENSORS, payload: filteredDates })
-             
-        }
-      }
+  const onQuickFilterByCal = () => {
+    let startDate = moment(document.getElementById('dateCal').value).format(
+      'MM/DD/YYYY'
+    )
+    let endDate = moment(document.getElementById('compCal').value).format(
+      'MM/DD/YYYY'
+    )
 
- 
+    console.log(startDate, 'handleChange')
+
+    if (startDate && endDate === 'Invalid date') {
+      return dispatch({ type: CLEAR_FILTER })
+    } else {
+      let filteredDates = props.gridInfo.filter(date => {
+        if (moment(date.created_at).isBetween(startDate, endDate)) {
+          return date
+        } else {
+          return false
+        }
+      })
+      dispatch({ type: FILTERED_SENSORS, payload: filteredDates })
+    }
+  }
 
   return (
-    <div>
-      <MuiPickersUtilsProvider utils={MomentUtils}>
+    <div className='calendarContainer'>
+      {/* <MuiPickersUtilsProvider utils={MomentUtils}>
       <Grid container justify="space-around">
         <KeyboardDatePicker
           disableToolbar
@@ -92,13 +87,13 @@ function CalendarFilter(props) {
         />
        
       </Grid>
-    </MuiPickersUtilsProvider>
-      {/* <div className='calContainer'>
+    </MuiPickersUtilsProvider> */}
+      <div className='calContainer'>
         <input type='date' onChange={onQuickFilterByCal} id='dateCal' />
       </div>
       <div className='calContainerComp'>
         <input type='date' onChange={onQuickFilterByCal} id='compCal' />
-      </div> */}
+      </div>
     </div>
   )
 }
