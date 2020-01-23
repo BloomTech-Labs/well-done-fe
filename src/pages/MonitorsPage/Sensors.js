@@ -8,6 +8,7 @@ import {columnsFunc} from './sensorGridColumns'
 import gridOptionss from '../../components/Grid/Pagination'
 import './Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
+import NgoDropDown from './NgoDropDown'
 
 import TrashCan from './TrashCan'
 
@@ -24,11 +25,14 @@ import CalendarFilter from './CalendarFilter'
 
 const Sensors = (props) =>  {
   const [showViewButton , setShowViewButton] = useState(0)
+  const [gridApi, setgridApi] = useState (null)
   const dispatch = useDispatch()
-    let gridApi;
+  const user =useSelector(state => state.userReducer.user)
+
+
     let gridColumnApi;
   const onGridReady = params => {
-    gridApi = params.api
+    setgridApi(params.api) 
     gridColumnApi = params.columnApi
   }
 
@@ -59,13 +63,15 @@ const Sensors = (props) =>  {
       setShowViewButton(!showViewButton)
 
     }
-    gridApi.redrawRows()
+    console.log (gridApi.__proto__, "GRID API")
+     gridApi.__proto__.redrawRows()
+    
+    
   }
-  const userRole = localStorage.getItem('role')
+  
 
   const deleteDisplay = () => {
-    // TO-DO  FIX SIGNINREDUCER STATE OR ACCOUNTS state
-    if (true === 'super_user') {
+    if (user.role === 'super_user') {
       return (
         <button className='deleteBtn' onClick={() => viewHandler()}>
           <img src={deleteIcon} alt='delete'></img>
@@ -131,7 +137,12 @@ const Sensors = (props) =>  {
               onChange={onQuickFilterByCal}
               id='compCal'
               />
+
           </div> */}
+
+          </div>
+          <NgoDropDown/>
+
           <div className='headerBtns'>
             <button
               className='downloadButton'
