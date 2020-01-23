@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink, Link, Redirect } from 'react-router-dom'
 import useOnClickOutside from 'use-onclickoutside'
 import { useDispatch } from 'react-redux'
 import { withRouter } from 'react-router'
 import { IoIosSettings } from 'react-icons/io'
 import { FiLogOut } from 'react-icons/fi'
+import { connect } from "react-redux";
+
 
 const Dropdown = props => {
+
+
+
   const dispatch = useDispatch()
   const logout = async () => {
     localStorage.removeItem('token')
@@ -21,6 +26,13 @@ const Dropdown = props => {
   useOnClickOutside(ref, () => props.setterFunction(true))
 
   const email = localStorage.getItem("userEmail")
+
+  useEffect(() => {
+    if (props.userInfo.email_address == null) {
+    }
+   
+  }, [])
+
 
   return (
     <div className='drop-down' ref={ref}>
@@ -53,9 +65,14 @@ const Dropdown = props => {
         </div>
       </div>
       <div className='user-email'>{email}</div>
+      <div>{props.userInfo.email_address} email from Redux</div>
       </div>
     </div>
   )
 }
 
-export default withRouter(Dropdown)
+const mapStateToProps = state => ({
+  userInfo: state.signInReducer.userInfo
+});
+
+export default connect (mapStateToProps) (withRouter(Dropdown))

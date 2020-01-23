@@ -79,6 +79,7 @@ export const columnsFunc =  (data,dispatch,showViewButton) => {
           // sortable: true,
           // filter: true,
           cellRendererFramework: params => {
+          
             return (
               <div>
                 {showViewButton === 0 ? (

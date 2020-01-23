@@ -16,7 +16,7 @@ import Admin from 'pages/Admin/Admin'
 function App(props) {
   const dispatch = useDispatch()
   const displayNav = useSelector(state => state.navShow)
-  
+  const user = useSelector(state => state.signInReducer.user)
   const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
   useEffect(() => {
     if (window.location.pathname !== '/') {
@@ -25,6 +25,15 @@ function App(props) {
         payload: true,
       })
     }
+
+    
+    if (!Object.keys(user).length){
+    if (localStorage.getItem("useremail")){
+      
+    }
+
+    }
+   
   }, [window.location.pathname, displayNav])
 
   const [searchFiltered, setSearchFiltered] = useState([])
