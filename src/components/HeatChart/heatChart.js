@@ -4,6 +4,12 @@ import CalendarHeatmap from 'react-calendar-heatmap';
 import ReactTooltip from 'react-tooltip';
 import { useDispatch, useSelector } from 'react-redux'
 import './heatChartStyles.scss';
+import moment from 'moment';
+// const handleClick = 
+
+const handleStatus = statCodeNum =>{
+ return statCodeNum === 1 ? "Unknown": statCodeNum === 2 ?"Functional": statCodeNum === 0 || null ? "not functional":"Unknown"
+}
 
 const today = new Date();
 const HeatChart = props => {
@@ -25,7 +31,7 @@ const statusHistoryArr = props.history.filter(day => {
  }
   )
  
- const randomValues = getRange(360).map(index => {
+ const randomValues = getRange(359).map(index => {
   return {
     date: shiftDate(today, -index),
     count: getRandomInt(1, 3),
@@ -59,25 +65,26 @@ return(
 <div className='calendarBox'>
 <h1>{sensor_pid}</h1>
 <CalendarHeatmap
- startDate={shiftDate(today, -360)}
+ startDate={shiftDate(today, -359)}
  endDate={today}
  values={calVals}
 
   classForValue={value => {
-    if (!value) {
+    if (!value || null) {
       return 'color-empty';
     }
     return `color-github-${value.count}`;
   }}
-  // tooltipDataAttrs={value => {
-  //   return {
-  //     'data-tip': `${value.date.toISOString().slice(0, 10)} has count: ${
-  //       value.count
-  //     }`,
-  //   };
-  // }}
+  tooltipDataAttrs={value => {
+    return {
+      'data-tip': `${moment(value.date)} has count: ${
+        handleStatus(value.count)
+      }`,
+    };
+  }}
   showWeekdayLabels={true}
-  onClick={value => alert(`Clicked on value with count: ${value.count}`)}
+  onClick={value => alert(`on Date:${value.date} the status was 
+  ${value.count}`)}
 />
 <ReactTooltip />
 </div>
