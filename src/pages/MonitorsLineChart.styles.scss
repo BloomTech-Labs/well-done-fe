@@ -1,26 +1,35 @@
+.countCountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+}
+.countSecondContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  height: 500px;
+}
+.toggleBtn{
+    border-radius: 3px;
+    color:#fff;
+    background: rgb(56, 56, 147);
+    padding: 10px 20px;
 
-.countCountContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-}
-.countSecondContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
+    &:focus{
+        outline:0;
+    }
+  
 }
 
-.toggleCountOn{
-    display:block;
+.toggleCountOff {
+  display: none;
 }
-.toggleCountOff{
-    display:none;
-}
-.toggleSecondOn{
-    display:block;
-}
-.toggleSecondOff{
-    display:none;
+.toggleSecondOff {
+  display: none;
 }
