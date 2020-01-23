@@ -74,16 +74,16 @@ function App(props) {
           page={MonitorsPage}
         />
 
-        {/* <PrivateRoute
+        <PrivateRoute
           path='/monitorDetails'
           page={MonitorDetails}
           selectedPump={currentlySelected}
-        /> */}
-        <PrivateRoute
+        />
+        {/* <PrivateRoute
           path='/monitorDetails'
           page={MonitorsLineChart}
           selectedPump={currentlySelected}
-          />
+          /> */}
 
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/admin' page={Admin} />

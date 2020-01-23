@@ -24,7 +24,7 @@
     background: rgb(56, 56, 147);
     color:#fff;
     &:focus{
-        outline:none
+        outline:0
     }
 }
 .countBtnOff{
@@ -34,6 +34,9 @@
     padding: 10px 20px;
     background:#fff;
     color: rgb(56, 56, 147);
+    &:focus{
+        outline:0
+    }
 }
 .secondBtnOn{
     border:none;
@@ -43,7 +46,7 @@
     background: rgb(56, 56, 147);
     color:#fff;
     &:focus{
-        outline:none
+        outline:0
     }
 }
 .SecondBtnOff{
@@ -53,6 +56,9 @@
     padding: 10px 20px;
     background:#fff;
     color: rgb(56, 56, 147);
+    &:focus{
+        outline:0
+    }
 }
 
 

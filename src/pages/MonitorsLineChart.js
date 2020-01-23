@@ -14,8 +14,7 @@ import {
 import './MonitorsLineChart.styles.scss'
 
 function MonitorsLineChart(props) {
-
-  const [isToggleGraph, setIsToggleGraph] = useState(false)   
+  const [isToggleGraph, setIsToggleGraph] = useState(false)
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
   let selectedSensor = props.selectedPump
@@ -45,8 +44,6 @@ function MonitorsLineChart(props) {
   if (historySelector.individualSensor.length === 0) {
     return <div>loading...</div>
   }
-
- 
 
   const data = [
     {
@@ -238,51 +235,70 @@ function MonitorsLineChart(props) {
 
   return (
     <>
-    <div className='toggleGraphContainer'>
-        <button className={ !isToggleGraph ? 'countBtnOn':'countBtnOff'}
-        onClick={() => setIsToggleGraph(!isToggleGraph)}>Pad Counts</button> 
-        <button className={ isToggleGraph ? 'secondBtnOn':'SecondBtnOff'}
-        onClick={() => setIsToggleGraph(!isToggleGraph)}>Pad Seconds</button> 
-    </div>
-    <div className={ !isToggleGraph ? 'countCountContainer' : 'toggleCountOff' }> 
-<ResponsiveContainer width="80%">
-      <LineChart
-        data={data}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      <div className='toggleGraphContainer'>
+        <button
+          className={!isToggleGraph ? 'countBtnOn' : 'countBtnOff'}
+          onClick={() => setIsToggleGraph(!isToggleGraph)}
+        >
+          Pad Counts
+        </button>
+        <button
+          className={isToggleGraph ? 'secondBtnOn' : 'SecondBtnOff'}
+          onClick={() => setIsToggleGraph(!isToggleGraph)}
+        >
+          Pad Seconds
+        </button>
+      </div>
+      <div
+        className={!isToggleGraph ? 'countCountContainer' : 'toggleCountOff'}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-         <Line type='monotone' dataKey='First_Pad_Count' stroke='#261592' />
-          <Line type='monotone' dataKey='Second_Pad_Count' stroke='#FFAD34' />
-          <Line type='monotone' dataKey='Third_Pad_Count' stroke='#15B567' />
-          <Line type='monotone' dataKey='Fourth_Pad_Count' stroke='#921515' />
-      </LineChart>
-    </ResponsiveContainer>
+        <ResponsiveContainer width='80%'>
+          <LineChart
+            data={data}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis dataKey='name' />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type='monotone' dataKey='First_Pad_Count' stroke='#261592' />
+            <Line type='monotone' dataKey='Second_Pad_Count' stroke='#FFAD34' />
+            <Line type='monotone' dataKey='Third_Pad_Count' stroke='#15B567' />
+            <Line type='monotone' dataKey='Fourth_Pad_Count' stroke='#921515' />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
 
       {/* /// pad seconds chart */}
-      <div  className={ isToggleGraph ? 'countSecondContainer':'toggleSecondOff'}>
-      <ResponsiveContainer width="80%" >
-      <LineChart
-        data={dataSecond}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      <div
+        className={isToggleGraph ? 'countSecondContainer' : 'toggleSecondOff'}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Line type='monotone' dataKey='First_Pad_Second' stroke='#261592' />
-          <Line type='monotone' dataKey='Second_Pad_Second' stroke='#FFAD34' />
-          <Line type='monotone' dataKey='Third_Pad_Second' stroke='#15B567' />
-          <Line type='monotone' dataKey='Fourth_Pad_Second' stroke='#921515' />
- 
-      </LineChart>
-    </ResponsiveContainer>
-    </div>
+        <ResponsiveContainer width='80%'>
+          <LineChart
+            data={dataSecond}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis dataKey='name' />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type='monotone' dataKey='First_Pad_Second' stroke='#261592' />
+            <Line
+              type='monotone'
+              dataKey='Second_Pad_Second'
+              stroke='#FFAD34'
+            />
+            <Line type='monotone' dataKey='Third_Pad_Second' stroke='#15B567' />
+            <Line
+              type='monotone'
+              dataKey='Fourth_Pad_Second'
+              stroke='#921515'
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     </>
   )
 }
