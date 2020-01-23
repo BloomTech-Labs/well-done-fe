@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGl, { Marker } from 'react-map-gl'
 import { Link } from 'react-router-dom'
+
 import { Bar,Line } from 'react-chartjs-2'
 import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from 'antd'
+
+import { Bar } from 'react-chartjs-2'
+import { Row, Col, Descriptions, Badge, Typography } from 'antd'
+
 import 'antd/dist/antd.css'
 import './MonitorDetail.css'
 import { useSelector, useDispatch } from 'react-redux'
+
+import GoBack from '../components/Navbar/GoBack'
 
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
 
@@ -94,11 +101,7 @@ const MonitorDetails = props => {
       <Row gutter={[8, 32]}>
         <Col span={2}></Col>
         <Col span={1}>
-          <Link to={{ pathname: '/dashboard' }}>
-            <Button type='primary' shape='circle'>
-              <Icon type='left' />
-            </Button>
-          </Link>
+          <GoBack/>
         </Col>
         <Col span={1}></Col>
         <Col span={8}>
