@@ -239,10 +239,12 @@ function MonitorsLineChart(props) {
   return (
     <>
     <div className='toggleGraphContainer'>
-        <button className='toggleBtn'
-        onClick={() => setIsToggleGraph(!isToggleGraph)}>{!isToggleGraph? 'View Pad Count': 'View Pad Seconds'}</button> 
+        <button className={ !isToggleGraph ? 'countBtnOn':'countBtnOff'}
+        onClick={() => setIsToggleGraph(!isToggleGraph)}>Pad Counts</button> 
+        <button className={ isToggleGraph ? 'secondBtnOn':'SecondBtnOff'}
+        onClick={() => setIsToggleGraph(!isToggleGraph)}>Pad Seconds</button> 
     </div>
-    <div className={ isToggleGraph ? 'countCountContainer' : 'toggleCountOff' }> 
+    <div className={ !isToggleGraph ? 'countCountContainer' : 'toggleCountOff' }> 
 <ResponsiveContainer width="80%">
       <LineChart
         data={data}
@@ -253,16 +255,16 @@ function MonitorsLineChart(props) {
         <YAxis />
         <Tooltip />
         <Legend />
-         <Line type='monotone' dataKey='First_Pad_Count' stroke='#82ca9d' />
-          <Line type='monotone' dataKey='Second_Pad_Count' stroke='#8884d8' />
-          <Line type='monotone' dataKey='Third_Pad_Count' stroke='#000' />
-          <Line type='monotone' dataKey='Fourth_Pad_Count' stroke='red' />
+         <Line type='monotone' dataKey='First_Pad_Count' stroke='#261592' />
+          <Line type='monotone' dataKey='Second_Pad_Count' stroke='#FFAD34' />
+          <Line type='monotone' dataKey='Third_Pad_Count' stroke='#15B567' />
+          <Line type='monotone' dataKey='Fourth_Pad_Count' stroke='#921515' />
       </LineChart>
     </ResponsiveContainer>
       </div>
 
       {/* /// pad seconds chart */}
-      <div  className={ !isToggleGraph ? 'countSecondContainer':'toggleSecondOff'}>
+      <div  className={ isToggleGraph ? 'countSecondContainer':'toggleSecondOff'}>
       <ResponsiveContainer width="80%" >
       <LineChart
         data={dataSecond}
@@ -273,10 +275,10 @@ function MonitorsLineChart(props) {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Line type='monotone' dataKey='First_Pad_Second' stroke='#82ca9d' />
-          <Line type='monotone' dataKey='Second_Pad_Second' stroke='#8884d8' />
-          <Line type='monotone' dataKey='Third_Pad_Second' stroke='#000' />
-          <Line type='monotone' dataKey='Fourth_Pad_Second' stroke='red' />
+        <Line type='monotone' dataKey='First_Pad_Second' stroke='#261592' />
+          <Line type='monotone' dataKey='Second_Pad_Second' stroke='#FFAD34' />
+          <Line type='monotone' dataKey='Third_Pad_Second' stroke='#15B567' />
+          <Line type='monotone' dataKey='Fourth_Pad_Second' stroke='#921515' />
  
       </LineChart>
     </ResponsiveContainer>
