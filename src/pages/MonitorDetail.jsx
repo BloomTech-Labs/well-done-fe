@@ -3,9 +3,7 @@ import ReactMapGl, { Marker } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 
 import { Bar,Line } from 'react-chartjs-2'
-import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from 'antd'
 
-import { Bar } from 'react-chartjs-2'
 import { Row, Col, Descriptions, Badge, Typography } from 'antd'
 
 import 'antd/dist/antd.css'

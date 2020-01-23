@@ -33,12 +33,12 @@ function App(props) {
       })
     }
 
-    if (!Object.keys(user).length){
-    if (email) {
-      dispatch(fetchUser(email))
-    }
+    // if (!Object.keys(user).length){
+    // if (email) {
+    //   dispatch(fetchUser(email))
+    // }
 
-    }
+    // }
    
   }, [window.location.pathname, displayNav, user])
 
