@@ -27,11 +27,6 @@ const Dropdown = props => {
 
   const email = localStorage.getItem("userEmail")
 
-  useEffect(() => {
-    if (props.userInfo.email_address == null) {
-    }
-   
-  }, [])
 
 
   return (
@@ -64,15 +59,14 @@ const Dropdown = props => {
           Logout
         </div>
       </div>
-      <div className='user-email'>{email}</div>
-      <div>{props.userInfo.email_address} email from Redux</div>
+      <div className='user-email'>{props.user.email_address}</div>
       </div>
     </div>
   )
 }
 
 const mapStateToProps = state => ({
-  userInfo: state.signInReducer.userInfo
+  user: state.userReducer.user
 });
 
 export default connect (mapStateToProps) (withRouter(Dropdown))

@@ -12,12 +12,15 @@ import 'App.style.scss'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
+import {fetchUser} from './actions/userActions.js'
 
 function App(props) {
   const dispatch = useDispatch()
   const displayNav = useSelector(state => state.navShow)
-  const user = useSelector(state => state.signInReducer.user)
+  const user = useSelector(state => state.userReducer.user)
   const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
+  
+  const email = localStorage.getItem("userEmail")
   useEffect(() => {
     if (window.location.pathname !== '/') {
       dispatch({
@@ -26,15 +29,17 @@ function App(props) {
       })
     }
 
-    
+    console.log( Object.keys(user).length, "USER" )
+    console.log( email, "EMAIL" )
     if (!Object.keys(user).length){
-    if (localStorage.getItem("useremail")){
-      
+    if (email) {
+      console.log("here")
+      dispatch(fetchUser(email))
     }
 
     }
    
-  }, [window.location.pathname, displayNav])
+  }, [window.location.pathname, displayNav, user])
 
   const [searchFiltered, setSearchFiltered] = useState([])
 
@@ -82,4 +87,6 @@ function App(props) {
   )
 }
 
-export default App
+
+
+export default App;
