@@ -14,13 +14,25 @@ console.log(props, props.selectedSensor)
 const statusHistoryArr = props.history.filter(day => {
    return day.sensor_id ===
    currentlySelected.sensor_pid
+
  }
- )
+)
+ const calVals = statusHistoryArr.map( val =>{
+  return{
+    date: val.created_at,
+    count: val.status
+  }
+ }
+  )
+ 
  const randomValues = getRange(360).map(index => {
   return {
     date: shiftDate(today, -index),
     count: getRandomInt(1, 3),
   };
+
+   
+
 });
 
 
@@ -49,7 +61,7 @@ return(
 <CalendarHeatmap
  startDate={shiftDate(today, -360)}
  endDate={today}
- values={randomValues}
+ values={calVals}
 
   classForValue={value => {
     if (!value) {
@@ -57,13 +69,13 @@ return(
     }
     return `color-github-${value.count}`;
   }}
-  tooltipDataAttrs={value => {
-    return {
-      'data-tip': `${value.date.toISOString().slice(0, 10)} has count: ${
-        value.count
-      }`,
-    };
-  }}
+  // tooltipDataAttrs={value => {
+  //   return {
+  //     'data-tip': `${value.date.toISOString().slice(0, 10)} has count: ${
+  //       value.count
+  //     }`,
+  //   };
+  // }}
   showWeekdayLabels={true}
   onClick={value => alert(`Clicked on value with count: ${value.count}`)}
 />
