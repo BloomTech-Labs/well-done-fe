@@ -2,6 +2,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Slider } from 'antd';
+import gridOptionss from '../../components/Grid/Pagination'
 
 import {useSelector} from 'react-redux'
 
@@ -25,6 +26,8 @@ function onChange(value) {
 function onAfterChange(value) {
   console.log('onAfterChange: ', value);
 }
+
+
 
 return (
     <>
