@@ -10,6 +10,11 @@ import { Row, Col, Descriptions, Badge, Typography } from 'antd'
 
 import 'antd/dist/antd.css'
 import './MonitorDetail.css'
+import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
+import HeatChart from 'components/HeatChart/heatChart'
+//redux
+
+
 import { useSelector, useDispatch } from 'react-redux'
 
 import GoBack from '../components/Navbar/GoBack'
@@ -19,6 +24,7 @@ import OrganizationActivity from '../components/DashBoardComponents/Organization
 //redux
 import { deleteSensor } from '../actions/sensorActions'
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
+
 
 const { Title } = Typography
 
@@ -30,7 +36,11 @@ const MonitorDetails = props => {
     height: '40vh',
     zoom: 7,
   })
-
+  const deleteHandler = (event, id) => {
+    event.preventDefault()
+    props.deleteOrg(id) //actions
+    props.params.api.redrawRows()
+  }
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
   let selectedSensor = props.selectedPump
@@ -87,7 +97,15 @@ const MonitorDetails = props => {
 
 
   return (
+
+    
     <div>
+      <HeatChart
+         sensors={props.sensors}
+         selectedPump={props.selectedSensors}
+         history={historySelector.history}/>
+      />
+      <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button>
       <OrganizationActivity
         alertInfo={historySelector.alertInfo}
         individualSensor={historySelector.individualSensor[0]}
