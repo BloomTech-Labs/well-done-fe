@@ -9,6 +9,8 @@ import gridOptionss from '../../components/Grid/Pagination'
 import './Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
 
+import SensorSelector from './SensorSelector'
+
 import TrashCan from './TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
@@ -98,8 +100,11 @@ const Sensors = (props) =>  {
   }
 
     return (
+      <>
+      <SensorSelector/>
       <div className='sensorChart'>
         <div className='sensorHeader'>
+        
           <div className='sensorHeaderName'>
             <h1>Sensors</h1>
           </div>
@@ -113,6 +118,7 @@ const Sensors = (props) =>  {
             />
             <AiOutlineSearch className='searchIcon' />
           </div>
+          
           <div className='calContainer'>
             <input
               type='date'
@@ -127,6 +133,7 @@ const Sensors = (props) =>  {
               id='compCal'
               />
           </div>
+          
           <div className='headerBtns'>
             <button
               className='downloadButton'
@@ -163,9 +170,11 @@ const Sensors = (props) =>  {
               onGridReady={onGridReady}
               floatingFilter={true}
             />
+           
           </div>
         </div>
       </div>
+      </>
     )
   
 }
