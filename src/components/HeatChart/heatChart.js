@@ -5,18 +5,38 @@ import ReactTooltip from 'react-tooltip';
 import { useDispatch, useSelector } from 'react-redux'
 import './heatChartStyles.scss';
 
-
+const today = new Date();
 const HeatChart = props => {
+
 const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
 console.log(props, props.selectedSensor)
 
-const statusHistory = props.history.filter(day => {
+const statusHistoryArr = props.history.filter(day => {
    return day.sensor_id ===
    currentlySelected.sensor_pid
  }
  )
-const today = new Date();
-console.log([statusHistory])
+ const randomValues = getRange(360).map(index => {
+  return {
+    date: shiftDate(today, -index),
+    count: getRandomInt(1, 3),
+  };
+});
+
+
+//  values={[
+//   { date: '2016-01-01', count: 12 },
+//   { date: '2016-01-22', count: 122 },
+//   { date: '2016-01-30', count: 38 },
+//   // ...and so on
+// ]}
+// const valuesArr = statusHistoryArr.map(historyObj =>{
+//  return {date :'10/12/19' ,
+//     count: historyObj.status}
+// })
+
+
+
 function shiftDate(date, numDays) {
   const newDate = new Date(date);
   newDate.setDate(newDate.getDate() + numDays);
@@ -27,9 +47,9 @@ return(
 <div className='calendarBox'>
 <h1>{sensor_pid}</h1>
 <CalendarHeatmap
-  startDate={shiftDate(today, -360)}
-  endDate={today}
-  value = {props.statusHistory}
+ startDate={shiftDate(today, -360)}
+ endDate={today}
+ values={randomValues}
 
   classForValue={value => {
     if (!value) {
@@ -50,6 +70,19 @@ return(
 <ReactTooltip />
 </div>
 )   
+}
+function shiftDate(date, numDays) {
+  const newDate = new Date(date);
+  newDate.setDate(newDate.getDate() + numDays);
+  return newDate;
+}
+
+function getRange(count) {
+  return Array.from({ length: count }, (_, i) => i);
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export default HeatChart
