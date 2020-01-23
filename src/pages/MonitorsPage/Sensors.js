@@ -8,6 +8,7 @@ import {columnsFunc} from './sensorGridColumns'
 import gridOptionss from '../../components/Grid/Pagination'
 import './Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
+import NgoDropDown from './NgoDropDown'
 
 import TrashCan from './TrashCan'
 
@@ -127,6 +128,7 @@ const Sensors = (props) =>  {
               id='compCal'
               />
           </div>
+          <NgoDropDown/>
           <div className='headerBtns'>
             <button
               className='downloadButton'
