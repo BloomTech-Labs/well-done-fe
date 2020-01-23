@@ -125,22 +125,6 @@ const Sensors = (props) =>  {
             gridInfo={props.gridInfo}
             gridApi={gridApi}
           />
-          {/* <div className='calContainer'>
-            <input
-              type='date'
-              onChange={ onQuickFilterByCal}
-              id='dateCal'
-            />
-          </div>
-          <div className="calContainerComp">
-            <input
-              type='date'
-              onChange={onQuickFilterByCal}
-              id='compCal'
-              />
-
-          </div> */}
-
           </div>
           <NgoDropDown/>
 
