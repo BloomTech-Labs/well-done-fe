@@ -29,11 +29,8 @@ function App(props) {
       })
     }
 
-    console.log( Object.keys(user).length, "USER" )
-    console.log( email, "EMAIL" )
     if (!Object.keys(user).length){
     if (email) {
-      console.log("here")
       dispatch(fetchUser(email))
     }
 

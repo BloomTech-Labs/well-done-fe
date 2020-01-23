@@ -1,9 +1,4 @@
-import {
-    FETCHING_USER_REQUEST,
-    FETCHING_USER_SUCCESS,
-    FETCHING_USER_FAILURE
-    
-  } from '../actions/userActions'
+import * as types from 'actions/userActions'
   
   const initialState = {
     user: {},
@@ -13,17 +8,17 @@ import {
   
   const userReducer = (state = initialState, action) => {
     switch (action.type) {
-      case FETCHING_USER_REQUEST:
+      case types.FETCHING_USER_REQUEST:
         return {
           ...state,
           isFetching: true,
         }
-      case FETCHING_USER_SUCCESS:
+      case types.FETCHING_USER_SUCCESS:
         return {
           user: action.payload,
           isFetching: false,
         }
-      case FETCHING_USER_FAILURE:
+      case types.FETCHING_USER_FAILURE:
         return {
           error: action.payload,
         }

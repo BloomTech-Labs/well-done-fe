@@ -26,11 +26,13 @@ const Sensors = (props) =>  {
   const [showViewButton , setShowViewButton] = useState(0)
   const [gridApi, setgridApi] = useState (null)
   const dispatch = useDispatch()
+  const user =useSelector(state => state.userReducer.user)
+
+
     let gridColumnApi;
   const onGridReady = params => {
     setgridApi(params.api) 
     gridColumnApi = params.columnApi
-    // console.log (gridApi, "GRID API")
   }
 
   const onGridSizeChanged = params => {
@@ -65,11 +67,10 @@ const Sensors = (props) =>  {
     
     
   }
-  const userRole = localStorage.getItem('role')
+  
 
   const deleteDisplay = () => {
-    // TO-DO  FIX SIGNINREDUCER STATE OR ACCOUNTS state
-    if (userRole === 'super_user') {
+    if (user.role === 'super_user') {
       return (
         <button className='deleteBtn' onClick={() => viewHandler()}>
           <img src={deleteIcon} alt='delete'></img>
