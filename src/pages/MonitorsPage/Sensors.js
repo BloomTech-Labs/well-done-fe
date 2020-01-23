@@ -105,7 +105,7 @@ const Sensors = (props) =>  {
   }
 
     return (
-      <div>
+      <>
       <div className='sensorChart'>
         <div className='sensorHeader'>
           <div className='sensorHeaderName'>
@@ -166,7 +166,7 @@ const Sensors = (props) =>  {
             />
           </div>
         </div>
-      </div>
+      </>
     )
   
 }

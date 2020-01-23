@@ -33,12 +33,12 @@ function App(props) {
       })
     }
 
-    if (!Object.keys(user).length){
-    if (email) {
-      // dispatch(fetchUser(email))
-    }
+    // if (!Object.keys(user).length){
+    // if (email) {
+    //   dispatch(fetchUser(email))
+    // }
 
-    }
+    // }
    
   }, [window.location.pathname, displayNav, user])
 
@@ -74,16 +74,16 @@ function App(props) {
           page={MonitorsPage}
         />
 
-        {/* <PrivateRoute
+        <PrivateRoute
           path='/monitorDetails'
           page={MonitorDetails}
           selectedPump={currentlySelected}
-        /> */}
-        <PrivateRoute
+        />
+        {/* <PrivateRoute
           path='/monitorDetails'
           page={MonitorsLineChart}
           selectedPump={currentlySelected}
-          />
+          /> */}
 
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/admin' page={Admin} />
