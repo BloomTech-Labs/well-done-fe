@@ -12,6 +12,7 @@ import 'App.style.scss'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
+import MonitorsLineChart from './pages/MonitorsLineChart'
 
 function App(props) {
   const dispatch = useDispatch()
@@ -59,11 +60,16 @@ function App(props) {
           page={MonitorsPage}
         />
 
-        <PrivateRoute
+        {/* <PrivateRoute
           path='/monitorDetails'
           page={MonitorDetails}
           selectedPump={currentlySelected}
-        />
+        /> */}
+        <PrivateRoute
+          path='/monitorDetails'
+          page={MonitorsLineChart}
+          selectedPump={currentlySelected}
+          />
 
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/admin' page={Admin} />

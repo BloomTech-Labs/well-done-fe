@@ -1,0 +1,26 @@
+
+.countCountContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+.countSecondContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+
+.toggleCountOn{
+    display:block;
+}
+.toggleCountOff{
+    display:none;
+}
+.toggleSecondOn{
+    display:block;
+}
+.toggleSecondOff{
+    display:none;
+}
