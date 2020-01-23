@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGl, { Marker } from 'react-map-gl'
 import { Link } from 'react-router-dom'
+
+import { Bar,Line } from 'react-chartjs-2'
+import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from 'antd'
+
 import { Bar } from 'react-chartjs-2'
 import { Row, Col, Descriptions, Badge, Typography } from 'antd'
+
 import 'antd/dist/antd.css'
 import './MonitorDetail.css'
 import { useSelector, useDispatch } from 'react-redux'
@@ -79,6 +84,8 @@ const MonitorDetails = props => {
     longitude,
   } = historySelector.individualSensor[0]
 
+
+
   return (
     <div>
       <OrganizationActivity
@@ -98,23 +105,23 @@ const MonitorDetails = props => {
         </Col>
         <Col span={1}></Col>
         <Col span={8}>
-          <Bar
+          <Line
             data={{
               labels: date,
               datasets: [
                 {
                   label: 'First Pad Count',
-                  backgroundColor: '#6ba8a9',
+                  borderColor: '#6ba8a9',
                   data: firstPadCount,
                 },
                 {
                   label: 'Second Pad Count',
-                  backgroundColor: '#3bb4c1',
+                  borderColor: '#3bb4c1',
                   data: secondPadCount,
                 },
                 {
                   label: 'Third Pad Count',
-                  backgroundColor: '#e9e4e6',
+                  borderColor: '#e9e4e6',
                   data: thirdPadCount,
                 },
                 {
@@ -128,28 +135,25 @@ const MonitorDetails = props => {
         </Col>
 
         <Col span={8}>
-          <Bar
+
+          <Line
             data={{
               labels: date,
               datasets: [
                 {
                   label: 'First Pad Second',
-                  backgroundColor: '#6ba8a9',
                   data: firstPadSecond,
                 },
                 {
                   label: 'Second Pad Second',
-                  backgroundColor: '#3bb4c1',
                   data: secondPadSecond,
                 },
                 {
                   label: 'Third Pad Second',
-                  backgroundColor: '#e9e4e6',
                   data: thirdPadSecond,
                 },
                 {
                   label: 'Fourth Pad Second',
-                  backgroundColor: '#f6f5f5',
                   data: fourthPadSecond,
                 },
               ],
