@@ -94,7 +94,7 @@ const MonitorDetails = props => {
       <HeatChart
          sensors={props.sensors}
          selectedPump={props.selectedSensors}
-         history={historySelector.history}/>
+         history={historySelector.histor}/>
       />
       <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button>
       <OrganizationActivity
