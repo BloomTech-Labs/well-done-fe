@@ -159,7 +159,6 @@ const Sensors = (props) =>  {
             <div className='modalHeader'>
               <SensorsModal />
             </div>
-          </div>
         </div>
         <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
           <div
