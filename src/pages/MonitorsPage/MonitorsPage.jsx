@@ -55,7 +55,7 @@ const MonitorsPage = props => {
       </div>
       <div className='sensorTable'>
         <Sensors
-          gridInfo={sensorSelector.gridInfo}
+          gridInfo={sensorSelector.isFiltered ? sensorSelector.filteredSensors : sensorSelector.gridInfo }
         />
       </div>
     </>

@@ -22,4 +22,6 @@ export const fetchLogin = (account, history) => dispatch => {
       console.log('error here', err)
       dispatch({ type: LOGIN_FAILURE, payload: err })
     })
+
+    
 }
