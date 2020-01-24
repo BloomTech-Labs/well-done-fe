@@ -37,6 +37,14 @@ export const addOp = operator => dispatch => {
     .catch(err => dispatch({ type: ADDOP_FAILURE, payload: err.response }))
 }
 
+export const addOperator = operator => dispatch => {
+  console.log('addoperator',operator)
+  AxiosWithAuth()
+    .post(`${process.env.REACT_APP_HEROKU_API}/api/accounts`, operator)
+    .then(res => console.log(res))
+    .catch(err => dispatch({ type: ADDOP_FAILURE, payload: err.response }))
+}
+
 export const editAccount = account => dispatch => {
   const id = account.id
   console.log(`account `,account)

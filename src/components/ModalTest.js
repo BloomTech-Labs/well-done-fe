@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../actions/pumpAction'
 
-import { addOp } from '../actions/accountAction'
+import { addOp, addOperator } from '../actions/accountAction'
 
 import './modalOperator.scss'
 
@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+
+
+
 const ModalOperator = () => {
   const [operator, setOperator] = useState([])
 
@@ -49,10 +52,16 @@ const ModalOperator = () => {
 
   const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
 
+  const org_id = localStorage.getItem('org_id')
+  operator.org_id = org_id
+
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
     dispatch(addOp(operator))
+    if(operator.role === 'operator'){
+      dispatch(addOperator(operator))
+    }
     handleClose()
   }
 
