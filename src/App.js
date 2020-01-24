@@ -37,12 +37,12 @@ function App(props) {
       })
     }
 
-    // if (!Object.keys(user).length){
-    // if (email) {
-    //   dispatch(fetchUser(email))
-    // }
+ 
+    if (email) {
+      dispatch(fetchUser(email))
+    }
 
-    // }
+    
    
     if (!Object.keys(historySelector).length){
       if (sensorId) {
@@ -52,7 +52,7 @@ function App(props) {
   
       }
 
-  }, [window.location.pathname, displayNav, user,historySelector])
+  }, [window.location.pathname, displayNav, historySelector])
 
   const [searchFiltered, setSearchFiltered] = useState([])
 
