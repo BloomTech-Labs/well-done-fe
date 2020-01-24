@@ -68,7 +68,7 @@ return(
   }}
   tooltipDataAttrs={value => {
     return {
-      'data-tip': `${moment(value.date)} has count: ${
+      'data-tip': `${moment(value.date)} status: ${
         handleStatus(value.count)
       }`,
     };
