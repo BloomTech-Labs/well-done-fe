@@ -1,0 +1,72 @@
+.mainHeaderContainer {
+  display: flex;
+  position: relative;
+    background:#090C9B;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color: #fff;
+    font-weight: bold;
+  }
+  p {
+    color: #fff;
+    font-weight: 400;
+  }
+
+  .backButton {
+    position: absolute;
+    top: 100px;
+    left:50px;
+
+  }
+
+  .headerLeftContainer {
+    width: 55%;
+    // border: 2px solid red;
+    margin: 8rem 2rem 4rem 12rem;
+    padding: 5rem 0;
+  }
+  .status {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5rem;
+
+  }
+  .location {
+    display: flex;
+    margin: 3rem 0;
+    // color:#fff;
+
+    h3 {
+      margin-left: 1rem;
+      font-weight: 300;
+      //   color:#fff;
+    }
+  }
+  .wellContainer {
+    // border: 2px solid green;
+
+    //   color:#fff;
+
+    .wellInfoContainer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      //   color:#fff;
+    }
+ 
+  }
+
+  .mapContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: 0 2rem;
+  }
+}

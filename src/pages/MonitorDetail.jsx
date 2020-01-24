@@ -8,6 +8,7 @@ import { Row, Col, Descriptions, Badge, Typography } from 'antd'
 import 'antd/dist/antd.css'
 import './MonitorDetail.css'
 import HeatChart from 'components/HeatChart/heatChart'
+import MonitorDetailHeader from './MonitorDetailHeader'
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -294,27 +295,24 @@ const MonitorDetails = props => {
 
     
     <div>
-      <HeatChart
-         sensors={props.sensors}
-         selectedPump={props.selectedSensors}
-         history={historySelector.history}/>
-      />
+      <MonitorDetailHeader historySelector={historySelector.individualSensor}/>
+    
       <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button>
-      <OrganizationActivity
+      {/* <OrganizationActivity
         alertInfo={historySelector.alertInfo}
         individualSensor={historySelector.individualSensor[0]}
         individualSensorHistory={historySelector.individualSensorHistory}
-      /> 
+      />  */}
 
 <>
-      <Row>
+      {/* <Row>
         <Col span={20} offset={4}>
           <Title>{physical_id}</Title>
         </Col>
       </Row>
       <Col span={1}>
           <GoBack/>
-        </Col>
+        </Col> */}
       <div className='toggleGraphContainer'>
         <button
           className={!isToggleGraph ? 'countBtnOn' : 'countBtnOff'}
@@ -379,9 +377,14 @@ const MonitorDetails = props => {
           </LineChart>
         </ResponsiveContainer>
       </div>
+      <HeatChart
+         sensors={props.sensors}
+         selectedPump={props.selectedSensors}
+         history={historySelector.history}/>
+       />
     </>
      
-      <Row gutter={[8, 32]}>
+      {/* <Row gutter={[8, 32]}>
         <Col span={16} offset={4}>
           <Descriptions
             layout='vertical'
@@ -441,7 +444,7 @@ const MonitorDetails = props => {
             </Marker>
           </ReactMapGl>
         </Col>
-      </Row>
+      </Row> */}
     </div>
   )
 }
