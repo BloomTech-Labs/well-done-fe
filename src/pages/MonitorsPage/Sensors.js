@@ -123,12 +123,14 @@ const Sensors = (props) =>  {
               id='quickFilter'
               placeholder=' search...'
             />
+            
             <AiOutlineSearch className='searchIcon' />
           </div>
           <CalendarFilter
             gridInfo={props.gridInfo}
             gridApi={gridApi}
           />
+          
           {/* <div className='calContainer'>
             <input
               type='date'
