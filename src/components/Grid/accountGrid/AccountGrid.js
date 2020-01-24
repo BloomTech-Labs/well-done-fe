@@ -41,7 +41,7 @@ class Grid extends Component {
           width: 60,
           cellRendererFramework: params => {
             return (
-              <div>
+              <div id = 'editDelete'>
                 {this.state.displayView === 0 ? (
                   <EditGrid
                     api={params}
@@ -73,9 +73,11 @@ class Grid extends Component {
     };
     const role = localStorage.getItem('role')
     if(role === 'operator'){
-      document.getElementById('modalHeaderAccount').style.display = "none"
+      document.getElementById('modalHeaderAccount').style.display = "none";
+      document.getElementById('deleteBtn').style.display = "none";
     } else {
       document.getElementById('modalHeaderAccount').style.display = "block"
+      document.getElementById('deleteBtn').style.display = "block";
     }
   }
 
@@ -158,7 +160,7 @@ class Grid extends Component {
                 <img src={Archivebutton} alt='download'></img>
               </button>
 
-              <button className='deleteBtn' onClick={() => this.viewHandler()}>
+              <button id='deleteBtn' onClick={() => this.viewHandler()}>
                 <img src={deleteIcon} alt='delete'></img>
               </button>
               <div id='modalHeaderAccount'>
