@@ -1,0 +1,21 @@
+.mainHeaderContainer{
+    display: flex;
+    .backButton{
+        width:5%;
+    }
+
+    .headerLeftContainer{
+        width:55%;
+        border:2px solid red;
+    }
+
+
+
+
+
+    
+    .mapContainer{
+        display: flex;
+        width:35%;
+    }
+}

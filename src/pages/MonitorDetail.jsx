@@ -7,6 +7,7 @@ import { Row, Col, Descriptions, Badge, Typography } from 'antd'
 import 'antd/dist/antd.css'
 import './MonitorDetail.css'
 import HeatChart from 'components/HeatChart/heatChart'
+import MonitorDetailHeader from './MonitorDetailHeader'
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -293,6 +294,7 @@ const MonitorDetails = props => {
 
     
     <div>
+      <MonitorDetailHeader historySelector={historySelector.individualSensor}/>
       <HeatChart
          sensors={props.sensors}
          selectedPump={props.selectedSensors}
@@ -380,7 +382,7 @@ const MonitorDetails = props => {
       </div>
     </>
      
-      <Row gutter={[8, 32]}>
+      {/* <Row gutter={[8, 32]}>
         <Col span={16} offset={4}>
           <Descriptions
             layout='vertical'
@@ -440,7 +442,7 @@ const MonitorDetails = props => {
             </Marker>
           </ReactMapGl>
         </Col>
-      </Row>
+      </Row> */}
     </div>
   )
 }
