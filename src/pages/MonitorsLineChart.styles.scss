@@ -15,17 +15,52 @@
   width: 100%;
   height: 500px;
 }
-.toggleBtn{
-    border-radius: 3px;
-    color:#fff;
-    background: rgb(56, 56, 147);
-    padding: 10px 20px;
 
+.countBtnOn{
+    border:none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px 20px;
+    background: rgb(56, 56, 147);
+    color:#fff;
     &:focus{
-        outline:0;
+        outline:0
     }
-  
 }
+.countBtnOff{
+    border:none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px 20px;
+    background:#fff;
+    color: rgb(56, 56, 147);
+    &:focus{
+        outline:0
+    }
+}
+.secondBtnOn{
+    border:none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px 20px;
+    background: rgb(56, 56, 147);
+    color:#fff;
+    &:focus{
+        outline:0
+    }
+}
+.SecondBtnOff{
+    border:none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px 20px;
+    background:#fff;
+    color: rgb(56, 56, 147);
+    &:focus{
+        outline:0
+    }
+}
+
 
 .toggleCountOff {
   display: none;
@@ -33,3 +68,4 @@
 .toggleSecondOff {
   display: none;
 }
+
