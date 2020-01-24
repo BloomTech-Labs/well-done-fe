@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
-import gridOptionss from '../../components/Grid/Pagination'
 import { useDispatch } from 'react-redux'
 import { FILTERED_SENSORS, CLEAR_FILTER } from 'actions/sensorActions'
 
-import 'date-fns'
-import Grid from '@material-ui/core/Grid'
-import DateFnsUtils from '@date-io/date-fns'
-import MomentUtils from '@date-io/moment'
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers'
 import './CalFilter.scss'
 
 function CalendarFilter(props) {
