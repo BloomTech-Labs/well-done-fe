@@ -1,26 +1,71 @@
+.countCountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+}
+.countSecondContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  height: 500px;
+}
 
-.countCountContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
+.countBtnOn{
+    border:none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px 20px;
+    background: rgb(56, 56, 147);
+    color:#fff;
+    &:focus{
+        outline:0
+    }
 }
-.countSecondContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
+.countBtnOff{
+    border:none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px 20px;
+    background:#fff;
+    color: rgb(56, 56, 147);
+    &:focus{
+        outline:0
+    }
+}
+.secondBtnOn{
+    border:none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px 20px;
+    background: rgb(56, 56, 147);
+    color:#fff;
+    &:focus{
+        outline:0
+    }
+}
+.SecondBtnOff{
+    border:none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px 20px;
+    background:#fff;
+    color: rgb(56, 56, 147);
+    &:focus{
+        outline:0
+    }
 }
 
-.toggleCountOn{
-    display:block;
+
+.toggleCountOff {
+  display: none;
 }
-.toggleCountOff{
-    display:none;
+.toggleSecondOff {
+  display: none;
 }
-.toggleSecondOn{
-    display:block;
-}
-.toggleSecondOff{
-    display:none;
-}
+
