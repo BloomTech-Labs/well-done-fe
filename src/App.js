@@ -37,11 +37,19 @@ function App(props) {
       })
     }
 
- 
-    if (email) {
-      dispatch(fetchUser(email))
+    
+      //prevent fetching when user not logged in
+      if (window.location.pathname !== '/'){
+        //checking if user object in redux is empty
+      if (!Object.keys(user).length){
+        //checking if email is in local storage
+      if (email) {
+        //if email is in local storage get user info back
+        dispatch(fetchUser(email))
+      }
+  
+      }
     }
-
     
    
     if (!Object.keys(historySelector).length){
