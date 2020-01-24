@@ -70,6 +70,12 @@ class Grid extends Component {
       this.props.fetchAccounts()
     } else {
       this.props.fetchOrgAccounts(this.props.orgId)
+    };
+    const role = localStorage.getItem('role')
+    if(role === 'operator'){
+      document.getElementById('modalHeaderAccount').style.display = "none"
+    } else {
+      document.getElementById('modalHeaderAccount').style.display = "block"
     }
   }
 
@@ -116,6 +122,7 @@ class Grid extends Component {
     }
     this.gridApi.redrawRows()
   }
+  
 
   // filter function
   onQuickFilterChanged(params) {
@@ -154,7 +161,7 @@ class Grid extends Component {
               <button className='deleteBtn' onClick={() => this.viewHandler()}>
                 <img src={deleteIcon} alt='delete'></img>
               </button>
-              <div className='modalHeaderAccount'>
+              <div id='modalHeaderAccount'>
                 <ModalOperator />
               </div>
             </div>
