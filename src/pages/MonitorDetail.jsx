@@ -30,7 +30,6 @@ import './MonitorsLineChart.styles.scss'
 import { deleteSensor } from '../actions/sensorActions'
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
 
-
 const { Title } = Typography
 
 const MonitorDetails = props => {
@@ -56,7 +55,7 @@ const MonitorDetails = props => {
     dispatch(fetchHistoryById(selectedSensor.sensor_pid))
     dispatch(fetchSensorById(selectedSensor.sensor_pid))
     return () => {
-      dispatch({type: 'CLEAR_SELECTED'})
+      dispatch({ type: 'CLEAR_SELECTED' })
     }
   }, [])
 
@@ -64,17 +63,17 @@ const MonitorDetails = props => {
 
   const padHistory = historySelector.individualSensorHistory
 
-  const date = padHistory.map(day => day.date)
+  const date = padHistory.slice(-13).map(day => day.date)
 
-  const firstPadCount = padHistory.map(pad => pad.pad_count_0)
-  const secondPadCount = padHistory.map(pad => pad.pad_count_1)
-  const thirdPadCount = padHistory.map(pad => pad.pad_count_2)
-  const fourthPadCount = padHistory.map(pad => pad.pad_count_3)
+  const firstPadCount = padHistory.slice(-13).map(pad => pad.pad_count_0)
+  const secondPadCount = padHistory.slice(-13).map(pad => pad.pad_count_1)
+  const thirdPadCount = padHistory.slice(-13).map(pad => pad.pad_count_2)
+  const fourthPadCount = padHistory.slice(-13).map(pad => pad.pad_count_3)
 
-  const firstPadSecond = padHistory.map(pad => pad.pad_seconds_0)
-  const secondPadSecond = padHistory.map(pad => pad.pad_seconds_1)
-  const thirdPadSecond = padHistory.map(pad => pad.pad_seconds_2)
-  const fourthPadSecond = padHistory.map(pad => pad.pad_seconds_3)
+  const firstPadSecond = padHistory.slice(-13).map(pad => pad.pad_seconds_0)
+  const secondPadSecond = padHistory.slice(-13).map(pad => pad.pad_seconds_1)
+  const thirdPadSecond = padHistory.slice(-13).map(pad => pad.pad_seconds_2)
+  const fourthPadSecond = padHistory.slice(-13).map(pad => pad.pad_seconds_3)
 
   const unknown =
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png'
@@ -289,22 +288,19 @@ const MonitorDetails = props => {
     },
   ]
 
-
   return (
-
-    
     <div>
-      <MonitorDetailHeader historySelector={historySelector.individualSensor}/>
-    
-      <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button>
+      <MonitorDetailHeader historySelector={historySelector.individualSensor} />
+
+      {/* <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button> */}
       {/* <OrganizationActivity
         alertInfo={historySelector.alertInfo}
         individualSensor={historySelector.individualSensor[0]}
         individualSensorHistory={historySelector.individualSensorHistory}
       />  */}
 
-<>
-      {/* <Row>
+      <>
+        {/* <Row>
         <Col span={20} offset={4}>
           <Title>{physical_id}</Title>
         </Col>
@@ -312,77 +308,101 @@ const MonitorDetails = props => {
       <Col span={1}>
           <GoBack/>
         </Col> */}
-      <div className='toggleGraphContainer'>
-        <button
-          className={!isToggleGraph ? 'countBtnOn' : 'countBtnOff'}
-          onClick={() => setIsToggleGraph(!isToggleGraph)}
-        >
-          Pad Counts
-        </button>
-        <button
-          className={isToggleGraph ? 'secondBtnOn' : 'SecondBtnOff'}
-          onClick={() => setIsToggleGraph(!isToggleGraph)}
-        >
-          Pad Seconds
-        </button>
-      </div>
-      <div
-        className={!isToggleGraph ? 'countCountContainer' : 'toggleCountOff'}
-      >
-        <ResponsiveContainer width='80%'>
-          <LineChart
-            data={data}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        <div className='toggleGraphContainer'>
+          <button
+            className={!isToggleGraph ? 'countBtnOn' : 'countBtnOff'}
+            onClick={() => setIsToggleGraph(!isToggleGraph)}
           >
-            <CartesianGrid strokeDasharray='3 3' />
-            <XAxis dataKey='name' />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type='monotone' dataKey='First_Pad_Count' stroke='#261592' />
-            <Line type='monotone' dataKey='Second_Pad_Count' stroke='#FFAD34' />
-            <Line type='monotone' dataKey='Third_Pad_Count' stroke='#15B567' />
-            <Line type='monotone' dataKey='Fourth_Pad_Count' stroke='#921515' />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
+            Pad Counts
+          </button>
+          <button
+            className={isToggleGraph ? 'secondBtnOn' : 'SecondBtnOff'}
+            onClick={() => setIsToggleGraph(!isToggleGraph)}
+          >
+            Pad Seconds
+          </button>
+        </div>
+        <div
+          className={!isToggleGraph ? 'countCountContainer' : 'toggleCountOff'}
+        >
+          <ResponsiveContainer width='80%'>
+            <LineChart
+              data={data}
+              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray='3 3' />
+              <XAxis dataKey='name' />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line
+                type='monotone'
+                dataKey='First_Pad_Count'
+                stroke='#261592'
+              />
+              <Line
+                type='monotone'
+                dataKey='Second_Pad_Count'
+                stroke='#FFAD34'
+              />
+              <Line
+                type='monotone'
+                dataKey='Third_Pad_Count'
+                stroke='#15B567'
+              />
+              <Line
+                type='monotone'
+                dataKey='Fourth_Pad_Count'
+                stroke='#921515'
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+        {/* /// pad seconds chart */}
+        <div
+          className={isToggleGraph ? 'countSecondContainer' : 'toggleSecondOff'}
+        >
+          <ResponsiveContainer width='80%'>
+            <LineChart
+              data={dataSecond}
+              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+            >
+              <CartesianGrid strokeDasharray='3 3' />
+              <XAxis dataKey='name' />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line
+                type='monotone'
+                dataKey='First_Pad_Second'
+                stroke='#261592'
+              />
+              <Line
+                type='monotone'
+                dataKey='Second_Pad_Second'
+                stroke='#FFAD34'
+              />
+              <Line
+                type='monotone'
+                dataKey='Third_Pad_Second'
+                stroke='#15B567'
+              />
+              <Line
+                type='monotone'
+                dataKey='Fourth_Pad_Second'
+                stroke='#921515'
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+        <HeatChart
+          sensors={props.sensors}
+          selectedPump={props.selectedSensors}
+          history={historySelector.history}
+        />
+        />
+      </>
 
-      {/* /// pad seconds chart */}
-      <div
-        className={isToggleGraph ? 'countSecondContainer' : 'toggleSecondOff'}
-      >
-        <ResponsiveContainer width='80%'>
-          <LineChart
-            data={dataSecond}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-          >
-            <CartesianGrid strokeDasharray='3 3' />
-            <XAxis dataKey='name' />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type='monotone' dataKey='First_Pad_Second' stroke='#261592' />
-            <Line
-              type='monotone'
-              dataKey='Second_Pad_Second'
-              stroke='#FFAD34'
-            />
-            <Line type='monotone' dataKey='Third_Pad_Second' stroke='#15B567' />
-            <Line
-              type='monotone'
-              dataKey='Fourth_Pad_Second'
-              stroke='#921515'
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-      <HeatChart
-         sensors={props.sensors}
-         selectedPump={props.selectedSensors}
-         history={historySelector.history}/>
-       />
-    </>
-     
       {/* <Row gutter={[8, 32]}>
         <Col span={16} offset={4}>
           <Descriptions
