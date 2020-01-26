@@ -83,7 +83,7 @@ const PumpsModal = () => {
   //fetch pumps for dropdown menu
   useEffect(() => {
     dispatch(fetchPumps())
-  }, [])
+  }, [dispatch])
 
   //on submit add operator
   const handleSubmit = event => {

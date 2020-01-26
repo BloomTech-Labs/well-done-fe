@@ -8,7 +8,7 @@ import signInReducer from './signIn-reducer'
 import pumpsReducer from './pumpReducer' //used in dropdown Accounts
 import accountReducer from './accountReducer'
 import { selectedSensorsReducer as selectedSensors } from './selectedSensorsReducer'
-
+import { reducer as grid } from './gridReducer'
 const rootReducer = combineReducers({
   sensorReducer,
   historyReducer,
@@ -18,6 +18,7 @@ const rootReducer = combineReducers({
   accountReducer,
   orgReducer,
   selectedSensors,
+  grid
 })
 
 export default rootReducer

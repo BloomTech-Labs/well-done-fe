@@ -12,7 +12,9 @@ import 'App.style.scss'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
-
+import {SimpleReduxHookExample} from 'components/agGrid/simpleReduxHook'
+import {RichGridDeclarativeExample} from 'components/richGridDeclarativeExample/RichGridDeclarativeExample'
+import { SimpleReduxExample } from 'components/simpleReduxDynamicComponentExample/SimpleReduxExample'
 function App(props) {
   const dispatch = useDispatch()
   const displayNav = useSelector(state => state.navShow)
@@ -64,7 +66,9 @@ function App(props) {
           page={MonitorDetails}
           selectedPump={currentlySelected}
         />
-
+        <Route exact path='/captainHook' component={SimpleReduxHookExample} />
+        <Route path='/richHook' component={RichGridDeclarativeExample}/>
+        <Route path='/reduxHook' component={SimpleReduxExample} />
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/admin' page={Admin} />
         <PrivateRoute path='/settings' page={Settings} />

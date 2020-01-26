@@ -8,7 +8,7 @@ import {columnsFunc} from './sensorGridColumns'
 import gridOptionss from '../../components/Grid/Pagination'
 import './Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
-
+import {SimpleReduxHookExample} from 'components/agGrid/simpleReduxHook'
 import TrashCan from './TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
@@ -65,7 +65,7 @@ const Sensors = (props) =>  {
 
   const deleteDisplay = () => {
     // TO-DO  FIX SIGNINREDUCER STATE OR ACCOUNTS state
-    if (true === 'super_user') {
+    if ('super_user' === 'super_user') {
       return (
         <button className='deleteBtn' onClick={() => viewHandler()}>
           <img src={deleteIcon} alt='delete'></img>
@@ -159,15 +159,7 @@ const Sensors = (props) =>  {
             }}
             className='ag-theme-balham'
           >
-            <AgGridReact
-              history={props.history}
-              columnDefs={columnsFunc(props,dispatch, showViewButton)}
-              rowData={props.gridInfo}
-              gridOptions={gridOptionss}
-              onGridSizeChanged={onGridSizeChanged}
-              onGridReady={onGridReady}
-              floatingFilter={true}
-            />
+          <SimpleReduxHookExample />
           </div>
         </div>
       </div>
