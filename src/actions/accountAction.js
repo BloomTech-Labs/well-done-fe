@@ -24,6 +24,8 @@ export const fetchAccounts = () => dispatch => {
 export const fetchOrgAccounts = org_id => dispatch => {
   AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/org/${org_id}`)
+    // .then(res => console.log (res, "From API"))
+
     .then(res => dispatch({ type: ACCOUNT_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ACCOUNT_FAILURE }))
 }

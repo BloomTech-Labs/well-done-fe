@@ -50,7 +50,10 @@ export const fetchOrg = () => dispatch => {
   dispatch({ type: ORG_FETCH })
   AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/orgs`)
+    // .then(res => console.log (res, "From API"))
+
     .then(res => {
+      
       dispatch({ type: ORG_SUCCESS, payload: res.data })
     })
     .catch(err => dispatch({ type: ORG_FAILURE, payload: err }))
