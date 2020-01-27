@@ -76,6 +76,15 @@ const ModalOperator = () => {
     pumpsReducer,
   ])
 
+  const orgName = orgReducer.filter(e => e.id === Number(organizationId))
+
+  let getOrgName = []
+  if (organizationId >= 1){
+    getOrgName = orgName
+  } else {
+    getOrgName = orgReducer
+  }
+
   //get array of pump numbers
   let sensorNums = []
   pumpsReducer.pumps.map(e => sensorNums.push(e.sensor_pid))
@@ -127,6 +136,7 @@ const ModalOperator = () => {
             </Form.Control>
             </div>
 
+  
 
   const handleOpen = () => {
     setOpen(true)
@@ -189,12 +199,13 @@ const ModalOperator = () => {
                   value={operator.org_id}
                   onChange={handleChange}
                 >
-                  {orgReducer.map(org => (
+                  {getOrgName.map(org => (
                     <option key={org.id} value={org.id}>
                       {org.org_name}
                     </option>
                   ))}
                 </Form.Control>
+
               </div>
               <label htmlFor='Name'>First Name</label>
 
