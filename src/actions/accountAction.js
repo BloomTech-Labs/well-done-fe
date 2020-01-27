@@ -1,9 +1,10 @@
 import React from 'react'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
+import { ActionAccessibility } from 'material-ui/svg-icons'
 
-export const ADDOP_FETCH = 'ADDOP_FETCH'
-export const ADDOP_SUCCESS = 'ADDOP_SUCCESS'
-export const ADDOP_FAILURE = 'ADDOP_FAILURE'
+export const ADDACCOUNT_FETCH = 'ADDOP_FETCH'
+export const ADDACCOUNT_SUCCESS = 'ADDOP_SUCCESS'
+export const ADDACCOUNT_FAILURE = 'ADDOP_FAILURE'
 
 export const EDIT_FAILURE = 'EDIT_FAILURE'
 export const EDIT_SUCCESS = 'EDIT_SUCCESS'
@@ -13,6 +14,10 @@ export const ACCOUNT_FAILURE = 'ACCOUNT_FAILURE'
 
 export const DELETE_SUCCESS = 'DELETE_SUCCESS'
 export const DELETE_FAILURE = 'DELETE_FAILURE'
+
+export const ADDOPERATOR_FETCH = 'ADDOPERATOR_FETCH'
+export const ADDOPERATOR_SUCCESS = 'ADDOPERATOR_SUCCESS'
+export const ADDOPERATOR_FAILURE = 'ADDOPERATOR_FAILURE'
 
 export const fetchAccounts = () => dispatch => {
   AxiosWithAuth()
@@ -28,13 +33,13 @@ export const fetchOrgAccounts = org_id => dispatch => {
     .catch(err => dispatch({ type: ACCOUNT_FAILURE }))
 }
 
-export const addOp = operator => dispatch => {
-  dispatch({ type: ADDOP_FETCH })
+export const addAccount = operator => dispatch => {
+  dispatch({ type: ADDACCOUNT_FETCH })
 
   AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/accounts`, operator)
-    .then(res => dispatch({ type: ADDOP_SUCCESS, payload: res.data }))
-    .catch(err => dispatch({ type: ADDOP_FAILURE, payload: err.response }))
+    .then(res => dispatch({ type: ADDACCOUNT_SUCCESS, payload: res.data }))
+    .catch(err => dispatch({ type: ADDACCOUNT_FAILURE, payload: err.response }))
 }
 
 export const addOperator = ({first_name, last_name, email_address, mobile_number,
@@ -44,8 +49,8 @@ password, org_id}) => dispatch => {
 
   AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/operators`, newoperator)
-    .then(res => console.log(res))
-    .catch(err => dispatch({ type: ADDOP_FAILURE, payload: err.response }))
+    .then(res => dispatch({type: ADDOPERATOR_SUCCESS, payload: res.data}))
+    .catch(err => dispatch({ type: ADDOPERATOR_FAILURE, payload: err.response }))
 }
 
 export const editAccount = account => dispatch => {

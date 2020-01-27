@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchPumps } from '../actions/pumpAction'
 
-import { addOp, addOperator } from '../actions/accountAction'
+import { addAccount, addOperator } from '../actions/accountAction'
 
 import './modalOperator.scss'
 
@@ -58,7 +58,7 @@ const ModalOperator = () => {
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
-    dispatch(addOp(operator))
+    dispatch(addAccount(operator))
     if(operator.role === 'operator'){
       dispatch(addOperator(operator))
     }

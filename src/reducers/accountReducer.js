@@ -1,4 +1,4 @@
-import {ADDOP_FETCH, ADDOP_SUCCESS, ADDOP_FAILURE, EDIT_SUCCESS, ACCOUNT_SUCCESS, DELETE_SUCCESS, DELETE_FAILURE} from '../actions/accountAction'
+import {ADDACCOUNT_FETCH, ADDACCOUNT_SUCCESS, ADDACCOUNT_FAILURE, EDIT_SUCCESS, ACCOUNT_SUCCESS, DELETE_SUCCESS, DELETE_FAILURE} from '../actions/accountAction'
 
 const initialState = {
     accounts : [],
@@ -8,13 +8,13 @@ const initialState = {
 
 const accountReducer = (state = initialState, action) => {
     switch (action.type){
-        case ADDOP_FETCH:
+        case ADDACCOUNT_FETCH:
             return {
                 ...state,
                 isFetching: true,
                 error: ''
             }
-        case ADDOP_SUCCESS:
+        case ADDACCOUNT_SUCCESS:
             return{
                 ...state,
                 isFetching: false,
@@ -22,7 +22,7 @@ const accountReducer = (state = initialState, action) => {
                 //add to array of accounts 
                 accounts: [...state.accounts, action.payload]
             }
-        case ADDOP_FAILURE:
+        case ADDACCOUNT_FAILURE:
             return{
                 ...state,
                 error: action.payload
@@ -43,7 +43,6 @@ const accountReducer = (state = initialState, action) => {
                     }else{
                         return e
                     }
-                    console.log(`e`, e)
                 })
             }
 
