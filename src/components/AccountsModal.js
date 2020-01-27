@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { fetchPumps } from '../actions/pumpAction'
+import { fetchPumps, fetchPumpsOrgId } from '../actions/pumpAction'
 
 import { addAccount, addOperator } from '../actions/accountAction'
 
@@ -30,9 +30,6 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-
-
-
 const ModalOperator = () => {
   const [operator, setOperator] = useState([])
 
@@ -45,12 +42,16 @@ const ModalOperator = () => {
 
   const dispatch = useDispatch()
 
+  const organizationId = localStorage.getItem('org_id')
+
   //fetch pumps for dropdown menu
   useEffect(() => {
-    dispatch(fetchPumps())
+    if (organizationId >= 1) {
+      dispatch(fetchPumpsOrgId(organizationId))
+    } else {
+      dispatch(fetchPumps())
+    }
   }, [])
-
-  const pumpsReducer = useSelector(state => state.pumpsReducer.pumps)
 
   const org_id = localStorage.getItem('org_id')
   operator.org_id = org_id
@@ -59,15 +60,30 @@ const ModalOperator = () => {
   const handleSubmit = event => {
     event.preventDefault()
     dispatch(addAccount(operator))
-    if(operator.role === 'operator'){
+    if (operator.role === 'operator') {
       dispatch(addOperator(operator))
     }
     handleClose()
   }
 
-  //organization options
-  const orgReducer = useSelector(state => state.orgReducer.org)
+  //organization & pumps options
+  const [
+    orgReducer,
+    pumpsReducer,
+  ] = useSelector(({ orgReducer, pumpsReducer }) => [
+    orgReducer.org,
+    pumpsReducer,
+  ])
 
+  //get array of pump numbers
+  let sensorNums = []
+  pumpsReducer.pumps.map(e => sensorNums.push(e.sensor_pid))
+ 
+
+  //sensors by organization name
+  let sensorByOrg = []
+  pumpsReducer.pumpsOrg.map(e => sensorByOrg.push(e.sensor_pid))
+  console.log(`sensorNums`, sensorByOrg)
   const handleOpen = () => {
     setOpen(true)
   }
@@ -116,49 +132,48 @@ const ModalOperator = () => {
         <Fade in={open}>
           <div className='modalBody'>
             <div className='col1'>
-           <div className='modalHeader'>
-             <h3>Create Account</h3>
+              <div className='modalHeader'>
+                <h3>Create Account</h3>
 
-             <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                Organization
-              </Dropdown.Toggle>
+                <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                  Organization
+                </Dropdown.Toggle>
 
-              <Form.Control
-                as='select'
-                name='org_id'
-                value={operator.org_id}
+                <Form.Control
+                  as='select'
+                  name='org_id'
+                  value={operator.org_id}
+                  onChange={handleChange}
+                >
+                  {orgReducer.map(org => (
+                    <option key={org.id} value={org.id}>
+                      {org.org_name}
+                    </option>
+                  ))}
+                </Form.Control>
+              </div>
+              <label htmlFor='Name'>First Name</label>
+
+              <input
+                type='text'
+                id='first_name'
+                placeholder='first name'
+                name='first_name'
+                value={operator.first_name}
                 onChange={handleChange}
-              >
-                {orgReducer.map(org => (
-                  <option key={org.id} value={org.id}>
-                    {org.org_name}
-                  </option>
-                ))}
-              </Form.Control>
-             
-            </div>
-                <label htmlFor='Name'>First Name</label>
-            
-                <input
-                  type='text'
-                  id='first_name'
-                  placeholder='first name'
-                  name='first_name'
-                  value={operator.first_name}
-                  onChange={handleChange}
-                />
+              />
               <label htmlFor='Name'>Last Name</label>
-              
-                <input
-                  type='text'
-                  id='last_name'
-                  placeholder='last_name'
-                  name='last_name'
-                  value={operator.last_name}
-                  onChange={handleChange}
-                />
-          
-                <label htmlFor='Role'>Role</label>
+
+              <input
+                type='text'
+                id='last_name'
+                placeholder='last_name'
+                name='last_name'
+                value={operator.last_name}
+                onChange={handleChange}
+              />
+
+              <label htmlFor='Role'>Role</label>
               <Form.Control
                 as='select'
                 name='role'
@@ -171,49 +186,88 @@ const ModalOperator = () => {
                   </option>
                 ))}
               </Form.Control>
-              
-                <label htmlFor='Email'>Email</label>
-                <input
-                  type='email'
-                  name='email_address'
-                  id='Email'
-                  placeholder='email'
-                  value={operator.email_address}
-                  onChange={handleChange}
-                />
-             
-                <label htmlFor='Password'>Password</label>
-                <br></br>
-                <input
-                  type='password'
-                  name='password'
-                  id='Password'
-                  placeholder='password'
-                  value={operator.password}
-                  onChange={handleChange}
-                />
-               <label htmlFor='Password'>Mobile Number</label>
-                <br></br>
-                <input
-                  type='string'
-                  name='mobile_number'
-                  id='mobile_number'
-                  placeholder=''
-                  value={operator.mobile_number}
-                  onChange={handleChange}
-                />
+
+              <label htmlFor='Email'>Email</label>
+              <input
+                type='email'
+                name='email_address'
+                id='Email'
+                placeholder='email'
+                value={operator.email_address}
+                onChange={handleChange}
+              />
+
+              <label htmlFor='Password'>Password</label>
+              <br></br>
+              <input
+                type='password'
+                name='password'
+                id='Password'
+                placeholder='password'
+                value={operator.password}
+                onChange={handleChange}
+              />
+              <label htmlFor='Password'>Mobile Number</label>
+              <br></br>
+              <input
+                type='string'
+                name='mobile_number'
+                id='mobile_number'
+                placeholder=''
+                value={operator.mobile_number}
+                onChange={handleChange}
+              />
             </div>
+            <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              Assign Sensor
+            </Dropdown.Toggle>
+
+            <Form.Control
+              as='select'
+              name='sensor_pid'
+              value={operator.sensor_pid}
+              onChange={handleChange}
+            >
+              {sensorNums.map(sensor => (
+                <option key={sensor} value={sensor}>
+                  {sensor}
+                </option>
+              ))}
+            </Form.Control>
+
+            <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              Sensors by Organization
+            </Dropdown.Toggle>
+
+            <Form.Control
+              as='select'
+              name='sensor_pid'
+              value={operator.sensor_pid}
+              onChange={handleChange}
+            >
+              {sensorByOrg.map(sensor => (
+                <option key={sensor} value={sensor}>
+                  {sensor}
+                </option>
+              ))}
+            </Form.Control>
             <div className='col2'>
-             
-            <button className='createAcct' type='Submit' onClick={e => handleSubmit(e)}>
-                    Create Account
+              <button
+                className='createAcct'
+                type='Submit'
+                onClick={e => handleSubmit(e)}
+              >
+                Create Account
               </button>
-              <button className='cancelButton' variant='cancelButton' onClick={() => handleClose()}>
-                  Cancel
-                </button>
-                </div>
+              <button
+                className='cancelButton'
+                variant='cancelButton'
+                onClick={() => handleClose()}
+              >
+                Cancel
+              </button>
             </div>
-        
+          </div>
         </Fade>
       </Modal>
     </>
