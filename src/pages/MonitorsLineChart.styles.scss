@@ -74,6 +74,42 @@
         outline: 0;
       }
     }
+    .toggleDate {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid red;
+      .monthBtnOn {
+        border-bottom: 1px solid #090c9b;
+        color: #090c9b;
+        margin-right: 3rem;
+        &:focus {
+          outline: 0;
+        }
+      }
+      .monthBtnOff {
+        border: none;
+        color: grey;
+        margin-right: 3rem;
+        &:focus {
+          outline: 0;
+        }
+      }
+      .weekBtnOn {
+        border-bottom: 1px solid #090c9b;
+        color: #090c9b;
+        &:focus {
+          outline: 0;
+        }
+      }
+      .weekBtnOff {
+        border: none;
+        color: grey;
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
   }
   .toggleCountOff {
     display: none;

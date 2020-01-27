@@ -666,12 +666,21 @@ const MonitorDetails = props => {
         </Col> */}
         <div className='padMonitorContainer'>
           <h3>Pad Monitor</h3>
-          <div className='toggleDate'>
-            <button onClick={() => setIsMonth(!isMonth)}>
-              {isMonth ? 'Week' : 'Month'}
-            </button>
-          </div>
           <div className='toggleBtnContainer'>
+            <div className='toggleDate'>
+              <p
+                className={!isMonth ? 'weekBtnOn' : 'weekBtnOff'}
+                onClick={() => setIsMonth(!isMonth)}
+              >
+                Week
+              </p>
+              <p
+                className={isMonth ? 'monthBtnOn' : 'monthBtnOff'}
+                onClick={() => setIsMonth(!isMonth)}
+              >
+                Month
+              </p>
+            </div>
             <button
               className={!isToggleGraph ? 'countBtnOn' : 'countBtnOff'}
               onClick={() => setIsToggleGraph(!isToggleGraph)}
