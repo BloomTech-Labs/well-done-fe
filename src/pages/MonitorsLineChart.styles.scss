@@ -1,71 +1,84 @@
-.countCountContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  width: 100%;
-  height: 500px;
-  margin: 0 auto;
-}
-.countSecondContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  width: 100%;
-  height: 500px;
-}
+.padMonitorContainer {
+  margin: 5rem 0;
+  //   background: #fff;
+  h3 {
+    margin-left: 13%;
+    font-weight: 700;
+  }
 
-.countBtnOn{
-    border:none;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    padding: 10px 20px;
-    background: rgb(56, 56, 147);
-    color:#fff;
-    &:focus{
-        outline:0
-    }
-}
-.countBtnOff{
-    border:none;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    padding: 10px 20px;
-    background:#fff;
-    color: rgb(56, 56, 147);
-    &:focus{
-        outline:0
-    }
-}
-.secondBtnOn{
-    border:none;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding: 10px 20px;
-    background: rgb(56, 56, 147);
-    color:#fff;
-    &:focus{
-        outline:0
-    }
-}
-.SecondBtnOff{
-    border:none;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding: 10px 20px;
-    background:#fff;
-    color: rgb(56, 56, 147);
-    &:focus{
-        outline:0
-    }
-}
+  .countCountContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+  }
+  .countSecondContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    height: 500px;
+  }
+  .toggleBtnContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    margin-bottom: 2rem;
 
+    .countBtnOn {
+      border: none;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      padding: 10px 20px;
+      background: #090c9b;
+      color: #fff;
+      &:focus {
+        outline: 0;
+      }
+    }
+    .countBtnOff {
+      border: 0.5px solid #090c9b;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      padding: 10px 20px;
+      background: #fff;
+      color: #090c9b;
+      &:focus {
+        outline: 0;
+      }
+    }
+    .secondBtnOn {
+      border: none;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      padding: 10px 20px;
+      background: #090c9b;
+      color: #fff;
+      &:focus {
+        outline: 0;
+      }
+    }
+    .SecondBtnOff {
+      border: 0.5px solid #090c9b;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      padding: 10px 20px;
+      background: #fff;
+      color: #090c9b;
 
-.toggleCountOff {
-  display: none;
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+  .toggleCountOff {
+    display: none;
+  }
+  .toggleSecondOff {
+    display: none;
+  }
 }
-.toggleSecondOff {
-  display: none;
-}
-
