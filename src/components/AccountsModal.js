@@ -65,6 +65,9 @@ const ModalOperator = () => {
     handleClose()
   }
 
+  //organization options
+  const orgReducer = useSelector(state => state.orgReducer.org)
+
   const handleOpen = () => {
     setOpen(true)
   }
@@ -115,6 +118,23 @@ const ModalOperator = () => {
             <div className='col1'>
            <div className='modalHeader'>
              <h3>Create Account</h3>
+
+             <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                Organization
+              </Dropdown.Toggle>
+
+              <Form.Control
+                as='select'
+                name='org_id'
+                value={operator.org_id}
+                onChange={handleChange}
+              >
+                {orgReducer.map(org => (
+                  <option key={org.id} value={org.id}>
+                    {org.org_name}
+                  </option>
+                ))}
+              </Form.Control>
              
             </div>
                 <label htmlFor='Name'>First Name</label>

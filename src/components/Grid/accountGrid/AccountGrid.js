@@ -4,7 +4,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import 'antd/dist/antd.css'
 
-import ModalOperator from '../../ModalTest'
+import ModalOperator from '../../AccountsModal'
 import gridOptions3 from '../gridOptions3'
 
 import { withRouter } from 'react-router'
