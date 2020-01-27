@@ -12,7 +12,7 @@ import 'App.style.scss'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
-
+import Organizations from './pages/OrganizationsPage/Organizations.js'
 import MonitorsLineChart from './pages/MonitorsLineChart'
 
 import {fetchUser} from './actions/userActions.js'
@@ -104,6 +104,8 @@ function App(props) {
           page={MonitorsLineChart}
           selectedPump={currentlySelected}
           /> */}
+        
+        <PrivateRoute path='/organizations' page={Organizations} />
 
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/admin' page={Admin} />
