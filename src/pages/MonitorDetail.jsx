@@ -667,7 +667,7 @@ const MonitorDetails = props => {
         <div className='padMonitorContainer'>
           <h3>Pad Monitor</h3>
           <div className='toggleBtnContainer'>
-            <div className='toggleDate'>
+            <div className='toggleDateContainer'>
               <p
                 className={!isMonth ? 'weekBtnOn' : 'weekBtnOff'}
                 onClick={() => setIsMonth(!isMonth)}
