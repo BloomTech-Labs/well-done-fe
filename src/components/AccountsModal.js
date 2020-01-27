@@ -42,7 +42,9 @@ const ModalOperator = () => {
 
   const dispatch = useDispatch()
 
+  //get org_id from localStorage
   const organizationId = localStorage.getItem('org_id')
+  operator.org_id = organizationId
 
   //fetch pumps for dropdown menu
   useEffect(() => {
@@ -51,10 +53,9 @@ const ModalOperator = () => {
     } else {
       dispatch(fetchPumps())
     }
-  }, [])
+}, [])
 
-  const org_id = localStorage.getItem('org_id')
-  operator.org_id = org_id
+ 
 
   //on submit add operator
   const handleSubmit = event => {
@@ -84,6 +85,49 @@ const ModalOperator = () => {
   let sensorByOrg = []
   pumpsReducer.pumpsOrg.map(e => sensorByOrg.push(e.sensor_pid))
   console.log(`sensorNums`, sensorByOrg)
+
+//display sensors
+ let allSensors = 
+  <div id="allSensors">
+            <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              Assign Sensor
+            </Dropdown.Toggle>
+
+            <Form.Control
+              as='select'
+              name='sensor_pid'
+              value={operator.sensor_pid}
+              onChange={handleChange}
+            >
+              {sensorNums.map(sensor => (
+                <option key={sensor} value={sensor}>
+                  {sensor}
+                </option>
+              ))}
+            </Form.Control>
+            </div>
+
+  let org_sensors = 
+            <div id="org_sensors">
+            <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              Sensors by Organization
+            </Dropdown.Toggle>
+
+            <Form.Control
+              as='select'
+              name='sensor_pid'
+              value={operator.sensor_pid}
+              onChange={handleChange}
+            >
+              {sensorByOrg.map(sensor => (
+                <option key={sensor} value={sensor}>
+                  {sensor}
+                </option>
+              ))}
+            </Form.Control>
+            </div>
+
+
   const handleOpen = () => {
     setOpen(true)
   }
@@ -213,44 +257,14 @@ const ModalOperator = () => {
                 type='string'
                 name='mobile_number'
                 id='mobile_number'
-                placeholder=''
+                placeholder='mobile number'
                 value={operator.mobile_number}
                 onChange={handleChange}
               />
             </div>
-            <Dropdown.Toggle variant='success' id='dropdown-basic'>
-              Assign Sensor
-            </Dropdown.Toggle>
 
-            <Form.Control
-              as='select'
-              name='sensor_pid'
-              value={operator.sensor_pid}
-              onChange={handleChange}
-            >
-              {sensorNums.map(sensor => (
-                <option key={sensor} value={sensor}>
-                  {sensor}
-                </option>
-              ))}
-            </Form.Control>
-
-            <Dropdown.Toggle variant='success' id='dropdown-basic'>
-              Sensors by Organization
-            </Dropdown.Toggle>
-
-            <Form.Control
-              as='select'
-              name='sensor_pid'
-              value={operator.sensor_pid}
-              onChange={handleChange}
-            >
-              {sensorByOrg.map(sensor => (
-                <option key={sensor} value={sensor}>
-                  {sensor}
-                </option>
-              ))}
-            </Form.Control>
+            {localStorage.getItem('org_id') ? org_sensors : allSensors}
+            
             <div className='col2'>
               <button
                 className='createAcct'
