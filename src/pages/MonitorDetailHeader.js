@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Row, Col, Descriptions, Badge, Typography } from 'antd'
 import ReactMapGl, { Marker } from 'react-map-gl'
 import GoBack from '../components/Navbar/GoBack'
 import './MonitorDetailHeader.scss'
@@ -39,16 +38,6 @@ function MonitorDetailHeader(props) {
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png'
   const functioning =
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056725/Vector_1_xzgama.png'
-
-  //     <Descriptions.Item label='Status'>
-  //     {status === 0 || status === null ? (
-  //       <Badge status='error' text='Not Functioning' />
-  //     ) : status === 1 ? (
-  //       <Badge status='warning' text='Unknown' />
-  //     ) : (
-  //       <Badge status='success' text='Functioning' />
-  //     )}
-  //   </Descriptions.Item>
 
   const statusBadge = () => {
     if (status === 0 || status === null) {

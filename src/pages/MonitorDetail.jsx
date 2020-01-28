@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react'
 import ReactMapGl, { Marker } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 import PrivateRoute from 'components/PrivateRoute.jsx'
-// import { Row, Col, Descriptions, Badge, Typography } from 'antd'
-
-// import 'antd/dist/antd.css'
-// import './MonitorDetail.css'
 
 import HeatChart from 'components/HeatChart/heatChart'
 import MonitorDetailHeader from './MonitorDetailHeader'
@@ -28,15 +24,10 @@ import {
 import './MonitorsLineChart.styles.scss'
 
 //redux
-import { deleteSensor } from '../actions/sensorActions'
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
-import { styles } from '../../node_modules/material-ui-pickers/DatePicker/components/SlideTransition'
-
-// const { Title } = Typography
 
 const MonitorDetails = props => {
   const [isMonth, setIsMonth] = useState(false)
-  const [isWeek, setIsWeek] = useState(false)
   const [isToggleGraph, setIsToggleGraph] = useState(false)
   const [isClicked, setIsClicked] = useState(true)
   const [opacity, setOpacity] = useState({
@@ -108,20 +99,6 @@ const MonitorDetails = props => {
     return <div>loading...</div>
   }
 
-  const {
-    physical_id,
-    data_finished,
-    reported_percent,
-    commune_name,
-    province_name,
-    village_name,
-    status,
-    depth,
-    total,
-    latitude,
-    longitude,
-  } = historySelector.individualSensor[0]
-
   // Makes new arrays to loop through the week and month data from weekDate array
   const endWeekIndex = 6
   const monthCount = 29
@@ -146,6 +123,7 @@ const MonitorDetails = props => {
     })
   }
 
+  // Makes new arrays to loop through the week and month data from date array
   const endWeekSecond = 6
   const monthSecond = 29
   const weekDataSecond = []
@@ -188,8 +166,6 @@ const MonitorDetails = props => {
   return (
     <div>
       <MonitorDetailHeader historySelector={historySelector.individualSensor} />
-
-      {/* <button  className="deleteMonitorDetails" onClick={deleteHandler}><i className="icon-trash"></i>Delete</button> */}
       {/* <OrganizationActivity
         alertInfo={historySelector.alertInfo}
         individualSensor={historySelector.individualSensor[0]}
@@ -197,14 +173,6 @@ const MonitorDetails = props => {
       />  */}
 
       <>
-        {/* <Row>
-        <Col span={20} offset={4}>
-          <Title>{physical_id}</Title>
-        </Col>
-      </Row>
-      <Col span={1}>
-          <GoBack/>
-        </Col> */}
         <div className='padMonitorContainer'>
           <h3>Pad Monitor</h3>
           <div className='toggleBtnContainer'>
@@ -253,7 +221,6 @@ const MonitorDetails = props => {
                   onClick={handleClick}
                   layout='vertical'
                   wrapperStyle={{
-                    border: '1px solid red',
                     top: '200px',
                     right: '-130px',
                   }}
@@ -301,23 +268,34 @@ const MonitorDetails = props => {
                 <XAxis dataKey='name' />
                 <YAxis />
                 <Tooltip />
-                <Legend />
+                <Legend
+                  onClick={handleClick}
+                  layout='vertical'
+                  wrapperStyle={{
+                    top: '200px',
+                    right: '-140px',
+                  }}
+                />
                 <Line
+                  strokeOpacity={opacity.First_Pad_Second}
                   type='monotone'
                   dataKey='First_Pad_Second'
                   stroke='#261592'
                 />
                 <Line
+                  strokeOpacity={opacity.Second_Pad_Second}
                   type='monotone'
                   dataKey='Second_Pad_Second'
                   stroke='#FFAD34'
                 />
                 <Line
+                  strokeOpacity={opacity.Third_Pad_Second}
                   type='monotone'
                   dataKey='Third_Pad_Second'
                   stroke='#15B567'
                 />
                 <Line
+                  strokeOpacity={opacity.Fourth_Pad_Second}
                   type='monotone'
                   dataKey='Fourth_Pad_Second'
                   stroke='#921515'
@@ -332,68 +310,6 @@ const MonitorDetails = props => {
           history={historySelector.history}
         />
       </>
-
-      {/* <Row gutter={[8, 32]}>
-        <Col span={16} offset={4}>
-          <Descriptions
-            layout='vertical'
-            column={{ xxl: 8 }}
-            style={{ fontWeight: 'bold' }}
-          >
-            <Descriptions.Item label='Status'>
-              {status === 0 || status === null ? (
-                <Badge status='error' text='Not Functioning' />
-              ) : status === 1 ? (
-                <Badge status='warning' text='Unknown' />
-              ) : (
-                <Badge status='success' text='Functioning' />
-              )}
-            </Descriptions.Item>
-            <Descriptions.Item label='Constructed'>
-              {data_finished}
-            </Descriptions.Item>
-            <Descriptions.Item label='Depth'>{depth}</Descriptions.Item>
-            <Descriptions.Item label='Percent'>
-              {reported_percent}
-            </Descriptions.Item>
-            <Descriptions.Item label='Total'>{total}</Descriptions.Item>
-            <Descriptions.Item label='Commune'>
-              {commune_name}
-            </Descriptions.Item>
-            <Descriptions.Item label='Province'>
-              {province_name}
-            </Descriptions.Item>
-            <Descriptions.Item label='Village'>
-              {village_name}
-            </Descriptions.Item>
-          </Descriptions>
-        </Col>
-      </Row>
-
-      <Row gutter={[8, 32]}>
-        <Col span={16} offset={4}>
-          <ReactMapGl
-            {...viewport}
-            mapboxApiAccessToken={
-              'pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w'
-            }
-            mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
-            onViewportChange={viewport => {
-              setViewport(viewport)
-            }}
-          >
-            <Marker key={physical_id} latitude={latitude} longitude={longitude}>
-              {status === 0 || status == null ? (
-                <img src={notFunctioning} alt='not functioning icon' />
-              ) : status === 1 ? (
-                <img src={unknown} alt='unknown icon' />
-              ) : (
-                <img src={functioning} alt='functioning icon' />
-              )}
-            </Marker>
-          </ReactMapGl>
-        </Col>
-      </Row> */}
     </div>
   )
 }
