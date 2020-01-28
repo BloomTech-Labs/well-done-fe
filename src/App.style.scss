@@ -1,4 +1,4 @@
-@import "src/colors";
+@import 'src/colors';
 
 html {
   font-size: 62.5%;
@@ -8,16 +8,15 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @include body-background;
+  // @include body-background;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.app-container{
+.app-container {
   margin: 0 auto;
-  width:auto;
+  width: auto;
   height: auto;
-
 }
