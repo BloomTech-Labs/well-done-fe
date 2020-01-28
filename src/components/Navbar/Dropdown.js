@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { NavLink, Link, Redirect } from 'react-router-dom'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 import useOnClickOutside from 'use-onclickoutside'
 import { useDispatch } from 'react-redux'
 import { withRouter } from 'react-router'
