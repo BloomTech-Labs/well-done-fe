@@ -35,7 +35,12 @@ const ModalOperator = () => {
   const [operator, setOperator] = useState([])
   console.log(operator)
 
-  const [sen_op, setSen_op]= useState([])
+  const [sen_op, setSen_op] = useState([])
+  console.log(`sen_op`,sen_op)
+
+  const newId = useSelector(state => state.operatorReducer.operators)
+  console.log(newId.op)
+ sen_op.operator_id = newId.op
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
@@ -44,8 +49,6 @@ const ModalOperator = () => {
     setOperator({ ...operator, [event.target.name]: event.target.value })
   }
 
-
-  
   const handleChangeMultiple = event => {
     const { options } = event.target
     const value = []
@@ -73,17 +76,18 @@ const ModalOperator = () => {
       dispatch(fetchPumps())
     }
   }, [])
-
+ 
   //on submit add operator
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault()
-    
-    dispatch(postSensorsOperators(operator))
-    dispatch()
+     dispatch(addAccount(operator))
+    //additionally add to operator table if operator
+    console.log(operator.role)
     if (operator.role === 'operator') {
-      dispatch(addOperator(operator))
+      const mydata = await dispatch(addOperator(operator))
+      console.log(mydata)
+      dispatch(postSensorsOperators(sen_op))
     }
-    dispatch(addAccount(operator))
     handleClose()
   }
 
@@ -112,7 +116,6 @@ const ModalOperator = () => {
   //sensors by organization name
   let sensorByOrg = []
   pumpsReducer.pumpsOrg.map(e => sensorByOrg.push(e.sensor_pid))
-  console.log(`sensorNums`, sensorByOrg)
 
   //display sensors
   let sensorDisplay = []

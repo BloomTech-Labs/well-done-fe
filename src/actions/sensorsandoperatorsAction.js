@@ -6,7 +6,7 @@ export const SENSORSOPERATORS_SUCCESS = 'SENSORSOPERATORS_SUCCESS'
 export const SENSORSOPERATORS_FAILURE = 'SENSORSOPERATORS_FAILURE'
 
 export const postSensorsOperators = matched => dispatch => {
-    console.log(matched)
+    console.log(`matched`,matched)
     AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent`)
     .then(res => dispatch({type: SENSORSOPERATORS_SUCCESS, payload: res.data}))
