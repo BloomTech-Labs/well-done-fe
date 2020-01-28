@@ -2,10 +2,11 @@ import React from 'react'
 import 'react-calendar-heatmap/dist/styles.css'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './heatChartStyles.scss'
 import moment from 'moment'
 
+//handle click event for alert when svg is clicked
 const handleClick = value => {
   if (value === null) return alert(`no info`)
   alert(`on Date:${value['date']} the status was 
@@ -37,16 +38,16 @@ const HeatChart = props => {
       count: val.status,
     }
   })
-
+  //takes in current date and returns date
   function shiftDate(date, numDays) {
     const newDate = new Date(date)
     newDate.setDate(newDate.getDate() + numDays)
     return newDate
   }
+
   const { status, created_at, sensor_pid } = currentlySelected
   return (
     <div className='calendarBox'>
-      <h1>{sensor_pid}</h1>
       <CalendarHeatmap
         startDate={shiftDate(today, -359)}
         endDate={today}
@@ -59,7 +60,7 @@ const HeatChart = props => {
         }}
         tooltipDataAttrs={value => {
           return {
-            'data-tip': `${moment(value.date)} has count: ${handleStatus(
+            'data-tip': `${moment(value.date)} status: ${handleStatus(
               value.count
             )}`,
           }
@@ -74,10 +75,6 @@ const HeatChart = props => {
 
 function getRange(count) {
   return Array.from({ length: count }, (_, i) => i)
-}
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 export default HeatChart

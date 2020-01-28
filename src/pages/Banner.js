@@ -12,10 +12,17 @@ const Banner = () => {
           <h1 className='title'>Dashboard</h1>
         </div>
       )
-    } else {
+    } else if (userRole === 'org_admin') {
       return (
         <div className='banner-container'>
           <h4 className='header'>Org Admin</h4>
+          <h1 className='title'>Dashboard</h1>
+        </div>
+      )
+    } else {
+      return (
+        <div className='banner-container'>
+          <h4 className='header'>Operator</h4>
           <h1 className='title'>Dashboard</h1>
         </div>
       )
