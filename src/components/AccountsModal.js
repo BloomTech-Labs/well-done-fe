@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { fetchPumps, fetchPumpsOrgId } from '../actions/pumpAction'
+import { postSensorsOperators } from '../actions/sensorsandoperatorsAction'
 
 import { addAccount, addOperator } from '../actions/accountAction'
 
@@ -32,12 +33,30 @@ const useStyles = makeStyles(theme => ({
 
 const ModalOperator = () => {
   const [operator, setOperator] = useState([])
+  console.log(operator)
+
+  const [sen_op, setSen_op]= useState([])
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
 
   const handleChange = event => {
     setOperator({ ...operator, [event.target.name]: event.target.value })
+  }
+
+
+  
+  const handleChangeMultiple = event => {
+    const { options } = event.target
+    const value = []
+    for (let i = 0, l = options.length; i < l; i += 1) {
+      if (options[i].selected) {
+        value.push(options[i].value)
+      }
+    }
+
+    setSen_op({ sensor_pid: value })
+    console.log(`value`, value)
   }
 
   const dispatch = useDispatch()
@@ -53,17 +72,18 @@ const ModalOperator = () => {
     } else {
       dispatch(fetchPumps())
     }
-}, [])
-
- 
+  }, [])
 
   //on submit add operator
   const handleSubmit = event => {
     event.preventDefault()
-    dispatch(addAccount(operator))
+    
+    dispatch(postSensorsOperators(operator))
+    dispatch()
     if (operator.role === 'operator') {
       dispatch(addOperator(operator))
     }
+    dispatch(addAccount(operator))
     handleClose()
   }
 
@@ -79,7 +99,7 @@ const ModalOperator = () => {
   const orgName = orgReducer.filter(e => e.id === Number(organizationId))
 
   let getOrgName = []
-  if (organizationId >= 1){
+  if (organizationId >= 1) {
     getOrgName = orgName
   } else {
     getOrgName = orgReducer
@@ -88,7 +108,6 @@ const ModalOperator = () => {
   //get array of pump numbers
   let sensorNums = []
   pumpsReducer.pumps.map(e => sensorNums.push(e.sensor_pid))
- 
 
   //sensors by organization name
   let sensorByOrg = []
@@ -97,13 +116,11 @@ const ModalOperator = () => {
 
   //display sensors
   let sensorDisplay = []
-  if (organizationId >= 1){
+  if (organizationId >= 1) {
     sensorDisplay = sensorByOrg
   } else {
     sensorDisplay = sensorNums
-  } 
-
-  
+  }
 
   const handleOpen = () => {
     setOpen(true)
@@ -172,7 +189,6 @@ const ModalOperator = () => {
                     </option>
                   ))}
                 </Form.Control>
-
               </div>
               <label htmlFor='Name'>First Name</label>
 
@@ -240,25 +256,26 @@ const ModalOperator = () => {
                 onChange={handleChange}
               />
             </div>
-            <div id="allSensors">
-            <Dropdown.Toggle variant='success' id='dropdown-basic'>
-              Assign Sensor
-            </Dropdown.Toggle>
+            <div id='allSensors'>
+              <Dropdown.Toggle variant='success' id='dropdown-basic'>
+                Assign Sensor
+              </Dropdown.Toggle>
 
-            <Form.Control
-              as='select'
-              name='sensor_pid'
-              value={operator.sensor_pid}
-              onChange={handleChange}
-            >
-              {sensorDisplay.map(sensor => (
-                <option key={sensor} value={sensor}>
-                  {sensor}
-                </option>
-              ))}
-            </Form.Control>
+              <Form.Control
+                as='select'
+                name='sensor_pid'
+                value={operator.sensor_pid}
+                onChange={handleChangeMultiple}
+                multiple
+              >
+                {sensorDisplay.map(sensor => (
+                  <option key={sensor} value={sensor}>
+                    {sensor}
+                  </option>
+                ))}
+              </Form.Control>
             </div>
-            
+
             <div className='col2'>
               <button
                 className='createAcct'

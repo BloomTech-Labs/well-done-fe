@@ -15,6 +15,7 @@ export const ACCOUNT_FAILURE = 'ACCOUNT_FAILURE'
 export const DELETE_SUCCESS = 'DELETE_SUCCESS'
 export const DELETE_FAILURE = 'DELETE_FAILURE'
 
+//goes to operatorReducer
 export const ADDOPERATOR_FETCH = 'ADDOPERATOR_FETCH'
 export const ADDOPERATOR_SUCCESS = 'ADDOPERATOR_SUCCESS'
 export const ADDOPERATOR_FAILURE = 'ADDOPERATOR_FAILURE'
@@ -42,20 +43,35 @@ export const addAccount = operator => dispatch => {
     .catch(err => dispatch({ type: ADDACCOUNT_FAILURE, payload: err.response }))
 }
 
-export const addOperator = ({first_name, last_name, email_address, mobile_number,
-password, org_id}) => dispatch => {
- let newoperator = {first_name: first_name, last_name:last_name, email_address:email_address, mobile_number:mobile_number,
-    password:password, org_id:org_id}
+export const addOperator = ({
+  first_name,
+  last_name,
+  email_address,
+  mobile_number,
+  password,
+  org_id,
+}) => dispatch => {
+  let newoperator = {
+    first_name: first_name,
+    last_name: last_name,
+    email_address: email_address,
+    mobile_number: mobile_number,
+    password: password,
+    org_id: org_id,
+  }
 
   AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/operators`, newoperator)
-    .then(res => dispatch({type: ADDOPERATOR_SUCCESS, payload: res.data}))
-    .catch(err => dispatch({ type: ADDOPERATOR_FAILURE, payload: err.response }))
+    //goes to operatorReducer
+    .then(res => dispatch({ type: ADDOPERATOR_SUCCESS, payload: res.data }))
+    .catch(err =>
+      dispatch({ type: ADDOPERATOR_FAILURE, payload: err.response })
+    )
 }
 
 export const editAccount = account => dispatch => {
   const id = account.id
-  console.log(`account `,account)
+  console.log(`account `, account)
 
   AxiosWithAuth()
     .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`, account)
