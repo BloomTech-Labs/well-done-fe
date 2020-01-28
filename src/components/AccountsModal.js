@@ -33,13 +33,12 @@ const useStyles = makeStyles(theme => ({
 
 const ModalOperator = () => {
   const [operator, setOperator] = useState([])
-  console.log(operator)
+  
 
   const [sen_op, setSen_op] = useState([])
   console.log(`sen_op`,sen_op)
 
   const newId = useSelector(state => state.operatorReducer.operators)
-  console.log(newId.op)
  sen_op.operator_id = newId.op
 
   const classes = useStyles()
@@ -85,7 +84,6 @@ const ModalOperator = () => {
     console.log(operator.role)
     if (operator.role === 'operator') {
       const mydata = await dispatch(addOperator(operator))
-      console.log(mydata)
       dispatch(postSensorsOperators(sen_op))
     }
     handleClose()
