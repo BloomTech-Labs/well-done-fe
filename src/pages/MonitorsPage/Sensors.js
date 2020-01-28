@@ -10,6 +10,8 @@ import './Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import NgoDropDown from './NgoDropDown'
 
+import SensorSelector from './SensorSelector'
+
 import TrashCan from './TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
@@ -114,6 +116,7 @@ const Sensors = props => {
               id='quickFilter'
               placeholder=' search...'
             />
+
             <AiOutlineSearch className='searchIcon' />
           </div>
 
