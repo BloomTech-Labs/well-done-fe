@@ -25,6 +25,7 @@ import './MonitorsLineChart.styles.scss'
 
 //redux
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
+import LogsTable from './MonitorsPage/Logs/LogsTable'
 
 const MonitorDetails = props => {
   const [isMonth, setIsMonth] = useState(false)
@@ -309,6 +310,7 @@ const MonitorDetails = props => {
           selectedPump={props.selectedSensors}
           history={historySelector.history}
         />
+        <LogsTable />
       </>
     </div>
   )
