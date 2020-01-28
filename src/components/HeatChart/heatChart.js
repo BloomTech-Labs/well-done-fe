@@ -8,12 +8,12 @@ import moment from 'moment'
 
 //handle click event for alert when svg is clicked
 const handleClick = value => {
-  if (value === null) return ('no info') 
-  return (`on Date:${value['date']} the status was 
-${value.count}`)
+  if (value === null) return 'no info'
+  return `on Date:${value['date']} the status was 
+${value.count}`
 }
 
-// returns the status as a string 
+// returns the status as a string
 const handleStatus = statCodeNum => {
   return statCodeNum === 1
     ? 'Unknown'
@@ -27,11 +27,11 @@ const handleStatus = statCodeNum => {
 const today = new Date()
 
 const HeatChart = props => {
-//stores currently selected sensor in state
+  //stores currently selected sensor in state
   const currentlySelected = useSelector(
     state => state.selectedSensors.currentlySelected
   )
-// creates an array of of history objects related to the currentlySelected sensor
+  // creates an array of of history objects related to the currentlySelected sensor
   const statusHistoryArr = props.history.filter(day => {
     return day.sensor_id === currentlySelected.sensor_pid
   })
@@ -42,7 +42,7 @@ const HeatChart = props => {
       count: val.status,
     }
   })
-  //takes in current date and returns date x number of days forward or backward 
+  //takes in current date and returns date x number of days forward or backward
   function shiftDate(date, numDays) {
     const newDate = new Date(date)
     newDate.setDate(newDate.getDate() + numDays)
@@ -65,9 +65,9 @@ const HeatChart = props => {
         //on hover labels for Calendar
         tooltipDataAttrs={value => {
           return {
-            'data-tip': `${moment(value.date).format('MM/DD/YYYY')} status: ${handleStatus(
-              value.count
-            )}`,
+            'data-tip': `${moment(value.date).format(
+              'MM/DD/YYYY'
+            )} status: ${handleStatus(value.count)}`,
           }
         }}
         //toggle display for weekday labels true || false
