@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import 'antd/dist/antd.css'
 import { Slider } from 'antd'
 import { sensorSelected, FILTERED_SENSORS } from '../../actions/sensorActions'
@@ -10,7 +10,6 @@ import './sensorSelector.scss'
 const SensorSelector = () => {
   const sensorIds = useSelector(state => state.sensorReducer.sensors)
   const grid = useSelector(state => state.sensorReducer.gridInfo)
-  console.log(`grid`, grid)
 
   const physical_id = sensorIds.map(e => {
     return e.physical_id
@@ -26,7 +25,6 @@ const SensorSelector = () => {
   let finalList = []
 
   function onAfterChange(value) {
-    console.log('onAfterChange: ', value)
     grid.map(e => {
       if (e.physical_id <= value[1]) {
         return highestList.push(e)
@@ -39,7 +37,7 @@ const SensorSelector = () => {
     })
     dispatch({ type: FILTERED_SENSORS, payload: finalList })
   }
-  const [open, setOpen] = useState(false)
+
 
   const toggleSensor = () => {
     let x = document.getElementById('slider')
