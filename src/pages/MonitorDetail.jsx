@@ -6,6 +6,7 @@ import PrivateRoute from 'components/PrivateRoute.jsx'
 
 // import 'antd/dist/antd.css'
 // import './MonitorDetail.css'
+
 import HeatChart from 'components/HeatChart/heatChart'
 import MonitorDetailHeader from './MonitorDetailHeader'
 
@@ -37,6 +38,13 @@ const MonitorDetails = props => {
   const [isMonth, setIsMonth] = useState(false)
   const [isWeek, setIsWeek] = useState(false)
   const [isToggleGraph, setIsToggleGraph] = useState(false)
+  const [isClicked, setIsClicked] = useState(true)
+  const [opacity, setOpacity] = useState({
+    First_Pad_Count: 1,
+    Second_Pad_Count: 1,
+    Third_Pad_Count: 1,
+    Fourth_Pad_Count: 1,
+  })
 
   const [viewport, setViewport] = useState({
     latitude: 13.5651,
@@ -114,535 +122,68 @@ const MonitorDetails = props => {
     longitude,
   } = historySelector.individualSensor[0]
 
-  const data = [
-    {
-      name: weekDate,
-      First_Pad_Count: firstPadCountWeek[0],
-      Second_Pad_Count: secondPadCountWeek[0],
-      Third_Pad_Count: thirdPadCountWeek[0],
-      Fourth_Pad_Count: fourthPadCountWeek[0],
-    },
-    {
-      name: weekDate,
-      First_Pad_Count: firstPadCountWeek[1],
-      Second_Pad_Count: secondPadCountWeek[1],
-      Third_Pad_Count: thirdPadCountWeek[1],
-      Fourth_Pad_Count: fourthPadCountWeek[1],
-    },
-    {
-      name: weekDate,
-      First_Pad_Count: firstPadCountWeek[2],
-      Second_Pad_Count: secondPadCountWeek[2],
-      Third_Pad_Count: thirdPadCountWeek[2],
-      Fourth_Pad_Count: fourthPadCountWeek[2],
-    },
-    {
-      name: weekDate,
-      First_Pad_Count: firstPadCountWeek[3],
-      Second_Pad_Count: secondPadCountWeek[3],
-      Third_Pad_Count: thirdPadCountWeek[3],
-      Fourth_Pad_Count: fourthPadCountWeek[3],
-    },
-    {
-      name: weekDate,
-      First_Pad_Count: firstPadCountWeek[4],
-      Second_Pad_Count: secondPadCountWeek[4],
-      Third_Pad_Count: thirdPadCountWeek[4],
-      Fourth_Pad_Count: fourthPadCountWeek[4],
-    },
-    {
-      name: weekDate,
-      First_Pad_Count: firstPadCountWeek[5],
-      Second_Pad_Count: secondPadCountWeek[5],
-      Third_Pad_Count: thirdPadCountWeek[5],
-      Fourth_Pad_Count: fourthPadCountWeek[5],
-    },
-    {
-      name: weekDate,
-      First_Pad_Count: firstPadCountWeek[6],
-      Second_Pad_Count: secondPadCountWeek[6],
-      Third_Pad_Count: thirdPadCountWeek[6],
-      Fourth_Pad_Count: fourthPadCountWeek[6],
-    },
-  ]
+  // Makes new arrays to loop through the week and month data from weekDate array
+  const endWeekIndex = 6
+  const monthCount = 29
+  const weekData = []
+  const monthData = []
+  for (let i = 0; i <= monthCount; i++) {
+    if (i <= endWeekIndex) {
+      weekData.push({
+        name: weekDate,
+        First_Pad_Count: firstPadCountWeek[i],
+        Second_Pad_Count: secondPadCountWeek[i],
+        Third_Pad_Count: thirdPadCountWeek[i],
+        Fourth_Pad_Count: fourthPadCountWeek[i],
+      })
+    }
+    monthData.push({
+      name: date,
+      First_Pad_Count: firstPadCount[i],
+      Second_Pad_Count: secondPadCount[i],
+      Third_Pad_Count: thirdPadCount[i],
+      Fourth_Pad_Count: fourthPadCount[i],
+    })
+  }
 
-  ////////PAD SECONDS ////////
-  const dataSecond = [
-    {
-      name: weekDate,
-      First_Pad_Second: firstPadSecondWeek[0],
-      Second_Pad_Second: secondPadSecondWeek[0],
-      Third_Pad_Second: thirdPadSecondWeek[0],
-      Fourth_Pad_Second: fourthPadSecondWeek[0],
-    },
-    {
-      name: weekDate,
-      First_Pad_Second: firstPadSecondWeek[1],
-      Second_Pad_Second: secondPadSecondWeek[1],
-      Third_Pad_Second: thirdPadSecondWeek[1],
-      Fourth_Pad_Second: fourthPadSecondWeek[1],
-    },
-    {
-      name: weekDate,
-      First_Pad_Second: firstPadSecondWeek[2],
-      Second_Pad_Second: secondPadSecondWeek[2],
-      Third_Pad_Second: thirdPadSecondWeek[2],
-      Fourth_Pad_Second: fourthPadSecondWeek[2],
-    },
-    {
-      name: weekDate,
-      First_Pad_Second: firstPadSecondWeek[3],
-      Second_Pad_Second: secondPadSecondWeek[3],
-      Third_Pad_Second: thirdPadSecondWeek[3],
-      Fourth_Pad_Second: fourthPadSecondWeek[3],
-    },
-    {
-      name: weekDate,
-      First_Pad_Second: firstPadSecondWeek[4],
-      Second_Pad_Second: secondPadSecondWeek[4],
-      Third_Pad_Second: thirdPadSecondWeek[4],
-      Fourth_Pad_Second: fourthPadSecondWeek[4],
-    },
-    {
-      name: weekDate,
-      First_Pad_Second: firstPadSecondWeek[5],
-      Second_Pad_Second: secondPadSecondWeek[5],
-      Third_Pad_Second: thirdPadCountWeek[5],
-      Fourth_Pad_Second: fourthPadSecondWeek[5],
-    },
-    {
-      name: weekDate,
-      First_Pad_Second: firstPadSecondWeek[6],
-      Second_Pad_Second: secondPadSecondWeek[6],
-      Third_Pad_Second: thirdPadCountWeek[6],
-      Fourth_Pad_Second: fourthPadSecondWeek[6],
-    },
-  ]
+  const endWeekSecond = 6
+  const monthSecond = 29
+  const weekDataSecond = []
+  const monthSecondData = []
+  for (let i = 0; i <= monthSecond; i++) {
+    if (i <= endWeekSecond) {
+      weekDataSecond.push({
+        name: weekDate,
+        First_Pad_Second: firstPadSecondWeek[i],
+        Second_Pad_Second: secondPadSecondWeek[i],
+        Third_Pad_Second: thirdPadSecondWeek[i],
+        Fourth_Pad_Second: fourthPadSecondWeek[i],
+      })
+    }
+    monthSecondData.push({
+      name: date,
+      First_Pad_Second: firstPadSecond[i],
+      Second_Pad_Second: secondPadSecond[i],
+      Third_Pad_Second: thirdPadSecond[i],
+      Fourth_Pad_Second: fourthPadSecond[i],
+    })
+  }
 
-  const monthDataCount = [
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[0],
-      Second_Pad_Count: secondPadCount[0],
-      Third_Pad_Count: thirdPadCount[0],
-      Fourth_Pad_Count: fourthPadCount[0],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[1],
-      Second_Pad_Count: secondPadCount[1],
-      Third_Pad_Count: thirdPadCount[1],
-      Fourth_Pad_Count: fourthPadCount[1],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[2],
-      Second_Pad_Count: secondPadCount[2],
-      Third_Pad_Count: thirdPadCount[2],
-      Fourth_Pad_Count: fourthPadCount[2],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[3],
-      Second_Pad_Count: secondPadCount[3],
-      Third_Pad_Count: thirdPadCount[3],
-      Fourth_Pad_Count: fourthPadCount[3],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[4],
-      Second_Pad_Count: secondPadCount[4],
-      Third_Pad_Count: thirdPadCount[4],
-      Fourth_Pad_Count: fourthPadCount[4],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[5],
-      Second_Pad_Count: secondPadCount[5],
-      Third_Pad_Count: thirdPadCount[5],
-      Fourth_Pad_Count: fourthPadCount[5],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[6],
-      Second_Pad_Count: secondPadCount[6],
-      Third_Pad_Count: thirdPadCount[6],
-      Fourth_Pad_Count: fourthPadCount[6],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[7],
-      Second_Pad_Count: secondPadCount[7],
-      Third_Pad_Count: thirdPadCount[7],
-      Fourth_Pad_Count: fourthPadCount[7],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[8],
-      Second_Pad_Count: secondPadCount[8],
-      Third_Pad_Count: thirdPadCount[8],
-      Fourth_Pad_Count: fourthPadCount[8],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[9],
-      Second_Pad_Count: secondPadCount[9],
-      Third_Pad_Count: thirdPadCount[9],
-      Fourth_Pad_Count: fourthPadCount[9],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[10],
-      Second_Pad_Count: secondPadCount[10],
-      Third_Pad_Count: thirdPadCount[10],
-      Fourth_Pad_Count: fourthPadCount[10],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[11],
-      Second_Pad_Count: secondPadCount[11],
-      Third_Pad_Count: thirdPadCount[11],
-      Fourth_Pad_Count: fourthPadCount[11],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[13],
-      Second_Pad_Count: secondPadCount[13],
-      Third_Pad_Count: thirdPadCount[13],
-      Fourth_Pad_Count: fourthPadCount[13],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[14],
-      Second_Pad_Count: secondPadCount[14],
-      Third_Pad_Count: thirdPadCount[14],
-      Fourth_Pad_Count: fourthPadCount[14],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[15],
-      Second_Pad_Count: secondPadCount[15],
-      Third_Pad_Count: thirdPadCount[15],
-      Fourth_Pad_Count: fourthPadCount[15],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[16],
-      Second_Pad_Count: secondPadCount[16],
-      Third_Pad_Count: thirdPadCount[16],
-      Fourth_Pad_Count: fourthPadCount[16],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[17],
-      Second_Pad_Count: secondPadCount[17],
-      Third_Pad_Count: thirdPadCount[17],
-      Fourth_Pad_Count: fourthPadCount[17],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[18],
-      Second_Pad_Count: secondPadCount[18],
-      Third_Pad_Count: thirdPadCount[18],
-      Fourth_Pad_Count: fourthPadCount[18],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[19],
-      Second_Pad_Count: secondPadCount[19],
-      Third_Pad_Count: thirdPadCount[19],
-      Fourth_Pad_Count: fourthPadCount[19],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[20],
-      Second_Pad_Count: secondPadCount[20],
-      Third_Pad_Count: thirdPadCount[20],
-      Fourth_Pad_Count: fourthPadCount[20],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[21],
-      Second_Pad_Count: secondPadCount[21],
-      Third_Pad_Count: thirdPadCount[21],
-      Fourth_Pad_Count: fourthPadCount[21],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[22],
-      Second_Pad_Count: secondPadCount[22],
-      Third_Pad_Count: thirdPadCount[22],
-      Fourth_Pad_Count: fourthPadCount[22],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[23],
-      Second_Pad_Count: secondPadCount[23],
-      Third_Pad_Count: thirdPadCount[23],
-      Fourth_Pad_Count: fourthPadCount[23],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[24],
-      Second_Pad_Count: secondPadCount[24],
-      Third_Pad_Count: thirdPadCount[24],
-      Fourth_Pad_Count: fourthPadCount[24],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[25],
-      Second_Pad_Count: secondPadCount[25],
-      Third_Pad_Count: thirdPadCount[25],
-      Fourth_Pad_Count: fourthPadCount[25],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[26],
-      Second_Pad_Count: secondPadCount[26],
-      Third_Pad_Count: thirdPadCount[26],
-      Fourth_Pad_Count: fourthPadCount[26],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[27],
-      Second_Pad_Count: secondPadCount[27],
-      Third_Pad_Count: thirdPadCount[27],
-      Fourth_Pad_Count: fourthPadCount[27],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[28],
-      Second_Pad_Count: secondPadCount[28],
-      Third_Pad_Count: thirdPadCount[28],
-      Fourth_Pad_Count: fourthPadCount[28],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[29],
-      Second_Pad_Count: secondPadCount[29],
-      Third_Pad_Count: thirdPadCount[29],
-      Fourth_Pad_Count: fourthPadCount[29],
-    },
-    {
-      name: date,
-      First_Pad_Count: firstPadCount[30],
-      Second_Pad_Count: secondPadCount[30],
-      Third_Pad_Count: thirdPadCount[30],
-      Fourth_Pad_Count: fourthPadCount[30],
-    },
-  ]
-
-  const monthDataSecond = [
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[0],
-      Second_Pad_Second: secondPadSecond[0],
-      Third_Pad_Second: thirdPadSecond[0],
-      Fourth_Pad_Second: fourthPadSecond[0],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[1],
-      Second_Pad_Second: secondPadSecond[1],
-      Third_Pad_Second: thirdPadSecond[1],
-      Fourth_Pad_Second: fourthPadSecond[1],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[2],
-      Second_Pad_Second: secondPadSecond[2],
-      Third_Pad_Second: thirdPadSecond[2],
-      Fourth_Pad_Second: fourthPadSecond[2],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[3],
-      Second_Pad_Second: secondPadSecond[3],
-      Third_Pad_Second: thirdPadSecond[3],
-      Fourth_Pad_Second: fourthPadSecond[3],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[4],
-      Second_Pad_Second: secondPadSecond[4],
-      Third_Pad_Second: thirdPadSecond[4],
-      Fourth_Pad_Second: fourthPadSecond[4],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[5],
-      Second_Pad_Second: secondPadSecond[5],
-      Third_Pad_Second: thirdPadCount[5],
-      Fourth_Pad_Second: fourthPadSecond[5],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[6],
-      Second_Pad_Second: secondPadSecond[6],
-      Third_Pad_Second: thirdPadCount[6],
-      Fourth_Pad_Second: fourthPadSecond[6],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[7],
-      Second_Pad_Second: secondPadSecond[7],
-      Third_Pad_Second: thirdPadSecond[7],
-      Fourth_Pad_Second: fourthPadSecond[7],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[8],
-      Second_Pad_Second: secondPadSecond[8],
-      Third_Pad_Second: thirdPadCount[8],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[9],
-      Second_Pad_Second: secondPadSecond[9],
-      Third_Pad_Second: thirdPadSecond[9],
-      Fourth_Pad_Second: fourthPadSecond[9],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[10],
-      Second_Pad_Second: secondPadSecond[10],
-      Third_Pad_Second: thirdPadCount[10],
-      Fourth_Pad_Second: fourthPadSecond[10],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[11],
-      Second_Pad_Second: secondPadSecond[11],
-      Third_Pad_Second: thirdPadSecond[11],
-      Fourth_Pad_Second: fourthPadSecond[11],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[12],
-      Second_Pad_Second: secondPadSecond[12],
-      Third_Pad_Second: thirdPadCount[12],
-      Fourth_Pad_Second: fourthPadSecond[12],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[13],
-      Second_Pad_Second: secondPadSecond[13],
-      Third_Pad_Second: thirdPadCount[13],
-      Fourth_Pad_Second: fourthPadSecond[13],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[14],
-      Second_Pad_Second: secondPadSecond[14],
-      Third_Pad_Second: thirdPadCount[14],
-      Fourth_Pad_Second: fourthPadSecond[14],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[15],
-      Second_Pad_Second: secondPadSecond[15],
-      Third_Pad_Second: thirdPadCount[15],
-      Fourth_Pad_Second: fourthPadSecond[15],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[16],
-      Second_Pad_Second: secondPadSecond[16],
-      Third_Pad_Second: thirdPadCount[16],
-      Fourth_Pad_Second: fourthPadSecond[16],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[17],
-      Second_Pad_Second: secondPadSecond[17],
-      Third_Pad_Second: thirdPadCount[17],
-      Fourth_Pad_Second: fourthPadSecond[17],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[18],
-      Second_Pad_Second: secondPadSecond[18],
-      Third_Pad_Second: thirdPadCount[18],
-      Fourth_Pad_Second: fourthPadSecond[18],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[19],
-      Second_Pad_Second: secondPadSecond[19],
-      Third_Pad_Second: thirdPadCount[19],
-      Fourth_Pad_Second: fourthPadSecond[19],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[20],
-      Second_Pad_Second: secondPadSecond[20],
-      Third_Pad_Second: thirdPadCount[20],
-      Fourth_Pad_Second: fourthPadSecond[20],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[21],
-      Second_Pad_Second: secondPadSecond[21],
-      Third_Pad_Second: thirdPadCount[21],
-      Fourth_Pad_Second: fourthPadSecond[21],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[22],
-      Second_Pad_Second: secondPadSecond[22],
-      Third_Pad_Second: thirdPadCount[22],
-      Fourth_Pad_Second: fourthPadSecond[22],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[23],
-      Second_Pad_Second: secondPadSecond[23],
-      Third_Pad_Second: thirdPadCount[23],
-      Fourth_Pad_Second: fourthPadSecond[23],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[24],
-      Second_Pad_Second: secondPadSecond[24],
-      Third_Pad_Second: thirdPadCount[24],
-      Fourth_Pad_Second: fourthPadSecond[24],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[25],
-      Second_Pad_Second: secondPadSecond[25],
-      Third_Pad_Second: thirdPadCount[25],
-      Fourth_Pad_Second: fourthPadSecond[25],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[26],
-      Second_Pad_Second: secondPadSecond[26],
-      Third_Pad_Second: thirdPadCount[26],
-      Fourth_Pad_Second: fourthPadSecond[26],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[27],
-      Second_Pad_Second: secondPadSecond[27],
-      Third_Pad_Second: thirdPadCount[27],
-      Fourth_Pad_Second: fourthPadSecond[27],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[28],
-      Second_Pad_Second: secondPadSecond[28],
-      Third_Pad_Second: thirdPadCount[28],
-      Fourth_Pad_Second: fourthPadSecond[28],
-    },
-    {
-      name: date,
-      First_Pad_Second: firstPadSecond[29],
-      Second_Pad_Second: secondPadSecond[29],
-      Third_Pad_Second: thirdPadCount[29],
-      Fourth_Pad_Second: fourthPadSecond[29],
-    },
-  ]
+  const handleClick = e => {
+    const { dataKey } = e
+    if (isClicked) {
+      setOpacity({
+        ...opacity,
+        [dataKey]: 0,
+      })
+    } else {
+      setOpacity({
+        ...opacity,
+        [dataKey]: 1,
+      })
+    }
+    setIsClicked(!isClicked)
+  }
 
   return (
     <div>
@@ -672,13 +213,13 @@ const MonitorDetails = props => {
                 className={!isMonth ? 'weekBtnOn' : 'weekBtnOff'}
                 onClick={() => setIsMonth(!isMonth)}
               >
-                Week
+                Weekly
               </p>
               <p
                 className={isMonth ? 'monthBtnOn' : 'monthBtnOff'}
                 onClick={() => setIsMonth(!isMonth)}
               >
-                Month
+                Monthly
               </p>
             </div>
             <button
@@ -701,7 +242,7 @@ const MonitorDetails = props => {
           >
             <ResponsiveContainer width='80%'>
               <LineChart
-                data={isMonth ? monthDataCount : data}
+                data={isMonth ? monthData : weekData}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray='3 3' />
@@ -709,6 +250,7 @@ const MonitorDetails = props => {
                 <YAxis />
                 <Tooltip />
                 <Legend
+                  onClick={handleClick}
                   layout='vertical'
                   wrapperStyle={{
                     border: '1px solid red',
@@ -717,21 +259,26 @@ const MonitorDetails = props => {
                   }}
                 />
                 <Line
-                  type='monotone'
+                  strokeOpacity={opacity.First_Pad_Count}
                   dataKey='First_Pad_Count'
+                  type='monotone'
+                  // stroke={isMonth ? '#261592' : 'red'}
                   stroke='#261592'
                 />
                 <Line
+                  strokeOpacity={opacity.Second_Pad_Count}
                   type='monotone'
                   dataKey='Second_Pad_Count'
                   stroke='#FFAD34'
                 />
                 <Line
+                  strokeOpacity={opacity.Third_Pad_Count}
                   type='monotone'
                   dataKey='Third_Pad_Count'
                   stroke='#15B567'
                 />
                 <Line
+                  strokeOpacity={opacity.Fourth_Pad_Count}
                   type='monotone'
                   dataKey='Fourth_Pad_Count'
                   stroke='#921515'
@@ -747,7 +294,7 @@ const MonitorDetails = props => {
           >
             <ResponsiveContainer width='80%'>
               <LineChart
-                data={isMonth ? monthDataSecond : dataSecond}
+                data={isMonth ? monthSecondData : weekDataSecond}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray='3 3' />

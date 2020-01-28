@@ -6,6 +6,7 @@ import './MonitorDetailHeader.scss'
 import functionalBadge from '../icons/Functional.svg'
 import nonFuncBadge from '../icons/NonFunctioning.svg'
 import unknownBadge from '../icons/Unknown.svg'
+import moment from 'moment'
 
 function MonitorDetailHeader(props) {
   const [viewport, setViewport] = useState({
@@ -29,6 +30,8 @@ function MonitorDetailHeader(props) {
     latitude,
     longitude,
   } = props.historySelector[0]
+
+  let finishedDate = moment(data_finished).format('MM/DD/YYYY')
 
   const unknown =
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png'
@@ -92,23 +95,23 @@ function MonitorDetailHeader(props) {
             <div className='wellInfoContainer'>
               <div className='wellConstructed'>
                 <p>Constructed</p>
-                <h6>{data_finished}</h6>
+                <h6>{finishedDate}</h6>
+              </div>
+              <div className='wellProvince'>
+                <p>Province</p>
+                <h6>{province_name}</h6>
               </div>
               <div className='wellDepth'>
                 <p>Well Depth</p>
                 <h6>{depth}</h6>
               </div>
               <div className='wellCommune'>
-                <p>Commune</p>
-                <h6>{commune_name}</h6>
+                <p>Reported percent</p>
+                <h6>{reported_percent}</h6>
               </div>
               <div className='wellTotal'>
                 <p>Total</p>
                 <h6>{total}</h6>
-              </div>
-              <div className='wellProvince'>
-                <p>Province</p>
-                <h6>{province_name}</h6>
               </div>
             </div>
           </div>
