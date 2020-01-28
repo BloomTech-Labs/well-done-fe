@@ -9,7 +9,7 @@ import moment from 'moment'
 //handle click event for alert when svg is clicked
 const handleClick = value => {
   if (value === null) return alert(`no info`)
-  alert(`on Date:${value['date']} the status was 
+  alert(`on ${moment(value['date']).format('MM/DD/YYYY')} the status was 
   ${handleStatus(value.count)}`)
 }
 
@@ -60,9 +60,9 @@ const HeatChart = props => {
         }}
         tooltipDataAttrs={value => {
           return {
-            'data-tip': `${moment(value.date).format('MM/DD/YYYY')} status: ${handleStatus(
-              value.count
-            )}`,
+            'data-tip': `${moment(value.date).format(
+              'MM/DD/YYYY'
+            )} status: ${handleStatus(value.count)}`,
           }
         }}
         showWeekdayLabels={true}
