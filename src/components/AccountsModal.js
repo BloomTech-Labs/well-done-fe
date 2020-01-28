@@ -95,46 +95,13 @@ const ModalOperator = () => {
   pumpsReducer.pumpsOrg.map(e => sensorByOrg.push(e.sensor_pid))
   console.log(`sensorNums`, sensorByOrg)
 
-//display sensors
- let allSensors = 
-  <div id="allSensors">
-            <Dropdown.Toggle variant='success' id='dropdown-basic'>
-              Assign Sensor
-            </Dropdown.Toggle>
-
-            <Form.Control
-              as='select'
-              name='sensor_pid'
-              value={operator.sensor_pid}
-              onChange={handleChange}
-            >
-              {sensorNums.map(sensor => (
-                <option key={sensor} value={sensor}>
-                  {sensor}
-                </option>
-              ))}
-            </Form.Control>
-            </div>
-
-  let org_sensors = 
-            <div id="org_sensors">
-            <Dropdown.Toggle variant='success' id='dropdown-basic'>
-              Sensors by Organization
-            </Dropdown.Toggle>
-
-            <Form.Control
-              as='select'
-              name='sensor_pid'
-              value={operator.sensor_pid}
-              onChange={handleChange}
-            >
-              {sensorByOrg.map(sensor => (
-                <option key={sensor} value={sensor}>
-                  {sensor}
-                </option>
-              ))}
-            </Form.Control>
-            </div>
+  //display sensors
+  let sensorDisplay = []
+  if (organizationId >= 1){
+    sensorDisplay = sensorByOrg
+  } else {
+    sensorDisplay = sensorNums
+  } 
 
   
 
@@ -273,8 +240,24 @@ const ModalOperator = () => {
                 onChange={handleChange}
               />
             </div>
+            <div id="allSensors">
+            <Dropdown.Toggle variant='success' id='dropdown-basic'>
+              Assign Sensor
+            </Dropdown.Toggle>
 
-            {localStorage.getItem('org_id') ? org_sensors : allSensors}
+            <Form.Control
+              as='select'
+              name='sensor_pid'
+              value={operator.sensor_pid}
+              onChange={handleChange}
+            >
+              {sensorDisplay.map(sensor => (
+                <option key={sensor} value={sensor}>
+                  {sensor}
+                </option>
+              ))}
+            </Form.Control>
+            </div>
             
             <div className='col2'>
               <button
