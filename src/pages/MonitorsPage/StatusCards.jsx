@@ -15,10 +15,9 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
     <div className='statusContainer'>
 
         <div className="monitorCard">
-          <div className="innerMonitorCard">
               <h2>Monitors</h2>
               <p>{pumpData.length}</p>
-            </div>
+            
         </div>
 
         <div className="functioningCard">

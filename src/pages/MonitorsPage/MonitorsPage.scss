@@ -37,6 +37,7 @@ width:33%;
 
 }
 .monitorCard{
+  border:1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,10 +51,12 @@ width:33%;
   font-size: 1.8rem;
   border-radius: 6px;
   font-weight: bold;
+  padding-top:15px;
 
 
 
   h2{
+    
      font-size: 1.8rem;
      line-height: 18px;
      font-weight: bold;

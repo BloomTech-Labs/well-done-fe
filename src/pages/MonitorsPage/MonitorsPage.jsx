@@ -28,10 +28,7 @@ const MonitorsPage = props => {
 
   return (
     <>
-      <div className='heatchartContainer'>
-        
-      
-      </div>
+    
       <div className='monitorContainer'>
         <div className='percentContainer'>
           <PercentageChart
