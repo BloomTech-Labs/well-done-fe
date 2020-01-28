@@ -10,7 +10,7 @@ import moment from 'moment'
 const handleClick = value => {
   if (value === null) return alert(`no info`)
   alert(`on Date:${value['date']} the status was 
-${value.count}`)
+  ${handleStatus(value.count)}`)
 }
 
 const handleStatus = statCodeNum => {
@@ -60,7 +60,7 @@ const HeatChart = props => {
         }}
         tooltipDataAttrs={value => {
           return {
-            'data-tip': `${moment(value.date)} status: ${handleStatus(
+            'data-tip': `${moment(value.date).format('MM/DD/YYYY')} status: ${handleStatus(
               value.count
             )}`,
           }
