@@ -2,11 +2,11 @@ import React from 'react'
 import { Card, Image, Modal, Button } from 'semantic-ui-react'
 
 import './Organization.styles.scss'
-import DropletDroplet from '../../icons/DropletDroplet.svg'
-import NgoDropDown from 'pages/MonitorsPage/NgoDropDown'
+
 import ngo from '../../Images/ngo.png'
 
 const OrganizationCards = props => {
+    console.log(props,"props in org")
   return (
     <div className='outer-card'>
       <div img-cont>
@@ -14,7 +14,7 @@ const OrganizationCards = props => {
       </div>
 
       <div className='card-container'>
-        <h1 className ="org-title"> {props.item.org_name}</h1>
+        <h1 className ="org-title"> {props.sensor.org_id}</h1>
           <div className='card-content'>
             <h3>Staff: 5</h3>
             <h3>Admin: 2</h3>
