@@ -14,9 +14,9 @@ class NgoDropDown extends Component {
   render() {
     return (
       <>
-        <Dropdown.Toggle variant='success' id='dropdown-basic'>
+        {/* <Dropdown.Toggle variant='success' id='dropdown-basic'>
           Organization
-        </Dropdown.Toggle>
+        </Dropdown.Toggle> */}
 
         <Form.Control
           as='select'
@@ -39,6 +39,4 @@ const mapStateToProps = state => {
     ngos: state.orgReducer.org,
   }
 }
-export default connect(
-    mapStateToProps, {})
-    (NgoDropDown)
+export default connect(mapStateToProps, {})(NgoDropDown)

@@ -21,11 +21,10 @@
     margin: 1%;
   }
 
-  .searchContainer{
+  .searchContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: .7rem;
   }
 
   .searchAccounts {
@@ -37,10 +36,10 @@
     font-size: 0.89rem;
     margin-left: 10%;
 
-      @media screen and (max-width:1200px) {
-        width: 15rem;
-        margin-right: 0;
-     }
+    @media screen and (max-width: 1200px) {
+      width: 15rem;
+      margin-right: 0;
+    }
   }
 
   .headerBtns {
@@ -50,27 +49,26 @@
     width: 100%;
     margin-right: 1%;
 
-    @media screen and (max-width:900px) {
-      width:60%;
+    @media screen and (max-width: 900px) {
+      width: 60%;
       justify-content: space-evenly;
       margin-right: 3%;
-   }
-
+    }
 
     #deleteBtn {
       border: none;
       font-size: 2.3rem;
-      background:transparent;
+      background: transparent;
       min-width: 6rem;
       min-height: 6rem;
 
-      @media screen and (max-width:1000px) {
+      @media screen and (max-width: 1000px) {
         margin-right: 1rem;
-     }
+      }
     }
 
     .downloadButton {
-      margin:0;
+      margin: 0;
       min-width: 4rem;
       min-height: 6rem;
       background: transparent;
@@ -83,29 +81,28 @@
       width: 5%;
 
       .addAccount {
-          border: none;
-          background:transparent;
-          min-width: 6rem;
-          min-height: 6rem;
-          margin-left: -2rem;
+        border: none;
+        background: transparent;
+        min-width: 6rem;
+        min-height: 6rem;
+        margin-left: -2rem;
 
-      @media screen and (max-width:1265px) {
-        margin: 0;
-     }
+        @media screen and (max-width: 1265px) {
+          margin: 0;
+        }
       }
     }
   }
 }
 
-.searchIcons{
+.searchIcons {
   position: relative;
   border: none;
   font-size: 24px;
   right: 28px;
-  bottom:5px;
+  bottom: 5px;
   background: transparent;
 }
-
 
 .modal {
   position: relative;
