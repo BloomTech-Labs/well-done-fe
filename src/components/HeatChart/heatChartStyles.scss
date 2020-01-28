@@ -1,6 +1,6 @@
 @import 'src/colors';
 .calendarBox {
-  background-color: $mainBackground;
+  background-color: white;
   display: flex;
   flex-direction: column-reverse;
   margin-left: 10%;
@@ -23,7 +23,7 @@
 }
 
 .react-calendar-heatmap .color-empty {
-  fill: white;
+  fill: $mainBackground;
 }
 
 .react-calendar-heatmap .color-filled {
