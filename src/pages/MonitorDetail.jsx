@@ -376,13 +376,13 @@ const MonitorDetails = props => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-      <div className='calContainer'>
+     
       <HeatChart
          sensors={props.sensors}
          selectedPump={props.selectedSensors}
          history={historySelector.history}/>
        />
-       </div>
+       
     </>
      
       {/* <Row gutter={[8, 32]}>
