@@ -11,17 +11,17 @@ const OrganizationCards = props => {
   if (!props.item.orgAccounts) {
     return <span>Loading...</span>
   }
+
   const orgAdmin = props.item.orgAccounts.filter(
-    item => item.role !== 'super_user' || item.role === "operator"
+    item => item.role !== 'super_user' || item.role === 'operator'
   )
   const orgStaff = props.item.orgAccounts.filter(
-    item => item.role === 'org_admin'|| item.role === "operator"
+    item => item.role === 'org_admin' || item.role === 'operator'
   )
   if (!props.item.orgSensors) {
     return <span>Loading...</span>
   }
   const sensorTotal = props.item.orgSensors
-  // console.log(orgRoles, "org roles")
 
   return (
     <div className='outer-card'>
@@ -35,18 +35,7 @@ const OrganizationCards = props => {
           <h3>Staff: {orgStaff.length}</h3>
           <h3>Admin: {orgAdmin.length}</h3>
           <h3>Sensors: {sensorTotal.length}</h3>
- 
- 
- {/* <h3>Sensors: {props.item.orgAccounts[0].email_address}</h3> */}
-          {/* <h3>Countries: 7</h3> */}
         </div>
-        {/* {orgAdmin.map(person => {
-          return (
-            <div key={person.id}>
-              <p> Name: {person.last_name}</p>
-            </div>
-          )
-        })} */}
       </div>
     </div>
   )

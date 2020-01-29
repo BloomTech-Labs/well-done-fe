@@ -17,46 +17,30 @@ const Organizations = props => {
   }, [])
 
   useEffect(() => {
-    console.log(props.org.org.length, "if")
-    console.log(props.org.isFetching,"FETCH")
+
     if (props.org.org.length > 0) {
-   
       props.org.org.forEach(org => {
         props.fetchOrgAccounts(org.id)
       })
     }
   }, [props.org.isFetching])
+  console.log(props.org,"props.org")
 
   useEffect(() => {
     if (props.org.org.length > 0) {
-    props.org.org.forEach(org => {
-      props.fetchSensorsByOrgId(org.id)
-    })
-  }
+      props.org.org.forEach(org => {
+        props.fetchSensorsByOrgId(org.id)
+      })
+    }
   }, [props.org.isFetching])
-
 
   const handleChange = event => {
     setOrgFilter(event.target.value)
   }
-//search
+  //search
   const filteredOrgs = props.org.org.filter(item =>
     item.org_name.toLowerCase().includes(orgFilter.toLowerCase())
   )
- 
-
-  
-  //arrays
-  const orgArray = props.org.org
-  console.log(orgArray, 'orgArray')
-
-  const orgSensors = props.org.org.orgSensors
-  console.log(orgSensors, 'SensorArray')
-
-  if (props.org.org.length > 0) {
-  const orgAccounts = props.org.org[0].orgAccounts
-  console.log(orgAccounts, 'Org accounts')
-}
 
   return (
     <div>
@@ -78,7 +62,6 @@ const Organizations = props => {
           <OrganizationCards key={item.id} item={item} />
         ))}
       </section>
-    
     </div>
   )
 }

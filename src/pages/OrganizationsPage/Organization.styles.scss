@@ -16,20 +16,7 @@
   flex-flow: row wrap;
   justify-content: space-around;
 }
-// div.ui {
-//   border: 2px solid black;
-//   margin: 20px;
-//   margin-top: 0;
-//   margin-bottom: 5rem;
-//   height: auto;
-//   width: 100%;
-//   background: #e5e5e5;
-//   box-shadow: 5px 1px 20px #111;
-//   font-size: 1.1rem;
-//   &:hover {
-//     transform: scale(1.05);
-//   }
-// }
+
 
 .outer-card {
   display: flex;
@@ -55,12 +42,14 @@
 
   h3 {
     font-size: 1.8rem;
+    margin-right: 1%;
   }
 }
 
 .img-card {
-  width: 86%;
+  min-width: 170px;
   height: 100%;
+  
 }
 
 .org-title {
