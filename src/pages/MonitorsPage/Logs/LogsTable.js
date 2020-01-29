@@ -30,7 +30,6 @@ function LogsTable(props) {
   const sensorFiltered = logsSelector.logsUpdate.filter(log => {
     return log.sensor_id === selectedSensors.sensor_pid
   })
-  console.log(sensorFiltered, 'this is the filtered logs')
 
   let gridColumnApi
   const onGridReady = params => {

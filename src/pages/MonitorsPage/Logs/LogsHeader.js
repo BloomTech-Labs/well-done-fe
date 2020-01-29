@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import './Logs.styles.scss'
-import LogsCalSearch from './LogsCalSearch'
 import LogsFilters from './LogFilters'
 import gridOptionss from '../../../components/Grid/Pagination'
 
@@ -26,7 +25,6 @@ function LogsHeader() {
           <div className='dropDwnContainer'></div>
           <LogsFilters />
         </div>
-        {/* <LogsCalSearch /> */}
       </div>
     </>
   )

@@ -18,33 +18,15 @@ $border-color: #090a3f;
 
 .sensorChart {
   background: #d5d6e9;
-  // width: 100%;
-  // // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.08);
-  // border-top-left-radius: 5px;
-  // border-top-right-radius: 5px;
-  // background: #000;
-
-  // @media screen and (max-width: 1000px) {
-  //   display: flex;
-  //   flex-direction: column;
-  //   width: 97%;
-  //   margin-top: 4%;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  // }
 
   .sensorHeader {
     border: none;
     display: flex;
     align-items: center;
-    // justify-content: center;
-    // height: 85px;
     margin: 0;
     background: #d5d6e9;
 
     .sensorHeaderName {
-      h1 {
-      }
     }
 
     .searchInsensors {
@@ -125,10 +107,7 @@ $border-color: #090a3f;
   align-items: center;
   width: 40%;
 }
-// .dwnbutton {
-//   background: transparent;
-//   border: none;
-// }
+
 #quickFilter {
   width: 100%;
 }
