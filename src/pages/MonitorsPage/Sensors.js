@@ -158,7 +158,7 @@ const Sensors = props => {
             gridOptions={gridOptionss}
             onGridSizeChanged={onGridSizeChanged}
             onGridReady={onGridReady}
-            floatingFilter={true}
+            // floatingFilter={true}
           />
         </div>
       </div>

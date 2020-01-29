@@ -1,8 +1,10 @@
 import React from 'react'
 import * as types from '../actions/logsActions'
+import moment from 'moment'
 
 const initialState = {
   logsData: [],
+  logsUpdate: [],
   isFetching: false,
   error: '',
 }
@@ -38,9 +40,37 @@ export const logsReducer = (state = initialState, action) => {
           } else {
             return e
           }
-          console.log(`e`, e)
         }),
       }
+    case types.UPDATE_DATA: {
+      return {
+        ...state,
+        logsUpdate: state.logsData.map(item => {
+          if (item.status === null) {
+            return {
+              ...item,
+              status: 'N/A',
+              date_filed: moment(item.date_filed).format('MM/DD/YYYY'),
+              last_modified: moment(item.last_modified).format('MM/DD/YYYY'),
+            }
+          } else if (item.status === 2) {
+            return {
+              ...item,
+              status: 'Functioning',
+              date_filed: moment(item.date_filed).format('MM/DD/YYYY'),
+              last_modified: moment(item.last_modified).format('MM/DD/YYYY'),
+            }
+          } else if (item.status === 1) {
+            return {
+              ...item,
+              status: 'Non-Functioning',
+              date_filed: moment(item.date_filed).format('MM/DD/YYYY'),
+              last_modified: moment(item.last_modified).format('MM/DD/YYYY'),
+            }
+          }
+        }),
+      }
+    }
     default:
       return state
   }

@@ -5,6 +5,7 @@ export const LOGS_FAILURE = 'LOGS_FAILURE'
 export const LOGS_SUCCESS = 'LOGS_SUCCESS'
 export const VIEW_SUCCESS = 'VIEW_SUCCESS'
 export const VIEW_FAILURE = 'VIEW_FAILURE'
+export const UPDATE_DATA = 'UPDATE_DATA'
 
 export const fetchLogs = () => dispatch => {
   dispatch({
@@ -14,6 +15,7 @@ export const fetchLogs = () => dispatch => {
   AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/logs`)
     .then(res => dispatch({ type: LOGS_SUCCESS, payload: res.data }))
+    .then(res => dispatch({ type: UPDATE_DATA }))
     .catch(err => dispatch({ type: LOGS_FAILURE, payload: err }))
 }
 

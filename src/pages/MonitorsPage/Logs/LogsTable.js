@@ -26,7 +26,7 @@ function LogsTable(props) {
   }, [])
 
   //filters through the logsSelector and currentlySelected arrays to match sensor ids and return new array with the matching sensors #'s
-  const sensorFiltered = logsSelector.logsData.filter(log => {
+  const sensorFiltered = logsSelector.logsUpdate.filter(log => {
     return log.sensor_id === selectedSensors.sensor_pid
   })
   console.log(sensorFiltered, 'this is the filtered logs')
@@ -69,7 +69,6 @@ function LogsTable(props) {
           className='ag-theme-balham'
         >
           <AgGridReact
-            history={props.history}
             columnDefs={columnAg()}
             rowData={sensorFiltered}
             gridOptions={gridOptionss}
