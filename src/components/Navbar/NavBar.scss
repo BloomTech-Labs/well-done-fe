@@ -58,7 +58,7 @@ nav {
   right: 0px;
   padding: 5px;
   padding-top: 20px;
-  border-top: 1px solid rgb(3, 3, 94);
+  border-top: 1px solid $duke;
 
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -92,7 +92,7 @@ nav {
   padding: 5px;
   margin-left: 5px;
 
-  border-top: 2px solid rgb(66, 66, 160);
+  border:none;
 }
 .set-link-logout {
   position: relative;
@@ -128,7 +128,7 @@ svg.drop-svg {
 
 .user-email {
   padding-top: 6px;
-  border-top: 1px solid rgb(3, 3, 94);
+  border-top: none;
   font-size: 1.5rem;
   color: white;
 }
