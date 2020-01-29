@@ -27,7 +27,7 @@ export const postOrg = organization => dispatch => {
 
 export const editOrg = organization => dispatch => {
   const id = organization.id
-  console.log('action edit, organization')
+ 
   AxiosWithAuth()
     .put(`${process.env.REACT_APP_HEROKU_API}/api/orgs/${id}`, organization)
     .then(res => dispatch({ type: EDIT_SUCCESS, payload: res.data }))

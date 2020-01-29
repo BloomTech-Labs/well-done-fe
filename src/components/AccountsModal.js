@@ -33,13 +33,11 @@ const useStyles = makeStyles(theme => ({
 
 const ModalOperator = () => {
   const [operator, setOperator] = useState([])
-  
 
   const [sen_op, setSen_op] = useState([])
-  console.log(`sen_op`,sen_op)
 
   const newId = useSelector(state => state.operatorReducer.operators)
- sen_op.operator_id = newId
+  sen_op.operator_id = newId
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
@@ -58,7 +56,6 @@ const ModalOperator = () => {
     }
 
     setSen_op({ sensor_pid: value })
-    console.log(`value`, value)
   }
 
   const dispatch = useDispatch()
@@ -75,13 +72,13 @@ const ModalOperator = () => {
       dispatch(fetchPumps())
     }
   }, [])
- 
+
   //on submit add operator
   const handleSubmit = async event => {
     event.preventDefault()
-     dispatch(addAccount(operator))
+    dispatch(addAccount(operator))
     //additionally add to operator table if operator
-    console.log(operator.role)
+
     if (operator.role === 'operator') {
       await dispatch(addOperator(operator))
       dispatch(postSensorsOperators(sen_op))
@@ -173,24 +170,23 @@ const ModalOperator = () => {
             <div className='col1'>
               <div className='modalHeader'>
                 <h3>Create Account</h3>
-
-                <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                  Organization
-                </Dropdown.Toggle>
-
-                <Form.Control
-                  as='select'
-                  name='org_id'
-                  value={operator.org_id}
-                  onChange={handleChange}
-                >
-                  {getOrgName.map(org => (
-                    <option key={org.id} value={org.id}>
-                      {org.org_name}
-                    </option>
-                  ))}
-                </Form.Control>
               </div>
+
+              <p>Select Organization</p>
+              <Form.Control
+                as='select'
+                name='org_id'
+                value={operator.org_id}
+                onChange={handleChange}
+                placeholder='select organization'
+              >
+                {getOrgName.map(org => (
+                  <option key={org.id} value={org.id}>
+                    {org.org_name}
+                  </option>
+                ))}
+              </Form.Control>
+
               <label htmlFor='Name'>First Name</label>
 
               <input
@@ -258,9 +254,7 @@ const ModalOperator = () => {
               />
             </div>
             <div id='allSensors'>
-              <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                Assign Sensor
-              </Dropdown.Toggle>
+              <p>Assign Sensors to Operators</p>
 
               <Form.Control
                 as='select'

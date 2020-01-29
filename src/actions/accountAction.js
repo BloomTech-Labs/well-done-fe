@@ -59,18 +59,19 @@ export const addOperator = ({
     password: password,
     org_id: org_id,
   }
-  console.log(newoperator)
-  let response =  await AxiosWithAuth()
-    .post(`${process.env.REACT_APP_HEROKU_API}/api/operators`, newoperator)
-    //goes to operatorReducer
-    console.log(`response`,response)
-    dispatch({ type: ADDOPERATOR_SUCCESS, payload: response.data })
-    return response.data
+
+  let response = await AxiosWithAuth().post(
+    `${process.env.REACT_APP_HEROKU_API}/api/operators`,
+    newoperator
+  )
+  //goes to operatorReducer
+
+  dispatch({ type: ADDOPERATOR_SUCCESS, payload: response.data })
+  return response.data
 }
 
 export const editAccount = account => dispatch => {
   const id = account.id
-  console.log(`account `, account)
 
   AxiosWithAuth()
     .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`, account)

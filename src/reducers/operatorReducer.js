@@ -7,7 +7,7 @@ import {
 const initialState = {
   operators: [],
   isFetching: false,
-  error: '',
+  error: ''
 }
 
 const operatorReducer = (state = initialState, action) => {

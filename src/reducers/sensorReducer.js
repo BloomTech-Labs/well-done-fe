@@ -46,7 +46,6 @@ const sensorReducer = (state = initialState, action) => {
         isFetching: false,
         gridInfo: state.gridInfo.filter(e => {
           if (e.sensor_index !== action.payload.id) {
-            console.log(e)
             return e
           }
           return false

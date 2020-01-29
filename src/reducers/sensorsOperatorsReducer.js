@@ -21,7 +21,6 @@ const sensorsOperAssigned = (state = initialState, action) => {
             error:''
         }
         case SENSORSOPERATORS_SUCCESS:
-            console.log(action.payload)
             return {
                 ...state,
                 isFetching:false,
