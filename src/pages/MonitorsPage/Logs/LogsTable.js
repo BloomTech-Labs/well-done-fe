@@ -23,6 +23,7 @@ function LogsTable(props) {
 
   useEffect(() => {
     dispatch(fetchLogs())
+    document.querySelector('.ag-floating-filter-input').style.color = '#000'
   }, [])
 
   //filters through the logsSelector and currentlySelected arrays to match sensor ids and return new array with the matching sensors #'s

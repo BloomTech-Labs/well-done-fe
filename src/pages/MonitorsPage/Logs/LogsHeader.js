@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './Logs.styles.scss'
+import LogsCalSearch from './LogsCalSearch'
+import LogsFilters from './LogFilters'
 import gridOptionss from '../../../components/Grid/Pagination'
 
 function LogsHeader() {
@@ -21,7 +23,10 @@ function LogsHeader() {
             id='searchLogs'
             placeholder=' search...'
           />
+          <div className='dropDwnContainer'></div>
+          <LogsFilters />
         </div>
+        {/* <LogsCalSearch /> */}
       </div>
     </>
   )

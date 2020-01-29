@@ -163,6 +163,7 @@ const MonitorDetails = props => {
     }
     setIsClicked(!isClicked)
   }
+  console.log('check')
 
   return (
     <div>

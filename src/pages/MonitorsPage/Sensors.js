@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { withRouter } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
@@ -27,6 +27,9 @@ import CalendarFilter from './CalendarFilter'
 import StatusDropDown from './StatusDropDown'
 
 const Sensors = props => {
+  useEffect(() => {
+    document.querySelector('.ag-floating-filter-input').style.color = '#000'
+  }, [])
   const [showViewButton, setShowViewButton] = useState(0)
   const [gridApi, setgridApi] = useState(null)
   const dispatch = useDispatch()
@@ -140,7 +143,7 @@ const Sensors = props => {
         </div>
 
         {/* <div className='headerButton'>{deleteDisplay()}</div> */}
-        {/* <SensorSelector /> */}
+        <SensorSelector />
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
