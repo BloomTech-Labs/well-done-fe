@@ -32,7 +32,7 @@ export const postSensorsOperators = ({sensor_pid, operator_id}) => async dispatc
 
     try {
     const res = await AxiosWithAuth()
-    .post(`${process.env.REACT_APP_HEROKU_API}/api/assigned/operator`, sensorOpArray)
+    .post(`${process.env.REACT_APP_HEROKU_API}/api/operators/assigned/operator`, sensorOpArray)
     dispatch({type: SENSORSOPERATORS_SUCCESS, payload: res.data})
     console.log(res.data)
     } catch (err) {

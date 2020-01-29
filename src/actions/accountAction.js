@@ -43,39 +43,6 @@ export const addAccount = operator => dispatch => {
     .catch(err => dispatch({ type: ADDACCOUNT_FAILURE, payload: err.response }))
 }
 
-// export const addOperator = ({
-//   first_name,
-//   last_name,
-//   email_address,
-//   mobile_number,
-//   password,
-//   org_id,
-// }) => dispatch => {
-//   let newoperator = {
-//     first_name: first_name,
-//     last_name: last_name,
-//     email_address: email_address,
-//     mobile_number: mobile_number,
-//     password: password,
-//     org_id: org_id,
-//   }
-//   console.log(newoperator)
-//   let myreturn
-//   AxiosWithAuth()
-//     .post(`${process.env.REACT_APP_HEROKU_API}/api/operators`, newoperator)
-//     //goes to operatorReducer
-//     .then(res =>{ 
-//       dispatch({ type: ADDOPERATOR_SUCCESS, payload: res.data })
-//       myreturn = res.data
-//       return myreturn
-//     })
-//     .catch(err =>
-//       dispatch({ type: ADDOPERATOR_FAILURE, payload: err.response })
-//     )
-//     console.log(myreturn)
-//     return myreturn
-// }
-
 export const addOperator = ({
   first_name,
   last_name,
