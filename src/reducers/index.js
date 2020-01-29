@@ -10,6 +10,8 @@ import accountReducer from './accountReducer'
 import userReducer from './userReducer'
 import logsReducer from './logsReducer'
 import { selectedSensorsReducer as selectedSensors } from './selectedSensorsReducer'
+import operatorReducer from './operatorReducer'
+import sensorOperAssigned from './sensorsOperatorsReducer'
 
 const rootReducer = combineReducers({
   sensorReducer,
@@ -22,6 +24,8 @@ const rootReducer = combineReducers({
   userReducer,
   selectedSensors,
   logsReducer,
+  operatorReducer,
+  sensorOperAssigned
 })
 
 export default rootReducer
