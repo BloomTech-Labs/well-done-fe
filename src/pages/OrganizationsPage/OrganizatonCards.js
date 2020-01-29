@@ -13,7 +13,7 @@ const OrganizationCards = props => {
   }
 
   const orgAdmin = props.item.orgAccounts.filter(
-    item => item.role !== 'super_user' || item.role === 'operator'
+    item => item.role !== 'super_user' || item.role !== 'operator'
   )
   const orgStaff = props.item.orgAccounts.filter(
     item => item.role === 'org_admin' || item.role === 'operator'

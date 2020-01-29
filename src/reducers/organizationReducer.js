@@ -47,32 +47,21 @@ export const orgReducer = (state = initialState, action) => {
           }),
           
         }
-        // case types.FETCH_APPEND_SENSORS:
-        //   return {
-        //     ...state,
-        //     isFetching: true,
-        //     error: '',
-        //   }
+      
         case types.APPEND_SENSORS:
       return {
         ...state,
-        org:state.org.map(singleOrg => {
-          if(action.payload.id === singleOrg.id){
-            singleOrg['orgSensors'] = action.payload.data
-            return singleOrg
+        org:state.org.map(sOrg => {
+          if(action.payload.id === sOrg.id){
+            sOrg['orgSensors'] = action.payload.data
+            return sOrg
           }
-          return singleOrg
+          return sOrg
         }),
         isFetching: false,
         error: '',
       }
 
-      // case types.FETCH_APPEND_ACCOUNTS:
-      //   return {
-      //     ...state,
-      //     isFetching: true,
-      //     error: '',
-      //   }
 
       case types.APPEND_ACCOUNTS:
         return {
