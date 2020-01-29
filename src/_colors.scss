@@ -1,94 +1,93 @@
 /// all colors in FIGMA
-$coolBlue:#ACCDFF;
-$periwinkle:#BFC2FF;
-$vLBlue:#6562FF;
-$green:#01c000;
-$red: #FA0707;
+$coolBlue: #accdff;
+$periwinkle: #bfc2ff;
+$vLBlue: #6562ff;
+$green: #01c000;
+$red: #fa0707;
 $duke: #090c9b;
-$navy:#000066;
-$oxford:#000048;
-$black:#202020;
-$orange:#FFAD34;
-$mainBackground:#e5e5e5;
-$iconBackground:#AEDFFC;
-$buttonBlue: #082B84;
+$navy: #000066;
+$oxford: #000048;
+$black: #202020;
+$orange: #ffad34;
+$mainBackground: #e5e5e5;
+$iconBackground: #aedffc;
+$buttonBlue: #082b84;
 
 //changes all input fields accross all modals
-@mixin globalInputStyle{
+@mixin globalInputStyle {
   display: inline-block;
-  height:auto;
-   margin-bottom: 10px;
-   font-size: 14px;
-   line-height: 20px;
-   vertical-align: middle;
-   border-radius:5px;
+  height: auto;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
+  border-radius: 5px;
 }
 // changes background color for entire app
-@mixin body-background{
+@mixin body-background {
   background-color: $mainBackground;
 }
 //changes background color for all grids on dashboard
-@mixin grid-background{
-    background-color:$coolBlue;
-  }
+@mixin grid-background {
+  background-color: $coolBlue;
+}
 
 // changes border settings on all grids on dashboard
-@mixin grid-border{
-    border:2px solid $coolBlue
+@mixin grid-border {
+  border: 2px solid $coolBlue;
 }
 
 // changes all text colors on grids on dashboard
-@mixin header-text{
-  color:$black;
+@mixin header-text {
+  color: $black;
   font-size: 2.8rem;
   padding-right: 1.1rem;
   padding-left: 1rem;
   margin-top: 0.5%;
-
 }
 
 // changes color of view buttons on all grids on dashboard
-@mixin view-onGrid{
-  color:$duke;
+@mixin view-onGrid {
+  color: $duke;
 }
 
 //changes all ++buttons on grid on dashboard
-@mixin gridBtn-bg{
+@mixin gridBtn-bg {
   background-color: $coolBlue;
-   border: $coolBlue;
-   color:white;
+  border: $coolBlue;
+  color: white;
 }
 
 //NAV bar
 //nav bar color
-@mixin navbar-bg{
+@mixin navbar-bg {
   background-color: $duke;
 }
 
 //drop down menu color
-@mixin dropDown-Bgclr{
-  background-color:$iconBackground;
-  color:$black;
+@mixin dropDown-Bgclr {
+  background-color: $iconBackground;
+  color: $black;
 }
 
 //MAP
 //map filter menu color
-@mixin mapfilter-clr{
+@mixin mapfilter-clr {
   background-color: $navy;
 }
 
 ///Banner
-@mixin banner-text{
-  color:white;
+@mixin banner-text {
+  color: white;
   font-size: 3rem;
   font-weight: 350;
-  padding-top:3rem;
-  padding-left:3rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
 }
 
 //buttons on modals
 
-@mixin saveButton{
+@mixin saveButton {
   border: 2px solid $duke;
   background: $duke;
   color: white;
@@ -96,7 +95,7 @@ $buttonBlue: #082B84;
   font-size: medium;
 }
 
-@mixin closeBtn{
+@mixin closeBtn {
   border: none;
   background: none;
   font-size: medium;

@@ -8,6 +8,9 @@ import {columnsFunc} from './sensorGridColumns'
 import gridOptionss from '../../components/Grid/Pagination'
 import './Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
+import NgoDropDown from './NgoDropDown'
+
+import SensorSelector from './SensorSelector'
 
 import TrashCan from './TrashCan'
 
@@ -20,14 +23,18 @@ import { deleteSensor } from '../../actions/sensorActions'
 import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
 import { date } from 'yup'
+import CalendarFilter from './CalendarFilter'
 
 const Sensors = (props) =>  {
   const [showViewButton , setShowViewButton] = useState(0)
+  const [gridApi, setgridApi] = useState (null)
   const dispatch = useDispatch()
-    let gridApi;
+  const user =useSelector(state => state.userReducer.user)
+
+
     let gridColumnApi;
   const onGridReady = params => {
-    gridApi = params.api
+    setgridApi(params.api) 
     gridColumnApi = params.columnApi
   }
 
@@ -58,13 +65,15 @@ const Sensors = (props) =>  {
       setShowViewButton(!showViewButton)
 
     }
-    gridApi.redrawRows()
+    console.log (gridApi.__proto__, "GRID API")
+     gridApi.__proto__.redrawRows()
+    
+    
   }
-  const userRole = localStorage.getItem('role')
+  
 
   const deleteDisplay = () => {
-    // TO-DO  FIX SIGNINREDUCER STATE OR ACCOUNTS state
-    if (true === 'super_user') {
+    if (user.role === 'super_user') {
       return (
         <button className='deleteBtn' onClick={() => viewHandler()}>
           <img src={deleteIcon} alt='delete'></img>
@@ -98,8 +107,11 @@ const Sensors = (props) =>  {
   }
 
     return (
+      <>
+      <SensorSelector/>
       <div className='sensorChart'>
         <div className='sensorHeader'>
+        
           <div className='sensorHeaderName'>
             <h1>Sensors</h1>
           </div>
@@ -111,22 +123,16 @@ const Sensors = (props) =>  {
               id='quickFilter'
               placeholder=' search...'
             />
+            
             <AiOutlineSearch className='searchIcon' />
           </div>
-          <div className='calContainer'>
-            <input
-              type='date'
-              onChange={ onQuickFilterByCal}
-              id='dateCal'
-            />
+          <CalendarFilter
+            gridInfo={props.gridInfo}
+            gridApi={gridApi}
+          />
           </div>
-          <div className="calContainerComp">
-            <input
-              type='date'
-              onChange={onQuickFilterByCal}
-              id='compCal'
-              />
-          </div>
+          <NgoDropDown/>
+
           <div className='headerBtns'>
             <button
               className='downloadButton'
@@ -163,9 +169,10 @@ const Sensors = (props) =>  {
               onGridReady={onGridReady}
               floatingFilter={true}
             />
+           
           </div>
         </div>
-      </div>
+      </>
     )
   
 }

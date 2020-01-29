@@ -1,18 +1,10 @@
 import moment from 'moment'
-
-import {
-  SENSOR_FETCH,
-  SENSOR_SUCCESS,
-  SENSOR_FAILURE,
-  UPDATE_INFO,
-  SENSOR_DELETE,
-  SENSOR_POST,
-  WITHOUT_HISTORY_SUCCESS,
-  UPDATE_INFO_WITHOUT_HISTORY,
-} from '../actions/sensorActions'
+import * as types from 'actions/sensorActions'
 
 const initialState = {
   sensors: [],
+  isFiltered: false,
+  filteredSensors: [],
   gridInfo: [],
   gridInfoWithOutHistory: [],
   isFetching: false,
@@ -21,26 +13,26 @@ const initialState = {
 
 const sensorReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SENSOR_FETCH:
+    case types.SENSOR_FETCH:
       return {
         ...state,
         isFetching: true,
         error: '',
       }
-    case SENSOR_SUCCESS:
+    case types.SENSOR_SUCCESS:
       return {
         ...state,
         isFetching: false,
         error: '',
         sensors: action.payload,
       }
-    case SENSOR_FAILURE:
+    case types.SENSOR_FAILURE:
       return {
         ...state,
         isFetching: false,
         error: action.payload,
       }
-    case SENSOR_DELETE:
+    case types.SENSOR_DELETE:
       return {
         ...state,
         isFetching: false,
@@ -51,7 +43,26 @@ const sensorReducer = (state = initialState, action) => {
           return false
         }),
       }
-    case UPDATE_INFO: {
+    case types.FILTERED_SENSORS:
+      return {
+        ...state,
+        isFetching: false,
+        gridInfo: state.gridInfo.filter(e => {
+          if (e.sensor_index !== action.payload.id) {
+            return e
+          }
+          return false
+        }),
+        isFiltered: true,
+        filteredSensors: action.payload,
+      }
+    case types.CLEAR_FILTER:
+      return {
+        ...state,
+        isFiltered: false,
+      }
+
+    case types.UPDATE_INFO: {
       return {
         ...state,
         gridInfo: state.sensors.map(item => {
@@ -77,7 +88,7 @@ const sensorReducer = (state = initialState, action) => {
         }),
       }
     }
-    case SENSOR_POST: {
+    case types.SENSOR_POST: {
       return {
         ...state,
         gridInfoWithOutHistory: [
@@ -86,13 +97,13 @@ const sensorReducer = (state = initialState, action) => {
         ],
       }
     }
-    case WITHOUT_HISTORY_SUCCESS: {
+    case types.WITHOUT_HISTORY_SUCCESS: {
       return {
         ...state,
         gridInfoWithOutHistory: action.payload,
       }
     }
-    case UPDATE_INFO_WITHOUT_HISTORY: {
+    case types.UPDATE_INFO_WITHOUT_HISTORY: {
       return {
         ...state,
         gridInfoWithOutHistory: state.gridInfoWithOutHistory.map(item => {

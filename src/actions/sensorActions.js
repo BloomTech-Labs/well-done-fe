@@ -8,6 +8,9 @@ export const SENSOR_POST = 'SENSOR_POST'
 export const WITHOUT_HISTORY_SUCCESS = 'WITHOUT_HISTORY_SUCCESS'
 export const UPDATE_INFO_WITHOUT_HISTORY = 'UPDATE_INFO_WITHOUT_HISTORY'
 export const SENSOR_DELETE = 'SENSOR_DELETE'
+export const SENSOR_SELECTED = 'SENSOR_SELECTED'
+export const CLEAR_FILTER='CLEAR_FILTER'
+export const FILTERED_SENSORS='FILTERED_SENSORS'
 
 
 export const fetchSensorsWithHistory = () => dispatch => {
@@ -72,4 +75,9 @@ export const deleteSensor = sensor_index => dispatch => {
     .delete(`${process.env.REACT_APP_HEROKU_API}/api/sensors/${sensor_index}`)
     .then(res => dispatch({ type: SENSOR_DELETE, payload: res.data }))
     .catch(res => dispatch({ type: SENSOR_FAILURE, payload: res.data }))
+}
+
+//update Sensor Table
+export const sensorSelected = finalList => dispatch => {
+  dispatch({type: SENSOR_SELECTED, payload: finalList})
 }

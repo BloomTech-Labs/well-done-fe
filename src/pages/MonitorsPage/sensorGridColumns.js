@@ -67,7 +67,7 @@ export const columnsFunc =  (data,dispatch,showViewButton) => {
           field: 'org_name',
           sortable: true,
           filter: true,
-          maxWidth: 90,
+          minWidth: 90,
           cellStyle: {
             'font-size': '1.5rem',
             'padding-top': '.75rem',
@@ -79,6 +79,7 @@ export const columnsFunc =  (data,dispatch,showViewButton) => {
           // sortable: true,
           // filter: true,
           cellRendererFramework: params => {
+          
             return (
               <div>
                 {showViewButton === 0 ? (

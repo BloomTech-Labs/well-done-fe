@@ -1,21 +1,42 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGl, { Marker } from 'react-map-gl'
 import { Link } from 'react-router-dom'
-import { Bar } from 'react-chartjs-2'
-import { Row, Col, Descriptions, Badge, Button, Icon, Typography } from 'antd'
-import 'antd/dist/antd.css'
-import './MonitorDetail.css'
+import PrivateRoute from 'components/PrivateRoute.jsx'
+
+import HeatChart from 'components/HeatChart/heatChart'
+import MonitorDetailHeader from './MonitorDetailHeader'
+
 import { useSelector, useDispatch } from 'react-redux'
 
+import GoBack from '../components/Navbar/GoBack'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
+import MonitorLineChart from './MonitorsLineChart'
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts'
+import './MonitorsLineChart.styles.scss'
 
 //redux
-import { deleteSensor } from '../actions/sensorActions'
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
 
-const { Title } = Typography
-
 const MonitorDetails = props => {
+  const [isMonth, setIsMonth] = useState(false)
+  const [isToggleGraph, setIsToggleGraph] = useState(false)
+  const [isClicked, setIsClicked] = useState(true)
+  const [opacity, setOpacity] = useState({
+    First_Pad_Count: 1,
+    Second_Pad_Count: 1,
+    Third_Pad_Count: 1,
+    Fourth_Pad_Count: 1,
+  })
+
   const [viewport, setViewport] = useState({
     latitude: 13.5651,
     longitude: 104.7538,
@@ -23,7 +44,11 @@ const MonitorDetails = props => {
     height: '40vh',
     zoom: 7,
   })
-
+  const deleteHandler = (event, id) => {
+    event.preventDefault()
+    props.deleteOrg(id) //actions
+    props.params.api.redrawRows()
+  }
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
   let selectedSensor = props.selectedPump
@@ -32,7 +57,7 @@ const MonitorDetails = props => {
     dispatch(fetchHistoryById(selectedSensor.sensor_pid))
     dispatch(fetchSensorById(selectedSensor.sensor_pid))
     return () => {
-      dispatch({type: 'CLEAR_SELECTED'})
+      dispatch({ type: 'CLEAR_SELECTED' })
     }
   }, [])
 
@@ -40,17 +65,28 @@ const MonitorDetails = props => {
 
   const padHistory = historySelector.individualSensorHistory
 
-  const date = padHistory.map(day => day.date)
+  const date = padHistory.slice(-30).map(day => day.date)
+  const weekDate = padHistory.slice(-7).map(day => day.date)
 
-  const firstPadCount = padHistory.map(pad => pad.pad_count_0)
-  const secondPadCount = padHistory.map(pad => pad.pad_count_1)
-  const thirdPadCount = padHistory.map(pad => pad.pad_count_2)
-  const fourthPadCount = padHistory.map(pad => pad.pad_count_3)
+  const firstPadCount = padHistory.slice(-30).map(pad => pad.pad_count_0)
+  const secondPadCount = padHistory.slice(-30).map(pad => pad.pad_count_1)
+  const thirdPadCount = padHistory.slice(-30).map(pad => pad.pad_count_2)
+  const fourthPadCount = padHistory.slice(-30).map(pad => pad.pad_count_3)
 
-  const firstPadSecond = padHistory.map(pad => pad.pad_seconds_0)
-  const secondPadSecond = padHistory.map(pad => pad.pad_seconds_1)
-  const thirdPadSecond = padHistory.map(pad => pad.pad_seconds_2)
-  const fourthPadSecond = padHistory.map(pad => pad.pad_seconds_3)
+  const firstPadCountWeek = padHistory.slice(-7).map(pad => pad.pad_count_0)
+  const secondPadCountWeek = padHistory.slice(-7).map(pad => pad.pad_count_1)
+  const thirdPadCountWeek = padHistory.slice(-7).map(pad => pad.pad_count_2)
+  const fourthPadCountWeek = padHistory.slice(-7).map(pad => pad.pad_count_3)
+
+  const firstPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_0)
+  const secondPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_1)
+  const thirdPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_2)
+  const fourthPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_3)
+
+  const firstPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_0)
+  const secondPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_1)
+  const thirdPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_2)
+  const fourthPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_3)
 
   const unknown =
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png'
@@ -63,164 +99,217 @@ const MonitorDetails = props => {
     return <div>loading...</div>
   }
 
-  const {
-    physical_id,
-    data_finished,
-    reported_percent,
-    commune_name,
-    province_name,
-    village_name,
-    status,
-    depth,
-    total,
-    latitude,
-    longitude,
-  } = historySelector.individualSensor[0]
+  // Makes new arrays to loop through the week and month data from weekDate array
+  const endWeekIndex = 6
+  const monthCount = 29
+  const weekData = []
+  const monthData = []
+  for (let i = 0; i <= monthCount; i++) {
+    if (i <= endWeekIndex) {
+      weekData.push({
+        name: weekDate,
+        First_Pad_Count: firstPadCountWeek[i],
+        Second_Pad_Count: secondPadCountWeek[i],
+        Third_Pad_Count: thirdPadCountWeek[i],
+        Fourth_Pad_Count: fourthPadCountWeek[i],
+      })
+    }
+    monthData.push({
+      name: date,
+      First_Pad_Count: firstPadCount[i],
+      Second_Pad_Count: secondPadCount[i],
+      Third_Pad_Count: thirdPadCount[i],
+      Fourth_Pad_Count: fourthPadCount[i],
+    })
+  }
+
+  // Makes new arrays to loop through the week and month data from date array
+  const endWeekSecond = 6
+  const monthSecond = 29
+  const weekDataSecond = []
+  const monthSecondData = []
+  for (let i = 0; i <= monthSecond; i++) {
+    if (i <= endWeekSecond) {
+      weekDataSecond.push({
+        name: weekDate,
+        First_Pad_Second: firstPadSecondWeek[i],
+        Second_Pad_Second: secondPadSecondWeek[i],
+        Third_Pad_Second: thirdPadSecondWeek[i],
+        Fourth_Pad_Second: fourthPadSecondWeek[i],
+      })
+    }
+    monthSecondData.push({
+      name: date,
+      First_Pad_Second: firstPadSecond[i],
+      Second_Pad_Second: secondPadSecond[i],
+      Third_Pad_Second: thirdPadSecond[i],
+      Fourth_Pad_Second: fourthPadSecond[i],
+    })
+  }
+
+  const handleClick = e => {
+    const { dataKey } = e
+    if (isClicked) {
+      setOpacity({
+        ...opacity,
+        [dataKey]: 0,
+      })
+    } else {
+      setOpacity({
+        ...opacity,
+        [dataKey]: 1,
+      })
+    }
+    setIsClicked(!isClicked)
+  }
 
   return (
     <div>
-      <OrganizationActivity
+      <MonitorDetailHeader historySelector={historySelector.individualSensor} />
+      {/* <OrganizationActivity
         alertInfo={historySelector.alertInfo}
         individualSensor={historySelector.individualSensor[0]}
         individualSensorHistory={historySelector.individualSensorHistory}
-      />
-      <Row>
-        <Col span={20} offset={4}>
-          <Title>{physical_id}</Title>
-        </Col>
-      </Row>
-      <Row gutter={[8, 32]}>
-        <Col span={2}></Col>
-        <Col span={1}>
-          <Link to={{ pathname: '/dashboard' }}>
-            <Button type='primary' shape='circle'>
-              <Icon type='left' />
-            </Button>
-          </Link>
-        </Col>
-        <Col span={1}></Col>
-        <Col span={8}>
-          <Bar
-            data={{
-              labels: date,
-              datasets: [
-                {
-                  label: 'First Pad Count',
-                  backgroundColor: '#6ba8a9',
-                  data: firstPadCount,
-                },
-                {
-                  label: 'Second Pad Count',
-                  backgroundColor: '#3bb4c1',
-                  data: secondPadCount,
-                },
-                {
-                  label: 'Third Pad Count',
-                  backgroundColor: '#e9e4e6',
-                  data: thirdPadCount,
-                },
-                {
-                  label: 'Fourth Pad Count',
-                  backgroundColor: '#f6f5f5',
-                  data: fourthPadCount,
-                },
-              ],
-            }}
-          />
-        </Col>
+      />  */}
 
-        <Col span={8}>
-          <Bar
-            data={{
-              labels: date,
-              datasets: [
-                {
-                  label: 'First Pad Second',
-                  backgroundColor: '#6ba8a9',
-                  data: firstPadSecond,
-                },
-                {
-                  label: 'Second Pad Second',
-                  backgroundColor: '#3bb4c1',
-                  data: secondPadSecond,
-                },
-                {
-                  label: 'Third Pad Second',
-                  backgroundColor: '#e9e4e6',
-                  data: thirdPadSecond,
-                },
-                {
-                  label: 'Fourth Pad Second',
-                  backgroundColor: '#f6f5f5',
-                  data: fourthPadSecond,
-                },
-              ],
-            }}
-          />
-        </Col>
-        <Col span={4}></Col>
-      </Row>
-      <Row gutter={[8, 32]}>
-        <Col span={16} offset={4}>
-          <Descriptions
-            layout='vertical'
-            column={{ xxl: 8 }}
-            style={{ fontWeight: 'bold' }}
-          >
-            <Descriptions.Item label='Status'>
-              {status === 0 || status === null ? (
-                <Badge status='error' text='Not Functioning' />
-              ) : status === 1 ? (
-                <Badge status='warning' text='Unknown' />
-              ) : (
-                <Badge status='success' text='Functioning' />
-              )}
-            </Descriptions.Item>
-            <Descriptions.Item label='Constructed'>
-              {data_finished}
-            </Descriptions.Item>
-            <Descriptions.Item label='Depth'>{depth}</Descriptions.Item>
-            <Descriptions.Item label='Percent'>
-              {reported_percent}
-            </Descriptions.Item>
-            <Descriptions.Item label='Total'>{total}</Descriptions.Item>
-            <Descriptions.Item label='Commune'>
-              {commune_name}
-            </Descriptions.Item>
-            <Descriptions.Item label='Province'>
-              {province_name}
-            </Descriptions.Item>
-            <Descriptions.Item label='Village'>
-              {village_name}
-            </Descriptions.Item>
-          </Descriptions>
-        </Col>
-      </Row>
-
-      <Row gutter={[8, 32]}>
-        <Col span={16} offset={4}>
-          <ReactMapGl
-            {...viewport}
-            mapboxApiAccessToken={
-              'pk.eyJ1IjoiaHRyYW4yIiwiYSI6ImNrMmdmeWM2dDB1amkzY3AwNWgwNHRteXUifQ.jG0OQ6bMhr-sZYMkdj3H6w'
+      <>
+        <div className='padMonitorContainer'>
+          <h3>Pad Monitor</h3>
+          <div className='toggleBtnContainer'>
+            <div className='toggleDateContainer'>
+              <p
+                className={!isMonth ? 'weekBtnOn' : 'weekBtnOff'}
+                onClick={() => setIsMonth(!isMonth)}
+              >
+                Weekly
+              </p>
+              <p
+                className={isMonth ? 'monthBtnOn' : 'monthBtnOff'}
+                onClick={() => setIsMonth(!isMonth)}
+              >
+                Monthly
+              </p>
+            </div>
+            <button
+              className={!isToggleGraph ? 'countBtnOn' : 'countBtnOff'}
+              onClick={() => setIsToggleGraph(!isToggleGraph)}
+            >
+              Counts
+            </button>
+            <button
+              className={isToggleGraph ? 'secondBtnOn' : 'SecondBtnOff'}
+              onClick={() => setIsToggleGraph(!isToggleGraph)}
+            >
+              Seconds
+            </button>
+          </div>
+          <div
+            className={
+              !isToggleGraph ? 'countCountContainer' : 'toggleCountOff'
             }
-            mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
-            onViewportChange={viewport => {
-              setViewport(viewport)
-            }}
           >
-            <Marker key={physical_id} latitude={latitude} longitude={longitude}>
-              {status === 0 || status == null ? (
-                <img src={notFunctioning} alt='not functioning icon' />
-              ) : status === 1 ? (
-                <img src={unknown} alt='unknown icon' />
-              ) : (
-                <img src={functioning} alt='functioning icon' />
-              )}
-            </Marker>
-          </ReactMapGl>
-        </Col>
-      </Row>
+            <ResponsiveContainer width='80%'>
+              <LineChart
+                data={isMonth ? monthData : weekData}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+              >
+                <CartesianGrid strokeDasharray='3 3' />
+                <XAxis dataKey='name' />
+                <YAxis />
+                <Tooltip />
+                <Legend
+                  onClick={handleClick}
+                  layout='vertical'
+                  wrapperStyle={{
+                    top: '200px',
+                    right: '-130px',
+                  }}
+                />
+                <Line
+                  strokeOpacity={opacity.First_Pad_Count}
+                  dataKey='First_Pad_Count'
+                  type='monotone'
+                  // stroke={isMonth ? '#261592' : 'red'}
+                  stroke='#261592'
+                />
+                <Line
+                  strokeOpacity={opacity.Second_Pad_Count}
+                  type='monotone'
+                  dataKey='Second_Pad_Count'
+                  stroke='#FFAD34'
+                />
+                <Line
+                  strokeOpacity={opacity.Third_Pad_Count}
+                  type='monotone'
+                  dataKey='Third_Pad_Count'
+                  stroke='#15B567'
+                />
+                <Line
+                  strokeOpacity={opacity.Fourth_Pad_Count}
+                  type='monotone'
+                  dataKey='Fourth_Pad_Count'
+                  stroke='#921515'
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          {/* /// pad seconds chart */}
+          <div
+            className={
+              isToggleGraph ? 'countSecondContainer' : 'toggleSecondOff'
+            }
+          >
+            <ResponsiveContainer width='80%'>
+              <LineChart
+                data={isMonth ? monthSecondData : weekDataSecond}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+              >
+                <CartesianGrid strokeDasharray='3 3' />
+                <XAxis dataKey='name' />
+                <YAxis />
+                <Tooltip />
+                <Legend
+                  onClick={handleClick}
+                  layout='vertical'
+                  wrapperStyle={{
+                    top: '200px',
+                    right: '-140px',
+                  }}
+                />
+                <Line
+                  strokeOpacity={opacity.First_Pad_Second}
+                  type='monotone'
+                  dataKey='First_Pad_Second'
+                  stroke='#261592'
+                />
+                <Line
+                  strokeOpacity={opacity.Second_Pad_Second}
+                  type='monotone'
+                  dataKey='Second_Pad_Second'
+                  stroke='#FFAD34'
+                />
+                <Line
+                  strokeOpacity={opacity.Third_Pad_Second}
+                  type='monotone'
+                  dataKey='Third_Pad_Second'
+                  stroke='#15B567'
+                />
+                <Line
+                  strokeOpacity={opacity.Fourth_Pad_Second}
+                  type='monotone'
+                  dataKey='Fourth_Pad_Second'
+                  stroke='#921515'
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+        <HeatChart
+          sensors={props.sensors}
+          selectedPump={props.selectedSensors}
+          history={historySelector.history}
+        />
+      </>
     </div>
   )
 }

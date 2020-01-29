@@ -44,6 +44,7 @@ const PopupInfo = props => {
               <div key={day.history_id} className='spread-green'></div>
             )
           )}
+  
         </div>
         <h3>{country_name}</h3>
         <p className='province_name'>{province_name}</p>
