@@ -310,7 +310,7 @@ const MonitorDetails = props => {
           selectedPump={props.selectedSensors}
           history={historySelector.history}
         />
-        <LogsTable />
+        <LogsTable selectedPump={props.selectedSensors} />
       </>
     </div>
   )

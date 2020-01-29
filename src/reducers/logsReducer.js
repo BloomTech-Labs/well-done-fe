@@ -7,7 +7,7 @@ const initialState = {
   error: '',
 }
 
-export const historyReducer = (state = initialState, action) => {
+export const logsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LOGS_FETCH:
       return {
@@ -18,7 +18,7 @@ export const historyReducer = (state = initialState, action) => {
     case types.LOGS_SUCCESS:
       return {
         ...state,
-        history: action.payload,
+        logsData: action.payload,
         isFetching: false,
         error: '',
       }
@@ -45,3 +45,5 @@ export const historyReducer = (state = initialState, action) => {
       return state
   }
 }
+
+export default logsReducer
