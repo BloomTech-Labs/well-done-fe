@@ -1,5 +1,21 @@
 @import 'src/colors';
 
+$icon-color: #ffffff;
+
+// changes the selected checkbox check mark color
+$accent-color: #03a9f4;
+
+$header-height: 50px;
+$row-height: 40px;
+$row-border-width: 1px;
+$hover-color: #accdff;
+$header-background-color: #090c9b;
+$header-foreground-color: #fff;
+$border-color: #090a3f;
+
+@import '~ag-grid-community/src/styles/ag-grid.scss';
+@import '~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham.scss';
+
 .sensorChart {
   background: #d5d6e9;
   // width: 100%;
@@ -22,7 +38,8 @@
     display: flex;
     align-items: center;
     // justify-content: center;
-    height: 85px;
+    // height: 85px;
+    margin: 0;
     background: #d5d6e9;
 
     .sensorHeaderName {
@@ -33,15 +50,11 @@
     .searchInsensors {
       border: none;
       height: 3rem;
-      width: 26rem;
+      min-width: 26rem;
       padding: 0.8rem 1.4rem;
       border-radius: 3px;
       font-size: 0.89rem;
       margin-left: 20%;
-
-      @media screen and (max-width: 1200px) {
-        width: 18rem;
-      }
     }
 
     .headerButton {
@@ -76,8 +89,7 @@
   border: none;
   background: transparent;
   font-size: 2.3rem;
-  min-width: 8rem;
-  min-height: 8rem;
+  height: 3rem;
 }
 
 .ag-theme-balham {
@@ -158,7 +170,7 @@
 .dropDownContainer {
   display: flex;
   justify-content: flex-end;
-  padding-right: 25%;
+  padding-right: 10%;
   // padding-bottom: 25%;
   // width: 80%;
   background: #d5d6e9;

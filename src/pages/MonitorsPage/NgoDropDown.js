@@ -8,7 +8,6 @@ import gridOptionss from '../../components/Grid/Pagination'
 class NgoDropDown extends Component {
   onQuickFilterByCompany() {
     gridOptionss.api.setQuickFilter(document.getElementById('company').value)
-    console.log(document.getElementById('company').value)
   }
 
   render() {

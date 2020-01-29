@@ -24,6 +24,7 @@ import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
 import { date } from 'yup'
 import CalendarFilter from './CalendarFilter'
+import StatusDropDown from './StatusDropDown'
 
 const Sensors = props => {
   const [showViewButton, setShowViewButton] = useState(0)
@@ -123,6 +124,7 @@ const Sensors = props => {
           <CalendarFilter gridInfo={props.gridInfo} gridApi={gridApi} />
         </div>
         <div className='dropDownContainer'>
+          <StatusDropDown />
           <NgoDropDown />
           <div className='modalHeaders'></div>
           <button
