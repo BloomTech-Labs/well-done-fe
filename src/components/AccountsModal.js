@@ -255,7 +255,7 @@ const ModalOperator = () => {
             </div>
             <div id='allSensors'>
               <p>Assign Sensors to Operators</p>
-
+              <p>*for multiple sensors, hold control and select</p>
               <Form.Control
                 as='select'
                 name='sensor_pid'
