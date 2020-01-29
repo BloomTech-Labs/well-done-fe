@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 import { Dropdown, Form } from 'react-bootstrap'
+import './Sensors.style.scss'
 
 import gridOptionss from '../../components/Grid/Pagination'
 

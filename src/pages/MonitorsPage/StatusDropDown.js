@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Dropdown, Form, ControlLabel, DropdownButton } from 'react-bootstrap'
 
 import gridOptionss from '../../components/Grid/Pagination'
+import './Sensors.style.scss'
 
 class StatusDropDown extends Component {
   onQuickFilterByStatus(props) {
@@ -13,9 +14,6 @@ class StatusDropDown extends Component {
   render() {
     return (
       <>
-        {/* <Dropdown.Toggle variant='success' id='dropdown-basic'>
-          Organization
-        </Dropdown.Toggle> */}
         <Form.Control
           as='select'
           id='statusDrop'

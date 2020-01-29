@@ -171,11 +171,8 @@ $border-color: #090a3f;
   display: flex;
   justify-content: flex-end;
   padding-right: 10%;
-  // padding-bottom: 25%;
-  // width: 80%;
   background: #d5d6e9;
-  // padding-bottom: 5%;
-  // align-items: center;
+  padding-bottom: 5rem;
 }
 #addSensor {
   // position: relative;
@@ -247,4 +244,12 @@ $border-color: #090a3f;
     display: flex;
     justify-content: space-between;
   }
+}
+#statusDrop {
+  width: 100px;
+  margin-right: 20px;
+}
+#company {
+  width: 100px;
+  margin-right: 20px;
 }

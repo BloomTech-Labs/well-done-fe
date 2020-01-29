@@ -9,40 +9,53 @@ import { Row, Col, Card, Statistic } from 'antd'
 import 'antd/dist/antd.css'
 import './MonitorsPage.scss'
 
-
 function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
   return (
     <div className='statusContainer'>
-
-        <div className="monitorCard">
-          <div className="innerMonitorCard">
-              <h2>Monitors</h2>
-              <p>{pumpData.length}</p>
-            </div>
+      <div className='monitorCard'>
+        <div className='monitorHeader'>
+          <h2>Monitors</h2>
         </div>
+        <p>{pumpData.length}</p>
+      </div>
 
-        <div className="functioningCard">
-            
-            <p>{Number.parseFloat((100 * (funcPumps.length / pumpData.length))).toFixed(2)}%</p>
-            <p>Functional</p>
-            <h4>{funcPumps.length} out of {pumpData.length}</h4>
+      <div className='functioningCard'>
+        <div className='functionalHeader'>
+          <h2>Functional</h2>
         </div>
+        <p className='percent'>
+          {Math.round(100 * (funcPumps.length / pumpData.length))}%
+        </p>
+        <p className='outOf'>
+          {funcPumps.length} out of {pumpData.length}
+        </p>
+      </div>
 
-        <div className="nonfunctioningCard">
-            
-            <p>{Number.parseFloat((100 * (nonPumps.length / pumpData.length))).toFixed(2)}%</p>
-            <p>Non Functional</p>
-            <h4>{nonPumps.length} out of {pumpData.length}</h4>
+      <div className='nonfunctioningCard'>
+        <div className='nonFuncHeader'>
+          <h2>Non Functional</h2>
         </div>
+        <p className='percent'>
+          {Math.round(100 * (nonPumps.length / pumpData.length))}%
+        </p>
+        <p className='outOf'>
+          {nonPumps.length} out of {pumpData.length}
+        </p>
+      </div>
 
-        <div className="noDataCard">
-            
-            <p>{Number.parseFloat((100 * (unPumps.length / pumpData.length))).toFixed(2)}%</p>
-            <p>No Data</p>
-            <h4>{unPumps.length} out of {pumpData.length}</h4>
+      <div className='noDataCard'>
+        <div className='noDataHeader'>
+          <h2>No Data</h2>
         </div>
-        
-        {/* <div className='monitorCard'>
+        <p className='percent'>
+          {Math.round(100 * (unPumps.length / pumpData.length))}%
+        </p>
+        <p className='outOf'>
+          {unPumps.length} out of {pumpData.length}
+        </p>
+      </div>
+
+      {/* <div className='monitorCard'>
           <Card style={{ textAlign: 'center'}}>
             <div className='innerCard'>
             <FiEdit size={'2em'} color={'#082B84'} />
@@ -52,10 +65,9 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
           </Card>
         </div> */}
 
-
-        {/* Functional */}
-        {/* <Col span={6} style={{ minWidth: '270px' }}> */}
-          {/* <Card style={{ textAlign: 'center' }}>
+      {/* Functional */}
+      {/* <Col span={6} style={{ minWidth: '270px' }}> */}
+      {/* <Card style={{ textAlign: 'center' }}>
             <FiCheckCircle size={'2em'} color={'#01C800'} />
             <Statistic title='Functioning Pumps' value={funcPumps.length} />
             <Statistic
@@ -65,11 +77,11 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
               suffix='%'
             />
           </Card> */}
-        {/* </Col> */}
+      {/* </Col> */}
 
-        {/* Not Functioning */}
-        {/* <Col span={6} style={{ minWidth: '270px' }}> */}
-          {/* <Card style={{ textAlign: 'center' }}>
+      {/* Not Functioning */}
+      {/* <Col span={6} style={{ minWidth: '270px' }}> */}
+      {/* <Card style={{ textAlign: 'center' }}>
             <FiAlertCircle size={'2em'} color={'#FA0707'} />
             <Statistic title='Not Functioning Pumps' value={nonPumps.length} />
             <Statistic
@@ -79,11 +91,11 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
               suffix='%'
             />
           </Card> */}
-        {/* </Col> */}
+      {/* </Col> */}
 
-        {/* Status Unknown */}
-        {/* <Col span={6} style={{ minWidth: '270px' }}> */}
-          {/* <Card style={{ textAlign: 'center' }}>
+      {/* Status Unknown */}
+      {/* <Col span={6} style={{ minWidth: '270px' }}> */}
+      {/* <Card style={{ textAlign: 'center' }}>
             <FiHelpCircle size={'2em'} color={'#FFAD34'} />
             <Statistic title='Status Uknown' value={unPumps.length} />
             <Statistic
@@ -93,7 +105,7 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
               suffix='%'
             />
           </Card> */}
-        {/* </Col> */}
+      {/* </Col> */}
       {/* </Row> */}
     </div>
   )

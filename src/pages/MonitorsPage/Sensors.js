@@ -140,7 +140,7 @@ const Sensors = props => {
         </div>
 
         {/* <div className='headerButton'>{deleteDisplay()}</div> */}
-        <SensorSelector />
+        {/* <SensorSelector /> */}
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
