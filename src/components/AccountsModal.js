@@ -39,7 +39,7 @@ const ModalOperator = () => {
   console.log(`sen_op`,sen_op)
 
   const newId = useSelector(state => state.operatorReducer.operators)
- sen_op.operator_id = newId.op
+ sen_op.operator_id = newId
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
@@ -83,7 +83,7 @@ const ModalOperator = () => {
     //additionally add to operator table if operator
     console.log(operator.role)
     if (operator.role === 'operator') {
-      const mydata = await dispatch(addOperator(operator))
+      await dispatch(addOperator(operator))
       dispatch(postSensorsOperators(sen_op))
     }
     handleClose()
