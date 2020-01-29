@@ -6,7 +6,15 @@ import './Organization.styles.scss'
 import ngo from '../../Images/ngo.png'
 
 const OrganizationCards = props => {
-    console.log(props,"props in org")
+  console.log(props, 'props in org')
+
+  if (!props.item.orgAccounts) {
+    return <span>Loading...</span>
+  }
+  const orgRoles = props.item.orgAccounts.filter(
+    item => item.role !== 'super_user'
+  )
+
   return (
     <div className='outer-card'>
       <div img-cont>
@@ -14,13 +22,21 @@ const OrganizationCards = props => {
       </div>
 
       <div className='card-container'>
-        <h1 className ="org-title"> {props.item.org_name}</h1>
-          <div className='card-content'>
-            <h3>Staff: 5</h3>
-            <h3>Admin: 2</h3>
-            <h3>Sensors: 5</h3>
-            <h3>Countries: 3</h3>
-          </div>
+        <h1 className='org-title'> {props.item.org_name}</h1>
+        <div className='card-content'>
+          <h3>Staff: 5</h3>
+          {/* <h3>Admin: {orgRoles}</h3> */}
+          <h3>Sensors: {props.item.orgAccounts[0].email_address}</h3>
+
+          <h3>Countries: 7</h3>
+        </div>
+        {orgRoles.map(person => {
+          return (
+            <div key={person.id}>
+              <p> Name: {person.last_name}</p>
+            </div>
+          )
+        })}
       </div>
       {/* 
             <Card >

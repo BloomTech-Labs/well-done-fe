@@ -45,6 +45,34 @@ export const orgReducer = (state = initialState, action) => {
             }
             return false
           }),
+          
+        }
+        case types.APPEND_SENSORS:
+      return {
+        ...state,
+        org:state.org.map(singleOrg => {
+          if(action.payload.id === singleOrg.id){
+            singleOrg['orgSensors'] = action.payload.data
+            return singleOrg
+          }
+          return singleOrg
+        }),
+        isFetching: false,
+        error: '',
+      }
+
+      case types.APPEND_ACCOUNTS:
+        return {
+          ...state,
+          org:state.org.map(singleOrg => {
+            if(action.payload.id === singleOrg.id){
+              singleOrg['orgAccounts'] = action.payload.data
+              return singleOrg
+            }
+            return singleOrg
+          }),
+          isFetching: false,
+          error: '',
         }
         
     default:

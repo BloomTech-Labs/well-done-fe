@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import OrganizationCards from './OrganizatonCards.js'
 
-import { fetchOrgAccounts } from '../../actions/accountAction.js'
+import { fetchOrgAccounts } from '../../actions/orgAction'
 import { fetchOrg } from '../../actions/orgAction.js'
-import { fetchSensorsByOrgId } from '../../actions/sensorActions'
+import { fetchSensorsByOrgId } from '../../actions/orgAction'
 
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
@@ -18,48 +18,43 @@ const Organizations = props => {
   }, [])
 
   useEffect(() => {
-      
     if (props.org.org.length > 0) {
-        
       props.org.org.forEach(org => {
-        console.log(org,"ORG")
-      props.fetchOrgAccounts(org.id)
+        props.fetchOrgAccounts(org.id)
       })
     }
   }, [props.org.isFetching])
 
+  useEffect(() => {
+    props.org.org.forEach(org => {
+      props.fetchSensorsByOrgId(org.id)
+    })
+  }, [props.org.isFetching])
 
-  // useEffect(() => {
-  //  
-  //   props.org.org.forEach(org => {
-  //       console.log(org,"ORG")
-  //     props.fetchSensorsByOrgId(org.id)
-  //     })
-  //   
-  // }, [])
-
-
-  
-
-  //   const handleOrgAccounts = props.fetchOrgAccounts().map(item =>
-  //     )
-  //   )
 
   const handleChange = event => {
     setOrgFilter(event.target.value)
   }
-
+//search
   const filteredOrgs = props.org.org.filter(item =>
     item.org_name.toLowerCase().includes(orgFilter.toLowerCase())
   )
-  const allSensors = props.sensorReducer
+ 
 
-  const allAccounts = props.accountReducer.filter(item =>
-    item.role ==="org_admin"  )
+  if (!props.org.org) {
+    return <span>Loading...</span>
+  }
+  
+  const orgArray = props.org.org
+  console.log(orgArray, 'orgArray')
 
-    
-     
-      
+  const orgSensors = props.org.org.orgSensors
+  console.log(orgSensors, 'SensorArray')
+  if (!props.org.org.orgAccounts) {
+    return <span>Loading...</span>
+  }
+  const orgAccounts = props.org.org.orgAccounts
+  console.log(orgAccounts, 'Org accounts')
 
   return (
     <div>
@@ -76,11 +71,11 @@ const Organizations = props => {
         <AiOutlineSearch className='orgSearchIcons' />
       </div>
 
-      <section className='org-list'>
-        {filteredOrgs.map(item => (
-          <OrganizationCards key={item.id} item={item} allAccounts={allAccounts}  />
+      {/* <section className='org-list'>
+        {orgArray.map(item => (
+          <OrganizationCards key={item.id} item={item} />
         ))}
-      </section>
+      </section> */}
       {/* <section className='org-list'>
         {allSensors.map(sensor => (
           <OrganizationCards key={item.id} sensor={item} />
