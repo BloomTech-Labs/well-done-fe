@@ -73,10 +73,7 @@ export const deleteSensor = sensor_index => dispatch => {
   dispatch({ type: SENSOR_FETCH })
   AxiosWithAuth()
     .delete(`${process.env.REACT_APP_HEROKU_API}/api/sensors/${sensor_index}`)
-    .then(res => {
-      dispatch({ type: SENSOR_DELETE, payload: res.data })
-      console.log(res.data)
-    })
+    .then(res => dispatch({ type: SENSOR_DELETE, payload: res.data }))
     .catch(res => dispatch({ type: SENSOR_FAILURE, payload: res.data }))
 }
 

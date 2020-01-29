@@ -8,13 +8,13 @@ const initialState = {
 
 const accountReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.ADDOP_FETCH:
+    case types.ADDACCOUNT_FETCH:
       return {
         ...state,
         isFetching: true,
         error: '',
       }
-    case types.ADDOP_SUCCESS:
+    case types.ADDACCOUNT_SUCCESS:
       return {
         ...state,
         isFetching: false,
@@ -22,7 +22,7 @@ const accountReducer = (state = initialState, action) => {
         //add to array of accounts
         accounts: [...state.accounts, action.payload],
       }
-    case types.ADDOP_FAILURE:
+    case types.ADDACCOUNT_FAILURE:
       return {
         ...state,
         error: action.payload,
@@ -43,7 +43,6 @@ const accountReducer = (state = initialState, action) => {
           } else {
             return e
           }
-          console.log(`e`, e)
         }),
       }
 
