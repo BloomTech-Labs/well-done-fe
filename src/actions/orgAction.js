@@ -65,7 +65,7 @@ export const fetchOrg = () => dispatch => {
 
 //get
 export const fetchSensorsByOrgId = org_id => dispatch => {
-  dispatch({ type: FETCH_APPEND_SENSORS })
+  // dispatch({ type: FETCH_APPEND_SENSORS })
   AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent/${org_id}`)
     .then(res => dispatch({ type: APPEND_SENSORS, payload: {data:res.data, id:org_id} }))
@@ -74,7 +74,7 @@ export const fetchSensorsByOrgId = org_id => dispatch => {
 
 //get
 export const fetchOrgAccounts = org_id => dispatch => {
-  dispatch({ type: FETCH_APPEND_ACCOUNTS })
+  // dispatch({ type: FETCH_APPEND_ACCOUNTS })
 
   AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/org/${org_id}`)

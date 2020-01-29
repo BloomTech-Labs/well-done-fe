@@ -47,6 +47,12 @@ export const orgReducer = (state = initialState, action) => {
           }),
           
         }
+        // case types.FETCH_APPEND_SENSORS:
+        //   return {
+        //     ...state,
+        //     isFetching: true,
+        //     error: '',
+        //   }
         case types.APPEND_SENSORS:
       return {
         ...state,
@@ -60,6 +66,13 @@ export const orgReducer = (state = initialState, action) => {
         isFetching: false,
         error: '',
       }
+
+      // case types.FETCH_APPEND_ACCOUNTS:
+      //   return {
+      //     ...state,
+      //     isFetching: true,
+      //     error: '',
+      //   }
 
       case types.APPEND_ACCOUNTS:
         return {

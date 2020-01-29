@@ -11,14 +11,16 @@ import { AiOutlineSearch } from 'react-icons/ai'
 
 const Organizations = props => {
   const [orgFilter, setOrgFilter] = useState('')
-  const [allOrgs, setAllOrgs] = useState()
 
   useEffect(() => {
     props.fetchOrg()
   }, [])
 
   useEffect(() => {
+    console.log(props.org.org.length, "if")
+    console.log(props.org.isFetching,"FETCH")
     if (props.org.org.length > 0) {
+   
       props.org.org.forEach(org => {
         props.fetchOrgAccounts(org.id)
       })
@@ -26,9 +28,11 @@ const Organizations = props => {
   }, [props.org.isFetching])
 
   useEffect(() => {
+    if (props.org.org.length > 0) {
     props.org.org.forEach(org => {
       props.fetchSensorsByOrgId(org.id)
     })
+  }
   }, [props.org.isFetching])
 
 
@@ -41,20 +45,18 @@ const Organizations = props => {
   )
  
 
-  if (!props.org.org) {
-    return <span>Loading...</span>
-  }
   
+  //arrays
   const orgArray = props.org.org
   console.log(orgArray, 'orgArray')
 
   const orgSensors = props.org.org.orgSensors
   console.log(orgSensors, 'SensorArray')
-  if (!props.org.org.orgAccounts) {
-    return <span>Loading...</span>
-  }
-  const orgAccounts = props.org.org.orgAccounts
+
+  if (props.org.org.length > 0) {
+  const orgAccounts = props.org.org[0].orgAccounts
   console.log(orgAccounts, 'Org accounts')
+}
 
   return (
     <div>
@@ -71,16 +73,12 @@ const Organizations = props => {
         <AiOutlineSearch className='orgSearchIcons' />
       </div>
 
-      {/* <section className='org-list'>
-        {orgArray.map(item => (
+      <section className='org-list'>
+        {filteredOrgs.map(item => (
           <OrganizationCards key={item.id} item={item} />
         ))}
-      </section> */}
-      {/* <section className='org-list'>
-        {allSensors.map(sensor => (
-          <OrganizationCards key={item.id} sensor={item} />
-        ))}
-      </section> */}
+      </section>
+    
     </div>
   )
 }
