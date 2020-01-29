@@ -67,14 +67,6 @@
       }
     }
 
-    .downloadButton {
-      margin: 0;
-      min-width: 4rem;
-      min-height: 6rem;
-      background: transparent;
-      border: none;
-    }
-
     #modalHeaderAccount {
       display: flex;
       justify-content: center;
@@ -93,6 +85,14 @@
       }
     }
   }
+}
+
+.downloadButton {
+  margin: 0;
+  min-width: 4rem;
+  min-height: 6rem;
+  background: transparent;
+  border: none;
 }
 
 .searchIcons {

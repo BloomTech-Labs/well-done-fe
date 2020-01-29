@@ -124,9 +124,7 @@ const Sensors = props => {
         </div>
         <div className='dropDownContainer'>
           <NgoDropDown />
-        </div>
-
-        <div className='headerBtns'>
+          <div className='modalHeaders'></div>
           <button
             className='downloadButton'
             type='default'
@@ -136,12 +134,11 @@ const Sensors = props => {
           >
             <img src={Archivebutton} alt='download'></img>
           </button>
-
-          {deleteDisplay()}
-        </div>
-        <div className='modalHeader'>
           <SensorsModal />
         </div>
+
+        {/* <div className='headerButton'>{deleteDisplay()}</div> */}
+        <SensorSelector />
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
