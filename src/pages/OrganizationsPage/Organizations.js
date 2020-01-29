@@ -22,19 +22,21 @@ const Organizations = props => {
     if (props.org.org.length > 0) {
         
       props.org.org.forEach(org => {
-        // console.log(org,"ORG")
+        console.log(org,"ORG")
       props.fetchOrgAccounts(org.id)
       })
     }
   }, [props.org.isFetching])
 
 
-  useEffect(() => {
-    props.org.org.forEach(org => {
-        // console.log(org,"ORG")
-      props.fetchSensorsByOrgId(org.id)
-      })
-  }, [])
+  // useEffect(() => {
+  //  
+  //   props.org.org.forEach(org => {
+  //       console.log(org,"ORG")
+  //     props.fetchSensorsByOrgId(org.id)
+  //     })
+  //   
+  // }, [])
 
 
   
@@ -50,7 +52,14 @@ const Organizations = props => {
   const filteredOrgs = props.org.org.filter(item =>
     item.org_name.toLowerCase().includes(orgFilter.toLowerCase())
   )
-  const allSensors = props.accountReducer
+  const allSensors = props.sensorReducer
+
+  const allAccounts = props.accountReducer.filter(item =>
+    item.role ==="org_admin"  )
+
+    
+     
+      
 
   return (
     <div>
@@ -67,16 +76,16 @@ const Organizations = props => {
         <AiOutlineSearch className='orgSearchIcons' />
       </div>
 
-      {/* <section className='org-list'>
-        {filteredOrgs.map(item => (
-          <OrganizationCards key={item.id} item={item} />
-        ))}
-      </section> */}
       <section className='org-list'>
-        {allSensors.map(sensor => (
-          <OrganizationCards key={sensor.id} sensor={sensor} />
+        {filteredOrgs.map(item => (
+          <OrganizationCards key={item.id} item={item} allAccounts={allAccounts}  />
         ))}
       </section>
+      {/* <section className='org-list'>
+        {allSensors.map(sensor => (
+          <OrganizationCards key={item.id} sensor={item} />
+        ))}
+      </section> */}
     </div>
   )
 }
