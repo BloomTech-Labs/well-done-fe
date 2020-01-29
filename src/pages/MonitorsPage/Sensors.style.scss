@@ -10,8 +10,9 @@ $row-height: 40px;
 $row-border-width: 1px;
 $hover-color: #accdff;
 $header-background-color: #090c9b;
-$header-foreground-color: #000;
+$header-foreground-color: #bababa;
 $border-color: #090a3f;
+$ag-floating-filter-body: red;
 
 @import '~ag-grid-community/src/styles/ag-grid.scss';
 @import '~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham.scss';
