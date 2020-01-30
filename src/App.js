@@ -13,8 +13,6 @@ import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
 
-import MonitorsLineChart from './pages/MonitorsLineChart'
-
 import { fetchUser } from './actions/userActions.js'
 import { fetchHistoryById, fetchSensorById } from './actions/sensorHistory.js'
 
@@ -92,11 +90,6 @@ function App(props) {
           page={MonitorDetails}
           selectedPump={currentlySelected}
         />
-        {/* <PrivateRoute
-          path='/monitorDetails'
-          page={MonitorsLineChart}
-          selectedPump={currentlySelected}
-          /> */}
 
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/admin' page={Admin} />

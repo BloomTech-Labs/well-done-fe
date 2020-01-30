@@ -12,7 +12,6 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import GoBack from '../components/Navbar/GoBack'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
-import MonitorLineChart from './MonitorsLineChart'
 import {
   LineChart,
   Line,
