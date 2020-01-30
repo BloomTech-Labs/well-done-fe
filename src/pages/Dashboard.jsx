@@ -157,7 +157,6 @@ const Dashboard = props => {
             setUnknownToggle={setUnknownToggle}
           />
         </div>
-
         {/* <Filter
           searchFiltered={props.searchFiltered}
           setSearchFiltered={props.setSearchFiltered}
@@ -165,18 +164,6 @@ const Dashboard = props => {
           setFuncToggle={setFuncToggle}
           setUnknownToggle={setUnknownToggle}
         /> */}
-      </div>
-      <div className='tables-container'>
-        <div className='orgActPumps'>
-          {/* <OrganizationActivity
-            alertInfo={historySelector.alertInfo}
-            selectedPump={props.selectedPump}
-            setSelectedPump={props.setSelectedPump}
-            sensors={sensorSelector.sensors}
-          /> */}
-        </div>
-        {/* {userRole === 'super_user' ? <OrgGrid /> : null}
-        <AccountGrid orgId={orgId} userRole={userRole} /> */}
       </div>
     </div>
   )
