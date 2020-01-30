@@ -1,5 +1,5 @@
+import axiosWithAuth from 'components/AxiosWithAuth/axiosWithAuth'
 import axios from 'axios'
-
 export const FETCHING_USER_REQUEST = 'FETCHING_USER_REQUEST'
 export const FETCHING_USER_SUCCESS = 'FETCHING_USER_SUCCESS'
 export const FETCHING_USER_FAILURE = 'FETCHING_USER_FAILURE'
@@ -7,20 +7,19 @@ export const LOGIN_FETCH = 'LOGIN_FETCH'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
-export const fetchUser = user => dispatch => {
+export const fetchUser = userId => dispatch => {
   dispatch({ type: FETCHING_USER_REQUEST })
-  axios
-    .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/theemail/${user}`)
+  axiosWithAuth()
+    .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${userId}`)
     .then(res => {
       dispatch({ type: FETCHING_USER_SUCCESS, payload: res.data })
-      localStorage.setItem('userEmail', res.data.email_address)
-      return
     })
     .catch(err => {
       console.log('error here', err)
       dispatch({ type: FETCHING_USER_FAILURE, payload: err })
     })
 }
+
 export const fetchLogin = (account, history) => dispatch => {
   dispatch({ type: LOGIN_FETCH })
   axios

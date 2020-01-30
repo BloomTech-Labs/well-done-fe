@@ -3,6 +3,8 @@ import ReactMapGl, { Marker } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 
+import 'antd/dist/antd.css'
+import './MonitorDetail.css'
 import HeatChart from 'components/HeatChart/heatChart'
 import MonitorDetailHeader from './MonitorDetailHeader'
 
@@ -10,7 +12,6 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import GoBack from '../components/Navbar/GoBack'
 import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
-import MonitorLineChart from './MonitorsLineChart'
 import {
   LineChart,
   Line,
@@ -166,7 +167,7 @@ const MonitorDetails = props => {
   console.log('check')
 
   return (
-    <div>
+    <div className='monitorDetailsContainer'>
       <MonitorDetailHeader historySelector={historySelector.individualSensor} />
       {/* <OrganizationActivity
         alertInfo={historySelector.alertInfo}

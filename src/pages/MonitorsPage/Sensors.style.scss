@@ -18,25 +18,22 @@ $border-color: #090a3f;
 
 .sensorChart {
   background: #d5d6e9;
-
+  height: 100px;
   .sensorHeader {
     border: none;
     display: flex;
     align-items: center;
-    margin: 0;
+    margin-bottom: 13px;
     background: #d5d6e9;
-
-    .sensorHeaderName {
-    }
-
+    justify-content: center;
     .searchInsensors {
       border: none;
-      height: 3rem;
+      height: 3.6rem;
       min-width: 26rem;
       padding: 0.8rem 1.4rem;
       border-radius: 3px;
-      font-size: 0.89rem;
-      margin-left: 20%;
+      font-size: 1.6rem;
+      margin: 0;
     }
 
     .headerButton {
@@ -96,16 +93,16 @@ $border-color: #090a3f;
 .searchIcon {
   position: relative;
   border: none;
-  font-size: 24px;
-  right: 28px;
-  bottom: 5px;
+  font-size: 25px;
+  right: 32px;
+  bottom: 0px;
   background: transparent;
 }
 .searchContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  min-width: 600px;
 }
 
 #quickFilter {
@@ -149,23 +146,13 @@ $border-color: #090a3f;
 .dropDownContainer {
   display: flex;
   justify-content: flex-end;
-  padding-right: 10%;
-  background: #d5d6e9;
-  padding-bottom: 5rem;
-}
-#addSensor {
-  // position: relative;
-  // top: -2px;
-  // right: 10px;
-  // background: transparent;
-  // min-width: 6rem;
-  // min-height: 6rem;
+  position: absolute;
+  top: 496px;
 }
 
 #none {
   visibility: hidden;
 }
-
 .btnContainer {
   width: 100%;
   display: flex;
@@ -230,5 +217,4 @@ $border-color: #090a3f;
 }
 #company {
   width: 100px;
-  margin-right: 20px;
 }
