@@ -8,27 +8,28 @@ import SignIn from 'components/SignIn/SignIn'
 import MonitorsPage from 'pages/MonitorsPage/MonitorsPage'
 import { useSelector, useDispatch } from 'react-redux'
 import 'App.style.scss'
-  import Settings from 'pages/Settings/Settings'
+import Settings from 'pages/Settings/Settings'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
 
 import MonitorsLineChart from './pages/MonitorsLineChart'
 
-import {fetchUser} from './actions/userActions.js'
+import { fetchUser } from './actions/userActions.js'
 import { fetchHistoryById, fetchSensorById } from './actions/sensorHistory.js'
-
 
 function App(props) {
   const dispatch = useDispatch()
   const displayNav = useSelector(state => state.navShow)
   const user = useSelector(state => state.userReducer.user)
-  const currentlySelected = useSelector(state => state.selectedSensors.currentlySelected)
+  const currentlySelected = useSelector(
+    state => state.selectedSensors.currentlySelected
+  )
   const historySelector = useSelector(state => state.historyReducer.history)
 
-  const sensorId = localStorage.getItem("sensor")
+  const sensorId = localStorage.getItem('sensor')
 
-  const email = localStorage.getItem("userEmail")
+  const userId = localStorage.getItem('userId')
   useEffect(() => {
     if (window.location.pathname !== '/') {
       dispatch({
@@ -37,29 +38,24 @@ function App(props) {
       })
     }
 
-    
-      //prevent fetching when user not logged in
-      if (window.location.pathname !== '/'){
-        //checking if user object in redux is empty
-      if (!Object.keys(user).length){
-        //checking if email is in local storage
-      if (email) {
-        //if email is in local storage get user info back
-        dispatch(fetchUser(email))
-      }
-  
+    //prevent fetching when user not logged in
+    if (window.location.pathname !== '/') {
+      //checking if user object in redux is empty
+      if (!Object.keys(user).length) {
+        // checking if user ID is in local storage
+        if (userId) {
+          // if userId is in local storage lets fetch some user data
+          dispatch(fetchUser(userId))
+        }
       }
     }
-    
-   
-    if (!Object.keys(historySelector).length){
+
+    if (!Object.keys(historySelector).length) {
       if (sensorId) {
         dispatch(fetchSensorById(sensorId))
         dispatch(fetchHistoryById(sensorId))
       }
-  
-      }
-
+    }
   }, [window.location.pathname, displayNav, historySelector])
 
   const [searchFiltered, setSearchFiltered] = useState([])
@@ -89,10 +85,7 @@ function App(props) {
           setSearchFiltered={setSearchFiltered}
           page={Dashboard}
         />
-        <PrivateRoute
-          path='/overview'
-          page={MonitorsPage}
-        />
+        <PrivateRoute path='/overview' page={MonitorsPage} />
 
         <PrivateRoute
           path='/monitorDetails'
@@ -113,6 +106,4 @@ function App(props) {
   )
 }
 
-
-
-export default App;
+export default App
