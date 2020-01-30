@@ -49,8 +49,8 @@ const SensorSelector = () => {
 
   return (
     <>
-      {/* <button onClick={toggleSensor}>Sensor Ids</button>
-      <div id='slider'> */}
+      <button onClick={toggleSensor}>Sensor Ids</button>
+      <div id='slider'>
       <div className='sensorSlider'>
         <p>Select range of Sensor Ids</p>
         <Slider
@@ -61,6 +61,7 @@ const SensorSelector = () => {
           defaultValue={[lowest, highest]}
           onAfterChange={onAfterChange}
         />
+      </div>
       </div>
     </>
   )
