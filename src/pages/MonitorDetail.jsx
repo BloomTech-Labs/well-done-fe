@@ -168,7 +168,7 @@ const MonitorDetails = props => {
   console.log('check')
 
   return (
-    <div>
+    <div className='monitorDetailsContainer'>
       <MonitorDetailHeader historySelector={historySelector.individualSensor} />
       {/* <OrganizationActivity
         alertInfo={historySelector.alertInfo}
