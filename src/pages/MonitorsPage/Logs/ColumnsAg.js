@@ -83,6 +83,17 @@ function ColumnsAg() {
       },
     },
     {
+      headerName: 'Notes',
+      field: 'comment',
+      sortable: true,
+      filter: true,
+      minWidth: 90,
+      cellStyle: {
+        'font-size': '1.5rem',
+        'padding-top': '.75rem',
+      },
+    },
+    {
       headerName: 'Last Modified',
       field: 'last_modified',
       // sortable: true,
