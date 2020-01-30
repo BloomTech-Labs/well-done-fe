@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { Dropdown, Form, ControlLabel, DropdownButton } from 'react-bootstrap'
 import gridOptionss from '../../../components/Grid/Pagination'
 
 class LogsFilters extends Component {
@@ -12,32 +11,38 @@ class LogsFilters extends Component {
     gridOptionss.api.setQuickFilter(document.getElementById('opLogs').value)
   }
 
+  handleFocus = e => {
+    e.target.value = ''
+  }
+
   render() {
     return (
       <>
-        <Form.Control
-          as='select'
+        <select
+          name='Status'
+          onFocus={this.handleFocus}
+          onChange={this.onQuickFilterByStatus}
           id='statusLogs'
-          name='statusDrop'
-          onChange={this.onQuickFilterByStatus}
         >
-          <option>Functioning</option>
-          <option>Non-Functioning</option>
-          <option>N/A</option>
-        </Form.Control>
+          <option value=''>Status</option>
+          <option value='Functioning'>Functioning</option>
+          <option value='Non-Functioning'>Non-Functioning</option>
+          <option value='N/A'>N/A</option>
+        </select>
 
-        <Form.Control
-          as='select'
-          id='opLogs'
+        <select
           name='opLogs'
-          onChange={this.onQuickFilterByStatus}
+          onFocus={this.handleFocus}
+          onChange={this.onQuickFilterByOperator}
+          id='opLogs'
         >
+          <option value=''>NGO</option>
           {this.props.ngo.map(log => (
             <option key={log.id} value={log.org_name}>
               {log.org_name}
             </option>
           ))}
-        </Form.Control>
+        </select>
       </>
     )
   }

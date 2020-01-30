@@ -218,3 +218,11 @@ $border-color: #090a3f;
 #company {
   width: 100px;
 }
+.sensorSlider {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 20%;
+  padding-bottom: 5%;
+}

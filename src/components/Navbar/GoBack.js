@@ -1,8 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router'
-import { Button, Icon } from 'antd'
-import back from '../../icons/BackArrow.svg'
-import '../../pages/MonitorsLineChart.styles.scss'
+import back from 'icons/BackArrow.svg'
+import 'pages/MonitorsLineChart.styles.scss'
 
 const GoBack = props => {
   return (
