@@ -232,3 +232,11 @@ $border-color: #090a3f;
   width: 100px;
   margin-right: 20px;
 }
+.sensorSlider {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 20%;
+  padding-bottom: 5%;
+}

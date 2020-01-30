@@ -30,7 +30,9 @@
     margin-bottom: 2rem;
 
     .countBtnOn {
-      border: none;
+      border: 0.5px solid #090c9b;
+      transition-timing-function: ease-in;
+      transition: 1s;
       border-top-left-radius: 20px;
       border-bottom-left-radius: 20px;
       padding: 10px 20px;
@@ -57,7 +59,9 @@
       }
     }
     .secondBtnOn {
-      border: none;
+      border: 0.5px solid #090c9b;
+      transition-timing-function: ease-in;
+      transition: 1s;
       border-top-right-radius: 20px;
       border-bottom-right-radius: 20px;
       padding: 10px 20px;
@@ -93,6 +97,8 @@
       margin-right: 2rem;
       cursor: pointer;
       .monthBtnOn {
+        transition-timing-function: ease-in;
+        transition: 1s;
         border-bottom: 1px solid #090c9b;
         color: #090c9b;
         margin-right: 3rem;
@@ -114,6 +120,8 @@
         }
       }
       .weekBtnOn {
+        transition-timing-function: ease-in;
+        transition: 1s;
         border-bottom: 1px solid #090c9b;
         color: #090c9b;
         &:focus {
