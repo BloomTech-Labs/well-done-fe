@@ -76,7 +76,7 @@ function MonitorDetailHeader(props) {
         <div className='headerLeftContainer'>
           <div className='status'>{statusBadge()}</div>
           <div className='location'>
-            <h2>{province_name}</h2>
+            <h2>{village_name}</h2>
             <h3>{commune_name}</h3>
           </div>
           <div className='wellContainer'>
