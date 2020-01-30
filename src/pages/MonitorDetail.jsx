@@ -3,6 +3,8 @@ import ReactMapGl, { Marker } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 
+import 'antd/dist/antd.css'
+import './MonitorDetail.css'
 import HeatChart from 'components/HeatChart/heatChart'
 import MonitorDetailHeader from './MonitorDetailHeader'
 
