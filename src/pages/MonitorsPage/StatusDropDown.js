@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { Dropdown, Form, ControlLabel, DropdownButton } from 'react-bootstrap'
 
 import gridOptionss from '../../components/Grid/Pagination'
 import './Sensors.style.scss'
@@ -11,20 +10,24 @@ class StatusDropDown extends Component {
     gridOptionss.api.setQuickFilter(document.getElementById('statusDrop').value)
   }
 
+  handleFocus = e => {
+    e.target.value = ''
+  }
+
   render() {
     return (
       <>
-        <Form.Control
-          as='select'
-          id='statusDrop'
-          name='statusDrop'
+        <select
+          name='Status'
+          onFocus={this.handleFocus}
           onChange={this.onQuickFilterByStatus}
+          id='statusDrop'
         >
-          {/* <option>Status</option> */}
-          <option>Functioning</option>
-          <option>Non-Functioning</option>
-          <option>N/A</option>
-        </Form.Control>
+          <option value=''>Status</option>
+          <option value='Functioning'>Functioning</option>
+          <option value='Non-Functioning'>Non-Functioning</option>
+          <option value='N/A'>N/A</option>
+        </select>
       </>
     )
   }
