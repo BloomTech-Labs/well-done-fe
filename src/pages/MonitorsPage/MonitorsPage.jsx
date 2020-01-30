@@ -7,7 +7,6 @@ import StatusCards from './StatusCards'
 import PercentageChart from './PercentageChart'
 import Sensors from './Sensors'
 import './MonitorsPage.scss'
-import HeatChart from '../../components/HeatChart/heatChart'
 
 const MonitorsPage = props => {
   const sensorSelector = useSelector(state => state.sensorReducer)
@@ -26,7 +25,7 @@ const MonitorsPage = props => {
   )
 
   return (
-    <>
+    <div className='monitorsPageContainer'>
       <div className='monitorContainer'>
         <div className='percentContainer'>
           <PercentageChart
@@ -57,7 +56,7 @@ const MonitorsPage = props => {
           }
         />
       </div>
-    </>
+    </div>
   )
 }
 

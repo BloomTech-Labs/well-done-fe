@@ -1,5 +1,9 @@
 @import 'src/colors';
 
+.monitorsPageContainer {
+  max-width: 1300px;
+  margin: 0 auto;
+}
 .monitorContainer {
   display: flex;
   padding-top: 5rem;
@@ -170,7 +174,3 @@
 .sensorTable {
   width: 100%;
 }
-// .pieCanvas {
-//   max-height: 50%;
-//   max-width: 50%;
-// }
