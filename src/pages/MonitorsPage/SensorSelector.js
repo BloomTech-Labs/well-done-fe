@@ -38,7 +38,6 @@ const SensorSelector = () => {
     dispatch({ type: FILTERED_SENSORS, payload: finalList })
   }
 
-
   const toggleSensor = () => {
     let x = document.getElementById('slider')
     if (x.style.display === 'none') {
@@ -50,9 +49,10 @@ const SensorSelector = () => {
 
   return (
     <>
-      <button onClick={toggleSensor}>Sensor Ids</button>
-      <div id='slider'>
-          <h2>Select range of Sensor Ids</h2>
+      {/* <button onClick={toggleSensor}>Sensor Ids</button>
+      <div id='slider'> */}
+      <div className='sensorSlider'>
+        <p>Select range of Sensor Ids</p>
         <Slider
           range
           min={lowest}
