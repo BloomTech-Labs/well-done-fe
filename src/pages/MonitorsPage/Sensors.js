@@ -8,8 +8,6 @@ import { columnsFunc } from './sensorGridColumns'
 import gridOptionss from '../../components/Grid/Pagination'
 import './Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import NgoDropDown from './NgoDropDown'
-
 import SensorSelector from './SensorSelector'
 
 import TrashCan from './TrashCan'
@@ -24,7 +22,6 @@ import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
 import { date } from 'yup'
 import CalendarFilter from './CalendarFilter'
-import StatusDropDown from './StatusDropDown'
 
 const Sensors = props => {
   useEffect(() => {
@@ -118,7 +115,7 @@ const Sensors = props => {
               type='text'
               onChange={onQuickFilterChanged}
               id='quickFilter'
-              placeholder=' search...'
+              placeholder='Search for a Sensor'
             />
 
             <AiOutlineSearch className='searchIcon' />
@@ -126,24 +123,9 @@ const Sensors = props => {
 
           <CalendarFilter gridInfo={props.gridInfo} gridApi={gridApi} />
         </div>
-        <div className='dropDownContainer'>
-          <StatusDropDown />
-          <NgoDropDown />
-          <div className='modalHeaders'></div>
-          <button
-            className='downloadButton'
-            type='default'
-            icon='download'
-            size='small'
-            onClick={exportToCsv}
-          >
-            <img src={Archivebutton} alt='download'></img>
-          </button>
-          <SensorsModal />
-        </div>
-
-        <div className='headerButton'>{deleteDisplay()}</div>
-        <SensorSelector />
+        {/* FIGURE OUT WHERE THIS WILL BE PLACE LATER */}
+        {/* <div className='headerButton'>{deleteDisplay()}</div> */}
+        {/* <SensorSelector /> */}
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
