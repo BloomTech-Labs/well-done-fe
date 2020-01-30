@@ -2,7 +2,6 @@ import React from 'react'
 import { Pie } from 'react-chartjs-2'
 import './MonitorsPage.scss'
 
-
 function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   const data = {
     labels: ['Functional', 'Non-Functional', 'Unknown'],
@@ -29,13 +28,14 @@ function PercentageChart({ funcPumps, nonPumps, unPumps }) {
         title: function(tooltipItem, data) {
           return data.labels[tooltipItem[0].index]
         },
+        responsive: false,
       },
     },
   }
   // Pie chart settings - end
   return (
-    <div className='pieChart'>
-      <Pie className="insidePie" data={data} options={option} />
+    <div className='pieCanvas'>
+      <Pie className='insidePie' data={data} options={option} />
     </div>
   )
 }

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { withRouter } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
-import {columnsFunc} from './sensorGridColumns'
+import { columnsFunc } from './sensorGridColumns'
 import gridOptionss from '../../components/Grid/Pagination'
 import './Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
@@ -24,17 +24,20 @@ import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
 import { date } from 'yup'
 import CalendarFilter from './CalendarFilter'
+import StatusDropDown from './StatusDropDown'
 
-const Sensors = (props) =>  {
-  const [showViewButton , setShowViewButton] = useState(0)
-  const [gridApi, setgridApi] = useState (null)
+const Sensors = props => {
+  useEffect(() => {
+    document.querySelector('.ag-floating-filter-input').style.color = '#000'
+  }, [])
+  const [showViewButton, setShowViewButton] = useState(0)
+  const [gridApi, setgridApi] = useState(null)
   const dispatch = useDispatch()
-  const user =useSelector(state => state.userReducer.user)
+  const user = useSelector(state => state.userReducer.user)
 
-
-    let gridColumnApi;
+  let gridColumnApi
   const onGridReady = params => {
-    setgridApi(params.api) 
+    setgridApi(params.api)
     gridColumnApi = params.columnApi
   }
 
@@ -63,14 +66,10 @@ const Sensors = (props) =>  {
       setShowViewButton(!showViewButton)
     } else {
       setShowViewButton(!showViewButton)
-
     }
-    console.log (gridApi.__proto__, "GRID API")
-     gridApi.__proto__.redrawRows()
-    
-    
+    console.log(gridApi.__proto__, 'GRID API')
+    gridApi.__proto__.redrawRows()
   }
-  
 
   const deleteDisplay = () => {
     if (user.role === 'super_user') {
@@ -90,11 +89,14 @@ const Sensors = (props) =>  {
     )
   }
   const onQuickFilterByCal = () => {
-    let dateInput = moment(document.getElementById('dateCal').value).format( 'MM/DD/YYYY')
+    let dateInput = moment(document.getElementById('dateCal').value).format(
+      'MM/DD/YYYY'
+    )
     console.log(dateInput, 'Value')
-    return gridOptionss.api.setQuickFilter(dateInput === 'Invalid date' ? '' : dateInput)
+    return gridOptionss.api.setQuickFilter(
+      dateInput === 'Invalid date' ? '' : dateInput
+    )
   }
-
 
   const exportToCsv = () => {
     var params = {
@@ -106,15 +108,10 @@ const Sensors = (props) =>  {
     gridOptionss.api.exportDataAsCsv(params)
   }
 
-    return (
-      <>
-      <SensorSelector/>
+  return (
+    <>
       <div className='sensorChart'>
         <div className='sensorHeader'>
-        
-          <div className='sensorHeaderName'>
-            <h1>Sensors</h1>
-          </div>
           <div className='searchContainer'>
             <input
               className='searchInsensors'
@@ -123,58 +120,53 @@ const Sensors = (props) =>  {
               id='quickFilter'
               placeholder=' search...'
             />
-            
+
             <AiOutlineSearch className='searchIcon' />
           </div>
-          <CalendarFilter
-            gridInfo={props.gridInfo}
-            gridApi={gridApi}
-          />
-          </div>
-          <NgoDropDown/>
 
-          <div className='headerBtns'>
-            <button
-              className='downloadButton'
-              type='default'
-              icon='download'
-              size='small'
-              onClick={exportToCsv}
-            >
-              <img src={Archivebutton} alt='download'></img>
-            </button>
-
-            {deleteDisplay()}
-
-            <div className='modalHeader'>
-              <SensorsModal />
-            </div>
-          </div>
+          <CalendarFilter gridInfo={props.gridInfo} gridApi={gridApi} />
         </div>
-        <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
-          <div
-            id='myGrid2'
-            style={{
-              height: '500px',
-              width: '100%',
-            }}
-            className='ag-theme-balham'
+        <div className='dropDownContainer'>
+          <StatusDropDown />
+          <NgoDropDown />
+          <div className='modalHeaders'></div>
+          <button
+            className='downloadButton'
+            type='default'
+            icon='download'
+            size='small'
+            onClick={exportToCsv}
           >
-            <AgGridReact
-              history={props.history}
-              columnDefs={columnsFunc(props,dispatch, showViewButton)}
-              rowData={props.gridInfo}
-              gridOptions={gridOptionss}
-              onGridSizeChanged={onGridSizeChanged}
-              onGridReady={onGridReady}
-              floatingFilter={true}
-            />
-           
-          </div>
+            <img src={Archivebutton} alt='download'></img>
+          </button>
+          <SensorsModal />
         </div>
-      </>
-    )
-  
+
+        {/* <div className='headerButton'>{deleteDisplay()}</div> */}
+        <SensorSelector />
+      </div>
+      <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
+        <div
+          id='myGrid2'
+          style={{
+            height: '500px',
+            width: '100%',
+          }}
+          className='ag-theme-balham'
+        >
+          <AgGridReact
+            history={props.history}
+            columnDefs={columnsFunc(props, dispatch, showViewButton)}
+            rowData={props.gridInfo}
+            gridOptions={gridOptionss}
+            onGridSizeChanged={onGridSizeChanged}
+            onGridReady={onGridReady}
+            // floatingFilter={true}
+          />
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default withRouter(Sensors)
