@@ -5,6 +5,7 @@ import Dropdown from './Dropdown.js'
 
 const NavRight = () => {
   const [displayDropdown, setdisplayDropdown] = useState(false)
+  const userRole = localStorage.getItem('role')
 
   return (
     <div className='nav-right'>
@@ -17,9 +18,10 @@ const NavRight = () => {
       <NavLink className='margin-left' to='/admin'>
         Admin
       </NavLink>
-      <NavLink className='margin-left' to='/organizations'>
+      {userRole === "super_user" ?      <NavLink className='margin-left' to='/organizations'>
         Organizations
-      </NavLink>
+      </NavLink> : null}
+ 
       <div
         className={
           displayDropdown ? 'margin-left-droplet' : 'margin-left-droplet'
