@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction'
 
+import * as serviceWorker from './serviceWorker'
 
 import App from './App'
 import rootReducer from './reducers'
@@ -23,3 +24,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 )
+
+serviceWorker.register()
