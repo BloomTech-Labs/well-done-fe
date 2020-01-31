@@ -18,10 +18,12 @@ const NavRight = () => {
       <NavLink className='margin-left' to='/admin'>
         Admin
       </NavLink>
-      {userRole === "super_user" ?      <NavLink className='margin-left' to='/organizations'>
-        Organizations
-      </NavLink> : null}
- 
+      {userRole === 'super_user' ? (
+        <NavLink className='margin-left' to='/organizations'>
+          Organizations
+        </NavLink>
+      ) : null}
+
       <div
         className={
           displayDropdown ? 'margin-left-droplet' : 'margin-left-droplet'
