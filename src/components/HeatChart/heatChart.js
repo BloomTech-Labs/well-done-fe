@@ -23,7 +23,6 @@ const handleStatus = statCodeNum => {
     ? 'not functional'
     : 'Unknown'
 }
-
 const today = new Date()
 
 const HeatChart = props => {
@@ -51,10 +50,9 @@ const HeatChart = props => {
 
   const { status, created_at, sensor_pid } = currentlySelected
   return (
-    
     <div className='calendarBox'>
       <div className='calendarHeader'>
-      <h3>Status Changes</h3>
+        <h3>Status Changes</h3>
       </div>
       <CalendarHeatmap
         startDate={shiftDate(today, -359)}

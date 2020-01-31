@@ -16,19 +16,17 @@ import { useDispatch, useSelector } from 'react-redux'
 function LogsTable(props) {
   const [gridApi, setgridApi] = useState(null)
   const logsSelector = useSelector(state => state.logsReducer)
-  const selectedSensors = useSelector(
-    state => state.selectedSensors.currentlySelected
-  )
   const dispatch = useDispatch()
+  const sensorLocalStorage = localStorage.getItem('sensor')
 
   useEffect(() => {
     dispatch(fetchLogs())
     document.querySelector('.ag-floating-filter-input').style.color = '#000'
   }, [])
 
-  //filters through the logsSelector and currentlySelected arrays to match sensor ids and return new array with the matching sensors #'s
+  //filters through the logsSelector and sensor in localStorage to match sensor ids
   const sensorFiltered = logsSelector.logsUpdate.filter(log => {
-    return log.sensor_id === selectedSensors.sensor_pid
+    return log.sensor_id === Number(sensorLocalStorage)
   })
 
   let gridColumnApi

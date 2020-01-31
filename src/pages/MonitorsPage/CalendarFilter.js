@@ -5,6 +5,7 @@ import { FILTERED_SENSORS, CLEAR_FILTER } from 'actions/sensorActions'
 import StatusDropDown from './StatusDropDown'
 import NgoDropDown from './NgoDropDown'
 import './CalFilter.scss'
+import RadioStatusFilter from './RadioStatusFilter'
 
 function CalendarFilter(props) {
   const [selectedDate, setSelectedDate] = React.useState('')
@@ -54,6 +55,7 @@ function CalendarFilter(props) {
         </div>
       </div>
       <div className='dropDownContainer'>
+        {/* <RadioStatusFilter /> */}
         <StatusDropDown />
         <NgoDropDown />
       </div>

@@ -39,3 +39,50 @@ focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
 }
+
+// sensors status filter
+
+.multiselect {
+  width: 200px;
+  z-index: 99999;
+}
+
+.selectBox {
+  position: relative;
+  z-index: 9999;
+}
+
+.selectBox select {
+  z-index: 99999;
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  z-index: 99999;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+#checkboxes {
+  display: flex;
+}
+
+// #checkboxes {
+//   z-index: 99999 !important;
+//   background: #dadada;
+//   display: none;
+//   border: 1px #dadada solid;
+// }
+
+// #checkboxes label {
+//   z-index: 99999;
+//   display: block;
+// }
+
+// #checkboxes label:hover {
+//   z-index: 99999;
+//   background-color: #1e90ff;
+// }
