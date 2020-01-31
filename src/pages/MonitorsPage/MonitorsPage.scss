@@ -1,154 +1,175 @@
 @import 'src/colors';
 
+.monitorsPageContainer {
+  margin: 0 auto;
+}
 .monitorContainer {
   display: flex;
   padding-top: 5rem;
-  background: $duke;
+  background: #d5d6e9;
   height: 35rem;
+  border: none;
 }
 
-
- .cardsContainer{
+.cardsContainer {
   display: flex;
-  width: 63%;
-  height: 35vh;
-
- }
-
-.percentContainer{
-width:33%;
-// height:50px;
+  width: 70%;
 }
 
-// .chartjs-render-monitor{
- 
-//  width:80% !important;
-// }
-.pieChart{
-  width:100%;
-
+.percentContainer {
+  min-width: 25%;
+  min-height: 100%;
 }
-.statusContainer{
+
+.pieChart {
+  max-width: 80%;
+  min-width: 60%;
+}
+.statusContainer {
   display: flex;
-  // justify-content: space-between;
-  width:90%;
+  justify-content: space-around;
+  width: 100%;
   align-items: center;
   padding-bottom: 2rem;
-
 }
-.monitorCard{
+.monitorCard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items:center ;
-  height:8rem;
+  align-items: center;
+  height: 10rem;
   text-align: center;
-  color:#fff;
-  background: #ACCDFF;
-  width:20rem;
+  background: #fff;
+  width: 20rem;
   line-height: 10px;
   font-size: 1.8rem;
   border-radius: 6px;
   font-weight: bold;
 
+  .monitorHeader {
+    background: #090c9b;
+    color: #fff;
+    width: 100%;
+    height: 3rem;
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    font-size: 1.1rem;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 
-
-  h2{
-     font-size: 1.8rem;
-     line-height: 18px;
-     font-weight: bold;
-
-   }
-  p{
-    color: black;
-    line-height: 18px;
-    font-weight: bold;
-
-
+    h2 {
+      color: #fff;
+      font-size: 2.1rem;
     }
-  
-}
-
-.functioningCard{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width:20rem;
-  height:8rem;
-  background: #23D322;
-  text-align: center;
-  margin-left:1.8rem;
-  color:#fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 8px;
-  padding:20px;
-  border-radius: 6px;
-
-
- h4{
-    color:#fff;
-    font-size: 1.6rem;
-    line-height: 8px;
-}
-
-
-}
-.nonfunctioningCard{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #FA0707;
-  height:8rem;
-  width:20rem;
-  text-align: center;
-  margin-left:1.8rem;
-  color:#fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 8px;
-  border-radius: 6px;
-
-
-
-
-  h4{
-    color:#fff;
-    font-size: 1.6rem;
-    line-height: 8px;
-
   }
 
+  p {
+    margin-top: -2rem;
+  }
 }
 
-.noDataCard{
+.functioningCard {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #FFAD34;
-  height:8rem;
-  width:20rem;
+  width: 20rem;
+  height: 10rem;
+  background: #fff;
   text-align: center;
-  margin-left:1.8rem;
-  color:#fff;
-  font-size: 1.5rem;
+  color: #000;
   font-weight: bold;
-  line-height: 8px;
   border-radius: 6px;
 
-
-
-  h4{
-    color:#fff;
-    font-size: 16px;
-    line-height: 8px;
-
+  .functionalHeader {
+    display: flex;
+    justify-content: center;
+    background: #23d322;
+    margin-bottom: 1rem;
+    height: 4rem;
+    width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    h2 {
+      font-size: 2.1rem;
+      color: #fff;
+    }
   }
-
+  .percent {
+    margin: -0.2rem;
+    font-size: 2rem;
+  }
+  .outOf {
+    font-weight: 300;
+  }
 }
-.sensorTable{
-  width:100%;
+
+.nonfunctioningCard {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 10rem;
+  background: #fff;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  border-radius: 6px;
+
+  .nonFuncHeader {
+    display: flex;
+    justify-content: center;
+    background: #fa0707;
+    color: #fff;
+    margin-bottom: 1rem;
+    height: 4rem;
+    width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    h2 {
+      font-size: 2.1rem;
+      color: #fff;
+    }
+  }
+  .percent {
+    margin: -0.2rem;
+    font-size: 2rem;
+  }
+  .outOf {
+    font-weight: 300;
+  }
+}
+
+.noDataCard {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 10rem;
+  background: #fff;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  border-radius: 6px;
+
+  .noDataHeader {
+    display: flex;
+    justify-content: center;
+    background: #ffad34;
+    color: #fff;
+    margin-bottom: 1rem;
+    height: 4rem;
+    width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    h2 {
+      font-size: 2.1rem;
+      color: #fff;
+    }
+  }
+  .percent {
+    margin: -0.2rem;
+    font-size: 2rem;
+  }
+  .outOf {
+    font-weight: 300;
+  }
+}
+.sensorTable {
+  width: 100%;
 }

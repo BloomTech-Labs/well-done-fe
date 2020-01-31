@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import {
-  fetchSensorsWithHistory,} from 'actions/sensorActions'
+import { fetchSensorsWithHistory } from 'actions/sensorActions'
 import { fetchOrg } from 'actions/orgAction'
 
 import StatusCards from './StatusCards'
 import PercentageChart from './PercentageChart'
 import Sensors from './Sensors'
 import './MonitorsPage.scss'
-import HeatChart from '../../components/HeatChart/heatChart'
-
-
 
 const MonitorsPage = props => {
   const sensorSelector = useSelector(state => state.sensorReducer)
@@ -24,14 +20,12 @@ const MonitorsPage = props => {
   let pumpData = sensorSelector.sensors
   let funcPumps = sensorSelector.sensors.filter(pump => pump.status === 2)
   let unPumps = sensorSelector.sensors.filter(pump => pump.status === 1)
-  let nonPumps = sensorSelector.sensors.filter(pump => pump.status === 0 || pump.status === null)
+  let nonPumps = sensorSelector.sensors.filter(
+    pump => pump.status === 0 || pump.status === null
+  )
 
   return (
-    <>
-      <div className='heatchartContainer'>
-        
-      
-      </div>
+    <div className='monitorsPageContainer'>
       <div className='monitorContainer'>
         <div className='percentContainer'>
           <PercentageChart
@@ -55,10 +49,14 @@ const MonitorsPage = props => {
       </div>
       <div className='sensorTable'>
         <Sensors
-          gridInfo={sensorSelector.isFiltered ? sensorSelector.filteredSensors : sensorSelector.gridInfo }
+          gridInfo={
+            sensorSelector.isFiltered
+              ? sensorSelector.filteredSensors
+              : sensorSelector.gridInfo
+          }
         />
       </div>
-    </>
+    </div>
   )
 }
 

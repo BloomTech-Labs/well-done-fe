@@ -1,0 +1,12 @@
+#slider {
+    margin: 0 auto;
+    display:none;
+    padding-bottom:10%;
+    width: 50%;
+    height:5vh;
+    
+  
+    @media (min-width: 800px) {
+      max-width: 60%;
+    }
+  }

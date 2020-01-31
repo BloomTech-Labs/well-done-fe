@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { FILTERED_SENSORS, CLEAR_FILTER } from 'actions/sensorActions'
-
+import StatusDropDown from './StatusDropDown'
+import NgoDropDown from './NgoDropDown'
 import './CalFilter.scss'
 
 function CalendarFilter(props) {
@@ -44,45 +45,17 @@ function CalendarFilter(props) {
 
   return (
     <div className='calendarContainer'>
-      {/* <MuiPickersUtilsProvider utils={MomentUtils}>
-      <Grid container justify="space-around">
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          value={selectedDate}
-          format="MM/DD/YYYY"
-          margin="normal"
-          id="dateCal"
-          label="Date picker inline"
-          onChange={handleDateChange}
-          onInput={onQuickFilterByCal}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-       
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="MM/DD/YYYY"
-          margin="normal"
-          id="compCal"
-          label="Date picker inline"
-          value={selectedDateEnd}
-          onChange={handleDateChangeEnd}
-          onInput={onQuickFilterByCal}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-       
-      </Grid>
-    </MuiPickersUtilsProvider> */}
-      <div className='calContainer'>
-        <input type='date' onChange={onQuickFilterByCal} id='dateCal' />
+      <div className='subCalendarContainer'>
+        <div className='calContainer'>
+          <input type='date' onChange={onQuickFilterByCal} id='dateCal' />
+        </div>
+        <div className='calContainerComp'>
+          <input type='date' onChange={onQuickFilterByCal} id='compCal' />
+        </div>
       </div>
-      <div className='calContainerComp'>
-        <input type='date' onChange={onQuickFilterByCal} id='compCal' />
+      <div className='dropDownContainer'>
+        <StatusDropDown />
+        <NgoDropDown />
       </div>
     </div>
   )

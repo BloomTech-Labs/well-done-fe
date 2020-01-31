@@ -1,101 +1,74 @@
 @import 'src/colors';
 
+$icon-color: #ffffff;
+
+// changes the selected checkbox check mark color
+$accent-color: #03a9f4;
+
+$header-height: 50px;
+$row-height: 40px;
+$row-border-width: 1px;
+$hover-color: #accdff;
+$header-background-color: #090c9b;
+$header-foreground-color: #fff;
+$border-color: #090a3f;
+
+@import '~ag-grid-community/src/styles/ag-grid.scss';
+@import '~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham.scss';
+
 .sensorChart {
-  width: 100%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.08);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-
-  @media screen and (max-width: 1000px) {
-    display: flex;
-    flex-direction: column;
-    width: 97%;
-    margin-top: 4%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+  background: #d5d6e9;
+  height: 100px;
   .sensorHeader {
+    border: none;
     display: flex;
     align-items: center;
-    height:85px;
-
-    @include grid-background;
-
-    .sensorHeaderName {
-      h1 {
-        @include header-text;
-        margin: 0;
-      }
-    }
-
+    margin-bottom: 13px;
+    background: #d5d6e9;
+    justify-content: center;
     .searchInsensors {
       border: none;
-      height: 3rem;
-      width: 26rem;
+      height: 3.6rem;
+      min-width: 26rem;
       padding: 0.8rem 1.4rem;
-      border-radius: 8px;
-      font-size: 0.89rem;
-      margin-left: 10%;
-      margin-top:5%;
-
-      @media screen and (max-width: 1200px) {
-        width: 18rem;
-      }
+      border-radius: 3px;
+      font-size: 1.6rem;
+      margin: 0;
     }
 
-    .headerBtns {
+    .headerButton {
       position: relative;
       display: flex;
       justify-content: flex-end;
-      width: 100%;
+      width: 20%;
       margin-right: 2%;
-  
-      @media screen and (max-width:1200px) {
-        margin-right: 0%;
-     }
 
       .deleteBtn {
         position: absolute;
-        top:8px;
-        right:55px;
+        top: 8px;
+        right: 55px;
         border: none;
         background: transparent;
         font-size: 3.5rem;
 
-
-        @media screen and (max-width:1000px) {
-          margin:0;
-       }
+        @media screen and (max-width: 1000px) {
+          margin: 0;
+        }
       }
 
-      .downloadButton {
-        position: absolute;
-        top:10px;
-        right:105px;
-        margin:0;
-        min-width: 6rem;
-        min-height: 6rem;
-        background: transparent;
-        border:none;
-      }
-
-      .modalHeader {
+      .modalHeaders {
         display: flex;
         justify-content: center;
-        width: 10%;
-
-        .addSensor {
-          border: none;
-          background:transparent;
-          font-size: 2.3rem;
-          min-width: 8rem;
-          min-height: 8rem;
-
-        }
+        width: 100%;
       }
     }
   }
+}
+#addSensor {
+  border: none;
+  background: transparent;
+  font-size: 2.3rem;
+  height: 3rem;
 }
 
 .ag-theme-balham {
@@ -120,19 +93,21 @@
 .searchIcon {
   position: relative;
   border: none;
-  font-size: 24px;
-  right: 28px;
+  font-size: 25px;
+  right: 32px;
+  bottom: 0px;
   background: transparent;
 }
 .searchContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 600px;
 }
-// .dwnbutton {
-//   background: transparent;
-//   border: none;
-// }
+
+#quickFilter {
+  width: 100%;
+}
 
 .modCon {
   display: flex;
@@ -168,33 +143,22 @@
     }
   }
 }
-
-
-#addSensor {
-  position: relative;
-  top:-2px;
-  right:10px;
-  background: transparent;
-  min-width: 6rem;
-  min-height: 6rem;
-
-  @media screen and (max-width:800px){
-    right:20px;
-
-  }
+.dropDownContainer {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 496px;
 }
 
-#none{
- visibility: hidden;;
+#none {
+  visibility: hidden;
 }
-
 .btnContainer {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-left: 5px;
 }
-
 
 .createNgoBtn {
   margin-left: 15px;
@@ -246,4 +210,19 @@
     display: flex;
     justify-content: space-between;
   }
+}
+#statusDrop {
+  width: 100px;
+  margin-right: 20px;
+}
+#company {
+  width: 100px;
+}
+.sensorSlider {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 20%;
+  padding-bottom: 5%;
 }

@@ -11,7 +11,7 @@ export const accountColumns = [{
   },
   {
     headerName: 'Organization',
-    field: 'organization',
+    field: 'org_name',
     sortable: true,
     filter: true,
     width: 150,

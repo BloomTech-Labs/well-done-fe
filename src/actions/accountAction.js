@@ -1,9 +1,10 @@
 import React from 'react'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
+import { ActionAccessibility } from 'material-ui/svg-icons'
 
-export const ADDOP_FETCH = 'ADDOP_FETCH'
-export const ADDOP_SUCCESS = 'ADDOP_SUCCESS'
-export const ADDOP_FAILURE = 'ADDOP_FAILURE'
+export const ADDACCOUNT_FETCH = 'ADDOP_FETCH'
+export const ADDACCOUNT_SUCCESS = 'ADDOP_SUCCESS'
+export const ADDACCOUNT_FAILURE = 'ADDOP_FAILURE'
 
 export const EDIT_FAILURE = 'EDIT_FAILURE'
 export const EDIT_SUCCESS = 'EDIT_SUCCESS'
@@ -13,6 +14,11 @@ export const ACCOUNT_FAILURE = 'ACCOUNT_FAILURE'
 
 export const DELETE_SUCCESS = 'DELETE_SUCCESS'
 export const DELETE_FAILURE = 'DELETE_FAILURE'
+
+//goes to operatorReducer
+export const ADDOPERATOR_FETCH = 'ADDOPERATOR_FETCH'
+export const ADDOPERATOR_SUCCESS = 'ADDOPERATOR_SUCCESS'
+export const ADDOPERATOR_FAILURE = 'ADDOPERATOR_FAILURE'
 
 export const fetchAccounts = () => dispatch => {
   AxiosWithAuth()
@@ -28,18 +34,44 @@ export const fetchOrgAccounts = org_id => dispatch => {
     .catch(err => dispatch({ type: ACCOUNT_FAILURE }))
 }
 
-export const addOp = operator => dispatch => {
-  dispatch({ type: ADDOP_FETCH })
+export const addAccount = operator => dispatch => {
+  dispatch({ type: ADDACCOUNT_FETCH })
 
   AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/accounts`, operator)
-    .then(res => dispatch({ type: ADDOP_SUCCESS, payload: res.data }))
-    .catch(err => dispatch({ type: ADDOP_FAILURE, payload: err.response }))
+    .then(res => dispatch({ type: ADDACCOUNT_SUCCESS, payload: res.data }))
+    .catch(err => dispatch({ type: ADDACCOUNT_FAILURE, payload: err.response }))
+}
+
+export const addOperator = ({
+  first_name,
+  last_name,
+  email_address,
+  mobile_number,
+  password,
+  org_id,
+}) => async dispatch => {
+  let newoperator = {
+    first_name: first_name,
+    last_name: last_name,
+    email_address: email_address,
+    mobile_number: mobile_number,
+    password: password,
+    org_id: org_id,
+  }
+
+  let response = await AxiosWithAuth().post(
+    `${process.env.REACT_APP_HEROKU_API}/api/operators`,
+    newoperator
+  )
+  //goes to operatorReducer
+
+  dispatch({ type: ADDOPERATOR_SUCCESS, payload: response.data })
+  return response.data
 }
 
 export const editAccount = account => dispatch => {
   const id = account.id
-  console.log(`account `,account)
 
   AxiosWithAuth()
     .put(`${process.env.REACT_APP_HEROKU_API}/api/accounts/${id}`, account)

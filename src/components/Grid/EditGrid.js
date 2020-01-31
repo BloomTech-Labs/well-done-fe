@@ -26,7 +26,6 @@ const useStyles = makeStyles(theme => ({
 //button on AccountGrid
 const EditGrid = props => {
   const [account, setAccount] = useState([])
-  console.log(account)
 
   //account id added automatically, needed to .put
   account.id = props.data.id

@@ -1,35 +1,35 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
-import { Dropdown, Form } from 'react-bootstrap'
+import './Sensors.style.scss'
 
 import gridOptionss from '../../components/Grid/Pagination'
 
 class NgoDropDown extends Component {
   onQuickFilterByCompany() {
     gridOptionss.api.setQuickFilter(document.getElementById('company').value)
-    console.log(document.getElementById('company').value)
+  }
+
+  handleFocus = e => {
+    e.target.value = ''
   }
 
   render() {
     return (
       <>
-        <Dropdown.Toggle variant='success' id='dropdown-basic'>
-          Organization
-        </Dropdown.Toggle>
-
-        <Form.Control
-          as='select'
-          id='company'
+        <select
           name='company'
-          onChange={this.onQuickFilterByCompany}
+          onFocus={this.handleFocus}
+          onChange={this.onQuickFilterByOperator}
+          id='company'
         >
-          {this.props.ngos.map(org => (
-            <option key={org.id} value={org.org_name}>
-              {org.org_name}
+          <option value=''>NGO</option>
+          {this.props.ngos.map(log => (
+            <option key={log.id} value={log.org_name}>
+              {log.org_name}
             </option>
           ))}
-        </Form.Control>
+        </select>
       </>
     )
   }
@@ -39,6 +39,4 @@ const mapStateToProps = state => {
     ngos: state.orgReducer.org,
   }
 }
-export default connect(
-    mapStateToProps, {})
-    (NgoDropDown)
+export default connect(mapStateToProps, {})(NgoDropDown)

@@ -2,6 +2,7 @@ import * as types from 'actions/pumpAction'
 
 const initialState = {
   pumps: [],
+  pumpsOrg: [],
   isFetching: false,
   error: '',
 }
@@ -33,6 +34,24 @@ const pumpsReducer = (state = initialState, action) => {
         pumps: [...state.pumps, action.payload],
       }
     }
+    case types.PUMPSORG_FETCH:
+      return {
+        ...state,
+        isFetching: true,
+      }
+    case types.PUMPSORG_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        error: '',
+        pumpsOrg: action.payload,
+      }
+    case types.PUMPSORG_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload,
+      }
     default:
       return state
   }

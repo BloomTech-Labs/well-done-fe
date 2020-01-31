@@ -132,7 +132,7 @@ class OrgGrid extends Component {
               }}
             />
           </div>
-         
+
           <div className='headerBtns'>
             <button
               className='downloadButton'
@@ -141,15 +141,15 @@ class OrgGrid extends Component {
               size='small'
               onClick={this.exportToCsv.bind(this)}
             >
-              <img  src={Archivebutton} alt='download'></img>
+              <img src={Archivebutton} alt='download'></img>
             </button>
             <button className='deleteBtn' onClick={() => this.viewHandler()}>
-            <img  src={deleteIcon} alt='download'></img>
+              <img src={deleteIcon} alt='download'></img>
             </button>
             <div className='modalHeaderOrg'>
               <OrgModal />
             </div>
-            </div>
+          </div>
         </div>
         <div
           className='ag-theme-balham'
