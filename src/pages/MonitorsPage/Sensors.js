@@ -22,7 +22,7 @@ import deleteIcon from '../../icons/DeleteModeButton.svg'
 import Archivebutton from '../../icons/Archivebutton.svg'
 import { date } from 'yup'
 import CalendarFilter from './CalendarFilter'
-import RadioStatusFilter from './RadioStatusFilter'
+import RadioStatusFilter from './RadioButton/RadioStatusFilter'
 
 const Sensors = props => {
   useEffect(() => {
@@ -120,7 +120,7 @@ const Sensors = props => {
             />
 
             <AiOutlineSearch className='searchIcon' />
-            {/* <RadioStatusFilter /> */}
+            {/* <RadioStatusFilter gridInfo={props.gridInfo} /> */}
           </div>
 
           <CalendarFilter gridInfo={props.gridInfo} gridApi={gridApi} />
