@@ -10,6 +10,11 @@ export const DELETE_FAILURE = "DELETE_FAILURE"
 export const ORG_ADD = "ORG_ADD"
 export const EDIT_FAILURE = 'EDIT_FAILURE'
 export const EDIT_SUCCESS = 'EDIT_SUCCESS'
+export const APPEND_SENSORS= 'APPEND_SENSORS'
+export const FETCH_APPEND_SENSORS = "FETCH_APPEND_SENSORS"
+export const APPEND_ACCOUNTS= 'APPEND_ACCOUNTS'
+export const FETCH_APPEND_ACCOUNTS = "FETCH_APPEND_ACCOUNTS"
+
 
 
 
@@ -50,8 +55,26 @@ export const fetchOrg = () => dispatch => {
   dispatch({ type: ORG_FETCH })
   AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/orgs`)
+    
     .then(res => {
+      
       dispatch({ type: ORG_SUCCESS, payload: res.data })
     })
     .catch(err => dispatch({ type: ORG_FAILURE, payload: err }))
+}
+
+//get
+export const fetchSensorsByOrgId = org_id => dispatch => {
+  AxiosWithAuth()
+    .get(`${process.env.REACT_APP_HEROKU_API}/api/sensors/recent/${org_id}`)
+    .then(res => dispatch({ type: APPEND_SENSORS, payload: {data:res.data, id:org_id} }))
+    .catch(err => dispatch({ type: ORG_FAILURE, payload: err }))
+}
+
+//get
+export const fetchOrgAccounts = org_id => dispatch => {
+  AxiosWithAuth()
+    .get(`${process.env.REACT_APP_HEROKU_API}/api/accounts/org/${org_id}`)
+    .then(res => dispatch({ type: APPEND_ACCOUNTS, payload: {data:res.data, id:org_id} }))
+    .catch(err => dispatch({ type: ORG_FAILURE }))
 }

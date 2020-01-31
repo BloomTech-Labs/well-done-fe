@@ -115,7 +115,7 @@ const Sensors = props => {
               type='text'
               onChange={onQuickFilterChanged}
               id='quickFilter'
-              placeholder='Search for a Sensor'
+              placeholder='Search'
             />
 
             <AiOutlineSearch className='searchIcon' />
@@ -124,9 +124,9 @@ const Sensors = props => {
           <CalendarFilter gridInfo={props.gridInfo} gridApi={gridApi} />
         </div>
         {/* FIGURE OUT WHERE THIS WILL BE PLACE LATER */}
-        {/* <div className='headerButton'>{deleteDisplay()}</div> */}
+        {/* <div className='headerButton'>{deleteDisplay()}</div>  */}
 
-        {/* <SensorSelector /> */}
+         <SensorSelector />
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div

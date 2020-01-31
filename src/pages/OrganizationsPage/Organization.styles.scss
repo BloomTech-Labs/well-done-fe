@@ -1,0 +1,73 @@
+.search-div {
+  background-image: url('../../Images/orgBg.png');
+  height: 23rem;
+  padding-top: 3rem;
+  margin-bottom: 4rem;
+  padding-left: 4rem;
+  background-size: cover;
+  background-position: center;
+}
+.org-header {
+  margin-bottom: 5rem;
+  color: white;
+}
+.org-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+
+.outer-card {
+  display: flex;
+  border: 1px solid #363636;
+  width: 46%;
+  max-width: 58rem;
+  height: 19.7rem;
+  box-shadow: 5px 1px 20px #111;
+  background: white;
+  margin-bottom: 3rem;
+  border-radius: 6px;
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.card-container {
+  margin-left: 15px;
+}
+.card-content {
+  display: flex;
+  flex-direction: row;
+
+  h3 {
+    font-size: 1.8rem;
+    margin-right: 1%;
+  }
+}
+
+.img-card {
+  min-width: 170px;
+  height: 100%;
+  
+}
+
+.org-title {
+  margin-top: .5rem;
+  font-size: 2.7rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+input.search-input {
+  width: 28rem;
+  height: 28px !important;
+}
+.orgSearchIcons {
+  position: relative;
+  border: none;
+  font-size: 24px;
+  right: 32px;
+  bottom: -3px;
+  background: transparent;
+}
