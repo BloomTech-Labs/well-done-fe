@@ -65,7 +65,7 @@ function RadioStatusFilter(props) {
           name='non'
           onClick={handleClick}
         />
-        Non-Functioning
+        <p>Non-Functioning</p>
         <input
           type='checkbox'
           id='na'
@@ -73,7 +73,7 @@ function RadioStatusFilter(props) {
           name='na'
           onClick={handleClick}
         />
-        N/A
+        <p>N/A</p>
         {/* </div> */}
         <div className='radioBtnContainer'>
           <input
