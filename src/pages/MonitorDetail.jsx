@@ -49,10 +49,10 @@ const MonitorDetails = props => {
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
   let selectedSensor = props.selectedPump
-
+ const sensorId =localStorage.getItem("sensor")
   useEffect(() => {
-    dispatch(fetchHistoryById(selectedSensor.sensor_pid))
-    dispatch(fetchSensorById(selectedSensor.sensor_pid))
+    dispatch(fetchHistoryById(sensorId))
+    dispatch(fetchSensorById(sensorId))
     return () => {
       dispatch({ type: 'CLEAR_SELECTED' })
     }

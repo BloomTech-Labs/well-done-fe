@@ -33,6 +33,7 @@ $border-color: #090a3f;
       border-radius: 3px;
       font-size: 1.6rem;
       margin: 0;
+      
     }
 
     .headerButton {
@@ -102,8 +103,11 @@ $border-color: #090a3f;
   justify-content: center;
   align-items: center;
   min-width: 600px;
+  
 }
-
+input{
+  color:black;
+}
 #quickFilter {
   width: 100%;
 }
@@ -224,4 +228,8 @@ $border-color: #090a3f;
   width: 60%;
   margin-left: 20%;
   padding-bottom: 5%;
+}
+
+.ag-floating-filter-input{
+  color:black;
 }

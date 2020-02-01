@@ -12,7 +12,8 @@
 .orgGridHeader {
   @include grid-background;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+
   h1 {
     @include header-text;
     margin: 1%;
@@ -21,54 +22,30 @@
   .searchAccounts {
     border: none;
     height: 3rem;
-    width: 26rem;
-    padding: 0.8rem 1.4rem;
-    border-radius: 8px;
+    width: 35rem;
+    border-radius: 3px;
     font-size: 0.89rem;
-    margin-left: 10%;
   }
 
   .headerBtns {
-    position: relative;
     display: flex;
+    margin-right: 1%;
+    width: 65.5%;
     justify-content: flex-end;
-    width: 30%;
-    margin-right: 2%;
 
     .deleteBtn {
-      position: absolute;
-      top: -2px;
-      right: 40px;
       border: none;
       background: transparent;
-      font-size: 3.5rem;
-      margin: 0 1rem;
-      margin-bottom: 5px;
-
-      @media screen and (max-width: 1000px) {
-        right: 25px;
-      }
     }
 
     .downloadButton {
-      position: absolute;
-      top: 0px;
-      right: 100px;
-      margin: 0;
-      min-width: 6rem;
-      min-height: 6rem;
       background: transparent;
       border: none;
-
-      @media screen and (max-width: 1000px) {
-        right: 80px;
-      }
     }
 
     .modalHeaderOrg {
       display: flex;
-      justify-content: center;
-      width: 5%;
+      align-items: center;
     }
   }
   .inputContainer {
@@ -91,11 +68,8 @@
 .addOrg {
   border: none;
   background: transparent;
-  min-width: 6rem;
-  min-height: 6rem;
-  margin-left: 2rem;
 
   @media screen and (max-width: 1600px) {
-    margin-left: -1.7rem;
+    // margin-left: -1.7rem;
   }
 }
