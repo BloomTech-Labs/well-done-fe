@@ -44,6 +44,10 @@
   font-size: 1.8rem;
   border-radius: 6px;
   font-weight: bold;
+  
+   @media screen and (max-width: 1200px) {
+    margin-right: 10px; }
+  
 
   .monitorHeader {
     background: #090c9b;
@@ -77,6 +81,8 @@
   color: #000;
   font-weight: bold;
   border-radius: 6px;
+  @media screen and (max-width: 1200px) {
+    margin-right: 10px; }
 
   .functionalHeader {
     display: flex;
@@ -111,6 +117,8 @@
   color: #000;
   font-weight: bold;
   border-radius: 6px;
+  @media screen and (max-width: 1200px) {
+    margin-right: 10px; }
 
   .nonFuncHeader {
     display: flex;

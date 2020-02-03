@@ -6,7 +6,6 @@
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2.5%;
   box-shadow: 2px 1px 10px;
   border: none;
 }
@@ -14,8 +13,8 @@
 .accountHeader {
   @include grid-background;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+
   h1 {
     @include header-text;
     margin: 1%;
@@ -25,14 +24,9 @@
     border: none;
     height: 3rem;
     width: 35rem;
-    padding: 0.8rem 1.4rem;
     border-radius: 3px;
     font-size: 0.89rem;
-
-    @media screen and (max-width: 1200px) {
-      width: 15rem;
-      margin-right: 0;
-    }
+  
   }
 
   .headerBtns {
@@ -42,15 +36,15 @@
     width: 65.5%;
     margin-right: 1%;
 
-    @media screen and (max-width: 900px) {
-      width: 60%;
-      justify-content: space-evenly;
-      margin-right: 3%;
-    }
+    // @media screen and (max-width: 900px) {
+    //   width: 60%;
+    //   justify-content: space-evenly;
+    //   margin-right: 3%;
+    // }
 
     #deleteBtn {
       border: none;
-      font-size: 2.3rem;
+      // font-size: 2.3rem;
       background: transparent;
       min-width: 6rem;
       min-height: 6rem;
@@ -93,4 +87,16 @@
   width: 0px;
   border: none;
   background: transparent;
+}
+
+.searchContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  min-width: 0;
+
+  @media screen and (max-width: 1000px) {
+    width: 15rem;
+  }
 }

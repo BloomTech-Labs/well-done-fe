@@ -147,7 +147,14 @@ class Grid extends Component {
                 id='quickFilterss'
                 placeholder=' search...'
               />
-              <AiOutlineSearch className='searchIcons' />
+              <AiOutlineSearch 
+                  size={24}
+                  style={{
+                    position: 'relative',
+                    right: '28px',
+                    bottom: '5px',
+                    background: 'transparent',
+                  }} />
             </div>
             <div className='headerBtns'>
               <button
