@@ -49,7 +49,7 @@ const MonitorDetails = props => {
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
   let selectedSensor = props.selectedPump
- const sensorId =localStorage.getItem("sensor")
+  const sensorId = localStorage.getItem('sensor')
   useEffect(() => {
     dispatch(fetchHistoryById(sensorId))
     dispatch(fetchSensorById(sensorId))
@@ -179,13 +179,13 @@ const MonitorDetails = props => {
                 className={!isMonth ? 'weekBtnOn' : 'weekBtnOff'}
                 onClick={() => setIsMonth(!isMonth)}
               >
-                Weekly
+                Past 7 Days
               </p>
               <p
                 className={isMonth ? 'monthBtnOn' : 'monthBtnOff'}
                 onClick={() => setIsMonth(!isMonth)}
               >
-                Monthly
+                Past 30 Days
               </p>
             </div>
             <button
@@ -217,11 +217,13 @@ const MonitorDetails = props => {
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
-                  layout='vertical'
-                  wrapperStyle={{
-                    top: '200px',
-                    right: '-130px',
-                  }}
+                  layout='horizontal'
+                  wrapperStyle={
+                    {
+                      // top: '200px',
+                      // right: '-130px',
+                    }
+                  }
                 />
                 <Line
                   strokeOpacity={opacity.First_Pad_Count}
@@ -268,11 +270,11 @@ const MonitorDetails = props => {
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
-                  layout='vertical'
-                  wrapperStyle={{
-                    top: '200px',
-                    right: '-140px',
-                  }}
+                  layout='horizontal'
+                  // wrapperStyle={{
+                  //   top: '200px',
+                  //   right: '-140px',
+                  // }}
                 />
                 <Line
                   strokeOpacity={opacity.First_Pad_Second}
