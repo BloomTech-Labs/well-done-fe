@@ -31,7 +31,7 @@ const Dropdown = props => {
           <NavLink className='tab-nav' to='/overview'>
             Monitors
           </NavLink>
-          <NavLink className='tab-nav' to='/organization'>
+          <NavLink className='tab-nav' to='/organizations'>
             Organizations
           </NavLink>
           <NavLink
