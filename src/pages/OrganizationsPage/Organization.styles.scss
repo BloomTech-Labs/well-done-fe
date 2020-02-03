@@ -15,6 +15,11 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  @media screen and (max-width: 1024px) {
+    flex-direction: column; 
+  align-content: center;
+  }
+
 }
 
 
@@ -30,6 +35,9 @@
   border-radius: 6px;
   &:hover {
     transform: scale(1.01);
+  }
+  @media screen and (max-width: 1024px) {
+    width:45rem;
   }
 }
 
