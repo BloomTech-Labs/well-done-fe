@@ -6,6 +6,9 @@ import gridOptionss from '../../../components/Grid/Pagination'
 import './Radio.styles.scss'
 
 function RadioStatusFilter(props) {
+  const [isCheckedFunc, setIsCheckedFunc] = useState(false)
+  const [isCheckedNon, setIsCheckedNon] = useState(false)
+  // const [isChecked, setIsChecked] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState({
     func: false,
     non: false,
@@ -42,6 +45,7 @@ function RadioStatusFilter(props) {
   }
 
   const onClear = e => {
+    let targetCheck = e.target.checked
     e.preventDefault()
     dispatch({ type: CLEAR_FILTER })
   }
@@ -56,6 +60,8 @@ function RadioStatusFilter(props) {
           value='Functioning'
           name='func'
           onClick={handleClick}
+          onChange={e => setIsCheckedFunc(e.target.checked)}
+          checked={isCheckedFunc}
         />
         <p>Functioning</p>
         <input
@@ -64,6 +70,8 @@ function RadioStatusFilter(props) {
           value='Non-Functioning'
           name='non'
           onClick={handleClick}
+          onChange={e => setIsCheckedNon(e.target.checked)}
+          checked={isCheckedNon}
         />
         <p>Non-Functioning</p>
         <input
@@ -72,6 +80,8 @@ function RadioStatusFilter(props) {
           value='n/a'
           name='na'
           onClick={handleClick}
+          // onChange={e => setIsChecked(e.target.checked)}
+          // checked={isChecked}
         />
         <p>N/A</p>
         {/* </div> */}

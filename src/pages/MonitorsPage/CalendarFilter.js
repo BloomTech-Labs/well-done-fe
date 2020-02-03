@@ -45,21 +45,28 @@ function CalendarFilter(props) {
   }
 
   return (
-    <div className='calendarContainer'>
-      <div className='subCalendarContainer'>
-        <div className='calContainer'>
-          <input type='date' onChange={onQuickFilterByCal} id='dateCal' />
+    <>
+      <div className='calendarContainer'>
+        <div className='subCalendarContainer'>
+          <div className='calContainer'>
+            <input type='date' onChange={onQuickFilterByCal} id='dateCal' />
+          </div>
+          <div className='calContainerComp'>
+            <input type='date' onChange={onQuickFilterByCal} id='compCal' />
+          </div>
         </div>
-        <div className='calContainerComp'>
-          <input type='date' onChange={onQuickFilterByCal} id='compCal' />
+
+        <div className='dropDownContainer'>
+          <div className='dropInner'>
+            <StatusDropDown />
+            <NgoDropDown />
+          </div>
+          <div className='radioContainer'>
+            <RadioStatusFilter gridInfo={props.gridInfo} />
+          </div>
         </div>
       </div>
-      <div className='dropDownContainer'>
-        <StatusDropDown />
-        <NgoDropDown />
-        <RadioStatusFilter gridInfo={props.gridInfo} />
-      </div>
-    </div>
+    </>
   )
 }
 
