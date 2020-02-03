@@ -18,31 +18,33 @@ class LogsFilters extends Component {
   render() {
     return (
       <>
-        <select
-          name='Status'
-          onFocus={this.handleFocus}
-          onChange={this.onQuickFilterByStatus}
-          id='statusLogs'
-        >
-          <option value=''>Status</option>
-          <option value='Functioning'>Functioning</option>
-          <option value='Non-Functioning'>Non-Functioning</option>
-          <option value='N/A'>N/A</option>
-        </select>
+        <div className='monitorDropContainer'>
+          <select
+            name='Status'
+            onFocus={this.handleFocus}
+            onChange={this.onQuickFilterByStatus}
+            id='statusLogs'
+          >
+            <option value=''>Status</option>
+            <option value='Functioning'>Functioning</option>
+            <option value='Non-Functioning'>Non-Functioning</option>
+            <option value='N/A'>N/A</option>
+          </select>
 
-        <select
-          name='opLogs'
-          onFocus={this.handleFocus}
-          onChange={this.onQuickFilterByOperator}
-          id='opLogs'
-        >
-          <option value=''>NGO</option>
-          {this.props.ngo.map(log => (
-            <option key={log.id} value={log.org_name}>
-              {log.org_name}
-            </option>
-          ))}
-        </select>
+          <select
+            name='opLogs'
+            onFocus={this.handleFocus}
+            onChange={this.onQuickFilterByOperator}
+            id='opLogs'
+          >
+            <option value=''>NGO</option>
+            {this.props.ngo.map(log => (
+              <option key={log.id} value={log.org_name}>
+                {log.org_name}
+              </option>
+            ))}
+          </select>
+        </div>
       </>
     )
   }
