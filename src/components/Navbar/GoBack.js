@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router'
 import back from 'icons/BackArrow.svg'
-import 'pages/MonitorsLineChart.styles.scss'
+import '../../pages/MonitorDetails/MonitorDetails.style.scss'
 
 const GoBack = props => {
   return (

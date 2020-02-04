@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { FILTERED_SENSORS, CLEAR_FILTER } from 'actions/sensorActions'
-import StatusDropDown from './StatusDropDown'
-import NgoDropDown from './NgoDropDown'
+import StatusDropDown from '../StatusDropDown'
+import NgoDropDown from '../NgoDropDown'
 import './CalFilter.scss'
-import RadioStatusFilter from './RadioButton/RadioStatusFilter'
+import RadioStatusFilter from '../RadioButton/RadioStatusFilter'
 
 function CalendarFilter(props) {
   const [selectedDate, setSelectedDate] = React.useState('')

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Pie } from 'react-chartjs-2'
-import './MonitorsPage.scss'
+import '../MonitorsPage/Monitors/MonitorsPage.scss'
 
 function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   const data = {

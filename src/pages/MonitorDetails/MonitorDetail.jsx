@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import 'antd/dist/antd.css'
-import './MonitorDetail.css'
+// import './MonitorDetail.css'
 import HeatChart from 'components/HeatChart/heatChart'
 import MonitorDetailHeader from './MonitorDetailHeader'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
+import OrganizationActivity from '../../components/DashBoardComponents/OrganizationActivity'
 import {
   LineChart,
   Line,
@@ -17,11 +17,11 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts'
-import './MonitorsLineChart.styles.scss'
+import '../MonitorDetails/MonitorsLineChart.styles.scss'
 
 //redux
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
-import LogsTable from './MonitorsPage/Logs/LogsTable'
+import LogsTable from '../MonitorsPage/Logs/LogsTable'
 
 const MonitorDetails = props => {
   const [isMonth, setIsMonth] = useState(false)

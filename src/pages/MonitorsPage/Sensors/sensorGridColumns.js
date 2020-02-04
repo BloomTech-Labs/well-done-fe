@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import ViewButton from '../../components/DashBoardComponents/ViewButton'
-import TrashCan from './TrashCan'
+import ViewButton from '../../../components/DashBoardComponents/ViewButton'
+import TrashCan from '../TrashCan'
 import moment from 'moment'
 
 // needs sesnor data too pass down

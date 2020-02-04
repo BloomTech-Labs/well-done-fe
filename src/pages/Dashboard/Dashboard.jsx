@@ -3,7 +3,7 @@ import Map from 'components/Map/Map.component'
 import Search from 'components/Search/Search.component'
 import Filter from 'components/Filter/Filter.component'
 import IconsFilter from 'components/Filter/IconFilters'
-import Sensors from './MonitorsPage/Sensors'
+import Sensors from '../MonitorsPage/Sensors/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   fetchSensorsWithHistory,
@@ -11,7 +11,7 @@ import {
 } from 'actions/sensorActions'
 import { fetchHistory } from 'actions/sensorHistory'
 
-import Testing from './MonitorsPage/Sensors'
+import Testing from '../MonitorsPage/Sensors/Sensors'
 import AccountGrid from 'components/Grid/accountGrid/AccountGrid'
 import Banner from './Banner'
 import StaticMenu from 'components/Menu/StaticMenu.js'

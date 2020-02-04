@@ -51,7 +51,7 @@ class LogsFilters extends Component {
 }
 const mapStateToProps = state => {
   return {
-    ngo: state.logsReducer.logsUpdate,
+    ngo: state.orgReducer.org,
   }
 }
 export default connect(mapStateToProps, {})(LogsFilters)
