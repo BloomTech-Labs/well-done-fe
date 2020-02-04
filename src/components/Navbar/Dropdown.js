@@ -21,6 +21,8 @@ const Dropdown = props => {
 
   useOnClickOutside(ref, () => props.setterFunction(true))
 
+  const userRole = localStorage.getItem('role')
+
   return (
     <div className='drop-down' ref={ref}>
       <div className='item-container'>
@@ -31,9 +33,16 @@ const Dropdown = props => {
           <NavLink className='tab-nav' to='/overview'>
             Monitors
           </NavLink>
-          <NavLink className='tab-nav' to='/organizations'>
-            Organizations
+          <NavLink className='tab-nav' to='/admin'>
+            Admin
           </NavLink>
+
+          {userRole === 'super_user' ? (
+            <NavLink className='tab-nav' to='/organizations'>
+              Organizations
+            </NavLink>
+          ) : null}
+
           <NavLink
             to='/settings'
             activeClassName='activeNavButton'
