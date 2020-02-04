@@ -19,28 +19,43 @@
     margin: 1%;
   }
 
-  .searchAccounts {
-    border: none;
-    height: 3rem;
-    width: 35rem;
-    border-radius: 3px;
-    font-size: 0.89rem;
-  }
+  
 
   .headerBtns {
     display: flex;
     margin-right: 1%;
     width: 65.5%;
     justify-content: flex-end;
+    
 
     .deleteBtn {
       border: none;
       background: transparent;
-      margin: 0;
-      min-width: 2rem;
+      // margin: 0;
+      // min-width: 2rem;
+      min-width: 6rem;
+      min-height: 6rem;
     }
 
-    .downloadButton {
+   
+
+    .modalHeaderOrg {
+      display: flex;
+      align-items: center;
+
+      .addOrg {
+        border: none;
+        background: transparent;
+    
+      
+        // @media screen and (max-width: 1600px) {
+          // margin-left: -1.7rem;
+        // }
+      }
+      
+    }
+  } 
+  .downloadButton {
       background: transparent;
       border: none;
       margin: 0;
@@ -48,19 +63,29 @@
       
     }
 
-    .modalHeaderOrg {
-      display: flex;
-      align-items: center;
+    .searchAccounts {
+      border: none;
+      height: 3rem;
+      width: 35rem;
+      border-radius: 3px;
+      font-size: 0.89rem;
+       
+    // @media screen and (max-width: 1000px) {
+    //   width: 55rem;
+    // }
+  
     }
-  }
   .inputContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
+    min-width: 0;
+  
+
 
     @media screen and (max-width: 1000px) {
-      width: 15rem;
+      width: 55%;
     }
   }
 
@@ -70,12 +95,3 @@
   }
 }
 
-.addOrg {
-  border: none;
-  background: transparent;
-
-
-  @media screen and (max-width: 1600px) {
-    // margin-left: -1.7rem;
-  }
-}

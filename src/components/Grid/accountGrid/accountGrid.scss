@@ -6,6 +6,7 @@
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 3rem;
   box-shadow: 2px 1px 10px;
   border: none;
 }
@@ -20,14 +21,7 @@
     margin: 1%;
   }
 
-  .searchAccounts {
-    border: none;
-    height: 3rem;
-    width: 35rem;
-    border-radius: 3px;
-    font-size: 0.89rem;
-  
-  }
+
 
   .headerBtns {
     display: flex;
@@ -88,15 +82,24 @@
   border: none;
   background: transparent;
 }
-
+  .searchAccounts {
+    border: none;
+    width: 35rem;
+    border-radius: 3px;
+    font-size: 0.89rem;
+    line-height: 15rem;
+  
+  }
 .searchContainer{
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
   min-width: 0;
+  
+
 
   @media screen and (max-width: 1000px) {
-    width: 15rem;
+    width: 55%;
   }
 }
