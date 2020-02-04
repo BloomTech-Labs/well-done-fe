@@ -6,7 +6,6 @@ $icon-color: #ffffff;
 $accent-color: #03a9f4;
 
 $header-height: 50px;
-$row-height: 40px;
 $row-border-width: 1px;
 $hover-color: #accdff;
 $header-background-color: #090c9b;
@@ -18,7 +17,16 @@ $border-color: #090a3f;
 
 .sensorChart {
   background: #d5d6e9;
-  height: 100px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 1100px) {
+    height: 200px;
+  }
+
   .sensorHeader {
     border: none;
     display: flex;
@@ -26,15 +34,24 @@ $border-color: #090a3f;
     margin-bottom: 13px;
     background: #d5d6e9;
     justify-content: center;
+
+    @media screen and (max-width: 1064px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 80%;
+    }
     .searchInsensors {
       border: none;
       height: 3.6rem;
-      min-width: 26rem;
+      width: 26rem;
       padding: 0.8rem 1.4rem;
       border-radius: 3px;
       font-size: 1.6rem;
       margin: 0;
-      
+
+      @media screen and (max-width: 1064px) {
+      }
     }
 
     .headerButton {
@@ -103,11 +120,15 @@ $border-color: #090a3f;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 600px;
-  
+  width: 600px;
+
+  @media screen and (max-width: 1064px) {
+    margin-top: 3rem;
+    width: 110%;
+  }
 }
-input{
-  color:black;
+input {
+  color: black;
 }
 #quickFilter {
   width: 100%;
@@ -149,9 +170,26 @@ input{
 }
 .dropDownContainer {
   display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  top: 496px;
+  justify-content: center;
+  margin: 0;
+  // position: absolute;
+  // top: 496px;
+
+  @media screen and (max-width: 1050px) {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    // position: absolute;
+    // top: 550px;
+    // left: 0;
+    margin: 0;
+    margin-bottom: 3rem;
+  }
+  .dropInner {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 #none {
@@ -190,11 +228,9 @@ input{
 }
 .orgLabel {
   font-size: 10px;
-  margin-bottom: -8px;
 }
 .hqLabel {
   font-size: 10px;
-  margin-bottom: -8px;
 }
 .textInput {
   height: 3rem !important;
@@ -231,6 +267,6 @@ input{
   padding-bottom: 5%;
 }
 
-.ag-floating-filter-input{
-  color:black;
+.ag-floating-filter-input {
+  color: black;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import 'antd/dist/antd.css'
-import './MonitorsPage.scss'
+import '../MonitorsPage/Monitors/MonitorsPage.scss'
 
 function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
   return (

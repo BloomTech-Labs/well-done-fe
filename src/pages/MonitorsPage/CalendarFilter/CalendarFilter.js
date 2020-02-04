@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { useDispatch } from 'react-redux'
 import { FILTERED_SENSORS, CLEAR_FILTER } from 'actions/sensorActions'
-import StatusDropDown from './StatusDropDown'
-import NgoDropDown from './NgoDropDown'
+import StatusDropDown from '../StatusDropDown'
+import NgoDropDown from '../NgoDropDown'
 import './CalFilter.scss'
+import RadioStatusFilter from '../RadioButton/RadioStatusFilter'
 
 function CalendarFilter(props) {
   const [selectedDate, setSelectedDate] = React.useState('')
@@ -44,20 +45,28 @@ function CalendarFilter(props) {
   }
 
   return (
-    <div className='calendarContainer'>
-      <div className='subCalendarContainer'>
-        <div className='calContainer'>
-          <input type='date' onChange={onQuickFilterByCal} id='dateCal' />
+    <>
+      <div className='calendarContainer'>
+        <div className='subCalendarContainer'>
+          <div className='calContainer'>
+            <input type='date' onChange={onQuickFilterByCal} id='dateCal' />
+          </div>
+          <div className='calContainerComp'>
+            <input type='date' onChange={onQuickFilterByCal} id='compCal' />
+          </div>
         </div>
-        <div className='calContainerComp'>
-          <input type='date' onChange={onQuickFilterByCal} id='compCal' />
+
+        <div className='dropDownContainer'>
+          <div className='dropInner'>
+            <StatusDropDown />
+            <NgoDropDown />
+          </div>
+          <div className='radioContainer'>
+            <RadioStatusFilter gridInfo={props.gridInfo} />
+          </div>
         </div>
       </div>
-      <div className='dropDownContainer'>
-        <StatusDropDown />
-        <NgoDropDown />
-      </div>
-    </div>
+    </>
   )
 }
 

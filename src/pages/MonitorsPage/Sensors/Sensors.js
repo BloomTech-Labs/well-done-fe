@@ -5,23 +5,24 @@ import { AgGridReact } from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css'
 import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import { columnsFunc } from './sensorGridColumns'
-import gridOptionss from '../../components/Grid/Pagination'
-import './Sensors.style.scss'
+import gridOptionss from '../../../components/Grid/Pagination'
+import '../../MonitorsPage/Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import SensorSelector from './SensorSelector'
+import SensorSelector from '../SensorSelector'
 
-import TrashCan from './TrashCan'
+import TrashCan from '../TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
-import SensorsModal from './SensorsModal'
+import SensorsModal from '../SensorsModal'
 import moment from 'moment'
 
-import { deleteSensor } from '../../actions/sensorActions'
+import { deleteSensor } from '../../../actions/sensorActions'
 
-import deleteIcon from '../../icons/DeleteModeButton.svg'
-import Archivebutton from '../../icons/Archivebutton.svg'
+import deleteIcon from '../../../icons/DeleteModeButton.svg'
+import Archivebutton from '../../../icons/Archivebutton.svg'
 import { date } from 'yup'
-import CalendarFilter from './CalendarFilter'
+import CalendarFilter from '../CalendarFilter/CalendarFilter'
+import RadioStatusFilter from '../RadioButton/RadioStatusFilter'
 
 const Sensors = props => {
   useEffect(() => {
@@ -119,6 +120,7 @@ const Sensors = props => {
             />
 
             <AiOutlineSearch className='searchIcon' />
+            {/* <RadioStatusFilter gridInfo={props.gridInfo} /> */}
           </div>
 
           <CalendarFilter gridInfo={props.gridInfo} gridApi={gridApi} />
@@ -126,7 +128,7 @@ const Sensors = props => {
         {/* FIGURE OUT WHERE THIS WILL BE PLACE LATER */}
         {/* <div className='headerButton'>{deleteDisplay()}</div>  */}
 
-         <SensorSelector />
+        {/* <SensorSelector /> */}
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div

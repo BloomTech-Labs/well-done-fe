@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchSensorsWithHistory } from 'actions/sensorActions'
 import { fetchOrg } from 'actions/orgAction'
 
-import StatusCards from './StatusCards'
-import PercentageChart from './PercentageChart'
-import Sensors from './Sensors'
-import './MonitorsPage.scss'
+import StatusCards from '../StatusCards'
+import PercentageChart from '../PercentageChart'
+import Sensors from '../Sensors/Sensors'
+import '../Monitors/MonitorsPage.scss'
 
 const MonitorsPage = props => {
   const sensorSelector = useSelector(state => state.sensorReducer)

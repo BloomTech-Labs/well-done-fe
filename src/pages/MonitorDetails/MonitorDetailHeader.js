@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import ReactMapGl, { Marker } from 'react-map-gl'
-import GoBack from '../components/Navbar/GoBack'
+import GoBack from '../../components/Navbar/GoBack'
 import './MonitorDetailHeader.scss'
-import functionalBadge from '../icons/Functional.svg'
-import nonFuncBadge from '../icons/NonFunctioning.svg'
-import unknownBadge from '../icons/Unknown.svg'
+import functionalBadge from 'icons/Functional.svg'
+import nonFuncBadge from 'icons/NonFunctioning.svg'
+import unknownBadge from 'icons/Unknown.svg'
 import moment from 'moment'
 
 function MonitorDetailHeader(props) {

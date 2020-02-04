@@ -19,14 +19,6 @@
     margin: 1%;
   }
 
-  .searchAccounts {
-    border: none;
-    height: 3rem;
-    width: 35rem;
-    border-radius: 3px;
-    font-size: 0.89rem;
-  }
-
   .headerBtns {
     display: flex;
     margin-right: 1%;
@@ -36,40 +28,74 @@
     .deleteBtn {
       border: none;
       background: transparent;
+      &:focus {
+        outline: none;
+      }
     }
 
     .downloadButton {
       background: transparent;
       border: none;
+      &:focus {
+        outline: none;
+      }
+      min-width: 6rem;
+      min-height: 6rem;
     }
 
     .modalHeaderOrg {
       display: flex;
       align-items: center;
+      &:focus {
+        outline: none;
+
+        .addOrg {
+          border: none;
+          background: transparent;
+        }
+      }
+    }
+    .downloadButton {
+      background: transparent;
+      border: none;
+      margin: 0;
+      min-width: 4rem;
+    }
+
+    .searchAccounts {
+      border: none;
+      height: 3rem;
+      width: 35rem;
+      border-radius: 3px;
+      font-size: 1rem;
+    }
+    .inputContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      min-width: 0;
+
+      @media screen and (max-width: 1000px) {
+        width: 55%;
+      }
+    }
+
+    .orgHeaderButton {
+      @include grid-background;
+      @include header-text;
     }
   }
-  .inputContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
 
-    @media screen and (max-width: 1000px) {
-      width: 15rem;
+  .addOrg {
+    border: none;
+    background: transparent;
+    &:focus {
+      outline: none;
     }
-  }
 
-  .orgHeaderButton {
-    @include grid-background;
-    @include header-text;
-  }
-}
-
-.addOrg {
-  border: none;
-  background: transparent;
-
-  @media screen and (max-width: 1600px) {
-    // margin-left: -1.7rem;
+    @media screen and (max-width: 1600px) {
+      // margin-left: -1.7rem;
+    }
   }
 }

@@ -7,18 +7,31 @@
   display: flex;
   padding-top: 5rem;
   background: #d5d6e9;
-  height: 35rem;
+  // height: 55rem;
   border: none;
+
+  @media screen and(max-width:800px) {
+    width: 100%;
+  }
 }
 
 .cardsContainer {
   display: flex;
   width: 70%;
+
+  @media screen and(max-width:800px) {
+    width: 100%;
+  }
 }
 
 .percentContainer {
   min-width: 25%;
   min-height: 100%;
+  display: block;
+
+  @media screen and(max-width:800px) {
+    display: none;
+  }
 }
 
 .pieChart {
@@ -26,11 +39,18 @@
   min-width: 60%;
 }
 .statusContainer {
+  position: relative;
   display: flex;
   justify-content: space-around;
   width: 100%;
   align-items: center;
   padding-bottom: 2rem;
+  flex-wrap: wrap;
+  height: 300px;
+
+  @media screen and(max-width:800px) {
+    width: 100%;
+  }
 }
 .monitorCard {
   display: flex;
@@ -44,6 +64,10 @@
   font-size: 1.8rem;
   border-radius: 6px;
   font-weight: bold;
+  
+   @media screen and (max-width: 1200px) {
+    margin-right: 10px; }
+  
 
   .monitorHeader {
     background: #090c9b;
@@ -64,6 +88,8 @@
 
   p {
     margin-top: -2rem;
+    color: #292929;
+    font-size: 2rem;
   }
 }
 
@@ -77,6 +103,8 @@
   color: #000;
   font-weight: bold;
   border-radius: 6px;
+  @media screen and (max-width: 1200px) {
+    margin-right: 10px; }
 
   .functionalHeader {
     display: flex;
@@ -95,9 +123,11 @@
   .percent {
     margin: -0.2rem;
     font-size: 2rem;
+    color: #292929;
   }
   .outOf {
     font-weight: 300;
+    color: #292929;
   }
 }
 
@@ -111,6 +141,8 @@
   color: #000;
   font-weight: bold;
   border-radius: 6px;
+  @media screen and (max-width: 1200px) {
+    margin-right: 10px; }
 
   .nonFuncHeader {
     display: flex;
@@ -130,9 +162,11 @@
   .percent {
     margin: -0.2rem;
     font-size: 2rem;
+    color: #292929;
   }
   .outOf {
     font-weight: 300;
+    color: #292929;
   }
 }
 
@@ -165,9 +199,11 @@
   .percent {
     margin: -0.2rem;
     font-size: 2rem;
+    color: #292929;
   }
   .outOf {
     font-weight: 300;
+    color: #292929;
   }
 }
 .sensorTable {

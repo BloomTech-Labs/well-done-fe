@@ -20,7 +20,7 @@ class NgoDropDown extends Component {
         <select
           name='company'
           onFocus={this.handleFocus}
-          onChange={this.onQuickFilterByOperator}
+          onChange={this.onQuickFilterByCompany}
           id='company'
         >
           <option value=''>NGO</option>
