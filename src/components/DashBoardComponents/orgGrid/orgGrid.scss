@@ -36,11 +36,16 @@
     .deleteBtn {
       border: none;
       background: transparent;
+      margin: 0;
+      min-width: 4rem;
     }
 
     .downloadButton {
       background: transparent;
       border: none;
+      margin: 0;
+      min-width: 4rem;
+      
     }
 
     .modalHeaderOrg {
@@ -68,6 +73,7 @@
 .addOrg {
   border: none;
   background: transparent;
+
 
   @media screen and (max-width: 1600px) {
     // margin-left: -1.7rem;
