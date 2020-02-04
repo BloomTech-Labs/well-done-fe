@@ -45,7 +45,6 @@ function RadioStatusFilter(props) {
   }
 
   const onClear = e => {
-    let targetCheck = e.target.checked
     e.preventDefault()
     dispatch({ type: CLEAR_FILTER })
   }

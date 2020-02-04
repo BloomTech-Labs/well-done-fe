@@ -58,8 +58,6 @@ const MonitorDetails = props => {
     }
   }, [])
 
-  console.log(historySelector.individualSensorHistory)
-
   const padHistory = historySelector.individualSensorHistory
 
   const date = padHistory.slice(-30).map(day => day.date)
@@ -144,6 +142,7 @@ const MonitorDetails = props => {
     })
   }
 
+  // sets opacity of line to 0 when clicked in the legend
   const handleClick = e => {
     const { dataKey } = e
     if (isClicked) {
@@ -159,7 +158,6 @@ const MonitorDetails = props => {
     }
     setIsClicked(!isClicked)
   }
-  console.log('check')
 
   return (
     <div className='monitorDetailsContainer'>

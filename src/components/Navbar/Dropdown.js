@@ -19,7 +19,7 @@ const Dropdown = props => {
   }
   const ref = React.useRef(null)
 
-  useOnClickOutside(ref, () => props.setterFunction(true))
+  useOnClickOutside(ref, () => props.setterFunction(false))
 
   const userRole = localStorage.getItem('role')
 
