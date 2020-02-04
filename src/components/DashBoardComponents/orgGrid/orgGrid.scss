@@ -39,8 +39,6 @@
       &:focus {
         outline: none;
       }
-      min-width: 6rem;
-      min-height: 6rem;
     }
 
     .modalHeaderOrg {
@@ -48,54 +46,52 @@
       align-items: center;
       &:focus {
         outline: none;
-
-        .addOrg {
-          border: none;
-          background: transparent;
-        }
       }
     }
-    .downloadButton {
-      background: transparent;
-      border: none;
-      margin: 0;
-      min-width: 4rem;
-    }
+  }
+  .downloadButton {
+    background: transparent;
+    border: none;
+    margin: 0;
+    min-width: 4rem;
+  }
 
-    .searchAccounts {
-      border: none;
-      height: 3rem;
-      width: 35rem;
-      border-radius: 3px;
-      font-size: 1rem;
-    }
-    .inputContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 1rem;
-      min-width: 0;
+  .searchAccounts {
+    border: none;
+    height: 3rem;
+    width: 35rem;
+    border-radius: 3px;
+    font-size: 1rem;
+  }
+  .inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    min-width: 0;
 
-      @media screen and (max-width: 1000px) {
-        width: 55%;
-      }
-    }
-
-    .orgHeaderButton {
-      @include grid-background;
-      @include header-text;
+    @media screen and (max-width: 1000px) {
+      width: 55%;
     }
   }
 
-  .addOrg {
-    border: none;
-    background: transparent;
-    &:focus {
-      outline: none;
-    }
-
-    @media screen and (max-width: 1600px) {
-      // margin-left: -1.7rem;
-    }
+  .orgHeaderButton {
+    @include grid-background;
+    @include header-text;
   }
 }
+
+.addOrg {
+  border: none;
+  background: transparent;
+  &:focus {
+    outline: none;
+  }
+
+  @media screen and (max-width: 1600px) {
+    // margin-left: -1.7rem;
+  }
+}
+
+
+
