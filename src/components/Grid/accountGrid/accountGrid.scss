@@ -54,6 +54,9 @@
       background: transparent;
       min-width: 6rem;
       min-height: 6rem;
+      &:focus {
+        outline: none;
+      }
 
       @media screen and (max-width: 1000px) {
         margin-right: 1rem;
@@ -67,6 +70,10 @@
       .addAccount {
         border: none;
         background: transparent;
+
+        &:focus {
+          outline: none;
+        }
       }
     }
   }
@@ -77,6 +84,9 @@
   min-width: 4rem;
   background: transparent;
   border: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .searchIcons {

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import 'antd/dist/antd.css'
-import './MonitorDetail.css'
+// import './MonitorDetail.css'
 import HeatChart from 'components/HeatChart/heatChart'
 import MonitorDetailHeader from './MonitorDetailHeader'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import OrganizationActivity from '../components/DashBoardComponents/OrganizationActivity'
+import OrganizationActivity from '../../components/DashBoardComponents/OrganizationActivity'
 import {
   LineChart,
   Line,
@@ -17,11 +17,11 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts'
-import './MonitorsLineChart.styles.scss'
+import '../MonitorDetails/MonitorsLineChart.styles.scss'
 
 //redux
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
-import LogsTable from './MonitorsPage/Logs/LogsTable'
+import LogsTable from '../MonitorsPage/Logs/LogsTable'
 
 const MonitorDetails = props => {
   const [isMonth, setIsMonth] = useState(false)
@@ -49,7 +49,7 @@ const MonitorDetails = props => {
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
   let selectedSensor = props.selectedPump
- const sensorId =localStorage.getItem("sensor")
+  const sensorId = localStorage.getItem('sensor')
   useEffect(() => {
     dispatch(fetchHistoryById(sensorId))
     dispatch(fetchSensorById(sensorId))
@@ -57,8 +57,6 @@ const MonitorDetails = props => {
       dispatch({ type: 'CLEAR_SELECTED' })
     }
   }, [])
-
-  console.log(historySelector.individualSensorHistory)
 
   const padHistory = historySelector.individualSensorHistory
 
@@ -144,6 +142,7 @@ const MonitorDetails = props => {
     })
   }
 
+  // sets opacity of line to 0 when clicked in the legend
   const handleClick = e => {
     const { dataKey } = e
     if (isClicked) {
@@ -159,7 +158,6 @@ const MonitorDetails = props => {
     }
     setIsClicked(!isClicked)
   }
-  console.log('check')
 
   return (
     <div className='monitorDetailsContainer'>
@@ -179,13 +177,13 @@ const MonitorDetails = props => {
                 className={!isMonth ? 'weekBtnOn' : 'weekBtnOff'}
                 onClick={() => setIsMonth(!isMonth)}
               >
-                Weekly
+                Past 7 Days
               </p>
               <p
                 className={isMonth ? 'monthBtnOn' : 'monthBtnOff'}
                 onClick={() => setIsMonth(!isMonth)}
               >
-                Monthly
+                Past 30 Days
               </p>
             </div>
             <button
@@ -217,11 +215,13 @@ const MonitorDetails = props => {
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
-                  layout='vertical'
-                  wrapperStyle={{
-                    top: '200px',
-                    right: '-130px',
-                  }}
+                  layout='horizontal'
+                  wrapperStyle={
+                    {
+                      // top: '200px',
+                      // right: '-130px',
+                    }
+                  }
                 />
                 <Line
                   strokeOpacity={opacity.First_Pad_Count}
@@ -268,11 +268,11 @@ const MonitorDetails = props => {
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
-                  layout='vertical'
-                  wrapperStyle={{
-                    top: '200px',
-                    right: '-140px',
-                  }}
+                  layout='horizontal'
+                  // wrapperStyle={{
+                  //   top: '200px',
+                  //   right: '-140px',
+                  // }}
                 />
                 <Line
                   strokeOpacity={opacity.First_Pad_Second}

@@ -36,16 +36,25 @@
     .deleteBtn {
       border: none;
       background: transparent;
+      &:focus {
+        outline: none;
+      }
     }
 
     .downloadButton {
       background: transparent;
       border: none;
+      &:focus {
+        outline: none;
+      }
     }
 
     .modalHeaderOrg {
       display: flex;
       align-items: center;
+      &:focus {
+        outline: none;
+      }
     }
   }
   .inputContainer {
@@ -68,6 +77,9 @@
 .addOrg {
   border: none;
   background: transparent;
+  &:focus {
+    outline: none;
+  }
 
   @media screen and (max-width: 1600px) {
     // margin-left: -1.7rem;

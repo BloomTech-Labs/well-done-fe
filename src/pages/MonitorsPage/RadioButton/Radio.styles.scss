@@ -1,0 +1,18 @@
+.checkboxes {
+  display: flex;
+  //   margin-left: 10%;
+  justify-content: space-around;
+  width: 100%;
+
+  .radioBtnContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  input {
+    margin-left: 2rem;
+  }
+  p {
+    margin-left: 0.8rem;
+  }
+}

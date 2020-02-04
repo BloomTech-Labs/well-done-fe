@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPumps } from '../../actions/pumpAction'
 
-import './Sensors'
+import './Sensors/Sensors'
 
 //will be changed to sensorsAction
 import { postSensor, postSensorNPump } from '../../actions/sensorActions'
