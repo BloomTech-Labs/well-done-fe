@@ -25,6 +25,27 @@ const sensorReducer = (state = initialState, action) => {
         isFetching: false,
         error: '',
         sensors: action.payload,
+        gridInfo: action.payload.map(item => {
+          if (item.status === null) {
+            return {
+              ...item,
+              status: 'N/A',
+              created_at: moment(item.created_at).format('MM/DD/YYYY'),
+            }
+          } else if (item.status === 2) {
+            return {
+              ...item,
+              status: 'Functioning',
+              created_at: moment(item.created_at).format('MM/DD/YYYY'),
+            }
+          } else if (item.status === 1) {
+            return {
+              ...item,
+              status: 'Non-Functioning',
+              created_at: moment(item.created_at).format('MM/DD/YYYY'),
+            }
+          }
+        }),
       }
     case types.SENSOR_FAILURE:
       return {
