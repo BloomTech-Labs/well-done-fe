@@ -118,7 +118,7 @@ class OrgGrid extends Component {
             <input
               className='searchAccounts'
               type='text'
-              onInput={this.onQuickFilterChanged}
+              onInput={this.onQuickFilterChanged.bind(this)}
               id='quickFilters'
               placeholder='search...'
             />
@@ -129,9 +129,9 @@ class OrgGrid extends Component {
                 right: '28px',
                 bottom: '5px',
                 background: 'transparent',
-              }}
-            />
-          </div>
+              }}/>
+        </div>
+        
 
           <div className='headerBtns'>
             <button
