@@ -23,7 +23,7 @@ const Dashboard = props => {
     latitude: 13.004758,
     longitude: 105.784788,
     width: '100%',
-    height: '720px',
+    height: '100vh',
     zoom: 2,
   })
   const sensorSelector = useSelector(state => state.sensorReducer)
@@ -53,7 +53,7 @@ const Dashboard = props => {
         latitude: 13.5651,
         longitude: 104.7538,
         width: window.innerWidth - 20,
-        height: '720px',
+        height: '100vh',
         zoom: 8,
         scrollZoom: false,
         boxZoom: false,
@@ -78,7 +78,7 @@ const Dashboard = props => {
         latitude: 13.5651,
         longitude: 104.7538,
         width: '100%',
-        height: '720px',
+        height: '100vh',
         zoom: 8,
         scrollZoom: false,
         boxZoom: false,
@@ -141,7 +141,7 @@ const Dashboard = props => {
           history={historySelector.history}
           selectedPump={props.selectedPump}
         />
-        <Banner />
+        {/* <Banner /> */}
         <Search
           sensors={sensorSelector.sensors}
           searchFiltered={props.searchFiltered}

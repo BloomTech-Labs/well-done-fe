@@ -110,7 +110,7 @@ const Sensors = props => {
     <>
       <div className='sensorChart'>
         <div className='sensorHeader'>
-          <div className='searchContainer'>
+          <div className='searchSensorContainer'>
             <input
               className='searchInsensors'
               type='text'

@@ -1,3 +1,37 @@
+## Well Done
+
+---
+
+[Deployed Site](https://welldone.netlify.com/)
+
+## Labs 19 Team
+
+---
+
+Team Lead - Luis Martinez [Github](https://github.com/luiscmartinez)<br>
+Gavin Dreyer [Github](https://github.com/Gavin-Dreyer)<br>
+Russ Terry [Github](https://github.com/Surfsol)<br>
+Taylor Hunkler [Github](https://github.com/taylorhh5)<br>
+Justin Nichols [Github](https://github.com/jnichols93)<br>
+Timothy Sharkey [Github](https://github.com/Techne3)<br>
+
+## Tech Stack
+
+---
+
+- React
+- ag-Grid
+- SASS
+- Semantic UI
+- Reactstrap
+- NodeJS
+- Postgres
+- Express
+- SQL
+- Knex
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,4 +100,3 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
