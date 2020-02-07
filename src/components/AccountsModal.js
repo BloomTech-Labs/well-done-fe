@@ -15,7 +15,7 @@ import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 import add from '../icons/AddButton.svg'
 
-import { Dropdown, Form } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 
 const useStyles = makeStyles(theme => ({
   modal: {
