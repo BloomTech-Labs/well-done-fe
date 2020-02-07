@@ -9,7 +9,7 @@ import {
   fetchSensorsWithHistory,
   fetchSensorsByOrgId,
 } from 'actions/sensorActions'
-import { fetchHistory } from 'actions/sensorHistory'
+import { fetchHistory } from 'actions/sensorHistoryActions'
 
 import Testing from '../MonitorsPage/Sensors/Sensors'
 import AccountGrid from 'components/Grid/accountGrid/AccountGrid'
@@ -120,10 +120,7 @@ const Dashboard = props => {
     zoomInto()
   }, [props.searchFiltered])
 
-  if (
-    sensorSelector.sensors.length === 0 ||
-    sensorSelector.gridInfo.length === 0
-  ) {
+  if (sensorSelector.sensors.length === 0) {
     return <div>loading...</div>
   }
 

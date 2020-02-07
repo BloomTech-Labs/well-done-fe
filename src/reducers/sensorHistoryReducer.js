@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-import * as types from 'actions/sensorHistory'
+import * as types from 'actions/sensorHistoryActions'
 
 const initialState = {
   history: [],
@@ -11,7 +11,7 @@ const initialState = {
   error: '',
 }
 
-export const historyReducer = (state = initialState, action) => {
+export const sensorHistoryReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.HISTORY_FETCH:
       return {

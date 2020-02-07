@@ -25,7 +25,7 @@ function LogsTable(props) {
   }, [])
 
   //filters through the logsSelector and sensor in localStorage to match sensor ids
-  const sensorFiltered = logsSelector.logsUpdate.filter(log => {
+  const sensorFiltered = logsSelector.logsData.filter(log => {
     return log.sensor_id === Number(sensorLocalStorage)
   })
 

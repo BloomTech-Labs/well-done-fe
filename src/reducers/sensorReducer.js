@@ -4,11 +4,17 @@ import * as types from 'actions/sensorActions'
 const initialState = {
   sensors: [],
   isFiltered: false,
-  filteredSensors: [],
-  gridInfo: [],
+  visibilityFilter: 'SHOW_ALL',
   gridInfoWithOutHistory: [],
   isFetching: false,
   error: '',
+  filterOptions: {
+    func: false,
+    non: false,
+    na: false,
+  },
+  startDate: '',
+  endDate: '',
 }
 
 const sensorReducer = (state = initialState, action) => {
@@ -36,58 +42,19 @@ const sensorReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        gridInfo: state.gridInfo.filter(e => {
+        sensors: state.sensors.filter(e => {
           if (e.sensor_index !== action.payload.id) {
             return e
           }
           return false
         }),
       }
-    case types.FILTERED_SENSORS:
-      return {
-        ...state,
-        isFetching: false,
-        gridInfo: state.gridInfo.filter(e => {
-          if (e.sensor_index !== action.payload.id) {
-            return e
-          }
-          return false
-        }),
-        isFiltered: true,
-        filteredSensors: action.payload,
-      }
+
     case types.CLEAR_FILTER:
       return {
         ...state,
         isFiltered: false,
       }
-
-    case types.UPDATE_INFO: {
-      return {
-        ...state,
-        gridInfo: state.sensors.map(item => {
-          if (item.status === null) {
-            return {
-              ...item,
-              status: 'N/A',
-              created_at: moment(item.created_at).format('MM/DD/YYYY'),
-            }
-          } else if (item.status === 2) {
-            return {
-              ...item,
-              status: 'Functioning',
-              created_at: moment(item.created_at).format('MM/DD/YYYY'),
-            }
-          } else if (item.status === 1) {
-            return {
-              ...item,
-              status: 'Non-Functioning',
-              created_at: moment(item.created_at).format('MM/DD/YYYY'),
-            }
-          }
-        }),
-      }
-    }
     case types.SENSOR_POST: {
       return {
         ...state,
@@ -114,6 +81,48 @@ const sensorReducer = (state = initialState, action) => {
         }),
       }
     }
+    // if visibilityFilter is filter_cal than we want to set it to use both cal & btns
+    case 'SET_FILTER_OPTIONS':
+      if (state.visibilityFilter === 'FILTER_CAL') {
+        return {
+          ...state,
+          isFiltered: true,
+          filterOptions: action.payload,
+          visibilityFilter: 'FILTER_RAIDO_N_CAL',
+        }
+      }
+      return {
+        ...state,
+        isFiltered: true,
+        filterOptions: action.payload,
+        visibilityFilter: 'FILTER_RADIO_BTNS',
+      }
+    case 'FILTER_RADIO_N_CAL':
+      return {
+        ...state,
+        isFiltered: true,
+        filterOptions: action.payload,
+        visibilityFilter: 'FILTER_RAIDO_N_CAL',
+      }
+    case 'TOGGLE_FILTER':
+      return {
+        ...state,
+        isFiltered: false,
+      }
+    case 'FILTER_CAL':
+      return {
+        ...state,
+        isFiltered: true,
+        visibilityFilter: action.payload.visibilityFilter,
+        startDate: action.payload.startDate,
+        endDate: action.payload.endDate,
+      }
+    case 'CHANGE_END_DATE':
+      return {
+        ...state,
+        endDate: action.payload,
+        visibilityFilter: 'FILTER_RADIO_BTNS',
+      }
     default:
       return state
   }

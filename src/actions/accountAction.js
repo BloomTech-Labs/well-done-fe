@@ -41,7 +41,7 @@ export const addAccount = operator => dispatch => {
   AxiosWithAuth()
     .post(`${process.env.REACT_APP_HEROKU_API}/api/accounts`, operator)
     .then(res => dispatch({ type: ADDACCOUNT_SUCCESS, payload: res.data }))
-    .catch(err => dispatch({ type: ADDACCOUNT_FAILURE, payload: err.response }))
+    .catch(err => dispatch({ type: ADDACCOUNT_FAILURE, payload: err }))
 }
 
 export const addOperator = ({
