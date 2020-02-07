@@ -6,7 +6,6 @@ const PrivateRoute = ({
   searchFiltered,
   setSearchFiltered,
   sensors,
-  gridInfo,
   selectedPump,
   setSelectedPump,
   history,

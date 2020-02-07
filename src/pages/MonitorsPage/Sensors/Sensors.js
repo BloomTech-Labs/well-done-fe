@@ -25,6 +25,7 @@ import CalendarFilter from '../CalendarFilter/CalendarFilter'
 import RadioStatusFilter from '../RadioButton/RadioStatusFilter'
 
 const Sensors = props => {
+  console.log('do they ever filter ??', props.sensors)
   useEffect(() => {
     document.querySelector('.ag-floating-filter-input').style.color = '#000'
   }, [])
@@ -123,7 +124,7 @@ const Sensors = props => {
             {/* <RadioStatusFilter gridInfo={props.gridInfo} /> */}
           </div>
 
-          <CalendarFilter gridInfo={props.gridInfo} gridApi={gridApi} />
+          <CalendarFilter gridInfo={props.sensors} gridApi={gridApi} />
         </div>
         {/* FIGURE OUT WHERE THIS WILL BE PLACE LATER */}
         {/* <div className='headerButton'>{deleteDisplay()}</div>  */}
@@ -142,7 +143,7 @@ const Sensors = props => {
           <AgGridReact
             history={props.history}
             columnDefs={columnsFunc(props, dispatch, showViewButton)}
-            rowData={props.gridInfo}
+            rowData={props.sensors}
             gridOptions={gridOptionss}
             onGridSizeChanged={onGridSizeChanged}
             onGridReady={onGridReady}

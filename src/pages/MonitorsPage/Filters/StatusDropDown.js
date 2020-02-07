@@ -34,7 +34,7 @@ class StatusDropDown extends Component {
 }
 const mapStateToProps = state => {
   return {
-    status: state.sensorReducer.gridInfo,
+    status: state.sensorReducer.sensors,
   }
 }
 export default connect(mapStateToProps, {})(StatusDropDown)

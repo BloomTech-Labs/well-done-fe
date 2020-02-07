@@ -9,11 +9,32 @@ import StatusCards from '../StatusCards'
 import PercentageChart from '../PercentageChart'
 import Sensors from '../Sensors/Sensors'
 import '../Monitors/MonitorsPage.scss'
+import { handleSelected } from 'actions/selectedSensorsActions'
 
 const MonitorsPage = props => {
   const sensorSelector = useSelector(state => state.sensorReducer)
   const dispatch = useDispatch()
+  let selectedOptions = sensorSelector.filterOptions
 
+  const handleFilter = sensors => {
+    return sensors.filter(sensor => {
+      if (selectedOptions.non === true) {
+        if (sensor.status === 'Non-Functioning') {
+          return sensor
+        }
+      }
+      if (selectedOptions.func === true) {
+        if (sensor.status === 'Functioning') {
+          return sensor
+        }
+      }
+      if (selectedOptions.na === true) {
+        if (sensor.status === 'N/A') {
+          return sensor
+        }
+      }
+    })
+  }
   useEffect(() => {
     dispatch(fetchSensorsWithHistory())
     dispatch(fetchOrg())
@@ -28,13 +49,9 @@ const MonitorsPage = props => {
 
   const useGridObjects = () => {
     // decide which arr gets used here later remove !
-    let arr
-    // create the useGridObject logic
-    arr = sensorSelector.isFiltered
-      ? sensorSelector.filteredSensors
-      : sensorSelector.gridInfo
+    let selectedOptions = sensorSelector.filterOptions
 
-    arr.map(item => {
+    const arr = sensorSelector.sensors.map(item => {
       if (item.status === null) {
         return {
           ...item,
@@ -55,7 +72,14 @@ const MonitorsPage = props => {
         }
       }
     })
-    return arr
+    if (
+      selectedOptions.func === false &&
+      selectedOptions.non === false &&
+      selectedOptions.na === false
+    ) {
+      return arr
+    }
+    return sensorSelector.isFiltered ? handleFilter(arr) : arr
   }
 
   return (
@@ -82,7 +106,7 @@ const MonitorsPage = props => {
         </div>
       </div>
       <div className='sensorTable'>
-        <Sensors gridInfo={useGridObjects()} />
+        <Sensors sensors={useGridObjects()} />
       </div>
     </div>
   )

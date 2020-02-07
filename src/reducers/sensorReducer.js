@@ -5,10 +5,14 @@ const initialState = {
   sensors: [],
   isFiltered: false,
   filteredSensors: [],
-  gridInfo: [],
   gridInfoWithOutHistory: [],
   isFetching: false,
   error: '',
+  filterOptions: {
+    func: false,
+    non: false,
+    na: false,
+  },
 }
 
 const sensorReducer = (state = initialState, action) => {
@@ -61,33 +65,6 @@ const sensorReducer = (state = initialState, action) => {
         ...state,
         isFiltered: false,
       }
-
-    case types.UPDATE_INFO: {
-      return {
-        ...state,
-        gridInfo: state.sensors.map(item => {
-          if (item.status === null) {
-            return {
-              ...item,
-              status: 'N/A',
-              created_at: moment(item.created_at).format('MM/DD/YYYY'),
-            }
-          } else if (item.status === 2) {
-            return {
-              ...item,
-              status: 'Functioning',
-              created_at: moment(item.created_at).format('MM/DD/YYYY'),
-            }
-          } else if (item.status === 1) {
-            return {
-              ...item,
-              status: 'Non-Functioning',
-              created_at: moment(item.created_at).format('MM/DD/YYYY'),
-            }
-          }
-        }),
-      }
-    }
     case types.SENSOR_POST: {
       return {
         ...state,
@@ -114,6 +91,17 @@ const sensorReducer = (state = initialState, action) => {
         }),
       }
     }
+    case 'SET_FILTER_OPTIONS':
+      return {
+        ...state,
+        isFiltered: true,
+        filterOptions: action.payload,
+      }
+    case 'TOGGLE_FILTER':
+      return {
+        ...state,
+        isFiltered: false,
+      }
     default:
       return state
   }
