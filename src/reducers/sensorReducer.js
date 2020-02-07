@@ -4,7 +4,7 @@ import * as types from 'actions/sensorActions'
 const initialState = {
   sensors: [],
   isFiltered: false,
-  filteredSensors: [],
+  visibilityFilter: 'SHOW_ALL',
   gridInfoWithOutHistory: [],
   isFetching: false,
   error: '',
@@ -40,26 +40,14 @@ const sensorReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        gridInfo: state.gridInfo.filter(e => {
+        sensors: state.sensors.filter(e => {
           if (e.sensor_index !== action.payload.id) {
             return e
           }
           return false
         }),
       }
-    case types.FILTERED_SENSORS:
-      return {
-        ...state,
-        isFetching: false,
-        gridInfo: state.gridInfo.filter(e => {
-          if (e.sensor_index !== action.payload.id) {
-            return e
-          }
-          return false
-        }),
-        isFiltered: true,
-        filteredSensors: action.payload,
-      }
+
     case types.CLEAR_FILTER:
       return {
         ...state,
@@ -96,11 +84,18 @@ const sensorReducer = (state = initialState, action) => {
         ...state,
         isFiltered: true,
         filterOptions: action.payload,
+        visibilityFilter: 'FILTER_RADIO_BTNS',
       }
     case 'TOGGLE_FILTER':
       return {
         ...state,
         isFiltered: false,
+      }
+    case 'FILTER_CAL':
+      return {
+        ...state,
+        isFiltered: true,
+        visibilityFilter: action.payload,
       }
     default:
       return state

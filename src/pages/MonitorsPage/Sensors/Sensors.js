@@ -99,7 +99,7 @@ const Sensors = props => {
             <AiOutlineSearch className='searchIcon' />
           </div>
 
-          <CalendarFilter gridInfo={props.sensors} gridApi={gridApi} />
+          <CalendarFilter sensors={props.sensors} />
         </div>
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>

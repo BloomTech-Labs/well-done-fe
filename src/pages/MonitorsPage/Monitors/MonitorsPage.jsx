@@ -9,31 +9,71 @@ import StatusCards from '../StatusCards'
 import PercentageChart from '../PercentageChart'
 import Sensors from '../Sensors/Sensors'
 import '../Monitors/MonitorsPage.scss'
-import { handleSelected } from 'actions/selectedSensorsActions'
 
 const MonitorsPage = props => {
   const sensorSelector = useSelector(state => state.sensorReducer)
+  // const sensors = getVisibleSensors(sensorSelector.sensors)
   const dispatch = useDispatch()
   let selectedOptions = sensorSelector.filterOptions
 
   const handleFilter = sensors => {
-    return sensors.filter(sensor => {
-      if (selectedOptions.non === true) {
-        if (sensor.status === 'Non-Functioning') {
-          return sensor
+    switch (sensorSelector.visibilityFilter) {
+      case 'FILTER_RADIO_BTNS':
+        if (
+          selectedOptions.func === false &&
+          selectedOptions.non === false &&
+          selectedOptions.na === false
+        ) {
+          return sensors
+        } else {
+          return sensors.filter(sensor => {
+            if (selectedOptions.non === true) {
+              if (sensor.status === 'Non-Functioning') {
+                return sensor
+              }
+            }
+            if (selectedOptions.func === true) {
+              if (sensor.status === 'Functioning') {
+                return sensor
+              }
+            }
+            if (selectedOptions.na === true) {
+              if (sensor.status === 'N/A') {
+                return sensor
+              }
+            }
+          })
         }
-      }
-      if (selectedOptions.func === true) {
-        if (sensor.status === 'Functioning') {
-          return sensor
+        break
+      case 'FILTER_CAL':
+        let startDate = moment(document.getElementById('dateCal').value).format(
+          'MM/DD/YYYY'
+        )
+        let endDate = moment(document.getElementById('compCal').value).format(
+          'MM/DD/YYYY'
+        )
+        console.log('here this ran wtf', startDate, endDate)
+
+        if (startDate && endDate === 'Invalid date') {
+          return sensors
+        } else {
+          return sensors.filter(date => {
+            console.log('nigga data ?', date)
+            console.log(
+              'damn',
+              moment(date.created_at).isBetween(startDate, endDate)
+            )
+            if (moment(date.created_at).isBetween(startDate, endDate)) {
+              return date
+            } else {
+              return false
+            }
+          })
         }
-      }
-      if (selectedOptions.na === true) {
-        if (sensor.status === 'N/A') {
-          return sensor
-        }
-      }
-    })
+        break
+      default:
+        break
+    }
   }
   useEffect(() => {
     dispatch(fetchSensorsWithHistory())
@@ -72,12 +112,14 @@ const MonitorsPage = props => {
         }
       }
     })
-    if (
-      selectedOptions.func === false &&
-      selectedOptions.non === false &&
-      selectedOptions.na === false
-    ) {
-      return arr
+    if (Sensors.visibilityFilter === 'FILTER_RADIO_BTNS') {
+      if (
+        selectedOptions.func === false &&
+        selectedOptions.non === false &&
+        selectedOptions.na === false
+      ) {
+        return arr
+      }
     }
     return sensorSelector.isFiltered ? handleFilter(arr) : arr
   }

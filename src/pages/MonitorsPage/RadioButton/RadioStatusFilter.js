@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import './Radio.styles.scss'
 
-function RadioStatusFilter(props) {
+function RadioStatusFilter() {
   const selectedOptions = useSelector(
     state => state.sensorReducer.filterOptions
   )
