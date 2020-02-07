@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
 import sensorReducer from './sensorReducer'
-import { historyReducer } from './sensorHistory'
+import { sensorHistoryReducer } from './sensorHistoryReducer'
 import { navReducer as nav } from './navReducer'
 import { orgReducer } from './organizationReducer'
 import pumpsReducer from './pumpReducer' //used in dropdown Accounts
@@ -14,7 +14,7 @@ import sensorOperAssigned from './sensorsOperatorsReducer'
 
 const rootReducer = combineReducers({
   sensorReducer,
-  historyReducer,
+  historyReducer: sensorHistoryReducer,
   navShow: nav,
   pumpsReducer,
   accountReducer,

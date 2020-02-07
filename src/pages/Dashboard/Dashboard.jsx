@@ -9,7 +9,7 @@ import {
   fetchSensorsWithHistory,
   fetchSensorsByOrgId,
 } from 'actions/sensorActions'
-import { fetchHistory } from 'actions/sensorHistory'
+import { fetchHistory } from 'actions/sensorHistoryActions'
 
 import Testing from '../MonitorsPage/Sensors/Sensors'
 import AccountGrid from 'components/Grid/accountGrid/AccountGrid'

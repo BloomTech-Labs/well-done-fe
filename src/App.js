@@ -15,7 +15,10 @@ import Admin from 'pages/Admin/Admin'
 import Organizations from './pages/OrganizationsPage/Organizations.js'
 
 import { fetchUser } from './actions/userActions.js'
-import { fetchHistoryById, fetchSensorById } from './actions/sensorHistory.js'
+import {
+  fetchHistoryById,
+  fetchSensorById,
+} from 'actions/sensorHistoryActions.js'
 
 function App(props) {
   const dispatch = useDispatch()
