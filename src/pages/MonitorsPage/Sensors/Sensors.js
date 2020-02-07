@@ -8,31 +8,19 @@ import { columnsFunc } from './sensorGridColumns'
 import gridOptionss from '../../../components/Grid/Pagination'
 import '../../MonitorsPage/Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import SensorSelector from '../SensorSelector'
-
-import TrashCan from '../TrashCan'
 
 import { AiOutlineSearch } from 'react-icons/ai'
-import SensorsModal from '../SensorsModal'
 import moment from 'moment'
 
-import { deleteSensor } from '../../../actions/sensorActions'
-
-import deleteIcon from '../../../icons/DeleteModeButton.svg'
-import Archivebutton from '../../../icons/Archivebutton.svg'
-import { date } from 'yup'
 import CalendarFilter from '../CalendarFilter/CalendarFilter'
-import RadioStatusFilter from '../RadioButton/RadioStatusFilter'
 
 const Sensors = props => {
-  console.log('do they ever filter ??', props.sensors)
   useEffect(() => {
     document.querySelector('.ag-floating-filter-input').style.color = '#000'
   }, [])
   const [showViewButton, setShowViewButton] = useState(0)
   const [gridApi, setgridApi] = useState(null)
   const dispatch = useDispatch()
-  const user = useSelector(state => state.userReducer.user)
 
   let gridColumnApi
   const onGridReady = params => {
@@ -68,18 +56,6 @@ const Sensors = props => {
     }
     console.log(gridApi.__proto__, 'GRID API')
     gridApi.__proto__.redrawRows()
-  }
-
-  const deleteDisplay = () => {
-    if (user.role === 'super_user') {
-      return (
-        <button className='deleteBtn' onClick={() => viewHandler()}>
-          <img src={deleteIcon} alt='delete'></img>
-        </button>
-      )
-    } else {
-      return <button id='none' type='button'></button>
-    }
   }
 
   const onQuickFilterChanged = () => {
@@ -121,15 +97,10 @@ const Sensors = props => {
             />
 
             <AiOutlineSearch className='searchIcon' />
-            {/* <RadioStatusFilter gridInfo={props.gridInfo} /> */}
           </div>
 
           <CalendarFilter gridInfo={props.sensors} gridApi={gridApi} />
         </div>
-        {/* FIGURE OUT WHERE THIS WILL BE PLACE LATER */}
-        {/* <div className='headerButton'>{deleteDisplay()}</div>  */}
-
-        {/* <SensorSelector /> */}
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
@@ -147,7 +118,6 @@ const Sensors = props => {
             gridOptions={gridOptionss}
             onGridSizeChanged={onGridSizeChanged}
             onGridReady={onGridReady}
-            // floatingFilter={true}
           />
         </div>
       </div>
