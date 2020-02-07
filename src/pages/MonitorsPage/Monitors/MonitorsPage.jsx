@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import moment from 'moment'
+
 import { fetchSensorsWithHistory } from 'actions/sensorActions'
 import { fetchOrg } from 'actions/orgAction'
 
@@ -23,6 +25,38 @@ const MonitorsPage = props => {
   let nonPumps = sensorSelector.sensors.filter(
     pump => pump.status === 0 || pump.status === null
   )
+
+  const useGridObjects = () => {
+    // decide which arr gets used here later remove !
+    let arr
+    // create the useGridObject logic
+    arr = sensorSelector.isFiltered
+      ? sensorSelector.filteredSensors
+      : sensorSelector.gridInfo
+
+    arr.map(item => {
+      if (item.status === null) {
+        return {
+          ...item,
+          status: 'N/A',
+          created_at: moment(item.created_at).format('MM/DD/YYYY'),
+        }
+      } else if (item.status === 2) {
+        return {
+          ...item,
+          status: 'Functioning',
+          created_at: moment(item.created_at).format('MM/DD/YYYY'),
+        }
+      } else if (item.status === 1) {
+        return {
+          ...item,
+          status: 'Non-Functioning',
+          created_at: moment(item.created_at).format('MM/DD/YYYY'),
+        }
+      }
+    })
+    return arr
+  }
 
   return (
     <div className='monitorsPageContainer'>
@@ -48,13 +82,7 @@ const MonitorsPage = props => {
         </div>
       </div>
       <div className='sensorTable'>
-        <Sensors
-          gridInfo={
-            sensorSelector.isFiltered
-              ? sensorSelector.filteredSensors
-              : sensorSelector.gridInfo
-          }
-        />
+        <Sensors gridInfo={useGridObjects()} />
       </div>
     </div>
   )
