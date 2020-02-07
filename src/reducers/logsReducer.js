@@ -52,7 +52,7 @@ export const logsReducer = (state = initialState, action) => {
         isFetching: false,
         error: action.payload,
       }
-    case types.VIEW_SUCCESS:
+    case types.UPDATE_LOG_REQUEST:
       return {
         ...state,
         isFetching: false,
@@ -63,6 +63,11 @@ export const logsReducer = (state = initialState, action) => {
             return e
           }
         }),
+      }
+    case types.UPDATE_LOG_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
       }
     default:
       return state
