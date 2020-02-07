@@ -8,7 +8,15 @@ function CalendarFilter(props) {
   const dispatch = useDispatch()
 
   const onQuickFilterByCal = () => {
-    dispatch({ type: 'FILTER_CAL', payload: 'FILTER_CAL' })
+    // keeping track of startDate && endDate values in redux state
+    dispatch({
+      type: 'FILTER_CAL',
+      payload: {
+        visibilityFilter: 'FILTER_CAL',
+        startDate: document.getElementById('dateCal').value,
+        endDate: document.getElementById('compCal').value,
+      },
+    })
   }
 
   return (
