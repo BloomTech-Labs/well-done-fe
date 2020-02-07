@@ -1,66 +1,46 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { FILTERED_SENSORS, CLEAR_FILTER } from 'actions/sensorActions'
-import gridOptionss from '../../../components/Grid/Pagination'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment'
 
 import './Radio.styles.scss'
 
-function RadioStatusFilter(props) {
-  const [isCheckedFunc, setIsCheckedFunc] = useState(false)
-  const [isCheckedNon, setIsCheckedNon] = useState(false)
-  // const [isChecked, setIsChecked] = useState(false)
-  const [selectedOptions, setSelectedOptions] = useState({
-    func: false,
-    non: false,
-    na: false,
-  })
+function RadioStatusFilter() {
+  const selectedOptions = useSelector(
+    state => state.sensorReducer.filterOptions
+  )
+  const startDate = useSelector(state => state.sensorReducer.startDate)
+  const endDate = useSelector(state => state.sensorReducer.endDate)
 
   const dispatch = useDispatch()
 
   const handleClick = e => {
     let name = e.target.name
-    setSelectedOptions({ ...selectedOptions, [name]: !selectedOptions[name] })
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    let selected = props.gridInfo.filter(sensor => {
-      if (selectedOptions.non === true) {
-        if (sensor.status === 'Non-Functioning') {
-          return sensor
-        }
-      }
-      if (selectedOptions.func === true) {
-        if (sensor.status === 'Functioning') {
-          return sensor
-        }
-      }
-      if (selectedOptions.na === true) {
-        if (sensor.status === 'N/A') {
-          return sensor
-        }
-      }
-    })
-    dispatch({ type: FILTERED_SENSORS, payload: selected })
-  }
-
-  const onClear = e => {
-    e.preventDefault()
-    dispatch({ type: CLEAR_FILTER })
+    // if cal both dates exists, we want to filter by both cal & radio_btns
+    if (
+      moment(startDate).format('MM/DD/YYYY') !== 'Invalid date' &&
+      moment(endDate).format('MM/DD/YYYY') !== 'Invalid date'
+    ) {
+      dispatch({
+        type: 'FILTER_RADIO_N_CAL',
+        payload: { ...selectedOptions, [name]: !selectedOptions[name] },
+      })
+    } else {
+      dispatch({
+        type: 'SET_FILTER_OPTIONS',
+        payload: { ...selectedOptions, [name]: !selectedOptions[name] },
+      })
+    }
   }
 
   return (
     <>
       <form className='checkboxes'>
-        {/* <div className='checkboxes'> */}
         <input
           type='checkbox'
           id='func'
           value='Functioning'
           name='func'
           onClick={handleClick}
-          onChange={e => setIsCheckedFunc(e.target.checked)}
-          checked={isCheckedFunc}
         />
         <p>Functioning</p>
         <input
@@ -69,8 +49,6 @@ function RadioStatusFilter(props) {
           value='Non-Functioning'
           name='non'
           onClick={handleClick}
-          onChange={e => setIsCheckedNon(e.target.checked)}
-          checked={isCheckedNon}
         />
         <p>Non-Functioning</p>
         <input
@@ -79,21 +57,8 @@ function RadioStatusFilter(props) {
           value='n/a'
           name='na'
           onClick={handleClick}
-          // onChange={e => setIsChecked(e.target.checked)}
-          // checked={isChecked}
         />
         <p>N/A</p>
-        {/* </div> */}
-        <div className='radioBtnContainer'>
-          <input
-            type='submit'
-            onClick={e => handleSubmit(e)}
-            className='btn submitRadio'
-          />
-          <button onClick={onClear} className='btn clearRadio'>
-            Clear
-          </button>
-        </div>
       </form>
     </>
   )

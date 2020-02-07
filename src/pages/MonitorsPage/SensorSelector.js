@@ -1,7 +1,6 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import { Slider } from 'antd'
-import { sensorSelected, FILTERED_SENSORS } from '../../actions/sensorActions'
 
 import { useSelector, dispatch, useDispatch } from 'react-redux'
 
@@ -9,7 +8,6 @@ import './sensorSelector.scss'
 
 const SensorSelector = () => {
   const sensorIds = useSelector(state => state.sensorReducer.sensors)
-  const grid = useSelector(state => state.sensorReducer.gridInfo)
 
   const physical_id = sensorIds.map(e => {
     return e.physical_id
@@ -35,7 +33,6 @@ const SensorSelector = () => {
         return finalList.push(e)
       }
     })
-    dispatch({ type: FILTERED_SENSORS, payload: finalList })
   }
 
   const toggleSensor = () => {
@@ -51,17 +48,17 @@ const SensorSelector = () => {
     <>
       <button onClick={toggleSensor}>Sensor Ids</button>
       <div id='slider'>
-      <div className='sensorSlider'>
-        <p>Select range of Sensor Ids</p>
-        <Slider
-          range
-          min={lowest}
-          max={highest}
-          step={10}
-          defaultValue={[lowest, highest]}
-          onAfterChange={onAfterChange}
-        />
-      </div>
+        <div className='sensorSlider'>
+          <p>Select range of Sensor Ids</p>
+          <Slider
+            range
+            min={lowest}
+            max={highest}
+            step={10}
+            defaultValue={[lowest, highest]}
+            onAfterChange={onAfterChange}
+          />
+        </div>
       </div>
     </>
   )

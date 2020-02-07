@@ -1,4 +1,3 @@
-import React from 'react'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
 
 export const PUMPS_FETCH = 'PUMPS_FETCH'
@@ -20,7 +19,7 @@ export const fetchPumps = () => dispatch => {
     .catch(err => dispatch({ type: PUMPS_FAILURE, payload: err }))
 }
 
-export const fetchPumpsOrgId = (id) => dispatch => {
+export const fetchPumpsOrgId = id => dispatch => {
   dispatch({ type: PUMPSORG_FETCH })
   AxiosWithAuth()
     .get(`${process.env.REACT_APP_HEROKU_API}/api/pumps/org/${id}`)
