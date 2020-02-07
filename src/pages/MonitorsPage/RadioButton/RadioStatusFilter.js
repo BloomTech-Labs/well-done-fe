@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState, useRef, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { FILTERED_SENSORS, CLEAR_FILTER } from 'actions/sensorActions'
 import gridOptionss from '../../../components/Grid/Pagination'
 
@@ -9,13 +9,48 @@ function RadioStatusFilter(props) {
   const [isCheckedFunc, setIsCheckedFunc] = useState(false)
   const [isCheckedNon, setIsCheckedNon] = useState(false)
   // const [isChecked, setIsChecked] = useState(false)
+  const sensorState = useSelector(state => state.sensorReducer)
+  console.log(sensorState, 'SHOW')
   const [selectedOptions, setSelectedOptions] = useState({
     func: false,
     non: false,
     na: false,
   })
-
+  const nonFuncRef = useRef(null)
   const dispatch = useDispatch()
+  useEffect(() => {
+    const newFilter = sensorState.gridInfo.filter(sensor => {
+      if (selectedOptions.non === true) {
+        if (sensor.status === 'Non-Functioning') {
+          return sensor
+        }
+      }
+      if (selectedOptions.func === true) {
+        if (sensor.status === 'Functioning') {
+          return sensor
+        }
+      }
+      if (selectedOptions.na === true) {
+        if (sensor.status === 'N/A') {
+          return sensor
+        }
+      }
+    })
+    let isFiltered = false
+    if (
+      selectedOptions.func === false &&
+      selectedOptions.non === false &&
+      selectedOptions.na === false
+    ) {
+      isFiltered = false
+      dispatch({ type: CLEAR_FILTER })
+    } else {
+      isFiltered = true
+    }
+    if (isFiltered) {
+      dispatch({ type: FILTERED_SENSORS, payload: newFilter })
+    }
+  }, [selectedOptions.func, selectedOptions.non, selectedOptions.na])
 
   const handleClick = e => {
     let name = e.target.name
@@ -68,6 +103,7 @@ function RadioStatusFilter(props) {
           id='non'
           value='Non-Functioning'
           name='non'
+          ref={nonFuncRef}
           onClick={handleClick}
           onChange={e => setIsCheckedNon(e.target.checked)}
           checked={isCheckedNon}
