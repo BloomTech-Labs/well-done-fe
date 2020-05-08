@@ -41,7 +41,7 @@ class Grid extends Component {
           width: 60,
           cellRendererFramework: params => {
             return (
-              <div id = 'editDelete'>
+              <div id='editDelete'>
                 {this.state.displayView === 0 ? (
                   <EditGrid
                     api={params}
@@ -66,18 +66,18 @@ class Grid extends Component {
   }
 
   componentDidMount = () => {
-    if (this.props.usesRole === 'super_user') {
+    if (this.props.userRole === 'super_user') {
       this.props.fetchAccounts()
     } else {
       this.props.fetchOrgAccounts(this.props.orgId)
-    };
+    }
     const role = localStorage.getItem('role')
-    if(role === 'operator'){
-      document.getElementById('modalHeaderAccount').style.display = "none";
-      document.getElementById('deleteBtn').style.display = "none";
+    if (role === 'operator') {
+      document.getElementById('modalHeaderAccount').style.display = 'none'
+      document.getElementById('deleteBtn').style.display = 'none'
     } else {
-      document.getElementById('modalHeaderAccount').style.display = "block"
-      document.getElementById('deleteBtn').style.display = "block";
+      document.getElementById('modalHeaderAccount').style.display = 'block'
+      document.getElementById('deleteBtn').style.display = 'block'
     }
   }
 
@@ -124,7 +124,6 @@ class Grid extends Component {
     }
     this.gridApi.redrawRows()
   }
-  
 
   // filter function
   onQuickFilterChanged(params) {
@@ -147,14 +146,15 @@ class Grid extends Component {
                 id='quickFilterss'
                 placeholder=' search...'
               />
-              <AiOutlineSearch 
-                  size={24}
-                  style={{
-                    position: 'relative',
-                    right: '28px',
-                    bottom: '5px',
-                    background: 'transparent',
-                  }} />
+              <AiOutlineSearch
+                size={24}
+                style={{
+                  position: 'relative',
+                  right: '28px',
+                  bottom: '5px',
+                  background: 'transparent',
+                }}
+              />
             </div>
             <div className='headerBtns'>
               <button
