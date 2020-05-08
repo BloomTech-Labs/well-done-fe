@@ -15,9 +15,6 @@ import moment from 'moment'
 import CalendarFilter from '../CalendarFilter/CalendarFilter'
 
 const Sensors = props => {
-  useEffect(() => {
-    document.querySelector('.ag-floating-filter-input').style.color = '#000'
-  }, [])
   const [showViewButton, setShowViewButton] = useState(0)
   const [gridApi, setgridApi] = useState(null)
   const dispatch = useDispatch()
