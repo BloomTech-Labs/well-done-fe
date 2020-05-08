@@ -32,10 +32,20 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const ModalOperator = () => {
-  const [operator, setOperator] = useState([])
+  const [operator, setOperator] = useState({
+    org_name: '',
+    first_name: '',
+    last_name: '',
+    role: '',
+    email_address: '',
+    password: '',
+    mobile_number: '',
+    sensor_pid: '',
+  })
 
   const [sen_op, setSen_op] = useState([])
 
+  const organizations = useSelector(state => state.orgReducer.org)
   const newId = useSelector(state => state.operatorReducer.operators)
   sen_op.operator_id = newId
 
@@ -62,7 +72,7 @@ const ModalOperator = () => {
 
   //get org_id from localStorage
   const organizationId = localStorage.getItem('org_id')
-  operator.org_id = organizationId
+  // operator.org_id = organizationId
 
   //fetch pumps for dropdown menu
   useEffect(() => {
@@ -147,6 +157,7 @@ const ModalOperator = () => {
     },
   ]
 
+  console.log(organizations, operator)
   return (
     <>
       <button className='addAccount' type='button' onClick={handleOpen}>
@@ -175,13 +186,12 @@ const ModalOperator = () => {
               <p>Select Organization</p>
               <Form.Control
                 as='select'
-                name='org_id'
-                value={operator.org_id}
+                name='org_name'
                 onChange={handleChange}
                 placeholder='select organization'
               >
-                {getOrgName.map(org => (
-                  <option key={org.id} value={org.id}>
+                {organizations.map(org => (
+                  <option key={org.id} value={org.org_name}>
                     {org.org_name}
                   </option>
                 ))}
