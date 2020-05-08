@@ -9,8 +9,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Sensor ID',
       field: 'physical_id',
-      sortable: false,
-      filter: false,
+    
       minWidth: 95,
       cellStyle: {
         'font-size': '2rem',
@@ -20,8 +19,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Installed',
       field: 'created_at',
-      sortable: false,
-      filter: false,
+      
       minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
@@ -31,8 +29,6 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Status',
       field: 'status',
-      sortable: false,
-      filter: false,
       minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
@@ -42,8 +38,6 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'NGO',
       field: 'org_name',
-      sortable: false,
-      filter: false,
       minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
@@ -53,8 +47,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'view',
       field: 'view',
-      // sortable: true,
-      // filter: true,
+      
       cellRendererFramework: params => {
         return (
           <div>
