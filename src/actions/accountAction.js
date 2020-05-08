@@ -35,12 +35,32 @@ export const fetchOrgAccounts = org_id => dispatch => {
     .catch(err => dispatch({ type: ACCOUNT_FAILURE }))
 }
 
-export const addAccount = operator => dispatch => {
+export const addAccount = ({
+  first_name,
+  last_name,
+  email_address,
+  mobile_number,
+  password,
+  org_name,
+  role,
+}) => dispatch => {
   dispatch({ type: ADDACCOUNT_FETCH })
 
   AxiosWithAuth()
-    .post(`${process.env.REACT_APP_HEROKU_API}/api/accounts`, operator)
-    .then(res => dispatch({ type: ADDACCOUNT_SUCCESS, payload: res.data }))
+    .post(`${process.env.REACT_APP_HEROKU_API}/api/accounts`, {
+      first_name,
+      last_name,
+      email_address,
+      mobile_number,
+      password,
+      role,
+    })
+    .then(res =>
+      dispatch({
+        type: ADDACCOUNT_SUCCESS,
+        payload: { ...res.data, org_name: org_name },
+      })
+    )
     .catch(err => dispatch({ type: ADDACCOUNT_FAILURE, payload: err }))
 }
 
