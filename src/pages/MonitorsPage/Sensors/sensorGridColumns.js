@@ -45,7 +45,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
       },
     },
     {
-      headerName: 'view',
+      headerName: '',
       field: 'view',
       
       cellRendererFramework: params => {

@@ -99,6 +99,7 @@ function App(props) {
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/admin' page={Admin} />
         <PrivateRoute path='/settings' page={Settings} />
+        
       </Switch>
     </div>
   )
