@@ -45,6 +45,11 @@ export default function SignInSide(props) {
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
+                inputProps={{
+                  style: {
+                    marginBottom: 0
+                  }
+                }}
               // variant='outlined'
               margin='normal'
               fullWidth
@@ -58,6 +63,11 @@ export default function SignInSide(props) {
               InputProps={{ disableUnderline: true }}
             />
             <TextField
+              inputProps={{
+                style: {
+                  marginBottom: 0
+                }
+              }}
               // variant='outlined'
               margin='normal'
               fullWidth
@@ -104,6 +114,11 @@ export default function SignInSide(props) {
           <form className={classes.form} noValidate>
             <div>
               <TextField
+                inputProps={{
+                  style: {
+                    marginBottom: 0
+                  }
+                }}
                 error
                 label='Error'
                 variant='outlined'
@@ -118,6 +133,11 @@ export default function SignInSide(props) {
                 autoFocus
               />
               <TextField
+                inputProps={{
+                  style: {
+                    marginBottom: 0
+                  }
+                }}
                 error
                 label='Error'
                 variant='outlined'
