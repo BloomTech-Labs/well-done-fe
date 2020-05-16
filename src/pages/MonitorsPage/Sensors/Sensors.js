@@ -106,7 +106,7 @@ const Sensors = props => {
         <div
           id='myGrid2'
           style={{
-            height: '500px',
+            height: '400px',
             width: '100%',
           }}
           className='ag-theme-balham'

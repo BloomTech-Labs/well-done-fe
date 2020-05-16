@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import 'antd/dist/antd.css'
 // import './MonitorDetail.css'
 import HeatChart from 'components/HeatChart/heatChart'
+import {useParams, withRouter} from 'react-router'
 import MonitorDetailHeader from './MonitorDetailHeader'
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -22,6 +23,8 @@ import '../MonitorDetails/MonitorsLineChart.styles.scss'
 //redux
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
 import LogsTable from '../MonitorsPage/Logs/LogsTable'
+
+
 
 const MonitorDetails = props => {
   const [isMonth, setIsMonth] = useState(false)
@@ -46,17 +49,22 @@ const MonitorDetails = props => {
     props.deleteOrg(id) //actions
     props.params.api.redrawRows()
   }
+  // Routing
+  const {sensor_pid: sensorId} = useParams();
+
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
-  let selectedSensor = props.selectedPump
-  const sensorId = localStorage.getItem('sensor')
+
+
+
   useEffect(() => {
+
     dispatch(fetchHistoryById(sensorId))
     dispatch(fetchSensorById(sensorId))
     return () => {
       dispatch({ type: 'CLEAR_SELECTED' })
     }
-  }, [])
+  }, [dispatch, sensorId])
 
   const padHistory = historySelector.individualSensorHistory
 
@@ -158,10 +166,10 @@ const MonitorDetails = props => {
     }
     setIsClicked(!isClicked)
   }
-
+  
   return (
     <div className='monitorDetailsContainer'>
-      <MonitorDetailHeader historySelector={historySelector.individualSensor} />
+      <MonitorDetailHeader historySelector={historySelector.individualSensor}/>
       {/* <OrganizationActivity
         alertInfo={historySelector.alertInfo}
         individualSensor={historySelector.individualSensor[0]}
@@ -307,10 +315,10 @@ const MonitorDetails = props => {
           selectedPump={props.selectedSensors}
           history={historySelector.history}
         />
-        <LogsTable selectedPump={props.selectedSensors} />
+        {/* <LogsTable selectedPump={props.selectedSensors} /> */}
       </>
     </div>
   )
 }
 
-export default MonitorDetails
+export default withRouter(MonitorDetails);

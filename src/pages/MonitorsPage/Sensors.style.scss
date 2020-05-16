@@ -196,7 +196,6 @@ input {
   visibility: hidden;
 }
 .btnContainer {
-
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -266,6 +265,11 @@ input {
   width: 60%;
   margin-left: 20%;
   padding-bottom: 5%;
+}
+
+#grid-wrapper {
+  margin-bottom: 2%;
+  border-bottom: 10px solid #090c9b;
 }
 
 // .ag-floating-filter-input {

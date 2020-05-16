@@ -23,6 +23,7 @@ export const fetchHistory = () => dispatch => {
 }
 
 export const fetchHistoryById = sensorId => dispatch => {
+
   dispatch({
     type: HISTORY_FETCH,
   })
