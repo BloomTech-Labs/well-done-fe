@@ -9,22 +9,22 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Sensor ID',
       field: 'physical_id',
-    
+
       minWidth: 95,
       cellStyle: {
-        'font-size': '2rem',
+        'font-size': '1.5rem',
         'padding-top': '.75rem',
-    }
-  },
+      },
+    },
     {
       headerName: 'Installed',
       field: 'created_at',
-      
+
       minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
-      }
+      },
     },
     {
       headerName: 'Status',
@@ -47,7 +47,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: '',
       field: 'view',
-      
+
       cellRendererFramework: params => {
         return (
           <div>

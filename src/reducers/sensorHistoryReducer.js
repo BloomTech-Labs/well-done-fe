@@ -38,7 +38,7 @@ export const sensorHistoryReducer = (state = initialState, action) => {
         alertInfo: state.history.map(item => {
           return {
             ...item,
-            created_at: moment(item.created_at).format('MM/DD/YYYY'),
+            created_at: moment(item.created_at).format('YYYY/MM/DD'),
           }
         }),
       }

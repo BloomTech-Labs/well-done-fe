@@ -16,8 +16,8 @@ const MonitorsPage = props => {
   let selectedOptions = sensorSelector.filterOptions
 
   const handleFilter = sensors => {
-    let startDate = moment(sensorSelector.startDate).format('MM/DD/YYYY')
-    let endDate = moment(sensorSelector.endDate).format('MM/DD/YYYY')
+    let startDate = moment(sensorSelector.startDate).format('YYYY/MM/DD')
+    let endDate = moment(sensorSelector.endDate).format('YYYY/MM/DD')
 
     switch (sensorSelector.visibilityFilter) {
       case 'FILTER_RAIDO_N_CAL':
@@ -129,19 +129,19 @@ const MonitorsPage = props => {
         return {
           ...item,
           status: 'N/A',
-          created_at: moment(item.created_at).format('MM/DD/YYYY'),
+          created_at: moment(item.created_at).format('YYYY/MM/DD'),
         }
       } else if (item.status === 2) {
         return {
           ...item,
           status: 'Functioning',
-          created_at: moment(item.created_at).format('MM/DD/YYYY'),
+          created_at: moment(item.created_at).format('YYYY/MM/DD'),
         }
       } else if (item.status === 1) {
         return {
           ...item,
           status: 'Non-Functioning',
-          created_at: moment(item.created_at).format('MM/DD/YYYY'),
+          created_at: moment(item.created_at).format('YYYY/MM/DD'),
         }
       }
     })
