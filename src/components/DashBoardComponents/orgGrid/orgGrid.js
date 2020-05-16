@@ -23,10 +23,8 @@ class OrgGrid extends Component {
       columnDefs: [
         ...orgGridColumns,
         {
-          headerName: 'view',
+          headerName: '',
           field: 'view',
-          headerName: 'Delete',
-          field: 'Delete',
           sortable: true,
           filter: true,
           cellRendererFramework: params => {

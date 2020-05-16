@@ -19,10 +19,10 @@ function LogsTable(props) {
   const dispatch = useDispatch()
   const sensorLocalStorage = localStorage.getItem('sensor')
 
-  useEffect(() => {
-    dispatch(fetchLogs())
-    document.querySelector('.ag-floating-filter-input').style.color = '#000'
-  }, [])
+  // useEffect(() => {
+  //   dispatch(fetchLogs())
+  //   document.querySelector('.ag-floating-filter-input').style.color = '#000'
+  // }, [])
 
   //filters through the logsSelector and sensor in localStorage to match sensor ids
   const sensorFiltered = logsSelector.logsData.filter(log => {
@@ -73,7 +73,7 @@ function LogsTable(props) {
             gridOptions={gridOptionss}
             onGridSizeChanged={onGridSizeChanged}
             onGridReady={onGridReady}
-            floatingFilter={true}
+            floatingFilter={false}
           />
         </div>
       </div>

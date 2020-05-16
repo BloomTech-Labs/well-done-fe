@@ -34,7 +34,7 @@ class Grid extends Component {
       columnDefs: [
         ...accountColumns,
         {
-          headerName: 'Edit',
+          headerName: '',
           field: 'Edit',
           sortable: true,
           filter: true,
