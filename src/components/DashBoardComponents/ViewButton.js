@@ -5,9 +5,8 @@ const ViewButton = props => {
     e.preventDefault()
     localStorage.setItem('sensor', props.data.physical_id)
     props.dispatch(handleSelected(selPump))
-    props.history.push('/monitordetails')
-  }
-
+    props.history.push(`/monitordetails/${props.data.sensor_pid}`)
+  };
   return (
     <span className='btnCon'>
       <button

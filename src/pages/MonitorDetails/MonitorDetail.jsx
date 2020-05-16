@@ -23,6 +23,7 @@ import '../MonitorDetails/MonitorsLineChart.styles.scss'
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
 import LogsTable from '../MonitorsPage/Logs/LogsTable'
 
+
 const MonitorDetails = props => {
   const [isMonth, setIsMonth] = useState(false)
   const [isToggleGraph, setIsToggleGraph] = useState(false)
@@ -46,9 +47,11 @@ const MonitorDetails = props => {
     props.deleteOrg(id) //actions
     props.params.api.redrawRows()
   }
+  
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
   let selectedSensor = props.selectedPump
+  
   const sensorId = localStorage.getItem('sensor')
   useEffect(() => {
     dispatch(fetchHistoryById(sensorId))
@@ -158,7 +161,6 @@ const MonitorDetails = props => {
     }
     setIsClicked(!isClicked)
   }
-
   return (
     <div className='monitorDetailsContainer'>
       <MonitorDetailHeader historySelector={historySelector.individualSensor} />

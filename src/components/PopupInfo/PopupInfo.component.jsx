@@ -81,7 +81,7 @@ const PopupInfo = props => {
         <h4 className='district_name'>{district_name}</h4>
         <p className='province_name'>{province_name}</p>
 
-        <Link to={{ pathname: '/monitorDetails' }}>
+        <Link to={{ pathname: `/monitordetails/${sensor_pid}` }}>
           <Button onClick={() => setSensor()} className='details_btn'>
             More details
           </Button>
