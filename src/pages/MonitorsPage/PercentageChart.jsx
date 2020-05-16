@@ -4,7 +4,6 @@ import '../MonitorsPage/Monitors/MonitorsPage.scss'
 
 function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   const data = {
-    labels: ['Functional', 'Non-Functional', 'Unknown'],
     datasets: [
       {
         data: [funcPumps.length, nonPumps.length, unPumps.length],
