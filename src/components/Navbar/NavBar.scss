@@ -30,14 +30,13 @@ nav {
   color: pink;
 }
 .logo {
-  width: 80%;
   margin: 21px 0px 29px 0px;
-  width: 20px;
-  height: 35.61px;
+  width: 14%;
+  height: auto;
 }
 .margin-left {
   margin-left: 24px;
-  color: white;
+  color: $wellDoneBlue;
   @media screen and (max-width: 1024px) {
     display: none;
   }
