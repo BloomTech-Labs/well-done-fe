@@ -9,12 +9,16 @@ nav {
   z-index: 5;
 }
 .nav-right {
+  font-family: open sans,helvetica neue,Arial,sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
   text-align: right;
-  width: 50%;
+  width: 48%;
   display: flex;
   justify-content: flex-end;
   color: white;
-  font-size: 1.8rem;
+  font-size: 100%;
   padding-right: 1rem;
   align-items: center;
 }
@@ -36,7 +40,7 @@ nav {
 }
 .margin-left {
   margin-left: 24px;
-  color: $wellDoneBlue;
+  color: #222;
   @media screen and (max-width: 1024px) {
     display: none;
   }
