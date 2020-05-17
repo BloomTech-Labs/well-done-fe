@@ -34,6 +34,7 @@ export default function Map(props) {
 
   useEffect(() => {
     const clickListener = async e => {
+      console.log(bool)
       if (e && bool) {
         if (e.target.classList.contains('location-icon')) {
           return
@@ -51,7 +52,7 @@ export default function Map(props) {
     return () => {
       window.removeEventListener('click', clickListener)
     }
-  }, [props])
+  }, [bool])
 
   return (
     <div className='mapsContainer'>
