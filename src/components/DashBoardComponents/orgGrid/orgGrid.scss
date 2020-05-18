@@ -13,7 +13,7 @@
   @include grid-background;
   display: flex;
   justify-content: space-between;
-
+  margin-top: 1%;
   h1 {
     @include header-text;
     margin: 1%;

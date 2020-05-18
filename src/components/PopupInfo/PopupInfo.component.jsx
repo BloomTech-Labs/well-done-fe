@@ -25,8 +25,8 @@ const PopupInfo = props => {
   if (!props.history) {
     return <div>Loading</div>
   }
- // call endpoint instead
- // api/sensor_id/:id`
+  // call endpoint instead
+  // api/sensor_id/:id`
   const statusHistory = props.history.filter(day => {
     return Number(day.sensor_id) === Number(props.selectedPump.physical_id)
   })
@@ -38,12 +38,6 @@ const PopupInfo = props => {
     village_name,
     district_name,
   } = props.selectedPump
-
-  console.log(props.selectedPump)
-
-  const setSensor = () => {
-    localStorage.setItem('sensor', props.selectedPump.sensor_pid)
-  }
 
   return (
     <div className='popupInfo'>
@@ -82,9 +76,7 @@ const PopupInfo = props => {
         <p className='province_name'>{province_name}</p>
 
         <Link to={{ pathname: `/monitordetails/${sensor_pid}` }}>
-          <Button className='details_btn'>
-            More details
-          </Button>
+          <Button className='details_btn'>More details</Button>
         </Link>
       </div>
     </div>

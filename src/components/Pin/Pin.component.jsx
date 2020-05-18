@@ -8,9 +8,9 @@ import { useDispatch } from 'react-redux'
 function Pin(props) {
   const dispatch = useDispatch()
 
-  const handleClick = async (sensor) => {
+  const handleClick = async sensor => {
     if (props.currentlySelected) {
-      await dispatch({type: CLEAR_SELECTED})
+      await dispatch({ type: CLEAR_SELECTED })
     }
     await dispatch(handleSelected(sensor))
   }
