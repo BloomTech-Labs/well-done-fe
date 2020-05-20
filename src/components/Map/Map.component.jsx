@@ -15,7 +15,6 @@ export default function Map(props) {
   )
 
   const [bool, setBool] = useState(false)
-  const [t, setT] = useState()
   const popUpRef = useRef(null)
 
   const dispatch = useDispatch()
