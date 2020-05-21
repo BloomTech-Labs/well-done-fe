@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useParams } from 'react-router-dom'
 import Dashboard from 'pages/Dashboard/Dashboard'
 import MonitorDetails from 'pages/MonitorDetails/MonitorDetail'
 import Monitors from 'pages/MonitorsPage/Monitors/MonitorsPage'
@@ -90,10 +90,16 @@ function App(props) {
         <PrivateRoute path='/overview' page={MonitorsPage} />
 
         <PrivateRoute
-          path='/monitorDetails'
+          path='/monitordetails/:sensor_pid'
           page={MonitorDetails}
           selectedPump={currentlySelected}
         />
+
+        <PrivateRoute
+        path =':sensor_pid'
+        page ={MonitorDetails}
+        />
+
         <PrivateRoute path='/organizations' page={Organizations} />
 
         <PrivateRoute path='/overview' page={Monitors} />

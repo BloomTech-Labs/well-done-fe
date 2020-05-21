@@ -1,16 +1,16 @@
 @import 'src/colors';
 
 $icon-color: #ffffff;
-
+$old-blue: #090c9b;
 // changes the selected checkbox check mark color
 $accent-color: #03a9f4;
 
 $header-height: 50px;
 $row-border-width: 1px;
 $hover-color: #accdff;
-$header-background-color: #090c9b;
+$header-background-color: #0db4e9;
 $header-foreground-color: #fff;
-$border-color: #090a3f;
+$border-color: #0db4e9;
 
 @import '~ag-grid-community/src/styles/ag-grid.scss';
 @import '~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham.scss';
@@ -196,7 +196,6 @@ input {
   visibility: hidden;
 }
 .btnContainer {
-
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -266,6 +265,10 @@ input {
   width: 60%;
   margin-left: 20%;
   padding-bottom: 5%;
+}
+
+#grid-wrapper {
+  border-bottom: 6px solid #0db4e9;
 }
 
 // .ag-floating-filter-input {

@@ -9,12 +9,16 @@ nav {
   z-index: 5;
 }
 .nav-right {
+  // font-family: open sans,helvetica neue,Arial,sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
   text-align: right;
-  width: 50%;
+  width: 48%;
   display: flex;
   justify-content: flex-end;
   color: white;
-  font-size: 1.8rem;
+  font-size: 100%;
   padding-right: 1rem;
   align-items: center;
 }
@@ -30,14 +34,13 @@ nav {
   color: pink;
 }
 .logo {
-  width: 80%;
   margin: 21px 0px 29px 0px;
-  width: 20px;
-  height: 35.61px;
+  width: 14%;
+  height: auto;
 }
 .margin-left {
   margin-left: 24px;
-  color: white;
+  color: #222;
   @media screen and (max-width: 1024px) {
     display: none;
   }
@@ -49,20 +52,16 @@ nav {
   align-content: center;
   position: absolute;
   text-align: center;
-
   width: 180px;
   top: 68px;
   z-index: 5;
-  background-color: $duke;
+  background-color: $wellDoneBlue;
   color: black;
   right: 0px;
-  padding: 5px;
-  padding-top: 20px;
-  border-top: 1px solid rgb(3, 3, 94);
+  border-top: 1px solid $wellDoneBlue;
 
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16), 0px 0px 4px rgba(0, 0, 0, 0.08);
 }
 
 .item-container {
@@ -76,8 +75,6 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 40px;
-  margin-right: 60px;
   cursor: pointer;
   // border: 1px solid red;
   width: 10%;
@@ -119,15 +116,21 @@ svg.drop-svg {
 }
 .each-nav {
   display: flex;
+  align-items: center;
   flex-direction: column;
   z-index: 6;
   margin-bottom: 5px;
 }
-
+.logout-btn {
+  display: flex;
+  justify-content: center;
+}
 .user-email {
   padding-top: 6px;
   font-size: 1.5rem;
   color: white;
+  display: flex;
+  justify-content: center;
 }
 
 .logo-text {

@@ -4,7 +4,6 @@ import '../MonitorsPage/Monitors/MonitorsPage.scss'
 
 function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   const data = {
-    labels: ['Functional', 'Non-Functional', 'Unknown'],
     datasets: [
       {
         data: [funcPumps.length, nonPumps.length, unPumps.length],
@@ -15,7 +14,7 @@ function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   const option = {
     tooltips: {
       callbacks: {
-        label: function(tooltipItem, data) {
+        label: function (tooltipItem, data) {
           const dataset = data.datasets[tooltipItem.datasetIndex]
           const meta = dataset._meta[Object.keys(dataset._meta)[0]]
           const total = meta.total
@@ -25,7 +24,7 @@ function PercentageChart({ funcPumps, nonPumps, unPumps }) {
           )
           return currentValue + ' (' + percentage + '%)'
         },
-        title: function(tooltipItem, data) {
+        title: function (tooltipItem, data) {
           return data.labels[tooltipItem[0].index]
         },
         responsive: false,

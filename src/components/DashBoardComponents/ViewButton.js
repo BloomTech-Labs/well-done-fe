@@ -3,11 +3,10 @@ import { handleSelected } from 'actions/selectedSensorsActions'
 const ViewButton = props => {
   const routeHandler = (e, selPump) => {
     e.preventDefault()
-    localStorage.setItem('sensor', props.data.physical_id)
+    
     props.dispatch(handleSelected(selPump))
-    props.history.push('/monitordetails')
-  }
-
+    props.history.push(`/monitordetails/${props.data.sensor_pid}`)
+  };
   return (
     <span className='btnCon'>
       <button

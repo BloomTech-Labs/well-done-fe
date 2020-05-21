@@ -2,10 +2,15 @@ import React, { useState } from 'react'
 import ReactMapGl, { Marker } from 'react-map-gl'
 import GoBack from '../../components/Navbar/GoBack'
 import './MonitorDetailHeader.scss'
+
 import functionalBadge from 'icons/Functional.svg'
 import nonFuncBadge from 'icons/NonFunctioning.svg'
 import unknownBadge from 'icons/Unknown.svg'
 import moment from 'moment'
+
+import functionIcon from 'icons/NewMapMarkerFunctioning.svg'
+import NonFunctioningIcon from 'icons/NewMapMarkerNonFunctioning.svg'
+import NoDataIcon from 'icons/NewMapMarkerNoData.svg'
 
 function MonitorDetailHeader(props) {
   const [viewport, setViewport] = useState({
@@ -118,11 +123,11 @@ function MonitorDetailHeader(props) {
           >
             <Marker key={physical_id} latitude={latitude} longitude={longitude}>
               {status === 0 || status == null ? (
-                <img src={notFunctioning} alt='not functioning icon' />
+                <img src={NonFunctioningIcon} alt='not functioning icon' />
               ) : status === 1 ? (
-                <img src={unknown} alt='unknown icon' />
+                <img src={NoDataIcon} alt='unknown icon' />
               ) : (
-                <img src={functioning} alt='functioning icon' />
+                <img src={functionIcon} alt='functioning icon' />
               )}
             </Marker>
           </ReactMapGl>

@@ -27,15 +27,14 @@ const today = new Date()
 
 const HeatChart = props => {
   //stores currently selected sensor in state
-  const currentlySelected = useSelector(
-    state => state.selectedSensors.currentlySelected
+  const currentlySelected = useSelector(  
+    state => state.historyReducer.individualSensorHistory
   )
+
   // creates an array of of history objects related to the currentlySelected sensor
-  const statusHistoryArr = props.history.filter(day => {
-    return day.sensor_id === currentlySelected.sensor_pid
-  })
+
   // iterates through statusHistoryArr and returns the date and count values needed by the calendar component.
-  const calVals = statusHistoryArr.map(val => {
+  const calVals = currentlySelected.map(val => {
     return {
       date: val.created_at,
       count: val.status,

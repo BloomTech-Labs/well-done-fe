@@ -12,7 +12,7 @@ $orange: #ffad34;
 $mainBackground: #e5e5e5;
 $iconBackground: #aedffc;
 $buttonBlue: #082b84;
-
+$wellDoneBlue: #0db4e9;
 //changes all input fields accross all modals
 @mixin globalInputStyle {
   display: inline-block;
@@ -62,7 +62,7 @@ $buttonBlue: #082b84;
 //NAV bar
 //nav bar color
 @mixin navbar-bg {
-  background-color: $duke;
+  background-color: white;
 }
 
 //drop down menu color
@@ -74,7 +74,7 @@ $buttonBlue: #082b84;
 //MAP
 //map filter menu color
 @mixin mapfilter-clr {
-  background-color: $navy;
+  background-color: $wellDoneBlue;
 }
 
 ///Banner
@@ -88,8 +88,8 @@ $buttonBlue: #082b84;
 
 //buttons on modals
 @mixin saveButton {
-  border: 2px solid $duke;
-  background: $duke;
+  border: 2px solid $wellDoneBlue;
+  background: $wellDoneBlue;
   color: white;
   border-radius: 8px;
   font-size: medium;
@@ -99,7 +99,7 @@ $buttonBlue: #082b84;
   border: none;
   background: none;
   font-size: medium;
-  color: $duke;
+  color: $navy;
   margin-right: 6%;
   font-weight: 700;
 }
