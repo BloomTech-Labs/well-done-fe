@@ -41,6 +41,7 @@ function RadioStatusFilter() {
           value='Functioning'
           name='func'
           onClick={handleClick}
+          checked
         />
         <p>Functioning</p>
         <input
@@ -49,6 +50,7 @@ function RadioStatusFilter() {
           value='Non-Functioning'
           name='non'
           onClick={handleClick}
+          checked
         />
         <p>Non-Functioning</p>
         <input
@@ -57,6 +59,7 @@ function RadioStatusFilter() {
           value='n/a'
           name='na'
           onClick={handleClick}
+          checked
         />
         <p>N/A</p>
       </form>
