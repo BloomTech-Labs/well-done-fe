@@ -4,7 +4,7 @@ const initialState = {
   user: {},
   isFetching: false,
   error: '',
-  initials: '',
+  initials: null,
 }
 
 const userReducer = (state = initialState, action) => {
@@ -16,20 +16,24 @@ const userReducer = (state = initialState, action) => {
       }
     case types.FETCHING_USER_SUCCESS:
       return {
+        ...state,
         user: action.payload,
         isFetching: false,
       }
     case types.FETCHING_USER_FAILURE:
       return {
+        ...state,
         error: action.payload,
       }
     case types.LOGIN_SUCCESS:
       return {
+        ...state,
         user: action.payload,
         isFetching: false,
       }
     case types.LOGIN_FAILURE:
       return {
+        ...state,
         error: action.payload,
       }
     case types.STARTING_INITIALS:

@@ -11,12 +11,16 @@ const NavRight = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch({
-      type: 'STARTING_INITIALS',
-      payload: userSelector.user.first_name + ' ' + userSelector.user.last_name,
-    })
-  }, [userSelector.user])
+    if (userSelector.user.first_name) {
+      dispatch({
+        type: 'STARTING_INITIALS',
+        payload:
+          userSelector.user.first_name + ' ' + userSelector.user.last_name,
+      })
+    }
+  }, [userSelector.isFetching])
 
+  console.log(userSelector)
   return (
     <div className='nav-right'>
       <NavLink className='margin-left' to='/dashboard'>
@@ -52,9 +56,10 @@ const NavRight = () => {
             margin: '17%  auto',
             background: '#0db4e9',
             fontSize: '2rem',
+            // overflow:
           }}
         >
-          {userSelector.initials}
+          {userSelector.initials ? userSelector.initials : ''}
         </p>
         {/* <svg
           className='drop-svg'
