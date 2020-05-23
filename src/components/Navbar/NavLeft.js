@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const NavLeft = () => (
   <div className='nav-left'>
-    <Link to='dashboard'>
+    <Link to='/dashboard'>
       <img className='logo' src={WellDoneLogo} alt='Well Done logo' />
     </Link>
   </div>

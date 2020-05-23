@@ -33,8 +33,7 @@ export default function Map(props) {
   }, [props])
 
   useEffect(() => {
-    const clickListener = async e => {
-      console.log(bool)
+    const clickListener = e => {
       if (e && bool) {
         if (e.target.classList.contains('location-icon')) {
           return
@@ -78,11 +77,7 @@ export default function Map(props) {
             className='popupCard'
             latitude={currentlySelected.latitude}
             longitude={currentlySelected.longitude}
-            onClose={() => {
-              dispatch({ type: CLEAR_SELECTED })
-            }}
             ref={popUpRef}
-            closeOnClick={true}
           >
             <PopupInfo
               setBool={setBool}
