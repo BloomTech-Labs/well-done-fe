@@ -64,24 +64,24 @@ const MonitorsPage = props => {
         break
       case 'FILTER_RADIO_BTNS':
         if (
-          selectedOptions.func === false &&
-          selectedOptions.non === false &&
-          selectedOptions.na === false
+          !selectedOptions.func &&
+          !selectedOptions.non &&
+          !selectedOptions.na
         ) {
-          return sensors
+          return
         } else {
           return sensors.filter(sensor => {
-            if (selectedOptions.non === true) {
+            if (selectedOptions.non) {
               if (sensor.status === 'Non-Functioning') {
                 return sensor
               }
             }
-            if (selectedOptions.func === true) {
+            if (selectedOptions.func) {
               if (sensor.status === 'Functioning') {
                 return sensor
               }
             }
-            if (selectedOptions.na === true) {
+            if (selectedOptions.na) {
               if (sensor.status === 'N/A') {
                 return sensor
               }
