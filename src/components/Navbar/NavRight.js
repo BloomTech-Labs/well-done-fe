@@ -5,7 +5,7 @@ import Dropdown from './Dropdown.js'
 
 const NavRight = () => {
   const [displayDropdown, setdisplayDropdown] = useState(false)
-  const [testInitials, setTestInitials] = useState('John Smith')
+  const [testInitials, setTestInitials] = useState('johnny appleseed')
   const userRole = localStorage.getItem('role')
 
   useEffect(() => {
