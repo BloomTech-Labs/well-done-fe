@@ -6,6 +6,7 @@ export const FETCHING_USER_FAILURE = 'FETCHING_USER_FAILURE'
 export const LOGIN_FETCH = 'LOGIN_FETCH'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+export const STARTING_INITIALS = 'STARTING_INITIALS'
 
 export const fetchUser = userId => dispatch => {
   dispatch({ type: FETCHING_USER_REQUEST })

@@ -2,22 +2,20 @@ import React, { useState, useEffect } from 'react'
 import './NavBar.scss'
 import { NavLink } from 'react-router-dom'
 import Dropdown from './Dropdown.js'
-
+import { useSelector, useDispatch } from 'react-redux'
 const NavRight = () => {
+  const userSelector = useSelector(state => state.userReducer)
   const [displayDropdown, setdisplayDropdown] = useState(false)
-  const [testInitials, setTestInitials] = useState('johnny appleseed')
   const userRole = localStorage.getItem('role')
 
-  useEffect(() => {
-    let splitName = testInitials.split(' '),
-      initial = splitName[0].substring(0, 1).toUpperCase()
+  const dispatch = useDispatch()
 
-    if (splitName.length > 1) {
-      initial += splitName[splitName.length - 1].substring(0, 1).toUpperCase()
-    }
-    // let spacedInitials = `${initial[0]} ${initial[1]}`
-    setTestInitials(initial)
-  }, [])
+  useEffect(() => {
+    dispatch({
+      type: 'STARTING_INITIALS',
+      payload: userSelector.user.first_name + ' ' + userSelector.user.last_name,
+    })
+  }, [userSelector.user])
 
   return (
     <div className='nav-right'>
@@ -56,7 +54,7 @@ const NavRight = () => {
             fontSize: '2rem',
           }}
         >
-          {testInitials}
+          {userSelector.initials}
         </p>
         {/* <svg
           className='drop-svg'
