@@ -1,11 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './NavBar.scss'
 import { NavLink } from 'react-router-dom'
 import Dropdown from './Dropdown.js'
 
 const NavRight = () => {
   const [displayDropdown, setdisplayDropdown] = useState(false)
+  const [testInitials, setTestInitials] = useState('John Smith')
   const userRole = localStorage.getItem('role')
+
+  useEffect(() => {
+    let splitName = testInitials.split(' '),
+      initial = splitName[0].substring(0, 1).toUpperCase()
+
+    if (splitName.length > 1) {
+      initial += splitName[splitName.length - 1].substring(0, 1).toUpperCase()
+    }
+    // let spacedInitials = `${initial[0]} ${initial[1]}`
+    setTestInitials(initial)
+  }, [])
 
   return (
     <div className='nav-right'>
@@ -30,7 +42,23 @@ const NavRight = () => {
         }
         onClick={() => setdisplayDropdown(!displayDropdown)}
       >
-        <svg
+        <p
+          style={{
+            borderRadius: '50%',
+            minHeight: '40px',
+            minWidth: '40px',
+            color: '#fff',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: '17%  auto',
+            background: '#0db4e9',
+            fontSize: '2rem',
+          }}
+        >
+          {testInitials}
+        </p>
+        {/* <svg
           className='drop-svg'
           width='24'
           height='35'
@@ -50,7 +78,7 @@ const NavRight = () => {
             d='M14.3053 20.428C13.0944 20.428 12.1051 21.8933 12.1051 21.8933C12.1051 21.8933 11.1245 20.428 9.9067 20.428C8.69403 20.428 7.70239 21.1592 7.70239 22.6235C7.70239 24.8216 12.1051 27.7506 12.1051 27.7506C12.1051 27.7506 16.5119 24.8216 16.5119 22.6235C16.5119 21.1592 15.5185 20.428 14.3053 20.428Z'
             fill='white'
           />
-        </svg>
+        </svg> */}
 
         {displayDropdown && <Dropdown setterFunction={setdisplayDropdown} />}
       </div>
