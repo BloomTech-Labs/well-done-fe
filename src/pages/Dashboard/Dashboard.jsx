@@ -22,8 +22,8 @@ const Dashboard = props => {
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
     longitude: 105.784788,
-    width: '100%',
-    height: '100vh',
+    width: '100vw',
+    height: '90vh',
     zoom: 2,
   })
   const sensorSelector = useSelector(state => state.sensorReducer)
