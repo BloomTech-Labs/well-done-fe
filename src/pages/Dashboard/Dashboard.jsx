@@ -53,7 +53,7 @@ const Dashboard = props => {
         latitude: 13.5651,
         longitude: 104.7538,
         width: window.innerWidth - 20,
-        height: '100vh',
+        height: '90vh',
         zoom: 8,
         scrollZoom: false,
         boxZoom: false,
@@ -77,8 +77,8 @@ const Dashboard = props => {
       setViewport({
         latitude: 13.5651,
         longitude: 104.7538,
-        width: '100%',
-        height: '100vh',
+        width: '100vw',
+        height: '90vh',
         zoom: 8,
         scrollZoom: false,
         boxZoom: false,
@@ -89,7 +89,7 @@ const Dashboard = props => {
         latitude: props.searchFiltered[0].latitude,
         longitude: props.searchFiltered[0].longitude,
         width: '100vw',
-        height: '100vh',
+        height: '90vh',
         zoom: 11,
       }
       setViewport(searchedPlace)
@@ -109,7 +109,7 @@ const Dashboard = props => {
         latitude: avgCoordinate(props.searchFiltered)[0],
         longitude: avgCoordinate(props.searchFiltered)[1],
         width: '100vw',
-        height: '100vh',
+        height: '90vh',
         zoom: 11,
       }
       setViewport(searchedPlace)
