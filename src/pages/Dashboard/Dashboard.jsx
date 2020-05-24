@@ -52,7 +52,7 @@ const Dashboard = props => {
       setViewport({
         latitude: 13.5651,
         longitude: 104.7538,
-        width: window.innerWidth - 20,
+        width: '100%',
         height: '90vh',
         zoom: 8,
         scrollZoom: false,
