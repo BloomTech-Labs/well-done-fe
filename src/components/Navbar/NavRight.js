@@ -1,12 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './NavBar.scss'
 import { NavLink } from 'react-router-dom'
 import Dropdown from './Dropdown.js'
-
+import { useSelector, useDispatch } from 'react-redux'
 const NavRight = () => {
+  const userSelector = useSelector(state => state.userReducer)
   const [displayDropdown, setdisplayDropdown] = useState(false)
   const userRole = localStorage.getItem('role')
 
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (userSelector.user.first_name) {
+      dispatch({
+        type: 'STARTING_INITIALS',
+        payload:
+          userSelector.user.first_name + ' ' + userSelector.user.last_name,
+      })
+    }
+  }, [userSelector.isFetching])
+
+  console.log(userSelector)
   return (
     <div className='nav-right'>
       <NavLink className='margin-left' to='/dashboard'>
@@ -30,7 +44,24 @@ const NavRight = () => {
         }
         onClick={() => setdisplayDropdown(!displayDropdown)}
       >
-        <svg
+        <p
+          style={{
+            borderRadius: '50%',
+            minHeight: '40px',
+            minWidth: '40px',
+            color: '#fff',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: '17%  auto',
+            background: '#0db4e9',
+            fontSize: '2rem',
+            // overflow:
+          }}
+        >
+          {userSelector.initials ? userSelector.initials : ''}
+        </p>
+        {/* <svg
           className='drop-svg'
           width='24'
           height='35'
@@ -50,7 +81,7 @@ const NavRight = () => {
             d='M14.3053 20.428C13.0944 20.428 12.1051 21.8933 12.1051 21.8933C12.1051 21.8933 11.1245 20.428 9.9067 20.428C8.69403 20.428 7.70239 21.1592 7.70239 22.6235C7.70239 24.8216 12.1051 27.7506 12.1051 27.7506C12.1051 27.7506 16.5119 24.8216 16.5119 22.6235C16.5119 21.1592 15.5185 20.428 14.3053 20.428Z'
             fill='white'
           />
-        </svg>
+        </svg> */}
 
         {displayDropdown && <Dropdown setterFunction={setdisplayDropdown} />}
       </div>

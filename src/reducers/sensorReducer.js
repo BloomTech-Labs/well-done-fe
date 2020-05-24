@@ -9,9 +9,9 @@ const initialState = {
   isFetching: false,
   error: '',
   filterOptions: {
-    func: false,
-    non: false,
-    na: false,
+    func: true,
+    non: true,
+    na: true,
   },
   startDate: '',
   endDate: '',
