@@ -13,7 +13,6 @@ import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
 import Organizations from './pages/OrganizationsPage/Organizations.js'
-
 import { fetchUser } from './actions/userActions.js'
 import {
   fetchHistoryById,
@@ -63,6 +62,7 @@ function App(props) {
   const [searchFiltered, setSearchFiltered] = useState([])
 
   return (
+    
     <div className='app-container'>
       {!!displayNav && <NavBar />}
 
@@ -107,6 +107,7 @@ function App(props) {
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>
     </div>
+    
   )
 }
 

@@ -26,6 +26,7 @@ import LogsTable from '../MonitorsPage/Logs/LogsTable'
 
 
 
+
 const MonitorDetails = props => {
   const [isMonth, setIsMonth] = useState(false)
   const [isToggleGraph, setIsToggleGraph] = useState(false)
