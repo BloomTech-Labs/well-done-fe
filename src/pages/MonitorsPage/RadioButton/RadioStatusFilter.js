@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import moment from 'moment'
 
@@ -36,11 +36,13 @@ function RadioStatusFilter() {
     <>
       <form className='checkboxes'>
         <input
+          checked={selectedOptions.func}
           type='checkbox'
           id='func'
           value='Functioning'
           name='func'
           onClick={handleClick}
+          // onChange={checkboxChange}
         />
         <p>Functioning</p>
         <input
@@ -49,6 +51,7 @@ function RadioStatusFilter() {
           value='Non-Functioning'
           name='non'
           onClick={handleClick}
+          checked={selectedOptions.non}
         />
         <p>Non-Functioning</p>
         <input
@@ -57,6 +60,7 @@ function RadioStatusFilter() {
           value='n/a'
           name='na'
           onClick={handleClick}
+          checked={selectedOptions.na}
         />
         <p>N/A</p>
       </form>

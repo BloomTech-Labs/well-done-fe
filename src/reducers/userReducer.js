@@ -1,10 +1,10 @@
 import * as types from 'actions/userActions'
 
-
 const initialState = {
   user: {},
   isFetching: false,
   error: '',
+  initials: null,
 }
 
 const userReducer = (state = initialState, action) => {
@@ -16,21 +16,36 @@ const userReducer = (state = initialState, action) => {
       }
     case types.FETCHING_USER_SUCCESS:
       return {
+        ...state,
         user: action.payload,
         isFetching: false,
       }
     case types.FETCHING_USER_FAILURE:
       return {
+        ...state,
         error: action.payload,
       }
     case types.LOGIN_SUCCESS:
       return {
+        ...state,
         user: action.payload,
         isFetching: false,
       }
     case types.LOGIN_FAILURE:
       return {
+        ...state,
         error: action.payload,
+      }
+    case types.STARTING_INITIALS:
+      let splitName = action.payload.split(' '),
+        initial = splitName[0].substring(0, 1).toUpperCase()
+
+      if (splitName.length > 1) {
+        initial += splitName[splitName.length - 1].substring(0, 1).toUpperCase()
+      }
+      return {
+        ...state,
+        initials: initial,
       }
     default:
       return state
