@@ -38,7 +38,6 @@ const useStyles = makeStyles(theme => ({
     width: '400px',
     borderRadius: '12px'
     
-   
   },
 }))
 
