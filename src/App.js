@@ -43,7 +43,7 @@ function App(props) {
     //prevent fetching when user not logged in
     if (window.location.pathname !== '/') {
       //checking if user object in redux is empty
-      if (!Object.keys(user).length) {
+      if (!Object.keys(user).length || !user.first_name) {
         // checking if user ID is in local storage
         if (userId) {
           // if userId is in local storage lets fetch some user data
@@ -95,10 +95,7 @@ function App(props) {
           selectedPump={currentlySelected}
         />
 
-        <PrivateRoute
-        path =':sensor_pid'
-        page ={MonitorDetails}
-        />
+        <PrivateRoute path=':sensor_pid' page={MonitorDetails} />
 
         <PrivateRoute path='/organizations' page={Organizations} />
 
