@@ -1,6 +1,10 @@
-.navStyle {
+.mapsContainer {
+  width: 100%;
+
+  .navStyle {
     position: absolute;
-    top:36;
+    top: 36;
     left: 0;
     padding: 10px;
   }
+}
