@@ -170,7 +170,7 @@ const MonitorsPage = props => {
       </div>
       
       <div className='sensorTable'>
-      
+        
         <Sensors sensors={useGridObjects()} />
       </div>
       

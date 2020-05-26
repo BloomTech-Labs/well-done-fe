@@ -81,6 +81,9 @@ $border-color: #0db4e9;
     }
   }
 }
+.dLButtonCont{
+  margin-left: 97%;
+}
 #addSensor {
   border: none;
   background: transparent;
@@ -267,7 +270,7 @@ input {
 }
 
 #grid-wrapper {
-  border-bottom: 1px solid #0db4e9;
+  background-color: #0db4e9;
 }
 
 // .ag-floating-filter-input {
