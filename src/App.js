@@ -90,7 +90,7 @@ function App(props) {
         <PrivateRoute path='/overview' page={MonitorsPage} />
 
         <PrivateRoute
-          path='/monitordetails/:sensor_pid'
+          path='/monitor/:sensor_pid'
           page={MonitorDetails}
           selectedPump={currentlySelected}
         />
