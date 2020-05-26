@@ -87,6 +87,7 @@ const Sensors = props => {
     <>
       <div className='sensorChart'>
         <div className='sensorHeader'>
+
           <div className='searchSensorContainer'>
             <input
               className='searchInsensors'
@@ -95,14 +96,14 @@ const Sensors = props => {
               id='quickFilter'
               placeholder='Search'
             />
-
+        
             <AiOutlineSearch className='searchIcon' />
           </div>
 
           <CalendarFilter sensors={props.sensors} />
         </div>
-
         <div className ='dLButtonCont'>
+        
         <button
           className='downloadButton'
           type='default'
