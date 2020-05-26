@@ -101,15 +101,18 @@ const Sensors = props => {
 
           <CalendarFilter sensors={props.sensors} />
         </div>
+
         <div className ='dLButtonCont'>
         <button
           className='downloadButton'
           type='default'
           icon='download'
-          size='small'>
+          size='small'
+          onClick={exportToCsv.bind(this)}>
         <img src={Archivebutton} alt='download'></img>
         </button>
         </div>
+
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
