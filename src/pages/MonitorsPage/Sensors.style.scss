@@ -82,7 +82,21 @@ $border-color: #0db4e9;
   }
 }
 .dLButtonCont{
-  margin-left: 98%;
+    display: flex;
+    width: 99%;
+    flex-direction: row-reverse;
+    margin-bottom: 1vh;
+
+  .downloadButton{
+    display: flex;
+    border: 1px solid $mainBackground;
+    background-color: $icon-color ;
+    border-radius: 6px;
+    p{
+      margin-top: 5%;
+      margin-bottom: 2%;
+    }
+  }
 }
 #addSensor {
   border: none;

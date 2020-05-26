@@ -103,13 +103,13 @@ const Sensors = props => {
           <CalendarFilter sensors={props.sensors} />
         </div>
         <div className ='dLButtonCont'>
-        
         <button
           className='downloadButton'
           type='default'
           icon='download'
           size='small'
           onClick={exportToCsv.bind(this)}>
+        <p>Download grid data</p>
         <img src={Archivebutton} alt='download'></img>
         </button>
         </div>
