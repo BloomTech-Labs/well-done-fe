@@ -109,7 +109,7 @@ const Sensors = props => {
           icon='download'
           size='small'
           onClick={exportToCsv.bind(this)}>
-        <p>Download grid data</p>
+        <p>download grid data</p>
         <img src={Archivebutton} alt='download'></img>
         </button>
         </div>
