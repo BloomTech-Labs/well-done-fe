@@ -17,7 +17,7 @@ $border-color: #0db4e9;
 
 .sensorChart {
   background: #d5d6e9;
-  height: 200px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +31,6 @@ $border-color: #0db4e9;
     border: none;
     display: flex;
     align-items: center;
-    margin-bottom: 13px;
     background: #d5d6e9;
     justify-content: center;
 
@@ -79,6 +78,23 @@ $border-color: #0db4e9;
         justify-content: center;
         width: 100%;
       }
+    }
+  }
+}
+.dLButtonCont{
+    display: flex;
+    width: 99%;
+    flex-direction: row-reverse;
+    margin-bottom: .5rem;
+
+  .downloadButton{
+    display: flex;
+    border: 1px solid $mainBackground;
+    background-color: $icon-color ;
+    border-radius: 6px;
+    p{
+      margin-top: 5%;
+      margin-bottom: 2%;
     }
   }
 }
@@ -265,10 +281,6 @@ input {
   width: 60%;
   margin-left: 20%;
   padding-bottom: 5%;
-}
-
-#grid-wrapper {
-  border-bottom: 6px solid #0db4e9;
 }
 
 // .ag-floating-filter-input {
