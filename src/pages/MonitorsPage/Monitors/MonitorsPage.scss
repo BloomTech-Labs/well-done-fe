@@ -5,7 +5,7 @@
 }
 .monitorContainer {
   display: flex;
-  align-items: center;
+  padding-top: 5rem;
   background: #d5d6e9;
   // height: 55rem;
   border: none;
@@ -17,7 +17,7 @@
 
 .cardsContainer {
   display: flex;
-  width: 56%;
+  width: 70%;
 
   @media screen and(max-width:800px) {
     width: 100%;
@@ -42,11 +42,11 @@
   position: relative;
   display: flex;
   justify-content: space-around;
-  width: 88%;
+  width: 100%;
   align-items: center;
-
+  padding-bottom: 2rem;
   flex-wrap: wrap;
-  height: 9vh;
+  height: 300px;
 
   @media screen and(max-width:800px) {
     width: 100%;
