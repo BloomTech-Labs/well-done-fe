@@ -34,7 +34,10 @@ function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   // Pie chart settings - end
   return (
     <div className='pieCanvas'>
-      <Pie className='insidePie' data={data} options={option} />
+      <Pie className='insidePie' 
+      data={data} 
+      options={option}
+      />
     </div>
   )
 }

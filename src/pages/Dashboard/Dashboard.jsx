@@ -125,9 +125,11 @@ const Dashboard = props => {
   }
 
   return (
+    
     <div className='dashboard'>
       <Menu />
       <div className='mapSearchFilterContainer'>
+      
         <Map
           sensors={sensorSelector.sensors}
           funcToggle={funcToggle}
@@ -162,7 +164,9 @@ const Dashboard = props => {
           setUnknownToggle={setUnknownToggle}
         /> */}
       </div>
+      
     </div>
+    
   )
 }
 

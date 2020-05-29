@@ -150,6 +150,7 @@ const MonitorsPage = props => {
 
   return (
     <div className='monitorsPageContainer'>
+      
       <div className='monitorContainer'>
         <div className='percentContainer'>
           <PercentageChart
@@ -167,9 +168,12 @@ const MonitorsPage = props => {
           />
         </div>
       </div>
+      
       <div className='sensorTable'>
+        
         <Sensors sensors={useGridObjects()} />
       </div>
+      
     </div>
   )
 }

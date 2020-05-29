@@ -13,7 +13,6 @@ import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
 import Organizations from './pages/OrganizationsPage/Organizations.js'
-
 import { fetchUser } from './actions/userActions.js'
 import {
   fetchHistoryById,
@@ -63,6 +62,7 @@ function App(props) {
   const [searchFiltered, setSearchFiltered] = useState([])
 
   return (
+    
     <div className='app-container'>
       {!!displayNav && <NavBar />}
 
@@ -90,7 +90,7 @@ function App(props) {
         <PrivateRoute path='/overview' page={MonitorsPage} />
 
         <PrivateRoute
-          path='/monitordetails/:sensor_pid'
+          path='/monitor/:sensor_pid'
           page={MonitorDetails}
           selectedPump={currentlySelected}
         />
@@ -104,6 +104,7 @@ function App(props) {
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>
     </div>
+    
   )
 }
 
