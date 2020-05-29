@@ -16,6 +16,7 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Label,
 } from 'recharts'
 import '../MonitorDetails/MonitorsLineChart.styles.scss'
 
@@ -187,13 +188,9 @@ const MonitorDetails = props => {
               >
                 <CartesianGrid strokeDasharray='3 3' />
                 <XAxis dataKey='name' />
-                <YAxis
-                  label={{
-                    value: 'Liters',
-                    angle: -90,
-                    position: 'insideLeft',
-                  }}
-                />
+                <YAxis>
+                  <Label angle={-90} value={'Liters'} position={'insideLeft'} />
+                </YAxis>
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
@@ -228,14 +225,13 @@ const MonitorDetails = props => {
               >
                 <CartesianGrid strokeDasharray='3 3' />
                 <XAxis dataKey='name' />
-                <YAxis
-                  label={{
-                    value: 'Pad Seconds',
-                    angle: -90,
-                    position: 'insideLeft',
-                    offset: -10,
-                  }}
-                />
+                <YAxis>
+                  <Label
+                    angle={-90}
+                    value={'Pad Seconds'}
+                    position={'insideLeft'}
+                  />
+                </YAxis>
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
