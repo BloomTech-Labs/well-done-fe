@@ -187,7 +187,13 @@ const MonitorDetails = props => {
               >
                 <CartesianGrid strokeDasharray='3 3' />
                 <XAxis dataKey='name' />
-                <YAxis />
+                <YAxis
+                  label={{
+                    value: 'Liters',
+                    angle: -90,
+                    position: 'insideLeft',
+                  }}
+                />
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
@@ -222,7 +228,14 @@ const MonitorDetails = props => {
               >
                 <CartesianGrid strokeDasharray='3 3' />
                 <XAxis dataKey='name' />
-                <YAxis />
+                <YAxis
+                  label={{
+                    value: 'Pad Seconds',
+                    angle: -90,
+                    position: 'insideLeft',
+                    offset: -10,
+                  }}
+                />
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
