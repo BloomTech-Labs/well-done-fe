@@ -5,7 +5,7 @@ const ViewButton = props => {
     e.preventDefault()
     
     props.dispatch(handleSelected(selPump))
-    props.history.push(`/monitordetails/${props.data.sensor_pid}`)
+    props.history.push(`/monitor/${props.data.sensor_pid}`)
   };
   return (
     <span className='btnCon'>

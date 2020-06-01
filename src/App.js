@@ -13,7 +13,6 @@ import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
 import Organizations from './pages/OrganizationsPage/Organizations.js'
-
 import { fetchUser } from './actions/userActions.js'
 import {
   fetchHistoryById,
@@ -43,7 +42,7 @@ function App(props) {
     //prevent fetching when user not logged in
     if (window.location.pathname !== '/') {
       //checking if user object in redux is empty
-      if (!Object.keys(user).length) {
+      if (!Object.keys(user).length || !user.first_name) {
         // checking if user ID is in local storage
         if (userId) {
           // if userId is in local storage lets fetch some user data
@@ -63,6 +62,7 @@ function App(props) {
   const [searchFiltered, setSearchFiltered] = useState([])
 
   return (
+    
     <div className='app-container'>
       {!!displayNav && <NavBar />}
 
@@ -90,15 +90,12 @@ function App(props) {
         <PrivateRoute path='/overview' page={MonitorsPage} />
 
         <PrivateRoute
-          path='/monitordetails/:sensor_pid'
+          path='/monitor/:sensor_pid'
           page={MonitorDetails}
           selectedPump={currentlySelected}
         />
 
-        <PrivateRoute
-        path =':sensor_pid'
-        page ={MonitorDetails}
-        />
+        <PrivateRoute path=':sensor_pid' page={MonitorDetails} />
 
         <PrivateRoute path='/organizations' page={Organizations} />
 
@@ -107,6 +104,7 @@ function App(props) {
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>
     </div>
+    
   )
 }
 

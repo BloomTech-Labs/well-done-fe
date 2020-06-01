@@ -151,4 +151,8 @@
   .toggleSecondOff {
     display: none;
   }
+
+  .yAxisLabel {
+    transform: rotate(-90deg);
+  }
 }

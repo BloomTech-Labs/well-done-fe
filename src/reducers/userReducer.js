@@ -24,6 +24,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload,
+        isFetching: false,
       }
     case types.LOGIN_SUCCESS:
       return {

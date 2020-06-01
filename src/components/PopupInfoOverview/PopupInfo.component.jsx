@@ -50,7 +50,7 @@ const PopupInfo = props => {
         <h3>{country_name}</h3>
         <p className='province_name'>{province_name}</p>
 
-        <Link to={{ pathname: `/monitordetails/${sensor_pid}` }}>
+        <Link to={{ pathname: `/monitor/${sensor_pid}` }}>
           <Button type='link'>More details</Button>
         </Link>
       </div>

@@ -2,8 +2,6 @@ import React from 'react'
 import './Search.styles.scss'
 import { AiOutlineSearch } from 'react-icons/ai'
 
-
-
 const Search = props => {
   const handleChange = event => {
     if (event.target.value.length !== 0) {
@@ -20,7 +18,7 @@ const Search = props => {
         latitude: 13.5651,
         longitude: 104.7538,
         width: '100vw',
-        height: '100vh',
+        height: '90vh',
         zoom: 8,
       })
     }
@@ -28,14 +26,12 @@ const Search = props => {
 
   return (
     <div className='search'>
-      
       <input
         type='text'
         placeholder='Search village or sensor physical ID'
-        onChange={handleChange} 
-       
+        onChange={handleChange}
       />
-      <AiOutlineSearch className="search-icon"/>
+      <AiOutlineSearch className='search-icon' />
       {/* <div className='filtered'>
         {props.searchFiltered.map((place, i) => (
           <h2 key={i}>{place.village_name}</h2>

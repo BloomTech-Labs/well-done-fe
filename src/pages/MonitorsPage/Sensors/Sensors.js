@@ -8,7 +8,7 @@ import { columnsFunc } from './sensorGridColumns'
 import gridOptionss from '../../../components/Grid/Pagination'
 import '../../MonitorsPage/Sensors.style.scss'
 import { useDispatch, useSelector } from 'react-redux'
-
+import Archivebutton from 'icons/Archivebutton.svg'
 import { AiOutlineSearch } from 'react-icons/ai'
 import moment from 'moment'
 
@@ -78,7 +78,7 @@ const Sensors = props => {
       skipHeader: false,
       skipFooters: true,
       skipGroups: true,
-      fileName: 'OverviewGrid.csv',
+      fileName: 'Monitor-Report.csv',
     }
     gridOptionss.api.exportDataAsCsv(params)
   }
@@ -87,6 +87,7 @@ const Sensors = props => {
     <>
       <div className='sensorChart'>
         <div className='sensorHeader'>
+
           <div className='searchSensorContainer'>
             <input
               className='searchInsensors'
@@ -95,18 +96,30 @@ const Sensors = props => {
               id='quickFilter'
               placeholder='Search'
             />
-
+        
             <AiOutlineSearch className='searchIcon' />
           </div>
 
           <CalendarFilter sensors={props.sensors} />
         </div>
+        <div className ='dLButtonCont'>
+        <button
+          className='downloadButton'
+          type='default'
+          icon='download'
+          size='small'
+          onClick={exportToCsv.bind(this)}>
+        <p>download grid data</p>
+        <img src={Archivebutton} alt='download'></img>
+        </button>
+        </div>
+
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
           id='myGrid2'
           style={{
-            height: '400px',
+            height: '44vh',
             width: '100%',
           }}
           className='ag-theme-balham'
