@@ -64,7 +64,7 @@ const MonitorDetails = props => {
 
   // Volume
   const volume = padHistory.map(item => {
-    return { Volume: item.pad_seconds_2 / (11.41 * 10.0), date: item.date }
+    return { Volume: item.pad_seconds_2 / 1.141, date: item.date }
   })
   const weekVolumeDate = volume.slice(-7).map(day => day.date)
   const monthVolumeDate = padHistory.slice(-30).map(day => day.date)
@@ -181,6 +181,7 @@ const MonitorDetails = props => {
               !isToggleGraph ? 'countCountContainer' : 'toggleCountOff'
             }
           >
+            <div className='yAxisLabel'>Liters</div>
             <ResponsiveContainer width='80%'>
               <LineChart
                 data={isMonth ? monthVolume : weekVolume}
@@ -188,9 +189,7 @@ const MonitorDetails = props => {
               >
                 <CartesianGrid strokeDasharray='3 3' />
                 <XAxis dataKey='name' />
-                <YAxis>
-                  <Label angle={-90} value={'Liters'} position={'insideLeft'} />
-                </YAxis>
+                <YAxis></YAxis>
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
@@ -218,6 +217,7 @@ const MonitorDetails = props => {
               isToggleGraph ? 'countSecondContainer' : 'toggleSecondOff'
             }
           >
+            <div className='yAxisLabel'>Pad Seconds</div>
             <ResponsiveContainer width='80%'>
               <LineChart
                 data={isMonth ? monthSecondData : weekDataSecond}
@@ -225,13 +225,7 @@ const MonitorDetails = props => {
               >
                 <CartesianGrid strokeDasharray='3 3' />
                 <XAxis dataKey='name' />
-                <YAxis>
-                  <Label
-                    angle={-90}
-                    value={'Pad Seconds'}
-                    position={'insideLeft'}
-                  />
-                </YAxis>
+                <YAxis></YAxis>
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
