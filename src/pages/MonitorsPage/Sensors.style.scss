@@ -223,7 +223,8 @@ input {
   border-radius: 3px;
   border: none;
   @include navbar-bg;
-  color: white;
+  color:white;
+  background-color: $wellDoneBlue;
   padding: 8px 15px;
   font-size: 14px;
 }
