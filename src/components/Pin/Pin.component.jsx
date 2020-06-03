@@ -15,6 +15,8 @@ function Pin(props) {
     await dispatch(handleSelected(sensor))
   }
 
+  console.log(props.sensors)
+
   return (
     <div>
       {props.sensors.map(sensor => {

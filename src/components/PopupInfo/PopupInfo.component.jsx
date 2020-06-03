@@ -31,6 +31,7 @@ const PopupInfo = props => {
     return Number(day.sensor_id) === Number(props.selectedPump.physical_id)
   })
 
+  console.log(statusHistory.slice(0, 14))
   const {
     status,
     sensor_pid,
@@ -52,7 +53,7 @@ const PopupInfo = props => {
       <div className='pump_info'>
         <div className='spread'>
           {statusHistory
-            .slice(-14)
+            .slice(0, 14)
             .map(day =>
               day.status == null || day.status == 0 ? (
                 <div key={day.history_id} className='spread-red'></div>
