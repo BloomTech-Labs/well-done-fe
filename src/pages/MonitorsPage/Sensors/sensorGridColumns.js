@@ -10,17 +10,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
       headerName: 'Sensor ID',
       field: 'physical_id',
 
-      minWidth: 90,
-      cellStyle: {
-        'font-size': '1.5rem',
-        'padding-top': '.75rem',
-      },
-    },
-    {
-      headerName: 'Installed',
-      field: 'created_at',
-
-      minWidth: 90,
+      minWidth: 95,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -30,6 +20,25 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
       headerName: 'Status',
       field: 'status',
       minWidth: 90,
+      cellStyle: {
+        'font-size': '1.5rem',
+        'padding-top': '.75rem',
+      },
+    },
+    {
+      headerName: 'Installed',
+      field: 'data_finished',
+
+      minWidth: 90,
+      cellStyle: {
+        'font-size': '1.5rem',
+        'padding-top': '.75rem',
+      },
+    },
+    {
+      headerName: 'Depth',
+      field: 'depth',
+      width: 80,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -47,7 +56,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Province',
       field: 'province_name',
-      // minWidth: 90,
+      minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -62,6 +71,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
         'padding-top': '.75rem',
       },
     },
+
     {
       headerName: 'Village',
       field: 'village_name',

@@ -81,18 +81,20 @@ $border-color: #0db4e9;
     }
   }
 }
-.dLButtonCont{
-    display: flex;
-    width: 99%;
-    flex-direction: row-reverse;
-    margin-bottom: .5rem;
+.dLButtonCont {
+  display: flex;
+  justify-content: flex-end;
+  background: #d5d6e9;
+  padding: 0% 3%;
+  // flex-direction: row-reverse;
+  // margin-bottom: 0.5rem;
 
-  .downloadButton{
+  .downloadButton {
     display: flex;
     border: 1px solid $mainBackground;
-    background-color: $icon-color ;
+    background-color: $icon-color;
     border-radius: 6px;
-    p{
+    p {
       margin-top: 5%;
       margin-bottom: 2%;
     }
@@ -283,6 +285,11 @@ input {
   padding-bottom: 5%;
 }
 
-// .ag-floating-filter-input {
-//   color: black;
-// }
+#grid-wrapper-sensor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1%;
+  padding-bottom: 3%;
+  background: #d5d6e9;
+}
