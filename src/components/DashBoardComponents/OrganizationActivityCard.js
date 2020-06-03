@@ -3,8 +3,6 @@ import moment from 'moment'
 import { withRouter } from 'react-router'
 
 const OrganizationActivityCard = props => {
-  console.log(props)
-
   return (
     <div className='orgActivityAlertInfo'>
       <div key={props.index} className='orgActivityCardContainer'>

@@ -53,8 +53,6 @@ class SensorsWithOutHistory extends Component {
     let physical_IDWOH = WithoutHistory.filter(
       item => !WithHistory.includes(item)
     )
-    console.log(gIWO)
-    console.log(physical_IDWOH)
 
     let sensorsWOH = []
 
@@ -66,7 +64,6 @@ class SensorsWithOutHistory extends Component {
       })
     })
 
-    console.log(sensorsWOH, 'sWOH')
     return sensorsWOH
   }
 
