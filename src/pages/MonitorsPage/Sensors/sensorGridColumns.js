@@ -26,7 +26,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
       },
     },
     {
-      headerName: 'Installed',
+      headerName: 'Constructed',
       field: 'data_finished',
 
       minWidth: 90,
