@@ -26,10 +26,11 @@ const Sensors = props => {
   const onGridReady = params => {
     setgridApi(params.api)
     gridColumnApi = params.columnApi
+    // gridColumnApi.sizeColumnsToFit()
   }
 
   const onGridSizeChanged = params => {
-    var gridWidth = document.getElementById('grid-wrapper').offsetWidth
+    var gridWidth = document.getElementById('grid-wrapper-sensor').offsetWidth
     var columnsToShow = []
     var columnsToHide = []
     var totalColsWidth = 0
@@ -82,7 +83,7 @@ const Sensors = props => {
     }
     gridOptionss.api.exportDataAsCsv(params)
   }
-  console.log(props.sensors, 'sens info')
+  // console.log(props.sensors, 'sens info')
   return (
     <>
       <div className='sensorChart'>
@@ -101,25 +102,31 @@ const Sensors = props => {
 
           <CalendarFilter sensors={props.sensors} />
         </div>
-        <div className='dLButtonCont'>
-          <button
-            className='downloadButton'
-            type='default'
-            icon='download'
-            size='small'
-            onClick={exportToCsv.bind(this)}
-          >
-            <p>download grid data</p>
-            <img src={Archivebutton} alt='download'></img>
-          </button>
-        </div>
       </div>
-      <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
+      <div className='dLButtonCont'>
+        <button
+          className='downloadButton'
+          type='default'
+          icon='download'
+          size='small'
+          onClick={exportToCsv.bind(this)}
+        >
+          <p>download grid data</p>
+          <img src={Archivebutton} alt='download'></img>
+        </button>
+      </div>
+      <div
+        id='grid-wrapper-sensor'
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
+      >
         <div
-          id='myGrid2'
+          id='c'
           style={{
             height: '44vh',
-            width: '100%',
+            width: '96%',
           }}
           className='ag-theme-balham'
         >
@@ -128,7 +135,7 @@ const Sensors = props => {
             columnDefs={columnsFunc(props, dispatch, showViewButton)}
             rowData={props.sensors}
             gridOptions={gridOptionss}
-            onGridSizeChanged={onGridSizeChanged}
+            // onGridSizeChanged={onGridSizeChanged}
             onGridReady={onGridReady}
           />
         </div>

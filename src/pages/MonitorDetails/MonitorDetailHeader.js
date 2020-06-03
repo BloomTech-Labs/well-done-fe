@@ -35,7 +35,7 @@ function MonitorDetailHeader(props) {
     longitude,
   } = props.historySelector[0]
 
-  let finishedDate = moment(data_finished).format('MM/DD/YYYY')
+  // let finishedDate = moment(data_finished).format('MM/DD/YYYY')
 
   const unknown =
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png'
@@ -72,6 +72,8 @@ function MonitorDetailHeader(props) {
     }
   }
 
+  const statusTitle = () => {}
+
   return (
     <>
       <div className='mainHeaderContainer'>
@@ -85,27 +87,31 @@ function MonitorDetailHeader(props) {
             <h3>{commune_name}</h3>
           </div>
           <div className='wellContainer'>
-            <h3>Well</h3>
+            <h3 className='wellTitle'>Well</h3>
             <div className='wellInfoContainer'>
               <div className='wellConstructed'>
-                <p>Constructed</p>
-                <h6>{finishedDate}</h6>
-              </div>
-              <div className='wellProvince'>
-                <p>Province</p>
-                <h6>{province_name}</h6>
+                <p className='wellInfoP'>Constructed</p>
+                <h4>{data_finished}</h4>
               </div>
               <div className='wellDepth'>
-                <p>Well Depth</p>
-                <h6>{depth}</h6>
+                <p className='wellInfoP'>Well Depth</p>
+                <h4>{depth}</h4>
+              </div>
+              <div className='wellProvince'>
+                <p className='wellInfoP'>Province</p>
+                <h4>{province_name}</h4>
               </div>
               <div className='wellCommune'>
-                <p>Reported percent</p>
-                <h6>{reported_percent}</h6>
-              </div>
-              <div className='wellTotal'>
-                <p>Total</p>
-                <h6>{total}</h6>
+                <p className='wellInfoP'>Status</p>
+                <p>
+                  {status === 0 || status == null ? (
+                    <h4>Non-Functioning</h4>
+                  ) : status === 1 ? (
+                    <h4>Unknown</h4>
+                  ) : (
+                    <h4>Functional</h4>
+                  )}
+                </p>
               </div>
             </div>
           </div>
