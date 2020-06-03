@@ -20,7 +20,6 @@ const NavRight = () => {
     }
   }, [userSelector.isFetching])
 
-  console.log(userSelector)
   return (
     <div className='nav-right'>
       <NavLink className='margin-left' to='/dashboard'>

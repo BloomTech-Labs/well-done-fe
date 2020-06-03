@@ -82,12 +82,11 @@ const Sensors = props => {
     }
     gridOptionss.api.exportDataAsCsv(params)
   }
-
+  console.log(props.sensors, 'sens info')
   return (
     <>
       <div className='sensorChart'>
         <div className='sensorHeader'>
-
           <div className='searchSensorContainer'>
             <input
               className='searchInsensors'
@@ -96,24 +95,24 @@ const Sensors = props => {
               id='quickFilter'
               placeholder='Search'
             />
-        
+
             <AiOutlineSearch className='searchIcon' />
           </div>
 
           <CalendarFilter sensors={props.sensors} />
         </div>
-        <div className ='dLButtonCont'>
-        <button
-          className='downloadButton'
-          type='default'
-          icon='download'
-          size='small'
-          onClick={exportToCsv.bind(this)}>
-        <p>download grid data</p>
-        <img src={Archivebutton} alt='download'></img>
-        </button>
+        <div className='dLButtonCont'>
+          <button
+            className='downloadButton'
+            type='default'
+            icon='download'
+            size='small'
+            onClick={exportToCsv.bind(this)}
+          >
+            <p>download grid data</p>
+            <img src={Archivebutton} alt='download'></img>
+          </button>
         </div>
-
       </div>
       <div id='grid-wrapper' style={{ width: '100%', height: '100%' }}>
         <div
