@@ -31,7 +31,6 @@ const PopupInfo = props => {
     return Number(day.sensor_id) === Number(props.selectedPump.physical_id)
   })
 
-  console.log(statusHistory.slice(0, 14))
   const {
     status,
     sensor_pid,

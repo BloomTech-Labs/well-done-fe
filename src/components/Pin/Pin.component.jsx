@@ -4,7 +4,7 @@ import NewMapMarkerFunctioning from 'icons/NewMapMarkerFunctioning.svg'
 import NewMapMarkerNonFunctioning from 'icons/NewMapMarkerNonFunctioning.svg'
 import NewMapMarkerNoData from 'icons/NewMapMarkerNoData.svg'
 import { handleSelected, CLEAR_SELECTED } from 'actions/selectedSensorsActions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 function Pin(props) {
   const dispatch = useDispatch()
 
@@ -15,11 +15,13 @@ function Pin(props) {
     await dispatch(handleSelected(sensor))
   }
 
-  console.log(props.sensors)
+  const recentHistory = useSelector(state => state.historyReducer.recentHistory)
 
+  console.log(recentHistory[props.sensors[0].physical_id], props.sensors)
   return (
     <div>
       {props.sensors.map(sensor => {
+        console.log(recentHistory[sensor.physical_id])
         if (sensor.status === null && props.nonFuncToggle) {
           return (
             <Marker
@@ -50,7 +52,10 @@ function Pin(props) {
               />
             </Marker>
           )
-        } else if (sensor.status === 1 && props.unknownToggle) {
+        } else if (
+          recentHistory[sensor.physical_id] === 'no' &&
+          props.unknownToggle
+        ) {
           return (
             <Marker
               key={sensor.sensor_id}
@@ -65,7 +70,10 @@ function Pin(props) {
               />
             </Marker>
           )
-        } else if (sensor.status === 2 && props.funcToggle) {
+        } else if (
+          recentHistory[sensor.physical_id] === 'yes' &&
+          props.funcToggle
+        ) {
           return (
             <Marker
               key={sensor.sensor_id}

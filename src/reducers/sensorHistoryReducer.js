@@ -5,6 +5,7 @@ import * as types from 'actions/sensorHistoryActions'
 const initialState = {
   history: [],
   alertInfo: [],
+  recentHistory: [],
   individualSensor: [],
   individualSensorHistory: [],
   isFetching: false,
@@ -41,6 +42,25 @@ export const sensorHistoryReducer = (state = initialState, action) => {
             created_at: moment(item.created_at).format('YYYY/MM/DD'),
           }
         }),
+      }
+    case types.HISTORY_RECENT_FETCH:
+      return {
+        ...state,
+        isFetching: true,
+        error: '',
+      }
+    case types.HISTORY_RECENT_SUCCESS:
+      return {
+        ...state,
+        recentHistory: action.payload,
+        isFetching: false,
+        error: '',
+      }
+    case types.HISTORY_RECENT_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload,
       }
     case types.INDIVIDUAL_SENSOR_SUCCESS:
       return {

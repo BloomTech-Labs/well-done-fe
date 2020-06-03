@@ -66,29 +66,49 @@ const MonitorDetails = props => {
   const volume = padHistory.map(item => {
     return { Volume: item.pad_seconds_2 / 1.141, date: item.date }
   })
-  const weekVolumeDate = volume.slice(-7).map(day => day.date)
-  const monthVolumeDate = padHistory.slice(-30).map(day => day.date)
+  const weekVolumeDate = volume
+    .slice(0, 7)
+    .map(day => day.date)
+    .reverse()
+  const monthVolumeDate = padHistory
+    .slice(0, 30)
+    .map(day => day.date)
+    .reverse()
 
-  const weekVolume = volume.slice(-7).map(item => {
+  const weekVolume = volume.slice(0, 7).map(item => {
     return { Volume: item.Volume, name: weekVolumeDate }
   })
 
-  const monthVolume = volume.slice(-30).map(item => {
+  const monthVolume = volume.slice(0, 30).map(item => {
     return { Volume: item.Volume, name: monthVolumeDate }
   })
 
-  const date = padHistory.slice(-30).map(day => day.date)
-  const weekDate = padHistory.slice(-7).map(day => day.date)
+  const date = padHistory
+    .slice(0, 30)
+    .map(day => day.date)
+    .reverse()
+  const weekDate = padHistory
+    .slice(0, 7)
+    .map(day => day.date)
+    .reverse()
 
-  const firstPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_0)
-  const secondPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_1)
-  const thirdPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_2)
-  const fourthPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_3)
+  const firstPadSecond = padHistory.slice(0, 30).map(pad => pad.pad_seconds_0)
+  const secondPadSecond = padHistory.slice(0, 30).map(pad => pad.pad_seconds_1)
+  const thirdPadSecond = padHistory.slice(0, 30).map(pad => pad.pad_seconds_2)
+  const fourthPadSecond = padHistory.slice(0, 30).map(pad => pad.pad_seconds_3)
 
-  const firstPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_0)
-  const secondPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_1)
-  const thirdPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_2)
-  const fourthPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_3)
+  const firstPadSecondWeek = padHistory
+    .slice(0, 7)
+    .map(pad => pad.pad_seconds_0)
+  const secondPadSecondWeek = padHistory
+    .slice(0, 7)
+    .map(pad => pad.pad_seconds_1)
+  const thirdPadSecondWeek = padHistory
+    .slice(0, 7)
+    .map(pad => pad.pad_seconds_2)
+  const fourthPadSecondWeek = padHistory
+    .slice(0, 7)
+    .map(pad => pad.pad_seconds_3)
 
   const unknown =
     'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png'
@@ -184,7 +204,7 @@ const MonitorDetails = props => {
             <div className='yAxisLabel'>Liters</div>
             <ResponsiveContainer width='80%'>
               <LineChart
-                data={isMonth ? monthVolume : weekVolume}
+                data={isMonth ? monthVolume.reverse() : weekVolume.reverse()}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray='3 3' />
@@ -220,7 +240,9 @@ const MonitorDetails = props => {
             <div className='yAxisLabel'>Pad Seconds</div>
             <ResponsiveContainer width='80%'>
               <LineChart
-                data={isMonth ? monthSecondData : weekDataSecond}
+                data={
+                  isMonth ? monthSecondData.reverse() : weekDataSecond.reverse()
+                }
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray='3 3' />
