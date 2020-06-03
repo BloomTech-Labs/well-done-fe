@@ -52,7 +52,7 @@ const PopupInfo = props => {
       <div className='pump_info'>
         <div className='spread'>
           {statusHistory
-            .slice(-14)
+            .slice(0, 14)
             .map(day =>
               day.status == null || day.status == 0 ? (
                 <div key={day.history_id} className='spread-red'></div>
