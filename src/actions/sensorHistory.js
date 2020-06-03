@@ -9,7 +9,6 @@ export const CHECK_DATE_FOR_SENSOR_HISTORY = 'CHECK_DATE_FOR_SENSOR'
 export const INDIVIDUAL_SENSOR_HISTORY_SUCCESS =
   'INDIVIDUAL_SENSOR_HISTORY_SUCCESS'
 
-
 export const fetchHistory = () => dispatch => {
   dispatch({
     type: HISTORY_FETCH,
@@ -23,7 +22,6 @@ export const fetchHistory = () => dispatch => {
 }
 
 export const fetchHistoryById = sensorId => dispatch => {
-
   dispatch({
     type: HISTORY_FETCH,
   })

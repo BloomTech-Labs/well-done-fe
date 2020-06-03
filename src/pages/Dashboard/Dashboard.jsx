@@ -9,7 +9,7 @@ import {
   fetchSensorsWithHistory,
   fetchSensorsByOrgId,
 } from 'actions/sensorActions'
-import { fetchHistory } from 'actions/sensorHistoryActions'
+import { fetchHistory, fetchRecentHistory } from 'actions/sensorHistoryActions'
 
 import Testing from '../MonitorsPage/Sensors/Sensors'
 import AccountGrid from 'components/Grid/accountGrid/AccountGrid'
@@ -70,6 +70,7 @@ const Dashboard = props => {
       dispatch(fetchSensorsByOrgId(orgId))
     }
     dispatch(fetchHistory())
+    dispatch(fetchRecentHistory())
   }, [])
 
   const zoomInto = () => {
@@ -125,11 +126,9 @@ const Dashboard = props => {
   }
 
   return (
-    
     <div className='dashboard'>
       <Menu />
       <div className='mapSearchFilterContainer'>
-      
         <Map
           sensors={sensorSelector.sensors}
           funcToggle={funcToggle}
@@ -164,9 +163,7 @@ const Dashboard = props => {
           setUnknownToggle={setUnknownToggle}
         /> */}
       </div>
-      
     </div>
-    
   )
 }
 

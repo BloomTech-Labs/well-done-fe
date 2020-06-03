@@ -56,7 +56,6 @@ export default function Map(props) {
   return (
     <div className='mapsContainer'>
       <ReactMapGl
-  
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         mapStyle='mapbox://styles/htran2/ck2gg912i09dt1cnhtuu1ar2u'
         onViewportChange={viewport => {
@@ -71,6 +70,7 @@ export default function Map(props) {
           funcToggle={props.funcToggle}
           nonFuncToggle={props.nonFuncToggle}
           unknownToggle={props.unknownToggle}
+          history={props.history}
         />
 
         {Object.keys(currentlySelected).length > 0 ? (
