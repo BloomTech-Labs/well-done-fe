@@ -61,16 +61,19 @@ const PopupInfo = props => {
               ) : (
                 <div key={day.history_id} className='spread-green'></div>
               )
-            )}
-          {statusHistory.map(day =>
-            day.status == null || day.status == 0 ? (
-              <div key={day.history_id} className='triangle-red'></div>
-            ) : day.status == 1 ? (
-              <div key={day.history_id} className='triangle-yellow'></div>
-            ) : (
-              <div key={day.history_id} className='triangle-green'></div>
             )
-          )}
+            .reverse()}
+          {statusHistory
+            .map(day =>
+              day.status == null || day.status == 0 ? (
+                <div key={day.history_id} className='triangle-red'></div>
+              ) : day.status == 1 ? (
+                <div key={day.history_id} className='triangle-yellow'></div>
+              ) : (
+                <div key={day.history_id} className='triangle-green'></div>
+              )
+            )
+            .reverse()}
         </div>
         <h4 className='district_name'>{district_name}</h4>
         <p className='province_name'>{province_name}</p>

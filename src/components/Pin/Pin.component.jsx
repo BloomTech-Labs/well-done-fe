@@ -17,11 +17,9 @@ function Pin(props) {
 
   const recentHistory = useSelector(state => state.historyReducer.recentHistory)
 
-  console.log(recentHistory[props.sensors[0].physical_id], props.sensors)
   return (
     <div>
       {props.sensors.map(sensor => {
-        console.log(recentHistory[sensor.physical_id])
         if (sensor.status === null && props.nonFuncToggle) {
           return (
             <Marker

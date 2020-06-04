@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment'
 
 import { fetchSensorsWithHistory } from 'actions/sensorActions'
+import { fetchRecentHistory } from 'actions/sensorHistoryActions'
 import { fetchOrg } from 'actions/orgAction'
 
 import StatusCards from '../StatusCards'
@@ -11,6 +12,7 @@ import Sensors from '../Sensors/Sensors'
 import '../Monitors/MonitorsPage.scss'
 
 const MonitorsPage = props => {
+  const recentHistory = useSelector(state => state.historyReducer.recentHistory)
   const sensorSelector = useSelector(state => state.sensorReducer)
   const dispatch = useDispatch()
   let selectedOptions = sensorSelector.filterOptions
@@ -111,6 +113,7 @@ const MonitorsPage = props => {
   useEffect(() => {
     dispatch(fetchSensorsWithHistory())
     dispatch(fetchOrg())
+    dispatch(fetchRecentHistory())
   }, [])
 
   let pumpData = sensorSelector.sensors
@@ -125,22 +128,22 @@ const MonitorsPage = props => {
     let selectedOptions = sensorSelector.filterOptions
 
     const arr = sensorSelector.sensors.map(item => {
-      if (item.status === null) {
+      if (item.physical === null) {
         return {
           ...item,
           status: 'N/A',
           created_at: moment(item.created_at).format('YYYY/MM/DD'),
         }
-      } else if (item.status === 2) {
+      } else if (recentHistory[item.physical_id] === 'yes') {
         return {
           ...item,
           status: 'Functioning',
           created_at: moment(item.created_at).format('YYYY/MM/DD'),
         }
-      } else if (item.status === 1) {
+      } else if (recentHistory[item.physical_id] === 'no') {
         return {
           ...item,
-          status: 'Non-Functioning',
+          status: 'Unknown',
           created_at: moment(item.created_at).format('YYYY/MM/DD'),
         }
       }
@@ -150,7 +153,6 @@ const MonitorsPage = props => {
 
   return (
     <div className='monitorsPageContainer'>
-      
       <div className='monitorContainer'>
         <div className='percentContainer'>
           <PercentageChart
@@ -168,12 +170,10 @@ const MonitorsPage = props => {
           />
         </div>
       </div>
-      
+
       <div className='sensorTable'>
-        
         <Sensors sensors={useGridObjects()} />
       </div>
-      
     </div>
   )
 }
