@@ -84,6 +84,7 @@ $border-color: #0db4e9;
 .dLButtonCont {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   background: #d5d6e9;
   padding: 0% 3%;
   // flex-direction: row-reverse;
@@ -91,12 +92,15 @@ $border-color: #0db4e9;
 
   .downloadButton {
     display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid $mainBackground;
     background-color: $icon-color;
     border-radius: 6px;
     p {
       margin-top: 5%;
       margin-bottom: 2%;
+      padding: 0 4%;
     }
   }
 }
@@ -225,7 +229,7 @@ input {
   border-radius: 3px;
   border: none;
   @include navbar-bg;
-  color:white;
+  color: white;
   background-color: $wellDoneBlue;
   padding: 8px 15px;
   font-size: 14px;

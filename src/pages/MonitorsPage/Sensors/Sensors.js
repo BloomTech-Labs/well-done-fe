@@ -111,7 +111,7 @@ const Sensors = props => {
           size='small'
           onClick={exportToCsv.bind(this)}
         >
-          <p>download grid data</p>
+          <p>Download</p>
           <img src={Archivebutton} alt='download'></img>
         </button>
       </div>
@@ -135,7 +135,7 @@ const Sensors = props => {
             columnDefs={columnsFunc(props, dispatch, showViewButton)}
             rowData={props.sensors}
             gridOptions={gridOptionss}
-            // onGridSizeChanged={onGridSizeChanged}
+            onGridSizeChanged={onGridSizeChanged}
             onGridReady={onGridReady}
           />
         </div>
