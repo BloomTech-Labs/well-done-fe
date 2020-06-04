@@ -11,6 +11,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
       field: 'physical_id',
 
       minWidth: 95,
+      pinned: 'left',
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -84,6 +85,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: '',
       field: 'view',
+      pinned: 'right',
 
       cellRendererFramework: params => {
         return (
