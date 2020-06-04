@@ -1,12 +1,25 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Pie } from 'react-chartjs-2'
 import '../MonitorsPage/Monitors/MonitorsPage.scss'
 
-function PercentageChart({ funcPumps, nonPumps, unPumps }) {
+function PercentageChart({ nonPumps /* funcPumps unPumps*/ }) {
+  const recentHistory = useSelector(state => state.historyReducer.recentHistory)
+
+  let funcPumps = 0
+  let unPumps = 0
+
+  for (const pump of Object.keys(recentHistory)) {
+    if (recentHistory[pump] === 'yes') {
+      funcPumps++
+    } else {
+      unPumps++
+    }
+  }
   const data = {
     datasets: [
       {
-        data: [funcPumps.length, nonPumps.length, unPumps.length],
+        data: [funcPumps, nonPumps.length, unPumps],
         backgroundColor: ['#01c000', '#f44336', '#FFAD34'],
       },
     ],
@@ -14,7 +27,7 @@ function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   const option = {
     tooltips: {
       callbacks: {
-        label: function (tooltipItem, data) {
+        label: function(tooltipItem, data) {
           const dataset = data.datasets[tooltipItem.datasetIndex]
           const meta = dataset._meta[Object.keys(dataset._meta)[0]]
           const total = meta.total
@@ -24,7 +37,7 @@ function PercentageChart({ funcPumps, nonPumps, unPumps }) {
           )
           return currentValue + ' (' + percentage + '%)'
         },
-        title: function (tooltipItem, data) {
+        title: function(tooltipItem, data) {
           return data.labels[tooltipItem[0].index]
         },
         responsive: false,
@@ -34,10 +47,7 @@ function PercentageChart({ funcPumps, nonPumps, unPumps }) {
   // Pie chart settings - end
   return (
     <div className='pieCanvas'>
-      <Pie className='insidePie' 
-      data={data} 
-      options={option}
-      />
+      <Pie className='insidePie' data={data} options={option} />
     </div>
   )
 }

@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import 'antd/dist/antd.css'
 import '../MonitorsPage/Monitors/MonitorsPage.scss'
 
-function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
+function StatusCards({ pumpData, nonPumps /*, funcPumps, unPumps*/ }) {
+  const recentHistory = useSelector(state => state.historyReducer.recentHistory)
+
+  let funcPumps = 0
+  let unPumps = 0
+
+  for (const pump of Object.keys(recentHistory)) {
+    if (recentHistory[pump] === 'yes') {
+      funcPumps++
+    } else {
+      unPumps++
+    }
+  }
+
   return (
     <div className='statusContainer'>
       <div className='monitorCard'>
@@ -17,10 +31,10 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
           <h2>Functional</h2>
         </div>
         <p className='percent'>
-          {Math.round(100 * (funcPumps.length / pumpData.length))}%
+          {Math.round(100 * (funcPumps / pumpData.length))}%
         </p>
         <p className='outOf'>
-          {funcPumps.length} out of {pumpData.length}
+          {funcPumps} out of {pumpData.length}
         </p>
       </div>
 
@@ -41,10 +55,10 @@ function StatusCards({ pumpData, funcPumps, unPumps, nonPumps }) {
           <h2>No Data</h2>
         </div>
         <p className='percent'>
-          {Math.round(100 * (unPumps.length / pumpData.length))}%
+          {Math.round(100 * (unPumps / pumpData.length))}%
         </p>
         <p className='outOf'>
-          {unPumps.length} out of {pumpData.length}
+          {unPumps} out of {pumpData.length}
         </p>
       </div>
     </div>

@@ -55,7 +55,6 @@ const Sensors = props => {
     } else {
       setShowViewButton(!showViewButton)
     }
-    console.log(gridApi.__proto__, 'GRID API')
     gridApi.__proto__.redrawRows()
   }
 
@@ -68,7 +67,6 @@ const Sensors = props => {
     let dateInput = moment(document.getElementById('dateCal').value).format(
       'MM/DD/YYYY'
     )
-    console.log(dateInput, 'Value')
     return gridOptionss.api.setQuickFilter(
       dateInput === 'Invalid date' ? '' : dateInput
     )
@@ -83,7 +81,6 @@ const Sensors = props => {
     }
     gridOptionss.api.exportDataAsCsv(params)
   }
-  // console.log(props.sensors, 'sens info')
   return (
     <>
       <div className='sensorChart'>
