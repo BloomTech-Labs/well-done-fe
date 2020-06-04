@@ -72,8 +72,6 @@ function MonitorDetailHeader(props) {
     }
   }
 
-  const statusTitle = () => {}
-
   return (
     <>
       <div className='mainHeaderContainer'>
@@ -90,7 +88,7 @@ function MonitorDetailHeader(props) {
             <h3 className='wellTitle'>Well</h3>
             <div className='wellInfoContainer'>
               <div className='wellConstructed'>
-                <p className='wellInfoP'>Constructed</p>
+                <p className='wellInfoP'>Installed</p>
                 <h4>{data_finished}</h4>
               </div>
               <div className='wellDepth'>

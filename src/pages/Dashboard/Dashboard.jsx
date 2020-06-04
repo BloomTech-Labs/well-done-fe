@@ -77,7 +77,7 @@ const Dashboard = props => {
     if (props.searchFiltered.length == 0) {
       setViewport({
         latitude: 13.5651,
-        longitude: 104.7538,
+        longitude: 105.7538,
         width: '100vw',
         height: '90vh',
         zoom: 8,
