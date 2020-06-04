@@ -10,7 +10,8 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
       headerName: 'Sensor ID',
       field: 'physical_id',
 
-      minWidth: 95,
+      minWidth: 90,
+      maxWidth: 100,
       pinned: 'left',
       cellStyle: {
         'font-size': '1.5rem',
@@ -20,7 +21,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Status',
       field: 'status',
-      minWidth: 90,
+      // minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -30,7 +31,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
       headerName: 'Installed',
       field: 'data_finished',
 
-      minWidth: 90,
+      // minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -39,7 +40,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Depth',
       field: 'depth',
-      minWidth: 90,
+      // minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -48,7 +49,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'NGO',
       field: 'org_name',
-      minWidth: 90,
+      // minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -57,7 +58,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Province',
       field: 'province_name',
-      minWidth: 90,
+      // minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -66,7 +67,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Commune',
       field: 'commune_name',
-      minWidth: 90,
+      // minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -76,7 +77,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Village',
       field: 'village_name',
-      minWidth: 90,
+      // minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -84,6 +85,8 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     },
     {
       headerName: '',
+      minWidth: 80,
+      maxWidth: 100,
       field: 'view',
       pinned: 'right',
 
