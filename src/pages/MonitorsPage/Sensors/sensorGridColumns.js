@@ -40,7 +40,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Depth',
       field: 'depth',
-      // minWidth: 90,
+      maxWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
