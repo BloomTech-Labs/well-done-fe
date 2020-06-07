@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './PopupInfo.styles.scss'
 import { Button } from 'antd'
@@ -6,6 +7,8 @@ import 'antd/dist/antd.css'
 import { FiHelpCircle, FiAlertCircle, FiCheckCircle } from 'react-icons/fi'
 
 const PopupInfo = props => {
+  const recentHistory = useSelector(state => state.historyReducer.recentHistory)
+
   const zeroNull = (
     <div className='nonFunc-back-icon'>
       <FiAlertCircle className='nonFunc-front-icon' />
@@ -38,15 +41,16 @@ const PopupInfo = props => {
     village_name,
     district_name,
   } = props.selectedPump
-
+  console.log(props.selectedPump, recentHistory)
   return (
     <div className='popupInfo'>
       <div className='pump_id'>
-        {Number(status) === 0 || status === null
+        {/* {Number(status) === 0 || status === null
           ? zeroNull
           : Number(status) === 1
           ? one
-          : two}
+          : two} */}
+        {recentHistory[sensor_pid] === 'yes' ? two : one}
         <p className='pump_num'> {sensor_pid}</p>
       </div>
       <div className='pump_info'>
@@ -63,7 +67,7 @@ const PopupInfo = props => {
               )
             )
             .reverse()}
-          {statusHistory
+          {/* {statusHistory
             .map(day =>
               day.status == null || day.status == 0 ? (
                 <div key={day.history_id} className='triangle-red'></div>
@@ -72,8 +76,12 @@ const PopupInfo = props => {
               ) : (
                 <div key={day.history_id} className='triangle-green'></div>
               )
-            )
-            .reverse()}
+            )} */}
+          {recentHistory[sensor_pid] === 'yes' ? (
+            <div className='triangle-green'></div>
+          ) : (
+            <div className='triangle-yellow'></div>
+          )}
         </div>
         <h4 className='district_name'>{district_name}</h4>
         <p className='province_name'>{province_name}</p>
