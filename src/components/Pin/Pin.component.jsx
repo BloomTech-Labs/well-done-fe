@@ -4,7 +4,7 @@ import NewMapMarkerFunctioning from 'icons/NewMapMarkerFunctioning.svg'
 import NewMapMarkerNonFunctioning from 'icons/NewMapMarkerNonFunctioning.svg'
 import NewMapMarkerNoData from 'icons/NewMapMarkerNoData.svg'
 import { handleSelected, CLEAR_SELECTED } from 'actions/selectedSensorsActions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 function Pin(props) {
   const dispatch = useDispatch()
 
@@ -14,6 +14,8 @@ function Pin(props) {
     }
     await dispatch(handleSelected(sensor))
   }
+
+  const recentHistory = useSelector(state => state.historyReducer.recentHistory)
 
   return (
     <div>
@@ -48,7 +50,10 @@ function Pin(props) {
               />
             </Marker>
           )
-        } else if (sensor.status === 1 && props.unknownToggle) {
+        } else if (
+          recentHistory[sensor.physical_id] === 'no' &&
+          props.unknownToggle
+        ) {
           return (
             <Marker
               key={sensor.sensor_id}
@@ -63,22 +68,21 @@ function Pin(props) {
               />
             </Marker>
           )
-        } else if (sensor.status === 2 && props.funcToggle) {
-          return (
-            <Marker
-              key={sensor.sensor_id}
-              latitude={sensor.latitude}
-              longitude={sensor.longitude}
-            >
-              <img
-                onClick={() => handleClick(sensor)}
-                className='location-icon'
-                src={NewMapMarkerFunctioning}
-                alt='location'
-              />
-            </Marker>
-          )
         }
+        return (
+          <Marker
+            key={sensor.sensor_id}
+            latitude={sensor.latitude}
+            longitude={sensor.longitude}
+          >
+            <img
+              onClick={() => handleClick(sensor)}
+              className='location-icon'
+              src={NewMapMarkerFunctioning}
+              alt='location'
+            />
+          </Marker>
+        )
       })}
     </div>
   )

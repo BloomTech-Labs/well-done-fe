@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
@@ -33,10 +33,10 @@ const EditGrid = props => {
   const classes = useStyles()
 
   const [open, setOpen] = useState(false)
- 
+
   const handleChange = event => {
     setAccount({ ...account, [event.target.name]: event.target.value })
-   }
+  }
 
   const handleOpen = () => {
     setOpen(true)

@@ -9,18 +9,16 @@ const NavRight = () => {
   const userRole = localStorage.getItem('role')
 
   const dispatch = useDispatch()
-
+  const { first_name, last_name } = userSelector.user
   useEffect(() => {
-    if (userSelector.user.first_name) {
+    if (first_name) {
       dispatch({
         type: 'STARTING_INITIALS',
-        payload:
-          userSelector.user.first_name + ' ' + userSelector.user.last_name,
+        payload: first_name + ' ' + last_name,
       })
     }
-  }, [userSelector.isFetching])
+  }, [userSelector.isFetching, dispatch, first_name, last_name])
 
-  console.log(userSelector)
   return (
     <div className='nav-right'>
       <NavLink className='margin-left' to='/dashboard'>

@@ -7,8 +7,10 @@ nav {
   position: sticky;
   top: 0px;
   z-index: 5;
+  height: 10%;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
 }
+
 .nav-right {
   // font-family: open sans,helvetica neue,Arial,sans-serif;
   text-transform: uppercase;
@@ -36,7 +38,7 @@ nav {
 }
 .logo {
   margin: 21px 0px 29px 0px;
-  width: 14%;
+  width: 15%;
   height: auto;
 }
 .margin-left {
@@ -60,7 +62,7 @@ nav {
   color: black;
   right: 0px;
   border-top: 1px solid $wellDoneBlue;
-
+  margin-top: 8%;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }

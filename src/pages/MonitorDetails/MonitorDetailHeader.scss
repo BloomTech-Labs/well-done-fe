@@ -58,10 +58,6 @@
     }
   }
   .wellContainer {
-    // border: 2px solid green;
-
-    //   color:#fff;
-
     .wellInfoContainer {
       display: flex;
       justify-content: space-between;
@@ -69,7 +65,13 @@
       @media screen and(max-width:1000px) {
         width: 80%;
       }
-      //   color:#fff;
+    }
+    .wellTitle {
+      margin-bottom: 3%;
+      margin-top: 6%;
+    }
+    .wellInfoP {
+      font-size: 1.8rem;
     }
   }
 
@@ -88,7 +90,6 @@
       margin-bottom: 5rem;
     }
   }
-  
 }
 .backContainer {
   margin-left: -2rem;

@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CLEAR_SELECTED, handleSelected } from 'actions/selectedSensorsActions'
+import { CLEAR_SELECTED } from 'actions/selectedSensorsActions'
 import ReactMapGl, { Popup } from 'react-map-gl'
-import MapGL, { NavigationControl, FullscreenControl } from 'react-map-gl'
-import useOnClickOutside from 'use-onclickoutside'
+import { NavigationControl } from 'react-map-gl'
 
 import './Map.styles.scss'
 import PopupInfo from '../PopupInfo/PopupInfo.component'
@@ -30,7 +29,7 @@ export default function Map(props) {
     return () => {
       window.removeEventListener('keydown', listener)
     }
-  }, [props])
+  }, [props, dispatch])
 
   useEffect(() => {
     const clickListener = e => {
@@ -51,7 +50,7 @@ export default function Map(props) {
     return () => {
       window.removeEventListener('click', clickListener)
     }
-  }, [bool])
+  }, [bool, dispatch])
 
   return (
     <div className='mapsContainer'>
@@ -70,6 +69,7 @@ export default function Map(props) {
           funcToggle={props.funcToggle}
           nonFuncToggle={props.nonFuncToggle}
           unknownToggle={props.unknownToggle}
+          history={props.history}
         />
 
         {Object.keys(currentlySelected).length > 0 ? (

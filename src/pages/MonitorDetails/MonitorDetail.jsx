@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react'
 import 'antd/dist/antd.css'
 // import './MonitorDetail.css'
 import HeatChart from 'components/HeatChart/heatChart'
-import {useParams, withRouter} from 'react-router'
+import { useParams, withRouter } from 'react-router'
 import MonitorDetailHeader from './MonitorDetailHeader'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import OrganizationActivity from '../../components/DashBoardComponents/OrganizationActivity'
 import {
   LineChart,
   Line,
@@ -22,9 +21,6 @@ import '../MonitorDetails/MonitorsLineChart.styles.scss'
 
 //redux
 import { fetchHistoryById, fetchSensorById } from 'actions/sensorHistory'
-import LogsTable from '../MonitorsPage/Logs/LogsTable'
-
-
 
 const MonitorDetails = props => {
   const [isMonth, setIsMonth] = useState(false)
@@ -37,28 +33,13 @@ const MonitorDetails = props => {
     Fourth_Pad_Count: 1,
   })
 
-  const [viewport, setViewport] = useState({
-    latitude: 13.5651,
-    longitude: 104.7538,
-    width: '100%',
-    height: '40vh',
-    zoom: 7,
-  })
-  const deleteHandler = (event, id) => {
-    event.preventDefault()
-    props.deleteOrg(id) //actions
-    props.params.api.redrawRows()
-  }
   // Routing
-  const {sensor_pid: sensorId} = useParams();
+  const { sensor_pid: sensorId } = useParams()
 
   const historySelector = useSelector(state => state.historyReducer)
   const dispatch = useDispatch()
 
-
-
   useEffect(() => {
-
     dispatch(fetchHistoryById(sensorId))
     dispatch(fetchSensorById(sensorId))
     return () => {
@@ -68,62 +49,56 @@ const MonitorDetails = props => {
 
   const padHistory = historySelector.individualSensorHistory
 
-  const date = padHistory.slice(-30).map(day => day.date)
-  const weekDate = padHistory.slice(-7).map(day => day.date)
+  // Volume
+  const volume = padHistory.map(item => {
+    return { Volume: item.pad_seconds_2 / 1.141, date: item.date }
+  })
+  const weekVolumeDate = volume
+    .slice(0, 7)
+    .map(day => day.date)
+    .reverse()
+  const monthVolumeDate = padHistory
+    .slice(0, 30)
+    .map(day => day.date)
+    .reverse()
 
-  const firstPadCount = padHistory.slice(-30).map(pad => pad.pad_count_0)
-  const secondPadCount = padHistory.slice(-30).map(pad => pad.pad_count_1)
-  const thirdPadCount = padHistory.slice(-30).map(pad => pad.pad_count_2)
-  const fourthPadCount = padHistory.slice(-30).map(pad => pad.pad_count_3)
+  const weekVolume = volume.slice(0, 7).map(item => {
+    return { Volume: item.Volume, name: weekVolumeDate }
+  })
 
-  const firstPadCountWeek = padHistory.slice(-7).map(pad => pad.pad_count_0)
-  const secondPadCountWeek = padHistory.slice(-7).map(pad => pad.pad_count_1)
-  const thirdPadCountWeek = padHistory.slice(-7).map(pad => pad.pad_count_2)
-  const fourthPadCountWeek = padHistory.slice(-7).map(pad => pad.pad_count_3)
+  const monthVolume = volume.slice(0, 30).map(item => {
+    return { Volume: item.Volume, name: monthVolumeDate }
+  })
 
-  const firstPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_0)
-  const secondPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_1)
-  const thirdPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_2)
-  const fourthPadSecond = padHistory.slice(-30).map(pad => pad.pad_seconds_3)
+  const date = padHistory
+    .slice(0, 30)
+    .map(day => day.date)
+    .reverse()
+  const weekDate = padHistory
+    .slice(0, 7)
+    .map(day => day.date)
+    .reverse()
 
-  const firstPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_0)
-  const secondPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_1)
-  const thirdPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_2)
-  const fourthPadSecondWeek = padHistory.slice(-7).map(pad => pad.pad_seconds_3)
+  const firstPadSecond = padHistory.slice(0, 30).map(pad => pad.pad_seconds_0)
+  const secondPadSecond = padHistory.slice(0, 30).map(pad => pad.pad_seconds_1)
+  const thirdPadSecond = padHistory.slice(0, 30).map(pad => pad.pad_seconds_2)
+  const fourthPadSecond = padHistory.slice(0, 30).map(pad => pad.pad_seconds_3)
 
-  const unknown =
-    'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png'
-  const notFunctioning =
-    'https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png'
-  const functioning =
-    'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056725/Vector_1_xzgama.png'
+  const firstPadSecondWeek = padHistory
+    .slice(0, 7)
+    .map(pad => pad.pad_seconds_0)
+  const secondPadSecondWeek = padHistory
+    .slice(0, 7)
+    .map(pad => pad.pad_seconds_1)
+  const thirdPadSecondWeek = padHistory
+    .slice(0, 7)
+    .map(pad => pad.pad_seconds_2)
+  const fourthPadSecondWeek = padHistory
+    .slice(0, 7)
+    .map(pad => pad.pad_seconds_3)
 
   if (historySelector.individualSensor.length === 0) {
     return <div>loading...</div>
-  }
-
-  // Makes new arrays to loop through the week and month data from weekDate array
-  const endWeekIndex = 6
-  const monthCount = 29
-  const weekData = []
-  const monthData = []
-  for (let i = 0; i <= monthCount; i++) {
-    if (i <= endWeekIndex) {
-      weekData.push({
-        name: weekDate,
-        First_Pad_Count: firstPadCountWeek[i],
-        Second_Pad_Count: secondPadCountWeek[i],
-        Third_Pad_Count: thirdPadCountWeek[i],
-        Fourth_Pad_Count: fourthPadCountWeek[i],
-      })
-    }
-    monthData.push({
-      name: date,
-      First_Pad_Count: firstPadCount[i],
-      Second_Pad_Count: secondPadCount[i],
-      Third_Pad_Count: thirdPadCount[i],
-      Fourth_Pad_Count: fourthPadCount[i],
-    })
   }
 
   // Makes new arrays to loop through the week and month data from date array
@@ -166,16 +141,10 @@ const MonitorDetails = props => {
     }
     setIsClicked(!isClicked)
   }
-  
+
   return (
     <div className='monitorDetailsContainer'>
-      <MonitorDetailHeader historySelector={historySelector.individualSensor}/>
-      {/* <OrganizationActivity
-        alertInfo={historySelector.alertInfo}
-        individualSensor={historySelector.individualSensor[0]}
-        individualSensorHistory={historySelector.individualSensorHistory}
-      />  */}
-
+      <MonitorDetailHeader historySelector={historySelector.individualSensor} />
       <>
         <div className='padMonitorContainer'>
           <h3>Pad Monitor</h3>
@@ -198,7 +167,7 @@ const MonitorDetails = props => {
               className={!isToggleGraph ? 'countBtnOn' : 'countBtnOff'}
               onClick={() => setIsToggleGraph(!isToggleGraph)}
             >
-              Counts
+              Volume
             </button>
             <button
               className={isToggleGraph ? 'secondBtnOn' : 'SecondBtnOff'}
@@ -212,14 +181,15 @@ const MonitorDetails = props => {
               !isToggleGraph ? 'countCountContainer' : 'toggleCountOff'
             }
           >
+            <div className='yAxisLabel'>Liters</div>
             <ResponsiveContainer width='80%'>
               <LineChart
-                data={isMonth ? monthData : weekData}
+                data={isMonth ? monthVolume.reverse() : weekVolume.reverse()}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray='3 3' />
                 <XAxis dataKey='name' />
-                <YAxis />
+                <YAxis></YAxis>
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
@@ -232,29 +202,10 @@ const MonitorDetails = props => {
                   }
                 />
                 <Line
-                  strokeOpacity={opacity.First_Pad_Count}
-                  dataKey='First_Pad_Count'
+                  strokeOpacity={opacity.Volume}
+                  dataKey='Volume'
                   type='monotone'
-                  // stroke={isMonth ? '#261592' : 'red'}
                   stroke='#261592'
-                />
-                <Line
-                  strokeOpacity={opacity.Second_Pad_Count}
-                  type='monotone'
-                  dataKey='Second_Pad_Count'
-                  stroke='#FFAD34'
-                />
-                <Line
-                  strokeOpacity={opacity.Third_Pad_Count}
-                  type='monotone'
-                  dataKey='Third_Pad_Count'
-                  stroke='#15B567'
-                />
-                <Line
-                  strokeOpacity={opacity.Fourth_Pad_Count}
-                  type='monotone'
-                  dataKey='Fourth_Pad_Count'
-                  stroke='#921515'
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -265,14 +216,17 @@ const MonitorDetails = props => {
               isToggleGraph ? 'countSecondContainer' : 'toggleSecondOff'
             }
           >
+            <div className='yAxisLabel'>Pad Seconds</div>
             <ResponsiveContainer width='80%'>
               <LineChart
-                data={isMonth ? monthSecondData : weekDataSecond}
+                data={
+                  isMonth ? monthSecondData.reverse() : weekDataSecond.reverse()
+                }
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <CartesianGrid strokeDasharray='3 3' />
                 <XAxis dataKey='name' />
-                <YAxis />
+                <YAxis></YAxis>
                 <Tooltip />
                 <Legend
                   onClick={handleClick}
@@ -321,4 +275,4 @@ const MonitorDetails = props => {
   )
 }
 
-export default withRouter(MonitorDetails);
+export default withRouter(MonitorDetails)

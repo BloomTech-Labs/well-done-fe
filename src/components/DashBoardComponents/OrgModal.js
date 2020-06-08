@@ -1,12 +1,4 @@
-import React, { useState, useEffect } from 'react'
-
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-//will create addOrgAction
-// import { fetchPumps } from '../../actions/pumpAction'
-
-//will be changed to pumpsAction
-// import { addOp } from '../actions/addOp-action'
+import React, { useState } from 'react'
 
 //need to change for pumps
 import '../../components/modalOperator.scss'
@@ -16,10 +8,8 @@ import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
 import { postOrg } from '../../actions/orgAction'
-import { Dropdown, Form } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import gridOptions2 from '../Grid/gridOptions2'
 import add from '../../icons/AddButton.svg'
 // import './Sensors.style.scss'
 import './orgGrid/orgGrid.scss'
@@ -36,9 +26,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(2, 4, 3),
     display: 'flex',
     width: '400px',
-    borderRadius: '12px'
-    
-   
+    borderRadius: '12px',
   },
 }))
 
@@ -54,13 +42,6 @@ const OrgModal = props => {
   const handleChange = event => {
     setOrg({ ...org, [event.target.name]: event.target.value })
   }
-
-  const dispatch = useDispatch()
-
-  //fetch 0rgs for dropdown menu
-  //   useEffect(() => {
-  //     dispatch(fetchPumps())
-  //   }, [])
 
   //on submit add operator
   const handleSubmit = event => {
@@ -97,27 +78,17 @@ const OrgModal = props => {
         <Fade in={open}>
           <div className={classes.paper}>
             <div className='col1'>
-              {/* <Dropdown.Toggle variant='success' id='dropdown-basic'>
-                  Organization
-                </Dropdown.Toggle>
-                <Form.Control
-                  as='select'
-                  value={pump.org_id}
-                  onChange={handleChange}
-                >
-                  {pumpsReducer.map(e => (
-                    <React.Fragment>
-                      <option key={e.id}>{e.org_id}</option>
-                    </React.Fragment>
-                  ))}
-                </Form.Control> */}
               <h2>
-                <label className="orgHeader" htmlFor='Country'>Create Organization</label>
-                
-                <label className='orgLabel' htmlFor='Country'>Organization Name</label>
+                <label className='orgHeader' htmlFor='Country'>
+                  Create Organization
+                </label>
+
+                <label className='orgLabel' htmlFor='Country'>
+                  Organization Name
+                </label>
 
                 <input
-                  className="textInput"
+                  className='textInput'
                   type='text'
                   id='organization'
                   placeholder='Organization Name'
@@ -127,10 +98,12 @@ const OrgModal = props => {
                 />
               </h2>
               <h2>
-                <label className='hqLabel' htmlFor='Country'>Headquarters</label>
-            
+                <label className='hqLabel' htmlFor='Country'>
+                  Headquarters
+                </label>
+
                 <input
-                  className="textInput"
+                  className='textInput'
                   type='text'
                   id='headquarter_city'
                   placeholder='Headquarters'
@@ -140,21 +113,25 @@ const OrgModal = props => {
                 />
               </h2>
 
-           
-
               <h2>
-                <div className='CreateAccount'>
-                
-                </div>
+                <div className='CreateAccount'></div>
               </h2>
-              
-              <footer className="btnContainer">
-                <button className="cancelBtn" variant='secondary' onClick={handleClose}>
+
+              <footer className='btnContainer'>
+                <button
+                  className='cancelBtn'
+                  variant='secondary'
+                  onClick={handleClose}
+                >
                   Cancel
                 </button>
-                 <button className='createNgoBtn' type='Submit' onClick={e => handleSubmit(e)}>
-                    Create NGO
-                  </button>
+                <button
+                  className='createNgoBtn'
+                  type='Submit'
+                  onClick={e => handleSubmit(e)}
+                >
+                  Create NGO
+                </button>
               </footer>
             </div>
           </div>

@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Map from 'components/Map/Map.component'
 import Search from 'components/Search/Search.component'
-import Filter from 'components/Filter/Filter.component'
 import IconsFilter from 'components/Filter/IconFilters'
-import Sensors from '../MonitorsPage/Sensors/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   fetchSensorsWithHistory,
   fetchSensorsByOrgId,
 } from 'actions/sensorActions'
-import { fetchHistory } from 'actions/sensorHistoryActions'
+import { fetchHistory, fetchRecentHistory } from 'actions/sensorHistoryActions'
 
-import Testing from '../MonitorsPage/Sensors/Sensors'
-import AccountGrid from 'components/Grid/accountGrid/AccountGrid'
-import Banner from './Banner'
-import StaticMenu from 'components/Menu/StaticMenu.js'
 import Menu from 'components/Menu/Menu.component'
 import './Dashboard.styles.scss'
 
@@ -22,8 +16,8 @@ const Dashboard = props => {
   const [viewport, setViewport] = useState({
     latitude: 13.004758,
     longitude: 105.784788,
-    width: '100%',
-    height: '100vh',
+    width: '100vw',
+    height: '90vh',
     zoom: 2,
   })
   const sensorSelector = useSelector(state => state.sensorReducer)
@@ -52,8 +46,8 @@ const Dashboard = props => {
       setViewport({
         latitude: 13.5651,
         longitude: 104.7538,
-        width: window.innerWidth - 20,
-        height: '100vh',
+        width: '100%',
+        height: '90vh',
         zoom: 8,
         scrollZoom: false,
         boxZoom: false,
@@ -70,26 +64,27 @@ const Dashboard = props => {
       dispatch(fetchSensorsByOrgId(orgId))
     }
     dispatch(fetchHistory())
+    dispatch(fetchRecentHistory())
   }, [])
 
   const zoomInto = () => {
-    if (props.searchFiltered.length == 0) {
+    if (props.searchFiltered.length === 0) {
       setViewport({
         latitude: 13.5651,
-        longitude: 104.7538,
-        width: '100%',
-        height: '100vh',
+        longitude: 105.7538,
+        width: '100vw',
+        height: '90vh',
         zoom: 8,
         scrollZoom: false,
         boxZoom: false,
         doubleClickZoom: false,
       })
-    } else if (props.searchFiltered.length == 1) {
+    } else if (props.searchFiltered.length === 1) {
       const searchedPlace = {
         latitude: props.searchFiltered[0].latitude,
         longitude: props.searchFiltered[0].longitude,
         width: '100vw',
-        height: '100vh',
+        height: '90vh',
         zoom: 11,
       }
       setViewport(searchedPlace)
@@ -109,7 +104,7 @@ const Dashboard = props => {
         latitude: avgCoordinate(props.searchFiltered)[0],
         longitude: avgCoordinate(props.searchFiltered)[1],
         width: '100vw',
-        height: '100vh',
+        height: '90vh',
         zoom: 11,
       }
       setViewport(searchedPlace)
@@ -154,13 +149,6 @@ const Dashboard = props => {
             setUnknownToggle={setUnknownToggle}
           />
         </div>
-        {/* <Filter
-          searchFiltered={props.searchFiltered}
-          setSearchFiltered={props.setSearchFiltered}
-          sensors={sensorSelector.sensors}
-          setFuncToggle={setFuncToggle}
-          setUnknownToggle={setUnknownToggle}
-        /> */}
       </div>
     </div>
   )
