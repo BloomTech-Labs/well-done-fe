@@ -3,47 +3,43 @@
   height: 100%;
   font-size: large;
 }
-.modalBody{
+.modalBody {
   background: $mainBackground;
   display: flex;
-  flex-direction: column;
   margin: 0 auto;
   padding: 2%;
   border-radius: 8px;
   width: min-content;
+  height: 40em;
+  flex-direction: column;
 }
 
-.col1{
-  .modalHeader{
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    @include header-text;
+.col1 {
+  p {
+    margin-bottom: 0.2em;
   }
-
-  input{
+  h3 {
+    margin-bottom: 0;
+  }
+  input {
     display: inline-block;
-    height:40%;
-     margin-bottom: 10px;
-     font-size: 14px;
-     line-height: 20px;
-     vertical-align: middle;
-     border-radius:5px;
-
+    height: 40%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
+    border-radius: 5px;
   }
 }
-.col2{
+.col2 {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
-  padding-top: 37%;
-  justify-content: space-around;
- 
 }
-.createAcct{
-  @include saveButton
+.createAcct {
+  @include saveButton;
 }
-.cancelButton{
+.cancelButton {
   border: none;
   background: none;
   font-size: medium;
