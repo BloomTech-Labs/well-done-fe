@@ -48,6 +48,11 @@ const userReducer = (state = initialState, action) => {
         ...state,
         initials: initial,
       }
+    case 'EDIT_SUCCESS':
+      return {
+        ...state,
+        user: action.payload,
+      }
     default:
       return state
   }
