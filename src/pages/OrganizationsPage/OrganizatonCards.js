@@ -1,5 +1,4 @@
 import React from 'react'
-import { Card, Image, Modal, Button } from 'semantic-ui-react'
 
 import './Organization.styles.scss'
 

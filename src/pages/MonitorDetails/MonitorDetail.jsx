@@ -16,7 +16,6 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  Label,
 } from 'recharts'
 import '../MonitorDetails/MonitorsLineChart.styles.scss'
 
@@ -34,18 +33,6 @@ const MonitorDetails = props => {
     Fourth_Pad_Count: 1,
   })
 
-  const [viewport, setViewport] = useState({
-    latitude: 13.5651,
-    longitude: 104.7538,
-    width: '100%',
-    height: '40vh',
-    zoom: 7,
-  })
-  const deleteHandler = (event, id) => {
-    event.preventDefault()
-    props.deleteOrg(id) //actions
-    props.params.api.redrawRows()
-  }
   // Routing
   const { sensor_pid: sensorId } = useParams()
 
@@ -109,13 +96,6 @@ const MonitorDetails = props => {
   const fourthPadSecondWeek = padHistory
     .slice(0, 7)
     .map(pad => pad.pad_seconds_3)
-
-  const unknown =
-    'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png'
-  const notFunctioning =
-    'https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png'
-  const functioning =
-    'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056725/Vector_1_xzgama.png'
 
   if (historySelector.individualSensor.length === 0) {
     return <div>loading...</div>
@@ -225,7 +205,6 @@ const MonitorDetails = props => {
                   strokeOpacity={opacity.Volume}
                   dataKey='Volume'
                   type='monotone'
-                  stroke={isMonth ? '#261592' : 'red'}
                   stroke='#261592'
                 />
               </LineChart>

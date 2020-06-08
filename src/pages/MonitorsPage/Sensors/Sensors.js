@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import { withRouter } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
@@ -7,27 +7,14 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import { columnsFunc } from './sensorGridColumns'
 import gridOptionss from '../../../components/Grid/Pagination'
 import '../../MonitorsPage/Sensors.style.scss'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Archivebutton from 'icons/Archivebutton.svg'
 import { AiOutlineSearch } from 'react-icons/ai'
-import moment from 'moment'
 
 import CalendarFilter from '../CalendarFilter/CalendarFilter'
 
 const Sensors = props => {
-  // useEffect(() => {
-  //   document.querySelector('.ag-floating-filter-input').style.color = '#000'
-  // }, [])
-  const [showViewButton, setShowViewButton] = useState(0)
-  const [gridApi, setgridApi] = useState(null)
   const dispatch = useDispatch()
-
-  let gridColumnApi
-  const onGridReady = params => {
-    setgridApi(params.api)
-    gridColumnApi = params.columnApi
-    // gridColumnApi.sizeColumnsToFit()
-  }
 
   const onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper-sensor').offsetWidth
@@ -49,26 +36,9 @@ const Sensors = props => {
     params.api.sizeColumnsToFit()
   }
 
-  const viewHandler = () => {
-    if (showViewButton === 0) {
-      setShowViewButton(!showViewButton)
-    } else {
-      setShowViewButton(!showViewButton)
-    }
-    gridApi.__proto__.redrawRows()
-  }
-
   const onQuickFilterChanged = () => {
     gridOptionss.api.setQuickFilter(
       document.getElementById('quickFilter').value
-    )
-  }
-  const onQuickFilterByCal = () => {
-    let dateInput = moment(document.getElementById('dateCal').value).format(
-      'MM/DD/YYYY'
-    )
-    return gridOptionss.api.setQuickFilter(
-      dateInput === 'Invalid date' ? '' : dateInput
     )
   }
 
@@ -129,11 +99,10 @@ const Sensors = props => {
         >
           <AgGridReact
             history={props.history}
-            columnDefs={columnsFunc(props, dispatch, showViewButton)}
+            columnDefs={columnsFunc(props, dispatch, 0)}
             rowData={props.sensors}
             gridOptions={gridOptionss}
             onGridSizeChanged={onGridSizeChanged}
-            onGridReady={onGridReady}
           />
         </div>
       </div>

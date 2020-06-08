@@ -81,7 +81,7 @@ const ModalOperator = () => {
     } else {
       dispatch(fetchPumps())
     }
-  }, [])
+  }, [dispatch, organizationId])
 
   //on submit add operator
   const handleSubmit = async event => {
@@ -97,22 +97,7 @@ const ModalOperator = () => {
   }
 
   //organization & pumps options
-  const [
-    orgReducer,
-    pumpsReducer,
-  ] = useSelector(({ orgReducer, pumpsReducer }) => [
-    orgReducer.org,
-    pumpsReducer,
-  ])
-
-  const orgName = orgReducer.filter(e => e.id === Number(organizationId))
-
-  let getOrgName = []
-  if (organizationId >= 1) {
-    getOrgName = orgName
-  } else {
-    getOrgName = orgReducer
-  }
+  const [pumpsReducer] = useSelector(({ pumpsReducer }) => [pumpsReducer])
 
   //get array of pump numbers
   let sensorNums = []

@@ -54,6 +54,7 @@ const accountReducer = (state = initialState, action) => {
           if (e.id !== action.payload.id) {
             return e
           }
+          return false
         }),
       }
     default:

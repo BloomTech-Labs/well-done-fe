@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
@@ -28,8 +28,6 @@ const TrashCan = props => {
     props.deleteSensor(sensor_index)
     props.params.api.redrawRows()
   }
-
-  const [pump, setPump] = useState([])
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)

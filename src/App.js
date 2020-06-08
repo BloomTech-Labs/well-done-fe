@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Switch, useParams } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Dashboard from 'pages/Dashboard/Dashboard'
 import MonitorDetails from 'pages/MonitorDetails/MonitorDetail'
 import Monitors from 'pages/MonitorsPage/Monitors/MonitorsPage'
@@ -57,12 +57,11 @@ function App(props) {
         dispatch(fetchHistoryById(sensorId))
       }
     }
-  }, [window.location.pathname, displayNav, historySelector])
+  }, [displayNav, historySelector, dispatch, sensorId, user, userId])
 
   const [searchFiltered, setSearchFiltered] = useState([])
 
   return (
-    
     <div className='app-container'>
       {!!displayNav && <NavBar />}
 
@@ -104,7 +103,6 @@ function App(props) {
         <PrivateRoute path='/settings' page={Settings} />
       </Switch>
     </div>
-    
   )
 }
 

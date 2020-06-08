@@ -1,4 +1,3 @@
-import React from 'react'
 import * as types from '../actions/logsActions'
 import moment from 'moment'
 
@@ -41,6 +40,12 @@ export const logsReducer = (state = initialState, action) => {
               date_filed: moment(item.date_filed).format('MM/DD/YYYY'),
               last_modified: moment(item.last_modified).format('MM/DD/YYYY'),
             }
+          }
+          return {
+            ...item,
+            status: 'N/A',
+            date_filed: moment(item.date_filed).format('MM/DD/YYYY'),
+            last_modified: moment(item.last_modified).format('MM/DD/YYYY'),
           }
         }),
         isFetching: false,
