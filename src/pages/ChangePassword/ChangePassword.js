@@ -30,7 +30,6 @@ export const ChangePassword = () => {
   return (
     <form
       style={{
-        border: '2px solid red',
         display: 'flex',
         justifyContent: 'center',
         height: '20em',

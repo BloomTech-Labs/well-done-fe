@@ -19,7 +19,7 @@ const Menu = props => {
   }
 
   return (
-    <div className='main-menu' style={{ border: '2px solid red' }}>
+    <div className='main-menu'>
       <div className='hamburger-menu' onClick={openNav}>
         <span style={{ backgroundColor: '#082B84' }}></span>
         <span style={{ backgroundColor: '#082B84' }}></span>
