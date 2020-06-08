@@ -20,7 +20,10 @@ const accountReducer = (state = initialState, action) => {
         isFetching: false,
         error: '',
         //add to array of accounts
-        accounts: [...state.accounts, action.payload],
+        accounts: [
+          ...state.accounts,
+          { ...action.payload, org_name: 'Cambodia Project' },
+        ],
       }
     case types.ADDACCOUNT_FAILURE:
       return {

@@ -68,7 +68,6 @@ const Dropdown = props => {
             Logout
           </div>
         </div>
-        <div className='user-email'>{props.user.email_address}</div>
       </div>
     </div>
   )

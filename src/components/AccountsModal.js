@@ -134,7 +134,7 @@ const ModalOperator = () => {
     },
     {
       value: 'org_user',
-      label: 'Organization User',
+      label: 'Organization Admin',
     },
     {
       value: 'operator',
