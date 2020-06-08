@@ -9,6 +9,7 @@ import MonitorsPage from 'pages/MonitorsPage/Monitors/MonitorsPage'
 import { useSelector, useDispatch } from 'react-redux'
 import 'App.style.scss'
 import Settings from 'pages/Settings/Settings'
+import { ChangePassword } from 'pages/ChangePassword'
 import MetaTags from 'react-meta-tags'
 import PrivateRoute from 'components/PrivateRoute.jsx'
 import Admin from 'pages/Admin/Admin'
@@ -101,6 +102,7 @@ function App(props) {
         <PrivateRoute path='/overview' page={Monitors} />
         <PrivateRoute path='/admin' page={Admin} />
         <PrivateRoute path='/settings' page={Settings} />
+        <PrivateRoute path='/pwd' page={ChangePassword} />
       </Switch>
     </div>
   )
