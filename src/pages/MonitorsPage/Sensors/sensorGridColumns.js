@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ViewButton from '../../../components/DashBoardComponents/ViewButton'
 import TrashCan from '../TrashCan'
-import moment from 'moment'
 
 // needs sesnor data too pass down
 export const columnsFunc = (data, dispatch, showViewButton) => {
@@ -10,7 +9,9 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
       headerName: 'Sensor ID',
       field: 'physical_id',
 
-      minWidth: 95,
+      minWidth: 90,
+      maxWidth: 100,
+      pinned: 'left',
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -19,17 +20,15 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Status',
       field: 'status',
-      minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
       },
     },
     {
-      headerName: 'Constructed',
+      headerName: 'Installed',
       field: 'data_finished',
 
-      minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -38,7 +37,7 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Depth',
       field: 'depth',
-      width: 80,
+      maxWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -47,7 +46,6 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'NGO',
       field: 'org_name',
-      minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -56,7 +54,6 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Province',
       field: 'province_name',
-      minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -65,7 +62,6 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Commune',
       field: 'commune_name',
-      minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -75,7 +71,6 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     {
       headerName: 'Village',
       field: 'village_name',
-      minWidth: 90,
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
@@ -83,7 +78,9 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
     },
     {
       headerName: '',
+      maxWidth: 100,
       field: 'view',
+      pinned: 'right',
 
       cellRendererFramework: params => {
         return (

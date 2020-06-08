@@ -6,7 +6,6 @@ import './MonitorDetailHeader.scss'
 import functionalBadge from 'icons/Functional.svg'
 import nonFuncBadge from 'icons/NonFunctioning.svg'
 import unknownBadge from 'icons/Unknown.svg'
-import moment from 'moment'
 
 import functionIcon from 'icons/NewMapMarkerFunctioning.svg'
 import NonFunctioningIcon from 'icons/NewMapMarkerNonFunctioning.svg'
@@ -24,25 +23,14 @@ function MonitorDetailHeader(props) {
   const {
     physical_id,
     data_finished,
-    reported_percent,
     commune_name,
     province_name,
     village_name,
     status,
     depth,
-    total,
     latitude,
     longitude,
   } = props.historySelector[0]
-
-  // let finishedDate = moment(data_finished).format('MM/DD/YYYY')
-
-  const unknown =
-    'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056729/Vector_q9ihvh.png'
-  const notFunctioning =
-    'https://res.cloudinary.com/dfulxq7so/image/upload/v1572636578/Vector_hixhff.png'
-  const functioning =
-    'https://res.cloudinary.com/dfulxq7so/image/upload/v1573056725/Vector_1_xzgama.png'
 
   const statusBadge = () => {
     if (status === 0 || status === null) {
@@ -72,8 +60,6 @@ function MonitorDetailHeader(props) {
     }
   }
 
-  const statusTitle = () => {}
-
   return (
     <>
       <div className='mainHeaderContainer'>
@@ -90,7 +76,7 @@ function MonitorDetailHeader(props) {
             <h3 className='wellTitle'>Well</h3>
             <div className='wellInfoContainer'>
               <div className='wellConstructed'>
-                <p className='wellInfoP'>Constructed</p>
+                <p className='wellInfoP'>Installed</p>
                 <h4>{data_finished}</h4>
               </div>
               <div className='wellDepth'>

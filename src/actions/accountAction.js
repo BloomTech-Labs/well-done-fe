@@ -1,6 +1,4 @@
-import React from 'react'
 import AxiosWithAuth from '../components/AxiosWithAuth/axiosWithAuth'
-import { ActionAccessibility } from 'material-ui/svg-icons'
 
 export const ADDACCOUNT_FETCH = 'ADDOP_FETCH'
 export const ADDACCOUNT_SUCCESS = 'ADDOP_SUCCESS'

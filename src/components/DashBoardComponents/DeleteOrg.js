@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
@@ -28,8 +28,6 @@ const DeleteOrg = props => {
     props.deleteOrg(id) //actions
     props.params.api.redrawRows()
   }
-
-  const [pump, setPump] = useState([])
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)

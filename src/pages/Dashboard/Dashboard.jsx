@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Map from 'components/Map/Map.component'
 import Search from 'components/Search/Search.component'
-import Filter from 'components/Filter/Filter.component'
 import IconsFilter from 'components/Filter/IconFilters'
-import Sensors from '../MonitorsPage/Sensors/Sensors'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   fetchSensorsWithHistory,
@@ -11,10 +9,6 @@ import {
 } from 'actions/sensorActions'
 import { fetchHistory, fetchRecentHistory } from 'actions/sensorHistoryActions'
 
-import Testing from '../MonitorsPage/Sensors/Sensors'
-import AccountGrid from 'components/Grid/accountGrid/AccountGrid'
-import Banner from './Banner'
-import StaticMenu from 'components/Menu/StaticMenu.js'
 import Menu from 'components/Menu/Menu.component'
 import './Dashboard.styles.scss'
 
@@ -74,10 +68,10 @@ const Dashboard = props => {
   }, [])
 
   const zoomInto = () => {
-    if (props.searchFiltered.length == 0) {
+    if (props.searchFiltered.length === 0) {
       setViewport({
         latitude: 13.5651,
-        longitude: 104.7538,
+        longitude: 105.7538,
         width: '100vw',
         height: '90vh',
         zoom: 8,
@@ -85,7 +79,7 @@ const Dashboard = props => {
         boxZoom: false,
         doubleClickZoom: false,
       })
-    } else if (props.searchFiltered.length == 1) {
+    } else if (props.searchFiltered.length === 1) {
       const searchedPlace = {
         latitude: props.searchFiltered[0].latitude,
         longitude: props.searchFiltered[0].longitude,
@@ -155,13 +149,6 @@ const Dashboard = props => {
             setUnknownToggle={setUnknownToggle}
           />
         </div>
-        {/* <Filter
-          searchFiltered={props.searchFiltered}
-          setSearchFiltered={props.setSearchFiltered}
-          sensors={sensorSelector.sensors}
-          setFuncToggle={setFuncToggle}
-          setUnknownToggle={setUnknownToggle}
-        /> */}
       </div>
     </div>
   )
