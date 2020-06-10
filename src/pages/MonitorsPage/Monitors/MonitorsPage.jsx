@@ -143,7 +143,7 @@ const MonitorsPage = props => {
       } else if (recentHistory[item.physical_id] === 'no') {
         return {
           ...item,
-          status: 'Unknown',
+          status: 'Non-Functioning',
           created_at: moment(item.created_at).format('YYYY/MM/DD'),
         }
       }
