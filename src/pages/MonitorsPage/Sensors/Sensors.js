@@ -51,7 +51,7 @@ const Sensors = props => {
     }
     gridOptionss.api.exportDataAsCsv(params)
   }
-  console.log(props.sensors, 'sens data')
+  // console.log(props.sensors, 'sens data')
   return (
     <>
       <div className='sensorChart'>

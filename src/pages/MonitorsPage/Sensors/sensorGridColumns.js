@@ -1,9 +1,11 @@
 import React from 'react'
 import ViewButton from '../../../components/DashBoardComponents/ViewButton'
 import TrashCan from '../TrashCan'
+import EmailData from '../../MonitorsPage/Sensors/EmailData'
 
 // needs sesnor data too pass down
-export const columnsFunc = (data, dispatch, showViewButton) => {
+export const columnsFunc = (data, dispatch, showViewButton, props) => {
+  console.log(data.sensors, 'this is the data')
   return [
     {
       headerName: 'Sensor ID',
@@ -74,6 +76,18 @@ export const columnsFunc = (data, dispatch, showViewButton) => {
       cellStyle: {
         'font-size': '1.5rem',
         'padding-top': '.75rem',
+      },
+    },
+    {
+      headerName: 'Email',
+      field: 'cord_email',
+
+      cellRendererFramework: params => {
+        return (
+          <>
+            <EmailData data={params.data} />
+          </>
+        )
       },
     },
     {
