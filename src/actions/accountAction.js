@@ -52,6 +52,7 @@ export const addAccount = ({
       mobile_number,
       password,
       role,
+      org_id: 1,
     })
     .then(res =>
       dispatch({

@@ -56,11 +56,11 @@ nav {
   position: absolute;
   text-align: center;
   width: 180px;
-  top: 68px;
+  top: 43px;
   z-index: 5;
   background-color: $wellDoneBlue;
   color: black;
-  right: 0px;
+  right: 3px;
   border-top: 1px solid $wellDoneBlue;
   margin-top: 8%;
   border-bottom-left-radius: 8px;
@@ -79,7 +79,6 @@ nav {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  // border: 1px solid red;
   width: 10%;
   height: 50px;
 }
@@ -125,13 +124,6 @@ svg.drop-svg {
   margin-bottom: 5px;
 }
 .logout-btn {
-  display: flex;
-  justify-content: center;
-}
-.user-email {
-  padding-top: 6px;
-  font-size: 1.5rem;
-  color: white;
   display: flex;
   justify-content: center;
 }

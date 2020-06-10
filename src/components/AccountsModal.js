@@ -134,7 +134,7 @@ const ModalOperator = () => {
     },
     {
       value: 'org_user',
-      label: 'Organization User',
+      label: 'Organization Admin',
     },
     {
       value: 'operator',
@@ -164,10 +164,7 @@ const ModalOperator = () => {
         <Fade in={open}>
           <div className='modalBody'>
             <div className='col1'>
-              <div className='modalHeader'>
-                <h3>Create Account</h3>
-              </div>
-
+              <h3>Create Account</h3>
               <p>Select Organization</p>
               <Form.Control
                 as='select'
@@ -248,7 +245,7 @@ const ModalOperator = () => {
                 onChange={handleChange}
               />
             </div>
-            <div id='allSensors'>
+            {/* <div id='allSensors'>
               <p>Assign Sensors to Operators</p>
               <p>*for multiple sensors, hold control and select</p>
               <Form.Control
@@ -264,7 +261,7 @@ const ModalOperator = () => {
                   </option>
                 ))}
               </Form.Control>
-            </div>
+            </div> */}
 
             <div className='col2'>
               <button

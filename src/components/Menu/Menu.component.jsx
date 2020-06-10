@@ -26,11 +26,6 @@ const Menu = props => {
         <span style={{ backgroundColor: '#082B84' }}></span>
       </div>
       <div id='myNav' className='overlay' onClick={closeNav}>
-        <NavLink
-          to='javascript:void(0)'
-          className='closebtn'
-          onClick={closeNav}
-        ></NavLink>
         <div className='intro'>
           <img
             className='logo'
