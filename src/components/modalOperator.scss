@@ -35,6 +35,11 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
+
+  padding-top: 37%;
+  justify-content: space-around;
+  margin-top:14%;
+
 }
 .createAcct {
   @include saveButton;

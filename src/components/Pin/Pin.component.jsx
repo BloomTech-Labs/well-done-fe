@@ -16,7 +16,7 @@ function Pin(props) {
   }
 
   const recentHistory = useSelector(state => state.historyReducer.recentHistory)
-
+  console.log(recentHistory, 'RH')
   return (
     <div>
       {props.sensors.map(sensor => {
@@ -51,7 +51,7 @@ function Pin(props) {
             </Marker>
           )
         } else if (
-          recentHistory[sensor.physical_id] === 'no' &&
+          recentHistory[sensor.sensor_id] === 'no' &&
           props.unknownToggle
         ) {
           return (
@@ -68,21 +68,25 @@ function Pin(props) {
               />
             </Marker>
           )
+        } else if (
+          recentHistory[sensor.sensor_id] === 'yes' &&
+          props.funcToggle
+        ) {
+          return (
+            <Marker
+              key={sensor.sensor_id}
+              latitude={sensor.latitude}
+              longitude={sensor.longitude}
+            >
+              <img
+                onClick={() => handleClick(sensor)}
+                className='location-icon'
+                src={NewMapMarkerFunctioning}
+                alt='location'
+              />
+            </Marker>
+          )
         }
-        return (
-          <Marker
-            key={sensor.sensor_id}
-            latitude={sensor.latitude}
-            longitude={sensor.longitude}
-          >
-            <img
-              onClick={() => handleClick(sensor)}
-              className='location-icon'
-              src={NewMapMarkerFunctioning}
-              alt='location'
-            />
-          </Marker>
-        )
       })}
     </div>
   )
