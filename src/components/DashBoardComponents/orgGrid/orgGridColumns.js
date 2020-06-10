@@ -53,23 +53,22 @@ export const orgGridColumns = [
     headerName: 'Date Joined',
     field: 'created_at',
     sortable: true,
-    filter: true,
     cellStyle: {
       'font-size': '2rem',
       'padding-top': '.75rem',
     },
     filter: 'agDateColumnFilter',
     filterParams: {
-      comparator: function(filterLocalDateAtMidnight, cellValue) {
+      comparator: function (filterLocalDateAtMidnight, cellValue) {
         var dateAsString = cellValue
-        if (dateAsString == null) return -1
+        if (dateAsString === null) return -1
         var dateParts = dateAsString.split('/')
         var cellDate = new Date(
           Number(dateParts[2]),
           Number(dateParts[1]) - 1,
           Number(dateParts[0])
         )
-        if (filterLocalDateAtMidnight.getTime() == cellDate.getTime()) {
+        if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
           return 0
         }
         if (cellDate < filterLocalDateAtMidnight) {

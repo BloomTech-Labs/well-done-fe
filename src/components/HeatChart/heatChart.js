@@ -2,7 +2,7 @@ import React from 'react'
 import 'react-calendar-heatmap/dist/styles.css'
 import CalendarHeatmap from 'react-calendar-heatmap'
 import ReactTooltip from 'react-tooltip'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import './heatChartStyles.scss'
 import moment from 'moment'
 
@@ -27,7 +27,7 @@ const today = new Date()
 
 const HeatChart = props => {
   //stores currently selected sensor in state
-  const currentlySelected = useSelector(  
+  const currentlySelected = useSelector(
     state => state.historyReducer.individualSensorHistory
   )
 
@@ -47,7 +47,6 @@ const HeatChart = props => {
     return newDate
   }
 
-  const { status, created_at, sensor_pid } = currentlySelected
   return (
     <div className='calendarBox'>
       <div className='calendarHeader'>
@@ -78,10 +77,6 @@ const HeatChart = props => {
       <ReactTooltip />
     </div>
   )
-}
-
-function getRange(count) {
-  return Array.from({ length: count }, (_, i) => i)
 }
 
 export default HeatChart
