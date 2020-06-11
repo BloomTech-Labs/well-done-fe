@@ -55,7 +55,7 @@ const MonitorsPage = props => {
                 }
               }
               if (selectedOptions.na === true) {
-                if (sensor.status === 'N/A') {
+                if (sensor.status === 'Unknown') {
                   return sensor
                 }
               }
@@ -84,7 +84,7 @@ const MonitorsPage = props => {
               }
             }
             if (selectedOptions.na) {
-              if (sensor.status === 'N/A') {
+              if (sensor.status === 'Unknown') {
                 return sensor
               }
             }
@@ -143,7 +143,7 @@ const MonitorsPage = props => {
       } else if (recentHistory[item.physical_id] === 'no') {
         return {
           ...item,
-          status: 'Non-Functioning',
+          status: 'Unknown',
           created_at: moment(item.created_at).format('YYYY/MM/DD'),
         }
       }
