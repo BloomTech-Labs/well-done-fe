@@ -57,12 +57,12 @@ function RadioStatusFilter() {
         <input
           type='checkbox'
           id='na'
-          value='n/a'
+          value='N'
           name='na'
           onClick={handleClick}
           checked={selectedOptions.na}
         />
-        <p>N/A</p>
+        <p>Unknown</p>
       </form>
     </>
   )
