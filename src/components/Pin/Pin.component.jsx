@@ -16,7 +16,6 @@ function Pin(props) {
   }
 
   const recentHistory = useSelector(state => state.historyReducer.recentHistory)
-  console.log(recentHistory, 'RH')
   return (
     <div>
       {props.sensors.map(sensor => {

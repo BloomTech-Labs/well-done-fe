@@ -5,7 +5,6 @@ import EmailData from '../../MonitorsPage/Sensors/EmailData'
 
 // needs sesnor data too pass down
 export const columnsFunc = (data, dispatch, showViewButton, props) => {
-  console.log(data.sensors, 'this is the data')
   return [
     {
       headerName: 'Sensor ID',
