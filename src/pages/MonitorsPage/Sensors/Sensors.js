@@ -86,6 +86,8 @@ const Sensors = props => {
           <CSVLink
             data={historyReducerData.individualSensorHistory}
             className='csvContainer'
+            filename={'history.csv'}
+            target='_blank'
           >
             <p>Download</p>
             <img src={Archivebutton} alt='download'></img>
