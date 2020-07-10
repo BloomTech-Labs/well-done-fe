@@ -13,7 +13,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
   // @include body-background;
 }
-
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $duke $mainBackground;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: $wellDoneBlue;
+  border-radius: 10px;
+  border: 3px solid $wellDoneBlue;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

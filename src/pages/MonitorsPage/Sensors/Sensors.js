@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { withRouter } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
@@ -7,14 +7,24 @@ import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import { columnsFunc } from './sensorGridColumns'
 import gridOptionss from '../../../components/Grid/Pagination'
 import '../../MonitorsPage/Sensors.style.scss'
-import { useDispatch } from 'react-redux'
-import Archivebutton from 'icons/Archivebutton.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchHistory } from '../../../actions/sensorHistory'
 import { AiOutlineSearch } from 'react-icons/ai'
+import { CSVLink, CSVDownload } from 'react-csv'
+import Archivebutton from 'icons/Archivebutton.svg'
 
 import CalendarFilter from '../CalendarFilter/CalendarFilter'
 
 const Sensors = props => {
+  const [historyData, setHistoryData] = useState('')
   const dispatch = useDispatch()
+  const historyReducerData = useSelector(state => state.historyReducer)
+
+  useEffect(() => {
+    dispatch(fetchHistory())
+  }, [])
+
+  console.log(historyReducerData.individualSensorHistory, 'history over here')
 
   const onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper-sensor').offsetWidth
@@ -72,15 +82,16 @@ const Sensors = props => {
         </div>
       </div>
       <div className='dLButtonCont'>
-        <button
-          className='downloadButton'
-          type='default'
-          icon='download'
-          size='small'
-          onClick={exportToCsv.bind(this)}
-        >
-          <p>Download</p>
-          <img src={Archivebutton} alt='download'></img>
+        <button className='downloadButton'>
+          <CSVLink
+            data={historyReducerData.individualSensorHistory}
+            className='csvContainer'
+            filename={'history.csv'}
+            target='_blank'
+          >
+            <p>Download</p>
+            <img src={Archivebutton} alt='download'></img>
+          </CSVLink>
         </button>
       </div>
       <div

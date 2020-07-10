@@ -17,7 +17,7 @@ $border-color: #0db4e9;
 
 .sensorChart {
   background: #d5d6e9;
-  height: 100%;
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,6 +92,7 @@ $border-color: #0db4e9;
 
   .downloadButton {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     border: 1px solid $mainBackground;
@@ -103,6 +104,10 @@ $border-color: #0db4e9;
       padding: 0 4%;
     }
   }
+}
+.csvContainer {
+  display: flex;
+  color: #000;
 }
 #addSensor {
   border: none;
