@@ -44,6 +44,9 @@ function App(props) {
     if (user.temp_pass) {
       setTemp(true)
     }
+    if (user.temp_pass === false) {
+      setTemp(false)
+    }
 
     //prevent fetching when user not logged in
     if (window.location.pathname !== '/') {

@@ -8,6 +8,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 export const STARTING_INITIALS = 'STARTING_INITIALS'
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD'
+export const PASS_RESET_SUCCESS = 'PASS_RESET_SUCCESS'
 
 export const fetchUser = userId => dispatch => {
   dispatch({ type: FETCHING_USER_REQUEST })
@@ -23,13 +24,14 @@ export const fetchUser = userId => dispatch => {
 }
 
 export const changePassword = ({ id, formData }) => async dispatch => {
+  dispatch({ type: PASS_RESET_SUCCESS })
   const updatedPass = await axiosWithAuth().put(
     `${process.env.REACT_APP_HEROKU_API}/api/accounts/password/${id}`,
     {
       password: formData,
     }
   )
-  console.log(updatedPass, 'up')
+  // console.log(updatedPass, 'up')
 }
 
 export const fetchLogin = (account, history) => dispatch => {

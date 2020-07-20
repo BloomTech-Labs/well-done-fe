@@ -48,6 +48,14 @@ const userReducer = (state = initialState, action) => {
         ...state,
         initials: initial,
       }
+    case types.PASS_RESET_SUCCESS:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          temp_pass: false,
+        },
+      }
     case 'EDIT_SUCCESS':
       return {
         ...state,
