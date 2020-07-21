@@ -10,13 +10,12 @@ import '../../MonitorsPage/Sensors.style.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchHistory } from '../../../actions/sensorHistory'
 import { AiOutlineSearch } from 'react-icons/ai'
-import { CSVLink, CSVDownload } from 'react-csv'
+import { CSVLink } from 'react-csv'
 import Archivebutton from 'icons/Archivebutton.svg'
 
 import CalendarFilter from '../CalendarFilter/CalendarFilter'
 
 const Sensors = props => {
-  const [historyData, setHistoryData] = useState('')
   const dispatch = useDispatch()
   const historyReducerData = useSelector(state => state.historyReducer)
 
@@ -24,7 +23,7 @@ const Sensors = props => {
     dispatch(fetchHistory())
   }, [])
 
-  console.log(historyReducerData.individualSensorHistory, 'history over here')
+  console.log(historyReducerData, 'history over here')
 
   const onGridSizeChanged = params => {
     var gridWidth = document.getElementById('grid-wrapper-sensor').offsetWidth
@@ -84,7 +83,7 @@ const Sensors = props => {
       <div className='dLButtonCont'>
         <button className='downloadButton'>
           <CSVLink
-            data={historyReducerData.individualSensorHistory}
+            data={historyReducerData.history}
             className='csvContainer'
             filename={'history.csv'}
             target='_blank'

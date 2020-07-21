@@ -19,8 +19,10 @@ import {
   fetchHistoryById,
   fetchSensorById,
 } from 'actions/sensorHistoryActions.js'
+import PassWordReset from '../src/components/User/PassWordReset'
 
 function App(props) {
+  const [temp, setTemp] = useState(false)
   const dispatch = useDispatch()
   const displayNav = useSelector(state => state.navShow)
   const user = useSelector(state => state.userReducer.user)
@@ -38,6 +40,12 @@ function App(props) {
         type: 'TOGGLE_NAV_STATE',
         payload: true,
       })
+    }
+    if (user.temp_pass) {
+      setTemp(true)
+    }
+    if (user.temp_pass === false) {
+      setTemp(false)
     }
 
     //prevent fetching when user not logged in
@@ -58,14 +66,14 @@ function App(props) {
         dispatch(fetchHistoryById(sensorId))
       }
     }
-  }, [displayNav, historySelector, dispatch, sensorId, user, userId])
+  }, [displayNav, historySelector, dispatch, sensorId, user, userId, temp])
 
   const [searchFiltered, setSearchFiltered] = useState([])
 
   return (
     <div className='app-container'>
       {!!displayNav && <NavBar />}
-
+      {temp && <PassWordReset />}
       <MetaTags>
         <title>Well-Done Dashboard</title>
         <meta
